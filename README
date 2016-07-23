@@ -2,19 +2,18 @@
 What is this?
 -------------
 
-This is the source code to "Pogoman Go!", an interactive fiction
-game (or more commonly known as "text adventure".)
+This is the source code to "Pogoman Go!", an interactive fiction game
+(or more commonly known as "text adventure".)  It was originally
+written by Jack Welch and Ben Collins-Sussman during the summer of
+2016.
 
-It was originally written by Jack Welch and Ben Collins-Sussman during
-the summer of 2016.
-
-The code is released under the "Creative Commons Attribution - 
+The code is released under the "Creative Commons Attribution -
 Noncommercial - Share Alike 3.0" license, which you can find in the
 LICENSE file.
 
 The game is written in the Inform 7 programming language, using
-version 6M62.  You can download the compiler and IDE as a single package
-from http://www.inform7.com
+version 6M62.  You can download the compiler and IDE as a single
+package from http://www.inform7.com
 
 When compiled, the source code produces a bytecode file which can be
 executed on any implementation of a Glulx virtual machine:
@@ -23,7 +22,7 @@ executed on any implementation of a Glulx virtual machine:
 
 The game's source code lives in a single file called 'story.ni' --
 this file, some .i7x extensions, along with the 'uuid.txt', are the
-primary things kept under version control. 
+primary things kept under version control.
 
 
 To build the game:
