@@ -1,0 +1,61 @@
+
+What is this?
+-------------
+
+This is the source code to "Pogoman Go!", an interactive fiction
+game (or more commonly known as "text adventure".)
+
+It was originally written by Jack Welch and Ben Collins-Sussman during
+the summer of 2016.
+
+The code is released under the "Creative Commons Attribution - 
+Noncommercial - Share Alike 3.0" license, which you can find in the
+LICENSE file.
+
+The game is written in the Inform 7 programming language, using
+version 6M62.  You can download the compiler and IDE as a single package
+from http://www.inform7.com
+
+When compiled, the source code produces a bytecode file which can be
+executed on any implementation of a Glulx virtual machine:
+
+  http://www.eblong.com/zarf/glulx/
+
+The game's source code lives in a single file called 'story.ni' --
+this file, some .i7x extensions, along with the 'uuid.txt', are the
+primary things kept under version control. 
+
+
+To build the game:
+------------------
+
+1. Create a working Inform project from your source tree:
+
+  $ git clone URL pogoman-go
+  $ cd pogoman-go
+  $ mv pogoman-go.inform/ temp.inform/
+
+  [...launch Inform, create new project in this dir called 'pogoman-go'…]
+
+  $ cp temp.inform/Source/story.ni pogoman-go.inform/Source/
+  $ cp temp.inform/uuid.txt pogoman-go.inform/
+  $ rm -rf temp.inform/
+
+
+2. Install extensions.
+
+  TODO: explain how.
+
+3. Launch the Inform IDE and load the pogoman-go.inform project.  The
+source code should be visible, and it should compile fine.  [Make sure
+that Inform's settings are are set to "Glulx" as the target VM.]
+
+
+WARNING!!
+  ******************************************************************
+  ** DO NOT do any version control operations (commit, push,
+  ** and particularly, pull, update, and merge) while the Inform IDE 
+  ** is still open.  When the IDE 'saves', it destroys and recreates 
+  ** the whole nye.inform/ directory, thus possibly eradicating any 
+  **  changes you may have downloaded. 
+  ******************************************************************
