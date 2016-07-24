@@ -51,10 +51,10 @@ that Inform's settings are are set to "Glulx" as the target VM.]
 
 
 WARNING!!
-  ******************************************************************
+  ********************************************************************
   ** DO NOT do any version control operations (commit, push,
   ** and particularly, pull, update, and merge) while the Inform IDE 
   ** is still open.  When the IDE 'saves', it destroys and recreates 
-  ** the whole nye.inform/ directory, thus possibly eradicating any 
-  **  changes you may have downloaded. 
-  ******************************************************************
+  ** the whole pogoman-go.inform/ directory, thus possibly eradicating
+  ** and changes you may have downloaded. 
+  ********************************************************************
