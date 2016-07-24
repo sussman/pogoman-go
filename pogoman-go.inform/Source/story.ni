@@ -10,7 +10,8 @@ Use full-length room descriptions, american dialect and the serial comma.
 
 [TODO:  Release along with cover art.]
 
-Include Basic Screen Effects by Emily Short.
+Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
+Include Dynamic Objects by Jesse McGrew. [allows runtime creation of pogoballs, &c.]
 
 
 Book 1 - Mechanics
@@ -26,11 +27,37 @@ TEAMCOLOR is a text that varies. [TODO: should this be an enumerated type instea
 TEAMCOLOR is "?".  [eventually changes as player solves puzzles]
 
 
+Chapter PogoThings
+
+A Pogoball is a kind of thing.  The description is usually "It's a cheap mass-produced red and white plastic ball.".
+
+A Pogochum is a kind of thing.  The description is usually "Rancid bits of chopped up…. something. Whatever it is, Pogomen are attracted to it. Drop a bit of it, and a Pogoman will come to you!".
+
+A Pogometh is a kind of thing.  The description is usually "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".
+
+A PogoSpot is a kind of thing.  A PogoSpot is scenery.  Understand "spot" and "pogospot" as a PogoSpot.
+The description of a PogoSpot is usually "Your phone shows a sign that can be spun."  
+
+A PogoSign is a kind of thing.  A PogoSign is scenery. Understand "sign" as a PogoSign.  The description of a PogoSign is usually "A round, spinnable disc showing a photograph of [location].".
+Instead of spinning a PogoSign:  [TODO:  randomize what comes out]
+	say "The PogoSign spins around and spews out two Pogoballs and a piece of Pogochum";
+	let the New Pogoball be a new object cloned from the Original Pogoball;
+	now the New Pogoball is in the location.
+	
+
 Chapter Rules Modifications
 
+Instead of examining the player:
+	say "You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue."
 
 
 Chapter Verbs
+
+Section Spinning
+
+Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
+Carry out spinning:
+	say "That's probably not something you can spin.".
 
 Section AwardXP
 
@@ -84,6 +111,7 @@ Chapter Initialize
 
 When play begins:
 	[TODO: put player in one of a few random spots in first scene] [move the player to X]
+	move the player to Johnson's Rock;
 	[TODO move the phone to player]
 	say openingText;
 	pause the game;
@@ -100,10 +128,31 @@ Every turn:
 
 Book 2 - Places
 
-The Park is a room. 
+Chapter Around Town
+
+The Park is a room.  "A small city park, well groomed, with a few trees and hedges."
+
+The Old Courthouse is a room. "A brick court house, probably of historical significance."
+
+The Old Jail is a room. "A solidly built brick building that was once a jail."
+
+Johnson's Rock is a room. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.  Your phone shows a PogoSpot here!".  Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
 
 
+Chapter Inside Nyantech
+
+
+Chapter In Japan
+
+
+Chapter The Void
+
+[An unreachable place, unconnected to everything, where 'original' clonable objects live... very platonic.]
+The Void is a room. 
+The Void contains a Pogoball called the Original Pogoball.
+The Void contains a Pogochum called the Original Pogochum.
+The Void contains a Pogometh called the Original Pogometh.
 
 Book 3 - Characters
 
