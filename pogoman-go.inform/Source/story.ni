@@ -29,20 +29,21 @@ TEAMCOLOR is "?".  [eventually changes as player solves puzzles]
 
 Chapter PogoThings
 
-A Pogoball is a kind of thing.  The description is usually "It's a cheap mass-produced red and white plastic ball.".
+[These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
-A Pogochum is a kind of thing.  The description is usually "Rancid bits of chopped up…. something. Whatever it is, Pogomen are attracted to it. Drop a bit of it, and a Pogoman will come to you!".
+A Pogoball-kind is a kind of thing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls.
 
-A Pogometh is a kind of thing.  The description is usually "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".
+A Pogochum-kind is a kind of thing.  The description is "Rancid bits of chopped up…. something. Whatever it is, Pogomen are attracted to it. Drop a bit of it, and a Pogoman will come to you!".  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A PogoSpot is a kind of thing.  A PogoSpot is scenery.  Understand "spot" and "pogospot" as a PogoSpot.
+A Pogometh-kind is a kind of thing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths.
+
+[No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
+
+A PogoSpot is a kind of thing.  A PogoSpot is fixed in place.  Understand "spot" and "pogospot" as a PogoSpot.
 The description of a PogoSpot is usually "Your phone shows a sign that can be spun."  
 
 A PogoSign is a kind of thing.  A PogoSign is scenery. Understand "sign" as a PogoSign.  The description of a PogoSign is usually "A round, spinnable disc showing a photograph of [location].".
-Instead of spinning a PogoSign:  [TODO:  randomize what comes out]
-	say "The PogoSign spins around and spews out two Pogoballs and a piece of Pogochum";
-	let the New Pogoball be a new object cloned from the Original Pogoball;
-	now the New Pogoball is in the location.
+
 	
 
 Chapter Rules Modifications
@@ -55,9 +56,20 @@ Chapter Verbs
 
 Section Spinning
 
+[TODO:  randomize what comes out]
+[TODO:  user must wait 20 turns before being allowed to spin sign again]
+
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 Carry out spinning:
-	say "That's probably not something you can spin.".
+	if the noun is a PogoSign:
+		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break]";
+		let the New PogoBall be a new object cloned from the PogoBall;
+		now the New PogoBall is in the location;
+		let the New PogoChum be a new object cloned from the PogoChum;
+		now the New PogoChum is in the location;
+	otherwise:
+		say "That's probably not something you should spin.[paragraph break]".
+
 
 Section AwardXP
 
@@ -75,7 +87,7 @@ CheckLevel is an action out of world.
 To CheckLevel:
 	let goalXP be 100 * (POGOLEVEL + 1);
 	if XP > goalXP:
-		now POGOLEVEL is (XP / 100);
+		now POGOLEVEL is (XP / 100);  [TODO make this an exponential table]
 		say "You glow with power as your PogoLevel rises to [POGOLEVEL].[paragraph break]"
 
 
@@ -93,6 +105,8 @@ ShowStatus is an action out of world.
 To ShowStatus:
 	now the left hand status line is "PogoLevel: [POGOLEVEL],  Team [TEAMCOLOR]";
 	now the right hand status line is "XP: [XP]".
+	
+
 
 Chapter Not Ready For Prime Time - Not for release
 
@@ -104,7 +118,6 @@ GettingXP is an action applying to a number.
 Understand "getXP [a number]" as gettingXP.
 Carry out gettingXP the number understood:
 	AwardXP the number understood.
-
 
 
 Chapter Initialize
@@ -136,7 +149,7 @@ The Old Courthouse is a room. "A brick court house, probably of historical signi
 
 The Old Jail is a room. "A solidly built brick building that was once a jail."
 
-Johnson's Rock is a room. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.  Your phone shows a PogoSpot here!".  Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
+Johnson's Rock is a room. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
 
 
@@ -148,11 +161,12 @@ Chapter In Japan
 
 Chapter The Void
 
-[An unreachable place, unconnected to everything, where 'original' clonable objects live... very platonic.]
-The Void is a room. 
-The Void contains a Pogoball called the Original Pogoball.
-The Void contains a Pogochum called the Original Pogochum.
-The Void contains a Pogometh called the Original Pogometh.
+[An unconnected place  where 'original' clonable objects live... very platonic.]
+The Void is a room.   
+The Void contains a Pogoball-kind called PogoBall.
+The Void contains a Pogochum-kind called PogoChum.
+The Void contains a Pogometh-kind called PogoMeth.
+
 
 Book 3 - Characters
 
