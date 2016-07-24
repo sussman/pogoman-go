@@ -1,4 +1,4 @@
-Version 5/140515 of Dynamic Tables by Jesse McGrew begins here.
+Version 6/160724 of Dynamic Tables by Jesse McGrew begins here.
 
 "Provides a way to change the capacity of a table during the game."
 
@@ -569,7 +569,7 @@ Include (-
 Include (-
 [ PrintTableName T;
 	switch(T) {
-{-call:Data::Tables::compile_print_table_names}
+{-call:Tables::Support::compile_print_table_names}
 		default:
 			if (DT_IsFullyDynamic(T))
 				print "** Dynamically created table **";
