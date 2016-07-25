@@ -153,9 +153,9 @@ Chapter Around Town
 
 The Park is a room.  "A small city park, well groomed, with a few trees and hedges."
 
-The Old Courthouse is south of the Park. "A brick court house, probably of historical significance."
+The Old Courthouse is west of the Park. "A brick court house, probably of historical significance."
 
-The Old Jail is east of the Park. "A solidly built brick building that was once a jail."
+The Old Jail is north of the Old Courthouse. "A solidly built brick building that was once a jail."
 
 Johnson's Rock is north of the Park. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
