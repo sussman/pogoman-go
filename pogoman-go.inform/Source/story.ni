@@ -44,7 +44,14 @@ The description of a PogoSpot is usually "Your phone shows a sign that can be sp
 
 A PogoSign is a kind of thing.  A PogoSign is scenery. Understand "sign" as a PogoSign.  The description of a PogoSign is usually "A round, spinnable disc showing a photograph of [location].".
 
-	
+[The Pogomen themselves!]
+
+A Pogoman is a kind of animal.  The plural of pogoman is pogomen.  Some pogomen are defined by the Table of Creatures.
+
+A pogoman has a number called evolutionLevel. 
+
+
+
 
 Chapter Rules Modifications
 
@@ -61,6 +68,8 @@ Section Spinning
 
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 Carry out spinning:
+	if the noun is a PogoSpot:
+		say "You probably want to spin the PogoSpot's sign.";
 	if the noun is a PogoSign:
 		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break]";
 		let the New PogoBall be a new object cloned from the PogoBall;
@@ -124,7 +133,6 @@ Chapter Initialize
 
 When play begins:
 	[TODO: put player in one of a few random spots in first scene] [move the player to X]
-	move the player to Johnson's Rock;
 	[TODO move the phone to player]
 	say openingText;
 	pause the game;
@@ -145,11 +153,11 @@ Chapter Around Town
 
 The Park is a room.  "A small city park, well groomed, with a few trees and hedges."
 
-The Old Courthouse is a room. "A brick court house, probably of historical significance."
+The Old Courthouse is south of the Park. "A brick court house, probably of historical significance."
 
-The Old Jail is a room. "A solidly built brick building that was once a jail."
+The Old Jail is east of the Park. "A solidly built brick building that was once a jail."
 
-Johnson's Rock is a room. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
+Johnson's Rock is north of the Park. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
 
 
@@ -168,14 +176,27 @@ The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
 
 
+
+
+
 Book 3 - Characters
 
 
 
 Book 4 - Tables and Boxed Text
 
-Chapter Boxed Text
+Chapter Tables
 
+Table of Creatures
+Pogoman	Ev1	Ev2	Ev3
+pogomanA	"Edator"	"Vicore"	"Emaks"
+pogomanB	"Plague Rhat"	"Plague Vermin"	"Rodentikor"
+pogomanC	"Skwirrel"	"Arborrhat"	"Nutellakin"
+pogomanD	"Cheezipouf"	"Ogratin"	"Fromajster"
+
+
+
+Chapter Boxed Text
 
 To say asciiPogoBall:
 	say "[fixed letter spacing]";
