@@ -46,10 +46,12 @@ A PogoSign is a kind of thing.  A PogoSign is scenery. Understand "sign" as a Po
 
 [The Pogomen themselves!]
 
-A Pogoman is a kind of animal.  The plural of pogoman is pogomen.  Some pogomen are defined by the Table of Creatures.
+A Pogoman is a kind of neuter animal.  The plural of pogoman is pogomen.  Some pogomen are defined by the Table of Creatures.
 
-A pogoman has a number called evolutionLevel. 
+A pogoman has a number called evolutionLevel.  The evolutionLevel is usually 1.  The description of a pogoman is "A magical creature with combat powers - [description].  Like all Pogomen, it can be evolved."
 
+Instead of taking a pogoman:
+	say "You'll have to throw a Pogoball at it to capture it!".
 
 
 
@@ -79,6 +81,22 @@ Carry out spinning:
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
 
+
+Section Evolving
+
+Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
+Carry out evolving:
+	if the noun is a pogoman:
+		if the player carries the noun:
+			let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
+			now the player carries the new-pogoman;
+			move the noun to the Void;
+			say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [the new-pogoman]! [paragraph break]";
+		otherwise:
+			say "You're not carrying [the noun].[paragraph break]";
+	otherwise:
+		say "Only Pogomen can evolve!".
+	
 
 Section AwardXP
 
@@ -128,6 +146,18 @@ Understand "getXP [a number]" as gettingXP.
 Carry out gettingXP the number understood:
 	AwardXP the number understood.
 
+Section GettingPogoman
+
+[forcibly grab a Pogoman without using a pogoball]
+GettingPogoman is an action applying to a thing.  Understand "getPogoman [thing]" as gettingPogoman.
+Carry out gettingPogoman:
+	if the noun is a pogoman:
+		now the player carries the noun;
+		say "You forcibly grab [the noun].[paragraph break]";
+	otherwise:
+		say "That's not a pogoman".
+	
+
 
 Chapter Initialize
 
@@ -151,7 +181,7 @@ Book 2 - Places
 
 Chapter Around Town
 
-The Park is a room.  "A small city park, well groomed, with a few trees and hedges."
+The Park is a room.  "A small city park, well groomed, with a few trees and hedges."  The Park contains an Edator.
 
 The Old Courthouse is west of the Park. "A brick court house, probably of historical significance."
 
@@ -187,12 +217,21 @@ Book 4 - Tables and Boxed Text
 
 Chapter Tables
 
+[TODO fill this out with all pogomen]
+
 Table of Creatures
-Pogoman	Ev1	Ev2	Ev3
-pogomanA	"Edator"	"Vicore"	"Emaks"
-pogomanB	"Plague Rhat"	"Plague Vermin"	"Rodentikor"
-pogomanC	"Skwirrel"	"Arborrhat"	"Nutellakin"
-pogomanD	"Cheezipouf"	"Ogratin"	"Fromajster"
+Name	Description
+an Edator	"A creature of note."
+a Vicore	"Simple and clean, covered with lines."
+an Emaks	"A buffed and buffered creature."
+a Plague Rhat	"A mysterious rodent of a vermininous nature."
+a Plague Vermin	"A rodent with extra poison."
+a Rodentikor	"Too much rodent for mortals to handle."
+
+Table of Evolution
+Original	Ev2	Ev3
+an Edator	a Vicore	an Emaks
+a Plague Rhat	a Plague Vermin	a Rodentikor
 
 
 
