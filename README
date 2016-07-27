@@ -41,9 +41,11 @@ To build the game:
   $ rm -rf temp.inform/
 
 
-2. Install extensions.
-
-  TODO: explain how.
+2. Install extensions. To keep all parts of the project together and
+since we have made some edits to some extensions, extensions used in
+the project are under the pogoman-go.materials/Extensions/ directory.
+If the entire project is cloned, these files will come along for the
+ride. Inform will look there first while compiling.
 
 3. Launch the Inform IDE and load the pogoman-go.inform project.  The
 source code should be visible, and it should compile fine.  [Make sure
