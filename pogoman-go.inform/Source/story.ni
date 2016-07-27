@@ -181,20 +181,45 @@ Book 2 - Places
 
 Chapter Around Town
 
-The Park is a room.  "A small city park, well groomed, with a few trees and hedges."  The Park contains an Edator.
+Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or midline. A quadroom is usually midline.
 
-The Old Courthouse is west of the Park. "A brick court house, probably of historical significance."
+Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, and Old Courthouse are nw quadrooms.
 
-The Old Jail is north of the Old Courthouse. "A solidly built brick building that was once a jail."
+General Nelson, Church of the Orthagonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, and Telescope Nymph are ne quadrooms.
 
-Johnson's Rock is north of the Park. "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
+Johnson's Rock and City Park are quadrooms.
 
+Dung Beetle Mural is west of Witch Pillory and north of Cyclorama.
+Witch Pillory is west of Old Jail and north of Flag Pole.
+Old Jail is west of Johnson’s Rock and north of Old Courthouse.
+Johnson's Rock is west of General Nelson and north of City Park.
+General Nelson is west of Church of the Orthagonal Sticks and north of Yummi Tummi Softserve.
+Church of the Orthagonal Sticks is west of Crystal Skull and north of Giant Chicken.
+Crystal Skull is north of Telescope Nymph. 
+Giant Chicken is west of Telescope Nymph.
+Giant Chicken is east of Yummi Tummi Softserve.
+Yummi Tummi Softserve is east of City Park.
+City Park is east of Old Courthouse.
+Old Courthouse is east of Flag Pole.
+Flag Pole is east of Cyclorama.
+
+The juxtaReservoir Area is a region.  Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthagonal Sticks, and Crystal Skull are in the juxtaReservoir Area.
+
+
+
+The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator.
+
+The description of Old Courthouse is "A brick court house, probably of historical significance."
+
+The description of Old Jail is "A solidly built brick building that was once a jail."
+
+The description of Johnson's Rock is  "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
 
 Chapter Inside Nyantech
 
 
-Chapter In Japan
+Chapter In Pogoland
 
 
 Chapter The Void
