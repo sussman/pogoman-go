@@ -371,7 +371,7 @@ The description of Perilous Passageway is "A disgusting passageway."
 
 Chapter Inside Nyantech
 
-HQ is a region. Lobby, RevolvingDoor, StairsGround, LAN Closet, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof, Cafeteria, Ball Pit, Beverages, Snacks, DeckW, DeckN, DeckE, DeckS, Legal Department, Cousteau Room, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, StairsGround, LAN Closet, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof, Cafeteria, Ball Pit, Beverages, Snacks, DeckW, DeckN, DeckE, DeckS, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are in the Cat Area. The Cat Area is in HQ.
 
@@ -417,17 +417,17 @@ Beverages is northwest of the Cafeteria.
 
 Ball Pit is east of the Cafeteria.
 
-BallPitShallow is down from Ball Pit.
+BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
 
-BallPitDeep is down from BallPitShallow.
+BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
 
-BallPitBottom is down from BallPitDeep.
+BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "Near The Bottom Of The Ball Pit".
 
 Legal Department is south of StairsBasement. 
 
 Cousteau Room is south of Legal Department.
 
-The Shrine is south of StairsSB.
+The Rick Astley Shrine is south of StairsSB.
 
 Throne Room is south of StairsSSB.
 
@@ -483,10 +483,19 @@ Poop Deck is aft of The Catwalk.
 
 The Captain's Cabin is down from Maintenance Hatch.
 
-Gantry Chamber is aft from The Captain's Cabin.
+Gantry Chamber is aft from The Captain's Cabin. 
 
 CatHead is fore from the Captain's Cabin. The printed name of CatHead is "Inside the Cat's Head".
 
+Chapter in the Elevator
+
+The Elevator is a room.
+
+Chapter in the Pod
+
+The MuskPod is a room.
+
+Instead of going a direction (called thataway) when the location is MuskPod, say "At this speed? That would be ludicrous!"
 
 Chapter In Pogoland
 
@@ -502,7 +511,6 @@ Mountain, Palace, Monastery, School House, and Lighthouse are juxtaLava.
 Palace, Desert, Canyon, Pogoland Terminal, and Cemetery are juxtaSand.
 Beach, Lighthouse, Wharf, Aquarium, and Motel are juxtaShark.
 Cemetery, Service Station, Dojo, Botanical Garden, and Motel are juxtaCliff.
-
 
 Palace is west of Mountain and north of Desert. 
 Mountain is west of Monastery and north of Blacksmith.
