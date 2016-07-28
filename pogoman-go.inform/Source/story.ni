@@ -181,7 +181,7 @@ Book 2 - Places
 
 Chapter Around Town
 
-Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or midline. A quadroom is usually midline.
+Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or midline. A quadroom is usually midline. A quadroom can be juxtaReservoir, juxtaHighway, juxtaTarpit, or juxtaRailway. A quadroom is usually juxtaRailway.
 
 Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, and Old Courthouse are nw quadrooms.
 
@@ -203,7 +203,7 @@ City Park is east of Old Courthouse.
 Old Courthouse is east of Flag Pole.
 Flag Pole is east of Cyclorama.
 
-The juxtaReservoir Area is a region.  Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthagonal Sticks, and Crystal Skull are in the juxtaReservoir Area.
+The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthagonal Sticks, and Crystal Skull are juxtaReservoir.
 
 
 
