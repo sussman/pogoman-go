@@ -419,6 +419,55 @@ Service Station is west of Dojo.
 Dojo is west of Botanical Garden.
 Botanical Garden is west of Motel.
 
+The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds."
+
+The description of Palace is "This is the McMansion of Palaces - clearly, they started with a typical walled keep and kept adding towers and crenulations. The overall effect is a bit gaudy."
+
+The description of Baseball Diamond is "A regulation baseball diamond, with field markings."
+
+The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak."
+
+The description of Valley is "A lush valley with rolling, flower-covered hills."
+
+The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here."
+
+The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction."
+
+The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well. "
+
+The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat."
+
+The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."
+
+The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay."
+
+The description of Beach is "Waves roll in gently, breaking upon the pristine white sands."
+
+The description of Stadium is "The large, concrete arena must accommodate crowds of at least 50,000. A large scoreboard and banks of lights are visible above the seating area."
+
+The description of Service Station is "A one-pump gas station."
+
+The description of School House is "A simple, one-room brick school house with a small steeple and bell."
+
+The description of Monastery is "A walled fortress surrounding a church and its fields."
+
+The description of Walmart is "Yes, even in Pogoland, there is a Walmart."
+
+The description of Motel is "A classic two-level drive-in motel with no-vacancy sign out front. It looks a bit dumpy."
+
+The description of Garden is "Trimmed hedges line the paths of this flower garden."
+
+The description of Blacksmith is "Black smoke pours from the chimney and hot coals are visible in the forge."
+
+The description of Farm is "A red farmhouse and tall grain silo stand in front of furrowed fields of wheat."
+
+The description of Aquarium is "The shell-shaped building is surrounded by fountains that shoot water in arcs back and forth above the sidewalk."
+
+The description of Post Office is "A modern building with advertisements in the window about how the post office is still somewhat relevant."
+
+The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland."
+
+The description of Pogoland Terminal is "The MuskPod floats next to the platform."
 
 Chapter The Void
 
