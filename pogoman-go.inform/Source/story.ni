@@ -186,13 +186,13 @@ Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or axial. A quadro
 
 Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, and Spit n' Solder are nw quadrooms.
 
-General Nelson, Church of the Orthagonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, and Dog Exercise Area are ne quadrooms.
+General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, and Dog Exercise Area are ne quadrooms.
 
-Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, and Found Art are axial quadrooms.
+Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, and Found Art are axial quadrooms.
 
 Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, and Garden Gnome Without Head are sw quadrooms.
 
-Sister City Friendship Altar, Municipal Library, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are se quadrooms.
+Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are se quadrooms.
 
 [Borders of the Village to trigger near-death scenes]
 A quadroom can be juxtaReservoir. 
@@ -200,7 +200,7 @@ A quadroom can be juxtaTarpit.
 A quadroom can be juxtaHighway.
 A quadroom can be juxtaRailway.
 
-The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthagonal Sticks, and Crystal Skull are juxtaReservoir.
+The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthogonal Sticks, and Crystal Skull are juxtaReservoir.
 
 The Dung Beetle Mural, Cyclorama, Unfathomable Orb, Bottle Cap Wall, Toxicodendron radicans, Vuvuzelas for Freedom, and Unearthly Geometry are juxtaHighway.
 
@@ -213,8 +213,8 @@ Dung Beetle Mural is west of Witch Pillory and north of Cyclorama.
 Witch Pillory is west of Old Jail and north of Flag Pole.
 Old Jail is west of Johnson’s Rock and north of Old Courthouse.
 Johnson's Rock is west of General Nelson and north of City Park.
-General Nelson is west of Church of the Orthagonal Sticks and north of Yummi Tummi Softserve.
-Church of the Orthagonal Sticks is west of Crystal Skull and north of Giant Chicken.
+General Nelson is west of Church of the Orthogonal Sticks and north of Yummi Tummi Softserve.
+Church of the Orthogonal Sticks is west of Crystal Skull and north of Giant Chicken.
 Crystal Skull is north of Telescope Nymph.  The printed name of Telescope Nymph is "Nymph with Telescope".
 
 Giant Chicken is west of Telescope Nymph and north of Welbourne Travel.
@@ -229,21 +229,21 @@ Welbourne Travel is west of Dog Exercise Area and north of Floyd Memorial Bench.
 The Gardens of Zarf is west of Welbourne Travel and north of Rotary Clock Tower.
 Hook and & Ladder is west of The Gardens of Zarf and north of Nyantech Entrance.
 The printed name of Nyantech Entrance is "Nyantech Tower (outside)".
-Spit n' Solder is west of Hook & Ladder and north of Prissy Little Sausages.
+Spit n' Solder is west of Hook & Ladder and north of Prissy's Little Sausages.
 Service Dog Memorial is west of Spit n' Solder and north of Krusty Kronuts.
 Unfathomable Orb is west of Service Dog Memorial and north of Bottle Cap Wall.
 Dog Exercise Area is north of The Olde Train Station.
 
-Floyd Memorial Bench is west of The Olde Train Station and north of Municipal Library.
+Floyd Memorial Bench is west of The Olde Train Station and north of Perilous Passageway.
 Rotary Clock Tower is west of Floyd Memorial Bench and north of Sister City Friendship Altar.
 Nyantech Entrance is west of Rotary Clock Tower and north of Old Town Hall.
-Prissy Little Sausages is west of Nyantech Entrance and north of Cranberry Bog.
-Krusty Kronuts is west of Prissy Little Sausages and north of Battle of Margot's Pantry.
+Prissy's Little Sausages is west of Nyantech Entrance and north of Cranberry Bog.
+Krusty Kronuts is west of Prissy's Little Sausages and north of Battle of Margot's Pantry.
 Bottle Cap Wall is west of Krusty Kronuts and north of Toxicodendron radicans.
 The Olde Train Station is north of Eagle's Sojourn.
 
-Municipal Library is west of Eagle's Sojourn and north of Year1893. The printed name of Year1893 is "1893".
-Sister City Friendship Altar is west of Municipal Library and north of Fire Is Our Friend.
+Perilous Passageway is west of Eagle's Sojourn and north of Year1893. The printed name of Year1893 is "1893".
+Sister City Friendship Altar is west of Perilous Passageway and north of Fire Is Our Friend.
 Old Town Hall is west of Sister City Friendship Altar and north of Ashwell-Lott Estate.
 Cranberry Bog is west of Old Town Hall and north of Parking Lot Award.
 Battle of Margot's Pantry is west of Cranberry Bog and north of Brotherhood of the Slippery Axel.
@@ -266,16 +266,109 @@ Garden Gnome Without Head is west of Found Art.
 MarkerSeven is west of Garden Gnome Without Head.
 Unearthly Geometry is west of MarkerSeven.
 
-The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthagonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Municipal Library, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
+The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
 [Location-specific elements in The Village]
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator.
 
 The description of Old Courthouse is "A brick court house, probably of historical significance."
 
-The description of Old Jail is "A solidly built brick building that was once a jail."
+The description of Old Jail is "A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie."
 
-The description of Johnson's Rock is  "A boulder with a commemorative plaque that relates that the rock was named after Johnson.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
+The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
+
+The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away."
+
+The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery."
+
+The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn[one of]. This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]".
+
+The description of Parking Lot Award is "A tarnished brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason. "
+
+The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling."
+
+The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark]."
+
+The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours."
+
+The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate with white lettering that reads [quotation mark]In Memory of Floyd[quotation mark]."
+
+The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks."
+
+The description of Welbourne Travel is "Maps of various adventures fill the windows of this travel agency."
+
+The description of Hook & Ladder is "The home of Fire Bridage Number 12."
+
+The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce."
+
+The description of Yummi Tummi Softserve is "Waitresses in pink pig costumes rollerskate between tables serving up sundaes, cones, and floats."
+
+The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]".
+
+The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  
+
+The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some."
+
+The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson."
+
+The description of Church of the Orthogonal Sticks is "The church is constructed entirely of Lincoln Logs except for the stained glass."
+
+The description of Witch Pillory is "This site commemorates the town’s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]".
+
+The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base."
+
+The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken."
+
+The description of Cyclorama is "The indoor bicycle track yields important radionuclides for pharmaceutical use."
+
+The description of Brotherhood of the Slippery Axel is "Monastery or Biker Bar? You be the judge."
+
+The description of Battle of Margot's Pantry is "The Daughters of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be a pizzeria."
+
+The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] Wht is it with gas stations and gazebos?[or][stopping]".
+
+The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium."
+
+The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night."
+
+The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers."
+
+The description of the Dog Exercise Area is "Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors)."
+
+The description of Bottle Cap Wall is "A wall made entirely of bottle caps."
+
+The description of Porcelain Parrot is "A source of amusement for neighborhood school children."
+
+The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what."
+
+The description of Unfathomable Orb is "A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable."
+
+The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
+
+The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
+
+The description of Year1893 is "A sign both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year."
+
+The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
+
+The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon."
+
+The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
+
+The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
+
+The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog."
+
+The description of Found Art is "A single screw attached to a surfboard.[one of]This is what counts as art these days. Jeesh.[or][stopping]".
+
+The description of Crystal Skull is "There isn’t much left of the Salt Skull exhibit. Occasionally, deer walk through town just to lick it."
+
+The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
+
+The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]."
+
+The description of Perilous Passageway is "A disgusting passageway."
+
 
 
 Chapter Inside Nyantech
@@ -334,9 +427,6 @@ The Void is a room.
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
-
-
-
 
 
 Book 3 - Characters
