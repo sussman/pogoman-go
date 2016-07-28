@@ -283,6 +283,49 @@ Chapter Inside Nyantech
 
 Chapter In Pogoland
 
+A pogoroom is a kind of room.  
+A pogoroom can be juxtaLava.
+A pogoroom can be juxtaSand.
+A pogoroom can be juxtaShark.
+A pogoroom can be juxtaCliff.
+
+Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Walmart, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
+
+Mountain, Palace, Monastery, School House, and Lighthouse are juxtaLava.
+Palace, Desert, Canyon, Pogoland Terminal, and Cemetery are juxtaSand.
+Beach, Lighthouse, Wharf, Aquarium, and Motel are juxtaShark.
+Cemetery, Service Station, Dojo, Botanical Garden, and Motel are juxtaCliff.
+
+
+Palace is west of Mountain and north of Desert. 
+Mountain is west of Monastery and north of Blacksmith.
+Monastery is west of School House and north of Farm.
+School House is west of Lighthouse and north of Forest.
+Lighthouse is north of Beach.
+
+Desert is west of Blacksmith and north of Canyon.
+Blacksmith is west of Farm and north of Stadium.
+Farm is west of Forest and north of Dark Alley.
+Forest is west of Beach and north of Post Office.
+Beach is north of Wharf.
+
+Canyon is west of Stadium and north of Pogoland Terminal.
+Stadium is west of Dark Alley and north of Valley.
+Dark Alley is west of Post Office and north of Baseball Diamond.
+Post Office is west of Wharf and north of Walmart.
+Wharf is north of Aquarium.
+
+Pogoland Terminal is west of Valley and north of Cemetery.
+Valley is west of Baseball Diamond and north of Service Station.
+Baseball Diamond is west of Walmart and north of Dojo.
+Walmart is west of Aquarium and north of Botanical Garden.
+Aquarium is north of Motel.
+
+Cemetery is west of Service Station.
+Service Station is west of Dojo.
+Dojo is west of Botanical Garden.
+Botanical Garden is west of Motel.
+
 
 Chapter The Void
 
