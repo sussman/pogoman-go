@@ -369,9 +369,123 @@ The description of Toxicodendron radicans is "In the middle of this field, there
 
 The description of Perilous Passageway is "A disgusting passageway."
 
-
-
 Chapter Inside Nyantech
+
+HQ is a region. Lobby, RevolvingDoor, StairsGround, LAN Closet, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof, Cafeteria, Ball Pit, Beverages, Snacks, DeckW, DeckN, DeckE, DeckS, Legal Department, Cousteau Room, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
+
+The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are in the Cat Area. The Cat Area is in HQ.
+
+The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door".
+
+The StairsGround is north of the Lobby. The printed name of the StairsGround is "Emergency Stairs: Ground Level".
+
+The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level".
+
+The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level".
+
+The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level".
+
+The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1".
+
+The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2".
+
+The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3".
+
+The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4".
+
+The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4".
+
+The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4".
+
+The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access".
+
+DeckN is north of StairsRoof. The printed name of DeckN is "Observation Deck, Northern View".
+
+DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View".
+
+DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View".
+
+DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View". 
+
+The LAN Closet is east of the Lobby.
+
+The Cafeteria is north of DeckS.
+
+Snacks is northeast of the Cafeteria.
+
+Beverages is northwest of the Cafeteria.
+
+Ball Pit is east of the Cafeteria.
+
+BallPitShallow is down from Ball Pit.
+
+BallPitDeep is down from BallPitShallow.
+
+BallPitBottom is down from BallPitDeep.
+
+Legal Department is south of StairsBasement. 
+
+Cousteau Room is south of Legal Department.
+
+The Shrine is south of StairsSB.
+
+Throne Room is south of StairsSSB.
+
+MuskTube Station is down from Throne Room.
+
+The Crawl Space is above the LAN Closet.
+
+The Bottom Rung is above the Crawl Space.
+
+Somewhere Along The Ladder is above the Bottom Rung.
+
+The Top Of The Ladder is above Somewhere Along the Ladder.
+
+The Gearing Assembly is above The Top of the Ladder and outside from Support Boom.
+
+The Support Boom is outside from Gantry Chamber.
+
+Section 1 - Cat Navigation
+
+[Based on Recipe 42: Example Fore]
+
+A direction can be nautical, earthbound, or QTHagnostic. A direction is usually earthbound. 
+
+Starboard, port, fore, aft are nautical.
+
+Up, down, inside, and outside are QTHagnostic.
+
+The starboard is a direction. The starboard has opposite port. Understand "s" as starboard when the location is in the Cat Area.
+
+The port is a direction. The port has opposite starboard. Understand "p" as port when the location is in the Cat Area.
+
+The fore is a direction. The fore has opposite aft. Understand "f" as fore when the location is in the Cat Area.
+
+The aft is a direction. The aft has opposite fore. Understand "a" as aft when the location is in the Cat Area.
+
+Does the player mean going a nautical direction when the location is in the Cat Area: it is very likely.
+
+Index map with fore mapped as east. Index map with aft mapped as west. Index map with port mapped as south. Index map with starboard mapped as north.
+
+Instead of going a nautical direction when the location is not in the Cat Area, say "[One of]Okay, matey. Could you rephrase that for us landlubbers?[or]Those directions only make sense on a vessel of some sort.[or]So, that's what? North? South? Throw me a bone.[or]Compass directions please, unless you're in a vessel.[stopping]".
+
+Instead of going an earthbound direction when the location is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]."
+
+Section 2 - Cat Layout
+
+The Cat's Beret is down from DeckE. 
+
+Maintenance Hatch is aft of the Cat's Beret.
+
+Catwalk is aft of the Maintenance Hatch.
+
+Poop Deck is aft of The Catwalk.
+
+The Captain's Cabin is down from Maintenance Hatch.
+
+Gantry Chamber is aft from The Captain's Cabin.
+
+CatHead is fore from the Captain's Cabin. The printed name of CatHead is "Inside the Cat's Head".
 
 
 Chapter In Pogoland
@@ -508,12 +622,40 @@ Chapter Boxed Text
 
 To say asciiPogoBall:
 	say "[fixed letter spacing]";
-	say "────────▄███████████▄────────[line break]─────▄███▓▓▓▓▓▓▓▓▓▓▓███▄─────[line break]────███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███────[line break]───██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██───[line break]──██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██──[line break]";
-	say "─██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██─[line break]██▓▓▓▓▓▓▓▓▓███████▓▓▓▓▓▓▓▓▓██[line break]██▓▓▓▓▓▓▓▓██░░░░░██▓▓▓▓▓▓▓▓██[line break]██▓▓▓▓▓▓▓██░░███░░██▓▓▓▓▓▓▓██[line break]███████████░░███░░███████████[line break]";
-	say "██░░░░░░░██░░███░░██░░░░░░░██[line break]██░░░░░░░░██░░░░░██░░░░░░░░██[line break]██░░░░░░░░░███████░░░░░░░░░██[line break]";
-	say "─██░░░░░░░░░░░░░░░░░░░░░░░██─[line break]──██░░░░░░░░░░░░░░░░░░░░░██──[line break]───██░░░░░░░░░░░░░░░░░░░██───[line break]────███░░░░░░░░░░░░░░░███────[line break]─────▀███░░░░░░░░░░░███▀─────[line break]────────▀███████████▀────────[paragraph break]";
-	say "[variable letter spacing]"
+	say "────────▄███████████▄────────[line break]";
+	say "─────▄███▓▓▓▓▓▓▓▓▓▓▓███▄─────[line break]";
+	say "────███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███────[line break]";
+	say "───██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██───[line break]";
+	say "──██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██──[line break]";
+	say "─██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██─[line break]";
+	say "██▓▓▓▓▓▓▓▓▓███████▓▓▓▓▓▓▓▓▓██[line break]";
+	say "██▓▓▓▓▓▓▓▓██░░░░░██▓▓▓▓▓▓▓▓██[line break]";	
+	say "██▓▓▓▓▓▓▓██░░███░░██▓▓▓▓▓▓▓██[line break]"; 
+	say "███████████░░███░░███████████[line break]";
+	say "██░░░░░░░██░░███░░██░░░░░░░██[line break]";
+	say "██░░░░░░░░██░░░░░██░░░░░░░░██[line break]";
+	say "██░░░░░░░░░███████░░░░░░░░░██[line break]";
+	say "─██░░░░░░░░░░░░░░░░░░░░░░░██─[line break]";
+	say "──██░░░░░░░░░░░░░░░░░░░░░██──[line break]";
+	say "───██░░░░░░░░░░░░░░░░░░░██───[line break]";
+	say "────███░░░░░░░░░░░░░░░███────[line break]";
+	say "─────▀███░░░░░░░░░░░███▀─────[line break]";
+	say "────────▀███████████▀────────[paragraph break]";
+	say "[variable letter spacing]";
 	
+
+To say asciiSmiley:
+say "[fixed letter spacing]";
+	say "   *********     [line break]";
+	say " **         **   [line break]"; 
+	say "**  **   **  ** [line break]";
+	say "*      *      *[line break]";
+	say "*  *         * *[line break]";
+	say " *  **     **  *[line break]";
+	say "  **  *****  **[line break]";
+	say "    *********   [line break]" ;
+	say "[variable letter spacing]";
+
 
 To say openingText:
 	say asciiPogoBall;
