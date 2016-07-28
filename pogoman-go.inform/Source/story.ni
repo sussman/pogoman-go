@@ -181,32 +181,94 @@ Book 2 - Places
 
 Chapter Around Town
 
-Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or midline. A quadroom is usually midline. A quadroom can be juxtaReservoir, juxtaHighway, juxtaTarpit, or juxtaRailway. A quadroom is usually juxtaRailway.
+Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or axial. A quadroom is usually axial. 
+[These inform what landmarks are visible from each corner of the Nyantech Tower's observation deck. Items on cardinal axes are not mentioned.]
 
-Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, and Old Courthouse are nw quadrooms.
+Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, and Spit n' Solder are nw quadrooms.
 
-General Nelson, Church of the Orthagonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, and Telescope Nymph are ne quadrooms.
+General Nelson, Church of the Orthagonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, and Dog Exercise Area are ne quadrooms.
 
-Johnson's Rock and City Park are quadrooms.
+Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, and Found Art are axial quadrooms.
 
+Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, and Garden Gnome Without Head are sw quadrooms.
+
+Sister City Friendship Altar, Municipal Library, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are se quadrooms.
+
+[Borders of the Village to trigger near-death scenes]
+A quadroom can be juxtaReservoir. 
+A quadroom can be juxtaTarpit.
+A quadroom can be juxtaHighway.
+A quadroom can be juxtaRailway.
+
+The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthagonal Sticks, and Crystal Skull are juxtaReservoir.
+
+The Dung Beetle Mural, Cyclorama, Unfathomable Orb, Bottle Cap Wall, Toxicodendron radicans, Vuvuzelas for Freedom, and Unearthly Geometry are juxtaHighway.
+
+Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Found Art, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are juxtaTarpit.
+
+Crystal Skull, Telescope Nymph, Dog Exercise Area, The Olde Train Station, Eagle's Sojourn, Flan Emporium, and Gas Station Gazebo are juxtaRailway.
+
+[Geographic Layout of the Town]
 Dung Beetle Mural is west of Witch Pillory and north of Cyclorama.
 Witch Pillory is west of Old Jail and north of Flag Pole.
 Old Jail is west of Johnson’s Rock and north of Old Courthouse.
 Johnson's Rock is west of General Nelson and north of City Park.
 General Nelson is west of Church of the Orthagonal Sticks and north of Yummi Tummi Softserve.
 Church of the Orthagonal Sticks is west of Crystal Skull and north of Giant Chicken.
-Crystal Skull is north of Telescope Nymph. 
-Giant Chicken is west of Telescope Nymph.
-Giant Chicken is east of Yummi Tummi Softserve.
-Yummi Tummi Softserve is east of City Park.
-City Park is east of Old Courthouse.
-Old Courthouse is east of Flag Pole.
-Flag Pole is east of Cyclorama.
+Crystal Skull is north of Telescope Nymph.  The printed name of Telescope Nymph is "Nymph with Telescope".
 
-The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthagonal Sticks, and Crystal Skull are juxtaReservoir.
+Giant Chicken is west of Telescope Nymph and north of Welbourne Travel.
+Yummi Tummi Softserve is west of Giant Chicken and north of The Gardens of Zarf.
+City Park is west of Yummi Tummi Softserve and north of Hook & Ladder.
+Old Courthouse is west of City Park and north of Spit n' Solder.
+Flag Pole is west of Old Courthouse and north of Service Dog Memorial.
+Cyclorama is west of Flag Pole and north of Unfathomable Orb.
+Telescope Nymph is north of Dog Exercise Area.
 
+Welbourne Travel is west of Dog Exercise Area and north of Floyd Memorial Bench.
+The Gardens of Zarf is west of Welbourne Travel and north of Rotary Clock Tower.
+Hook and & Ladder is west of The Gardens of Zarf and north of Nyantech Entrance.
+The printed name of Nyantech Entrance is "Nyantech Tower (outside)".
+Spit n' Solder is west of Hook & Ladder and north of Prissy Little Sausages.
+Service Dog Memorial is west of Spit n' Solder and north of Krusty Kronuts.
+Unfathomable Orb is west of Service Dog Memorial and north of Bottle Cap Wall.
+Dog Exercise Area is north of The Olde Train Station.
 
+Floyd Memorial Bench is west of The Olde Train Station and north of Municipal Library.
+Rotary Clock Tower is west of Floyd Memorial Bench and north of Sister City Friendship Altar.
+Nyantech Entrance is west of Rotary Clock Tower and north of Old Town Hall.
+Prissy Little Sausages is west of Nyantech Entrance and north of Cranberry Bog.
+Krusty Kronuts is west of Prissy Little Sausages and north of Battle of Margot's Pantry.
+Bottle Cap Wall is west of Krusty Kronuts and north of Toxicodendron radicans.
+The Olde Train Station is north of Eagle's Sojourn.
 
+Municipal Library is west of Eagle's Sojourn and north of Year1893. The printed name of Year1893 is "1893".
+Sister City Friendship Altar is west of Municipal Library and north of Fire Is Our Friend.
+Old Town Hall is west of Sister City Friendship Altar and north of Ashwell-Lott Estate.
+Cranberry Bog is west of Old Town Hall and north of Parking Lot Award.
+Battle of Margot's Pantry is west of Cranberry Bog and north of Brotherhood of the Slippery Axel.
+Toxicodendron radicans is west of Battle of Margot's Pantry and north of Vuvuzelas for Freedom.
+Eagle's Sojourn is north of Flan Emporium.
+
+Year1893 is west of Flan Emporium and north of Hank's Tavern.
+Fire Is Our Friend is west of Year1893 and north of Rottweiler Art.
+Ashwell-Lott Estate is west of Fire Is Our Friend and north of Found Art.
+Parking Lot Award is west of Ashwell-Lott Estate and north of Garden Gnome Without Head.
+Brotherhood of the Slippery Axel is west of Parking Lot Award and north of MarkerSeven. 
+The printed name of MarkerSeven is "Marker 0.7".
+Vuvuzelas for Freedom is west of Brotherhood of the Slippery Axel and north of Unearthly Geometry.
+Flan Emporium is north of Gas Station Gazebo.
+
+Hank's Tavern is west of Gas Station Gazebo.
+Rottweiler Art is west of Hank's Tavern.
+Found Art is west of Rottweiler Art.
+Garden Gnome Without Head is west of Found Art.
+MarkerSeven is west of Garden Gnome Without Head.
+Unearthly Geometry is west of MarkerSeven.
+
+The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthagonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Municipal Library, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
+
+[Location-specific elements in The Village]
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator.
 
 The description of Old Courthouse is "A brick court house, probably of historical significance."
