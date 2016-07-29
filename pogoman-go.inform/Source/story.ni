@@ -136,9 +136,6 @@ Carry out transferring:
 	[TODO remove the noun from play]
 	say "[One of]You ship your [noun] off to the glue factory[or]The [noun] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [noun], I’ll miss you briefly[or]See ya[or]One less [noun] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [the noun] went, but decide not to worry about it[or]Shipped[or]The [noun] disappears in a wisp of smoke[or]The [noun] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! You gain 10 XP!"
 
-
-
-
 Section Help
 
 Helping is an action applying to nothing. Understand "help" as helping.
@@ -170,6 +167,10 @@ Section AwardXP
 To AwardXP (award - a number):
 	now XP is XP + award.
 	
+Section Waving
+
+Instead of waving hands, say "You wave your cell phone around in the air, dissipating heat."
+
 Section Medals
 
 MEDALVALUE is always 10.
@@ -238,6 +239,8 @@ After evolving a pogoman for the second time, bestow "Did something before and i
 After powerUpping a pogoman for the first time, bestow "Made something even bigger".
 
 After transferring a pogoman for the first time, bestow "Practicality in managing resources".
+
+After waiting for the first time, bestow "Loitering Around".
 	
 Section Levelling
 
@@ -312,6 +315,10 @@ When play begins:
 	now suppressMedals is false;
 	now the medalCounter is zero;
 	now the muteCounter is zero;
+	now timesDrowned is zero;
+	now timesRunOver is zero;
+	now timesTarred is zero;
+	now timesRailroaded is zero;
 	now the player carries the phone;
 	[say openingText;  - commented out to allow quick replays for testing
 	pause the game;]
@@ -519,6 +526,20 @@ The description of Vuvuzelas For Freedom is "A bronze plate is set into the side
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]."
 
 The description of Perilous Passageway is "A disgusting passageway."
+
+TimesDrowned, TimesRunOver, TimesTarred, and TimesRailroaded are numbers that vary.
+
+Instead of going north when the location of the player is a juxtaReservoir quadroom:
+	if TimesDrowned is:
+		-- 0: say "none";
+		-- 1: say "1";
+		-- 2: say "2";
+		-- otherwise: say "more";
+	increase timesDrowned by one.
+
+Instead of going west when the location of the player is a juxtaHighway quadroom, say "Flattened!"
+Instead of going south when the location of the player is a juxtaTarpit quadroom, say "Slothed!"
+Instead of going east when the location of the player is a juxtaRailway quadroom, say "Railroaded!"
 
 Chapter Inside Nyantech
 
