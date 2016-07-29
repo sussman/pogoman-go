@@ -108,18 +108,46 @@ Section AwardXP
 [moral equivalent of a global game score -- simply "AwardXP 30" when needed, and ¡levelling will happen automatically.]
 AwardXP is an action applying to a number.  
 To AwardXP (award - a number):
-	now XP is XP + award;
-	say "You have been awarded [award] XP.[paragraph break]".
+	now XP is XP + award.
 	
 Section Medals
 
 MEDALVALUE is always 10.
-SuppressMedals is a truth state that varies.
+suppressMedals is a truth state that varies.
+medalCounter is a number that varies.
 
 To Bestow (medallion - some text):
-	if SuppressMedals is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";
-	now XP is XP + MEDALVALUE.
+	if suppressMedals is false:
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";		
+	awardXP MEDALVALUE;
+	increment the medalCounter; 
+	if the medalCounter is 3:
+		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
+		bestow "Now Your Phone Is Talking To You".
+		
+Muting is an action applying to nothing. Understand "mute" as muting.
+The muteCounter is a number that varies. 
+
+Check muting:
+	If the medalCounter is less than 3:
+		say "The phone refuses, [quotation mark]Nah, you have to put up with at least three awards. It builds character.[quotation mark][paragraph break]" instead.
+		
+Carry out muting:
+	increment the muteCounter;
+	if suppressMedals is false:
+		now suppressMedals is true;
+		if the muteCounter is 1:
+			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on. You gain 10 XP!";
+			awardXP 10;
+		otherwise:
+			say "Medals muted!";
+	otherwise:
+		now suppressMedals is false;
+		if the muteCounter is 2:
+			bestow "Couldn't Bear To Live Without Medals”;
+		otherwise:
+			say "Medal notifications are back, and better than ever!".
+
 	
 After examining the player for the first time, bestow "Introspection".
 
@@ -191,7 +219,9 @@ Chapter Initialize
 When play begins:
 	[TODO: put player in one of a few random spots in first scene] [move the player to X]
 	[TODO move the phone to player]
-	now SuppressMedals is false;
+	now suppressMedals is false;
+	now the medalCounter is zero;
+	now the muteCounter is zero;
 	now the player carries the phone;
 	say openingText;
 	pause the game;
@@ -202,7 +232,7 @@ After printing the banner text, say "[line break][italic type]Note: You may find
 
 Chapter Every Turn
 
-Every turn:
+Every turn:	
 	CheckLevel; [possibly level-up the player]
 	ShowStatus.  [display current level, team, XP in status bar]
 
@@ -659,7 +689,7 @@ Before doing something with the phone:
 		say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
 		if the phone is not pokedat:
 			bestow "My Phone Doesn't Play That";
-			now the phone is pokedat;
+			now the phone is pokedat;			
 		stop the action.
 		
 Dialing is an action applying to one thing. Understand "dial [something]" as dialing.
