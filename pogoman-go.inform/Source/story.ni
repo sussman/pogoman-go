@@ -424,7 +424,7 @@ The description of City Park is "A small park, well groomed, with a few trees an
 
 The description of Old Courthouse is "A brick court house, probably of historical significance."
 
-The description of Old Jail is "A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie."
+The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for play online or download.[quotation mark][paragraph break]Disgusted with the blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."
 
 The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
@@ -861,8 +861,7 @@ To say openingText:
 
 Book 6 - Scenes
 
-
-
+Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the lobby.
 
 
 
