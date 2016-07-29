@@ -118,6 +118,25 @@ Check powerUpping:
 Carry out powerUpping:
 	awardXP 10;
 	say "Your [noun] is now even more impressive! You gain 10 XP![paragraph break]".
+	
+Section Transferring
+
+Transferring is an action applying to a thing. Understand "transfer [thing]" or "transfer [thing] to/-- professor" as transferring.
+
+Check transferring:
+	if the noun is not a pogoman:
+		say "Only Pogomen can be transferred[paragraph break]";
+		stop the action;
+	if the player does not carry the noun:
+		say "You have to capture it first![paragraph break]";
+		stop the action.
+		
+Carry out transferring:
+	awardXP 10;
+	[TODO remove the noun from play]
+	say "[One of]You ship your [noun] off to the glue factory[or]The [noun] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [noun], I’ll miss you briefly[or]See ya[or]One less [noun] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [the noun] went, but decide not to worry about it[or]Shipped[or]The [noun] disappears in a wisp of smoke[or]The [noun] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! You gain 10 XP!"
+
+
 
 
 Section Help
@@ -214,7 +233,11 @@ After examining a pogochum for the first time, bestow "Suppressed further though
 
 After evolving a pogoman for the first time, bestow "Turned something into something else!".
 
+After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again".
+
 After powerUpping a pogoman for the first time, bestow "Made something even bigger".
+
+After transferring a pogoman for the first time, bestow "Practicality in managing resources".
 	
 Section Levelling
 
