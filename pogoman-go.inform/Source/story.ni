@@ -23,9 +23,9 @@ POGOLEVEL is a number that varies.  POGOLEVEL is 3.  [TODO is this a good starti
 
 XP is a number that varies.  XP is 320.  [TODO is this a good starting value?]
 
-TEAMCOLOR is a text that varies. [TODO: should this be an enumerated type instead?]
-TEAMCOLOR is "?".  [eventually changes as player solves puzzles]
+Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
+TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
 
 Chapter PogoThings
 
