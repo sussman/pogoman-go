@@ -40,7 +40,7 @@ A Pogometh-kind is a kind of thing.  The description is "You’re not sure what�
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
 A PogoSpot is a kind of thing.  A PogoSpot is fixed in place.  Understand "spot" and "pogospot" as a PogoSpot.
-The description of a PogoSpot is usually "Your phone shows a sign that can be spun."  
+The description of a PogoSpot is usually "On your phone, a cartoon sign that can be spun."  
 
 A PogoSign is a kind of thing.  A PogoSign is scenery. Understand "sign" as a PogoSign.  The description of a PogoSign is usually "A round, spinnable disc showing a photograph of [location].".
 
@@ -58,7 +58,7 @@ Instead of taking a pogoman:
 Chapter Rules Modifications
 
 Instead of examining the player:
-	say "You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue."
+	say "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]No more rundown than your average Pogoman player[stopping]."
 
 
 Chapter Verbs
@@ -71,7 +71,7 @@ Section Spinning
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 Carry out spinning:
 	if the noun is a PogoSpot:
-		say "You probably want to spin the PogoSpot's sign.";
+		say "You probably want to spin the PogoSpot's sign." instead;
 	if the noun is a PogoSign:
 		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break]";
 		let the New PogoBall be a new object cloned from the PogoBall;
@@ -106,8 +106,18 @@ To AwardXP (award - a number):
 	now XP is XP + award;
 	say "You have been awarded [award] XP.[paragraph break]";
 	CheckLevel.
+	
+Section Medals
 
+MEDALVALUE is always 10.
+SuppressMedals is a truth state that varies.
 
+To Bestow (medallion - some text):
+	if SuppressMedals is false:
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";
+	now XP is XP + MEDALVALUE;
+	CheckLevel.
+	
 Section Levelling
 
 CheckLevel is an action out of world.
@@ -164,6 +174,7 @@ Chapter Initialize
 When play begins:
 	[TODO: put player in one of a few random spots in first scene] [move the player to X]
 	[TODO move the phone to player]
+	now SuppressMedals is false;
 	say openingText;
 	pause the game;
 	ShowStatus.
@@ -672,6 +683,8 @@ To say openingText:
 
 
 Book 5 - Scenes
+
+
 
 
 
