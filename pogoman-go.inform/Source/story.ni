@@ -64,8 +64,6 @@ Instead of taking a pogoman:
 Chapter Rules Modifications
 
 
-
-
 Chapter Verbs
 
 Section Spinning
@@ -90,18 +88,37 @@ Carry out spinning:
 Section Evolving
 
 Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
+
+Check evolving:
+	if the noun is not a pogoman:
+		say "Only Pogomen can evolve![paragraph break]";
+		stop the action;
+	if the player does not carry the noun:
+		say "You have to capture it first![paragraph break]";
+		stop the action.
+
 Carry out evolving:
-	if the noun is a pogoman:
-		if the player carries the noun:
-			let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
-			now the player carries the new-pogoman;
-			move the noun to the Void;
-			say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [the new-pogoman]! [paragraph break]";
-		otherwise:
-			say "You're not carrying [the noun].[paragraph break]";
-	otherwise:
-		say "Only Pogomen can evolve!".
+	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
+	now the player carries the new-pogoman;
+	move the noun to the Void;
+	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break]".
 	
+Section PoweringUpping
+
+PowerUpping is an action applying to a thing. Understand "power up [thing]" as powerUpping.
+
+Check powerUpping:
+	if the noun is not a pogoman:
+		say "Only Pogomen can evolve![paragraph break]";
+		stop the action;
+	if the player does not carry the noun:
+		say "You have to capture it first![paragraph break]";
+		stop the action.
+		
+Carry out powerUpping:
+	awardXP 10;
+	say "Your [noun] is now even more impressive! You gain 10 XP![paragraph break]".
+
 
 Section Help
 
@@ -119,10 +136,18 @@ Report abouting:
 	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman Go![paragraph break]";
 	bestow "Typed a Meta-Command” .
 
+Section Credits
+
+Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" as crediting.
+	
+Report crediting:
+	say "Credit Roll.... TBD[paragraph break]";
+	bestow "So, who is to blame?".
+
 Section AwardXP
 
-[moral equivalent of a global game score -- simply "AwardXP 30" when needed, and ¡levelling will happen automatically.]
-AwardXP is an action applying to a number.  
+[moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
+
 To AwardXP (award - a number):
 	now XP is XP + award.
 	
@@ -186,6 +211,10 @@ After examining the phone for the first time, bestow "Technology Explorer".
 After examining the Teslatronic Energy Module for the first time, bestow "Awfully Trusting".
 
 After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn’t like the truth".
+
+After evolving a pogoman for the first time, bestow "Turned something into something else!".
+
+After powerUpping a pogoman for the first time, bestow "Made something even bigger".
 	
 Section Levelling
 
