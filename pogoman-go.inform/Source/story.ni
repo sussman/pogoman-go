@@ -276,7 +276,6 @@ Instead of doing something when the phone is hung:
 
 Section ShowStatus
 
-ShowStatus is an action out of world.
 To ShowStatus:
 	now the left hand status line is "PogoLevel: [POGOLEVEL],  Team [TEAMCOLOR]";
 	now the right hand status line is "XP: [XP]".
@@ -309,9 +308,9 @@ Carry out gettingPogoman:
 
 Chapter Initialize
 
+startLocation is a room that varies. The startLocation is Flag Pole.
+
 When play begins:
-	[TODO: put player in one of a few random spots in first scene] [move the player to X]
-	[TODO move the phone to player]
 	now suppressMedals is false;
 	now the medalCounter is zero;
 	now the muteCounter is zero;
@@ -320,11 +319,15 @@ When play begins:
 	now timesTarred is zero;
 	now timesRailroaded is zero;
 	now the player carries the phone;
-	[say openingText;  - commented out to allow quick replays for testing
-	pause the game;]
-	ShowStatus.
+	ShowStatus;
+	openGame.
 	
-After printing the banner text, say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
+To openGame:
+	say "You wake up slowly... it’s three in the morning. You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!";
+	wait for any key.
+	
+After printing the banner text:
+	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
 	
 
 Chapter Every Turn
@@ -531,15 +534,20 @@ TimesDrowned, TimesRunOver, TimesTarred, and TimesRailroaded are numbers that va
 
 Instead of going north when the location of the player is a juxtaReservoir quadroom:
 	if TimesDrowned is:
-		-- 0: say "none";
-		-- 1: say "1";
-		-- 2: say "2";
-		-- otherwise: say "more";
+		-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
+		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff, you know?[paragraph break]";
+			bestow "Hygiene";
+		-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen. Through the muddy water, you can still distinguish the glow of the screen. Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
+		phoneDeath;
+		-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
 	increase timesDrowned by one.
 
 Instead of going west when the location of the player is a juxtaHighway quadroom, say "Flattened!"
 Instead of going south when the location of the player is a juxtaTarpit quadroom, say "Slothed!"
 Instead of going east when the location of the player is a juxtaRailway quadroom, say "Railroaded!"
+
+
+
 
 Chapter Inside Nyantech
 
@@ -819,7 +827,12 @@ Instead of charging the phone:
 	say "The Nyantech T8000 never needs to be charged. Never. You wonder about that sometimes.[paragraph break]";
 	bestow "Science Is Fabulous!".
 
-		
+To phoneDeath:
+	say paragraph break;
+	say "[bold type]*** YOUR PHONE HAS DIED ***[roman type][paragraph break](RESTART, RESTORE, AMUSING, QUIT)[paragraph break]>";
+	wait for any key;
+	clear the screen;
+	say "Oh wait... you could just by a new phone.[paragraph break]A day goes by.[paragraph break]".
 
 Book 4 - Stuff
 
