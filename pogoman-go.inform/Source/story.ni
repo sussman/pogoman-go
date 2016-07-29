@@ -27,7 +27,14 @@ Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimso
 
 TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
 
-Chapter PogoThings
+
+Chapter Kinds
+
+Section 1 - General
+
+A prop is a kind of thing. It is usually portable.
+
+Section 2 - PogoThings
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -54,11 +61,9 @@ Instead of taking a pogoman:
 	say "You'll have to throw a Pogoball at it to capture it!".
 
 
-
 Chapter Rules Modifications
 
-Instead of examining the player:
-	say "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]No more rundown than your average Pogoman player[stopping]."
+
 
 
 Chapter Verbs
@@ -104,8 +109,7 @@ Section AwardXP
 AwardXP is an action applying to a number.  
 To AwardXP (award - a number):
 	now XP is XP + award;
-	say "You have been awarded [award] XP.[paragraph break]";
-	CheckLevel.
+	say "You have been awarded [award] XP.[paragraph break]".
 	
 Section Medals
 
@@ -115,8 +119,21 @@ SuppressMedals is a truth state that varies.
 To Bestow (medallion - some text):
 	if SuppressMedals is false:
 		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";
-	now XP is XP + MEDALVALUE;
-	CheckLevel.
+	now XP is XP + MEDALVALUE.
+	
+After examining the player for the first time, bestow "Introspection".
+
+After taking inventory for the first time, bestow "Taking Stock".
+
+After examining a pogoball for the first time, bestow "Attention To Detail".
+
+After examining the phone for the first time, bestow "Technology Explorer".
+
+After examining the Teslatronic Energy Module for the first time, bestow "Awfully Trusting".
+
+
+
+
 	
 Section Levelling
 
@@ -175,9 +192,12 @@ When play begins:
 	[TODO: put player in one of a few random spots in first scene] [move the player to X]
 	[TODO move the phone to player]
 	now SuppressMedals is false;
+	now the player carries the phone;
 	say openingText;
 	pause the game;
 	ShowStatus.
+	
+After printing the banner text, say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
 	
 
 Chapter Every Turn
@@ -613,9 +633,47 @@ The Void contains a Pogometh-kind called PogoMeth.
 
 Book 3 - Characters
 
+Chapter - The Player
+
+The description of the player is "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]You wonder if the constant need to look at yourself reflects some budding narcissism[or]No more rundown than your average Pogoman player[stopping].";
+
+Chapter Phone
+
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat.
+
+The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening."
+
+Instead of throwing the phone at:
+	try dropping the phone.
+	
+Instead of attacking the phone:
+	try dropping the phone.
+	
+Instead of dropping the phone:
+	say "You could never bring yourself to do that -- you need it to play Pogoman Go!"
+	
+Before doing something with the phone:
+	if the current action is eating, examining, dropping, attacking, or throwing at:
+		continue the action;
+	otherwise:
+		say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
+		if the phone is not pokedat:
+			bestow "My Phone Doesn't Play That";
+			now the phone is pokedat;
+		stop the action.
+		
+Dialing is an action applying to one thing. Understand "dial [something]" as dialing.
+
+Check dialing:
+	if the noun is not phone:
+		say "You can't dial [a noun]" instead.
+		
+
+Book 4 - Stuff
 
 
-Book 4 - Tables and Boxed Text
+
+Book 5 - Tables and Boxed Text
 
 Chapter Tables
 
@@ -682,12 +740,12 @@ To say openingText:
 
 
 
-Book 5 - Scenes
+Book 6 - Scenes
 
 
 
 
 
 
-Book 6 - Hints
+Book 7 - Hints
 
