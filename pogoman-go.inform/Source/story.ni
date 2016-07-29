@@ -103,6 +103,22 @@ Carry out evolving:
 		say "Only Pogomen can evolve!".
 	
 
+Section Help
+
+Helping is an action applying to nothing. Understand "help" as helping.
+
+Report helping:
+	say "That[apostrophe]s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Our beta-tester, dear Aunt Grimspackle, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important.[paragraph break]";
+	bestow "Here, Let me Google that for you".
+	
+Section About
+
+Abouting is an action applying to nothing. Understand "about" as abouting.
+
+Report abouting:
+	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman Go![paragraph break]";
+	bestow "Typed a Meta-Command” .
+
 Section AwardXP
 
 [moral equivalent of a global game score -- simply "AwardXP 30" when needed, and ¡levelling will happen automatically.]
@@ -116,6 +132,16 @@ MEDALVALUE is always 10.
 suppressMedals is a truth state that varies.
 medalCounter is a number that varies.
 
+Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
+
+Before doing something with medals for the first time:
+	say "The medals aren’t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman Go! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]medal self-reference[quotation mark] medal.[paragraph break]Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone’s resources and locks it up. Sorry.";
+	now the phone is hung;
+	stop the action.
+	
+Instead of doing something with the medals:
+	say "The medals [one of]aren’t tangible.[or]are a metaphor.[or]only exist on your phone -- they're not real.[or]are like the cake, a lie.[or]are not physically present. Think of them as a data structure within a program running on a computer. That shouldn't be too hard to visualize, right?[stopping][paragraph break]". 
+	
 To Bestow (medallion - some text):
 	if suppressMedals is false:
 		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";		
@@ -159,9 +185,7 @@ After examining the phone for the first time, bestow "Technology Explorer".
 
 After examining the Teslatronic Energy Module for the first time, bestow "Awfully Trusting".
 
-
-
-
+After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn’t like the truth".
 	
 Section Levelling
 
@@ -170,15 +194,29 @@ To CheckLevel:
 	let goalXP be 100 * (POGOLEVEL + 1);
 	if XP > goalXP:
 		now POGOLEVEL is (XP / 100);  [TODO make this an exponential table]
-		say "You glow with power as your PogoLevel rises to [POGOLEVEL].[paragraph break]"
-
+		say "You glow with power as your PogoLevel rises to [POGOLEVEL].[paragraph break]".
 
 Section Rebooting
 
-Understand the command "reboot" as something new.
-Understand "reboot" as rebooting.  Rebooting is an action applying to nothing.
+PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting.
+
+Carry out phoneBooting:
+	try rebooting the phone.
+
+Rebooting is an action applying to one thing. Understand "reboot [something]" as rebooting.
+
+Check rebooting:
+	if the noun is not the phone, say "You can't reboot that.[paragraph break]" instead.
+	
 Carry out rebooting:
-	say "You reboot your phone." [TODO: add tons of humorous repeated attempt texts]
+	now the phone is not hung;
+	say "You reboot your phone."	
+	
+Instead of doing something when the phone is hung:
+	if the current action is phoneBooting or rebooting:
+		continue the action;
+	otherwise:
+		do nothing.
 
 
 Section ShowStatus
@@ -223,8 +261,8 @@ When play begins:
 	now the medalCounter is zero;
 	now the muteCounter is zero;
 	now the player carries the phone;
-	say openingText;
-	pause the game;
+	[say openingText;  - commented out to allow quick replays for testing
+	pause the game;]
 	ShowStatus.
 	
 After printing the banner text, say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
@@ -669,7 +707,7 @@ The description of the player is "[one of]You are scruffy and disheveled, having
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat.
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung.
 
 The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening."
 
@@ -683,7 +721,7 @@ Instead of dropping the phone:
 	say "You could never bring yourself to do that -- you need it to play Pogoman Go!"
 	
 Before doing something with the phone:
-	if the current action is eating, examining, dropping, attacking, or throwing at:
+	if the current action is rebooting, charging, eating, examining, dropping, attacking, or throwing at:
 		continue the action;
 	otherwise:
 		say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
@@ -697,6 +735,17 @@ Dialing is an action applying to one thing. Understand "dial [something]" as dia
 Check dialing:
 	if the noun is not phone:
 		say "You can't dial [a noun]" instead.
+		
+Charging is an action applying to one thing. Understand "charge  [something]" as charging.	
+
+Check charging:
+	If the noun is not the phone:
+		say "You can't charge [a noun]" instead.
+		
+Instead of charging the phone:
+	say "The Nyantech T8000 never needs to be charged. Never. You wonder about that sometimes.[paragraph break]";
+	bestow "Science Is Fabulous!".
+
 		
 
 Book 4 - Stuff
@@ -750,18 +799,6 @@ To say asciiPogoBall:
 	say "────────▀███████████▀────────[paragraph break]";
 	say "[variable letter spacing]";
 	
-
-To say asciiSmiley:
-say "[fixed letter spacing]";
-	say "   *********     [line break]";
-	say " **         **   [line break]"; 
-	say "**  **   **  ** [line break]";
-	say "*      *      *[line break]";
-	say "*  *         * *[line break]";
-	say " *  **     **  *[line break]";
-	say "  **  *****  **[line break]";
-	say "    *********   [line break]" ;
-	say "[variable letter spacing]";
 
 
 To say openingText:
