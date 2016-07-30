@@ -351,18 +351,22 @@ Book 2 - Places
 
 Chapter Around Town
 
-Quadroom is a kind of room. A quadroom can be nw, ne, se, sw, or axial. A quadroom is usually axial. 
-[These inform what landmarks are visible from each corner of the Nyantech Tower's observation deck. Items on cardinal axes are not mentioned.]
+Section 1 - Framework
 
-Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, and Spit n' Solder are nw quadrooms.
+Quadroom is a kind of room. 
+A quadroom can be nord.
+A quadroom can be sud.
+A quadroom can be est.
+A quadroom can be ouest.
 
-General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, and Dog Exercise Area are ne quadrooms.
+Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
 
-Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, and Found Art are axial quadrooms.
+Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
 
-Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, and Garden Gnome Without Head are sw quadrooms.
 
-Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are se quadrooms.
+Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
+
+General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
 
 [Borders of the Village to trigger near-death scenes]
 A quadroom can be juxtaReservoir. 
@@ -440,14 +444,48 @@ Unearthly Geometry is west of MarkerSeven.
 
 The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
-[Location-specific elements in The Village]
+Section Location-specific elements in The Town
+
+LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
+
+A proxy-scenery is a kind of backdrop.  A proxy-scenery has a localeDescriptor.  The localeDescriptor of a proxy-scenery is usually structure.
+
+[The City Park]
+ 
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator.
+
+proxy-cityPark is a privately-named place proxy-scenery in City Park. The printed name of proxy-cityPark is  "City Park". Understand "city" or "park" as proxy-cityPark. 
+
+The trees are scenery in City Park. The description of the trees is "A variety of trees are scattered throughout the park to provide shade for picnickers.". Understand "tree" as trees.
+
+Instead of climbing the trees, say "That would be a waste of your time: there are no pogomen in the trees. You can catch them just as easily from the ground."
+
+The hedges are scenery in City Park. The description of the hedges is "Tall, thorny shrubs surround the park." Understand "hedge" or "shrub" or "shrubs" or "bush" or "bushes" or "shrubbery" or "shrubberies" as hedges.
+
+Instead of entering or climbing the hedges, say "Ow. No thanks."
+
+[Old Courthouse]
 
 The description of Old Courthouse is "A brick court house, probably of historical significance."
 
+proxy-OldCourthouse is a privately-named proxy-scenery in Old CourtHouse. The printed name of proxy-OldCourthouse is "Old Court House". Understand "old" or "courthouse" or "court" as proxy-OldCourthouse. Understand "building" or "brick"  as proxy-OldCourthouse when the location is Old Courthouse.
+
+[Old Jail]
+
 The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for play online or download.[quotation mark][paragraph break]Disgusted with the blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."
 
+proxy-OldJail is a privately-named proxy-scenery in Old Jail. The printed name of proxy-OldJail is "Old Jail". Understand "old" or "jail" or "clink" or "lock-up" or "lock up" or "hoosegow" as proxy-OldJail. Understand "building" or "brick"  as proxy-OldJail when the location is Old Jail.
+
+Instead of entering proxy-OldJail, say "You aren[apostrophe]t sure whether the Old Jail is still in business or not. Given that, you[apostrophe]d just as soon stay on this side of the bars."
+
+[Johnson's Rock]
+
 The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
+
+proxy-JohnsonsRock is a privately-named artifact proxy-scenery in Johnson's Rock. The printed name of proxy-JohnsonsRock is "Johnson's Rock". Understand "johnson" or "johnsons" or "johnson's" or "rock" as proxy-JohnsonsRock. Understand "rock"  or "stone" or "ground" as proxy-JohnsonsRock when the location is Johnson's Rock.
+
+
+
 
 The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away."
 
@@ -481,6 +519,11 @@ The description of The Gardens of Zarf is "A well-curated selection of carnivoro
 
 The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some."
 
+FlanEmporiumProxy is a privately-named proxy-scenery in Flan Emporium. The printed name of FlanEmporiumProxy is "Flan Emporium". Understand "flan" or "emporium" as FlanEmporiumProxy. Understand "building" or "store" as FlanEmporiumProxy when the location is Flan Emporium.
+
+Instead of eating FlanEmporiumProxy, say "Unfortunately, there is no tasty flan laying about."
+Instead of drinking FlanEmporiumProxy, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
+	
 The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson."
 
 The description of Church of the Orthogonal Sticks is "The church is constructed entirely of Lincoln Logs except for the stained glass."
@@ -519,7 +562,7 @@ The description of Rottweiler Art is "They may be good guard dogs, but they are 
 
 The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
 
-The description of Year1893 is "A sign both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year."
+The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year."
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
@@ -540,6 +583,22 @@ The description of Vuvuzelas For Freedom is "A bronze plate is set into the side
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]."
 
 The description of Perilous Passageway is "A disgusting passageway."
+
+Section Dealing with Proxy-Scenery
+
+Instead of examining a proxy-scenery:
+	try looking.
+	
+Instead of entering a proxy-scenery (called the place):
+	if the localeDescriptor of the place is:
+		-- structure:
+			say "No time to explore every building in town. Must catch pogomen!";
+		-- place:
+			say "You[apostrophe]re already in the [location].";
+		-- artifact:
+			say "You can[apostrophe]t, but you are standing right next to it."
+
+Section Town Borders
 
 timesDrowned, timesRunOver, timesTarred, and timesRailroaded are numbers that vary.
 
@@ -603,9 +662,6 @@ Instead of going east when the location of the player is a juxtaRailway quadroom
 
 Instead of listening when the location is a juxtaRailway quadroom:
 	say "[one of]Locomotives scream by[or]A steam engine chugs away[or]A commuter train thunders through[or]A freight train rumbles along the tracks[in random order]."
-
-
-
 
 Chapter Inside Nyantech
 
@@ -958,7 +1014,8 @@ Book 6 - Scenes
 
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the lobby.
 
-
+Before entering a thing (called townDestination) when the location is in The Town:
+	say "Locked out."
 
 Book 7 - Hints
 
