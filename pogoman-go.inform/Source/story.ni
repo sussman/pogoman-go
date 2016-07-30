@@ -484,38 +484,101 @@ The description of Johnson's Rock is  "A historical marker next to a bare patch 
 
 proxy-JohnsonsRock is a privately-named artifact proxy-scenery in Johnson's Rock. The printed name of proxy-JohnsonsRock is "Johnson's Rock". Understand "johnson" or "johnsons" or "johnson's" or "rock" as proxy-JohnsonsRock. Understand "rock"  or "stone" or "ground" as proxy-JohnsonsRock when the location is Johnson's Rock.
 
+Instead of taking proxy-JohnsonsRock, say "Too late. Some kids already got to it."
 
+[Nyantech Entrance]
 
+The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you."
 
-The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away."
+proxy-Nyantech is a privately-named structure proxy-scenery in Nyantech Entrance. The printed name of proxy-Nyantech is "Entrance to the Nyantech Tower". Understand "nyantech" or "entrance" or "tower" or "obsidian" as proxy-Nyantech. Understand "building"   as proxy-Nyantech when the location is Nyantech Entrance.
+
+Instead of entering proxy-Nyantech:
+	say "TODO: Scenes within Nyantech[paragraph break]".
+
+[Ashwell-Lott Estate]
 
 The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery."
 
-The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn[one of]. This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]".
+proxy-AshwellLott is a privately-named structure proxy-scenery in Ashwell-Lott Estate. The printed name of proxy-AshwellLott is "Ashwell-Lott Estate". Understand "ashwell" or "ashwell-lott" or "lott" or "estate" as proxy-AshwellLott. Understand "building" as proxy-AshwellLott when the location is Ashwell-Lott Estate.
+
+[Garden Gnome]
+
+The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]".
+
+proxy-GardenGnome is a privately-named artifact proxy-scenery in Garden Gnome Without Head. The printed name of proxy-GardenGnome is "Garden Gnome Without Head". Understand "gnome" or "without" or "head" or "decapitated" as proxy-GardenGnome. Understand "sculpture" or "art" as proxy-GardenGnome when the location is Garden Gnome Without Head.
+
+Instead of attacking the proxy-GardenGnome, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
+
+The lawn is a scenery in the Garden Gnome Without Head. The description of the lawn is "A real disgrace for the neighborhood, it is overgrown with high weeds." Understand "weed" or "weeds" or "grass" as the lawn. 
+
+Instead of entering the lawn, say "No thanks. Ticks!"
+
+The severed head is a prop. It is in the void. The description of the severed head is "An absurdly happy little face with a saccharine smile -- everytime you see, you are filled with rage. No wonder someone knocked it off."
+
+Instead of searching the lawn:
+	say "You poke carefully through the weeds.[paragraph break]What's this?[paragraph break]Ah! You've found the gnome's head! It must have been laying there for years.";
+	move the severed head to the player;
+	bestow "Found A Garden Gnome's Severed Head".
+	
+[Parking Lot]
 
 The description of Parking Lot Award is "A tarnished brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason. "
 
+proxy-ParkingLot is a privately-named place proxy-scenery in Parking Lot Award. The printed name of proxy-ParkingLot is "Parking Lot Award". Understand "parking" or "lot" or "award" as proxy-ParkingLot. Understand "plaque" or "brass" as proxy-ParkingLot when the location is Parking Lot Award.
+
+[Old Town Hall]
+
 The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling."
+
+proxy-OTH is a privately-named structure proxy-scenery in Old Town Hall. The printed name of proxy-OTH  is "Old Town Hall". Understand "old" or "town" or "hall" as proxy-OTH . Understand "building" as proxy-OTH  when the location is Old Town Hall.
+
+[Spit n' Solder Hardware]
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark]."
 
+proxy-SnS is a privately-named structure proxy-scenery in Spit n' Solder. The printed name of proxy-SnS is "Spit n' Solder". Understand "spit" or "solder" or "hardware" as proxy-SnS. Understand "building" as proxy-SNS when the location is Spit n' Solder.
+
+[Rotary Clock Tower]
+
 The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours."
 
-The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate with white lettering that reads [quotation mark]In Memory of Floyd[quotation mark]."
+proxy-RCT is a privately-named artifact proxy-scenery in Rotary Clock Tower. The printed name of proxy-RCT is "Rotary Clock Tower". Understand "rotary" or "clock" or "tower" as proxy-RCT. 
+
+[Floyd Memorial]
+
+The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate."
+
+The floydBench is a privately-named enterable scenery supporter in Floyd Memorial Bench. The printed name of the floydBench is "bench". The description of the floydBench is "The  white lettering of the nameplate reads [quotation mark]In Memory of Floyd[quotation mark]." Understand "chair" or "bench" or "wood" or "wooden" or "name" or "plate" or "nameplate" as floydBench.
+
+[Giant Chicken]
 
 The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks."
 
+[Welbourne Travel]
+
 The description of Welbourne Travel is "Maps of various adventures fill the windows of this travel agency."
+
+[Hook & Ladder]
 
 The description of Hook & Ladder is "The home of Fire Bridage Number 12."
 
+[Prissy's Little Sausages]
+
 The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce."
 
-The description of Yummi Tummi Softserve is "Waitresses in pink pig costumes rollerskate between tables serving up sundaes, cones, and floats."
+[Yummi Tummi Softserve]
+
+The description of Yummi Tummi Softserve is "Pink robotic pigs rollerskate between tables serving up sundaes, cones, and floats."
+
+[Service Dog Memorial]
 
 The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]".
 
+[The Gardens of Zarf]
+
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  
+
+[Flan Emporium]
 
 The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some."
 
@@ -523,64 +586,124 @@ FlanEmporiumProxy is a privately-named proxy-scenery in Flan Emporium. The print
 
 Instead of eating FlanEmporiumProxy, say "Unfortunately, there is no tasty flan laying about."
 Instead of drinking FlanEmporiumProxy, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
+
+[General Nelson]
 	
 The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson."
 
+[Church of the Orthogonal Sticks]
+
 The description of Church of the Orthogonal Sticks is "The church is constructed entirely of Lincoln Logs except for the stained glass."
+
+[Witch Pillory]
 
 The description of Witch Pillory is "This site commemorates the town’s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]".
 
+[Flag Pole]
+
 The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base."
+
+[Krusty Kronuts]
 
 The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken."
 
+[Cyclorama]
+
 The description of Cyclorama is "The indoor bicycle track yields important radionuclides for pharmaceutical use."
+
+[Brotherhood of the Slippery Axel]
 
 The description of Brotherhood of the Slippery Axel is "Monastery or Biker Bar? You be the judge."
 
+[Battle of Margot's Pantry]
+
 The description of Battle of Margot's Pantry is "The Daughters of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be a pizzeria."
+
+[Gas Station Gazebo]
 
 The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] Wht is it with gas stations and gazebos?[or][stopping]".
 
+[Dung Beetle Mural]
+
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium."
+
+[Hank's Tavern]
 
 The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night."
 
+[Olde Train Station]
+
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers."
+
+[Dog Exercise Area]
 
 The description of the Dog Exercise Area is "Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors)."
 
+[Bottle Cap Wall]
+
 The description of Bottle Cap Wall is "A wall made entirely of bottle caps."
+
+[Porcelain Parrot]
 
 The description of Porcelain Parrot is "A source of amusement for neighborhood school children."
 
+[Mile Marker 0,7]
+
 The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what."
+
+[Unfathomable Orb]
 
 The description of Unfathomable Orb is "A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable."
 
+[Rottweiler Art]
+
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
+
+[Sister City Friendship Altar]
 
 The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
 
+[1893]
+
 The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year."
+
+[Eagle's Sojourn]
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
+[Nymph with Telescope]
+
 The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon."
+
+[Fire is our Friend]
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
 
+[Unearthly Geometry]
+
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
+
+[Cranberry Bog]
 
 The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog."
 
+[Found Art]
+
 The description of Found Art is "A single screw attached to a surfboard.[one of]This is what counts as art these days. Jeesh.[or][stopping]".
+
+[Crystal Skull]
 
 The description of Crystal Skull is "There isn’t much left of the Salt Skull exhibit. Occasionally, deer walk through town just to lick it."
 
+[Vuvuzelas]
+
 The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
 
+[Poison Ivy]
+
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]."
+
+[Perilous Passageway]
 
 The description of Perilous Passageway is "A disgusting passageway."
 
