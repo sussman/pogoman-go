@@ -444,7 +444,7 @@ Unearthly Geometry is west of MarkerSeven.
 
 The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
-Section Location-specific elements in The Town
+Section Location-specific elements in The Village
 
 LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
 
@@ -461,6 +461,21 @@ A proxy-scenery is a kind of backdrop.  A proxy-scenery has a localeDescriptor. 
    I wanted to create it as a kind of scenery, but for some reason, I don't seem to be able to sub-class scenery.
 ]
 
+[The Sky Itself]
+
+The sky is a backdrop. The sky is in The Village, DeckN, DeckS, DeckW, and DeckE. The description of the sky is "Clear as the eye can see."
+
+Instead of searching the sky:
+	if the location is Telescope Nymph:
+		if the Salmon of Turpitude is in the Void:
+			say "Unexpectly, you spot the salmon and yank it out of the heavens.[paragraph break]";
+			now the player carries the Salmon of Turpitude;
+			bestow "Found A Salmon";
+		otherwise:
+			say "You have already liberated the salmon from its celestial retreat.";
+	otherwise:
+		try examining the sky.
+	
 [The City Park]
  
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator.
@@ -483,7 +498,7 @@ proxy-OldCourthouse is a privately-named proxy-scenery in Old CourtHouse. The pr
 
 [Old Jail]
 
-The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for play online or download.[quotation mark][paragraph break]Disgusted with the blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."
+The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for online for play or download.[quotation mark][paragraph break]Disgusted with [if the dog exercise area is unvisited]the[otherwise]yet another[end if] blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."
 
 proxy-OldJail is a privately-named proxy-scenery in Old Jail. The printed name of proxy-OldJail is "Old Jail". Understand "old" or "jail" or "clink" or "lock-up" or "lock up" or "hoosegow" as proxy-OldJail. Understand "building" or "brick"  as proxy-OldJail when the location is Old Jail.
 
@@ -713,77 +728,124 @@ proxy-Dung is a privately-named artifact proxy-scenery in Dung Beetle Mural. The
 
 The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night."
 
+proxy-Hank is a privately-named structure proxy-scenery in Hank's Tavern. The printed name of proxy-Hank is "Hank's Tavern". Understand "hank" or "hanks" or "hank's" or "hank's tarvern" or "tavern" or "hanks tarvern" as proxy-Hank. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as proxy-Hank when the location is Hank's Tavern.
+
 [Olde Train Station]
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers."
 
+proxy-TrainStation is a privately-named structure proxy-scenery in Olde Train Station. The printed name of proxy-TrainStation is "train station". Understand "old" or "train" or "station" or "olde" or "Olde Train Station" or "Train Station" as proxy-TrainStation. Understand "building" as proxy-TrainStation when the location is Olde Train Station.
+
 [Dog Exercise Area]
 
-The description of the Dog Exercise Area is "Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors)."
+The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like like dogs, check out our canine-centric sci fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
+
+proxy-DogExercise is a privately-named place proxy-scenery in Dog Exercise Area. The printed name of proxy-DogExercise is "dog exercise area". Understand "dog" or "exercise" or "area" or "exercise area" or "dog exercise area" or "dog area" or "field" as proxy-DogExercise. Understand "park" as proxy-DogExercise when the location is Dog Exercise Area.
 
 [Bottle Cap Wall]
 
 The description of Bottle Cap Wall is "A wall made entirely of bottle caps."
 
+proxy-BCW is a privately-named artifact proxy-scenery in Bottle Cap Wall. The printed name of proxy-BCW is "bottle cap wall". Understand "bottle" or "cap" or "wall" or "bottle cap" or "botttle cap mural" as proxy-BCW. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-BCW when the location is Bottle Cap Wall.
+
 [Porcelain Parrot]
 
 The description of Porcelain Parrot is "A source of amusement for neighborhood school children."
+
+proxy-Parrot is a privately-named artifact proxy-scenery in Porcelain Parrot. The printed name of proxy-Parrot is "porcelain parrot". Understand "porcelain" or "parrot" or "porcelain parrot" as proxy-Parrot. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-Parrot when the location is Porcelain Parrot.
 
 [Mile Marker 0,7]
 
 The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what."
 
+proxy-MarkerSeven is a privately-named artifact proxy-scenery in MarkerSeven. The printed name of proxy-MarkerSeven is "mile marker 0.7". Understand "mile" or "marker" or "post" as proxy-MarkerSeven. 
+
 [Unfathomable Orb]
 
-The description of Unfathomable Orb is "A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable."
+The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
+
+proxy-Orb is a privately-named artifact proxy-scenery in Unfathomable Orb. The printed name of proxy-Orb is "unfathomable orb". Understand "unfathomable" or "orb" or "unfathomable orb" as proxy-Orb. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as proxy-Orb when the location is Unfathomable Orb.
 
 [Rottweiler Art]
 
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
 
+proxy-Rottweiler is a privately-named artifact proxy-scenery in Rottweiler Art. The printed name of proxy-Rottweiler is "unfathomable orb". Understand "rottweiler" or "rottweiler art" as proxy-Rottweiler. Understand "sculpture" or "statue" or "art" as proxy-Rottweiler when the location is Rottweiler Art.
+
 [Sister City Friendship Altar]
 
 The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
 
+proxy-Altar is a privately-named artifact proxy-scenery in Sister City Friendship Altar. The printed name of proxy-Altar is "Sister City Friendship Altar". Understand "sister" or "friendship" or "alter" or "sister city friendship altar" as proxy-Altar. Understand "city"  or [questionably] "art" as proxy-Altar when the location is Sister City Friendship Altar.
+
 [1893]
 
-The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year."
+The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year." The printed name of Year1893 is "1893".
+
+proxy-Year1893 is a privately-named artifact proxy-scenery in Year1893. The printed name of proxy-Year1893 is "plaque commemorating the year 1893". Understand "1893" as proxy-Year1893. Understand "plaque" as proxy-Year1893 when the location is Year1893.
 
 [Eagle's Sojourn]
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
+proxy-Ike is a privately-named artifact proxy-scenery in Eagle's Sojourn. The printed name of proxy-Ike is "Eagle's Sojourn". Understand "eagles" or "eagle's" or "sojourn" or "eagles sojourn" or "eagle's sojourn"  or "carving" or "moon" or "cowboy" as proxy-Ike. Understand "sculpture" or "statue" or "art" as proxy-Ike when the location is Eagle's Sojourn.
+
 [Nymph with Telescope]
 
-The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon."
+The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
+
+proxy-Nymph is a privately-named artifact proxy-scenery in Telescope Nymph. The printed name of proxy-Nymph is "Nymph With Telescope". Understand "nymph" or "telescope" or "nymph with telescope" as proxy-Nymph. Understand "sculpture" or "statue" or "art" as proxy-Nymph when the location is Telescope Nymph.
 
 [Fire is our Friend]
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
 
+proxy-FOF is a privately-named artifact proxy-scenery in Fire Is Our Friend. The printed name of proxy-FOF is "Fire is our Friend". Understand "fire" or "friend" or "fire is our friend" or "eternal" or "flame" or "eternal flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" as proxy-FOF. Understand "sculpture" or "statue" or "art" as proxy-FOF when the location is Fire Is Our Friend.
+
 [Unearthly Geometry]
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
+
+proxy-FOF is a privately-named artifact proxy-scenery in Fire Is Our Friend. The printed name of proxy-FOF is "Fire is our Friend". Understand "fire" or "friend" or "fire is our friend" or "eternal" or "flame" or "eternal flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" as proxy-FOF. Understand "sculpture" or "statue" or "art" as proxy-FOF when the location is Fire Is Our Friend.
 
 [Cranberry Bog]
 
 The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog."
 
+proxy-Bog is a privately-named place proxy-scenery in Cranberry Bog. The printed name of proxy-Bog is "cranberry bog". Understand "cranberry" or "bog" or "cranberry bog" or "pond" as proxy-Bog. 
+
+Instead of searching the proxy-bog:
+	say "[one of]You find nobody. Get it? No body[or]You find nobody[stopping]."
+
 [Found Art]
 
-The description of Found Art is "A single screw attached to a surfboard.[one of]This is what counts as art these days. Jeesh.[or][stopping]".
+The description of Found Art is "A single screw attached to a surfboard.[one of] This is what counts as art these days. Jeesh.[or][stopping]".
 
+proxy-FoundArt is a privately-named artifact proxy-scenery in Found Art. The printed name of proxy-FoundArt is "Found Art". Understand "found" or "surfboard" or "screw" or "found art" as proxy-FoundArt. Understand "sculpture" or "statue" or "art" as proxy-FoundArt when the location is Found Art.
+
+Instead of searching the proxy-FoundArt:
+	say "It is right in front of you."
+	
 [Crystal Skull]
 
 The description of Crystal Skull is "There isn’t much left of the Salt Skull exhibit. Occasionally, deer walk through town just to lick it."
+
+proxy-Skull is a privately-named artifact proxy-scenery in Crystal Skull. The printed name of proxy-Skull is "crystal skull". Understand "crystal" or "skull" or "crystal skull" or "exhibit" as proxy-Skull. Understand "sculpture" or "statue" or "art" as proxy-Skull when the location is Crystal Skull.
+
+Instead of tasting proxy-skull:
+	say "It tastes like deer spittle."
 
 [Vuvuzelas]
 
 The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
 
+proxy-Vuvuzela is a privately-named artifact proxy-scenery in Vuvuzelas For Freedom. The printed name of proxy-Vuvuzela is "commemorative plaque about the Vulvuzela Uprising of 1893". Understand "vuvuzela" or "uprising" or "bronze" or "plate" or "sidewalk" as proxy-Vuvuzela. Understand "commemorative" or "plaque" as proxy-Vuvuzela when the location is Vuvuzelas For Freedom.
+
 [Poison Ivy]
 
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]."
+
+proxy-PoisonIvy is a privately-named artifact proxy-scenery in Toxicodendron radicans. The printed name of proxy-PoisonIvy is "field of poison ivy". Understand "poison" or "ivy" or "poison ivy" or "sign" as proxy-PoisonIvy. Understand "field" as proxy-PoisonIvy when the location is Toxicodendron radicans.
 
 [Perilous Passageway]
 
@@ -802,6 +864,19 @@ Instead of entering a proxy-scenery (called the place):
 			say "You[apostrophe]re already in the [location].";
 		-- artifact:
 			say "You can[apostrophe]t, but you are standing right next to it."
+			
+Section Sticking to the Straight and Narrow
+
+A direction can be blasphemous or orthodox. A direction is usually orthodox. Northeast, northwest, southeast, and southwest are blasphemous.
+
+A person can be untainted or sinful. The player is untainted.
+
+Before going a blasphemous direction when the location is in The Village:
+	say "No can do. The City Fathers were Ultra-Orthogonalists.[paragraph break]";
+	if the player is untainted:
+		now the player is sinful;
+		bestow "No-cutting-corners";
+		stop the action.
 
 Section Town Borders
 
@@ -1098,6 +1173,10 @@ The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
 
+The Salmon of Turpitude is a prop in the void. It is proper-named. The description of the Salmon of Turpitude is "A large Atlantic salmon with an undeserved reputation."
+
+Instead of eating the Salmon of Turpitude, 
+	say "You are not sure it[apostrophe]s fresh enough to consider as sushi."
 
 Book 3 - Characters
 
