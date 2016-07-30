@@ -308,8 +308,6 @@ Carry out gettingPogoman:
 
 Chapter Initialize
 
-startLocation is a room that varies. The startLocation is Flag Pole.
-
 When play begins:
 	now suppressMedals is false;
 	now the medalCounter is zero;
@@ -320,6 +318,7 @@ When play begins:
 	now timesRailroaded is zero;
 	now the player carries the phone;
 	ShowStatus;
+	move the player to a random okayStartLocation, without printing a room description;
 	openGame.
 	
 To openGame:
@@ -360,6 +359,8 @@ A quadroom can be juxtaReservoir.
 A quadroom can be juxtaTarpit.
 A quadroom can be juxtaHighway.
 A quadroom can be juxtaRailway.
+
+Definition: a quadroom is okayStartLocation if it is not JuxtaReservoir and it is not JuxtaHighway and it is not JuxtaTarpit and it is not JuxtaRailway, and it is not Nyantech Entrance.
 
 The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthogonal Sticks, and Crystal Skull are juxtaReservoir.
 
@@ -831,8 +832,15 @@ To phoneDeath:
 	say paragraph break;
 	say "[bold type]*** YOUR PHONE HAS DIED ***[roman type][paragraph break](RESTART, RESTORE, AMUSING, QUIT)[paragraph break]>";
 	wait for any key;
+	say paragraph break;
+	wait for any key;
+	say paragraph break;
+	wait for any key;
+	say paragraph break;
 	clear the screen;
-	say "Oh wait... you could just by a new phone.[paragraph break]A day goes by.[paragraph break]".
+	say "After beating your head against the ground a few times, you realize... you could just buy a new phone.[paragraph break]A day goes by.[paragraph break]";
+	openGame;
+	try looking.
 
 Book 4 - Stuff
 
