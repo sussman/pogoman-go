@@ -29,7 +29,6 @@ TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
 
 theTime is a number that varies. theTime is 5.
 
-
 Chapter Kinds
 
 Section 1 - General
@@ -284,6 +283,12 @@ To ShowStatus:
 
 Chapter Not Ready For Prime Time - Not for release
 
+
+
+Summarizing is an action out of world. Understand "summary" as summarizing.
+
+Report summarizing:
+	say "Summary ... more pending"
 
 Section GettingXP
 
@@ -885,7 +890,7 @@ timesDrowned, timesRunOver, timesTarred, and timesRailroaded are numbers that va
 Instead of going north when the location of the player is a juxtaReservoir quadroom:
 	if timesDrowned is:
 		-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
-		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff, you know?[paragraph break]";
+		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
 			bestow "Hygiene";
 		-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
 		phoneDeath;
@@ -895,12 +900,12 @@ Instead of going north when the location of the player is a juxtaReservoir quadr
 Instead of going west when the location of the player is a juxtaHighway quadroom:
 	if timesRunOver is:
 		-- 0:
-			say "A busy superhighway is just to the west of here.";
+			say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
 		-- 1:
 			say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
 			bestow "One Jersey Barrier From Certain Death";
 		-- 2:
-			say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins are smashed by the front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
+			say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
 			phoneDeath;
 		-- otherwise: 
 			say "Since the accident, you have an abiding fear of highways and stay put.";
