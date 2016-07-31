@@ -366,10 +366,10 @@ A quadroom can be ouest.
 
 Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
 
-Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
+Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
 
 
-Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
+Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
 
 General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
 
@@ -427,7 +427,7 @@ Perilous Passageway is west of Eagle's Sojourn and north of Year1893. The printe
 Sister City Friendship Altar is west of Perilous Passageway and north of Fire Is Our Friend.
 Old Town Hall is west of Sister City Friendship Altar and north of Ashwell-Lott Estate.
 Cranberry Bog is west of Old Town Hall and north of Parking Lot Award.
-Battle of Margot's Pantry is west of Cranberry Bog and north of Brotherhood of the Slippery Axel.
+Battle of Margot's Pantry is west of Cranberry Bog and north of Biocontainment Facility.
 Toxicodendron radicans is west of Battle of Margot's Pantry and north of Vuvuzelas for Freedom.
 Eagle's Sojourn is north of Flan Emporium.
 
@@ -435,9 +435,9 @@ Year1893 is west of Flan Emporium and north of Hank's Tavern.
 Fire Is Our Friend is west of Year1893 and north of Rottweiler Art.
 Ashwell-Lott Estate is west of Fire Is Our Friend and north of Found Art.
 Parking Lot Award is west of Ashwell-Lott Estate and north of Garden Gnome Without Head.
-Brotherhood of the Slippery Axel is west of Parking Lot Award and north of MarkerSeven. 
+Biocontainment Facility is west of Parking Lot Award and north of MarkerSeven. 
 The printed name of MarkerSeven is "Marker 0.7".
-Vuvuzelas for Freedom is west of Brotherhood of the Slippery Axel and north of Unearthly Geometry.
+Vuvuzelas for Freedom is west of Biocontainment Facility and north of Unearthly Geometry.
 Flan Emporium is north of Gas Station Gazebo.
 
 Hank's Tavern is west of Gas Station Gazebo.
@@ -447,7 +447,7 @@ Garden Gnome Without Head is west of Found Art.
 MarkerSeven is west of Garden Gnome Without Head.
 Unearthly Geometry is west of MarkerSeven.
 
-The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Brotherhood of the Slippery Axel, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
+The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
 Section Location-specific elements in The Village
 
@@ -705,11 +705,16 @@ The description of Cyclorama is "The indoor bicycle track yields important radio
 
 proxy-Cyclorama is a privately-named structure proxy-scenery in Cyclorama. The printed name of proxy-Cyclorama is "Cyclorama". Understand "cyclorama" as proxy-Cyclorama. Understand "building" as proxy-Cyclorama when the location is Cyclorama.
 
-[Brotherhood of the Slippery Axel]
+[Biocontainment Facility]
 
-The description of Brotherhood of the Slippery Axel is "Monastery or Biker Bar? You be the judge."
+The description of Biocontainment Facility is "[bioConDescription]".
 
-proxy-BOSA is a privately-named structure proxy-scenery in Krusty Kronuts. The printed name of proxy-BOSA is "Brotherhood of the Slippery Axel". Understand "biker" or "brotherhood" or "slippery" or "axel" or "Brotherhood of the Slippery Axel" as proxy-BOSA. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as proxy-BOSA when the location is Brotherhood of the Slippery Axel.
+To say bioConDescription:
+	if the location is unvisited, say "You are vaguely aware that something isn’t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There’s something wrong with them, but you can’t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break]";
+	say "The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don’t seem to notice folks playing pogoman.[paragraph break]";
+	if the location is unvisited, bestow "Just One of the Boys".
+
+proxy-zombie is a privately-named structure proxy-scenery in Biocontainment Facility. The printed name of proxy-zombie is "Biocontainment Facility". Understand "biocontainment" or "facility" or "bioweapons"  or "laboratory" or "lab" or "vaccine" or "hospital"  as proxy-zombie. Understand "building" as proxy-zombie when the location is Biocontainment Facility.
 
 [Battle of Margot's Pantry]
 
