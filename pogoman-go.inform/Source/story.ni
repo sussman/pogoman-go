@@ -960,13 +960,76 @@ Instead of listening when the location is a juxtaRailway quadroom:
 
 Chapter Inside Nyantech
 
-HQ is a region. Lobby, RevolvingDoor, StairsGround, LAN Closet, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof, Cafeteria, Ball Pit, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
+Section 1 - Region HQ
 
-The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are in the Cat Area. The Cat Area is in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Ball Pit, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
 
-The Deck Area is a region. DeckN, Deck E, DeckS, and DeckW are in the Deck Area. The Deck Area is in HQ.
+[Top Level, Interior]
 
-The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door".
+The Cafeteria is north of DeckS.
+
+Snacks is northeast of the Cafeteria.
+
+Beverages is northwest of the Cafeteria.
+
+Ball Pit is east of the Cafeteria.
+
+BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
+
+BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
+
+BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "Near The Bottom Of The Ball Pit".
+
+[Conduit Space Above Ground Floor]
+
+The Support Boom is outside from Gantry Chamber.
+
+The Gearing Assembly is above The Top of the Ladder and outside from Support Boom.
+
+The Top Of The Ladder is above Somewhere Along the Ladder.
+
+Somewhere Along The Ladder is above the Bottom Rung.
+
+The Bottom Rung is above the Crawl Space.
+
+The Crawl Space is above the LAN Closet.
+
+[Ground Floor]
+
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background."
+
+Instead of going east from the Lobby when the walkman is not worn, say "[one of]As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door[or]You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you[stopping]."
+
+The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." 
+
+The LAN Closet is east of the Lobby.
+
+[Basement]
+
+Legal Department is south of StairsBasement. 
+
+Cousteau Room is south of Legal Department.
+
+[Sub-Basement]
+
+The Rick Astley Shrine is south of StairsSB.
+
+The walkman is a prop in the Rick Astley Shrine.
+
+[Sub-Sub-Basement]
+
+Throne Room is south of StairsSSB.
+
+MuskTube Station is down from Throne Room.
+
+
+
+
+
+Section 2 - Stairwell
+
+
+The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are in the Stairwell. The Stairwell is in HQ.
 
 The StairsGround is north of the Lobby. The printed name of the StairsGround is "Emergency Stairs: Ground Level".
 
@@ -990,6 +1053,13 @@ The StairsPackaging is above StairsProcessing. The printed name of StairsPackagi
 
 The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access".
 
+
+
+Section 3 - Deck
+
+
+The Deck Area is a region. DeckN, Deck E, DeckS, and DeckW are in the Deck Area. The Deck Area is in HQ.
+
 DeckN is north of StairsRoof. The printed name of DeckN is "Observation Deck, Northern View".
 
 DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View".
@@ -998,45 +1068,14 @@ DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Sou
 
 DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View". 
 
-The LAN Closet is east of the Lobby.
 
-The Cafeteria is north of DeckS.
+Section 4 - Cat
 
-Snacks is northeast of the Cafeteria.
 
-Beverages is northwest of the Cafeteria.
+The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are in the Cat Area. The Cat Area is in HQ.
 
-Ball Pit is east of the Cafeteria.
 
-BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
-
-BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
-
-BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "Near The Bottom Of The Ball Pit".
-
-Legal Department is south of StairsBasement. 
-
-Cousteau Room is south of Legal Department.
-
-The Rick Astley Shrine is south of StairsSB.
-
-Throne Room is south of StairsSSB.
-
-MuskTube Station is down from Throne Room.
-
-The Crawl Space is above the LAN Closet.
-
-The Bottom Rung is above the Crawl Space.
-
-Somewhere Along The Ladder is above the Bottom Rung.
-
-The Top Of The Ladder is above Somewhere Along the Ladder.
-
-The Gearing Assembly is above The Top of the Ladder and outside from Support Boom.
-
-The Support Boom is outside from Gantry Chamber.
-
-Section 1 - Cat Navigation
+Section 5 - Cat Navigation
 
 [Based on Recipe 42: Example Fore]
 
@@ -1062,7 +1101,7 @@ Instead of going a nautical direction when the location is not in the Cat Area, 
 
 Instead of going an earthbound direction when the location is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]."
 
-Section 2 - Cat Layout
+Section 6 - Cat Layout
 
 The Cat's Beret is down from DeckE. 
 
@@ -1184,16 +1223,39 @@ The description of Pogoland Terminal is "The MuskPod floats next to the platform
 
 Chapter The Void
 
+section 1 - Plato's Cave
+
 [An unconnected place  where 'original' clonable objects live... very platonic.]
 The Void is a room.   
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
 
+section 2 - Badge
+
+The badge is a prop in the void. The description of the badge is "The top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [TEAMCOLOR] number [POGOLEVEL]. "
+
+Instead of examining the badge for the first time, say "You are pretty sure that Annastasia, the receptionist, had that card in her hand as soon as you walked in and you don[apostrophe]t recall having seen any cameras, so you wonder how the badge was produced -- and so quickly. Ah well, best not to question the technological wizardry that is Nyantech."
+
+Instead of dropping the badge for the first time:
+	say "No, you’ve worked too hard and come too far to cast it all away.[paragraph break]";
+	bestow "Hoarder".
+	
+Instead of dropping the badge, say "No. They'll have to peel it from your cold, dead hands before you[apostrophe]d give it up."
+
+
+
+
+section 3 - The Salmon of Turpitude
+
 The Salmon of Turpitude is a prop in the void. It is proper-named. The description of the Salmon of Turpitude is "A large Atlantic salmon with an undeserved reputation."
 
 Instead of eating the Salmon of Turpitude, 
 	say "You are not sure it[apostrophe]s fresh enough to consider as sushi."
+	
+
+	
+
 
 Book 3 - Characters
 
