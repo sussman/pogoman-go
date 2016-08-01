@@ -16,26 +16,17 @@ Include Dynamic Objects by Jesse McGrew. [allows runtime creation of pogoballs, 
 
 Book 1 - Mechanics
 
-
-Chapter Declare Global Variables
-
-POGOLEVEL is a number that varies.  POGOLEVEL is 3.  [TODO is this a good starting value?]
-
-XP is a number that varies.  XP is 320.  [TODO is this a good starting value?]
-
-Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
-
-TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
-
-theTime is a number that varies. theTime is 5.
-
 Chapter Kinds
 
 Section 1 - General
 
 A prop is a kind of thing. It is usually portable.
 
-Section 2 - PogoThings
+Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
+
+securityColor is a kind of value. The securityColors are black, red, white, green, and blue.
+
+Section 2 - Pogo-Things
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -61,6 +52,20 @@ A pogoman has a number called evolutionLevel.  The evolutionLevel is usually 1. 
 Instead of taking a pogoman:
 	say "You'll have to throw a Pogoball at it to capture it!".
 
+
+Chapter  Declare Global Variables
+
+POGOLEVEL is a number that varies.  POGOLEVEL is 3.  [TODO is this a good starting value?]
+
+XP is a number that varies.  XP is 320.  [TODO is this a good starting value?]
+
+TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
+
+theTime is a number that varies. theTime is 5.
+
+
+
+Section 2 - 
 
 Chapter Rules Modifications
 
@@ -955,9 +960,11 @@ Instead of listening when the location is a juxtaRailway quadroom:
 
 Chapter Inside Nyantech
 
-HQ is a region. Lobby, RevolvingDoor, StairsGround, LAN Closet, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof, Cafeteria, Ball Pit, Beverages, Snacks, DeckW, DeckN, DeckE, DeckS, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, StairsGround, LAN Closet, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof, Cafeteria, Ball Pit, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are in the Cat Area. The Cat Area is in HQ.
+
+The Deck Area is a region. DeckN, Deck E, DeckS, and DeckW are in the Deck Area. The Deck Area is in HQ.
 
 The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door".
 
@@ -1307,9 +1314,6 @@ To say openingText:
 Book 6 - Scenes
 
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the lobby.
-
-Before entering a thing (called townDestination) when the location is in The Town:
-	say "Locked out."
 
 Book 7 - Hints
 
