@@ -1029,22 +1029,34 @@ Section 2 - Stairwell
 To say shortEmergencyStairs:
 	say "emergency stairs"
 	
-TO say shortDoorToThe:
+To say shortDoorToThe:
 	say "door to the"
 	
+To say stairwellDescription:
+	say "The emergency stairs are unfinished concrete in stark contrast to the polished atmosphere everywhere else in the building. The stairs spiral ";
+	if the player is not in stairsRoof and the player is not in stairsSSB:
+		say "both ";
+	if the player is not in the stairsRoof:
+		say "upward ";
+	if the player is not in stairsRoof and the player is not in stairsSSB:
+		say "and ";
+	if the player is not in stairsSSB:
+		say "downward ";
+	say "from here"
+
 [TODO: will need a proxy door object in the stirs region than can be examined and will yield the door color and description for the adjacent door - will need to refine the understand clause to get the right color recognized in each place. hope this note still makes sense to me later]
 
 The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are rooms in the Stairwell. The Stairwell is in HQ.	
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
-The printed name of the StairsGround is "Emergency Stairs: Ground Level". 
+The printed name of the StairsGround is "Emergency Stairs: Ground Level". The description of StairsGround is "[stairwellDescription]. To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
 The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
 
-The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level".
+The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The description of StairsBasement is "[stairwellDescription]. To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
 
-The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level".
+The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The description of StairsSB is "[stairwellDescription]. To the south there is a blue door with no label."
 
 The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the basementDoor.
 
@@ -1059,7 +1071,7 @@ To say printedSubBasementDoor:
 			say "blue corridor"
 	
 
-The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level".
+The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The description of StairsSSB is "[stairwellDescription]. To the south there is a red door with no label."
 
 The subSubBasementDoor is a red door. It is north of the Throne Room and south of the StairsSSB.
 
@@ -1067,23 +1079,23 @@ The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the loca
 
 The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] interns[apostrophe] offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
-The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1".
+The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The description of StairsInterns is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
 
 The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineers[apostrophe] offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
-The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2".
+The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The description of StairsEngineers is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
 
 The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managers[apostrophe] offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
-The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3".
+The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The description of StairsManagers is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
 
-The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4".
+The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The description of StairsInfirmary is "[stairwellDescription]. To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
 
 The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printed name of the infirmaryDoor is "pink [shortDoorToThe] infirmary". Understand "pink" or "door" or "infirmary" or "emergency" or "stairs" as the infirmaryDoor
 
-The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4".
+The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". The description of StairsProcessing is "[stairwellDescription]."
 
-The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4".
+The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". The description of StairsPackaging is "[stairwellDescription]."
 
 Instead of going a direction (called the way) when the player is in the StairsPackaging or the player is in the StairsProcessing:
 	if the way is south:
@@ -1091,9 +1103,9 @@ Instead of going a direction (called the way) when the player is in the StairsPa
 	otherwise:
 		continue the action.
 
-The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". 
+The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The description of StairsRoof is "[stairwellDescription]. To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
-The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
+The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "access" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
 
 
 To say printedRoofDoor:
