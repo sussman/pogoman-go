@@ -24,7 +24,7 @@ A prop is a kind of thing. It is usually portable.
 
 Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
-securityColor is a kind of value. The securityColors are black, red, white, green, and blue.
+securityColor is a kind of value. The securityColors are black, red, white, green, pink, and blue.
 
 A door has a securityColor. The securityColor of a door is usually white.
 
@@ -1040,51 +1040,71 @@ The groundDoor is a white door. It is north of the Lobby and south of the Stairs
 
 The printed name of the StairsGround is "Emergency Stairs: Ground Level". 
 
-The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe][if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
+The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
 
 The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level".
 
 The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level".
 
-The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]".
+The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the basementDoor.
 
 To say printedSubBasementDoor:
+	say "blue [shortDoorToThe] ";
 	if the location is the Rick Astley Shrine:
 		say shortEmergencyStairs;
 	otherwise:
-		say shortDoorToThe;
 		if the Rick Astley Shrine is visited:
-			say " the Rick Astley Shrine";
+			say "Rick Astley Shrine";
 		otherwise:
-			say " the blue corridor"
+			say "blue corridor"
 	
 
 The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level".
 
 The subSubBasementDoor is a red door. It is north of the Throne Room and south of the StairsSSB.
 
-The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Throne Room][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" as the subSubBasementDoor.
+The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Throne Room][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" or "subsubbasement" as the subSubBasementDoor.
 
-The internDoor is a black door. It is south of the StairsIntern. The printed name of the internDoor is "black [shortDoorToThe] interns' offices"
+The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] interns[apostrophe] offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
 The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1".
 
-The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineers' offices"
+The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineers[apostrophe] offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
 The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2".
 
-The managersStairs is a black door. It is south of the StairsManagers. The printed name of the managersStairs is "black [shortDoorToThe] managers' offices".
+The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managers[apostrophe] offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
 The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3".
 
 The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4".
 
+The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printed name of the infirmaryDoor is "pink [shortDoorToThe] infirmary". Understand "pink" or "door" or "infirmary" or "emergency" or "stairs" as the infirmaryDoor
+
 The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4".
 
 The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4".
 
-The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access".
+Instead of going a direction (called the way) when the player is in the StairsPackaging or the player is in the StairsProcessing:
+	if the way is south:
+		say "You can[apostrophe]t go that way because there is no door there -- just solid wall.";
+	otherwise:
+		continue the action.
 
+The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". 
+
+The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
+
+
+To say printedRoofDoor:
+	say "white [shortDoorToThe] ";
+	if the location is DeckN:
+		say shortEmergencyStairs;
+	otherwise:
+		if DeckN is visited:
+			say "cafeteria and observation deck";
+		otherwise:
+			say "roof"
 
 
 Section 3 - Deck
@@ -1092,7 +1112,7 @@ Section 3 - Deck
 
 The Deck Area is a region. DeckN, Deck E, DeckS, and DeckW are rooms in the Deck Area. The Deck Area is in HQ.
 
-DeckN is north of StairsRoof. The printed name of DeckN is "Observation Deck, Northern View".
+The printed name of DeckN is "Observation Deck, Northern View".
 
 DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View".
 
@@ -1135,7 +1155,7 @@ Instead of going an earthbound direction when the location is in the Cat Area, s
 
 Section 6 - Cat Layout
 
-The Cat's Beret is down from DeckE. 
+The Cat's Beret is down from DeckS. 
 
 Maintenance Hatch is aft of the Cat's Beret.
 
