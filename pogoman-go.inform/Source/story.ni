@@ -30,6 +30,24 @@ A door has a securityColor. The securityColor of a door is usually white.
 
 A prop has a securityColor. The securityColor of a prop is usually white.
 
+Current floor is a number that varies.
+
+[
+  7 Roof
+  6 Processing 
+  5 Packaging
+  4 Infirmary
+  3 Managers
+  2 Engineers
+  1 Interns
+  0 Ground
+-1 Legal
+-2 Astley Shrine
+-3 Throne Room
+]
+
+
+
 Section 2 - Pogo-Things
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
@@ -1050,6 +1068,9 @@ The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, St
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
+After going north from the lobby for the first time:
+	bestow "Snooping Around".
+
 The printed name of the StairsGround is "Emergency Stairs: Ground Level". The description of StairsGround is "[stairwellDescription]. To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
 The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
@@ -1185,6 +1206,10 @@ Chapter in the Elevator
 
 The Elevator is a room.
 
+Chapter in the Infirmary
+
+The Infirmary is a room. The description of the infirmary is "".
+
 Chapter in the Pod
 
 The MuskPod is a room.
@@ -1309,12 +1334,43 @@ Instead of dropping the badge, say "No. They'll have to peel it from your cold, 
 
 Definition: a door (called the portal) is interdicted if the securityColor of the portal is greater than the securityColor of the badge.
 
-Instead of opening an interdicted door, say "Sorry, not permitted."
+Instead of opening an interdicted door for the first time:
+	say "Your arm immediately goes numb and drops to your side when you touch the stairway door. After a moment, you swing your arm clumsily from the shoulder and sensation slowly returns. When the pins and needles abate, you seem undamaged. Well, no harm, no foul.[paragraph break]";
+	bestow "Misplaced Optimism".
+	
+Instead of opening an interdicted door for the second time:
+	say "When you touch the door, your knees feel wobbly and buckle beneath you. You catch yourself against the wall and manage a controlled descent to the concrete floor, where you sit for a moment. The feeling wears off as quickly as it onset and you are back on your feet in no time. You reason that you shouldn’t have skipped breakfast, the most important meal of the day.[paragraph break]";
+	bestow "Specious Reasoning".
+	
+Instead of opening an interdicted door for the third time:
+	say "The last thing you remember was trying to open the stairway door. You aren’t sure how long you’ve been passed out, but you are glad that there isn’t a lot of traffic on the stairs and that no one saw you. Perhaps you are dehydrated from all the walking you’ve been doing while playing the game.[paragraph break]";
+	bestow "Poor Understanding of Physiology".
+	
+Instead of opening an interdicted door for the fourth time:
+	move the player to the Infirmary;
+	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
+	now the current floor is 4;
+	move the player to the elevator.
+	
+Instead of opening an interdicted door for the fifth time:
+	move the player to the Infirmary;
+	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
+	now the current floor is 4;
+	move the player to the elevator.
 
-
-
-
-
+Instead of opening an interdicted door for the sixth time:
+	move the player to the Infirmary;
+	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
+	bestow "What[apostrophe]s wrong with this picture?";
+	now the current floor is 4;
+	move the player to the elevator.
+	
+Instead of opening an interdicted door:
+	move the player to the Infirmary;
+	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
+	now the current floor is 4;
+	move the player to the elevator.
+	
 
 section 3 - The Salmon of Turpitude
 
@@ -1323,9 +1379,6 @@ The Salmon of Turpitude is a prop in the void. It is proper-named. The descripti
 Instead of eating the Salmon of Turpitude, 
 	say "You are not sure it[apostrophe]s fresh enough to consider as sushi."
 	
-
-	
-
 
 Book 3 - Characters
 
