@@ -22,11 +22,13 @@ Section 1 - General
 
 A prop is a kind of thing. It is usually portable.
 
-Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
+ Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
-securityColor is a kind of value. The securityColors are black, red, white, green, pink, and blue.
+securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple.
 
 A door has a securityColor. The securityColor of a door is usually white.
+
+A prop has a securityColor. The securityColor of a prop is usually white.
 
 Section 2 - Pogo-Things
 
@@ -1044,8 +1046,6 @@ To say stairwellDescription:
 		say "downward ";
 	say "from here"
 
-[TODO: will need a proxy door object in the stirs region than can be examined and will yield the door color and description for the adjacent door - will need to refine the understand clause to get the right color recognized in each place. hope this note still makes sense to me later]
-
 The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are rooms in the Stairwell. The Stairwell is in HQ.	
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
@@ -1297,7 +1297,7 @@ The Void contains a Pogometh-kind called PogoMeth.
 
 section 2 - Badge
 
-The badge is a prop in the void. The description of the badge is "The top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [TEAMCOLOR] number [POGOLEVEL]. "
+The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [TEAMCOLOR] number [POGOLEVEL]. "
 
 Instead of examining the badge for the first time, say "You are pretty sure that Annastasia, the receptionist, had that card in her hand as soon as you walked in and you don[apostrophe]t recall having seen any cameras, so you wonder how the badge was produced -- and so quickly. Ah well, best not to question the technological wizardry that is Nyantech."
 
@@ -1306,6 +1306,12 @@ Instead of dropping the badge for the first time:
 	bestow "Hoarder".
 	
 Instead of dropping the badge, say "No. They'll have to peel it from your cold, dead hands before you[apostrophe]d give it up."
+
+Definition: a door (called the portal) is interdicted if the securityColor of the portal is greater than the securityColor of the badge.
+
+Instead of opening an interdicted door, say "Sorry, not permitted."
+
+
 
 
 
