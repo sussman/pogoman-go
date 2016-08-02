@@ -42,7 +42,7 @@ Current floor is a number that varies.
   1 Interns
   0 Ground
 -1 Legal
--2 Astley Shrine
+-2 Rick Astley Shrine
 -3 Throne Room
 ]
 
@@ -1020,9 +1020,12 @@ The Crawl Space is above the LAN Closet.
 
 [Ground Floor]
 
-The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background."
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]The elevators are to the west and the revolving door back to the street is to the south. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]. A silvery reception desk hovers in the middle of the lobby."
 
-Instead of going east from the Lobby when the walkman is not worn, say "[one of]As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door[or]You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you[stopping]."
+Instead of going east from the Lobby when the walkman is not worn:
+	 say "[one of]As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door[or]You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you[stopping].";
+	bestow "Terrified of a LAN closet".
+
 
 The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." 
 
@@ -1091,22 +1094,21 @@ To say printedSubBasementDoor:
 		otherwise:
 			say "blue corridor"
 	
-
 The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The description of StairsSSB is "[stairwellDescription]. To the south there is a red door with no label."
 
 The subSubBasementDoor is a red door. It is north of the Throne Room and south of the StairsSSB.
 
 The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Throne Room][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" or "subsubbasement" as the subSubBasementDoor.
 
-The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] interns[apostrophe] offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
+The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
 The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The description of StairsInterns is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
 
-The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineers[apostrophe] offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
+The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineering offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
 The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The description of StairsEngineers is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
 
-The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managers[apostrophe] offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
+The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managerial offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
 The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The description of StairsManagers is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
 
@@ -1116,6 +1118,37 @@ The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printe
 
 The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". The description of StairsProcessing is "[stairwellDescription]."
 
+To say shortTwentyFlights:
+	say "about twenty flights of stairs"
+	
+To say shortNoExits:
+	say "without seeing any exits"
+
+After going up from the StairsProcessing:
+	say "You climb [shortTwentyFlights] [shortNoExits] and ";
+	if the walkman is not worn:
+		say "[one of]notice a heavy, grinding noise punctuated by sounds of liquids sloshing and slurping[or]from the walls you hear the sound of industrial machinery -- maybe a tree mulcher[or]you hear maniacal laughter coming from deep within the building. Or maybe it just the plumbing[or]you notice the vibration of heavy machinery[stopping]";
+	say ".";
+	
+After going up from the StairsPackaging:
+	say "You climb [shortTwentyFlights] to the roof level";
+	if the walkman is not worn:
+		say ". [one of]A droning sound fills the air, like the throat-singing of Tibetan monks[or]It sounds like something is scraping against the inner wall[or]You footfalls echo in the empty stairwell[stopping]";
+	say "."
+		
+			
+After going down from the StairsRoof:
+	 say "You descend [shortTwentyFlights] [shortNoExits] and you";
+	if the walkman is not worn:
+		say "[one of]hear the rumble of heavy motors straining against a load[or]think for a moment that you hear someone yelling for help -- but then it is gone[or]notice a repetitive thumping sound coming from the walls[stopping]";
+	say "."
+	
+After going down from the StairsPackaging:
+	say "You descend [shortTwentyFlights] to the infirmary level";
+	if the walkman is not worn:
+		say ". [one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewher in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
+	say "."
+	
 The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". The description of StairsPackaging is "[stairwellDescription]."
 
 Instead of going a direction (called the way) when the player is in the StairsPackaging or the player is in the StairsProcessing:
@@ -1127,7 +1160,6 @@ Instead of going a direction (called the way) when the player is in the StairsPa
 The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The description of StairsRoof is "[stairwellDescription]. To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
 The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "access" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
-
 
 To say printedRoofDoor:
 	say "white [shortDoorToThe] ";
