@@ -46,9 +46,7 @@ Current floor is a number that varies.
 -3 Throne Room
 ]
 
-
-
-Section 2 - Pogo-Things
+Section 3 - Pogo-Things
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -87,12 +85,12 @@ theTime is a number that varies. theTime is 5.
 
 Chapter Rules Modifications
 
-[
+
  For printing a locale paragraph about a door (called the item) 
     (this is the don't mention doors in room descriptions rule): 
     set the locale priority of the item to 0; 
     continue the activity.
-]
+
 
 Chapter Verbs
 
@@ -1170,20 +1168,53 @@ To say printedRoofDoor:
 			say "cafeteria and observation deck";
 		otherwise:
 			say "roof"
+			
+After going south from the stairsRoof for the first time:
+	bestow "Made it to the top".
 
 
 Section 3 - Deck
 
 
-The Deck Area is a region. DeckN, Deck E, DeckS, and DeckW are rooms in the Deck Area. The Deck Area is in HQ.
+The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are rooms in the Deck Area. The Deck Area is in HQ.
 
-The printed name of DeckN is "Observation Deck, Northern View".
+The printed name of DeckN is "Observation Deck, Northern View".  The description of DeckN is "[deckDescription]".
 
-DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View".
+DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View". The description of DeckW is "[deckDescription]".
 
-DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View".
+DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View". The description of DeckS is "[deckDescription]".
 
-DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View". 
+DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".The description of DeckE is "[deckDescription]".
+
+
+To say deckDescription:
+	let L be a list of quadrooms;
+	let M be a list of quadrooms;
+	if the location is:
+		-- deckN:
+			let L be the list of nord quadrooms;
+		-- deckS:
+			let L be the list of sud quadrooms;
+		-- deckE:
+			let L be the list of est quadrooms;
+		-- deckW:
+			let L be the list of ouest quadrooms;
+	sort L in random order;
+	let R be a random number from 3 to 5;
+	repeat with N running from 1 to R:
+		add entry N of L to M;
+	say "From your godlike perspective, you pick out a few recognizable locations below: [M][if the location is DeckS]. The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain[end if].[paragraph break]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant.[paragraph break]The deck continues around to the ";
+	let O be a list of directions;
+	repeat with way running through directions:
+		let place be the room way from the location;
+		if place is a room in the deck area, add the way to O;
+	say "[the O]";
+	if the location is:
+		-- deckN:
+			say ". The door to the emergency stairs is to the south";
+		-- deckS: 
+			say ". The roof-top restaurant is to the north";
+	say "."
 
 
 Section 4 - Cat
