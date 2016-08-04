@@ -30,6 +30,8 @@ A door has a securityColor. The securityColor of a door is usually white.
 
 A prop has a securityColor. The securityColor of a prop is usually white.
 
+A chainItem is a kind of thing. A chainItem can be clipped or unclipped. A chainItem is usually clipped, fixed in place scenery.
+
 Current floor is a number that varies.
 
 [
@@ -988,7 +990,10 @@ HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Ball Pit, Beverages
 
 [Top Level, Interior]
 
-The Cafeteria is north of DeckS.
+The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant.[paragraph break]The elevator is to the west, the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
+
+
+
 
 Snacks is northeast of the Cafeteria.
 
@@ -1186,6 +1191,9 @@ The beretProxyOverhead is a privately-named backdrop in the Deck Area. The print
 
 The hatchProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead when the player is in the Deck Area. The description of the hatchProxyOverhead is "[hatchDescription]".
 
+The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck, preventing accidental falls."
+
+The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
 
 The printed name of DeckN is "Observation Deck, Northern View".  The description of DeckN is "[deckDescription]".
 
@@ -1212,7 +1220,13 @@ To say deckDescription:
 	let R be a random number from 3 to 5;
 	repeat with N running from 1 to R:
 		add entry N of L to M;
-	say "From your godlike perspective, you pick out a few recognizable locations below: [M][if the location is DeckS]. The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain[end if].[paragraph break]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant.[paragraph break]The deck continues around to the ";
+	say "From your godlike perspective, you pick out a few recognizable locations below: [M].[paragraph break]";
+	if the location is DeckS:
+		if the chain is clipped:
+			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
+		otherwise:
+			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
+	say "At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant.[paragraph break]The deck continues around to the ";
 	let O be a list of directions;
 	repeat with way running through directions:
 		let place be the room way from the location;
@@ -1225,6 +1239,64 @@ To say deckDescription:
 			say ". The roof-top restaurant is to the north";
 	say "."
 
+Unclipping is an action applying to one thing. Understand "unclip  [something]"  or "unfasten [something]"  or "detach [something]" or "disconnect [something]" as unclipping.
+
+Check unclipping:
+	if the noun is not the chain:
+		say "It isn[apostrophe]t entirely clear how to do so." instead;
+	otherwise:
+		if the noun is unclipped:
+			say "The [noun] is already unclipped." instead.
+		
+Carry out unclipping:
+	now the noun is unclipped.
+			
+Report unclipping:
+		say "You unclip the [noun].";
+	
+Instead of opening the chain:
+	try unclipping the chain.
+	
+Clipping is an action applying to one thing. Understand "Clip  [something]"  or "fasten [something]"  or "attach [something]" or "connect [something]"  or "reattach [something]" or "reclip [something]" as clipping.
+
+Check clipping:
+	if the noun is not the chain:
+		say "It isn[apostrophe]t entirely clear how to do so." instead;
+	otherwise:
+		if the noun is clipped:
+			say "The [noun] is already clipped." instead.
+			
+Carry out clipping:
+	now the noun is clipped.
+		
+Report clipping:
+	say "You reclip the [noun]."
+	
+Instead of inserting the chain into the railing:
+	try clipping the chain.
+
+Instead of closing the chain:
+	try clipping the chain.
+	
+To say cantJump:
+	say "You are unable to climb over the railing here."
+	
+Instead of jumping when the player is in the Deck Area:
+	if the player is in DeckS:
+		if the chain is clipped:
+			say "Fortunately, the chain prevents you from taking any such foolish action.";
+		otherwise:
+			if the  securityColor of the badge is less than blue:
+				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
+				now the chain is clipped;
+			otherwise:
+				say "TODO - jump to CAT";
+	otherwise:
+		say cantJump
+		
+Instead of climbing the railing when the player is in the deck area:
+	say cantJump.	
+
 
 Section 4 - Cat
 
@@ -1232,7 +1304,7 @@ Section 4 - Cat
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
 
 To say hatchDescription:
-	say "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if open]open[otherwise]sealed[end if]."
+	say "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]."
 
 
 Section 5 - Cat Navigation
@@ -1267,11 +1339,13 @@ The Cat's Beret is down from DeckS.
 
 Maintenance Hatch is aft of the Cat's Beret.
 
+The hatchway is a door. It is down from the Maintenance Hatch. Understand "hatch" as the hatchway when the player is in the Cat Area. The description of the hatchway is "[hatchDescription]". The hatchway is closed.
+
 Catwalk is aft of the Maintenance Hatch.
 
 Poop Deck is aft of The Catwalk.
 
-The Captain's Cabin is down from Maintenance Hatch.
+The Captain's Cabin is down from the hatchway.
 
 Gantry Chamber is aft from The Captain's Cabin. 
 
