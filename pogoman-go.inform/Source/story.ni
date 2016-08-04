@@ -1171,12 +1171,21 @@ To say printedRoofDoor:
 			
 After going south from the stairsRoof for the first time:
 	bestow "Made it to the top".
-
+	
 
 Section 3 - Deck
 
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are rooms in the Deck Area. The Deck Area is in HQ.
+
+[in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
+
+The catProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or "gantry" or "boom" or "vessel" or "eyes" or "tail" as the catProxyOverhead when the player is in the Deck Area. The description of the catProxyOverhead is "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail."
+
+The beretProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead when the player is in the Deck Area. The description of the beretProxyOverhead is "From the ground, it looks like a felt beret, but from up here the fabric looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber."
+
+The hatchProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead when the player is in the Deck Area. The description of the hatchProxyOverhead is "[hatchDescription]".
+
 
 The printed name of DeckN is "Observation Deck, Northern View".  The description of DeckN is "[deckDescription]".
 
@@ -1221,6 +1230,9 @@ Section 4 - Cat
 
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
+
+To say hatchDescription:
+	say "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if open]open[otherwise]sealed[end if]."
 
 
 Section 5 - Cat Navigation
