@@ -992,7 +992,7 @@ HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, 
 
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant.[paragraph break]The elevator is to the west, the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
 
-The employees are persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
+The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
 
 The data monocle is part of the employees. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." Understand "monocles" as the data monocle. 
 
@@ -1014,7 +1014,51 @@ Instead of taking the nose:
 	
 Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
 
-The visitors are persons in the cafeteria.
+The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level-twenty pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
+
+The badges are part of the visitors. Understand "green" or "blue" or "black" or "white" or "colors" or "badge" as the badges when the player is in the cafeteria. The description of the badges is "Badges just like yours, most of them white, some of them green or blue with a white bar. The employee badges are all black with a white bar."
+
+Talking to is an action applying to one thing. Understand "talk to/at/with [something]" as talking to.
+
+Check talking to:
+	if the noun is not a person:
+		say "Talking to inanimate objects is odd, but not socially unacceptable for a Pogoman Go! player." instead.
+			
+Carry out talking to:
+	say "You chat with [the noun]."
+	
+[TODO: override talking with customized response for each person]
+
+Instead of asking someone (called the auditor) about some topic:
+	try talking to the auditor instead.
+	
+Instead of telling someone (called the auditor) about some topic:
+	try talking to the auditor instead.
+	
+To ignore is a verb.
+
+Instead of showing something (called the item) to someone (called the auditor):
+	say "[The auditor] [ignore] you. TODO: exceptions such as showing the phone to the unicorn. Also, need to cover Giving To."
+	
+Instead of talking to something (called the auditor):
+	if the auditor is:		
+		-- employees:
+			say employeeRant;
+		-- visitors:
+			say visitorRebuff;
+		-- yourself:
+			say "[one of]You mumble to yourself[or]That[apostrophe]s mildly worrisome[or]Every pogoman player starts doing it at some point; no reason to feel self-conscious[or]Receiving no answer, you desist[or]You ignore yourself[stopping]." instead;
+		-- otherwise:
+			say "TODO: dialogue for unicorn and others".
+			
+To say employeeRant:
+	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of]Hello, $identity[bracket]player[bracket][TEAMCOLOR][close bracket][bracket][POGOLEVEL][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)[or]Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social discourse[or]TODO: Expand[stopping].[quotation mark][paragraph break]".
+		
+	
+To say visitorRebuff:
+	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh[quotation mark][or]The players continue tapping away at their phones, ignoring you[stopping]."
+
+
 
 Snacks is northeast of the Cafeteria.
 
