@@ -32,6 +32,12 @@ A prop has a securityColor. The securityColor of a prop is usually white.
 
 A chainItem is a kind of thing. A chainItem can be clipped or unclipped. A chainItem is usually clipped, fixed in place scenery.
 
+Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, apple, cranberry, chocolate, licorice, pumpkin, pine-nut, pesto, liver, watermelon, apricot, teriyaki, chutney, fudge, tiramisu, and cinnamon.
+
+A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry is usually blueberry. [because I like blueberry pastries.]
+
+The saveur du jour is a flavor that varies. 
+
 Current floor is a number that varies.
 
 [
@@ -349,6 +355,7 @@ When play begins:
 	now timesTarred is zero;
 	now timesRailroaded is zero;
 	now the player carries the phone;
+	now the saveur du jour is a random flavor;
 	ShowStatus;
 	move the player to a random okayStartLocation, without printing a room description;
 	openGame.
@@ -1058,9 +1065,71 @@ To say employeeRant:
 To say visitorRebuff:
 	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh[quotation mark][or]The players continue tapping away at their phones, ignoring you[stopping]."
 
+Snacks is northeast of the Cafeteria. The description of Snacks is "A poster above a table advertises every kind of pop-tart known to man, all of them glazed and sprinkled: strawberry, blueberry, raspberry, apple, chocolate, cranberry, and many more. Just above the table is a metal chute, which projects just a bit from the wall."
 
+The poster is scenery in Snacks. The description of the poster is "A glossy advertisement dominated by a colorful assortment of pop-tarts above the slogan [quotation mark]SmartPastries for SmartPeople![quotation mark]."
 
-Snacks is northeast of the Cafeteria.
+The table is a scenery supporter in Snacks. The description of the table is "A rustic table positioned directly below the metal slot in the wall." Understand "rustic" as the table.
+
+The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
+
+A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [saveur du jour]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+
+Understand "strawberry" as the pop-tart when the saveur du jour is strawberry.
+Understand "blueberry" as the pop-tart when the saveur du jour is blueberry.
+Understand "raspberry" as the pop-tart when the saveur du jour is raspberry.
+Understand "apple" as the pop-tart when the saveur du jour is apple.
+Understand "cranberry" as the pop-tart when the saveur du jour is cranberry.
+Understand "chocolate" as the pop-tart when the saveur du jour is chocolate.
+Understand "licorice" as the pop-tart when the saveur du jour is licorice.
+Understand "pumpkin" as the pop-tart when the saveur du jour is pumpkin.
+Understand "pine-nut" as the pop-tart when the saveur du jour is pine-nut.
+Understand "pesto" as the pop-tart when the saveur du jour is pesto.
+Understand "liver" as the pop-tart when the saveur du jour is liver.
+Understand "watermelon" as the pop-tart when the saveur du jour is watermelon.
+Understand "apricot" as the pop-tart when the saveur du jour is apricot.
+Understand "teriyaki" as the pop-tart when the saveur du jour is teriyaki.
+Understand "chutney" as the pop-tart when the saveur du jour is chutney.
+Understand "fudge" as the pop-tart when the saveur du jour is fudge.
+Understand "tiramisu" as the pop-tart when the saveur du jour is tiramisu.
+Understand "cinnamon" as the pop-tart when the saveur du jour is cinnamon.
+		
+Instead of pushing the pop-tart, say "Futile. You push, it pops back immediately."
+
+To newPopTart:
+	now the saveur du jour is a random flavor;
+	move the pop-tart to the table;
+	if the player is in Snacks:
+		say "A piping hot, fresh [saveur du jour]-flavored pop-tart drops from the chute onto the table."
+
+After eating a pop-tart for the first time:
+	say "You feel young and full of energy![paragraph break]";
+	bestow "Energized";
+	newPopTart.
+	
+After eating a pop-tart for the second time: 
+	say "You’re pretty full and riding a sugar buzz.[paragraph break]";
+	bestow "Stoked";
+	newPopTart.
+	
+After eating a pop-tart for the third time:
+	say "After snarfing down the pop-tart, you’re kind of vibrating. Also, your left eye is getting blurry.[paragraph break]";
+	bestow "What doesn[apostrophe]t kill you makes you stronger";
+	newPopTart.
+	
+After eating a pop-tart for the fourth time:
+	move the player to the infirmary;
+	say "You wake up with a pounding headache as a nurse withdraws a hypodermic syringe from your flank.[paragraph break][quotation mark]That should do it,[quotation mark] she says as she clips off the needle and throws the syringe and a few used bottles of insulin into a bag marked biomedical waste.[paragraph break]You are still rubbing the sore spot on your side as she signs off on the paperwork and stuffs you into an elevator.[paragraph break]";
+	now the current floor is 4;
+	move the player to the elevator;
+	bestow "Pancreatic Endocrine Capacity Exceeded";
+	newPopTart.
+	
+After eating a pop-tart:
+	say "After vivid dreams involving [one of]intelligent sessile polyps capable of taking over people[apostrophe]s minds[or]worship of a tiki god[or]the political aspirations of the three little pigs[or]giant cooing pigeons[or]swimming against the pull of a voracious whirlpool[or]a Pink Floyd tribute band consisting of the original cast of The Wizard of Oz[or]going bowling with Steve Jobs[or]the endless void[stopping], you awaken in the cafeteria.[paragraph break]No one really pays you any attention, but you notice that several hours have passed.";
+	move the player to the cafeteria;
+	newPopTart.
+
 
 Beverages is northwest of the Cafeteria.
 
