@@ -322,8 +322,6 @@ To ShowStatus:
 
 Chapter Not Ready For Prime Time - Not for release
 
-
-
 Summarizing is an action out of world. Understand "summary" as summarizing.
 
 Report summarizing:
@@ -1195,9 +1193,71 @@ The LAN Closet is east of the Lobby.
 
 [Basement]
 
-The description of Legal Department is "Legal Department placeholder text."
+The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop. A plastic wall clock hangs on the wall behind the desk; its second hand clicks quietly along.[paragraph break]To the north is the exit to the emergency stairs, the elevator is to the west, and to the south is a white door marked [quotation mark]Testing.[quotation mark]".
 
-Cousteau Room is south of Legal Department.
+The remoteDoor is a privately-named locked white door. The remoteDoor is south of Legal Department. The printed name of the remoteDoor is "white door". Understand "white" or "door" or "testing" as the remoteDoor. The description of the remoteDoor is "[if the remoteDoor is open]An open[otherwise]A closed[end if] white door marked [quotation mark]Testing[quotation mark]."
+
+The walnut paneling is scenery in the Legal Department. The description of the walnut paneling is "Not the cheap plywood kind, this is full thickness walnut."
+
+The wainscot is scenery in the Legal Department. The description of the wainscot is "The dark green wainscoting around the base of the walls gives the room a finished look."
+
+The grey rug is scenery in the Legal Department. The description of the grey rug is "The dark grey connotes professionalism."
+
+The mahogany desk is a supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen."
+
+The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the remoteDoor is locked]Nyantech, Inc.[line break]Legal Division[paragraph break]Beta-Tester Agreement[paragraph break]By touching [quotation mark]agree[quotation mark], the user agrees to be held bound by all provisions of this agreement.[paragraph break]TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[otherwise][congrats][end if]". Understand "display" as the computer screen.
+
+agreeProxy is a privately-named scenery in Legal Department. The printed name of the agreeProxy is "AGREE". The description of the agreeProxy is "The word AGREE glows intensely on the screen." Understand "agree" as the agreeProxy.
+
+Instead of doing something other than examining or touching with the agreeProxy:
+	say "The screen does not respond."
+	
+termsProxy is a privately-named scenery in Legal Department. The printed name of the termsProxy is "TERMS". The description of the termsProxy is "The word [quotation mark]TERMS[quotation mark] glows a bit dimmer than the word [quotation mark]AGREE[quotation mark] as if to convey its conviction that reading the terms won[apostrophe]t really do much for you, but would be something of an inconvenience for the computer."  Understand "terms" as the termsProxy.
+
+Instead of doing something other than examining or touching with the termsProxy:
+	say "The screen does not respond."
+	
+Instead of touching termsProxy:
+	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2].[quotation mark][paragraph break]"
+	
+To say terms1:
+	say "[one of]waiver of liability[or]agreement to hold harmless[or]notwithstanding previous claims to the so-called inalienable rights of man[or]lack of human subject protections[or]no warrantee of fitness of purpose[or]threats to personal safety and sanity[or]or however unpleasant they may be[or]unthinkable consequences[or]mere mortality[or]enslavement or imprisonment[or]organ atrophy or dysfunction[or]implosion or inversion[or]voids all provisions of the Declaration of Helsinki[or]hideous side-effects[or]unpredictable losses[or]whether self-inflicted or intentional[or]safe delivery of neither body or soul[or]hunting or being hunted[or]including but not limited to mutilation[or]nocturnal, tentacled, bat-winged monster dwelling[or]indemnity against corporal mental compulsion or control[or]all forms of torture both physical and mental[or]including supernatural events[or]no guarantee of restitution or redress[or]science must supercede those of the individual[or]perfidious propensity towards debasement and ruin[in random order]".
+	
+To say terms2:
+	say "[one of]repatriation of remains (if they can be located)[or]despite all reasonable precautions[or]so-called supernatural forces[or]surviving assets will be conceded to Nyantech[or]implicit lack of good faith[or]or bearing the mark upon its forehead[or]exclusive and perpetual powers over the subject[or]unjustly or indecently committed against the wishes of the accused[or]through such agents as may be conjured[or]without expectation of compensation for mental or physical duress[or]entirely volunteer basis without expectation of remuneration[or]against all foreseeable loss or injury[or]breach will be punishable by excruciating[or]inflicted in the case of violation of any of these terms[or]under no obligation to protect the subject[or]such penalties including evisceration[or]specimens including bodily fluids[or]agrees not to transfer, copy, disclose, provide or otherwise make available[or]to make, use, copy, modify, sell, distribute[or]disciplined in the event of failure[or]in the unfortunate event of failure[or]the mewling pleas of the masses[or]much like an ant might be crushed beneath the heel[in random order]".
+	
+To say congrats:
+	say "[quotation mark]Congratulations, you have been provisionally accepted as beta-tester for the next generation of Nyantech technology. Successful completion of a series of tests of ingenuity and character are required to graduate from probationary status to full beta-tester. These tests have now begun.[quotation mark]".
+
+Instead of touching the agreeProxy:
+	say "A brief fanfare plays and the screen clears, displaying the following:[paragraph break][congrats][paragraph break]";
+	now the remoteDoor is unlocked;
+	move the agreeProxy to the void;
+	move the termsProxy to the void;
+	bestow "Provisional Beta-Tester".
+
+The plastic wall clock is a prop in the Legal Department. The description of the plastic wall clock is "A cheap plastic wall clock with a second hand. It ticks quietly."
+
+The battery compartment is a container. The battery compartment is part of the plastic wall clock.
+
+The batteries are in the battery compartment.
+
+The ergonomic chair is a supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters."
+
+
+
+
+
+
+
+
+
+
+Training is south of the remoteDoor. 
+
+The cousteauDoor is a privately-named locked green door. CousteauDoor is south of Training. The printed name of cousteauDoor is "green door". Understand "green" or "door" as the cousteauDoor.
+
+Cousteau Room is south of cousteauDoor.
 
 The wetsuit is in the cousteau room. The wetsuit is wearable.
 
@@ -1679,7 +1739,7 @@ The Void contains a Pogometh-kind called PogoMeth.
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [TEAMCOLOR] number [POGOLEVEL]. "
+The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [TEAMCOLOR] number [POGOLEVEL]."
 
 Instead of examining the badge for the first time, say "You are pretty sure that Annastasia, the receptionist, had that card in her hand as soon as you walked in and you don[apostrophe]t recall having seen any cameras, so you wonder how the badge was produced -- and so quickly. Ah well, best not to question the technological wizardry that is Nyantech."
 
