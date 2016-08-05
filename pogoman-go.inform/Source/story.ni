@@ -38,7 +38,11 @@ A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry
 
 The saveur du jour is a flavor that varies. 
 
+A pop is a kind of thing. It is usually scenery.
+
 Current floor is a number that varies.
+
+
 
 [
   7 Roof
@@ -1130,8 +1134,37 @@ After eating a pop-tart:
 	move the player to the cafeteria;
 	newPopTart.
 
+Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with coke, sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if].[paragraph break]The cafeteria is just to the southeast."
 
-Beverages is northwest of the Cafeteria.
+The soda fountain is scenery in Beverages. The description of soda fountain is "The soda fountain can dispense coke, sprite, or root beer."
+
+The dispenser is scenery in Beverages. The description of dispenser is "The dispenser is filled with icy lemonade on one side, and iced tea on the other."
+
+The root beer is pop in Beverages. The description of root beer is "A cold, frothy brown soft drink with sassafras overtones." 
+
+The sprite is pop in Beverages. The description of sprite is "A refreshing, light, citrus-flavored soft drink."
+
+The coke is pop in Beverages. The description of coke is "A dark, sweet beverage with a touch of acidity."
+
+The lemonade is pop in Beverages. The description of lemonade is "A balance between sweet and sour; perfect on a hot day."
+
+The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
+
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of kool-aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "chalice" as Kool-Aid. Understand "koolaid" as kool-aid.
+
+Before taking or drinking a pop (called the liquid):
+	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
+		say "You taste the Kool-Aid skeptically at first, but after the first sip, you can’t get enough of it and you gulp it down.[paragraph break]Suddenly, everything makes sense. Colors are sharper and life more meaningful. At once, you understand the central role that Nyantech plays in the greater universe, and see how everything -- the internet, cell phones, geodata, and gaming -- come together harmoniously to fulfill a vision greater than any of Man’s historical aspirations. You are humbled before a vision of global unity of purpose.[paragraph break]Also, your badge turns green except for a bar of white.[paragraph break]";
+		move the Kool-Aid to the void;
+		now the securityColor of the badge is green;
+		bestow "Privilege Escalated";
+		the rule succeeds;
+	otherwise:
+		say "You [one of]enjoy a frosty[or]slug down an icy[or]drink a refreshing[at random] glass of [liquid].";
+		the rule succeeds.
+	
+After going southeast from beverages when the securityColor of the badge is green for the first time:
+	say "As you emerge from the beverage room, kool-aid dripping from your lips, one of the employees looks over towards you conspiratorily and gives you a little salute before returning to a trance-like state."
 
 [Conduit Space Above Ground Floor]
 
