@@ -986,26 +986,15 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Ball Pit, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
 
 [Top Level, Interior]
 
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant.[paragraph break]The elevator is to the west, the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
 
-
-
-
 Snacks is northeast of the Cafeteria.
 
 Beverages is northwest of the Cafeteria.
-
-Ball Pit is east of the Cafeteria.
-
-BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
-
-BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
-
-BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "Near The Bottom Of The Ball Pit".
 
 [Conduit Space Above Ground Floor]
 
@@ -1040,6 +1029,8 @@ The description of Legal Department is "Legal Department placeholder text."
 
 Cousteau Room is south of Legal Department.
 
+The wetsuit is in the cousteau room.
+
 [Sub-Basement]
 
 The walkman is a prop in the Rick Astley Shrine.
@@ -1047,10 +1038,47 @@ The walkman is a prop in the Rick Astley Shrine.
 [Sub-Sub-Basement]
 
 The description of the Throne Room is "Throne Room placeholder text".
-
+  
 MuskTube Station is down from Throne Room.
 
-Section 2 - Stairwell
+section 2 - Ball Pit
+
+The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
+
+Ball Pit is east of the Cafeteria.
+
+BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
+
+BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
+
+BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "Near The Bottom Of The Ball Pit".
+
+After going east from the Cafeteria for the first time:
+	say "As you step over the threshold, you fall immediately into a giant pit filled with small rubber balls of every color. You panic as you sink into the pit and your uncoordinated thrashing just buries you deeper. You pass several other pit explorers and take an elbow to the jaw before you catch on to the trick of swimming through the balls. Eventually you make it to the top and hang on to the edge of the pit.";
+	
+After going east from the Cafeteria:
+	say "You are adrift in a pit, filled with small rubber balls."
+	
+Swimming is an action applying to nothing. Understand "swim" as swimming.
+
+Check swimming:
+	if the player is not in the BallPit Area:
+		say "You make vaguely swimming motions, but don[apostrophe]t seem to be getting anywhere." instead.
+		
+Report swimming:
+	if the player is in the Ball Pit:
+		say "You swim around in the sea of rubber balls. You [one of ]are getting quite good at it, in fact[or]seem to be a natural[or]find it relaxing[or]consider having one of these installed in your own house[or]take a few laps around the pit[in random order].";
+	otherwise:
+		say "You swim through a mass of rubber balls."
+	
+The ballObject is a privately-named backdrop in the BallPit Area. The printed name of ballObject is "ball". The description of the ballObject is "Glossy, supple, and slippery balls of every color." Understand "ball" or "balls" as the ballObject.
+
+Before taking ballObject:
+	say "The more you tighten your grip, the more balls slip through your fingers." instead. [Unless the ball is Alderaan, in which case it is bad news for that particular ball.]
+
+
+
+Section 3 - Stairwell
 
 To say shortEmergencyStairs:
 	say "emergency stairs"
@@ -1178,7 +1206,7 @@ After going south from the stairsRoof for the first time:
 	bestow "Made it to the top".
 	
 
-Section 3 - Deck
+Section 4 - Deck
 
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are rooms in the Deck Area. The Deck Area is in HQ.
@@ -1298,7 +1326,7 @@ Instead of climbing the railing when the player is in the deck area:
 	say cantJump.	
 
 
-Section 4 - Cat
+Section 5 - Cat
 
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
@@ -1307,7 +1335,7 @@ To say hatchDescription:
 	say "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]."
 
 
-Section 5 - Cat Navigation
+Section 6 - Cat Navigation
 
 [Based on Recipe 42: Example Fore]
 
@@ -1333,7 +1361,7 @@ Instead of going a nautical direction when the location is not in the Cat Area, 
 
 Instead of going an earthbound direction when the location is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]."
 
-Section 6 - Cat Layout
+Section 7 - Cat Layout
 
 The Cat's Beret is down from DeckS. 
 
