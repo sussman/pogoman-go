@@ -992,6 +992,30 @@ HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, 
 
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant.[paragraph break]The elevator is to the west, the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
 
+The employees are persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
+
+The data monocle is part of the employees. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." Understand "monocles" as the data monocle. 
+
+Instead of taking the data monocle for the first time:
+	say "The data monocle seems attached to the employee’s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]";
+	bestow "Rude".
+	
+Instead of taking the data monocle:
+	say "You might as well try to take the employees nose -- the monocle seems to be physically implanted."
+	
+The nose is part of the employees. The description of nose is "A facial protuberance which filter and humidifies air before it enters the upper respiratory system. But that's not important right now."
+
+Instead of taking the nose for the first time:
+	say "Predictably, that doesn[apostrophe]t work.[paragraph break]";
+	bestow "Literal".
+	
+Instead of taking the nose:
+	say "Yech."
+	
+Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
+
+The visitors are persons in the cafeteria.
+
 Snacks is northeast of the Cafeteria.
 
 Beverages is northwest of the Cafeteria.
@@ -1029,11 +1053,11 @@ The description of Legal Department is "Legal Department placeholder text."
 
 Cousteau Room is south of Legal Department.
 
-The wetsuit is in the cousteau room.
+The wetsuit is in the cousteau room. The wetsuit is wearable.
 
 [Sub-Basement]
 
-The walkman is a prop in the Rick Astley Shrine.
+The walkman is a prop in the Rick Astley Shrine. The walkman is wearable.
 
 [Sub-Sub-Basement]
 
@@ -1076,7 +1100,17 @@ The ballObject is a privately-named backdrop in the BallPit Area. The printed na
 Before taking ballObject:
 	say "The more you tighten your grip, the more balls slip through your fingers." instead. [Unless the ball is Alderaan, in which case it is bad news for that particular ball.]
 
+Diving is an action applying to nothing. Understand "dive" or "sink" or "descend" as diving.
 
+Check Diving:
+	try going down instead.
+	
+Instead of going down from the ball pit:
+	if the wetsuit is worn by the player:
+		say "TODO: wetsuit worn.";
+		continue the action;
+	otherwise:
+		say "You hold your breath and dive down, swimming until your lungs are on the verge of bursting, but still don’t reach the bottom. Now panicking for air, you shoot back to the surface, gasping."
 
 Section 3 - Stairwell
 
