@@ -24,7 +24,7 @@ A prop is a kind of thing. It is usually portable.
 
  Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
-securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple.
+securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
 
 A door has a securityColor. The securityColor of a door is usually white.
 
@@ -39,6 +39,8 @@ A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry
 The saveur du jour is a flavor that varies. 
 
 A pop is a kind of thing. It is usually scenery.
+
+An electrochemical cell is a kind of prop. Electrochemical cells can be discharged. Electrochemical cells are usually discharged.
 
 Current floor is a number that varies.
 
@@ -326,6 +328,18 @@ Summarizing is an action out of world. Understand "summary" as summarizing.
 
 Report summarizing:
 	say "Summary ... more pending"
+	
+Badgifying is an action applying to nothing. Understand "badgify" as badgifying.
+
+Carry out badgifying:
+	let L be the list of securityColors;
+	while entry 1 of L is not the securityColor of the badge:
+		rotate L backwards;
+	rotate L backwards;
+	now the securityColor of the badge is entry 1 of L.
+
+Report badgifying:
+	say "Badge color: [securityColor of the badge]."
 
 Section GettingXP
 
@@ -1193,9 +1207,9 @@ The LAN Closet is east of the Lobby.
 
 [Basement]
 
-The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop. A plastic wall clock hangs on the wall behind the desk; its second hand clicks quietly along.[paragraph break]To the north is the exit to the emergency stairs, the elevator is to the west, and to the south is a white door marked [quotation mark]Testing.[quotation mark]".
+The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop.[paragraph break]To the north is the exit to the emergency stairs, the elevator is to the west, and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
-The remoteDoor is a privately-named locked white door. The remoteDoor is south of Legal Department. The printed name of the remoteDoor is "white door". Understand "white" or "door" or "testing" as the remoteDoor. The description of the remoteDoor is "[if the remoteDoor is open]An open[otherwise]A closed[end if] white door marked [quotation mark]Testing[quotation mark]."
+The Beta Testing Door is a closed locked door. The Beta Testing Door is south of Legal Department. Understand "grey" or "door" as the beta testing door. The description of the beta testing door is "[if the Beta Testing Door is open]An open[otherwise]A closed[end if] grey door marked [quotation mark]Beta Testing[quotation mark]."
 
 The walnut paneling is scenery in the Legal Department. The description of the walnut paneling is "Not the cheap plywood kind, this is full thickness walnut."
 
@@ -1203,19 +1217,29 @@ The wainscot is scenery in the Legal Department. The description of the wainscot
 
 The grey rug is scenery in the Legal Department. The description of the grey rug is "The dark grey connotes professionalism."
 
-The mahogany desk is a supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen."
+The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side."
 
-The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the remoteDoor is locked]Nyantech, Inc.[line break]Legal Division[paragraph break]Beta-Tester Agreement[paragraph break]By touching [quotation mark]agree[quotation mark], the user agrees to be held bound by all provisions of this agreement.[paragraph break]TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[otherwise][congrats][end if]". Understand "display" as the computer screen.
+The drawer is an openable closed container. The drawer is part of the desk. The description of the drawer is "A sliding drawer."
+
+After opening the drawer:
+	say "The draw slides out and reveals that it contains ";
+	list the contents of the drawer, as a sentence;
+	say "."
+
+The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the Beta Testing Door is locked]Nyantech, Inc.[line break]Legal Division[paragraph break]Beta-Tester Agreement[paragraph break]By touching [quotation mark]agree[quotation mark], the user agrees to be held bound by all provisions of this agreement.[paragraph break]TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[otherwise][welcomeTester][end if]". Understand "display" as the computer screen.
 
 agreeProxy is a privately-named scenery in Legal Department. The printed name of the agreeProxy is "AGREE". The description of the agreeProxy is "The word AGREE glows intensely on the screen." Understand "agree" as the agreeProxy.
 
-Instead of doing something other than examining or touching with the agreeProxy:
+To say noScreenResponse:
 	say "The screen does not respond."
+
+Instead of doing something other than examining or touching with the agreeProxy:
+	say "[noScreenResponse]".
 	
 termsProxy is a privately-named scenery in Legal Department. The printed name of the termsProxy is "TERMS". The description of the termsProxy is "The word [quotation mark]TERMS[quotation mark] glows a bit dimmer than the word [quotation mark]AGREE[quotation mark] as if to convey its conviction that reading the terms won[apostrophe]t really do much for you, but would be something of an inconvenience for the computer."  Understand "terms" as the termsProxy.
 
 Instead of doing something other than examining or touching with the termsProxy:
-	say "The screen does not respond."
+	say "[noScreenResponse]".
 	
 Instead of touching termsProxy:
 	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2].[quotation mark][paragraph break]"
@@ -1226,38 +1250,71 @@ To say terms1:
 To say terms2:
 	say "[one of]repatriation of remains (if they can be located)[or]despite all reasonable precautions[or]so-called supernatural forces[or]surviving assets will be conceded to Nyantech[or]implicit lack of good faith[or]or bearing the mark upon its forehead[or]exclusive and perpetual powers over the subject[or]unjustly or indecently committed against the wishes of the accused[or]through such agents as may be conjured[or]without expectation of compensation for mental or physical duress[or]entirely volunteer basis without expectation of remuneration[or]against all foreseeable loss or injury[or]breach will be punishable by excruciating[or]inflicted in the case of violation of any of these terms[or]under no obligation to protect the subject[or]such penalties including evisceration[or]specimens including bodily fluids[or]agrees not to transfer, copy, disclose, provide or otherwise make available[or]to make, use, copy, modify, sell, distribute[or]disciplined in the event of failure[or]in the unfortunate event of failure[or]the mewling pleas of the masses[or]much like an ant might be crushed beneath the heel[in random order]".
 	
-To say congrats:
-	say "[quotation mark]Congratulations, you have been provisionally accepted as beta-tester for the next generation of Nyantech technology. Successful completion of a series of tests of ingenuity and character are required to graduate from probationary status to full beta-tester. These tests have now begun.[quotation mark]".
+To say welcomeTester:
+	say "[quotation mark]You have been provisionally accepted as beta-tester for the next generation of Nyantech technology. Successful completion of a series of tests of ingenuity and character are required to graduate from probationary status to full beta-tester. These tests have now begun.[quotation mark]".
 
 Instead of touching the agreeProxy:
-	say "A brief fanfare plays and the screen clears, displaying the following:[paragraph break][congrats][paragraph break]";
-	now the remoteDoor is unlocked;
+	say "A brief fanfare plays and the screen clears, displaying the following:[paragraph break][welcomeTester][paragraph break]There is a clicking noise from the grey door to the south.";
+	now the Beta Testing Door is unlocked;
 	move the agreeProxy to the void;
 	move the termsProxy to the void;
 	bestow "Provisional Beta-Tester".
 
-The plastic wall clock is a prop in the Legal Department. The description of the plastic wall clock is "A cheap plastic wall clock with a second hand. It ticks quietly."
+The plastic wall clock is a prop. The plastic wall clock is on the office wall. The description of the plastic wall clock is "[if the plastic wall clock has been held]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there is a knob to set the time and a recess that holds the batteries[otherwise]A cheap plastic wall clock with a second hand[end if][if not discharged electrochemical cells are in the recess]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic wall clock.
 
-The battery compartment is a container. The battery compartment is part of the plastic wall clock.
+The recess is an open container. The recess is part of the plastic wall clock. The description of the recess is "[If electrochemical cells are in the recess]Batteries have been inserted into the[otherwise]A shallow[end if] recess molded into the back side of the clock to retain AA batteries."
 
-The batteries are in the battery compartment.
+The corroded batteries are discharged electrochemical cells. The description of the corroded batteries is "Disgusting, rusted old batteries."
 
-The ergonomic chair is a supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters."
+The fresh batteries are electrochemical cells.  The fresh batteries are in the recess. The fresh batteries are not discharged. The description of the fresh batteries is "Shiny new batteries."
+
+After taking the fresh batteries for the first time:
+	say "You pluck some working AA batteries out of the clock."
+
+The office wall is a scenery supporter in the Legal Department. The description of the office wall is "Rich wooden paneling above green wainscotting."
+
+The ergonomic chair is a scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters."
+
+Welcome to Beta Testing is south of the Beta Testing Door. 
+
+The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment."
+
+The battery compartment is an closed openable container. The battery compartment is part of the remote. The description of the battery compartment is "[batteryCompartmentDescription]".  Understand "garage" as the remote.
+
+To say batteryCompartmentDescription:
+	if the battery compartment is open:
+		if the battery compartment contains an electrochemical cell:
+			say "The compartment contains some ";
+		otherwise:
+			say "An empty compartment for ";
+		say "AA batteries.";
+	otherwise:
+		say "A closed battery compartment."
+
+The button is part of the remote. The description of the button is "A white plastic button." Understand "white" or "plastic" as the button.
+
+After pushing the button:
+	say "The LED on the remote flickers briefly";
+	if the player is in Welcome to Beta Testing:
+		say "The Cousteau Room's metal door ";
+		if the Cousteau Door is closed:
+			say "retracts into the ceiling.";
+			now the Cousteau Door is open;
+		otherwise:
+			say "descends from the ceiling and locks in place.";
+			now the Cousteau Door is closed.
+	
+Instead of opening or closing the Cousteau Door:
+	say "There are no handles on the door, and it appears that the door is not designed to be operated manually."
+
+The LED is a thing. The LED is part of the remote. The description of the LED is "A rectangular red indicator light, which is not illuminated." Understand "indicator" or "light" as the LED.
 
 
 
 
+The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position."
 
-
-
-
-
-
-Training is south of the remoteDoor. 
-
-The cousteauDoor is a privately-named locked green door. CousteauDoor is south of Training. The printed name of cousteauDoor is "green door". Understand "green" or "door" as the cousteauDoor.
-
-Cousteau Room is south of cousteauDoor.
+Cousteau Room is south of the Cousteau Door. 
 
 The wetsuit is in the cousteau room. The wetsuit is wearable.
 
