@@ -40,8 +40,6 @@ The saveur du jour is a flavor that varies.
 
 A pop is a kind of thing. It is usually scenery.
 
-An electrochemical cell is a kind of prop. Electrochemical cells can be discharged. Electrochemical cells are usually discharged.
-
 Current floor is a number that varies.
 
 
@@ -762,9 +760,11 @@ proxy-Cyclorama is a privately-named structure proxy-scenery in Cyclorama. The p
 The description of Biocontainment Facility is "[bioConDescription]".
 
 To say bioConDescription:
-	if the location is unvisited, say "You are vaguely aware that something isn’t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There’s something wrong with them, but you can’t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break]";
-	say "The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don’t seem to notice folks playing pogoman.[paragraph break]";
-	if the location is unvisited, bestow "Just One of the Boys".
+	if the Biocontainment Facility is unvisited, say "You are vaguely aware that something isn’t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There’s something wrong with them, but you can’t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break]";
+	say "The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don’t seem to notice folks playing pogoman.";
+	if the Biocontainment Facility is unvisited:
+		say line break;
+		bestow "Just One of the Boys".
 
 proxy-zombie is a privately-named structure proxy-scenery in Biocontainment Facility. The printed name of proxy-zombie is "Biocontainment Facility". Understand "biocontainment" or "facility" or "bioweapons"  or "laboratory" or "lab" or "vaccine" or "hospital"  as proxy-zombie. Understand "building" as proxy-zombie when the location is Biocontainment Facility.
 
@@ -1219,7 +1219,7 @@ The grey rug is scenery in the Legal Department. The description of the grey rug
 
 The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side."
 
-The drawer is an openable closed container. The drawer is part of the desk. The description of the drawer is "A sliding drawer."
+The drawer is an openable closed container. The drawer is part of the desk. The description of the drawer is "A sliding drawer, which is [if the drawer is open]open[otherwise]shut[end if]."
 
 After opening the drawer:
 	say "The draw slides out and reveals that it contains ";
@@ -1254,65 +1254,128 @@ To say welcomeTester:
 	say "[quotation mark]You have been provisionally accepted as beta-tester for the next generation of Nyantech technology. Successful completion of a series of tests of ingenuity and character are required to graduate from probationary status to full beta-tester. These tests have now begun.[quotation mark]".
 
 Instead of touching the agreeProxy:
-	say "A brief fanfare plays and the screen clears, displaying the following:[paragraph break][welcomeTester][paragraph break]There is a clicking noise from the grey door to the south.";
+	say "A brief fanfare plays and the screen clears, displaying the following:[paragraph break][welcomeTester][paragraph break]There is a clicking noise from the grey door to the south.[paragraph break]";
 	now the Beta Testing Door is unlocked;
 	move the agreeProxy to the void;
 	move the termsProxy to the void;
 	bestow "Provisional Beta-Tester".
 
-The plastic wall clock is a prop. The plastic wall clock is on the office wall. The description of the plastic wall clock is "[if the plastic wall clock has been held]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there is a knob to set the time and a recess that holds the batteries[otherwise]A cheap plastic wall clock with a second hand[end if][if not discharged electrochemical cells are in the recess]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic wall clock.
+The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a battery holder[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock.
 
-The recess is an open container. The recess is part of the plastic wall clock. The description of the recess is "[If electrochemical cells are in the recess]Batteries have been inserted into the[otherwise]A shallow[end if] recess molded into the back side of the clock to retain AA batteries."
+After taking the clock:
+	if the clock was on the office wall:
+		say "You remove the clock from the wall.";
+	otherwise:
+		continue the action.
+	
+After putting the clock on the wall:
+	say "You place the clock back on the wall."
 
-The corroded batteries are discharged electrochemical cells. The description of the corroded batteries is "Disgusting, rusted old batteries."
-
-The fresh batteries are electrochemical cells.  The fresh batteries are in the recess. The fresh batteries are not discharged. The description of the fresh batteries is "Shiny new batteries."
+The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries."
 
 After taking the fresh batteries for the first time:
-	say "You pluck some working AA batteries out of the clock."
+	say "You pluck some AA batteries out of the clock."
 
 The office wall is a scenery supporter in the Legal Department. The description of the office wall is "Rich wooden paneling above green wainscotting."
 
-The ergonomic chair is a scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters."
+The ergonomic chair is a portable enterable scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters." 
 
-Welcome to Beta Testing is south of the Beta Testing Door. 
+Instead of taking the ergonomic chair, say "Quality comes with a price - thanks to its heavy duty all metal frame, the chair weighs a ton. You can[apostrophe]t pick it up."
+			
+Instead of pushing or pulling the ergonomic chair:
+	say "You amuse yourself for a bit by yanking the rolling chair around the room."
 
-The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment."
+Instead of pushing the ergonomic chair to a direction (called the way): 
+	if the door way from the location is locked:
+		say "That door seems to be locked.";
+	otherwise:
+		say "The chair is modeled after first class, not economy. It is too wide to fit through the doorway. But very comfortable."
+		
+Instead of spinning the chair:
+	if the chair encloses the player:
+		say "You spin wildly in the chair, almost to the point of examining your own stomach contents.";
+	otherwise:
+		say "You give the chair a good spin. Nothing beats cheap entertainment. Well, except playing Pogoman."
 
-The battery compartment is an closed openable container. The battery compartment is part of the remote. The description of the battery compartment is "[batteryCompartmentDescription]".  Understand "garage" as the remote.
+The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment[if the battery compartment is open], which is open[end if]." Understand "garage" or "opener" as the remote.
+
+The battery compartment is an closed openable container. The battery compartment is part of the remote. The description of the battery compartment is "[batteryCompartmentDescription]."  
 
 To say batteryCompartmentDescription:
 	if the battery compartment is open:
-		if the battery compartment contains an electrochemical cell:
-			say "The compartment contains some ";
+		if the battery compartment contains fresh batteries:
+			say "A small, open compartment on the back of the remote";
 		otherwise:
-			say "An empty compartment for ";
-		say "AA batteries.";
+			say "The open compartment for AA batteries is empty";
 	otherwise:
-		say "A closed battery compartment."
+		say "A closed battery compartment"
+		
+Instead of inserting something (called the item) into the battery compartment:
+	if the item is not fresh batteries:
+		say "That won[apostrophe]t fit.";
+	otherwise:
+		continue the action.
+		
+Instead of inserting something (called the item) into the remote:
+	if the remote is not held:
+		try taking the remote;
+	if the battery compartment is not open:
+		try opening the battery compartment;
+	try inserting the item into the battery compartment.
+		
+Instead of inserting fresh batteries into the closed battery compartment:
+	try opening the battery compartment;
+	try inserting the fresh batteries into the battery compartment.
+	
+The back panel is an closed openable container. The back panel is part of the clock. The description of the back panel is "[if the back panel is open]An open[otherwise]A latched[end if] panel on the back of the clock[if the back panel is open]Inside, there is a battery holder[end if]." Understand "latch" as the back panel.
+
+The battery holder is an open fixed in place container in the back panel. The description of the battery holder is "A space on the back of the clock to insert AA batteries[if fresh batteries are not in the battery holder], which is currently empty[end if]."
+
+Instead of inserting something (called the item) into the battery holder:
+	if the item is not fresh batteries:
+		say "That won[apostrophe]t fit.";
+	otherwise:
+		continue the action.
+
+Instead of inserting something (called the item) into the back panel:
+	if the clock is not held:
+		try taking the clock;
+	if the back panel is not open:
+		try opening the back panel;
+	try inserting the item into the battery holder.
+	
+Instead of inserting something (called the item) into the clock:
+	if the clock is not held:
+		try taking the clock;
+	if the back panel is not open:
+		try opening the back panel;
+	try inserting the item into the battery holder.
 
 The button is part of the remote. The description of the button is "A white plastic button." Understand "white" or "plastic" as the button.
 
 After pushing the button:
-	say "The LED on the remote flickers briefly";
-	if the player is in Welcome to Beta Testing:
-		say "The Cousteau Room's metal door ";
-		if the Cousteau Door is closed:
-			say "retracts into the ceiling.";
-			now the Cousteau Door is open;
-		otherwise:
-			say "descends from the ceiling and locks in place.";
-			now the Cousteau Door is closed.
+	if fresh batteries are in the battery compartment:
+		say "The LED on the remote flickers briefly";
+		if the player is in Welcome to Beta Testing:
+			say ". The Cousteau Room's metal door ";
+			if the Cousteau Door is closed:
+				say "retracts into the ceiling";
+				now the Cousteau Door is open;
+			otherwise:
+				say "descends from the ceiling and locks in place";
+				now the Cousteau Door is closed;
+	otherwise:
+		say "Nothing seems to happen";
+	say "."
 	
 Instead of opening or closing the Cousteau Door:
 	say "There are no handles on the door, and it appears that the door is not designed to be operated manually."
 
 The LED is a thing. The LED is part of the remote. The description of the LED is "A rectangular red indicator light, which is not illuminated." Understand "indicator" or "light" as the LED.
 
+The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position." 
 
-
-
-The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position."
+Welcome to Beta Testing is south of the Beta Testing Door.  
 
 Cousteau Room is south of the Cousteau Door. 
 
