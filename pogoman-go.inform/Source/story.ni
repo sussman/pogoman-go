@@ -1260,7 +1260,7 @@ Instead of touching the agreeProxy:
 	move the termsProxy to the void;
 	bestow "Provisional Beta-Tester".
 
-The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a battery holder[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock.
+The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a panel[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock.
 
 After taking the clock:
 	if the clock was on the office wall:
@@ -1327,7 +1327,7 @@ Instead of inserting fresh batteries into the closed battery compartment:
 	try opening the battery compartment;
 	try inserting the fresh batteries into the battery compartment.
 	
-The back panel is an closed openable container. The back panel is part of the clock. The description of the back panel is "[if the back panel is open]An open[otherwise]A latched[end if] panel on the back of the clock[if the back panel is open]Inside, there is a battery holder[end if]." Understand "latch" as the back panel.
+The back panel is an closed openable container. The back panel is part of the clock. The description of the back panel is "[if the back panel is open]An open[otherwise]A latched[end if] panel on the back of the clock[if the back panel is open]. Inside, there is a battery holder[end if]." Understand "latch" as the back panel.
 
 The battery holder is an open fixed in place container in the back panel. The description of the battery holder is "A space on the back of the clock to insert AA batteries[if fresh batteries are not in the battery holder], which is currently empty[end if]."
 
@@ -1356,7 +1356,7 @@ The button is part of the remote. The description of the button is "A white plas
 After pushing the button:
 	if fresh batteries are in the battery compartment:
 		say "The LED on the remote flickers briefly";
-		if the player is in Welcome to Beta Testing:
+		if the player is in Welcome to Beta Testing or the player is in the Cousteau Room:
 			say ". The Cousteau Room's metal door ";
 			if the Cousteau Door is closed:
 				say "retracts into the ceiling";
@@ -1368,6 +1368,9 @@ After pushing the button:
 		say "Nothing seems to happen";
 	say "."
 	
+Instead of pushing the remote:
+	try pushing the button.
+	
 Instead of opening or closing the Cousteau Door:
 	say "There are no handles on the door, and it appears that the door is not designed to be operated manually."
 
@@ -1375,11 +1378,54 @@ The LED is a thing. The LED is part of the remote. The description of the LED is
 
 The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position." 
 
-Welcome to Beta Testing is south of the Beta Testing Door.  
+Welcome to Beta Testing is south of the Beta Testing Door.  The description of Welcome to Beta Testing is "The room is brightly lit and the walls are covered with inspirational posters.[paragraph break]To the north is the door to the Legal Department office and to the south is a wide [if the Cousteau Door is closed]metal door[otherwise]door way[end if] leading to the Cousteau Room."
 
-Cousteau Room is south of the Cousteau Door. 
+The party hat is a wearable prop in Welcome to Beta Testing. The description of the party hat is "A brightly colored cardboard hat bearing the words [quotation mark]Yeah! Beta-Testing![quotation mark]."
 
-The wetsuit is in the cousteau room. The wetsuit is wearable.
+The posters are a plural-named scenery in Welcome to Beta Testing. The description of posters is "The walls are covered with uplifting, motivational posters, mostly cats, puppies and unicorns, with slogans like [quotation mark]You can do it![quotation mark], [quotation mark]Success is just another word for unending work[quotation mark], and [quotation mark]If you fail, fail forward (but really, don[apostrophe]t fail).[quotation mark]"
+
+Instead of examining the player when the player wears the hat:
+	say "The hat adds a certain gravitas."
+
+After wearing the hat for the first time:
+	say "Wearing the hat, you feel instantly jovial and can[apostrophe]t help but break into a little spontaneous [if the player is wearing the wetsuit], but awkward,[end if] beta-testing dance.[paragraph break]";
+	bestow "Team Spirit".
+	
+After wearing the hat:
+	say "You pop the hat onto your head at what you think is a rakish angle."
+	
+Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."
+
+The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up."
+
+The flippers are part of the wetsuit. The description of the flippers is "Bright orange rubber flippers, which meet seamlessly with the lower part of the wetsuit legging." Understand "legging" as the flippers.
+
+The mast is part of the wetsuit. The description of the mask is "A rubber face mask, which is built into the head piece of the wetsuit." Understand "head piece" or "neoprene" as the wetsuit.
+
+The tanks are part of the wetsuit. The description of the tanks is "Two large airtanks built into the back of the wetsuit."
+
+After wearing the wetsuit: 
+	say "Despite the tight fit, the diving outfit pulls on snuggly over your clothing. You wriggle into the headpiece and adjust the mask. With a bit of twisting, you slip the flippers over your shoes, zip up the front of the suit, and adjust the air tank for comfort[if the player wears the party hat].[paragraph break]You had to take the party hat off to put the suit on, but you immediately put the strangely adherent hat back on and it bonds tightly with the neoprene headpiece[end if].";
+	if the player had not worn the wetsuit:
+		say line break;
+		bestow "Aquanaut".
+
+Instead of going a direction (called the way) when the player wears the wetsuit:
+	if the player is in the Cafeteria and the way is east:
+		say "You dive into the ball pit and swim around the surface effortless, propelled by your flippers.";
+		move the player to the Ball Pit;
+		the rule succeeds;
+	if the player is in the BallPit Area:
+		continue the action;
+	otherwise:
+		say "[one of]You waddle around in your flippers and fall flat on your face. Luckily, the face mask doesn’t break[or]You struggle and flail, but are not able to walk around wearing the whole undersea get-up[or]The wetsuit is just not made for walking around on land[stopping]."
+		
+Instead of taking off the wetsuit:
+	say "You perform a small dance and manage to take off the suit and are now carrying it[if the player wears the party hat]. As for the stylish party hat, you consciensiouly replace it atop your head[end if].";
+	now the player carries the wetsuit.
+	
+
+
 
 [Sub-Basement]
 
@@ -1395,7 +1441,14 @@ section 2 - Ball Pit
 
 The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
 
+[TODO: dive command]
+
 Ball Pit is east of the Cafeteria.
+
+
+
+
+
 
 BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
 
@@ -1922,6 +1975,15 @@ Book 3 - Characters
 Chapter - The Player
 
 The description of the player is "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]You wonder if the constant need to look at yourself reflects some budding narcissism[or]No more rundown than your average Pogoman player[stopping].";
+
+The clothes are part of the player. The description of the clothes is "Comfortable, and definitely not formal."
+
+Instead of taking off clothes:
+	say "Your sense of propriety rails against you doing so."
+	
+Before wearing clothes:
+	say "You are already wearing your clothes.";
+	the rule succeeds.
 
 Chapter Phone
 
