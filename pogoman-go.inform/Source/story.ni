@@ -275,6 +275,44 @@ Instead of doing something when the phone is hung:
 		continue the action;
 	otherwise:
 		do nothing.
+		
+Section Swimming
+
+Swimming is an action applying to nothing. Understand "swim" as swimming.
+
+Check swimming:
+	if the player is not in the BallPit Area:
+		say "You make vaguely swimming motions, but don[apostrophe]t seem to be getting anywhere." instead.
+		
+Report swimming:
+	if the player is in the Ball Pit:
+		say "You swim around in the sea of rubber balls. You [one of ]are getting quite good at it, in fact[or]seem to be a natural[or]find it relaxing[or]consider having one of these installed in your own house[or]take a few laps around the pit[in random order].";
+	otherwise:
+		say "You swim through a mass of rubber balls."
+		
+Section Diving
+
+Diving is an action applying to nothing. Understand "dive" or "sink" or "descend" or "submerge" as diving.
+
+Check Diving:
+	try going down instead.
+
+Section Playing
+
+Understand "play [a thing]" as switching on.
+
+Understand "stop [a thing]" as switching off.
+
+Section TapeFailing
+
+tapeFailing is an action applying to one thing. Understand "fast forward [a thing]" or "reverse [a thing]" or "record [a thing]" or "eject [a thing]" as tapeFailing.
+
+Report tapeFailing:
+	if the noun is the walkman:
+		say "The only function that seems to work on this Reagan-era relic is [quotation mark]Play[quotation mark].";
+	otherwise:
+		say "That doesn[apostrophe]t seem to be an option."
+
 
 Chapter Medals
 
@@ -430,6 +468,8 @@ Chapter Every Turn
 
 Every turn:	
 	if the current action is looking or going, follow the list exits rule;
+	if the walkman is worn by the player:
+		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 
@@ -1472,7 +1512,31 @@ Instead of taking off the wetsuit:
 
 [Sub-Basement]
 
-The walkman is a prop in the Rick Astley Shrine. The walkman is wearable.
+The description of the Rick Astley Shrine is "[one of]You are assaulted by an overwhelming urge to flee: the walls of the room are covered in Rick Astley memorabilia from the 1980s: posters, photos, autographs[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
+
+The rickity table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickity table is "A cheap plastic table."
+
+After putting anything on the rickity table, say "The table sags and creaks under the slightest load."
+
+Instead of entering the the rickity table, say "Surely, that would be the end of the rickity table."
+
+Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
+
+The walkman is a wearable prop on the rickity table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" as the walkman.
+
+Before switching on the walkman:
+	say "You have to wear the earphones to hear anything.";
+	stop the action.
+	
+Before switching off the walkman:
+	say "The walkman seems to be stuck in the [quotation mark]on[quotation mark] position and is looping continuously.";
+	stop the action.
+	
+After wearing the walkman:
+	say "You are immediately assaulted by the musical stylings of Rick Astley."
+	
+To say A Ghastly Astley Lyric:
+	say "[one of]We[apostrophe]re no strangers to love[or]You know the rules and so do I[or]A full commitment[apostrophe]s what I[apostrophe]m thinking of[or]You wouldn[apostrophe]t get this from any other guy[or]I just wanna tell you how I[apostrophe]m feeling[or]Gotta make you understand[or]Never gonna give you up[or]Never gonna let you down[or]Never gonna run around and desert you[or]Never gonna make you cry[or]Never gonna say goodbye[or]Never gonna tell a lie and hurt you[or]We[apostrophe]ve known each other for so long[or]Your heart[apostrophe]s been aching, but[or]You[apostrophe]re too shy to say it[or]Inside, we both know what[apostrophe]s been going on[or]We know the game and we[apostrophe]re gonna play it[or]And if you ask me how I[apostrophe]m feeling[or]Don[apostrophe]t tell me you[apostrophe]re too blind to see[or](Ooh, give you up)[or]Never gonna give, never gonna give[or](Give you up)[in random order]".
 
 [Sub-Sub-Basement]
 
@@ -1499,27 +1563,10 @@ After going east from the Cafeteria for the first time:
 After going east from the Cafeteria:
 	say "You are adrift in a pit, filled with small rubber balls."
 	
-Swimming is an action applying to nothing. Understand "swim" as swimming.
-
-Check swimming:
-	if the player is not in the BallPit Area:
-		say "You make vaguely swimming motions, but don[apostrophe]t seem to be getting anywhere." instead.
-		
-Report swimming:
-	if the player is in the Ball Pit:
-		say "You swim around in the sea of rubber balls. You [one of ]are getting quite good at it, in fact[or]seem to be a natural[or]find it relaxing[or]consider having one of these installed in your own house[or]take a few laps around the pit[in random order].";
-	otherwise:
-		say "You swim through a mass of rubber balls."
-	
 The ballObject is a privately-named backdrop in the BallPit Area. The printed name of ballObject is "ball". The description of the ballObject is "Glossy, supple, and slippery balls of every color." Understand "ball" or "balls" as the ballObject.
 
 Before taking ballObject:
 	say "The more you tighten your grip, the more balls slip through your fingers." instead. [Unless the ball is Alderaan, in which case it is bad news for that particular ball.]
-
-Diving is an action applying to nothing. Understand "dive" or "sink" or "descend" or "submerge" as diving.
-
-Check Diving:
-	try going down instead.
 	
 Before going down from the ball pit:
 	if the player wears the wetsuit:
@@ -2132,6 +2179,8 @@ Table of Evolution
 Original	Ev2	Ev3
 an Edator	a Vicore	an Emaks
 a Plague Rhat	a Plague Vermin	a Rodentikor
+
+
 
 
 
