@@ -114,11 +114,11 @@ This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
 		
-This is the pedometer rule:
-	if the current action is going:
-		increase the pedometer by one;		
+After going from somewhere:
+	increase the pedometer by one;		
 	if the pedometer is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
-		bestow "Traveler: [pedometer] turns spent moving".
+		bestow "Traveler: [pedometer] turns spent moving";
+	continue the action.
 
 Chapter Activities
 
@@ -430,7 +430,6 @@ Chapter Every Turn
 
 Every turn:	
 	if the current action is looking or going, follow the list exits rule;
-	follow the pedometer rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 
@@ -939,7 +938,7 @@ proxy-Vuvuzela is a privately-named artifact proxy-scenery in Vuvuzelas For Free
 
 [Poison Ivy]
 
-The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]."
+The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]"
 
 proxy-PoisonIvy is a privately-named artifact proxy-scenery in Toxicodendron radicans. The printed name of proxy-PoisonIvy is "field of poison ivy". Understand "poison" or "ivy" or "poison ivy" or "sign" as proxy-PoisonIvy. Understand "field" as proxy-PoisonIvy when the location is Toxicodendron radicans.
 
