@@ -44,6 +44,10 @@ Current floor is a number that varies.
 
 A room has a text called possible exits.
 
+Deck rooms are a kind of room. The description of deck rooms is "[deckDescription]." The possible exits of deck rooms is "[deckExits]."
+
+Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]."
+
 [
   7 Roof
   6 Processing 
@@ -1551,20 +1555,20 @@ To say stairwellDescription:
 		say "downward ";
 	say "from here"
 
-The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are rooms in the Stairwell. The Stairwell is in HQ.	
+The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are staircase rooms in the Stairwell. The Stairwell is in HQ.	
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
 After going north from the lobby for the first time:
 	bestow "Snooping Around".
 
-The printed name of the StairsGround is "Emergency Stairs: Ground Level". The description of StairsGround is "[stairwellDescription]."  The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
+The printed name of the StairsGround is "Emergency Stairs: Ground Level". The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
 The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
 
-The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The description of StairsBasement is "[stairwellDescription]."  The possible exits of StairsBasement is "To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
+The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The possible exits of StairsBasement is "To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
 
-The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The description of StairsSB is "[stairwellDescription]."  The possible exits of StairsSB is "To the south there is a blue door with no label."
+The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The possible exits of StairsSB is "To the south there is a blue door with no label."
 
 The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the basementDoor.
 
@@ -1578,7 +1582,7 @@ To say printedSubBasementDoor:
 		otherwise:
 			say "blue corridor"
 	
-The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The description of StairsSSB is "[stairwellDescription]." The possible exits of StairsSSB is "To the south there is a red door with no label."
+The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The possible exits of StairsSSB is "To the south there is a red door with no label."
 
 The subSubBasementDoor is a red door. It is north of the Throne Room and south of the StairsSSB.
 
@@ -1586,21 +1590,21 @@ The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the loca
 
 The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
-The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The description of StairsInterns is "[stairwellDescription]."  The possible exits of StairsInterns is "To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
+The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The possible exits of StairsInterns is "To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
 
 The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineering offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
-The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The description of StairsEngineers is "[stairwellDescription]." The possible exits of StairsEngineers are "To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
+The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The possible exits of StairsEngineers are "To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
 
 The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managerial offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
-The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The description of StairsManagers is "[stairwellDescription]." The possible exits of StairsManagers is "To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
+The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The possible exits of StairsManagers is "To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
 
-The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The description of StairsInfirmary is "[stairwellDescription]." The possible exits of StairsInfirmary is "To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
+The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The possible exits of StairsInfirmary is "To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
 
 The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printed name of the infirmaryDoor is "pink [shortDoorToThe] infirmary". Understand "pink" or "door" or "infirmary" or "emergency" or "stairs" as the infirmaryDoor
 
-The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". The description of StairsProcessing is "[stairwellDescription]." 
+The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". 
 
 To say shortTwentyFlights:
 	say "about twenty flights of stairs"
@@ -1620,7 +1624,6 @@ After going up from the StairsPackaging:
 		say ". [one of]A droning sound fills the air, like the throat-singing of Tibetan monks[or]It sounds like something is scraping against the inner wall[or]You footfalls echo in the empty stairwell[stopping]";
 	say "."
 		
-			
 After going down from the StairsRoof:
 	 say "You descend [shortTwentyFlights] [shortNoExits] and you";
 	if the walkman is not worn:
@@ -1633,7 +1636,7 @@ After going down from the StairsPackaging:
 		say ". [one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewher in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
 	say "."
 	
-The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". The description of StairsPackaging is "[stairwellDescription]."
+The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". 
 
 Instead of going a direction (called the way) when the player is in the StairsPackaging or the player is in the StairsProcessing:
 	if the way is south:
@@ -1641,7 +1644,7 @@ Instead of going a direction (called the way) when the player is in the StairsPa
 	otherwise:
 		continue the action.
 
-The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The description of StairsRoof is "[stairwellDescription]." The possible exits of StairsRoof is "To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
+The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The possible exits of StairsRoof is "To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
 The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "access" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
 
@@ -1662,7 +1665,7 @@ After going south from the stairsRoof for the first time:
 Section 4 - Deck
 
 
-The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are rooms in the Deck Area. The Deck Area is in HQ.
+The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
 [in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
 
@@ -1676,14 +1679,13 @@ The railing is a backdrop in the Deck Area. Understand "rail" as the railing whe
 
 The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
 
-The printed name of DeckN is "Observation Deck, Northern View".  The description of DeckN is "[deckDescription]". The possible exits of DeckN are "[deckExits]"
+The printed name of DeckN is "Observation Deck, Northern View".  
 
-DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View". The description of DeckW is "[deckDescription]". The possible exits of DeckW are "[deckExits]"
+DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View". 
 
-DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View". The description of DeckS is "[deckDescription]". The possible exits of DeckS are "[deckExits]"
+DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View". 
 
-DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".The description of DeckE is "[deckDescription][paragraph break]". The possible exits of DeckE are "[deckExits]".
-
+DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".
 
 To say deckDescription:
 	let L be a list of quadrooms;
@@ -1707,7 +1709,7 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant."
+	say "At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
 	
 To say deckExits:	
 	say "The deck continues around to the ";
@@ -1720,8 +1722,7 @@ To say deckExits:
 		-- deckN:
 			say ". The door to the emergency stairs is to the south";
 		-- deckS: 
-			say ". The roof-top restaurant is to the north";
-	say "."
+			say ". The roof-top restaurant is to the north".
 
 Unclipping is an action applying to one thing. Understand "unclip  [something]"  or "unfasten [something]"  or "detach [something]" or "disconnect [something]" as unclipping.
 
