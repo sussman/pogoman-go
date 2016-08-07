@@ -101,8 +101,9 @@ theTime is a number that varies. theTime is 5.
 
 medalList is a list of text that varies.
 
-Chapter Rules Modifications
+pedometer is a number that varies. The pedometer is 0.
 
+Chapter Rules Modifications
 
  For printing a locale paragraph about a door (called the item) 
     (this is the don't mention doors in room descriptions rule): 
@@ -112,7 +113,12 @@ Chapter Rules Modifications
 This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
-
+		
+This is the pedometer rule:
+	if the current action is going:
+		increase the pedometer by one;		
+	if the pedometer is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
+		bestow "Traveler: [pedometer] turns spent moving".
 
 Chapter Activities
 
@@ -156,7 +162,7 @@ Section Amusing
 Amusing is an action applying to nothing. Understand "amusing" as amusing.
 
 Carry out amusing:
-	say "The player reached level [POGOLEVEL] and obtained the following medals:[paragraph break]";
+	say "You reached level [POGOLEVEL] and obtained [the number of entries in medalList] medals:[paragraph break]";
 	repeat with L running through the medalList:
 		say "     * [L][line break]".
 	
@@ -424,6 +430,7 @@ Chapter Every Turn
 
 Every turn:	
 	if the current action is looking or going, follow the list exits rule;
+	follow the pedometer rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 
@@ -1480,11 +1487,11 @@ The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPit
 	
 Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to keep your head above sea of colorful rubber balls."  The possible exits of Ball Pit are "The cafeteria is back to the west."
 
-BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
+BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface". The description of BallPitShallow is "Swimming through brightly colored rubber balls."
 
-BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
+BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit". The description of BallPitDeep is "Far enough down in the ball pit that only dim rainbow-colored light filters down."
 
-BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "The Bottom Of The Ball Pit".
+BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "The Bottom Of The Ball Pit". "The dark depths of the ball pit."
 
 After going east from the Cafeteria for the first time:
 	say "As you step over the threshold, you fall immediately into a giant pit filled with small rubber balls of every color. You panic as you sink into the pit and your uncoordinated thrashing just buries you deeper. You pass several other pit explorers and take an elbow to the jaw before you catch on to the trick of swimming through the balls. Eventually you make it to the top and hang on to the edge of the pit.[paragraph break]";
@@ -1524,7 +1531,7 @@ Before going down from the ball pit:
 		
 Instead of going down from the Ball Pit for the first time:
 	say "You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface. As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
-	bestow "Got that sinking feeling.";
+	bestow "Got that sinking feeling";
 	move the player to the room down from the location.
 	
 Instead of going down from the BallPitShallow for the first time:
