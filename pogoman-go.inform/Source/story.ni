@@ -99,6 +99,8 @@ TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
 
 theTime is a number that varies. theTime is 5.
 
+medalList is a list of text that varies.
+
 Chapter Rules Modifications
 
 
@@ -111,6 +113,22 @@ This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
 
+
+Chapter Activities
+
+Section ShowStatus
+
+To ShowStatus:
+	now the left hand status line is "PogoLevel: [POGOLEVEL],  Team [TEAMCOLOR]";
+	now the right hand status line is "XP: [XP]".
+	
+
+Section AwardXP
+
+[moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
+
+To AwardXP (award - a number):
+	now XP is XP + award.
 
 Chapter Verbs
 
@@ -132,7 +150,16 @@ Carry out spinning:
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
 
+Section Amusing
 
+[TODO - this should be an out of world action after end of game, but enabled now for testing]
+Amusing is an action applying to nothing. Understand "amusing" as amusing.
+
+Carry out amusing:
+	say "The player reached level [POGOLEVEL] and obtained the following medals:[paragraph break]";
+	repeat with L running through the medalList:
+		say "     * [L][line break]".
+	
 Section Evolving
 
 Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
@@ -207,19 +234,43 @@ Crediting is an action applying to nothing. Understand "credit" or "credits" or 
 Report crediting:
 	say "Credit Roll.... TBD[paragraph break]";
 	bestow "So, who is to blame?".
-
-Section AwardXP
-
-[moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
-
-To AwardXP (award - a number):
-	now XP is XP + award.
 	
 Section Waving
 
 Instead of waving hands, say "You wave your cell phone around in the air, dissipating heat."
+	
+Section Levelling
 
-Section Medals
+CheckLevel is an action out of world.
+To CheckLevel:
+	let goalXP be 100 * (POGOLEVEL + 1);
+	if XP > goalXP:
+		now POGOLEVEL is (XP / 100);  [TODO make this an exponential table]
+		say "You glow with power as your PogoLevel rises to [POGOLEVEL].[paragraph break]".
+
+Section Rebooting
+
+PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting.
+
+Carry out phoneBooting:
+	try rebooting the phone.
+
+Rebooting is an action applying to one thing. Understand "reboot [something]" as rebooting.
+
+Check rebooting:
+	if the noun is not the phone, say "You can't reboot that.[paragraph break]" instead.
+	
+Carry out rebooting:
+	now the phone is not hung;
+	say "You reboot your phone."	
+	
+Instead of doing something when the phone is hung:
+	if the current action is phoneBooting or rebooting:
+		continue the action;
+	otherwise:
+		do nothing.
+
+Chapter Medals
 
 MEDALVALUE is always 10.
 suppressMedals is a truth state that varies.
@@ -236,6 +287,9 @@ Instead of doing something with the medals:
 	say "The medals [one of]aren’t tangible.[or]are a metaphor.[or]only exist on your phone -- they're not real.[or]are like the cake, a lie.[or]are not physically present. Think of them as a data structure within a program running on a computer. That shouldn't be too hard to visualize, right?[stopping][paragraph break]". 
 	
 To Bestow (medallion - some text):
+	let L be text;
+	now L is medallion;
+	add L to medalList;
 	if suppressMedals is false:
 		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";		
 	awardXP MEDALVALUE;
@@ -289,44 +343,7 @@ After powerUpping a pogoman for the first time, bestow "Made something even bigg
 After transferring a pogoman for the first time, bestow "Practicality in managing resources".
 
 After waiting for the first time, bestow "Loitering Around".
-	
-Section Levelling
 
-CheckLevel is an action out of world.
-To CheckLevel:
-	let goalXP be 100 * (POGOLEVEL + 1);
-	if XP > goalXP:
-		now POGOLEVEL is (XP / 100);  [TODO make this an exponential table]
-		say "You glow with power as your PogoLevel rises to [POGOLEVEL].[paragraph break]".
-
-Section Rebooting
-
-PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting.
-
-Carry out phoneBooting:
-	try rebooting the phone.
-
-Rebooting is an action applying to one thing. Understand "reboot [something]" as rebooting.
-
-Check rebooting:
-	if the noun is not the phone, say "You can't reboot that.[paragraph break]" instead.
-	
-Carry out rebooting:
-	now the phone is not hung;
-	say "You reboot your phone."	
-	
-Instead of doing something when the phone is hung:
-	if the current action is phoneBooting or rebooting:
-		continue the action;
-	otherwise:
-		do nothing.
-
-
-Section ShowStatus
-
-To ShowStatus:
-	now the left hand status line is "PogoLevel: [POGOLEVEL],  Team [TEAMCOLOR]";
-	now the right hand status line is "XP: [XP]".
 
 Chapter Not Ready For Prime Time - Not for release
 
@@ -1518,8 +1535,10 @@ Instead of going down from the BallPitShallow for the first time:
 Instead of going down from the BallPitDeep for the first time:
 	say "You swim with difficulty through the viscous sea of rubber balls, which at this depth are nearly flat. Finally, you arrive at the bottom of the pit, where you come face to face with a robotic blue whale. Your organs quiver with each resounding note of its deep, lamenting song.[paragraph break]";
 	bestow "Admiral, there be whales here!";
-	move the player to the room down from the location.
-	
+	say "You and the whale just hover there for a moment communing with each other. The whale blinks and its eyes shine with a bright blue light.[paragraph break]A moment later, you find yourself standing in the cafeteria, not quite sure of what just happened and wondering if you imagined it. The diving suit is gone, but… what’s this? Your badge has turned blue with a white bar.";
+	now the securityColor of the badge is blue;
+	move the wetsuit to the void;
+	move the player to the cafeteria.
 
 Instead of going down when the player is in the BallPit area:
 	if the player is not in BallPitBottom:
