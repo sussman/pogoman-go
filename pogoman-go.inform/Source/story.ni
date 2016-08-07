@@ -114,6 +114,12 @@ This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
 		
+This is the run from sound rule:
+	if the speaker is active and the walkman is not worn:
+		say "You run screaming from the LAN closet back into the Lobby, slamming the LAN Closet Door behind you.";
+		now the LAN Closet Door is closed;
+		move the player to the Lobby.
+		
 After going from somewhere:
 	increase the pedometer by one;		
 	if the pedometer is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
@@ -467,9 +473,9 @@ Chapter Every Turn
 [also see scene-specific every turns under Scenes]
 
 Every turn:	
-	if the current action is looking or going, follow the list exits rule;
 	if the walkman is worn by the player:
 		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
+	if the current action is looking or going, follow the list exits rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 
@@ -1285,14 +1291,35 @@ The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. 
 
 The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, dial, and some indicators." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west."
 
-The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The phonograph is playing a 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[quotation mark]. The phonograph drives the huge speaker on the back of the door."
+PhonographBroken is a truth state that varies. PhonographBroken is false.
+
+PhonographOn is a truth state that varies. PhonographOn is true.
+
+Definition: The speaker is active if phonographBroken is false and phonographOn is true and the record is on the phonograph.
+
+The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
+
+The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" as the phonograph.
+
+
+Instead of switching on the phonograph:
+	if PhonographBroken is true:
+		say "You try turning it on, but it doesn't work any more.";
+	otherwise:
+		if PhonographOn is true:
+			say "The phonograph is already on.";
+		otherwise:
+			say "You turn on the phonograph.";
+			if the speaker is not active:
+				now phonographOn is true;
+				follow the run from sound rule.
+		
 
 The speaker is part of the LAN Closet Door. The description of the speaker is "A heavy duty speaker, like the kind used on stage for rock concerts, with an oversized woofer. It is bolted directly to the door."
 
 Instead of attacking the speaker:
 	say "The speaker is built like a tank. You are likely to break before it does."
 
-The record is a prop on the phonograph. The description of the record is "A vinyl record, [quotation mark]Visceral Fear Sounds, Volume One[quotation mark]."
 
 The racks are scenery in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment."
 
