@@ -44,8 +44,6 @@ Current floor is a number that varies.
 
 A room has a text called possible exits.
 
-
-
 [
   7 Roof
   6 Processing 
@@ -1089,7 +1087,7 @@ To say employeeRant:
 To say visitorRebuff:
 	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh[quotation mark][or]The players continue tapping away at their phones, ignoring you[stopping]."
 
-Snacks is northeast of the Cafeteria. The description of Snacks is "A poster above a table advertises every kind of pop-tart known to man, all of them glazed and sprinkled: strawberry, blueberry, raspberry, apple, chocolate, cranberry, and many more. Just above the table is a metal chute, which projects just a bit from the wall."
+Snacks is northeast of the Cafeteria. The description of Snacks is "A poster above a table advertises every kind of pop-tart known to man, all of them glazed and sprinkled: strawberry, blueberry, raspberry, apple, chocolate, cranberry, and many more. Just above the table is a metal chute, which projects just a bit from the wall." The possible exits of Snacks are "The company cafeteria is to the southwest."
 
 The poster is scenery in Snacks. The description of the poster is "A glossy advertisement dominated by a colorful assortment of pop-tarts above the slogan [quotation mark]SmartPastries for SmartPeople![quotation mark]."
 
@@ -1154,7 +1152,7 @@ After eating a pop-tart:
 	move the player to the cafeteria;
 	newPopTart.
 
-Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with coke, sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if].[paragraph break]The cafeteria is just to the southeast."
+Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with coke, sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
 
 The soda fountain is scenery in Beverages. The description of soda fountain is "The soda fountain can dispense coke, sprite, or root beer."
 
@@ -1215,7 +1213,7 @@ The LAN Closet is east of the Lobby.
 
 [Basement]
 
-The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop.[paragraph break]To the north is the exit to the emergency stairs, the elevator is to the west, and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
+The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the elevator is to the west, and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
 The Beta Testing Door is a closed locked door. The Beta Testing Door is south of Legal Department. Understand "grey" or "door" as the beta testing door. The description of the beta testing door is "[if the Beta Testing Door is open]An open[otherwise]A closed[end if] grey door marked [quotation mark]Beta Testing[quotation mark]."
 
@@ -1386,7 +1384,7 @@ The LED is a thing. The LED is part of the remote. The description of the LED is
 
 The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position." 
 
-Welcome to Beta Testing is south of the Beta Testing Door.  The description of Welcome to Beta Testing is "The room is brightly lit and the walls are covered with inspirational posters.[paragraph break]To the north is the door to the Legal Department office and to the south is a wide [if the Cousteau Door is closed]metal door[otherwise]door way[end if] leading to the Cousteau Room."
+Welcome to Beta Testing is south of the Beta Testing Door.  The description of Welcome to Beta Testing is "The room is brightly lit and the walls are covered with inspirational posters." The possible exits of Welcome to Beta Testing are "To the north is the door to the Legal Department office and to the south is a wide [if the Cousteau Door is closed]metal door[otherwise]door way[end if] leading to the Cousteau Room."
 
 The party hat is a wearable prop in Welcome to Beta Testing. The description of the party hat is "A brightly colored cardboard hat bearing the words [quotation mark]Yeah! Beta-Testing![quotation mark]."
 
@@ -1402,7 +1400,7 @@ After wearing the hat for the first time:
 After wearing the hat:
 	say "You pop the hat onto your head at what you think is a rakish angle."
 	
-Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."
+Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
 
 The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit.
 
@@ -1459,7 +1457,7 @@ section 2 - Ball Pit
 
 The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
 	
-Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to keep your head above sea of colorful rubber balls.[paragraph break]The cafeteria is back to the west."
+Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to keep your head above sea of colorful rubber balls."  The possible exits of Ball Pit are "The cafeteria is back to the west."
 
 BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
 
@@ -1560,13 +1558,13 @@ The groundDoor is a white door. It is north of the Lobby and south of the Stairs
 After going north from the lobby for the first time:
 	bestow "Snooping Around".
 
-The printed name of the StairsGround is "Emergency Stairs: Ground Level". The description of StairsGround is "[stairwellDescription]. To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
+The printed name of the StairsGround is "Emergency Stairs: Ground Level". The description of StairsGround is "[stairwellDescription]."  The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
 The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
 
-The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The description of StairsBasement is "[stairwellDescription]. To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
+The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The description of StairsBasement is "[stairwellDescription]."  The possible exits of StairsBasement is "To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
 
-The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The description of StairsSB is "[stairwellDescription]. To the south there is a blue door with no label."
+The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The description of StairsSB is "[stairwellDescription]."  The possible exits of StairsSB is "To the south there is a blue door with no label."
 
 The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the basementDoor.
 
@@ -1580,7 +1578,7 @@ To say printedSubBasementDoor:
 		otherwise:
 			say "blue corridor"
 	
-The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The description of StairsSSB is "[stairwellDescription]. To the south there is a red door with no label."
+The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The description of StairsSSB is "[stairwellDescription]." The possible exits of StairsSSB is "To the south there is a red door with no label."
 
 The subSubBasementDoor is a red door. It is north of the Throne Room and south of the StairsSSB.
 
@@ -1588,21 +1586,21 @@ The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the loca
 
 The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
-The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The description of StairsInterns is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
+The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The description of StairsInterns is "[stairwellDescription]."  The possible exits of StairsInterns is "To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
 
 The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineering offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
-The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The description of StairsEngineers is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
+The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The description of StairsEngineers is "[stairwellDescription]." The possible exits of StairsEngineers are "To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
 
 The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managerial offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
-The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The description of StairsManagers is "[stairwellDescription]. To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
+The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The description of StairsManagers is "[stairwellDescription]." The possible exits of StairsManagers is "To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
 
-The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The description of StairsInfirmary is "[stairwellDescription]. To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
+The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The description of StairsInfirmary is "[stairwellDescription]." The possible exits of StairsInfirmary is "To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
 
 The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printed name of the infirmaryDoor is "pink [shortDoorToThe] infirmary". Understand "pink" or "door" or "infirmary" or "emergency" or "stairs" as the infirmaryDoor
 
-The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". The description of StairsProcessing is "[stairwellDescription]."
+The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". The description of StairsProcessing is "[stairwellDescription]." 
 
 To say shortTwentyFlights:
 	say "about twenty flights of stairs"
@@ -1643,7 +1641,7 @@ Instead of going a direction (called the way) when the player is in the StairsPa
 	otherwise:
 		continue the action.
 
-The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The description of StairsRoof is "[stairwellDescription]. To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
+The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The description of StairsRoof is "[stairwellDescription]." The possible exits of StairsRoof is "To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
 The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "access" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
 
@@ -1678,13 +1676,13 @@ The railing is a backdrop in the Deck Area. Understand "rail" as the railing whe
 
 The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
 
-The printed name of DeckN is "Observation Deck, Northern View".  The description of DeckN is "[deckDescription]".
+The printed name of DeckN is "Observation Deck, Northern View".  The description of DeckN is "[deckDescription]". The possible exits of DeckN are "[deckExits]"
 
-DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View". The description of DeckW is "[deckDescription]".
+DeckW is southwest of DeckN. The printed name of DeckW is "Observation Deck, Western View". The description of DeckW is "[deckDescription]". The possible exits of DeckW are "[deckExits]"
 
-DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View". The description of DeckS is "[deckDescription]".
+DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Southern View". The description of DeckS is "[deckDescription]". The possible exits of DeckS are "[deckExits]"
 
-DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".The description of DeckE is "[deckDescription]".
+DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".The description of DeckE is "[deckDescription][paragraph break]". The possible exits of DeckE are "[deckExits]".
 
 
 To say deckDescription:
@@ -1709,7 +1707,10 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant.[paragraph break]The deck continues around to the ";
+	say "At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant."
+	
+To say deckExits:	
+	say "The deck continues around to the ";
 	let O be a list of directions;
 	repeat with way running through directions:
 		let place be the room way from the location;
