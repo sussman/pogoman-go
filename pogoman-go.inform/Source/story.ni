@@ -42,6 +42,8 @@ A pop is a kind of thing. It is usually scenery.
 
 Current floor is a number that varies.
 
+A room has a text called possible exits.
+
 
 
 [
@@ -102,6 +104,10 @@ Chapter Rules Modifications
     (this is the don't mention doors in room descriptions rule): 
     set the locale priority of the item to 0; 
     continue the activity.
+
+This is the list exits rule:
+	if the possible exits of the location is not "":
+		say "[the possible exits of the location][paragraph break]".
 
 
 Chapter Verbs
@@ -394,11 +400,13 @@ After printing the banner text:
 	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
 	
 
-Chapter Every Turn
+Chapter Every Turn 
+[also see scene-specific every turns under Scenes]
 
 Every turn:	
+	if the current action is looking or going, follow the list exits rule;
 	CheckLevel; [possibly level-up the player]
-	ShowStatus.  [display current level, team, XP in status bar]
+	ShowStatus;  [display current level, team, XP in status bar]
 
 
 
@@ -533,7 +541,7 @@ Instead of searching the sky:
 	
 [The City Park]
  
-The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator.
+The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator. 
 
 proxy-cityPark is a privately-named place proxy-scenery in City Park. The printed name of proxy-cityPark is  "City Park". Understand "city" or "park" as proxy-cityPark. 
 
@@ -1013,7 +1021,7 @@ HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, 
 
 [Top Level, Interior]
 
-The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant.[paragraph break]The elevator is to the west, the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
+The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant."  The possible exits of the Cafeteria are "The elevator is to the west, the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
 
 The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
 
@@ -1194,7 +1202,7 @@ The Crawl Space is above the LAN Closet.
 
 [Ground Floor]
 
-The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]The elevators are to the west and the revolving door back to the street is to the south. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]. A silvery reception desk hovers in the middle of the lobby."
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The elevators are to the west and the revolving door back to the street is to the south. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
 
 Instead of going east from the Lobby when the walkman is not worn:
 	 say "[one of]As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door[or]You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you[stopping].";
@@ -1396,20 +1404,30 @@ After wearing the hat:
 	
 Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."
 
-The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up."
+The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit.
 
 The flippers are part of the wetsuit. The description of the flippers is "Bright orange rubber flippers, which meet seamlessly with the lower part of the wetsuit legging." Understand "legging" as the flippers.
 
-The mast is part of the wetsuit. The description of the mask is "A rubber face mask, which is built into the head piece of the wetsuit." Understand "head piece" or "neoprene" as the wetsuit.
+The mask is part of the wetsuit. The description of the mask is "A rubber face mask, which is built into the head piece of the wetsuit." Understand "head piece" or "neoprene" or "regulator" or "mouthpiece" or "hose" or "valve" or "belt" as the wetsuit.
 
-The tanks are part of the wetsuit. The description of the tanks is "Two large airtanks built into the back of the wetsuit."
+The tanks are part of the wetsuit. The description of the tanks is "Two large airtanks built into the back of the wetsuit." Understand "strap" or "straps" as the tanks.
 
 After wearing the wetsuit: 
 	say "Despite the tight fit, the diving outfit pulls on snuggly over your clothing. You wriggle into the headpiece and adjust the mask. With a bit of twisting, you slip the flippers over your shoes, zip up the front of the suit, and adjust the air tank for comfort[if the player wears the party hat].[paragraph break]You had to take the party hat off to put the suit on, but you immediately put the strangely adherent hat back on and it bonds tightly with the neoprene headpiece[end if].";
 	if the player had not worn the wetsuit:
 		say line break;
 		bestow "Aquanaut".
-
+		
+Instead of taking off the wetsuit:
+	if the player is in the BallPit Area:
+		if the player is in the Ball Pit:
+			say "With some difficulty you float on the soft and shifting surface of the ball pit, while at the same time peeling out of the tight wetsuit, which you now hold on to.";
+		otherwise:
+			say "You struggle out of the wet suit, grab it, and shoot immediately to the surface of the ball pit for a breath.";
+			move the player to the ball pit;
+	otherwise:
+		continue the action.
+			
 Instead of going a direction (called the way) when the player wears the wetsuit:
 	if the player is in the Cafeteria and the way is east:
 		say "You dive into the ball pit and swim around the surface effortless, propelled by your flippers.";
@@ -1440,24 +1458,18 @@ MuskTube Station is down from Throne Room.
 section 2 - Ball Pit
 
 The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
-
-[TODO: dive command]
-
-Ball Pit is east of the Cafeteria.
-
-
-
-
-
+	
+Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to keep your head above sea of colorful rubber balls.[paragraph break]The cafeteria is back to the west."
 
 BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface".
 
 BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit".
 
-BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "Near The Bottom Of The Ball Pit".
+BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "The Bottom Of The Ball Pit".
 
 After going east from the Cafeteria for the first time:
-	say "As you step over the threshold, you fall immediately into a giant pit filled with small rubber balls of every color. You panic as you sink into the pit and your uncoordinated thrashing just buries you deeper. You pass several other pit explorers and take an elbow to the jaw before you catch on to the trick of swimming through the balls. Eventually you make it to the top and hang on to the edge of the pit.";
+	say "As you step over the threshold, you fall immediately into a giant pit filled with small rubber balls of every color. You panic as you sink into the pit and your uncoordinated thrashing just buries you deeper. You pass several other pit explorers and take an elbow to the jaw before you catch on to the trick of swimming through the balls. Eventually you make it to the top and hang on to the edge of the pit.[paragraph break]";
+	bestow "Staying Afloat In A Sea of Chaos".
 	
 After going east from the Cafeteria:
 	say "You are adrift in a pit, filled with small rubber balls."
@@ -1479,17 +1491,47 @@ The ballObject is a privately-named backdrop in the BallPit Area. The printed na
 Before taking ballObject:
 	say "The more you tighten your grip, the more balls slip through your fingers." instead. [Unless the ball is Alderaan, in which case it is bad news for that particular ball.]
 
-Diving is an action applying to nothing. Understand "dive" or "sink" or "descend" as diving.
+Diving is an action applying to nothing. Understand "dive" or "sink" or "descend" or "submerge" as diving.
 
 Check Diving:
 	try going down instead.
 	
-Instead of going down from the ball pit:
-	if the wetsuit is worn by the player:
-		say "TODO: wetsuit worn.";
+Before going down from the ball pit:
+	if the player wears the wetsuit:
 		continue the action;
 	otherwise:
-		say "You hold your breath and dive down, swimming until your lungs are on the verge of bursting, but still don’t reach the bottom. Now panicking for air, you shoot back to the surface, gasping."
+		say "You hold your breath and dive down, swimming until your lungs are on the verge of bursting, but still don’t reach the bottom. Now panicking for air, you shoot back to the surface, gasping.";
+		stop the action.
+		
+Instead of going down from the Ball Pit for the first time:
+	say "You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface. As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
+	bestow "Got that sinking feeling.";
+	move the player to the room down from the location.
+	
+Instead of going down from the BallPitShallow for the first time:
+	say "At this depth, the weight of the balls above you is noticeable, but not uncomfortable. The light filtering down through the rubber balls is muted, but another pale, blue light shines upward from below. In the distance, low bass notes resonate.[paragraph break]";
+	bestow "In Over Your Head";
+	move the player to the room down from the location.
+	
+Instead of going down from the BallPitDeep for the first time:
+	say "You swim with difficulty through the viscous sea of rubber balls, which at this depth are nearly flat. Finally, you arrive at the bottom of the pit, where you come face to face with a robotic blue whale. Your organs quiver with each resounding note of its deep, lamenting song.[paragraph break]";
+	bestow "Admiral, there be whales here!";
+	move the player to the room down from the location.
+	
+
+Instead of going down when the player is in the BallPit area:
+	if the player is not in BallPitBottom:
+		say "You swim ever downward through the colorful balls.";
+		continue the action;
+	otherwise:
+		say "You have reached the bottom and can[apostrophe]t go any deeper."
+		
+Instead of going up when the player is in the BallPit Area:
+	if the player is not in the Ball Pit:
+		say "You swim towards the surface.";
+		continue the action;
+	otherwise:
+		say "You are already at the surface[one of] and despite your best effort, you are unable to levitate above it[or][stopping]."
 
 Section 3 - Stairwell
 
@@ -2098,6 +2140,11 @@ To say openingText:
 Book 6 - Scenes
 
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the lobby.
+
+Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the MuskPod.
+
+
+
 
 Book 7 - Hints
 
