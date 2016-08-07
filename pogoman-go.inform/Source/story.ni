@@ -1269,14 +1269,47 @@ The Crawl Space is above the LAN Closet.
 
 The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The elevators are to the west and the revolving door back to the street is to the south. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
 
-Instead of going east from the Lobby when the walkman is not worn:
-	 say "[one of]As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door[or]You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you[stopping].";
+Instead of going east from the Lobby when the walkman is not worn for the first time:
+	 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
 	bestow "Terrified of a LAN closet".
-
+	
+Instead of going east from the Lobby when the walkman is not worn:
+	say "You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you."
+	
+After going east from the Lobby for the first time:
+	say "With the walkman blaring away in your ears, the arguably melodious strains of Rick Astley drown out the sonic barrier around the LAN closet, and you are able to approach it."
 
 The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." 
 
-The LAN Closet is east of the Lobby.
+The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The white door to the LAN closet [if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
+
+The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, dial, and some indicators." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west."
+
+The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The phonograph is playing a 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[quotation mark]. The phonograph drives the huge speaker on the back of the door."
+
+The speaker is part of the LAN Closet Door. The description of the speaker is "A heavy duty speaker, like the kind used on stage for rock concerts, with an oversized woofer. It is bolted directly to the door."
+
+Instead of attacking the speaker:
+	say "The speaker is built like a tank. You are likely to break before it does."
+
+The record is a prop on the phonograph. The description of the record is "A vinyl record, [quotation mark]Visceral Fear Sounds, Volume One[quotation mark]."
+
+The racks are scenery in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment."
+
+The wires are scenery in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together."
+
+The hardware is scenery in the LAN Closet. The description of the hardware is "Looks mostly like network switches. LEDs on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "router" or "switches" or "network" or "computer" or "internet" or "ethernet" or "hub" as the hardware.
+
+The ceiling is scenery in the LAN Closet. The description of the ceiling is "Fiber panels with inset lighting."
+
+The lighting is part of the ceiling. The description of the lighting is "High efficiency industrial light panels set into the ceiling." Understand "light" or "panels" as the lighting.
+
+
+
+
+
+
+
 
 [Basement]
 
