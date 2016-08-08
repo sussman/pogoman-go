@@ -1287,9 +1287,9 @@ After going east from the Lobby for the first time:
 
 The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." 
 
-The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The white door to the LAN closet [if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
+The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The [if the LAN Closet Door is open]open[otherwise]shut[end if] white door to the LAN closet[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
 
-The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, dial, and some indicators." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west."
+The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, dial, and some indicators." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
 PhonographBroken is a truth state that varies. PhonographBroken is false.
 
@@ -1299,8 +1299,7 @@ Definition: The speaker is active if phonographBroken is false and phonographOn 
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" as the phonograph.
-
+The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph.
 
 Instead of switching on the phonograph:
 	if PhonographBroken is true:
@@ -1313,19 +1312,87 @@ Instead of switching on the phonograph:
 			if the speaker is not active:
 				now phonographOn is true;
 				follow the run from sound rule.
+				
+Instead of switching off the phonograph:
+	if the phonographBroken is true:
+		say "On, off, it doesn[apostrophe]t really matter -- the phonograph is totaled.";
+	otherwise:
+		if PhonographOn is false:
+			say "The phonograph is already off.";
+		otherwise:
+			if speaker is active:
+				say "[one of]You experience a great sense of relief; even if the sound was not affecting your conscious mind, it was eating away at your soul[or]You turn off the phonograph and feel much better[stopping].";
+			otherwise:
+				say "You turn off the phonograph.";
+			now phonographOn is false.
+				
+Instead of dropping or taking off the walkman when the player is in the LAN Closet:
+	if the speaker is active:
+		say "Before you can slip the earphone off, you are overcome by nauseous fear -- even worse than Rick Astley -- and you sprint out of the LAN closet, hanging onto the walkman.";
+		now the player carries the walkman;
+		now the LAN Closet Door is closed;
+		move the player to the Lobby;
+	otherwise:
+		if the current action is dropping and phonographBroken is false:
+			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the walkman, but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
+			now the player carries the walkman;
+		otherwise:
+			continue the action.
+	
+To say walkmanTooValuable:
+	say "It is a delicate bit of 80[apostrophe]s nostalgia, and probably worth something to a collector. You wouldn[apostrophe]t want to damage it."
+
+Instead of throwing the walkman at something:
+	say walkmanTooValuable.
+	
+Instead of attacking the walkman:
+	say walkmanTooValuable.
 		
+Instead of attacking the record:
+	say "You smash the offending vinyl disc into a million pieces and brush them away to hide the evidence[if the speaker is active] and feel immediately relief as the subsonic vibrations suddenly cease[end if].";
+	move the record to the void.
+	
+Instead of attacking the phonograph:
+	say "You [one of]clobber[or]beat[or]take your aggressions out on[or]pummel[or]thrash[or]wallop[or]belt[or]slam[or]whack[in random order] the phonograph. ";
+	if phonographBroken is true:
+		say "It was already damaged beyond repair, but it makes you feel better.";
+	otherwise:
+		say  "Plastic and metal parts go flying, a spring rolls under the equipment rack, and sparks spray across the floor of the LAN closet. You got it but good. What[apostrophe]s left of the phonograph will surely never spin another record.";
+		now phonographBroken is true.
+		
+Instead of taking the record:
+	if the speaker is active:
+		say "[one of][quotation mark]Bzzzzzzzeeeeeeeerrrrrrrpppppp![quotation mark] the speaker screams as you tear the record off the phonograph. Ah, much better. Your mind stops crumbling[or]With a sense of relief, you remove the record from the phonograph[stopping].";
+		now the player carries the record;
+	otherwise:
+		continue the action.
+		
+Instead of putting something (called the item) on the phonograph:
+	if the item is not the record:
+		say "You realize that putting [the item] on the phonograph wouldn[apostrophe]t make a lot of sense.";
+	otherwise:
+		if phonographBroken is false and phonographOn is true:
+			now the record is on the phonograph;
+			follow the run from sound rule;
+		otherwise:
+			continue the action.
+			
+Instead of switching off the record:
+	try switching off the phonograph.
+	
+Instead of switching on the record:
+	try switching on the phonograph.
 
 The speaker is part of the LAN Closet Door. The description of the speaker is "A heavy duty speaker, like the kind used on stage for rock concerts, with an oversized woofer. It is bolted directly to the door."
 
 Instead of attacking the speaker:
 	say "The speaker is built like a tank. You are likely to break before it does."
 
-
-The racks are scenery in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment."
+The racks are scenery in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment." Understand "rack" as the racks.
 
 The wires are scenery in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together."
 
-The hardware is scenery in the LAN Closet. The description of the hardware is "Looks mostly like network switches. LEDs on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "router" or "switches" or "network" or "computer" or "internet" or "ethernet" or "hub" as the hardware.
+The hardware is scenery in the LAN Closet. The description of the hardware is "Looks mostly like network switches. LEDs on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "rack" or "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
 
 The ceiling is scenery in the LAN Closet. The description of the ceiling is "Fiber panels with inset lighting."
 
@@ -1583,6 +1650,10 @@ Instead of entering the the rickity table, say "Surely, that would be the end of
 Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
 
 The walkman is a wearable prop on the rickity table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" as the walkman.
+
+Instead of listening to the walkman when the walkman is not worn:
+	say "(first putting on the earphones)[command clarification break]";
+	try wearing the walkman.
 
 Before switching on the walkman:
 	say "You have to wear the earphones to hear anything.";
