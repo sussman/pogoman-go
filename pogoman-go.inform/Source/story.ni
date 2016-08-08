@@ -48,6 +48,10 @@ Deck rooms are a kind of room. The description of deck rooms is "[deckDescriptio
 
 Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]."
 
+Nyantechnology is a kind of thing. 
+
+A lightsource is a kind of device.
+
 [
   7 Roof
   6 Processing 
@@ -1088,7 +1092,7 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Crawl Space, Gearing Assembly, Support Boom, Top of the Ladder, Somewhere Along The Ladder, Bottom Rung, Throne Room, and MuskTube Station are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Support Boom, Throne Room, and MuskTube Station are rooms in HQ.
 
 [Top Level, Interior]
 
@@ -1257,9 +1261,11 @@ Before taking or drinking a pop (called the liquid):
 After going southeast from beverages when the securityColor of the badge is green for the first time:
 	say "As you emerge from the beverage room, kool-aid dripping from your lips, one of the employees looks over towards you conspiratorily and gives you a little salute before returning to a trance-like state."
 
-[Conduit Space Above Ground Floor]
+[Mechanical Access Shaft]
 
-The Support Boom is outside from Gantry Chamber.
+The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, Somewhere Along The Ladder, and Bottom Rung are rooms in the Ladder Area.
+
+The ladderProxy is a privately-named backdrop in the Ladder Area. The description of the ladderProxy is "A long ladder in a narrow shaft."  The printed name of the ladderProxy is "ladder". Understand "ladder" as the ladderProxy.
 
 The Gearing Assembly is above The Top of the Ladder and outside from Support Boom.
 
@@ -1269,7 +1275,84 @@ Somewhere Along The Ladder is above the Bottom Rung.
 
 The Bottom Rung is above the Crawl Space.
 
-The Crawl Space is above the LAN Closet.
+[Crawl Space]
+
+The Crawl Space is above the LAN Closet.  The description of the Crawl Space is "[if the player carries a switched on lightsource]You are poking up into a dead space between some hanging acoustic tiles above the LAN Closet and the lower end of a ladder about ten feet above your head. As you play the light up the ladder, it looks like it runs up a long narrow shaft as far as you can see[otherwise]A dark space above the LAN Closet[end if]."
+
+The acoustic tiles are scenery in the Crawl Space. The description of the acoustic tiles is "Sound-absorbing tiles are all that separate this crawl space from the LAN Closet below." Understand "dust" or "tile" as the acoustic tiles when the player is in the Crawl Space.
+
+Instead of doing something other than examining with the acoustic tiles, say "Eww. They are covered it dust. You have no desire to muck about in such filth."  
+
+Instead of doing something other than examining with the ladderProxy when the player is in the Crawl Space:
+	say "You can[apostrophe]t reach it."
+	
+Instead of examining the ladderProxy when the player is in the Crawl Space:
+	say "The bottom of a long, narrow ladder."
+	
+Instead of jumping when the player is in the Crawl Space:
+	say "You jump off the equipment rack and land on the floor of the LAN closet.";
+	move the player to the LAN Closet.
+
+The penlight is a lightsource in the Crawl Space. The description of the penlight is "A black flashlight with a metal barrrel and protective rubber cover on the rear end[if the barrel is open], which hangs open[end if]." Understand "flashlight" or "torch" or "light" as the penlight. 
+
+The rubber cover is part of the penlight. The description of the rubber cover is "The cover on the rear end of the penlight is [if the barrel is open]open, permitting a view into the hollow barrel[otherwise]closed[end if]." Understand "cap" as the rubber cover.
+
+To say barrelDescription:
+	say "The central part of the flashlight, which holds the batteries.";
+	
+The barrel is an closed openable container. The barrel is part of the penlight. The description of the barrel is "[barrelDescription]"
+
+Instead of opening the rubber cover:
+	try opening the barrel.
+	
+Instead of closing the rubber cover:
+	try closing the barrel.
+	
+Instead of pulling the rubber cover:
+	try opening the barrel.
+	
+Instead of pushing the rubber cover:
+	try closing the barrel.
+	
+After opening the barrel: 
+	say "You pull open the rubber cap."
+	
+After closing the barrel:
+	say "You close up the rubber cover."
+	
+Instead of opening the penlight:
+	try opening the barrel.
+	
+Instead of closing the penlight:
+	try closing the barrel.
+	
+Instead of inserting something (called the item) into the penlight:
+	try inserting the item into the barrel.
+	
+Instead of inserting something (called the item) into the barrel:
+	if the barrel is not open:
+		say "(first opening up the rubber cap)[command clarification break]";
+		now the barrel is open;
+	if the item is the fresh batteries:
+		continue the action;
+	otherwise:
+		say "That doesn't fit."
+	
+Instead of switching on the penlight:
+	if the barrel is open:
+		say "Nothing happens. Perhaps you need to close the cap?";
+	otherwise:
+		if the batteries are not in the barrel:
+			say "Nothing happens. You notice that the flashlight feel too light.";
+		otherwise:
+			continue the action.
+			
+After switching on the penlight for the first time:
+	bestow "Et lux facta est".
+
+Instead of opening the barrel when penlight is switched on:
+	say "As soon as you open the end cap, the light winks off.";
+	now the penlight is switched off.
 
 [Ground Floor]
 
@@ -1388,18 +1471,26 @@ The speaker is part of the LAN Closet Door. The description of the speaker is "A
 Instead of attacking the speaker:
 	say "The speaker is built like a tank. You are likely to break before it does."
 
-The racks are scenery in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment." Understand "rack" as the racks.
+The racks are scenery Nyantechnology in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment." Understand "rack" or "utility" as the racks.
 
-The wires are scenery in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together."
+The wires are scenery Nyantechnology in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together." Understand "cat5" or "twisted pair" or "cable" or "cables" as the wires.
 
-The hardware is scenery in the LAN Closet. The description of the hardware is "Looks mostly like network switches. LEDs on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "rack" or "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
+The hardware is scenery  Nyantechnology in the LAN Closet. The description of the hardware is "Looks mostly like network switches. LEDs on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
 
-The ceiling is scenery in the LAN Closet. The description of the ceiling is "Fiber panels with inset lighting."
+The ceiling is scenery in the LAN Closet. The description of the ceiling is "Fiber panels with inset lighting." 
 
 The lighting is part of the ceiling. The description of the lighting is "High efficiency industrial light panels set into the ceiling." Understand "light" or "panels" as the lighting.
 
+Instead of attacking a Nyantechnology:
+	say "[One of]You can[apostrophe]t believe you even had that thought. You[apostrophe]re at the very heart of Nyantech! The data in these cables is the lifeblood of Pogoman. You[apostrophe]d never do anything to harm the game. You lovingly pet the equipment[or]You can[apostrophe]t bring yourself to even consider harming Nyantech hardware[or]Shudder. No[stopping]."
+	
+Instead of climbing the racks:
+	try going up.
 
-
+Instead of going up from the LAN Closet for the first time:
+	say "You scamper up the racks and hang onto the bundles of CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
+	continue the action.
+	
 
 
 
@@ -2038,6 +2129,8 @@ The Captain's Cabin is down from the hatchway.
 Gantry Chamber is aft from The Captain's Cabin. 
 
 CatHead is fore from the Captain's Cabin. The printed name of CatHead is "Inside the Cat's Head".
+
+The Support Boom is outside from Gantry Chamber.
 
 Chapter in the Elevator
 
