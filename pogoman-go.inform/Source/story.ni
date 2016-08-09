@@ -107,6 +107,10 @@ medalList is a list of text that varies.
 
 pedometer is a number that varies. The pedometer is 0.
 
+Heading is a list of text that varies. Heading is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
+
+PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
+
 Chapter Rules Modifications
 
  For printing a locale paragraph about a door (called the item) 
@@ -466,15 +470,15 @@ To openGame:
 		say "[theTime minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
-	say ". You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it![paragraph break]";
-	wait for any key.
+	say ". You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it![paragraph break]".
+	[TODO - uncomment for production - now disabled to allow replays -- >wait for any key]
 	
 After printing the banner text:
 	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
 	
 
 Chapter Every Turn 
-[also see scene-specific every turns under Scenes]
+
 
 Every turn:	
 	if the walkman is worn by the player:
@@ -482,6 +486,22 @@ Every turn:
 	if the current action is looking or going, follow the list exits rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
+	
+megaCats is a number that varies. megaCats is 1000000.
+
+Every turn when Exploring the Tower is happening:
+	if PEC is greater than 0:
+		if catOnHold is false:
+			increase PEC by a random number between 120 and 130;
+		otherwise:
+			increase PEC by a random number between 18 and 23;
+	if catOnHold is false:
+		rotate heading backwards;
+	if PEC is greater than megaCats:
+		if the numerical counter is handled:
+			bestow "You sick puppy: [megaCats] Cat Rotations!";
+		increase megaCats by 4000000.
+		
 
 
 
@@ -799,7 +819,7 @@ Instead of doing something other than examining with the stained glass, say "You
 
 The description of Witch Pillory is "This site commemorates the town’s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]".
 
-proxy-Pillory is a privately-named artifact proxy-scenery in Witch Pillory. The printed name of proxy-Pillory is "Witch Pillory". Understand "witch" or "pillory" as proxy-Pillory. 
+proxy-Pillory is a privately-named artifact proxy-scenery. proxy-Pillory is in Witch Pillory and DeckN. The printed name of proxy-Pillory is "Witch Pillory". Understand "witch" or "pillory" as proxy-Pillory. 
 
 Instead of entering the proxy-Pillory, say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
 
@@ -867,7 +887,7 @@ proxy-GSG is a privately-named artifact proxy-scenery in Gas Station Gazebo. The
 
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium."
 
-proxy-Dung is a privately-named artifact proxy-scenery in Dung Beetle Mural. The printed name of proxy-Dung is "dung beetle mural". Understand "dung" or "beetle" or "mural" or "dung beetle" or "beetle mural" or "dung beetle mural" as proxy-Dung. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-Dung when the location is Dung Beetle Mural.
+proxy-Dung is a privately-named artifact proxy-scenery. proxy-Dung is in Dung Beetle Mural and DeckN. The printed name of proxy-Dung is "dung beetle mural". Understand "dung" or "beetle" or "mural" or "dung beetle" or "beetle mural" or "dung beetle mural" as proxy-Dung. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-Dung when the location is Dung Beetle Mural. 
 
 [Hank's Tavern]
 
@@ -1382,7 +1402,7 @@ Definition: The speaker is active if phonographBroken is false and phonographOn 
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph.
+The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
 
 Instead of switching on the phonograph:
 	if PhonographBroken is true:
@@ -1475,7 +1495,7 @@ The racks are scenery Nyantechnology in the LAN Closet. The description of the r
 
 The wires are scenery Nyantechnology in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together." Understand "cat5" or "twisted pair" or "cable" or "cables" as the wires.
 
-The hardware is scenery  Nyantechnology in the LAN Closet. The description of the hardware is "Looks mostly like network switches. LEDs on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
+The hardware is scenery  Nyantechnology in the LAN Closet. The description of the hardware is "Looks mostly like network switches. Indicator lights on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
 
 The ceiling is scenery in the LAN Closet. The description of the ceiling is "Fiber panels with inset lighting." 
 
@@ -1491,9 +1511,38 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
+The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in Heading] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" as the CAT Control.
 
+catOnHold is a truth state that varies. catOnHold is false.
 
+The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC]."
 
+After examining the numerical counter:
+	now the numerical counter is handled.
+	[handled just reflects that it has been examined - a prequisite for the megaCat medal]
+
+Instead of examining the numerical counter for the first time:
+	now the PEC is 69105;
+	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC]."
+	
+The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if catOnHold is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+
+Instead of pulling the plunger:
+	if catOnHold is true:
+		say "The plunger was already pulled out.";
+	otherwise:
+		now catOnHold is true;
+		repeat with N running from 1 to 3:
+			rotate heading backwards;
+		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in Heading] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
+	
+Instead of pushing the plunger:
+	if catOnHold is false:
+		say "The plunger was already pushed all the way in.";
+	otherwise:
+		now catOnHold is false;
+		say "The LEDs again start lighting in order, clockwise, slowly at first, but then resuming their previous pace. The PEC counter starts clicking over more rapidly as well."
+		
 
 
 [Basement]
@@ -1965,9 +2014,9 @@ The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the 
 
 The catProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or "gantry" or "boom" or "vessel" or "eyes" or "tail" as the catProxyOverhead when the player is in the Deck Area. The description of the catProxyOverhead is "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail."
 
-The beretProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead when the player is in the Deck Area. The description of the beretProxyOverhead is "From the ground, it looks like a felt beret, but from up here the fabric looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber."
+The beretProxyOverhead is a privately-named backdrop. The beretProxyOverhead is in the Maintenance Hatch, Poop Deck, Catwalk, and Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead when the player is in the Deck Area. The description of the beretProxyOverhead is "From the ground, it looks like a felt beret, but from up here the fabric looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber."
 
-The hatchProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead when the player is in the Deck Area. The description of the hatchProxyOverhead is "[hatchDescription]".
+The hatchProxyOverhead is a privately-named backdrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead when the player is in the Deck Area. The description of the hatchProxyOverhead is "[hatchDescription]".
 
 The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck, preventing accidental falls."
 
@@ -2003,7 +2052,7 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
+	say "[if catOnHold is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
 	
 To say deckExits:	
 	say "The deck continues around to the ";
@@ -2017,6 +2066,10 @@ To say deckExits:
 			say ". The door to the emergency stairs is to the south";
 		-- deckS: 
 			say ". The roof-top restaurant is to the north".
+
+
+Instead of examining a proxy-scenery when the player is not in the village:
+	say "It is too far off to make out much detail."
 
 Unclipping is an action applying to one thing. Understand "unclip  [something]"  or "unfasten [something]"  or "detach [something]" or "disconnect [something]" as unclipping.
 
@@ -2051,6 +2104,9 @@ Carry out clipping:
 Report clipping:
 	say "You reclip the [noun]."
 	
+After unclipping the chain:
+	say "Glancing around quickly to be sure you[apostrophe]re not observed, you unclip the chain. Standing so close to the perilous drop makes your knees weak and you hang on even tighter to the railing at the sides of the gap."
+	
 Instead of inserting the chain into the railing:
 	try clipping the chain.
 
@@ -2065,17 +2121,20 @@ Instead of jumping when the player is in the Deck Area:
 		if the chain is clipped:
 			say "Fortunately, the chain prevents you from taking any such foolish action.";
 		otherwise:
-			if the  securityColor of the badge is less than blue:
+			if catOnHold is false:
 				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
 				now the chain is clipped;
 			otherwise:
-				say "TODO - jump to CAT";
+				say "The things you do for this game… You hold on tightly to your phone and step over the edge.[paragraph break]Arms and legs flailing, you fall without the slightest hint of dignity. Your screams are carried away by the stiff breeze.  Despite any skill whatsoever at jumping off buildings, you land squarely in the center of the cat[apostrophe]s red beret, which is just as warm and fluffy as it looks.";
+				move the player to the Cat's Beret;
 	otherwise:
 		say cantJump
 		
 Instead of climbing the railing when the player is in the deck area:
 	say cantJump.	
-
+	
+Instead of going down from deckS:
+	try jumping.
 
 Section 5 - Cat
 
@@ -2108,13 +2167,18 @@ Does the player mean going a nautical direction when the location is in the Cat 
 
 Index map with fore mapped as east. Index map with aft mapped as west. Index map with port mapped as south. Index map with starboard mapped as north.
 
-Instead of going a nautical direction when the location is not in the Cat Area, say "[One of]Okay, matey. Could you rephrase that for us landlubbers?[or]Those directions only make sense on a vessel of some sort.[or]So, that's what? North? South? Throw me a bone.[or]Compass directions please, unless you're in a vessel.[stopping]".
+Before going a nautical direction when the player is not in the Cat Area, say "[One of]Okay, matey. Could you rephrase that for us landlubbers?[or]Those directions only make sense on a vessel of some sort.[or]So, that's what? North? South? Throw me a bone.[or]Compass directions please, unless you're in a vessel.[stopping]" instead.
 
-Instead of going an earthbound direction when the location is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]."
+Before going an earthbound direction when the player is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]." instead.
 
 Section 7 - Cat Layout
 
-The Cat's Beret is down from DeckS. 
+The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
+
+The possible exits of the Cat's Beret are "The only way to go from here [one of](the only sane way to go, discounting a suicidal fall)[or][stopping]is towards the rear of the cat. The maintenance hatch is just aft of the beret, at the nape of the cat[apostrophe]s neck. Behind that, there is a narrow scaffold over the pop-tart section of the cat. The scaffold runs above the support boom that extends outward from the building. Finally, at the very rear of the cat, sparkles shoot from a short, metal exhaust tube."
+
+Instead of going up from the Cat's Beret:
+	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping]."
 
 Maintenance Hatch is aft of the Cat's Beret.
 
