@@ -638,7 +638,7 @@ Instead of searching the sky:
  
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  The Park contains an Edator. 
 
-proxy-cityPark is a privately-named place proxy-scenery in City Park. The printed name of proxy-cityPark is  "City Park". Understand "city" or "park" as proxy-cityPark. 
+proxy-cityPark is a privately-named place proxy-scenery. proxy-CityPark is in City Park and DeckN. The printed name of proxy-cityPark is  "City Park". Understand "city" or "park" as proxy-cityPark. 
 
 The trees are scenery in City Park. The description of the trees is "A variety of trees are scattered throughout the park to provide shade for picnickers.". Understand "tree" as trees.
 
@@ -652,13 +652,13 @@ Instead of entering or climbing the hedges, say "Ow. No thanks."
 
 The description of Old Courthouse is "A brick court house, probably of historical significance."
 
-proxy-OldCourthouse is a privately-named proxy-scenery in Old CourtHouse. The printed name of proxy-OldCourthouse is "Old Court House". Understand "old" or "courthouse" or "court" as proxy-OldCourthouse. Understand "building" or "brick"  as proxy-OldCourthouse when the location is Old Courthouse.
+proxy-OldCourthouse is a privately-named proxy-scenery. proxy-OldCourthouse is in Old CourtHouse, DeckW, and DeckN. The printed name of proxy-OldCourthouse is "Old Court House". Understand "old" or "courthouse" or "court" as proxy-OldCourthouse. Understand "building" or "brick"  as proxy-OldCourthouse when the location is Old Courthouse.
 
 [Old Jail]
 
 The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for online for play or download.[quotation mark][paragraph break]Disgusted with [if the dog exercise area is unvisited]the[otherwise]yet another[end if] blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."
 
-proxy-OldJail is a privately-named proxy-scenery in Old Jail. The printed name of proxy-OldJail is "Old Jail". Understand "old" or "jail" or "clink" or "lock-up" or "lock up" or "hoosegow" as proxy-OldJail. Understand "building" or "brick"  as proxy-OldJail when the location is Old Jail.
+proxy-OldJail is a privately-named proxy-scenery. proxy-OldJail is in Old Jail, DeckW, and DeckN. The printed name of proxy-OldJail is "Old Jail". Understand "old" or "jail" or "clink" or "lock-up" or "lock up" or "hoosegow" as proxy-OldJail. Understand "building" or "brick"  as proxy-OldJail when the location is Old Jail.
 
 Instead of entering proxy-OldJail, say "You aren[apostrophe]t sure whether the Old Jail is still in business or not. Given that, you[apostrophe]d just as soon stay on this side of the bars."
 
@@ -666,7 +666,7 @@ Instead of entering proxy-OldJail, say "You aren[apostrophe]t sure whether the O
 
 The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  A Rock PogoSpot is a PogoSpot in Johnson's Rock. Rock PogoSign is a PogoSign in Johnson's Rock.
 
-proxy-JohnsonsRock is a privately-named artifact proxy-scenery in Johnson's Rock. The printed name of proxy-JohnsonsRock is "Johnson's Rock". Understand "johnson" or "johnsons" or "johnson's" or "rock" or "Johnson's rock" or "Johnsons Rock" as proxy-JohnsonsRock. Understand "rock"  or "stone" or "ground" as proxy-JohnsonsRock when the location is Johnson's Rock.
+proxy-JohnsonsRock is a privately-named artifact proxy-scenery. proxy-JohnsonsRock is in Johnson's Rock and DeckN. The printed name of proxy-JohnsonsRock is "Johnson's Rock". Understand "johnson" or "johnsons" or "johnson's" or "rock" or "Johnson's rock" or "Johnsons Rock" as proxy-JohnsonsRock. Understand "rock"  or "stone" or "ground" as proxy-JohnsonsRock when the location is Johnson's Rock.
 
 Instead of taking proxy-JohnsonsRock, say "Too late. Some kids already got to it."
 
@@ -683,13 +683,13 @@ Instead of entering proxy-Nyantech:
 
 The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery."
 
-proxy-AshwellLott is a privately-named structure proxy-scenery in Ashwell-Lott Estate. The printed name of proxy-AshwellLott is "Ashwell-Lott Estate". Understand "ashwell" or "ashwell-lott" or "lott" or "estate" or "ashwell-lott estate" as proxy-AshwellLott. Understand "building" as proxy-AshwellLott when the location is Ashwell-Lott Estate.
+proxy-AshwellLott is a privately-named structure proxy-scenery. proxy-AshwellLott is in Ashwell-Lott Estate, DeckS, DeckE, and Cat's Beret. The printed name of proxy-AshwellLott is "Ashwell-Lott Estate". Understand "ashwell" or "ashwell-lott" or "lott" or "estate" or "ashwell-lott estate" as proxy-AshwellLott. Understand "building" as proxy-AshwellLott when the location is Ashwell-Lott Estate.
 
 [Garden Gnome]
 
 The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]".
 
-proxy-GardenGnome is a privately-named artifact proxy-scenery in Garden Gnome Without Head. The printed name of proxy-GardenGnome is "Garden Gnome Without Head". Understand "gnome" or "without" or "head" or "decapitated" or "decapitated gnome" or "gnome sculpture" or "gnome statue" or "garden gnome without head" or "garden gnome" as proxy-GardenGnome. Understand "sculpture" or "art" as proxy-GardenGnome when the location is Garden Gnome Without Head.
+proxy-GardenGnome is a privately-named artifact proxy-scenery. proxy-GardenGnome is in Garden Gnome Without Head, DeckS, DeckW, and Cat's Beret. The printed name of proxy-GardenGnome is "Garden Gnome Without Head". Understand "gnome" or "without" or "head" or "decapitated" or "decapitated gnome" or "gnome sculpture" or "gnome statue" or "garden gnome without head" or "garden gnome" as proxy-GardenGnome. Understand "sculpture" or "art" as proxy-GardenGnome when the location is Garden Gnome Without Head.
 
 Instead of attacking the proxy-GardenGnome, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
 
@@ -708,25 +708,25 @@ Instead of searching the lawn:
 
 The description of Parking Lot Award is "A tarnished brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason. "
 
-proxy-ParkingLot is a privately-named place proxy-scenery in Parking Lot Award. The printed name of proxy-ParkingLot is "Parking Lot Award". Understand "parking" or "lot" or "award" or "parking lot" or "parking lot award" as proxy-ParkingLot. Understand "plaque" or "brass" as proxy-ParkingLot when the location is Parking Lot Award.
+proxy-ParkingLot is a privately-named place proxy-scenery. proxy-ParkingLot is in Parking Lot Award, DeckS, DeckW, and Cat's Beret. The printed name of proxy-ParkingLot is "Parking Lot Award". Understand "parking" or "lot" or "award" or "parking lot" or "parking lot award" as proxy-ParkingLot. Understand "plaque" or "brass" as proxy-ParkingLot when the location is Parking Lot Award.
 
 [Old Town Hall]
 
 The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling."
 
-proxy-OTH is a privately-named structure proxy-scenery in Old Town Hall. The printed name of proxy-OTH  is "Old Town Hall". Understand "old" or "town" or "hall" or "old town hall" as proxy-OTH . Understand "building" as proxy-OTH  when the location is Old Town Hall.
+proxy-OTH is a privately-named structure proxy-scenery. proxy-OTH is in Old Town Hall, DeckS, DeckE, and Cat's Beret. The printed name of proxy-OTH  is "Old Town Hall". Understand "old" or "town" or "hall" or "old town hall" as proxy-OTH . Understand "building" as proxy-OTH  when the location is Old Town Hall.
 
 [Spit n' Solder Hardware]
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark]."
 
-proxy-SnS is a privately-named structure proxy-scenery in Spit n' Solder. The printed name of proxy-SnS is "Spit n' Solder". Understand "spit" or "solder" or "hardware" or "spit n' solder" or "spit and solder" as proxy-SnS. Understand "building" as proxy-SNS when the location is Spit n' Solder.
+proxy-SnS is a privately-named structure proxy-scenery. proxy-SnS is in Spit n' Solder, DeckW, and DeckN. The printed name of proxy-SnS is "Spit n' Solder". Understand "spit" or "solder" or "hardware" or "spit n' solder" or "spit and solder" as proxy-SnS. Understand "building" as proxy-SNS when the location is Spit n' Solder.
 
 [Rotary Clock Tower]
 
 The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours."
 
-proxy-RCT is a privately-named artifact proxy-scenery in Rotary Clock Tower. The printed name of proxy-RCT is "Rotary Clock Tower". Understand "rotary" or "clock" or "tower" or "rotary clock" or "clock tower" or "rotary clock tower" as proxy-RCT. 
+proxy-RCT is a privately-named artifact proxy-scenery. proxy-RCT is in Rotary Clock Tower and DeckE. The printed name of proxy-RCT is "Rotary Clock Tower". Understand "rotary" or "clock" or "tower" or "rotary clock" or "clock tower" or "rotary clock tower" as proxy-RCT. 
 
 [Floyd Memorial]
 
@@ -734,11 +734,13 @@ The description of Floyd Memorial Bench is "A wooden bench with an inset black n
 
 The floydBench is a privately-named enterable scenery supporter in Floyd Memorial Bench. The printed name of the floydBench is "bench". The description of the floydBench is "The  white lettering of the nameplate reads [quotation mark]In Memory of Floyd[quotation mark]." Understand "chair" or "bench" or "wood" or "wooden" or "name" or "plate" or "floyd" or "floyd bench" or "memorial bench" or "floyd memorial bench" or "nameplate" as floydBench.
 
+floydbench-proxy is a privately-named place proxy-scenery in DeckE. The printed name of floydbench-proxy is "Floyd Memorial Bench". Understand "floyd" or "bench" or "memorial" as floydbench-proxy.
+
 [Giant Chicken]
 
 The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks."
 
-proxy-GiantChicken is a privately-named artifact proxy-scenery in Giant Chicken. The printed name of proxy-GiantChicken is "Giant Chicken Statue". Understand "giant" or "chick" or "giant chicken" or "chicken statue" or "giant chicken statue" as proxy-GiantChicken. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-GiantChicken when the location is Giant Chicken.
+proxy-GiantChicken is a privately-named artifact proxy-scenery. proxy-GiantChicken is in Giant Chicken, DeckE, and DeckN. The printed name of proxy-GiantChicken is "Giant Chicken Statue". Understand "giant" or "chick" or "giant chicken" or "chicken statue" or "giant chicken statue" as proxy-GiantChicken. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-GiantChicken when the location is Giant Chicken.
 
 The swizzle sticks are part of the proxy-GiantChicken. The description of the swizzle-sticks is "How many drinks must have been stirred in this effort?"
 
@@ -746,25 +748,25 @@ The swizzle sticks are part of the proxy-GiantChicken. The description of the sw
 
 The description of Welbourne Travel is "Maps of various adventures fill the windows of this travel agency."
 
-proxy-Welbourne is a privately-named structure proxy-scenery in Welbourne Travel. The printed name of proxy-Welbourne is "Welbourne Travel Agency". Understand "welbourne" or "travel" or "agency" or "travel agency" or "welbourne travel" as proxy-Welbourne. Understand "building" or "store" as proxy-Welbourne when the location is Welbourne Travel.
+proxy-Welbourne is a privately-named structure proxy-scenery. proxy-Welbourne is in Welbourne Travel, DeckE, and DeckN. The printed name of proxy-Welbourne is "Welbourne Travel Agency". Understand "welbourne" or "travel" or "agency" or "travel agency" or "welbourne travel" as proxy-Welbourne. Understand "building" or "store" as proxy-Welbourne when the location is Welbourne Travel.
 
 [Hook & Ladder]
 
 The description of Hook & Ladder is "The home of Fire Bridage Number 12."
 
-proxy-H&L is a privately-named structure proxy-scenery in Hook & Ladder. The printed name of proxy-H&L is the "Firehouse". Understand "hook" or "ladder" or "hook and ladder"  or "hook & ladder" as proxy-H&L. Understand "building" as proxy-H&L when the location is Hook & Ladder.
+proxy-H&L is a privately-named structure proxy-scenery. proxy-H&L is in Hook & Ladder and DeckN. The printed name of proxy-H&L is the "Firehouse". Understand "hook" or "ladder" or "hook and ladder"  or "hook & ladder" as proxy-H&L. Understand "building" as proxy-H&L when the location is Hook & Ladder.
 
 [Prissy's Little Sausages]
 
 The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce."
 
-proxy-PLS is a privately-named structure proxy-scenery in Prissy's Little Sausages. The printed name of proxy-PLS is "Prissy's Little Sausages". Understand "prissy" or "prissy's" or "little" or "sausages" or "prissy's little sausages" or "prissy's little" or "little sausages" as proxy-PLS. Understand "building" or "store" or "restaurant" as proxy-PLS when the location is Prissy's Little Sausages.
+proxy-PLS is a privately-named structure proxy-scenery. proxy-PLS is in Prissy's Little Sausages and DeckW. The printed name of proxy-PLS is "Prissy's Little Sausages". Understand "prissy" or "prissy's" or "little" or "sausages" or "prissy's little sausages" or "prissy's little" or "little sausages" as proxy-PLS. Understand "building" or "store" or "restaurant" as proxy-PLS when the location is Prissy's Little Sausages.
 
 [Yummi Tummi Softserve]
 
 The description of Yummi Tummi Softserve is "Pink robotic pigs rollerskate between tables serving up sundaes, cones, and floats."
 
-proxy-YummiTummi is a privately-named artifact proxy-scenery in Yummi Tummi Softserve. The printed name of proxy-YummiTummi is "Yummi Tummi Softserve". Understand "ice" or "cream" or "soft" or "serve" or "softserve" or "yummi" or "tummi" or "parlor" as proxy-YummiTummi. Understand "building" or "restaurant" as proxy-YummiTummi when the location is Yummi Tummi Softserve.
+proxy-YummiTummi is a privately-named artifact proxy-scenery. proxy-YummiTummi is in Yummi Tummi Softserve , DeckE, and DeckN. The printed name of proxy-YummiTummi is "Yummi Tummi Softserve". Understand "ice" or "cream" or "soft" or "serve" or "softserve" or "yummi" or "tummi" or "parlor" as proxy-YummiTummi. Understand "building" or "restaurant" as proxy-YummiTummi when the location is Yummi Tummi Softserve.
 
 [TODO: implement robots, tables, ice cream?]
 
@@ -772,13 +774,13 @@ proxy-YummiTummi is a privately-named artifact proxy-scenery in Yummi Tummi Soft
 
 The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]".
 
-proxy-ServiceDog is a privately-named artifact proxy-scenery in Service Dog Memorial. The printed name of proxy-ServiceDog is "Service Dog Memorial". Understand "service" as proxy-ServiceDog. Understand "statue" or "sculpture" or "memorial" or "dog" as proxy-ServiceDog when the location is Service Dog Memorial.
+proxy-ServiceDog is a privately-named artifact proxy-scenery. Proxy-serviceDog is in Service Dog Memorial, DeckW, and DeckN. The printed name of proxy-ServiceDog is "Service Dog Memorial". Understand "service" as proxy-ServiceDog. Understand "statue" or "sculpture" or "memorial" or "dog" as proxy-ServiceDog when the location is Service Dog Memorial.
 
 [The Gardens of Zarf]
 
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  
 
-The gardenObject is a privately-named scenery in The Gardens of Zarf. The printed name of the gardenObject is "garden". Understand "garden" or "flowers" or "marigolds" or "Zarf" as the gardenObject. The description of the gardenObject is "A bright and cheery assortment of well-tended flowers. Nothing ominous about them at all.".
+The gardenObject is a privately-named place proxy-scenery. The gardenObject is in The Gardens of Zarf, DeckE, and DeckN. The printed name of the gardenObject is "garden". Understand "garden" or "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the gardenObject. The description of the gardenObject is "A bright and cheery assortment of well-tended flowers. Nothing ominous about them at all.".
 
 The sign is scenery in The Gardens of Zarf. The description of the sign is "[zarfSign]". 
 
@@ -794,22 +796,22 @@ Instead of entering the gardenObject:
 
 The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some."
 
-FlanEmporiumProxy is a privately-named proxy-scenery in Flan Emporium. The printed name of FlanEmporiumProxy is "Flan Emporium". Understand "flan" or "emporium" as FlanEmporiumProxy. Understand "building" or "store" as FlanEmporiumProxy when the location is Flan Emporium.
+flan-proxy is a privately-named proxy-scenery. flan-proxy is in Flan Emporium, DeckS, DeckE, and Cat's Beret. The printed name of flan-proxy is "Flan Emporium". Understand "flan" or "emporium" as flan-proxy. Understand "building" or "store" as flan-proxy when the location is Flan Emporium.
 
-Instead of eating FlanEmporiumProxy, say "Unfortunately, there is no tasty flan laying about."
-Instead of drinking FlanEmporiumProxy, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
+Instead of eating flan-proxy, say "Unfortunately, there is no tasty flan laying about."
+Instead of drinking flan-proxy, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
 
 [General Nelson]
 	
 The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson."
 
-proxy-Nelson is a privately-named artifact proxy-scenery in General Nelson. The printed name of proxy-Nelson is the "Statue of General Nelson". Understand "statue" or "general" or "nelson"  as proxy-Nelson. Understand "scultpure" or "art" as proxy-Nelson when the location is General Nelson.
+proxy-Nelson is a privately-named artifact proxy-scenery. proxy-Nelson is in General Nelson, DeckE, and DeckN. The printed name of proxy-Nelson is the "Statue of General Nelson". Understand "statue" or "general" or "nelson"  as proxy-Nelson. Understand "scultpure" or "art" as proxy-Nelson when the location is General Nelson.
 
 [Church of the Orthogonal Sticks]
 
 The description of Church of the Orthogonal Sticks is "The church is constructed entirely of Lincoln Logs except for the stained glass."
 
-proxy-COS is a privately-named proxy-scenery in Church of the Orthogonal Sticks. The printed name of proxy-COS is "Church of the Orthogonal Sticks". Understand "church" or "orthogonal" or "sticks" or "church of the orthogonal sticks" or "lincoln" or "logs" as proxy-COS. Understand "building" as proxy-COS when the location is Church of the Orthogonal Sticks.
+proxy-COS is a privately-named proxy-scenery. proxy-COS is in Church of the Orthogonal Sticks, DeckE, and DeckN. The printed name of proxy-COS is "Church of the Orthogonal Sticks". Understand "church" or "orthogonal" or "sticks" or "church of the orthogonal sticks" or "lincoln" or "logs" as proxy-COS. Understand "building" as proxy-COS when the location is Church of the Orthogonal Sticks.
 
 The stained glass is scenery in the Church of the Orthogonal Sticks. The description of the stained glass is "The ornate windows cast right-angled reflections everywhere." Understand "stained" or "glass" or "window" or "windows" as the stained glass.
 
@@ -819,7 +821,7 @@ Instead of doing something other than examining with the stained glass, say "You
 
 The description of Witch Pillory is "This site commemorates the town’s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]".
 
-proxy-Pillory is a privately-named artifact proxy-scenery. proxy-Pillory is in Witch Pillory and DeckN. The printed name of proxy-Pillory is "Witch Pillory". Understand "witch" or "pillory" as proxy-Pillory. 
+proxy-Pillory is a privately-named artifact proxy-scenery. proxy-Pillory is in Witch Pillory, DeckW, and DeckN. The printed name of proxy-Pillory is "Witch Pillory". Understand "witch" or "pillory" as proxy-Pillory. 
 
 Instead of entering the proxy-Pillory, say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
 
@@ -827,7 +829,7 @@ Instead of entering the proxy-Pillory, say "The pillory is only for convicted wi
 
 The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base."
 
-proxy-FlagPole is a privately-named artifact proxy-scenery in Flag Pole. The printed name of proxy-FlagPole is "flag pole". Understand "pole" or "flag pole" as proxy-FlagPole. 
+proxy-FlagPole is a privately-named artifact proxy-scenery. proxy-FlagPole is in Flag Pole, DeckW, and DeckN. The printed name of proxy-FlagPole is "flag pole". Understand "pole" or "flag pole" as proxy-FlagPole. 
 
 The flagProxy is privately-named scenery in Flag Pole.  The printed name of the flagProxy is "flag". The description of the flagProxy is "It waves proudly in the slight breeze." Understand "flag" or "banner" as flagProxy.
 
@@ -850,13 +852,13 @@ Check Flagging:
 
 The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken."
 
-proxy-KK is a privately-named structure proxy-scenery in Krusty Kronuts. The printed name of proxy-KK is "Krusty Kronuts". Understand "krusty" or "kronuts" or "krusty kronuts" as proxy-KK. Understand "building" or "store" or "restaurant" as proxy-KK when the location is Krusty Kronuts.
+proxy-KK is a privately-named structure proxy-scenery. proxy-KK is in Krusty Kronuts and DeckW. The printed name of proxy-KK is "Krusty Kronuts". Understand "krusty" or "kronuts" or "krusty kronuts" as proxy-KK. Understand "building" or "store" or "restaurant" as proxy-KK when the location is Krusty Kronuts.
 
 [Cyclorama]
 
 The description of Cyclorama is "The indoor bicycle track yields important radionuclides for pharmaceutical use."
 
-proxy-Cyclorama is a privately-named structure proxy-scenery in Cyclorama. The printed name of proxy-Cyclorama is "Cyclorama". Understand "cyclorama" as proxy-Cyclorama. Understand "building" as proxy-Cyclorama when the location is Cyclorama.
+proxy-Cyclorama is a privately-named structure proxy-scenery. proxy-Cyclorama is in Cyclorama, DeckW, and DeckN. The printed name of proxy-Cyclorama is "Cyclorama". Understand "cyclorama" as proxy-Cyclorama. Understand "building" as proxy-Cyclorama when the location is Cyclorama.
 
 [Biocontainment Facility]
 
@@ -869,49 +871,49 @@ To say bioConDescription:
 		say line break;
 		bestow "Just One of the Boys".
 
-proxy-zombie is a privately-named structure proxy-scenery in Biocontainment Facility. The printed name of proxy-zombie is "Biocontainment Facility". Understand "biocontainment" or "facility" or "bioweapons"  or "laboratory" or "lab" or "vaccine" or "hospital"  as proxy-zombie. Understand "building" as proxy-zombie when the location is Biocontainment Facility.
+proxy-zombie is a privately-named structure proxy-scenery. proxy-zombie is in Biocontainment Facility, DeckS, DeckW, and Cat's Beret. The printed name of proxy-zombie is "Biocontainment Facility". Understand "biocontainment" or "facility" or "bioweapons"  or "laboratory" or "lab" or "vaccine" or "hospital"  as proxy-zombie. Understand "building" as proxy-zombie when the location is Biocontainment Facility.
 
 [Battle of Margot's Pantry]
 
 The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be a pizzeria."
 
-proxy-Pantry is a privately-named structure proxy-scenery in Krusty Kronuts. The printed name of proxy-Pantry is "Dino's Pizza". Understand "dino's pizza" or "pizzeria" or "dino" or "pizza" or "margot" or "margot's" or "pantry" or "Margot's pantry" or "dinos pizza" or "margots pantry" or "battle" or "battle of margots pantry" or "battle of margot's pantry" as proxy-Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as proxy-Pantry when the location is Battle of Margot's Pantry.
+proxy-Pantry is a privately-named structure proxy-scenery. proxy-Pantry is in Krusty Kronuts, DeckS, DeckW, and Cat's Beret. The printed name of proxy-Pantry is "Dino's Pizza". Understand "dino's pizza" or "pizzeria" or "dino" or "pizza" or "margot" or "margot's" or "pantry" or "Margot's pantry" or "dinos pizza" or "margots pantry" or "battle" or "battle of margots pantry" or "battle of margot's pantry" as proxy-Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as proxy-Pantry when the location is Battle of Margot's Pantry.
 
 [Gas Station Gazebo]
 
 The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] Wht is it with gas stations and gazebos?[or][stopping]".
 
-proxy-GSG is a privately-named artifact proxy-scenery in Gas Station Gazebo. The printed name of proxy-GSG is "gas station gazebo". Understand "gas" or "station" or "gas station" or "gazebo" or "gas station gazebo" as proxy-GSG. Understand "building"  as proxy-GSG when the location is Gas Station Gazebo.
+proxy-GSG is a privately-named artifact proxy-scenery. proxy-GSG is in Gas Station Gazebo, DeckS, DeckE, and Cat's Beret. The printed name of proxy-GSG is "gas station gazebo". Understand "gas" or "station" or "gas station" or "gazebo" or "gas station gazebo" as proxy-GSG. Understand "building"  as proxy-GSG when the location is Gas Station Gazebo.
 
 [Dung Beetle Mural]
 
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium."
 
-proxy-Dung is a privately-named artifact proxy-scenery. proxy-Dung is in Dung Beetle Mural and DeckN. The printed name of proxy-Dung is "dung beetle mural". Understand "dung" or "beetle" or "mural" or "dung beetle" or "beetle mural" or "dung beetle mural" as proxy-Dung. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-Dung when the location is Dung Beetle Mural. 
+proxy-Dung is a privately-named artifact proxy-scenery. proxy-Dung is in Dung Beetle Mural, DeckW, and DeckN. The printed name of proxy-Dung is "dung beetle mural". Understand "dung" or "beetle" or "mural" or "dung beetle" or "beetle mural" or "dung beetle mural" as proxy-Dung. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-Dung when the location is Dung Beetle Mural. 
 
 [Hank's Tavern]
 
 The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night."
 
-proxy-Hank is a privately-named structure proxy-scenery in Hank's Tavern. The printed name of proxy-Hank is "Hank's Tavern". Understand "hank" or "hanks" or "hank's" or "hank's tarvern" or "tavern" or "hanks tarvern" as proxy-Hank. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as proxy-Hank when the location is Hank's Tavern.
+proxy-Hank is a privately-named structure proxy-scenery. proxy-Hank is in Hank's Tavern, DeckS, DeckE, and Cat's Beret. The printed name of proxy-Hank is "Hank's Tavern". Understand "hank" or "hanks" or "hank's" or "hank's tarvern" or "tavern" or "hanks tarvern" as proxy-Hank. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as proxy-Hank when the location is Hank's Tavern.
 
 [Olde Train Station]
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers."
 
-proxy-TrainStation is a privately-named structure proxy-scenery in Olde Train Station. The printed name of proxy-TrainStation is "train station". Understand "old" or "train" or "station" or "olde" or "Olde Train Station" or "Train Station" as proxy-TrainStation. Understand "building" as proxy-TrainStation when the location is Olde Train Station.
+proxy-TrainStation is a privately-named structure proxy-scenery. proxy-TrainStation is in Olde Train Station and DeckE. The printed name of proxy-TrainStation is "train station". Understand "old" or "train" or "station" or "olde" or "Olde Train Station" or "Train Station" as proxy-TrainStation. Understand "building" as proxy-TrainStation when the location is Olde Train Station.
 
 [Dog Exercise Area]
 
 The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like like dogs, check out our canine-centric sci fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
 
-proxy-DogExercise is a privately-named place proxy-scenery in Dog Exercise Area. The printed name of proxy-DogExercise is "dog exercise area". Understand "dog" or "exercise" or "area" or "exercise area" or "dog exercise area" or "dog area" or "field" as proxy-DogExercise. Understand "park" as proxy-DogExercise when the location is Dog Exercise Area.
+proxy-DogExercise is a privately-named place proxy-scenery. proxy-DogExercise is in Dog Exercise Area, DeckE, and DeckN. The printed name of proxy-DogExercise is "dog exercise area". Understand "dog" or "exercise" or "area" or "exercise area" or "dog exercise area" or "dog area" or "field" as proxy-DogExercise. Understand "park" as proxy-DogExercise when the location is Dog Exercise Area.
 
 [Bottle Cap Wall]
 
 The description of Bottle Cap Wall is "A wall made entirely of bottle caps."
 
-proxy-BCW is a privately-named artifact proxy-scenery in Bottle Cap Wall. The printed name of proxy-BCW is "bottle cap wall". Understand "bottle" or "cap" or "wall" or "bottle cap" or "botttle cap mural" as proxy-BCW. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-BCW when the location is Bottle Cap Wall.
+proxy-BCW is a privately-named artifact proxy-scenery. proxy-BCW is in Bottle Cap Wall and DeckW. The printed name of proxy-BCW is "bottle cap wall". Understand "bottle" or "cap" or "wall" or "bottle cap" or "botttle cap mural" as proxy-BCW. Understand "sculpture" or "statue" or [even, liberally] "art" as proxy-BCW when the location is Bottle Cap Wall.
 
 [Porcelain Parrot]
 
@@ -923,61 +925,61 @@ proxy-Parrot is a privately-named artifact proxy-scenery in Porcelain Parrot. Th
 
 The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what."
 
-proxy-MarkerSeven is a privately-named artifact proxy-scenery in MarkerSeven. The printed name of proxy-MarkerSeven is "mile marker 0.7". Understand "mile" or "marker" or "post" as proxy-MarkerSeven. 
+proxy-MarkerSeven is a privately-named artifact proxy-scenery. proxy-MarkerSeven is in MarkerSeven, DeckS, DeckW, and Cat's Beret. The printed name of proxy-MarkerSeven is "mile marker 0.7". Understand "mile" or "marker" or "post" as proxy-MarkerSeven. 
 
 [Unfathomable Orb]
 
 The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
 
-proxy-Orb is a privately-named artifact proxy-scenery in Unfathomable Orb. The printed name of proxy-Orb is "unfathomable orb". Understand "unfathomable" or "orb" or "unfathomable orb" as proxy-Orb. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as proxy-Orb when the location is Unfathomable Orb.
+proxy-Orb is a privately-named artifact proxy-scenery. proxy-Orb is in Unfathomable Orb, Deck W, and DeckN. The printed name of proxy-Orb is "unfathomable orb". Understand "unfathomable" or "orb" or "unfathomable orb" as proxy-Orb. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as proxy-Orb when the location is Unfathomable Orb.
 
 [Rottweiler Art]
 
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
 
-proxy-Rottweiler is a privately-named artifact proxy-scenery in Rottweiler Art. The printed name of proxy-Rottweiler is "unfathomable orb". Understand "rottweiler" or "rottweiler art" as proxy-Rottweiler. Understand "sculpture" or "statue" or "art" as proxy-Rottweiler when the location is Rottweiler Art.
+proxy-Rottweiler is a privately-named artifact proxy-scenery. proxy-rottweiler is in Rottweiler Art, DeckS, DeckE, and Cat's Beret. The printed name of proxy-Rottweiler is "unfathomable orb". Understand "rottweiler" or "rottweiler art" as proxy-Rottweiler. Understand "sculpture" or "statue" or "art" as proxy-Rottweiler when the location is Rottweiler Art.
 
 [Sister City Friendship Altar]
 
 The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
 
-proxy-Altar is a privately-named artifact proxy-scenery in Sister City Friendship Altar. The printed name of proxy-Altar is "Sister City Friendship Altar". Understand "sister" or "friendship" or "alter" or "sister city friendship altar" as proxy-Altar. Understand "city"  or [questionably] "art" as proxy-Altar when the location is Sister City Friendship Altar.
+proxy-Altar is a privately-named artifact proxy-scenery. proxy-Altar is in Sister City Friendship Altar, DeckS, DeckE, and Cat's Beret. The printed name of proxy-Altar is "Sister City Friendship Altar". Understand "sister" or "friendship" or "alter" or "sister city friendship altar" as proxy-Altar. Understand "city"  or [questionably] "art" as proxy-Altar when the location is Sister City Friendship Altar.
 
 [1893]
 
 The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year." The printed name of Year1893 is "1893".
 
-proxy-Year1893 is a privately-named artifact proxy-scenery in Year1893. The printed name of proxy-Year1893 is "plaque commemorating the year 1893". Understand "1893" as proxy-Year1893. Understand "plaque" as proxy-Year1893 when the location is Year1893.
+proxy-Year1893 is a privately-named artifact proxy-scenery. proxy-Year1893 is in Year1893, DeckS, DeckE, and Cat's Beret. The printed name of proxy-Year1893 is "plaque commemorating the year 1893". Understand "1893" as proxy-Year1893. Understand "plaque" as proxy-Year1893 when the location is Year1893.
 
 [Eagle's Sojourn]
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
-proxy-Ike is a privately-named artifact proxy-scenery in Eagle's Sojourn. The printed name of proxy-Ike is "Eagle's Sojourn". Understand "eagles" or "eagle's" or "sojourn" or "eagles sojourn" or "eagle's sojourn"  or "carving" or "moon" or "cowboy" as proxy-Ike. Understand "sculpture" or "statue" or "art" as proxy-Ike when the location is Eagle's Sojourn.
+proxy-Ike is a privately-named artifact proxy-scenery. proxy-Ike is in Eagle's Sojourn, DeckS, DeckE, and Cat's Beret. The printed name of proxy-Ike is "Eagle's Sojourn". Understand "eagles" or "eagle's" or "sojourn" or "eagles sojourn" or "eagle's sojourn"  or "carving" or "moon" or "cowboy" as proxy-Ike. Understand "sculpture" or "statue" or "art" as proxy-Ike when the location is Eagle's Sojourn.
 
 [Nymph with Telescope]
 
 The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
 
-proxy-Nymph is a privately-named artifact proxy-scenery in Telescope Nymph. The printed name of proxy-Nymph is "Nymph With Telescope". Understand "nymph" or "telescope" or "nymph with telescope" as proxy-Nymph. Understand "sculpture" or "statue" or "art" as proxy-Nymph when the location is Telescope Nymph.
+proxy-Nymph is a privately-named artifact proxy-scenery. proxy-Nymph is in Telescope Nymph, DeckE,  and DeckN. The printed name of proxy-Nymph is "Nymph With Telescope". Understand "nymph" or "telescope" or "nymph with telescope" as proxy-Nymph. Understand "sculpture" or "statue" or "art" as proxy-Nymph when the location is Telescope Nymph.
 
 [Fire is our Friend]
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
 
-proxy-FOF is a privately-named artifact proxy-scenery in Fire Is Our Friend. The printed name of proxy-FOF is "Fire is our Friend". Understand "fire" or "friend" or "fire is our friend" or "eternal" or "flame" or "eternal flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" as proxy-FOF. Understand "sculpture" or "statue" or "art" as proxy-FOF when the location is Fire Is Our Friend.
+proxy-FOF is a privately-named artifact proxy-scenery. proxy-FOF is in Fire Is Our Friend, DeckS, DeckE, and Cat's Beret. The printed name of proxy-FOF is "Fire is our Friend". Understand "fire" or "friend" or "fire is our friend" or "eternal" or "flame" or "eternal flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" as proxy-FOF. Understand "sculpture" or "statue" or "art" as proxy-FOF when the location is Fire Is Our Friend.
 
 [Unearthly Geometry]
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
 
-proxy-FOF is a privately-named artifact proxy-scenery in Fire Is Our Friend. The printed name of proxy-FOF is "Fire is our Friend". Understand "fire" or "friend" or "fire is our friend" or "eternal" or "flame" or "eternal flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" as proxy-FOF. Understand "sculpture" or "statue" or "art" as proxy-FOF when the location is Fire Is Our Friend.
+proxy-Unearthly is a privately-named artifact proxy-scenery. proxy-Unearthly is in Unearthly Geometry, DeckS, DeckW, and Cat's Beret. The printed name of proxy-Unearthly is "Unearthly Geometry". Understand "tentacles" as proxy-Unearthly. Understand "sculpture" or "statue" or "art" as proxy-Unearthly when the location is Unearthly Geometry.
 
 [Cranberry Bog]
 
 The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog."
 
-proxy-Bog is a privately-named place proxy-scenery in Cranberry Bog. The printed name of proxy-Bog is "cranberry bog". Understand "cranberry" or "bog" or "cranberry bog" or "pond" as proxy-Bog. 
+proxy-Bog is a privately-named place proxy-scenery. proxy-Bog is in Cranberry Bog, DeckS, DeckW, and Cat's Beret. The printed name of proxy-Bog is "cranberry bog". Understand "cranberry" or "bog" or "cranberry bog" or "pond" as proxy-Bog. 
 
 Instead of searching the proxy-bog:
 	say "[one of]You find nobody. Get it? No body[or]You find nobody[stopping]."
@@ -986,7 +988,7 @@ Instead of searching the proxy-bog:
 
 The description of Found Art is "A single screw attached to a surfboard.[one of] This is what counts as art these days. Jeesh.[or][stopping]".
 
-proxy-FoundArt is a privately-named artifact proxy-scenery in Found Art. The printed name of proxy-FoundArt is "Found Art". Understand "found" or "surfboard" or "screw" or "found art" as proxy-FoundArt. Understand "sculpture" or "statue" or "art" as proxy-FoundArt when the location is Found Art.
+proxy-FoundArt is a privately-named artifact proxy-scenery. proxy-FoundArt is in Found Art, DeckS, DeckE, and Cat's Beret. The printed name of proxy-FoundArt is "Found Art". Understand "found" or "surfboard" or "screw" or "found art" as proxy-FoundArt. Understand "sculpture" or "statue" or "art" as proxy-FoundArt when the location is Found Art.
 
 Instead of searching the proxy-FoundArt:
 	say "It is right in front of you."
@@ -995,7 +997,7 @@ Instead of searching the proxy-FoundArt:
 
 The description of Crystal Skull is "There isn’t much left of the Salt Skull exhibit. Occasionally, deer walk through town just to lick it."
 
-proxy-Skull is a privately-named artifact proxy-scenery in Crystal Skull. The printed name of proxy-Skull is "crystal skull". Understand "crystal" or "skull" or "crystal skull" or "exhibit" as proxy-Skull. Understand "sculpture" or "statue" or "art" as proxy-Skull when the location is Crystal Skull.
+proxy-Skull is a privately-named artifact proxy-scenery. proxy-Skull is in Crystal Skull, DeckE, and DeckN. The printed name of proxy-Skull is "crystal skull". Understand "crystal" or "skull" or "crystal skull" or "exhibit" as proxy-Skull. Understand "sculpture" or "statue" or "art" as proxy-Skull when the location is Crystal Skull.
 
 Instead of tasting proxy-skull:
 	say "It tastes like deer spittle."
@@ -1004,17 +1006,19 @@ Instead of tasting proxy-skull:
 
 The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
 
-proxy-Vuvuzela is a privately-named artifact proxy-scenery in Vuvuzelas For Freedom. The printed name of proxy-Vuvuzela is "commemorative plaque about the Vulvuzela Uprising of 1893". Understand "vuvuzela" or "uprising" or "bronze" or "plate" or "sidewalk" as proxy-Vuvuzela. Understand "commemorative" or "plaque" as proxy-Vuvuzela when the location is Vuvuzelas For Freedom.
+proxy-Vuvuzela is a privately-named artifact proxy-scenery. proxy-Vuvuzela is in Vuvuzelas For Freedom, DeckS, DeckW, and Cat's Beret. The printed name of proxy-Vuvuzela is "commemorative plaque about the Vulvuzela Uprising of 1893". Understand "vuvuzela" or "uprising" or "bronze" or "plate" or "sidewalk" as proxy-Vuvuzela. Understand "commemorative" or "plaque" as proxy-Vuvuzela when the location is Vuvuzelas For Freedom.
 
 [Poison Ivy]
 
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]"
 
-proxy-PoisonIvy is a privately-named artifact proxy-scenery in Toxicodendron radicans. The printed name of proxy-PoisonIvy is "field of poison ivy". Understand "poison" or "ivy" or "poison ivy" or "sign" as proxy-PoisonIvy. Understand "field" as proxy-PoisonIvy when the location is Toxicodendron radicans.
+proxy-PoisonIvy is a privately-named artifact proxy-scenery. proxy-PoisonIvy is in Toxicodendron radicans, DeckS, DeckW, and Cat's Beret. The printed name of proxy-PoisonIvy is "field of poison ivy". Understand "poison" or "ivy" or "poison ivy" or "sign" as proxy-PoisonIvy. Understand "field" as proxy-PoisonIvy when the location is Toxicodendron radicans.
 
 [Perilous Passageway]
 
 The description of Perilous Passageway is "A disgusting passageway."
+
+proxy-PerilousPassageway is a privately-named place proxy-scenery. proxy-PerilousPassageway is in Perilous Passageway, DeckS, DeckE, and Cat's Beret. The printed name of proxy-PerilousPassageway is "dirty alley". Understand "dirty" or "alley" or "perilous" or "passage" or "passageway" as proxy-PerilousPassageway. 
 
 Section Dealing with Proxy-Scenery
 
@@ -2070,6 +2074,9 @@ To say deckExits:
 
 Instead of examining a proxy-scenery when the player is not in the village:
 	say "It is too far off to make out much detail."
+	
+Instead of doing something other than examining with a proxy-scenery when the player is not in the village:
+	say "It is too far away."
 
 Unclipping is an action applying to one thing. Understand "unclip  [something]"  or "unfasten [something]"  or "detach [something]" or "disconnect [something]" as unclipping.
 
