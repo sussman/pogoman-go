@@ -19,6 +19,8 @@ Chapter Kinds
 
 Section 1 - General
 
+Rooms have some text called title. 
+
 A prop is a kind of thing. It is usually portable.
 
  Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
@@ -125,6 +127,15 @@ Chapter Rules Modifications
     (this is the don't mention doors in room descriptions rule): 
     set the locale priority of the item to 0; 
     continue the activity.
+
+This is the room header rule:
+	let T be the title of the location;
+	if T is "":
+		let T be the printed name of the location;
+	let T be T in title case;
+	say "[bold type][T][roman type]".
+	
+The room header rule substitutes for the room description heading rule.
 
 This is the list exits rule:
 	if the possible exits of the location is not "":
@@ -666,6 +677,8 @@ Instead of searching the sky:
 	
 [The City Park]
  
+The title of City Park is "good old city park".
+
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  City Park is a place. The printed name of City Park is "City Park". Understand "city" or "park" as City Park. The Park contains an Edator. 
 
 The trees are scenery in City Park. The description of the trees is "A variety of trees are scattered throughout the park to provide shade for picnickers.". Understand "tree" as trees.
@@ -991,9 +1004,11 @@ Instead of entering a quadroom (called the QTH):
 		-- artifact:
 			say "You can[apostrophe]t, but you are standing right next to it."
 			
-Instead of doing something other than examining with quadroom (called the QTH):
+Instead of doing something other than examining with a quadroom (called the QTH):
 	if the player is not in the QTH:
-		say "You would have to go over there."
+		say "You would have to go over there.";
+	otherwise:
+		continue the action.
 			
 Section Sticking to the Straight and Narrow
 
@@ -1738,9 +1753,6 @@ Instead of taking off the wetsuit:
 	say "You perform a small dance and manage to take off the suit and are now carrying it[if the player wears the party hat]. As for the stylish party hat, you consciensiouly replace it atop your head[end if].";
 	now the player carries the wetsuit.
 	
-
-
-
 [Sub-Basement]
 
 The description of the Rick Astley Shrine is "[one of]You are assaulted by an overwhelming urge to flee: the walls of the room are covered in Rick Astley memorabilia from the 1980s: posters, photos, autographs[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
@@ -2394,7 +2406,7 @@ Dialing is an action applying to one thing. Understand "dial [something]" as dia
 
 Check dialing:
 	if the noun is not phone:
-		say "You can't dial [a noun]" instead.
+		say "You can't dial [the noun]." instead.
 		
 Charging is an action applying to one thing. Understand "charge  [something]" as charging.	
 
