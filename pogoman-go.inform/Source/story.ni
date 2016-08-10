@@ -2011,14 +2011,6 @@ Section 4 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
-[in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
-
-The catProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or "gantry" or "boom" or "vessel" or "eyes" or "tail" as the catProxyOverhead when the player is in the Deck Area. The description of the catProxyOverhead is "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail."
-
-The beretProxyOverhead is a privately-named backdrop. The beretProxyOverhead is in the Maintenance Hatch, Poop Deck, Catwalk, and Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead when the player is in the Deck Area. The description of the beretProxyOverhead is "From the ground, it looks like a felt beret, but from up here the fabric looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber."
-
-The hatchProxyOverhead is a privately-named backdrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead when the player is in the Deck Area. The description of the hatchProxyOverhead is "[hatchDescription]".
-
 The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck, preventing accidental falls."
 
 The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
@@ -2165,9 +2157,6 @@ Section 5 - Cat
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
 
-To say hatchDescription:
-	say "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]."
-
 
 Section 6 - Cat Navigation
 
@@ -2195,7 +2184,81 @@ Before going a nautical direction when the player is not in the Cat Area, say "[
 
 Before going an earthbound direction when the player is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]." instead.
 
-Section 7 - Cat Layout
+Section 7 - Cat OverheadProxies
+[Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
+
+To decide whether the cat is visible from overhead:
+	if catOnHold is false, yes;
+	if the player is in DeckS and entry 1 in Heading is listed in {"SE", "S", "SW"}, yes;
+	if the player is in DeckN and entry 1 in Heading is listed in {"NW", "N", "NE"}, yes;
+	if the player is in DeckW and entry 1 in Heading is listed in {"SW", "W", "NW"}, yes;
+	if the player is in DeckE and entry 1 in Heading is listed in {"NE", "E", "SE"}, yes;
+	decide no.
+	
+To say invisibleOverhead:
+	say "You can[apostrophe]t get a good look at the cat from your current position -- one of you has got to move."
+	
+To visualize (overheadDescription - some text):
+	if player is in the Deck Area:
+		if the cat is visible from overhead:
+			say "[overheadDescription]";
+		otherwise: 
+			say invisibleOverhead;
+	otherwise:
+		say "[overheadDescription]".
+	
+[in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
+The catProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or "gantry" or "boom" or "vessel" or "eyes" or "tail" as the catProxyOverhead. 
+
+To say the description of catProxyOverhead:
+	visualize "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail."
+	
+The eyesProxyOverhead is a privately-named backdrop. The eyesProxyOverhead is in the Deck Area. The printed name of the eyesProxyOverhead is "red glowing eyes of the cat". Understand "red" or "glowing" or "eye" or "eyes" or "cat's" or "cat" or "cats" as the eyesProxyOverhead. 
+
+To say the description of eyesProxyOverhead:
+	visualize "TODO".
+
+The beretProxyOverhead is a privately-named backdrop. The beretProxyOverhead is in the Maintenance Hatch, Catwalk, Poop Deck and Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead.
+
+To say the description of beretProxyOverhead:
+	visualize "[beretText]".
+	
+To say beretText:
+	say "From the ground, the fabric in the cat's beret looks like a felt, but from up here it looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber."
+	
+The hatchProxyOverhead is a privately-named backdrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead. 
+
+To say the description of hatchProxyOverhead:
+	visualize "[hatchText]".
+	
+To say hatchText:
+	say  "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]."
+
+The catWalkProxyOverhead is a privately-named backdrop. The catWalkProxyOverhead is in Cat's Beret, Maintenance Hatch, Poop Deck, and Deck Area. The printed name of catWalkProxyOverhead is "scaffold". Understand "scaffold" or "catwalk" or "poptart" as the catWalkProxyOverhead. 
+
+To say the description of catWalkProxyOverhead:
+	visualize "[catWalkText]".
+	
+To say catWalkText:
+	say "TODO".
+
+The boomProxyOverhead is a privately-named backdrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" as the boomProxyOverhead. 
+
+To say the description of boomProxyOverhead:
+	visualize "[boomText]".
+	
+To say boomText:
+	say  "TODO".
+
+The poopProxyOverhead is a privately-named backdrop. The poopProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, and Deck Area. The printed name of poopProxyOverhead is "rear end of the cat". Understand "butt" or "rear" or "end" or "pipe" or "tail" or "exchaust" or "output" or "port" as poopProxyOverhead. 
+
+To say the description of poopProxyOverhead:
+	visualize "[poopText]".
+	
+To say poopText:
+	say "TODO".
+
+Section 8 - Cat Layout
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
 
@@ -2206,7 +2269,7 @@ Instead of going up from the Cat's Beret:
 
 Maintenance Hatch is aft of the Cat's Beret.
 
-The hatchway is a door. It is down from the Maintenance Hatch. Understand "hatch" as the hatchway when the player is in the Cat Area. The description of the hatchway is "[hatchDescription]". The hatchway is closed.
+The hatchway is a door. It is down from the Maintenance Hatch. Understand "hatch" as the hatchway when the player is in the Cat Area. The description of the hatchway is "[hatchText]". The hatchway is closed.
 
 Catwalk is aft of the Maintenance Hatch.
 
