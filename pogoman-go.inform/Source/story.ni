@@ -13,7 +13,6 @@ Use full-length room descriptions, american dialect and the serial comma.
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Dynamic Objects by Jesse McGrew. [allows runtime creation of pogoballs, &c.]
 
-
 Book 1 - Mechanics
 
 Chapter Kinds
@@ -58,10 +57,8 @@ LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure,
    Places - Outside areas like parks
    Structures - Buildings, places with an interior that would have to be entered
    Artifacts - Specific items in outside locations, like a bench, sculpture, etc. 
-   Border - a border area
 ]
 
-A proxy-scenery is a kind of backdrop.  A proxy-scenery is privately-named. A proxy-scenery has a localeDescriptor.  The localeDescriptor of a proxy-scenery is usually structure.
 
 [
   7 Roof
@@ -514,8 +511,6 @@ Every turn when Exploring the Tower is happening:
 		increase megaCats by 4000000.
 		
 
-
-
 Book 2 - Places
 
 Chapter Around Town
@@ -543,6 +538,22 @@ Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse
 
 General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken Statue, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
 
+The Reservoir is a nord quadroom. The Reservoir is north from Dung Beetle Mural. The Reservoir is north from Witch Pillory. The Reservoir is north from Old Jail. The Reservoir is north from Johnson's Rock. The Reservoir is north from General Nelson. The Reservoir is north from Church of the Orthogonal Sticks. The Reservoir is north from Crystal Skull. 
+
+The description of the reservoir is "A large fresh water lake just to the north of town." Understand "lake" as the reservoir.
+
+The Superhighway is a ouest quadroom. The Superhighway is west from Dung Beetle Mural. The Superhighway is west from Cyclorama. The Superhighway is west from Unfathomable Orb. The Superhighway is west from Bottle Cap Wall. The Superhighway is west from Toxicodendron radicans. The Superhighway is west from Vuvuzelas for Freedom. The Superhighway is west from Unearthly Geometry.
+
+The description of Superhighway is "A busy highway to the west of town." Understand "road" or "highway" or "thruway" or "parkway" or "motorway" or "superhighway" as the Superhighway. 
+
+The Tarpit is a sud quadroom. The Tarpit is south from Unearthly Geometry. The Tarpit is south from MarkerSeven. The Tarpit is south from Garden Gnome Without Head. The Tarpit is south from  Found Art. The Tarpit is south from Rottweiler Art. The Tarpit is south from Hank's Tavern. The Tarpit is south from Gas Station Gazebo. 
+
+The description of Tarpit is "Petroleum-belching tar fields to the south of town." Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the Tarpit
+
+The Railway is an est quadroom. The Railway is east from Crystal Skull. The Railway is east from Telescope Nymph. The Railway is east from Dog Exercise Area. The Railway is east from The Olde Train Station. The Railway is east from Eagle's Sojourn. The Railway is east from Flan Emporium. The Railway is east from Gas Station Gazebo. 
+
+The description of the Railway is "Railroad tracks run along the eastern edge of the town." Understand "tracks" or "railroad" or "rail" or "railway" or "rails" or "tracks"  or "train" or "trains" as the Railway.
+
 [Borders of the Village to trigger near-death scenes]
 A quadroom can be juxtaReservoir. 
 A quadroom can be juxtaTarpit.     
@@ -551,13 +562,10 @@ A quadroom can be juxtaRailway.
 
 Definition: a quadroom is okayStartLocation if it is not JuxtaReservoir and it is not JuxtaHighway and it is not JuxtaTarpit and it is not JuxtaRailway, and it is not Nyantech Entrance, and it is not Perilous Passageway, and it is not Biocontainment Facility.
 
-proxy-Reservoir is a border proxy-scenery. proxy-Reservoir is in The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, and deckN. The printed name of proxy-Reservoir is "town reservoir".  Understand "town" or "reservoir" as the proxy-reservoir. The description of the proxy-Reservoir is "A large fresh water lake to the north of town."
-
-The Dung Beetle Mural, Witch Pillory, Old Jail, Johnson's Rock, General Nelson, Church of the Orthogonal Sticks, and Crystal Skull are juxtaReservoir.
-
-proxy-Highway is a border proxy-scenery. proxy-Highway is in The Dung Beetle Mural, Cyclorama, Unfathomable Orb, Bottle Cap Wall, Toxicodendron radicans, Vuvuzelas for Freedom, Unearthly Geometry, and DeckW. The printed name of proxy-Highway is "highway". Understand "road" or "highway" or "thruway" or "parkway" or "motorway" or "superhighway" as the proxy-Highway. The description of proxy-Highway is "A busy highway to the west of town."
-
-The Dung Beetle Mural, Cyclorama, Unfathomable Orb, Bottle Cap Wall, Toxicodendron radicans, Vuvuzelas for Freedom, and Unearthly Geometry are juxtaHighway.
+Definition: a quadroom is juxtaReservoir if room-or-door north from it is the Reservoir.
+Definition: a quadroom is juxtaHighway if room-or-door west from it is the Superhighway.
+Definition: a quadroom is juxtaTarpit if room-or-door south from it is the Tarpit.
+Definition: a quadroom is juxtaRailway if room-or-door east from it is Railway.
 
 Instead of smelling when the player is in a quadroom (called the place):
 	if the place is juxtaTarpit:
@@ -574,14 +582,6 @@ Instead of listening when the player is in a quadroom (called the place):
 	otherwise:
 		if the place is juxtaRailway:
 			say "Trains rattle up and down the tracks noisily."
-
-proxy-Tarpit is a border proxy-scenery. proxy-Tarpit is in Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Found Art, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo, DeckS, and Cat's Beret. The printed name of proxy-Tarpit is "tarpit". The description of proxy-Tarpit is "Petroleum-belching tar fields to the south of town." Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the proxy-Tarpit.
-
-Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Found Art, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are juxtaTarpit.
-
-proxy-Railway is a border proxy-scenery. proxy-Railway is in Crystal Skull, Telescope Nymph, Dog Exercise Area, The Olde Train Station, Eagle's Sojourn, Flan Emporium, Gas Station Gazebo, and DeckE. The printed name of proxy-Railway is "railway". The description of proxy-Railway is "Railroad tracks run along the eastern edge of the town." Understand "tracks" or "railroad" or "rail" or "railway" or "rails" or "tracks"  or "train" or "trains" as the proxy-Railway.
-
-Crystal Skull, Telescope Nymph, Dog Exercise Area, The Olde Train Station, Eagle's Sojourn, Flan Emporium, and Gas Station Gazebo are juxtaRailway.
 
 [Geographic Layout of the Town]
 Dung Beetle Mural is west of Witch Pillory and north of Cyclorama.
@@ -991,8 +991,8 @@ Instead of entering a quadroom (called the QTH):
 		-- artifact:
 			say "You can[apostrophe]t, but you are standing right next to it."
 			
-Instead of doing something other than examining with a border proxy-scenery:
-	if the player is in the Village:
+Instead of doing something other than examining with quadroom (called the QTH):
+	if the player is not in the QTH:
 		say "You would have to go over there."
 			
 Section Sticking to the Straight and Narrow
@@ -2031,11 +2031,20 @@ To say deckExits:
 		-- deckS: 
 			say ". The roof-top restaurant is to the north".
 
-
-Instead of examining a proxy-scenery when the player is not in the village:
+After deciding the scope of a player while the player is in the Deck Area:
+	let L be a list of quadrooms;
+	if the location of the player is:
+		-- DeckN: let L be the list of nord quadrooms;
+		-- DeckS: let L be the list of sud quadrooms;
+		-- DeckE: let L be the list of est quadrooms;
+		-- DeckW: let L be the list of ouest quadrooms;
+	repeat with R running through L:
+		place R in scope.
+			
+Instead of examining a quadroom when the player is not in the village:
 	say "It is too far off to make out much detail."
 	
-Instead of doing something other than examining with a proxy-scenery when the player is not in the village:
+Instead of doing something other than examining with a quadroom when the player is not in the village:
 	say "It is too far away."
 
 Unclipping is an action applying to one thing. Understand "unclip  [something]"  or "unfasten [something]"  or "detach [something]" or "disconnect [something]" as unclipping.
