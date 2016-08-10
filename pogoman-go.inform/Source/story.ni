@@ -53,7 +53,7 @@ Nyantechnology is a kind of thing.
 
 A lightsource is a kind of device.
 
-LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, artifact, and border.
+LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
 
 [  
    Places - Outside areas like parks
@@ -539,8 +539,17 @@ A quadroom can be sud.
 A quadroom can be est.
 A quadroom can be ouest.
 
+
 After deciding the scope of a player while the player is in a quadroom (called the QTH):
-	place the QTH in scope. 
+	place the QTH in scope;
+	if the QTH is juxtaReservoir:
+		place the Reservoir in scope;
+	if the QTH is juxtaTarpit:
+		place the Tarpit in scope;
+	if the QTH is juxtaHighway:
+		place the Superhighway in scope;
+	if the QTH is juxtaRailway:
+		place the Railway in scope.
 	
 Nyantech Entrance is a quadroom.
 
@@ -548,58 +557,56 @@ Old Jail, Dung Beetle Mural, Witch Pillory, Cyclorama, Flag Pole, Old Courthouse
 
 Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
 
-
 Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
 
 General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
 
 The Reservoir is a nord quadroom. The Reservoir is north from Dung Beetle Mural. The Reservoir is north from Witch Pillory. The Reservoir is north from Old Jail. The Reservoir is north from Johnson's Rock. The Reservoir is north from General Nelson. The Reservoir is north from Church of the Orthogonal Sticks. The Reservoir is north from Crystal Skull. 
 
-The description of the reservoir is "A large fresh water lake just to the north of town." Understand "lake" as the reservoir.
+The description of the reservoir is "A large fresh water lake just to the north of town." Understand "lake" as the reservoir. The reservoir is improper-named. The title of the Reservoir is "The Reservoir". The printed name of the reservoir is "reservoir".
 
 The Superhighway is a ouest quadroom. The Superhighway is west from Dung Beetle Mural. The Superhighway is west from Cyclorama. The Superhighway is west from Unfathomable Orb. The Superhighway is west from Bottle Cap Wall. The Superhighway is west from Toxicodendron radicans. The Superhighway is west from Vuvuzelas for Freedom. The Superhighway is west from Unearthly Geometry.
 
-The description of Superhighway is "A busy highway to the west of town." Understand "road" or "highway" or "thruway" or "parkway" or "motorway" or "superhighway" as the Superhighway. 
+The description of Superhighway is "A busy highway to the west of town." Understand "road" or "highway" or "thruway" or "parkway" or "motorway" or "superhighway" as the Superhighway.  The superhighway is improper-named. The printed name of superhighway is "superhighway". The title of superhighway is "Superhighway 17".
 
 The Tarpit is a sud quadroom. The Tarpit is south from Unearthly Geometry. The Tarpit is south from MarkerSeven. The Tarpit is south from Garden Gnome Without Head. The Tarpit is south from  Found Art. The Tarpit is south from Rottweiler Art. The Tarpit is south from Hank's Tavern. The Tarpit is south from Gas Station Gazebo. 
 
-The description of Tarpit is "Petroleum-belching tar fields to the south of town." Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the Tarpit
+The description of Tarpit is "Petroleum-belching tar fields to the south of town."  Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the Tarpit. The printed name of Tarpit is "tarpit". The title of Tarpit is "The Tarpit".
 
-The Railway is an est quadroom. The Railway is east from Crystal Skull. The Railway is east from Telescope Nymph. The Railway is east from Dog Exercise Area. The Railway is east from The Olde Train Station. The Railway is east from Eagle's Sojourn. The Railway is east from Flan Emporium. The Railway is east from Gas Station Gazebo. 
+The Railway is an est quadroom. The Railway is east from Crystal Skull. The Railway is east from Telescope Nymph. The Railway is east from Dog Exercise Area. The Railway is east from The Olde Train Station. The Railway is east from Eagle's Sojourn. The Railway is east from Flan Emporium. The railway is improper-named. The Railway is east from Gas Station Gazebo. 
 
-The description of the Railway is "Railroad tracks run along the eastern edge of the town." Understand "tracks" or "railroad" or "rail" or "railway" or "rails" or "tracks"  or "train" or "trains" as the Railway.
+The description of the Railway is "Railroad tracks run along the eastern edge of the town." Understand "tracks" or "railroad" or "rail" or "railway" or "rails" or "tracks"  or "train" or "trains" as the Railway. The printed name of the Railway is "railway". The title of Railway is "The Railway".
 
 The Borderlands are a region. The  Tarpit, The Railway, The Superhighway, and The Reservoir are in The Borderlands.
 
-[Borders of the Village to trigger near-death scenes]
-A quadroom can be juxtaReservoir. 
-A quadroom can be juxtaTarpit.     
-A quadroom can be juxtaHighway. 
-A quadroom can be juxtaRailway.    
-
 Definition: a quadroom is okayStartLocation if it is not JuxtaReservoir and it is not JuxtaHighway and it is not JuxtaTarpit and it is not JuxtaRailway, and it is not Nyantech Entrance, and it is not Perilous Passageway, and it is not Biocontainment Facility, and it is not in the Borderlands.
 
-Definition: a quadroom is juxtaReservoir if room-or-door north from it is the Reservoir.
-Definition: a quadroom is juxtaHighway if room-or-door west from it is the Superhighway.
-Definition: a quadroom is juxtaTarpit if room-or-door south from it is the Tarpit.
-Definition: a quadroom is juxtaRailway if room-or-door east from it is Railway.
+Definition: a quadroom (called the QR) is juxtaReservoir if the Reservoir is the room north from the QR.
+
+Definition: a quadroom (called the QR)  is juxtaHighway if the Superhighway is the room west from the QR.
+
+Definition: a quadroom (called the QR) is juxtaTarpit if Tarpit is the room south from the QR.
+
+Definition: a quadroom (called the QR) is juxtaRailway if the Railway is the room east from the QR.
 
 Instead of smelling when the player is in a quadroom (called the place):
 	if the place is juxtaTarpit:
 		say "[one of]Okay, who let one go?[or]Mmm... Sulfur.[or]There is a hint of petroleum in the area.[or]Smells like someone is paving a road near by.[in random order]";			
 	otherwise:
 		if the place is juxtaHighway:
-			say "Diesel, dust, and exhaust from the neighboring highwy.";
+			say "Diesel, dust, and exhaust from the neighboring highway.";
 		otherwise:		
 			continue the action.
 			
 Instead of listening when the player is in a quadroom (called the place):
 	if the place is juxtaHighway:
-		say "Cars and trucks roar by at breakneck speeds.";
+		say "Just west of here, cars and trucks roar by at breakneck speeds along Superhighway 17.";
 	otherwise:
 		if the place is juxtaRailway:
-			say "Trains rattle up and down the tracks noisily."
-
+			say "Trains rattle up and down the tracks noisily.";
+		otherwise:
+			continue the action.
+	
 [Geographic Layout of the Town]
 Dung Beetle Mural is west of Witch Pillory and north of Cyclorama.
 Witch Pillory is west of Old Jail and north of Flag Pole.
@@ -727,7 +734,7 @@ The description of Ashwell-Lott Estate is "A 19th Century manor house, now a win
 
 [Garden Gnome]
 
-The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Garden Gnome Without Head is an improper-named artifact. Understand "decapitated" as Garden Gnome Without Head. Understand "sculpture" or "art" as Garden Gnome Without Head when the location is Garden Gnome Without Head. The printed name of Garden Gnome Without Head is "decapitated garden gnome statue". The title of Garden Gnome Without Head is "Garden Gnome Without Head."
+The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Garden Gnome Without Head is an improper-named artifact. Understand "decapitated" as Garden Gnome Without Head. Understand "sculpture" or "art" as Garden Gnome Without Head when the location is Garden Gnome Without Head. The printed name of Garden Gnome Without Head is "decapitated garden gnome statue". The title of Garden Gnome Without Head is "Garden Gnome Without Head".
 
 Instead of attacking the Garden Gnome Without Head, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
 
@@ -812,7 +819,7 @@ Instead of entering The Gardens of Zarf :
 
 [Flan Emporium]
 
-The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some." Flan Emporium is an improper-named structure. Understand "building" or "store" as Flan Emporium when the location is Flan Emporium. The printed name of Flan Emporium is "the flan store". The title of Flan Emporium is "Flan Emporium".
+The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some." Flan Emporium is an improper-named structure. Understand "building" or "store" as Flan Emporium when the location is Flan Emporium. The printed name of Flan Emporium is "flan store". The title of Flan Emporium is "Flan Emporium".
 
 Instead of eating Flan Emporium, say "Unfortunately, there is no tasty flan laying about."
 
@@ -820,7 +827,7 @@ Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and 
 
 [General Nelson]
 	
-The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson." General Nelson is an improper-named artifact. Understand "scultpure" or "art" as General Nelson when the location is General Nelson. The printed name of General Nelson is "statue of General Nelson". The title of General Nelson is "General Nelson".
+The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson." General Nelson is an improper-named artifact. Understand "sculpture" or "art"  or "statue" as General Nelson when the location is General Nelson. The printed name of General Nelson is "statue of General Nelson". The title of General Nelson is "General Nelson".
 
 [Church of the Orthogonal Sticks]
 
@@ -878,7 +885,7 @@ To say bioConDescription:
 
 [Battle of Margot's Pantry]
 
-The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to now be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
+The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
 
 [Gas Station Gazebo]
 
@@ -932,7 +939,7 @@ Sister City Friendship Altar is an improper-named artifact. Understand "sacrific
 
 The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year." 
 
-Year1893 is an improper-named artifact. Year1893 is privately-named.  Understand "1893" or "plaque" as Year1893. The printed name of Year1893 is "plaque". The title of Year1893 is "1893".
+Year1893 is an improper-named artifact. Year1893 is privately-named.  Understand "1893" or "plaque" as Year1893. The printed name of Year1893 is "plaque". The title of Year1893 is "1893 Plaque".
 
 [Eagle's Sojourn]
 
@@ -966,6 +973,9 @@ Cranberry Bog is an improper-named place. Understand "pond" as Cranberry Bog. Th
 
 Instead of searching the Cranberry Bog:
 	say "[one of]You find nobody. Get it? No body[or]You find nobody[stopping]."
+	
+Instead of entering the Cranberry Bog:
+	say "You don[apostrophe]t want to become it[apostrophe]s next victim!"
 
 [Found Art]
 
@@ -1004,19 +1014,24 @@ The description of Perilous Passageway is "A disgusting passageway."
 Perilous Passageway is an improper-named place. Understand "dirty" or "alley" or "perilous" or "passage" or "passageway" as Perilous Passageway.  The printed name of proxy-PerilousPassageway is "dirty alley". The title of Perilous Passageway is "Perilous Passageway".
 
 Section Dealing with Quadrooms
+
+Instead of taking a quadroom (called the QTH):
+	say "[The QTH] [are] not something you can take."
 	
-Instead of entering a quadroom (called the QTH):
+Instead of entering a quadroom (called the QTH) when the player is in the village:
 	if the localeDescriptor of the QTH is:
 		-- structure:
 			say "No time to explore every building in town. Must catch pogomen!";
 		-- place:
-			say "You[apostrophe]re already in the [location].";
+			say "You[apostrophe]re already at the [location].";
 		-- artifact:
 			say "You can[apostrophe]t, but you are standing right next to it."
 			
-Instead of doing something other than examining with a quadroom (called the QTH):
+Before doing something with a quadroom (called the QTH) when the player is in the village:
+	if the current action is examining:
+		continue the action;
 	if the player is not in the QTH:
-		say "You would have to go over there.";
+		say "You would have to go over there." instead;
 	otherwise:
 		continue the action.
 			
@@ -1085,7 +1100,7 @@ Instead of going east when the location of the player is a juxtaRailway quadroom
 		-- 0:
 			say "You can hear the busy railroad tracks just to the east.";
 		-- 1:
-			say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy.[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
+			say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
 			bestow "Refined Sense of Priorities";
 		-- 2:
 			say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
@@ -2018,7 +2033,8 @@ DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is
 
 To say deckDescription:
 	let L be a list of quadrooms;
-	let M be a list of quadrooms;
+	let M be a list of text;
+	let T be text;
 	if the location is:
 		-- deckN:
 			let L be the list of nord quadrooms;
@@ -2031,7 +2047,10 @@ To say deckDescription:
 	sort L in random order;
 	let R be a random number from 3 to 5;
 	repeat with N running from 1 to R:
-		add entry N of L to M;
+		let T be the title of entry N of L in title case;
+		if  T is "":
+			let T be the printed name of entry N of L in title case;
+		add T to M;
 	say "From your godlike perspective, you pick out a few recognizable locations below: [M].[paragraph break]";
 	if the location is DeckS:
 		if the chain is clipped:
@@ -2062,12 +2081,19 @@ After deciding the scope of a player while the player is in the Deck Area:
 		-- DeckW: let L be the list of ouest quadrooms;
 	repeat with R running through L:
 		place R in scope.
-			
-Instead of examining a quadroom when the player is not in the village:
-	say "It is too far off to make out much detail."
 	
-Instead of doing something other than examining with a quadroom when the player is not in the village:
-	say "It is too far away."
+Instead of doing something with a quadroom (called the QTH) when the player is not in the village:
+	if the current action is examining:
+		say "[The QTH] [are] too far off to make out much detail.";
+	otherwise:
+		if the current action is taking:
+			say "[The QTH] [are] not something you can take.";
+		otherwise:
+			say "[The QTH] [are] too far away."
+			
+Before doing something with something (called the item) when the item is in a quadroom and the player is not in the village:
+	say "Jeez... It[apostrophe]s amazing that you can even see [the item] from up here.";
+	the rule fails.
 
 Unclipping is an action applying to one thing. Understand "unclip  [something]"  or "unfasten [something]"  or "detach [something]" or "disconnect [something]" as unclipping.
 
