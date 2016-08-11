@@ -6,6 +6,10 @@ The release number is 1.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!"
 
+Use MAX_STATIC_DATA of 200000.
+[Use MAX_OBJECTS of 700.
+Use Max_DICT_ENTRIES of 1500.]
+
 Use full-length room descriptions, american dialect and the serial comma.
 
 [TODO:  Release along with cover art.]
@@ -2302,7 +2306,7 @@ Instead of going up from the Cat's Beret:
 
 Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
-The hatchway is a door. It is down from the Maintenance Hatch. The description of the hatchway is "[hatchText]." The hatchway is closed.
+The hatchway is a door. It is down from the Maintenance Hatch. The description of the hatchway is "[hatchText]." The hatchway is closed. Understand "hatch" or "bulkhead" as the hatchway.
 
 To complain that (portal - a door) is already open:
 	say "[The portal] is already open."
@@ -2324,25 +2328,89 @@ Instead of pulling the hatchway:
 			
 Instead of pushing the hatchway:
 	if the player is in the Captain's Cabin:
-		if the hatchway is closed:
-			complain that the hatchway is already closed;
-		otherwise:
-			try closing the hatchway;
-	otherwise:
 		if the hatchway is open:
 			complain that the hatchway is already open;
 		otherwise:
-			try opening the hatchway.
+			try opening the hatchway;
+	otherwise:
+		if the hatchway is closed:
+			complain that the hatchway is already closed;
+		otherwise:
+			try closing the hatchway.
 
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
-The Captain's Cabin is down from the hatchway.
+The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
+"Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exit from here is upwards, through the hatchway." 
 
-Gantry Chamber is aft from The Captain's Cabin. 
+A small porthole is scenery in the Captain's Cabin. The description of the small porthole is "A round porthole framed in brass and mounted flush with the wall." Understand "window" or "brass" as the porthole.
 
-CatHead is fore from the Captain's Cabin. The printed name of CatHead is "Inside the Cat's Head".
+Instead of opening the small porthole:
+	say "There are no hinges. It does not look like it is meant to open."
+				
+To say blurryPorthole:
+	say "It is difficult to see much of the city through the thick, blurry window"
+
+Instead of searching the small porthole for the first time:
+	say "[blurryPorthole].[paragraph break]";
+	bestow "Coke Bottle Glasses".
+	
+Instead of searching the small porthole:
+	say "[blurryPorthole]."
+
+The Captain's Chair is a enterable scenery supporter in the Captain's Cabin. The description of the Captain's Chair is "A sturdy mahogany chair that conveys a sense of command."
+
+After entering the chair for the first time:
+	say "Yeah, that feels pretty good.[paragraph break]";
+	bestow "You have the conn."
+	
+The driftwood desk is a supporter in the Captain's Cabin. The description of the driftwood desk is "A small but functional desk made of smooth driftwood."
+
+Instead of entering the desk:
+	say "That[apostrophe]s contrary to nautical tradition."
+
+The writing quill is a prop on the driftwood desk. The description of the writing quill is "Looks like a tail feather from a vulture, but it is a modern ballpoint pen."
+
+The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]NyanCat Captain’s Log[quotation mark] and is full of entries."
+
+The entries are part of the logbook. The description of the entries is "You flip through the logbook and read an entry at random:  TODO entries".
+
+Instead of doing something other than examining with the entries:
+	say "Do you mean to do that with the logbook?";
+
+[TODO: implement write verb to write in the logbook]
+ 
+The hurricane lantern is a lightsource on the desk. Understand "lamp" as the hurricane lantern. 
+
+After switching on the lantern for the first time:
+	say "The lantern lights immediately and shines brilliantly. Apparently, high efficiency LEDs have taken the place of the old wick mechanism."
+
+After taking the lantern for the first time:
+	bestow "Adventurer: First Class".
+
+The hammock is a fixed in place thing in the Captain's Cabin. The description of the hammock is "A ratty old string hammock."
+
+Understand "climb into [something]" as entering.
+
+Instead of entering the hammock for the first time:
+	say "You clamber into the hammock, which looked more comfortable than it actually is and stand up again before it gets too painful.[paragraph break]";
+	bestow "Gilligan Is Used To Disappointment".
+	
+Instead of entering the hammock:
+	say "You flip around a few times and end up on the floor of the cabin."
+	
+Instead of putting something (called the item) on the hammock:
+	say "[The item] falls through the shoddy knotwork and you grab it before it hits the floor."
+	
+The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
+
+Gantry Chamber is aft from the gangway. 
+
+A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it."
+
+CatHead is fore from the cockpit door. The printed name of CatHead is "Inside the Cat's Head".
 
 The Support Boom is outside from Gantry Chamber.
 
