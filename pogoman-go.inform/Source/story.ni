@@ -132,12 +132,17 @@ Chapter Rules Modifications
 if a title isn't specified, the printed name will be used. If the printed name isn't specified, the printed name is automatically based on what ever name was used in declaring the object. Most locations are flagged as improper-named so the printed name will work correctly, i.e., "the object" instead of "object", when "the" is a phrase option.
 ]
 
-This is the room header rule:
+To say header of (QTH - a room):
 	let T be the title of the location;
 	if T is "":
 		let T be the printed name of the location;
 	let T be T in title case;
-	say "[bold type][T][roman type]".
+	say "[T]".
+
+This is the room header rule:
+	say bold type;
+	say header of location;
+	say roman type.
 	
 The room header rule substitutes for the room description heading rule.
 
