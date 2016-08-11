@@ -1147,7 +1147,7 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Throne Room, and MuskTube Station are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom are rooms in HQ.
 
 [Top Level, Interior]
 
@@ -1948,11 +1948,6 @@ After wearing the walkman:
 To say A Ghastly Astley Lyric:
 	say "[one of]We[apostrophe]re no strangers to love[or]You know the rules and so do I[or]A full commitment[apostrophe]s what I[apostrophe]m thinking of[or]You wouldn[apostrophe]t get this from any other guy[or]I just wanna tell you how I[apostrophe]m feeling[or]Gotta make you understand[or]Never gonna give you up[or]Never gonna let you down[or]Never gonna run around and desert you[or]Never gonna make you cry[or]Never gonna say goodbye[or]Never gonna tell a lie and hurt you[or]We[apostrophe]ve known each other for so long[or]Your heart[apostrophe]s been aching, but[or]You[apostrophe]re too shy to say it[or]Inside, we both know what[apostrophe]s been going on[or]We know the game and we[apostrophe]re gonna play it[or]And if you ask me how I[apostrophe]m feeling[or]Don[apostrophe]t tell me you[apostrophe]re too blind to see[or](Ooh, give you up)[or]Never gonna give, never gonna give[or](Give you up)[in random order]".
 
-[Sub-Sub-Basement]
-
-The description of the Throne Room is "Throne Room placeholder text".
-  
-MuskTube Station is down from Throne Room.
 
 section 2 - Ball Pit
 
@@ -2066,9 +2061,9 @@ To say printedSubBasementDoor:
 	
 The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The possible exits of StairsSSB is "To the south there is a red door with no label."
 
-The subSubBasementDoor is a red door. It is north of the Throne Room and south of the StairsSSB.
+The subSubBasementDoor is a red door. It is north of the Make Over Suite and south of the StairsSSB.
 
-The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Throne Room][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" or "subsubbasement" as the subSubBasementDoor.
+The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Make Over Suite][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" or "subsubbasement" as the subSubBasementDoor.
 
 The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
@@ -2604,6 +2599,19 @@ Instead of taking the magnificent floating ruby for the third time:
 	
 Instead of taking the magnificent floating ruby:
 	say "Not today."
+
+Chapter Musk Lair
+
+The MuskLair is a region. Make Over Suite, Throne Room, and MuskTube Station are rooms in the MuskLair.
+
+MuskTube Station is down from Throne Room.
+
+After going south from the stairsSSB:
+	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room’s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
+	move the player to Throne Room.
+	
+The description of the Throne Room is "A marble room with black and white parquet floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus. At the far end of the magnificent hall is a raised platform lit from above by spotlights."
+	
 
 Chapter in the Elevator
 
