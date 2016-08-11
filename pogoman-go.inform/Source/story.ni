@@ -94,10 +94,31 @@ A Pogometh-kind is a kind of thing.  The description is "Youâ€™re not sure whatâ
 
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
-A PogoSpot is a kind of thing.  A PogoSpot is fixed in place.  Understand "spot" and "pogospot" as a PogoSpot.
-The description of a PogoSpot is usually "On your phone, a cartoon sign that can be spun."  
+The pogostop is a backdrop. The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
 
-A PogoSign is a kind of thing.  A PogoSign is scenery. Understand "sign" as a PogoSign.  The description of a PogoSign is usually "A round, spinnable disc showing a photograph of [location].".
+MIN_TOWNPOGOSTOPS is always 10.
+MAX_TOWNPOGOSTOPS is always 15.
+
+Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in PogoStopList and it is not in the Borderlands.
+
+Definition: a room is pogoStopTargeted if it is listed in PogoStopList.
+
+PogoStopList is a list of rooms that varies.
+	
+[TODO: remove debugging list below]
+
+To distributeTownPogostops:
+	repeat with N running from 1 to a random number between MIN_TOWNPOGOSTOPS  and MAX_TOWNPOGOSTOPS:
+		add a random okayInitialPogostopLocation to PogoStopList;
+	say "[PogoStopList]";
+	move the pogostop backdrop to all the pogoStopTargeted rooms.
+	
+Instead of taking the pogostop for the first time:
+	say "The pogostops are just pictures on your phone.[paragraph break]";
+	bestow "Get Real".
+	
+Instead of taking a pogostop:
+	say "You can[apostrophe]t."
 
 [The Pogomen themselves!]
 
@@ -167,6 +188,12 @@ After going from somewhere:
 	if the pedometer is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
 		bestow "Traveler: [pedometer] turns spent moving";
 	continue the action.
+	
+After printing the locale description of a room (called the locale):
+	if the pogostop is in the locale:
+		say "The ";
+		say header of the locale;
+		say " pogostop is here."
 
 Chapter Activities
 
@@ -193,9 +220,7 @@ Section Spinning
 
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 Carry out spinning:
-	if the noun is a PogoSpot:
-		say "You probably want to spin the PogoSpot's sign." instead;
-	if the noun is a PogoSign:
+	if the noun is the pogostop:
 		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break]";
 		let the New PogoBall be a new object cloned from the PogoBall;
 		now the New PogoBall is in the location;
@@ -488,6 +513,7 @@ When play begins:
 	now the player carries the phone;
 	now the saveur du jour is a random flavor;
 	ShowStatus;
+	distributeTownPogostops;
 	move the player to a random okayStartLocation, without printing a room description;
 	openGame.
 	
@@ -726,9 +752,6 @@ Instead of entering Old Jail, say "You aren[apostrophe]t sure whether the Old Ja
 [Johnson's Rock]
 
 The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  Johnson's Rock is an  improper-named artifact. Understand "johnson" or "johnsons" as Johnson's Rock. Understand "rock"  or "stone" or "ground" or "site" as Johnson's Rock when the location is Johnson's Rock. The title of Johnson's Rock is "Johnson's Rock". The printed name of Johnson's Rock is "site of Johnson's Rock".
-
-A Rock PogoSpot is a PogoSpot in Johnson's Rock.
-Rock PogoSign is a PogoSign in Johnson's Rock.
 
 Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
 
