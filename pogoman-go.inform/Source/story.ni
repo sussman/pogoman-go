@@ -1322,9 +1322,38 @@ The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, S
 
 The ladderProxy is a privately-named backdrop in the Ladder Area. The description of the ladderProxy is "A long ladder in a narrow shaft."  The printed name of the ladderProxy is "ladder". Understand "ladder" as the ladderProxy.
 
-The Gearing Assembly is above The Top of the Ladder and outside from Gantry Chamber. The Gantry Chamber is south from the Gearing Assembly.
+The shaft is a backdrop in the Ladder Area. The description of shaft is "A long, metal shaft running vertically through the building. It just wide enough for one person to negotiate."
+
+Instead of touching shaft for the first time:
+	say "It feels like every other shaft you have ever touched. Mostly.[paragraph break]";
+	bestow "Its Not Innuendo If You Get A Medal For It".
+
+Instead of touching shaft:
+	say "The shaft is smooth and its metallic surface has no distinguishing features."
+	
+After examining the shaft for the first time:
+	bestow "Talkin' About Shaft! Right On".
+	
+Instead of climbing the shaft:
+	try climbing the ladderProxy.
+	
+Instead of climbing the ladderProxy:
+	if the player is in the Gearing Assembly:
+		try going down;
+	otherwise:
+		try going up.
+
+The Gearing Assembly is outside from Gantry Chamber. The Gantry Chamber is south from the Gearing Assembly.
 
 The description of the Gearing Assembly is "The room itself appears to ride a circular track around the building. There are no controls or indicators here, but there is plenty of heavy equipment including motors and gears. A structural boom extends from the center of the room to support the Nyantech Cat. Near the outer edge of the room, there is a circular hole in the floor and through it, you can see the top of a narrow ladder, which leads downward into darkness."  The possible exits of the Gearing Assembly are "Obvious exits are the boom to the south or downwards using the ladder."
+
+The access hole is an open not openable door. The access hole is below the Gearing Assembly. The  access hole is above The Top of The Ladder. The description of the hole is "A smooth circular access hole cut in the floor of the the Gearing Assembly."
+
+Instead of entering the hole:
+	if the player is in the Gearing Assembly:
+		try going down;
+	otherwise:
+		try going up.
 
 The electric motor is scenery in the Gearing Assembly. The description of the motor is "A 8000 Horsepower three-phase electric motor. Through a complicated transmission system, it drives a gear assembly."  Understand "motors" or "equipment" as the electric motor.
 
@@ -1375,9 +1404,9 @@ After going down from the Top Of The Ladder:
 Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a lightsource], although there really isn[apostrophe]t all that much to see here, many stories below the top of the shaft."
 
 After going down from Somewhere Along The Ladder for the first time:
-	say "There’s good news and bad news.[paragraph break]The good news: you have reach the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
+	say "There’s good news and bad news.[paragraph break]The good news: you have reached the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
 
-The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up at least 150 feet to almost the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
+The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up hundreds of feet almost the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
 
 [Crawl Space]
 
