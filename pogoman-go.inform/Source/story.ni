@@ -1364,11 +1364,20 @@ After going south from the Gearing Assembly for the first time:
 After going south from the Gearing Assembly:
 	say "[One of]Once more into the cat, go you[or]Back to the cat[stopping]."
 
-The Top Of The Ladder is above Somewhere Along the Ladder.
+After going down from the Gearing Assembly:
+	say "You [one of]climb slowly and carefully down the ladder, which descends through shaft just wide enough to accommodate one person[or]descend the ladder[stopping]."
 
-Somewhere Along The Ladder is above the Bottom Rung.
+The Top Of The Ladder is above Somewhere Along the Ladder. The description of Top Of The Ladder is "You can see light coming from above, the Gearing Assembly area."
 
-The Bottom Rung is above the Crawl Space.
+After going down from the Top Of The Ladder:
+	say "You descend further into the dark shaft."
+
+Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a lightsource], although there really isn[apostrophe]t all that much to see here, many stories below the top of the shaft."
+
+After going down from Somewhere Along The Ladder for the first time:
+	say "There’s good news and bad news.[paragraph break]The good news: you have reach the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
+
+The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up at least 150 feet to almost the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
 
 [Crawl Space]
 
@@ -2258,7 +2267,7 @@ Index map with fore mapped as east. Index map with aft mapped as west. Index map
 
 Before going a nautical direction when the player is not in the Cat Area, say "[One of]Okay, matey. Could you rephrase that for us landlubbers?[or]Those directions only make sense on a vessel of some sort.[or]So, that's what? North? South? Throw me a bone.[or]Compass directions please, unless you're in a vessel.[stopping]" instead.
 
-Before going an earthbound direction when the player is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try going fore or aft instead." instead.
+Before going an earthbound direction when the player is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try going fore (f) or aft (a) instead." instead.
 
 To say noLateral:
 	say "Aye, matey, [one of]plus one on seamanship skills[or]you[apostrophe]ve got the nautical lingo down[or]you make an old sailor proud[or]that[apostrophe]s the style[in random order], but there's nowhere to go right now in that direction, eh?"
@@ -2326,9 +2335,9 @@ To say describeCatwalkPO:
 	visualize "[catWalkText]."
 	
 To say catWalkText:
-	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the sides of the cat are actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles"
+	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. Quite a bit below the scaffold on the side of the cat facing the building, a lattice-work boom extends from the building to support the cat about fifty stories above the ground"
 	
-The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
+The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" or "grue" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
 
 To say describeBoomPO:
 	visualize "A heavy metal boom extends from the building to the cat and supports its as the cat rotates around the building. The boom is rectangular in cross-section, with side walls composed of metal tubing. The center of the boom is hollow the bottom is solid, so it looks like the boom may serve as maintenance access to the cat."
@@ -2339,7 +2348,7 @@ To say describePoopPO:
 	visualize "[poopText]."
 	
 To say poopText:
-	say "A small metal tube projects from the rear of the cat and expels glittering sparkles that waft away on the wind, falling slowly towards the ground"
+	say "It is hard to see the town through the spewing spray of sparks out of a tin pipe at the rear of the cat"
 
 Before doing something other than examining with a catTopDrop (called the QTH):
 	if the player is in the Deck Area:
@@ -2400,10 +2409,43 @@ Instead of pushing the hatchway:
 
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
+Instead of going down when the player is in the Catwalk:
+	say "[one of]Going down isn’t really an option. On the side of the cat facing towards the building, the smooth metal skin slopes towards the support boom, but between the wind and slight swaying of the cat hundreds of feet above the pavement, you don’t like the odds of landing on the boom versus plunging over the side. As for the pop-tart side of the cat, there would be nothing to grab onto, aside from a tasty snack on your way to the pavement[or]No, too dangerous[stopping]."
+	
+The pop-tart shingles are a  plural-named backdrop in catWalk. The description of pop-tart shingles is "Pop-tarts as an actual construction material. Genius." Understand "shingle" or "pop-tarts" or "poptart" or "poptarts" or "giant" as the pop-tart shingles.
+
+Instead of taking the pop-tart shingles for the first time:
+	say "You stretch as far as you can, but you arms just aren[apostrophe]t long enough.[paragraph break]";
+	bestow "Sadly Denied Weathered Pop-Tarts".
+	
+Instead of eating the pop-tart shingles for the first time:
+	say "Just what do you imagine those pop-tarts would taste like after years of exposure to the elements... not to mention pigeons?[paragraph break]";
+	bestow "Wow. Just wow."
+
+Instead of doing something other than examining with the pop-tart shingles, say "They are tantalizingly out of reach."
+
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
+The tin pipe is scenery in Poop Deck. The description of the pipe is "An small metal exhaust tin pipe extends a few inches from the rear of the cat."
+
+Instead of doing something other than examining with the pipe: 
+	say "The tin pipe is red hot."
+	
+Instead of taking the tin pipe for the first time:
+	say "Your fingers sizzle as the make contact with the hot tin pipe. You pull your hand back immediately. Well, let[apostrophe]s say, [italic type]most[roman type] of your hand.[paragraph break]";
+	bestow "Kids, Don[apostrophe]t Try This".
+	
+The sparks are plural-named scenery in the Poop Deck. The description of the sparks is "A trail of sparks flies out behind the cat and is visible for miles around."
+
+Instead of taking the sparks for the first time:
+	say "You give up after nearly welding yourself to the cat.[paragraph break]";
+	bestow "It Seemed Like A Good Idea At The Time".
+	
+Instead of doing something other than examining with the sparks:
+	say "They are too hot to handle."
+	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
-"Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exit from here is upwards, through the hatchway." 
+"Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
 
 A small porthole is scenery in the Captain's Cabin. The description of the small porthole is "A round porthole framed in brass and mounted flush with the wall." Understand "window" or "brass" as the porthole.
 
@@ -2479,9 +2521,31 @@ After going outside from the Gantry Chamber for the first time:
 After going outside from the Gantry Chamber:
 	say "You make a beeline for the Gearing Assembly chamber at the other end."
 	
-A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it."
+A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
-CatHead is fore from the cockpit door. The printed name of CatHead is "Inside the Cat's Head".
+CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat."
+
+After going fore from the Gantry Chamber for the first time:
+	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you’re guessing that it’s actually white).";
+	now the securityColor of the badge is white;
+	bestow "Cat Power!"
+	
+The magnificent floating ruby is a prop in CatHead. The description of the magnificent floating ruby is "The blood-red stone is as large as your head, but you can barely look at it through the brilliant reflections off its many facets." Understand "facets" as the magnificent floating ruby. 
+
+Instead of taking the magnificent floating ruby  for the first time:
+	say "As your hand approaches the jewel, it feels like ants are crawling over your hand and forearm. The air around your hand starts to scintillate and the smell of hamburger fills the room. Drawing still closer to the precious jewel, in the bright light you can see only the bones of your hand as if the skin has become transparent.[paragraph break]That’s enough for you to decide against messing with the ruby.[paragraph break]";
+	bestow "Holy Kryptonite, Batman!"
+	
+Instead of taking the magnificent floating ruby  for the second time:
+	say "No way are you going to try to grab that glowing nugget of plutonium or whatever the hell it is.[paragraph break]";
+	Bestow "Plutonium Adverse".
+	
+Instead of taking the magnificent floating ruby for the third time:
+	say "Not a chance. It[apostrophe]s surely worth a fortune. But will it help you catch pogomen? Nope.[paragraph break]On the other hand, you sure do seem to be racking up a bunch of points from messing around with it.[paragraph break]";
+	Bestow "Radiation Exposure Equals XP".
+	
+Instead of taking the magnificent floating ruby:
+	say "Not today."
 
 Chapter in the Elevator
 
