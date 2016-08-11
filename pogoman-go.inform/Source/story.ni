@@ -55,6 +55,8 @@ A lightsource is a kind of device.
 
 LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
 
+A catTopDrop is a kind of backdrop. catTopDrops are privately-named.
+
 [  
    Places - Outside areas like parks
    Structures - Buildings, places with an interior that would have to be entered
@@ -576,7 +578,7 @@ The description of Superhighway is "A busy highway to the west of town." Underst
 
 The Tarpit is a sud quadroom. The Tarpit is south from Unearthly Geometry. The Tarpit is south from MarkerSeven. The Tarpit is south from Garden Gnome Without Head. The Tarpit is south from  Found Art. The Tarpit is south from Rottweiler Art. The Tarpit is south from Hank's Tavern. The Tarpit is south from Gas Station Gazebo. 
 
-The description of Tarpit is "Petroleum-belching tar fields to the south of town."  Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the Tarpit. The printed name of Tarpit is "tarpit". The title of Tarpit is "The Tarpit".
+The description of Tarpit is "Petroleum-belching tar fields to the south of town."  Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the Tarpit. The printed name of Tarpit is "tarpit". The title of Tarpit is "The Tarpit". Understand "tarpits" or "infamous" as the tarpit.
 
 The Railway is an est quadroom. The Railway is east from Crystal Skull. The Railway is east from Telescope Nymph. The Railway is east from Dog Exercise Area. The Railway is east from The Olde Train Station. The Railway is east from Eagle's Sojourn. The Railway is east from Flan Emporium. The railway is improper-named. The Railway is east from Gas Station Gazebo. 
 
@@ -1121,7 +1123,7 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Rick Astley Shrine, Support Boom, Throne Room, and MuskTube Station are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Throne Room, and MuskTube Station are rooms in HQ.
 
 [Top Level, Interior]
 
@@ -1962,9 +1964,9 @@ To say shortNoExits:
 	say "without seeing any exits"
 
 After going up from the StairsProcessing:
-	say "You climb [shortTwentyFlights] [shortNoExits] and ";
+	say "You climb [shortTwentyFlights] [shortNoExits]";
 	if the walkman is not worn:
-		say "[one of]notice a heavy, grinding noise punctuated by sounds of liquids sloshing and slurping[or]from the walls you hear the sound of industrial machinery -- maybe a tree mulcher[or]you hear maniacal laughter coming from deep within the building. Or maybe it just the plumbing[or]you notice the vibration of heavy machinery[stopping]";
+		say " and [one of]notice a heavy, grinding noise punctuated by sounds of liquids sloshing and slurping[or]from the walls you hear the sound of industrial machinery -- maybe a tree mulcher[or]you hear maniacal laughter coming from deep within the building. Or maybe it just the plumbing[or]you notice the vibration of heavy machinery[stopping]";
 	say ".";
 	
 After going up from the StairsPackaging:
@@ -2048,10 +2050,12 @@ To say heightDescription:
 		if  T is "":
 			let T be the printed name of entry N of L in title case;
 		add T to M;
-	say "From your godlike perspective, you pick out a few recognizable locations below: [M].[paragraph break]";
-	
+	say M.
+		
 To say deckDescription:
+	say "From your godlike perspective, you pick out a few recognizable locations below: ";
 	say heightDescription;
+	say ". [run paragraph on]";
 	if the location is DeckS:
 		if the chain is clipped:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
@@ -2176,13 +2180,13 @@ Starboard, port, fore, aft are nautical.
 
 Up, down, inside, and outside are QTHagnostic.
 
-The starboard is a direction. The starboard has opposite port. Understand "s" as starboard when the location is in the Cat Area.
+The starboard is a direction. The starboard has opposite port. 
 
-The port is a direction. The port has opposite starboard. Understand "p" as port when the location is in the Cat Area.
+The port is a direction. The port has opposite starboard. 
 
-The fore is a direction. The fore has opposite aft. Understand "f" as fore when the location is in the Cat Area.
+The fore is a direction. The fore has opposite aft. Understand "f" or "forward" or "foreward" as fore when the location is in the Cat Area. 
 
-The aft is a direction. The aft has opposite fore. Understand "a" as aft when the location is in the Cat Area.
+The aft is a direction. The aft has opposite fore. Understand "a" or "aftward" or "abaft" or "backwards" or "back" as aft when the location is in the Cat Area.
 
 Does the player mean going a nautical direction when the location is in the Cat Area: it is very likely.
 
@@ -2190,7 +2194,14 @@ Index map with fore mapped as east. Index map with aft mapped as west. Index map
 
 Before going a nautical direction when the player is not in the Cat Area, say "[One of]Okay, matey. Could you rephrase that for us landlubbers?[or]Those directions only make sense on a vessel of some sort.[or]So, that's what? North? South? Throw me a bone.[or]Compass directions please, unless you're in a vessel.[stopping]" instead.
 
-Before going an earthbound direction when the player is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try some of these directions instead: [list of nautical directions]." instead.
+Before going an earthbound direction when the player is in the Cat Area, say "Compass directions make no sense  when we're talking about a giant mechanical cat that rotates around an office building -- granted, not much would make sense in that context. In any event, try going fore or aft instead." instead.
+
+To say noLateral:
+	say "Aye, matey, [one of]plus one on seamanship skills[or]you[apostrophe]ve got the nautical lingo down[or]you make an old sailor proud[or]that[apostrophe]s the style[in random order], but there's nowhere to go right now in that direction, eh?"
+	
+Instead of going starboard, say noLateral.
+
+Instead of going port, say noLateral.
 
 Section 7 - Cat OverheadProxies
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
@@ -2211,77 +2222,121 @@ To visualize (overheadDescription - some text):
 		if the cat is visible from overhead:
 			say "[overheadDescription]";
 		otherwise: 
-			say invisibleOverhead;
+			say "[invisibleOverhead]";
 	otherwise:
 		say "[overheadDescription]".
 	
 [in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
-The catProxyOverhead is a privately-named backdrop in the Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or "gantry" or "boom" or "vessel" or "eyes" or "tail" as the catProxyOverhead. 
+The catProxyOverhead is a catTopDrop. The catProxyOverhead is in Cat's Beret, Maintenance Hatch, CatWalk, Poop Deck, and Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or  "vessel" as the catProxyOverhead. The description of the catProxyOverhead is "[describeCatPO]".
 
-To say the description of catProxyOverhead:
+To say describeCatPO:
 	visualize "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail."
 	
-The eyesProxyOverhead is a privately-named backdrop. The eyesProxyOverhead is in the Deck Area. The printed name of the eyesProxyOverhead is "red glowing eyes of the cat". Understand "red" or "glowing" or "eye" or "eyes" or "cat's" or "cat" or "cats" as the eyesProxyOverhead. 
+Instead of examining the catProxyOverhead when the player is in a cat-top room:
+	say "You are standing on top of it."
+	
+The eyesProxyOverhead is a catTopDrop. The eyesProxyOverhead is in the Deck Area. The printed name of the eyesProxyOverhead is "eyes". Understand "red" or "glowing" or "eye" or "eyes" as the eyesProxyOverhead. The description of the eyesProxyOverhead is "[describeEyesPO]".
 
-To say the description of eyesProxyOverhead:
-	visualize "TODO".
+To say describeEyesPO:
+	visualize "The cat's deep red eyes seem to glow as they search the landscape."
 
-The beretProxyOverhead is a privately-named backdrop. The beretProxyOverhead is in the Maintenance Hatch, Catwalk, Poop Deck and Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead.
+The beretProxyOverhead is a catTopDrop. The beretProxyOverhead is in the Maintenance Hatch, Catwalk, Poop Deck and Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "red" or "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead. The description of the beretProxyOverhead is "[describeBeretPO]".
 
-To say the description of beretProxyOverhead:
-	visualize "[beretText]".
+To say describeBeretPO:
+	visualize "[beretText]."
 	
 To say beretText:
-	say "From the ground, the fabric in the cat's beret looks like a felt, but from up here it looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber."
+	say "From the ground, the fabric in the cat's beret looks like a felt, but from up here it looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber"
 	
-The hatchProxyOverhead is a privately-named backdrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" as the hatchProxyOverhead. 
+The hatchProxyOverhead is a catTopDrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" or "hatchway" or "bulkhead" or "maintenance" or "neck" as the hatchProxyOverhead. The description of the hatchProxyOverhead is "[describeHatchPO]".
 
-To say the description of hatchProxyOverhead:
-	visualize "[hatchText]".
+To say describeHatchPO:
+	visualize "[hatchText]."
 	
 To say hatchText:
-	say  "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]."
+	say  "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]"
 
-The catWalkProxyOverhead is a privately-named backdrop. The catWalkProxyOverhead is in Cat's Beret, Maintenance Hatch, Poop Deck, and Deck Area. The printed name of catWalkProxyOverhead is "scaffold". Understand "scaffold" or "catwalk" or "poptart" as the catWalkProxyOverhead. 
+The catWalkProxyOverhead is a catTopDrop. The catWalkProxyOverhead is in Cat's Beret, Maintenance Hatch, and Poop Deck. The catWalkProxyOverhead is in the Deck Area. The printed name of catWalkProxyOverhead is "scaffold". Understand "scaffold" or "catwalk" or "poptart" as the catWalkProxyOverhead. The description of the catWalkProxyOverhead is "[describeCatwalkPO]".
 
-To say the description of catWalkProxyOverhead:
-	visualize "[catWalkText]".
+To say describeCatwalkPO:
+	visualize "[catWalkText]."
 	
 To say catWalkText:
-	say "TODO".
-
-The boomProxyOverhead is a privately-named backdrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" as the boomProxyOverhead. 
-
-To say the description of boomProxyOverhead:
-	visualize "[boomText]".
+	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the sides of the cat are actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles"
 	
-To say boomText:
-	say  "TODO".
+The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
 
-The poopProxyOverhead is a privately-named backdrop. The poopProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, and Deck Area. The printed name of poopProxyOverhead is "rear end of the cat". Understand "butt" or "rear" or "end" or "pipe" or "tail" or "exchaust" or "output" or "port" as poopProxyOverhead. 
+To say describeBoomPO:
+	visualize "A heavy metal boom extends from the building to the cat and supports its as the cat rotates around the building. The boom is rectangular in cross-section, with side walls composed of metal tubing. The center of the boom is hollow the bottom is solid, so it looks like the boom may serve as maintenance access to the cat."
 
-To say the description of poopProxyOverhead:
-	visualize "[poopText]".
+The poopProxyOverhead is a catTopDrop. The poopProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, and Deck Area. The printed name of poopProxyOverhead is "rear end of the cat". Understand "butt" or "rear" or "end" or "pipe" or "tail" or "exhaust" or "output" or "port" or "poop" or "tube" or "glitter" or "sparkles" as poopProxyOverhead. The description of the poopProxyOverhead is "[describePoopPO]".
+
+To say describePoopPO:
+	visualize "[poopText]."
 	
 To say poopText:
-	say "TODO".
+	say "A small metal tube projects from the rear of the cat and expels glittering sparkles that waft away on the wind, falling slowly towards the ground"
+
+Before doing something other than examining with a catTopDrop (called the QTH):
+	if the player is in the Deck Area:
+		say "[The QTH] is too far below you.";
+		the rule fails;
+	otherwise:
+		say "You would have to walk over to [the QTH].";
+		the rule fails.
 
 Section 8 - Cat Layout
 
+Definition: A room is cat-top if it is the Cat's Beret or it is the Maintenance Hatch or it is The Catwalk or it is the Poop Deck.
+
+After deciding the scope of the player while the player is in a cat-top room:
+	repeat with R running through the list of sud quadrooms:
+		place R in scope.
+
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
 
-The possible exits of the Cat's Beret are "The only way to go from here [one of](the only sane way to go, discounting a suicidal fall)[or][stopping]is towards the rear of the cat. The maintenance hatch is just aft of the beret, at the nape of the cat[apostrophe]s neck. Behind that, there is a narrow scaffold over the pop-tart section of the cat. The scaffold runs above the support boom that extends outward from the building. Finally, at the very rear of the cat, sparkles shoot from a short, metal exhaust tube."
+The possible exits of the Cat's Beret are "The only way to go from here [one of](the only sane way to go, discounting a suicidal fall) [or][stopping]is towards the rear of the cat. The maintenance hatch is just aft of the beret, at the nape of the cat[apostrophe]s neck. Behind that, there is a narrow scaffold over the pop-tart section of the cat. The scaffold runs above the support boom that extends outward from the building. Finally, at the very rear of the cat, sparkles shoot from a short, metal exhaust tube."
 
 Instead of going up from the Cat's Beret:
 	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping]."
 
-Maintenance Hatch is aft of the Cat's Beret.
+Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
-The hatchway is a door. It is down from the Maintenance Hatch. Understand "hatch" as the hatchway when the player is in the Cat Area. The description of the hatchway is "[hatchText]". The hatchway is closed.
+The hatchway is a door. It is down from the Maintenance Hatch. The description of the hatchway is "[hatchText]." The hatchway is closed.
 
-Catwalk is aft of the Maintenance Hatch.
+To complain that (portal - a door) is already open:
+	say "[The portal] is already open."
+	
+To complain that (portal - a door) is already closed:
+	say "[The portal] is already closed." 
 
-Poop Deck is aft of The Catwalk.
+Instead of pulling the hatchway:
+	if the player is in Maintenance Hatch:
+		if the hatchway is open:
+			complain that the hatchway is already open;
+		otherwise:
+			try opening the hatchway;
+	otherwise:
+		if the hatchway is closed:
+			complain that the hatchway is already closed;
+		otherwise:
+			try opening the hatchway.
+			
+Instead of pushing the hatchway:
+	if the player is in the Captain's Cabin:
+		if the hatchway is closed:
+			complain that the hatchway is already closed;
+		otherwise:
+			try closing the hatchway;
+	otherwise:
+		if the hatchway is open:
+			complain that the hatchway is already open;
+		otherwise:
+			try opening the hatchway.
+
+Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
+
+Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
 The Captain's Cabin is down from the hatchway.
 
