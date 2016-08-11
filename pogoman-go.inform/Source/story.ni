@@ -2028,7 +2028,7 @@ DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Sou
 
 DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".
 
-To say deckDescription:
+To say heightDescription:
 	let L be a list of quadrooms;
 	let M be a list of text;
 	let T be text;
@@ -2049,6 +2049,9 @@ To say deckDescription:
 			let T be the printed name of entry N of L in title case;
 		add T to M;
 	say "From your godlike perspective, you pick out a few recognizable locations below: [M].[paragraph break]";
+	
+To say deckDescription:
+	say heightDescription;
 	if the location is DeckS:
 		if the chain is clipped:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
