@@ -1410,7 +1410,19 @@ The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You
 
 [Crawl Space]
 
-The Crawl Space is above the LAN Closet.  The description of the Crawl Space is "[if the player carries a switched on lightsource]You are poking up into a dead space between some hanging acoustic tiles above the LAN Closet and the lower end of a ladder about ten feet above your head. As you play the light up the ladder, it looks like it runs up a long narrow shaft as far as you can see[otherwise]A dark space above the LAN Closet[end if]."
+The Crawl Space is above the LAN Closet.  The description of the Crawl Space is "[crawlspaceDescription]."
+
+To say crawlspaceDescription:
+	if the player carries a switched on lightsource:
+		say "You are poking up into a dead space between ";
+		if the Gearing Assembly is visited:
+			say "the remnants of ";
+		say "some hanging acoustic tiles above the LAN Closet and the lower end of a ladder about ten feet above your head. As you play the light up the ladder, it looks like it runs up a long narrow shaft as far as you can see";
+	otherwise:
+		say "A dark space above the ";
+		if the Gearing Assembly is visited:
+			say "ruined ceiling of the ";
+		say "LAN Closet".
 
 The acoustic tiles are scenery in the Crawl Space. The description of the acoustic tiles is "Sound-absorbing tiles are all that separate this crawl space from the LAN Closet below." Understand "dust" or "tile" as the acoustic tiles when the player is in the Crawl Space.
 
@@ -1425,7 +1437,24 @@ Instead of examining the ladderProxy when the player is in the Crawl Space:
 Instead of jumping when the player is in the Crawl Space:
 	say "You jump off the equipment rack and land on the floor of the LAN closet.";
 	move the player to the LAN Closet.
-
+	
+To finishFall:
+	say " plunge through a false ceiling, which crashes down around you.[paragraph break]You find yourself in the cat control room.";
+	if the penlight is in the Crawl Space and the player does not carry the penlight:
+		move the penlight to the LAN Closet;
+	move the player to the LAN Closet.
+	
+Instead of jumping when the player is in The Top of the Ladder or the player is in Somewhere Along The Ladder:
+	say "You plummet through the building upside down, cheeks flapping against the metal shaft walls and occasionally catching a foot or hand on the ladder enough to flip you around the other way.[paragraph break]Finally, your fall is broken by your[run paragraph on]";
+	finishFall.
+	
+Instead of jumping when the player is in Bottom Rung:
+	say "You step bravely off the ladder and into the limitless abyss, which in this case is about ten feet of abyss, followed immediately by a[run paragraph on]";
+	finishFall.
+	
+Instead of going down when the player is in the Bottom Rung:
+	try jumping.
+	
 The penlight is a lightsource in the Crawl Space. The description of the penlight is "A black flashlight with a metal barrrel and protective rubber cover on the rear end[if the barrel is open], which hangs open[end if]." Understand "flashlight" or "torch" or "light" as the penlight. 
 
 The rubber cover is part of the penlight. The description of the rubber cover is "The cover on the rear end of the penlight is [if the barrel is open]open, permitting a view into the hollow barrel[otherwise]closed[end if]." Understand "cap" as the rubber cover.
@@ -1505,7 +1534,7 @@ The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor i
 
 The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The [if the LAN Closet Door is open]open[otherwise]shut[end if] white door to the LAN closet[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
 
-The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, dial, and some indicators." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
+The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
 PhonographBroken is a truth state that varies. PhonographBroken is false.
 
@@ -1624,11 +1653,11 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in Heading] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" as the CAT Control.
+The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in Heading] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
 
 catOnHold is a truth state that varies. catOnHold is false.
 
-The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC]."
+The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC]." Understand "display" as the numerical counter.
 
 After examining the numerical counter:
 	now the numerical counter is handled.
