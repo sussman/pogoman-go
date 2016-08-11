@@ -104,13 +104,10 @@ Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech E
 Definition: a room is pogoStopTargeted if it is listed in PogoStopList.
 
 PogoStopList is a list of rooms that varies.
-	
-[TODO: remove debugging list below]
 
 To distributeTownPogostops:
 	repeat with N running from 1 to a random number between MIN_TOWNPOGOSTOPS  and MAX_TOWNPOGOSTOPS:
 		add a random okayInitialPogostopLocation to PogoStopList;
-	say "[PogoStopList]";
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
 Instead of taking the pogostop for the first time:
@@ -1325,7 +1322,47 @@ The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, S
 
 The ladderProxy is a privately-named backdrop in the Ladder Area. The description of the ladderProxy is "A long ladder in a narrow shaft."  The printed name of the ladderProxy is "ladder". Understand "ladder" as the ladderProxy.
 
-The Gearing Assembly is above The Top of the Ladder and outside from Support Boom.
+The Gearing Assembly is above The Top of the Ladder and outside from Gantry Chamber. The Gantry Chamber is south from the Gearing Assembly.
+
+The description of the Gearing Assembly is "The room itself appears to ride a circular track around the building. There are no controls or indicators here, but there is plenty of heavy equipment including motors and gears. A structural boom extends from the center of the room to support the Nyantech Cat. Near the outer edge of the room, there is a circular hole in the floor and through it, you can see the top of a narrow ladder, which leads downward into darkness."  The possible exits of the Gearing Assembly are "Obvious exits are the boom to the south or downwards using the ladder."
+
+The electric motor is scenery in the Gearing Assembly. The description of the motor is "A 8000 Horsepower three-phase electric motor. Through a complicated transmission system, it drives a gear assembly."  Understand "motors" or "equipment" as the electric motor.
+
+Instead of taking the electric motor for the first time:
+	say "It is the size of a city bus.[paragraph break]";
+	bestow "Not today, Clark Kent".
+	
+
+Instead of taking the gears for the first time:
+	say "Aside from not wanting to lose a finger in their greasy maw, the gears are way too huge to take.[paragraph break]";
+	bestow "Digital Preservation".
+
+Instead of taking a scenery thing (called the item) when the player is in the Gearing Assembly:
+	if the item is a backdrop:
+		continue the action;
+	otherwise:
+		say "No. Aside from being massive [the item] [are] covered in thick, sticky, black grease."
+
+Instead of doing something with the ladderProxy when the player is in the Gearing Assembly:
+	if the current action is examining:
+		continue the action;
+	if the current action is climbing:
+		try going down;
+	otherwise:
+		say "The ladder is just below this room. You would have to go down."
+	
+The boomArm is a privately-named backdrop in the Gearing Assembly and in the Gantry Chamber. The description of the boomArm is "A long metal boom that extends from the building, and suspends the cat almost 50 stories above street level." The printed name of the boomArm is "support boom". Understand "boom" or "support" as the boomArm
+
+The gears are plural-named scenery in the Gearing Assembly. The description of the gears is "Huge, greasy gears that move the room and its attached boom along a toothed track that circles the upper portion of the building, just below the observation deck." Understand "gear" or "assembly" or "transmission" as the gears.
+
+The track is scenery in the Gearing Assembly. The description of the track is "A bumpy metal track that rings the building. The upper part of the gearing assembly follows the track as it rotates the cat support boom around the building. The track is covered in grease and generally free of rust." Understand "tracks" as the track.
+
+After going south from the Gearing Assembly for the first time:
+	say "Earlier today, you managed to make the trip through wind-swept mechanical boom by promising yourself that you would never do it again. Well, guess that assumption was wrong.[paragraph break]";
+	bestow "Promises are made to be broken".
+	
+After going south from the Gearing Assembly:
+	say "[One of]Once more into the cat, go you[or]Back to the cat[stopping]."
 
 The Top Of The Ladder is above Somewhere Along the Ladder.
 
@@ -2429,13 +2466,22 @@ Instead of putting something (called the item) on the hammock:
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
 
-Gantry Chamber is aft from the gangway. 
+Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain’s cabin."
 
+Every turn when the player is in the Gantry Chamber:
+	if a random chance of 1 in 5 succeeds:
+		say "[one of]The boom sways in the wind[or]The wind howls by[or]Groaning metal sounds come from the direction of the boom[or]The support assembly creaks[or]The sounds of the city drift up from far below you[in random order]."
+		
+After going outside from the Gantry Chamber for the first time:
+	say "You carefully crawl on all fours through the long boom, avoiding glances downward. Sure, it would be a great view of the city, but with the wind whipping through the metal webbing of the tube and the whole thing oscillating wildly, you move as quickly as you can to the other end. At last, you enter a room full of huge motors and gears.[paragraph break]";
+	bestow "Don[apostrophe]t Look Down!".
+	
+After going outside from the Gantry Chamber:
+	say "You make a beeline for the Gearing Assembly chamber at the other end."
+	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it."
 
 CatHead is fore from the cockpit door. The printed name of CatHead is "Inside the Cat's Head".
-
-The Support Boom is outside from Gantry Chamber.
 
 Chapter in the Elevator
 
