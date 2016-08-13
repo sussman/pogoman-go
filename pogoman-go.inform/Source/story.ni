@@ -2679,7 +2679,7 @@ A pogoroom can be juxtaSand.
 A pogoroom can be juxtaShark.
 A pogoroom can be juxtaCliff.
 
-Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Walmart, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
+Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
 
 The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A fiery mountain that constantly belches molten lava."
 
@@ -2709,13 +2709,13 @@ Beach is north of Wharf.
 Canyon is west of Stadium and north of Pogoland Terminal.
 Stadium is west of Dark Alley and north of Valley.
 Dark Alley is west of Post Office and north of Baseball Diamond.
-Post Office is west of Wharf and north of Walmart.
+Post Office is west of Wharf and north of Hospital.
 Wharf is north of Aquarium.
 
 Pogoland Terminal is west of Valley and north of Cemetery.
 Valley is west of Baseball Diamond and north of Service Station.
-Baseball Diamond is west of Walmart and north of Dojo.
-Walmart is west of Aquarium and north of Botanical Garden.
+Baseball Diamond is west of Hospital and north of Dojo.
+Hospital is west of Aquarium and north of Botanical Garden.
 Aquarium is north of Motel.
 
 Cemetery is west of Service Station.
@@ -2755,7 +2755,7 @@ The description of School House is "A simple, one-room brick school house with a
 
 The description of Monastery is "A walled fortress surrounding a church and its fields."
 
-The description of Walmart is "Yes, even in Pogoland, there is a Walmart."
+The description of Hospital is "A sprawling and state-of-the-art, but strangely windowless, medical facility."
 
 The description of Motel is "A classic two-level drive-in motel with no-vacancy sign out front. It looks a bit dumpy."
 
