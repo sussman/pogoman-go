@@ -92,15 +92,12 @@ A Pogometh-kind is a kind of thing.  The description is "You’re not sure what�
 
 The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
 
-Min_Town_Pogostops is always 10.
-Max_Town_Pogostops is always 15.
-
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
 Definition: a room is pogoStopTargeted if it is listed in POGOSTOPLIST.
 
 To distributeTownPogostops:
-	repeat with N running from 1 to a random number between Min_Town_Pogostops  and Max_Town_Pogostops:
+	repeat with N running from 1 to a random number between MIN_TOWN_POGOSTOPS  and MAX_TOWN_POGOSTOPS:
 		add a random okayInitialPogostopLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
@@ -121,6 +118,31 @@ Instead of taking a pogoman:
 	say "You'll have to throw a Pogoball at it to capture it!".
 
 
+Chapter Declare Constants
+
+INITIAL_POGOLEVEL is always 3.
+
+MIN_TOWN_POGOSTOPS is always 10.
+MAX_TOWN_POGOSTOPS is always 15.
+
+POGOSTOP_TIMEOUT_DURATION is always 10.
+
+MEDAL_XP_VALUE is always 10.
+EVOLUTION_XP_VALUE is always 50.
+POGOSTOP_XP_VALUE is always 10.
+CAPTURE_XP_VALUE is always 100.
+INCENSE_XP_VALUE is always 10.
+TRANSFER_XP_VALUE is always 20.
+GYM_VICTORY_XP_VALUE is always 300.
+
+SPECIAL_ATTACK_XP_COST is always 100.
+
+POGOMEN_INVENTORY_LIMIT is always 100.
+POGOITEM_INVENTORY_LIMIT is always 100.
+
+[additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
+
+
 Chapter Declare Global Variables
 
 [booleans]
@@ -132,14 +154,13 @@ CATONHOLD is a truth state that varies. CATONHOLD is false.
 
 [numbers]
 
-POGOLEVEL is a number that varies.  POGOLEVEL is 3. 
+POGOLEVEL is a number that varies. 
 XP is a number that varies.  XP is 320.  
 THETIME is a number that varies. THETIME is 5.
 PEDOMETER is a number that varies. The PEDOMETER is 0.
 PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
 CURRENTFLOOR is a number that varies.
 MEGACATS is a number that varies. MEGACATS is 1000000.
-TIMESDROWNED, TIMESRUNOVER, TIMESTARRED, and TIMESRAILROADED are numbers that vary
 
 [lists - because Jack loves lists]
 
@@ -151,6 +172,10 @@ HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "S
 
 TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
 The SAVEURDUJOUR is a flavor that varies. 
+
+
+
+
 
 Chapter Rules Modifications
 
@@ -225,7 +250,8 @@ Section Spinning
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 Carry out spinning:
 	if the noun is the pogostop:
-		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break]";
+		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
+		awardXP POGOSTOP_XP_VALUE;
 		let the New PogoBall be a new object cloned from the PogoBall;
 		now the New PogoBall is in the location;
 		let the New PogoChum be a new object cloned from the PogoChum;
@@ -259,7 +285,8 @@ Carry out evolving:
 	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
 	now the player carries the new-pogoman;
 	move the noun to the Void;
-	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break]".
+	awardXP EVOLUTION_XP_VALUE;
+	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]".
 	
 Section PoweringUpping
 
@@ -393,9 +420,6 @@ Report tapeFailing:
 
 Chapter Medals
 
-Medal_Value is always 10.
-
-
 Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
 
 Before doing something with medals for the first time:
@@ -411,8 +435,8 @@ To Bestow (medallion - some text):
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [Medal_Value] XP![paragraph break]";		
-	awardXP Medal_Value;
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP![paragraph break]";		
+	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is 3:
 		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
 		bestow "Now Your Phone Is Talking To You".
@@ -504,10 +528,7 @@ Chapter Initialize
 
 When play begins:
 	now SUPPRESSMEDALS is false;
-	now TIMESDROWNED is zero;
-	now TIMESRUNOVER is zero;
-	now TIMESTARRED is zero;
-	now TIMESRAILROADED is zero;
+	now POGOLEVEL is INITIAL_POGOLEVEL;
 	now the player carries the phone;
 	now the SAVEURDUJOUR is a random flavor;
 	ShowStatus;
