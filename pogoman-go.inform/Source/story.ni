@@ -138,15 +138,12 @@ THETIME is a number that varies. THETIME is 5.
 PEDOMETER is a number that varies. The PEDOMETER is 0.
 PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
 CURRENTFLOOR is a number that varies.
-The MUTECOUNTER is a number that varies. 
 MEGACATS is a number that varies. MEGACATS is 1000000.
 TIMESDROWNED, TIMESRUNOVER, TIMESTARRED, and TIMESRAILROADED are numbers that vary
 
-[rooms]
-POGOSTOPLIST is a list of rooms that varies.
-
 [lists - because Jack loves lists]
 
+POGOSTOPLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
@@ -507,7 +504,6 @@ Chapter Initialize
 
 When play begins:
 	now SUPPRESSMEDALS is false;
-	now the MUTECOUNTER is zero;
 	now TIMESDROWNED is zero;
 	now TIMESRUNOVER is zero;
 	now TIMESTARRED is zero;
@@ -627,6 +623,8 @@ Definition: a quadroom (called the QR)  is juxtaHighway if the Superhighway is t
 Definition: a quadroom (called the QR) is juxtaTarpit if Tarpit is the room south from the QR.
 
 Definition: a quadroom (called the QR) is juxtaRailway if the Railway is the room east from the QR.
+
+Definition: a direction (called the way) is a bad idea if the room the way from the location is in the Borderlands.
 
 Instead of smelling when the player is in a quadroom (called the place):
 	if the place is juxtaTarpit:
@@ -1095,69 +1093,64 @@ Railway	0
 Volcano	0
 Quicksand	0
 Shark-Infested Reef	0
-Cliff	0
+Cliff	0	
 
 
+Instead of going a bad idea direction (called the way):
+	let R be the room the way from the location;
+	if R is:
+		-- Reservoir:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
+				-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
+					bestow "Hygiene";
+				-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
+					phoneDeath;
+				-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
+		-- Superhighway:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+				say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
+				-- 1:
+					say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
+					bestow "One Jersey Barrier From Certain Death";
+				-- 2:
+					say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
+					phoneDeath;
+				-- otherwise: 
+					say "Since the accident, you have an abiding fear of highways and stay put.";
+		-- Tarpit:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+					say "You can smell the sulfourous tarpits just to the south of town.";
+				-- 1:
+					say "No, you’d rather not go that way: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
+					bestow "Smarter (probably) Than A Prehistoric Sloth";
+				-- 2:
+					say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don’t see it. It should be right here. It’s like you’re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone’s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty’s torch, your only regret is that you will never capture that Archeodraconozoid.";
+					phoneDeath;
+				-- otherwise:
+					say "The burns still smart -- you reconsider walking into the tarpit.";
+		-- Railway:	
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+					say "You can hear the busy railroad tracks just to the east.";
+				-- 1:
+					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
+					bestow "Refined Sense of Priorities";
+				-- 2:
+					say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
+					phoneDeath;
+				-- otherwise:
+					say "You have an aversion to railroad tracks, so you remain where you are.";
+	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
-Instead of going north when the location of the player is a juxtaReservoir quadroom:
-	if the number of times killed corresponding to the place of death of location in the Table of Border Deaths is:
-		-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
-		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
-			bestow "Hygiene";
-		-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
-		phoneDeath;
-		-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
-	increase the number of times killed corresponding to the place of death of location in the Table of Border Deaths by one.
-
-Instead of going west when the location of the player is a juxtaHighway quadroom:
-	if TIMESRUNOVER is:
-		-- 0:
-			say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
-		-- 1:
-			say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
-			bestow "One Jersey Barrier From Certain Death";
-		-- 2:
-			say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
-			phoneDeath;
-		-- otherwise: 
-			say "Since the accident, you have an abiding fear of highways and stay put.";
-	increase TIMESRUNOVER by one.
-	
-Instead of listening when the location is a juxtaHighway quadroom:
-	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
-
-Instead of going south when the location of the player is a juxtaTarpit quadroom:
-	if TIMESTARRED is:
-		-- 0:
-			say "You can smell the sulfourous tarpits just to the south of town.";
-		-- 1:
-			say "No, you’d rather not go that way: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
-			bestow "Smarter (probably) Than A Prehistoric Sloth";
-		-- 2:
-			say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don’t see it. It should be right here. It’s like you’re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone’s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty’s torch, your only regret is that you will never capture that Archeodraconozoid.";
-			phoneDeath;
-		-- otherwise:
-			say "The burns still smart -- you reconsider walking into the tarpit.";
-	increase TIMESTARRED by one.
-			
-
-
-Instead of going east when the location of the player is a juxtaRailway quadroom:
-	if TIMESRAILROADED is:
-		-- 0:
-			say "You can hear the busy railroad tracks just to the east.";
-		-- 1:
-			say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
-			bestow "Refined Sense of Priorities";
-		-- 2:
-			say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
-			phoneDeath;
-		-- otherwise:
-			say "You have an aversion to railroad tracks, so you remain where you are.";
-	increase TIMESRAILROADED by one.
 
 Instead of listening when the location is a juxtaRailway quadroom:
 	say "[one of]Locomotives scream by[or]A steam engine chugs away[or]A commuter train thunders through[or]A freight train rumbles along the tracks[in random order]."
+	
+Instead of listening when the location is a juxtaHighway quadroom:
+	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
 
 Chapter Inside Nyantech
 
@@ -2879,12 +2872,11 @@ To phoneDeath:
 	wait for any key;
 	say paragraph break;
 	clear the screen;
-	say "After beating your head against the ground a few times, you realize... you could just buy a new phone.[paragraph break]A day goes by while you [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy another yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[stopping].[paragraph break]";
+	say "After beating your head against the ground a few times, you realize... you could just buy a new phone.[paragraph break]A day goes by while you [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]";
 	openGame;
 	try looking.
 
 Book 4 - Stuff
-
 
 
 Book 5 - Tables and Boxed Text
