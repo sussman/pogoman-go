@@ -204,7 +204,7 @@ Chapter Activities
 Section ShowStatus
 
 To ShowStatus:
-	now the left hand status line is "PogoLevel: [POGOLEVEL],  Team [TEAMCOLOR]";
+	now the left hand status line is "PogoLevel:[ POGOLEVEL],  Team: [TEAMCOLOR][if the player carries the badge], Badge: [securityColor of the badge]";
 	now the right hand status line is "XP: [XP]".
 	
 
