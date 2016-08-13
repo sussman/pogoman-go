@@ -138,9 +138,9 @@ THETIME is a number that varies. THETIME is 5.
 PEDOMETER is a number that varies. The PEDOMETER is 0.
 PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
 CURRENTFLOOR is a number that varies.
-MEDALCOUNTER is a number that varies.
 The MUTECOUNTER is a number that varies. 
 MEGACATS is a number that varies. MEGACATS is 1000000.
+TIMESDROWNED, TIMESRUNOVER, TIMESTARRED, and TIMESRAILROADED are numbers that vary
 
 [rooms]
 POGOSTOPLIST is a list of rooms that varies.
@@ -416,16 +416,14 @@ To Bestow (medallion - some text):
 	if SUPPRESSMEDALS is false:
 		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [Medal_Value] XP![paragraph break]";		
 	awardXP Medal_Value;
-	increment the MEDALCOUNTER; 
-	if the MEDALCOUNTER is 3:
+	if the number of entries in MEDALLIST is 3:
 		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
 		bestow "Now Your Phone Is Talking To You".
 		
 Muting is an action applying to nothing. Understand "mute" as muting.
 
-
 Check muting:
-	If the MEDALCOUNTER is less than 3:
+	If the number of entries in MEDALLIST is less than 3:
 		say "The phone refuses, [quotation mark]Nah, you have to put up with at least three awards. It builds character.[quotation mark][paragraph break]" instead.
 		
 Carry out muting:
@@ -510,12 +508,11 @@ Chapter Initialize
 
 When play begins:
 	now SUPPRESSMEDALS is false;
-	now the MEDALCOUNTER is zero;
 	now the MUTECOUNTER is zero;
-	now timesDrowned is zero;
-	now timesRunOver is zero;
-	now timesTarred is zero;
-	now timesRailroaded is zero;
+	now TIMESDROWNED is zero;
+	now TIMESRUNOVER is zero;
+	now TIMESTARRED is zero;
+	now TIMESRAILROADED is zero;
 	now the player carries the phone;
 	now the SAVEURDUJOUR is a random flavor;
 	ShowStatus;
@@ -1090,20 +1087,18 @@ Before going a blasphemous direction when the location is in The Village:
 
 Section Town Borders
 
-timesDrowned, timesRunOver, timesTarred, and timesRailroaded are numbers that vary.
-
 Instead of going north when the location of the player is a juxtaReservoir quadroom:
-	if timesDrowned is:
+	if TIMESDROWNED is:
 		-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
 		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
 			bestow "Hygiene";
 		-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
 		phoneDeath;
 		-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
-	increase timesDrowned by one.
+	increase TIMESDROWNED by one.
 
 Instead of going west when the location of the player is a juxtaHighway quadroom:
-	if timesRunOver is:
+	if TIMESRUNOVER is:
 		-- 0:
 			say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
 		-- 1:
@@ -1114,13 +1109,13 @@ Instead of going west when the location of the player is a juxtaHighway quadroom
 			phoneDeath;
 		-- otherwise: 
 			say "Since the accident, you have an abiding fear of highways and stay put.";
-	increase timesRunOver by one.
+	increase TIMESRUNOVER by one.
 	
 Instead of listening when the location is a juxtaHighway quadroom:
 	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
 
 Instead of going south when the location of the player is a juxtaTarpit quadroom:
-	if TimesTarred is:
+	if TIMESTARRED is:
 		-- 0:
 			say "You can smell the sulfourous tarpits just to the south of town.";
 		-- 1:
@@ -1131,12 +1126,12 @@ Instead of going south when the location of the player is a juxtaTarpit quadroom
 			phoneDeath;
 		-- otherwise:
 			say "The burns still smart -- you reconsider walking into the tarpit.";
-	increase timesTarred by one.
+	increase TIMESTARRED by one.
 			
 
 
 Instead of going east when the location of the player is a juxtaRailway quadroom:
-	if timesRailRoaded is:
+	if TIMESRAILROADED is:
 		-- 0:
 			say "You can hear the busy railroad tracks just to the east.";
 		-- 1:
@@ -1147,7 +1142,7 @@ Instead of going east when the location of the player is a juxtaRailway quadroom
 			phoneDeath;
 		-- otherwise:
 			say "You have an aversion to railroad tracks, so you remain where you are.";
-	increase timesRailRoaded by one.
+	increase TIMESRAILROADED by one.
 
 Instead of listening when the location is a juxtaRailway quadroom:
 	say "[one of]Locomotives scream by[or]A steam engine chugs away[or]A commuter train thunders through[or]A freight train rumbles along the tracks[in random order]."
