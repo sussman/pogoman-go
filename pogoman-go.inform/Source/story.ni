@@ -78,7 +78,7 @@ A catTopDrop is a kind of backdrop. catTopDrops are privately-named.
 -3 Throne Room
 ]
 
-Section 3 - Pogo-Things
+Section 2 - Pogo-Things
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -90,7 +90,7 @@ A Pogometh-kind is a kind of thing.  The description is "Youâ€™re not sure whatâ
 
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
-The pogostop is a backdrop. The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
+The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
@@ -522,7 +522,7 @@ Carry out gettingPogoman:
 		now the player carries the noun;
 		say "You forcibly grab [the noun].[paragraph break]";
 	otherwise:
-		say "That's not a pogoman".
+		say "That's not a pogoman.[paragraph break]".
 	
 Chapter Initialize
 
