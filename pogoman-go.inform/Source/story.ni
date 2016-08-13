@@ -327,10 +327,24 @@ Section Help
 
 Helping is an action applying to nothing. Understand "help" as helping.
 
-Report helping:
-	say "That[apostrophe]s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Our beta-tester, dear Aunt Grimspackle, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important.[paragraph break]";
-	bestow "Here, Let me Google that for you".
+Report Helping:
+	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored."
 	
+Instead of helping for the first time:
+	say "That’s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it’s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
+	bestow "Here, let me google that for you".
+	
+Instead of helping for the second time:
+	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is hints, right?[paragraph break]";
+	bestow "Type [apostrophe]hints[apostrophe] for hints".
+	
+Instead of helping for the third time:
+	say "There is no more help to be had here, but here’s a medal for your trouble.[paragraph break]";
+	bestow "Needy".
+	
+Instead of helping for the fourth time:
+	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored. Consider it [quotation mark]tough love.[quotation mark][paragraph break]No medal for you.";
+		
 Section About
 
 Abouting is an action applying to nothing. Understand "about" as abouting.
@@ -418,7 +432,6 @@ Report tapeFailing:
 		say "The only function that seems to work on this Reagan-era relic is [quotation mark]Play[quotation mark].";
 	otherwise:
 		say "That doesn[apostrophe]t seem to be an option."
-
 
 Chapter Medals
 
