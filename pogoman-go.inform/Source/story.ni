@@ -427,17 +427,16 @@ Check muting:
 		say "The phone refuses, [quotation mark]Nah, you have to put up with at least three awards. It builds character.[quotation mark][paragraph break]" instead.
 		
 Carry out muting:
-	increment the MUTECOUNTER;
 	if SUPPRESSMEDALS is false:
 		now SUPPRESSMEDALS is true;
-		if the MUTECOUNTER is 1:
+		if SUPPRESSMEDALS is true for the first time:
 			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on. You gain 10 XP!";
 			awardXP 10;
 		otherwise:
 			say "Medals muted!";
 	otherwise:
 		now SUPPRESSMEDALS is false;
-		if the MUTECOUNTER is 2:
+		if the SUPPRESSMEDALS has been true twice:
 			bestow "Couldn't Bear To Live Without Medals”;
 		otherwise:
 			say "Medal notifications are back, and better than ever!".
