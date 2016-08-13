@@ -1084,17 +1084,30 @@ Before going a blasphemous direction when the location is in The Village:
 		bestow "No-cutting-corners";
 		stop the action.
 
-Section Town Borders
+Section Borders
+
+Table of Border Deaths
+Place of Death	Number of Times Killed
+Reservoir	0
+Superhighway	0
+Tarpit	0
+Railway	0
+Volcano	0
+Quicksand	0
+Shark-Infested Reef	0
+Cliff	0
+
+
 
 Instead of going north when the location of the player is a juxtaReservoir quadroom:
-	if TIMESDROWNED is:
+	if the number of times killed corresponding to the place of death of location in the Table of Border Deaths is:
 		-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
 		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
 			bestow "Hygiene";
 		-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
 		phoneDeath;
 		-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
-	increase TIMESDROWNED by one.
+	increase the number of times killed corresponding to the place of death of location in the Table of Border Deaths by one.
 
 Instead of going west when the location of the player is a juxtaHighway quadroom:
 	if TIMESRUNOVER is:
@@ -2637,6 +2650,14 @@ A pogoroom can be juxtaShark.
 A pogoroom can be juxtaCliff.
 
 Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Walmart, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
+
+The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A fiery mountain that constantly belches molten lava."
+
+The Quicksand is a room. The Quicksand is west from Palace. The Quicksand is west from Desert.  The Quicksand is west from Canyon.  The Quicksand is west from Pogoland Terminal.  The Quicksand is west from Cemetery. The description of quicksand is "A desolate expanse of shifting sands and furtive shadows."
+
+The Shark-Infested Reef is a room. The Shark-Infested Reef is east from Beach. The Shark-Infested Reef is east from Lighthouse. The Shark-Infested Reef is east from Wharf. The Shark-Infested Reef is east from Aquarium. The Shark-Infested Reef is east from Motel. The description of the Shark-Infested Reef is "Beautiful blue-green waters chocked full of voracious sharks."
+
+The Cliff is a room. The Cliff is south from Cemetery. The Cliff is south from Service Station. The Cliff is south from Dojo. The Cliff is south from Botanical Garden. The Cliff is south from Motel. The description of Cliff is "Crumbly chalk cliffs overlooking a ridge of sharp rocks, far below."
 
 Mountain, Palace, Monastery, School House, and Lighthouse are juxtaLava.
 Palace, Desert, Canyon, Pogoland Terminal, and Cemetery are juxtaSand.
