@@ -57,6 +57,28 @@ LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure,
 
 A catTopDrop is a kind of backdrop. catTopDrops are privately-named.
 
+A lift is a kind of room. A lift has a number called currentFloor.
+
+A Katatron is a kind of thing. A katatron has a number called PEC.  The PEC of a katatron is usually 0.
+A katatron has a number called MegaCats. The MegaCats of a katatron is usually 0.
+A katatron has a truth state called the onHoldFlag. The onHoldFlag of a katatron is usually true.
+
+A victrola is a kind of supporter. 
+A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
+A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
+
+[Note- there is probably only one katatron in existence - the one in Nyantech Tower]
+
+Section 2 - Player properties
+
+The player has a number called pogoLevel.
+
+The player has a number called XP.
+
+The player has a number called distance walked. Distance walked is 0.
+
+The player has a color called team color. The team color of the player is usually none.
+
 [  
    Places - Outside areas like parks
    Structures - Buildings, places with an interior that would have to be entered
@@ -78,7 +100,7 @@ A catTopDrop is a kind of backdrop. catTopDrops are privately-named.
 -3 Throne Room
 ]
 
-Section 2 - Pogo-Things
+Section 3 - Pogo-Things
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -121,6 +143,7 @@ Instead of taking a pogoman:
 Chapter Declare Constants
 
 INITIAL_POGOLEVEL is always 3.
+INITIAL_XP is always 320.
 
 MIN_TOWN_POGOSTOPS is always 10.
 MAX_TOWN_POGOSTOPS is always 15.
@@ -140,6 +163,8 @@ SPECIAL_ATTACK_XP_COST is always 100.
 POGOMEN_INVENTORY_LIMIT is always 100.
 POGOITEM_INVENTORY_LIMIT is always 100.
 
+The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
+
 [additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
 
 
@@ -148,33 +173,12 @@ Chapter Declare Global Variables
 [booleans]
 
 SUPPRESSMEDALS is a truth state that varies.
-PHONOBROKEN is a truth state that varies. PHONOBROKEN is false.
-PHONOON is a truth state that varies. PHONOON is true.
-CATONHOLD is a truth state that varies. CATONHOLD is false.
-
-[numbers]
-
-POGOLEVEL is a number that varies. 
-XP is a number that varies.  XP is 320.  
-PEDOMETER is a number that varies. The PEDOMETER is 0.
-PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
-CURRENTFLOOR is a number that varies.
-MEGACATS is a number that varies. MEGACATS is 1000000.
 
 [lists - because Jack loves lists]
 
 POGOSTOPLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
-
-[custom kinds]
-
-TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
-The SAVEURDUJOUR is a flavor that varies. 
-
-
-
-
 
 Chapter Rules Modifications
 
@@ -212,9 +216,8 @@ This is the run from sound rule:
 		move the player to the Lobby.
 		
 After going from somewhere:
-	increase the PEDOMETER by one;		
-	if the PEDOMETER is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
-		bestow "Traveler: [PEDOMETER] turns spent moving";
+	if the distance walked of the player is listed in PEDOMETER_AWARD_DISTANCES:
+		bestow "Traveler: [distance walked of the player] turns spent moving";
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
@@ -228,8 +231,8 @@ Chapter Activities
 Section ShowStatus
 
 To ShowStatus:
-	now the left hand status line is "PogoLevel: [POGOLEVEL],  Team [TEAMCOLOR]";
-	now the right hand status line is "XP: [XP]".
+	now the left hand status line is "PogoLevel: [pogoLevel of the player],  Team [team color of the player]";
+	now the right hand status line is "XP: [XP of the player]".
 	
 
 Section AwardXP
@@ -237,7 +240,7 @@ Section AwardXP
 [moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
 
 To AwardXP (award - a number):
-	now XP is XP + award.
+	increase the XP of the player by award.
 
 Chapter Verbs
 
@@ -264,7 +267,7 @@ Section Amusing
 Amusing is an action applying to nothing. Understand "amusing" as amusing.
 
 Carry out amusing:
-	say "You reached level [POGOLEVEL] and obtained [the number of entries in MEDALLIST] medals:[paragraph break]";
+	say "You reached level [pogoLevel of the player] and obtained [the number of entries in MEDALLIST] medals:[paragraph break]";
 	repeat with L running through the MEDALLIST:
 		say "     * [L][line break]".
 	
@@ -352,10 +355,10 @@ Section Levelling
 
 CheckLevel is an action out of world.
 To CheckLevel:
-	let goalXP be 100 * (POGOLEVEL + 1);
-	if XP > goalXP:
-		now POGOLEVEL is (XP / 100);  [TODO make this an exponential table]
-		say "You glow with power as your PogoLevel rises to [POGOLEVEL].[paragraph break]".
+	let goalXP be 100 * (pogoLevel of the player + 1);
+	if XP of the player > goalXP:
+		now pogoLevel of the player is (XP of the player / 100);  [TODO make this an exponential table]
+		say "You glow with power as your PogoLevel rises to [pogoLevel of the player].[paragraph break]".
 
 Section Rebooting
 
@@ -527,9 +530,10 @@ Chapter Initialize
 
 When play begins:
 	now SUPPRESSMEDALS is false;
-	now POGOLEVEL is INITIAL_POGOLEVEL;
+	now pogoLevel of the player is INITIAL_POGOLEVEL;
+	now the XP of the player is INITIAL_XP;
 	now the player carries the phone;
-	now the SAVEURDUJOUR is a random flavor;
+	now the flavor of the pop-tart is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
 	move the player to a random okayStartLocation, without printing a room description;
@@ -565,20 +569,18 @@ Every turn:
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 	
-
-
 Every turn when Exploring the Tower is happening:
-	if PEC is greater than 0:
-		if CATONHOLD is false:
-			increase PEC by a random number between 120 and 130;
+	if PEC of the CAT Control is greater than 0:
+		if onHoldFlag of the CAT Control is false:
+			increase PEC of the CAT Control by a random number between 120 and 130;
 		otherwise:
-			increase PEC by a random number between 18 and 23;
-	if CATONHOLD is false:
+			increase PEC of the CAT Control by a random number between 18 and 23;
+	if onHoldFlag of the CAT Control is false:
 		rotate HEADING backwards;
-	if PEC is greater than MEGACATS:
+	if PEC of the CAT Control is greater than megaCats of the CAT Control:
 		if the numerical counter is handled:
-			bestow "You sick puppy: [MEGACATS] Cat Rotations!";
-		increase MEGACATS by 4000000.
+			bestow "You sick puppy: [megaCats of the CAT Control] Cat Rotations!";
+		increase megaCats of the CAT Control by 4000000.
 		
 
 Book 2 - Places
@@ -1242,7 +1244,7 @@ Instead of talking to something (called the auditor):
 			say "TODO: dialogue for unicorn and others".
 			
 To say employeeRant:
-	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of]Hello, $identity[bracket]player[bracket][TEAMCOLOR][close bracket][bracket][POGOLEVEL][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)[or]Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social discourse[or]TODO: Expand[stopping].[quotation mark][paragraph break]".
+	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of]Hello, $identity[bracket]player[bracket][team color of the player][close bracket][bracket][pogoLevel of the player][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)[or]Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social discourse[or]TODO: Expand[stopping].[quotation mark][paragraph break]".
 		
 	
 To say visitorRebuff:
@@ -1256,34 +1258,34 @@ The table is a scenery supporter in Snacks. The description of the table is "A r
 
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
 
-A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [SAVEURDUJOUR]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
 
-Understand "strawberry" as the pop-tart when the SAVEURDUJOUR is strawberry.
-Understand "blueberry" as the pop-tart when the SAVEURDUJOUR is blueberry.
-Understand "raspberry" as the pop-tart when the SAVEURDUJOUR is raspberry.
-Understand "apple" as the pop-tart when the SAVEURDUJOUR is apple.
-Understand "cranberry" as the pop-tart when the SAVEURDUJOUR is cranberry.
-Understand "chocolate" as the pop-tart when the SAVEURDUJOUR is chocolate.
-Understand "licorice" as the pop-tart when the SAVEURDUJOUR is licorice.
-Understand "pumpkin" as the pop-tart when the SAVEURDUJOUR is pumpkin.
-Understand "pine-nut" as the pop-tart when the SAVEURDUJOUR is pine-nut.
-Understand "pesto" as the pop-tart when the SAVEURDUJOUR is pesto.
-Understand "liver" as the pop-tart when the SAVEURDUJOUR is liver.
-Understand "watermelon" as the pop-tart when the SAVEURDUJOUR is watermelon.
-Understand "apricot" as the pop-tart when the SAVEURDUJOUR is apricot.
-Understand "teriyaki" as the pop-tart when the SAVEURDUJOUR is teriyaki.
-Understand "chutney" as the pop-tart when the SAVEURDUJOUR is chutney.
-Understand "fudge" as the pop-tart when the SAVEURDUJOUR is fudge.
-Understand "tiramisu" as the pop-tart when the SAVEURDUJOUR is tiramisu.
-Understand "cinnamon" as the pop-tart when the SAVEURDUJOUR is cinnamon.
+Understand "strawberry" as the pop-tart when the flavor of the pop-tart is strawberry.
+Understand "blueberry" as the pop-tart when the flavor of the pop-tart is blueberry.
+Understand "raspberry" as the pop-tart when the flavor of the pop-tart is raspberry.
+Understand "apple" as the pop-tart when the flavor of the pop-tart is apple.
+Understand "cranberry" as the pop-tart when the flavor of the pop-tart is cranberry.
+Understand "chocolate" as the pop-tart when the flavor of the pop-tart is chocolate.
+Understand "licorice" as the pop-tart when the flavor of the pop-tart is licorice.
+Understand "pumpkin" as the pop-tart when the flavor of the pop-tart is pumpkin.
+Understand "pine-nut" as the pop-tart when the flavor of the pop-tart is pine-nut.
+Understand "pesto" as the pop-tart when the flavor of the pop-tart is pesto.
+Understand "liver" as the pop-tart when the flavor of the pop-tart is liver.
+Understand "watermelon" as the pop-tart when the flavor of the pop-tart is watermelon.
+Understand "apricot" as the pop-tart when the flavor of the pop-tart is apricot.
+Understand "teriyaki" as the pop-tart when the flavor of the pop-tart is teriyaki.
+Understand "chutney" as the pop-tart when the flavor of the pop-tart is chutney.
+Understand "fudge" as the pop-tart when the flavor of the pop-tart is fudge.
+Understand "tiramisu" as the pop-tart when the flavor of the pop-tart is tiramisu.
+Understand "cinnamon" as the pop-tart when the flavor of the pop-tart is cinnamon.
 		
 Instead of pushing the pop-tart, say "Futile. You push, it pops back immediately."
 
 To newPopTart:
-	now the SAVEURDUJOUR is a random flavor;
+	now the flavor of the pop-tart is a random flavor;
 	move the pop-tart to the table;
 	if the player is in Snacks:
-		say "A piping hot, fresh [SAVEURDUJOUR]-flavored pop-tart drops from the chute onto the table."
+		say "A piping hot, fresh [flavor of the pop-tart]-flavored pop-tart drops from the chute onto the table."
 
 After eating a pop-tart for the first time:
 	say "You feel young and full of energy![paragraph break]";
@@ -1565,38 +1567,36 @@ The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. 
 
 The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
-
-
-Definition: The speaker is active if PHONOBROKEN is false and PHONOON is true and the record is on the phonograph.
+Definition: The speaker is active if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true and the record is on the phonograph.
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if PHONOBROKEN is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if PHONOBROKEN is false and PHONOON is false]. The phono is switched off[end if][if PHONOBROKEN is false and PHONOON is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
+The phonograph is a victrola in the LAN Closet. The description of the phonograph is "The [if isBrokenFlag of the phonograph is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is false]. The phono is switched off[end if][if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
 
 Instead of switching on the phonograph:
-	if PHONOBROKEN is true:
+	if isBrokenFlag of the phonograph is true:
 		say "You try turning it on, but it doesn't work any more.";
 	otherwise:
-		if PHONOON is true:
+		if isOnFlag of the phonograph is true:
 			say "The phonograph is already on.";
 		otherwise:
 			say "You turn on the phonograph.";
 			if the speaker is not active:
-				now PHONOON is true;
+				now isOnFlag of the phonograph is true;
 				follow the run from sound rule.
 				
 Instead of switching off the phonograph:
-	if the PHONOBROKEN is true:
+	if the isBrokenFlag of the phonograph is true:
 		say "On, off, it doesn[apostrophe]t really matter -- the phonograph is totaled.";
 	otherwise:
-		if PHONOON is false:
+		if isOnFlag of the phonograph is false:
 			say "The phonograph is already off.";
 		otherwise:
 			if speaker is active:
 				say "[one of]You experience a great sense of relief; even if the sound was not affecting your conscious mind, it was eating away at your soul[or]You turn off the phonograph and feel much better[stopping].";
 			otherwise:
 				say "You turn off the phonograph.";
-			now PHONOON is false.
+			now isOnFlag of the phonograph is false.
 				
 Instead of dropping or taking off the walkman when the player is in the LAN Closet:
 	if the speaker is active:
@@ -1605,7 +1605,7 @@ Instead of dropping or taking off the walkman when the player is in the LAN Clos
 		now the LAN Closet Door is closed;
 		move the player to the Lobby;
 	otherwise:
-		if the current action is dropping and PHONOBROKEN is false:
+		if the current action is dropping and isBrokenFlag of the phonograph is false:
 			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the walkman, but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
 			now the player carries the walkman;
 		otherwise:
@@ -1626,11 +1626,11 @@ Instead of attacking the record:
 	
 Instead of attacking the phonograph:
 	say "You [one of]clobber[or]beat[or]take your aggressions out on[or]pummel[or]thrash[or]wallop[or]belt[or]slam[or]whack[in random order] the phonograph. ";
-	if PHONOBROKEN is true:
+	if isBrokenFlag of the phonograph is true:
 		say "It was already damaged beyond repair, but it makes you feel better.";
 	otherwise:
 		say  "Plastic and metal parts go flying, a spring rolls under the equipment rack, and sparks spray across the floor of the LAN closet. You got it but good. What[apostrophe]s left of the phonograph will surely never spin another record.";
-		now PHONOBROKEN is true.
+		now isBrokenFlag of the phonograph is true.
 		
 Instead of taking the record:
 	if the speaker is active:
@@ -1643,7 +1643,7 @@ Instead of putting something (called the item) on the phonograph:
 	if the item is not the record:
 		say "You realize that putting [the item] on the phonograph wouldn[apostrophe]t make a lot of sense.";
 	otherwise:
-		if PHONOBROKEN is false and PHONOON is true:
+		if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true:
 			now the record is on the phonograph;
 			follow the run from sound rule;
 		otherwise:
@@ -1680,36 +1680,36 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
+The CAT Control is  a scenery katatron in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
 
 
 
-The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC]." Understand "display" as the numerical counter.
+The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" as the numerical counter.
 
 After examining the numerical counter:
 	now the numerical counter is handled.
 	[handled just reflects that it has been examined - a prequisite for the megaCat medal]
 
 Instead of examining the numerical counter for the first time:
-	now the PEC is 69105;
-	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC]."
+	now the PEC of the CAT Control is 69105;
+	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC of the CAT Control]."
 	
-The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if CATONHOLD is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
 
 Instead of pulling the plunger:
-	if CATONHOLD is true:
+	if onHoldFlag of the CAT Control is true:
 		say "The plunger was already pulled out.";
 	otherwise:
-		now CATONHOLD is true;
+		now onHoldFlag of the CAT Control is true;
 		repeat with N running from 1 to 3:
 			rotate HEADING backwards;
 		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in HEADING] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
 	
 Instead of pushing the plunger:
-	if CATONHOLD is false:
+	if onHoldFlag of the CAT Control is false:
 		say "The plunger was already pushed all the way in.";
 	otherwise:
-		now CATONHOLD is false;
+		now onHoldFlag of the CAT Control is false;
 		say "The LEDs again start lighting in order, clockwise, slowly at first, but then resuming their previous pace. The PEC counter starts clicking over more rapidly as well."
 		
 
@@ -2214,7 +2214,7 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "[if CATONHOLD is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
+	say "[if onHoldFlag of the CAT Control is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
 	
 To say deckExits:	
 	say "The deck continues around to the ";
@@ -2302,7 +2302,7 @@ Instead of jumping when the player is in the Deck Area:
 		if the chain is clipped:
 			say "Fortunately, the chain prevents you from taking any such foolish action.";
 		otherwise:
-			if CATONHOLD is false:
+			if onHoldFlag of the CAT Control is false:
 				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
 				now the chain is clipped;
 			otherwise:
@@ -2360,7 +2360,7 @@ Section 7 - Cat OverheadProxies
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
 To decide whether the cat is visible from overhead:
-	if CATONHOLD is false, yes;
+	if onHoldFlag of the CAT Control is false, yes;
 	if the player is in DeckS and entry 1 in HEADING is listed in {"SE", "S", "SW"}, yes;
 	if the player is in DeckN and entry 1 in HEADING is listed in {"NW", "N", "NE"}, yes;
 	if the player is in DeckW and entry 1 in HEADING is listed in {"SW", "W", "NW"}, yes;
@@ -2642,7 +2642,7 @@ The description of the Throne Room is "A marble room with black and white parque
 
 Chapter in the Elevator
 
-The Elevator is a room.
+The Elevator is a lift. The currentFloor of the Elevator is 0.
 
 Chapter in the Infirmary
 
@@ -2768,7 +2768,7 @@ The Void contains a Pogometh-kind called PogoMeth.
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [TEAMCOLOR] number [POGOLEVEL]."
+The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]."
 
 Instead of examining the badge for the first time, say "You are pretty sure that Annastasia, the receptionist, had that card in her hand as soon as you walked in and you don[apostrophe]t recall having seen any cameras, so you wonder how the badge was produced -- and so quickly. Ah well, best not to question the technological wizardry that is Nyantech."
 
