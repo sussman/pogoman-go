@@ -27,7 +27,7 @@ Rooms have some text called title.
 
 A prop is a kind of thing. It is usually portable.
 
- Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
+Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
 securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
 
@@ -41,11 +41,7 @@ Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, app
 
 A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry is usually blueberry. [because I like blueberry pastries.]
 
-The saveur du jour is a flavor that varies. 
-
 A pop is a kind of thing. It is usually scenery.
-
-Current floor is a number that varies.
 
 A room has a text called possible exits.
 
@@ -96,18 +92,16 @@ A Pogometh-kind is a kind of thing.  The description is "You’re not sure what�
 
 The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
 
-MIN_TOWNPOGOSTOPS is always 10.
-MAX_TOWNPOGOSTOPS is always 15.
+Min_Town_Pogostops is always 10.
+Max_Town_Pogostops is always 15.
 
-Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in PogoStopList and it is not in the Borderlands.
+Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
-Definition: a room is pogoStopTargeted if it is listed in PogoStopList.
-
-PogoStopList is a list of rooms that varies.
+Definition: a room is pogoStopTargeted if it is listed in POGOSTOPLIST.
 
 To distributeTownPogostops:
-	repeat with N running from 1 to a random number between MIN_TOWNPOGOSTOPS  and MAX_TOWNPOGOSTOPS:
-		add a random okayInitialPogostopLocation to PogoStopList;
+	repeat with N running from 1 to a random number between Min_Town_Pogostops  and Max_Town_Pogostops:
+		add a random okayInitialPogostopLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
 Instead of taking the pogostop for the first time:
@@ -129,21 +123,34 @@ Instead of taking a pogoman:
 
 Chapter Declare Global Variables
 
-POGOLEVEL is a number that varies.  POGOLEVEL is 3.  [TODO is this a good starting value?]
+[booleans]
 
-XP is a number that varies.  XP is 320.  [TODO is this a good starting value?]
+SUPPRESSMEDALS is a truth state that varies.
+PHONOBROKEN is a truth state that varies. PHONOBROKEN is false.
+PHONOON is a truth state that varies. PHONOON is true.
+CATONHOLD is a truth state that varies. CATONHOLD is false.
+
+[numbers]
+
+POGOLEVEL is a number that varies.  POGOLEVEL is 3. 
+XP is a number that varies.  XP is 320.  
+THETIME is a number that varies. THETIME is 5.
+PEDOMETER is a number that varies. The PEDOMETER is 0.
+PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
+CURRENTFLOOR is a number that varies.
+MEGACATS is a number that varies. MEGACATS is 1000000.
+TIMESDROWNED, TIMESRUNOVER, TIMESTARRED, and TIMESRAILROADED are numbers that vary
+
+[lists - because Jack loves lists]
+
+POGOSTOPLIST is a list of rooms that varies.
+MEDALLIST is a list of text that varies.
+HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
+
+[custom kinds]
 
 TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
-
-theTime is a number that varies. theTime is 5.
-
-medalList is a list of text that varies.
-
-pedometer is a number that varies. The pedometer is 0.
-
-Heading is a list of text that varies. Heading is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
-
-PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
+The SAVEURDUJOUR is a flavor that varies. 
 
 Chapter Rules Modifications
 
@@ -181,9 +188,9 @@ This is the run from sound rule:
 		move the player to the Lobby.
 		
 After going from somewhere:
-	increase the pedometer by one;		
-	if the pedometer is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
-		bestow "Traveler: [pedometer] turns spent moving";
+	increase the PEDOMETER by one;		
+	if the PEDOMETER is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
+		bestow "Traveler: [PEDOMETER] turns spent moving";
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
@@ -232,8 +239,8 @@ Section Amusing
 Amusing is an action applying to nothing. Understand "amusing" as amusing.
 
 Carry out amusing:
-	say "You reached level [POGOLEVEL] and obtained [the number of entries in medalList] medals:[paragraph break]";
-	repeat with L running through the medalList:
+	say "You reached level [POGOLEVEL] and obtained [the number of entries in MEDALLIST] medals:[paragraph break]";
+	repeat with L running through the MEDALLIST:
 		say "     * [L][line break]".
 	
 Section Evolving
@@ -386,9 +393,8 @@ Report tapeFailing:
 
 Chapter Medals
 
-MEDALVALUE is always 10.
-suppressMedals is a truth state that varies.
-medalCounter is a number that varies.
+Medal_Value is always 10.
+
 
 Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
 
@@ -403,34 +409,31 @@ Instead of doing something with the medals:
 To Bestow (medallion - some text):
 	let L be text;
 	now L is medallion;
-	add L to medalList;
-	if suppressMedals is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";		
-	awardXP MEDALVALUE;
-	increment the medalCounter; 
-	if the medalCounter is 3:
+	add L to MEDALLIST;
+	if SUPPRESSMEDALS is false:
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [Medal_Value] XP![paragraph break]";		
+	awardXP Medal_Value;
+	if the number of entries in MEDALLIST is 3:
 		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
 		bestow "Now Your Phone Is Talking To You".
 		
 Muting is an action applying to nothing. Understand "mute" as muting.
-The muteCounter is a number that varies. 
 
 Check muting:
-	If the medalCounter is less than 3:
+	If the number of entries in MEDALLIST is less than 3:
 		say "The phone refuses, [quotation mark]Nah, you have to put up with at least three awards. It builds character.[quotation mark][paragraph break]" instead.
 		
 Carry out muting:
-	increment the muteCounter;
-	if suppressMedals is false:
-		now suppressMedals is true;
-		if the muteCounter is 1:
+	if SUPPRESSMEDALS is false:
+		now SUPPRESSMEDALS is true;
+		if SUPPRESSMEDALS is true for the first time:
 			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on. You gain 10 XP!";
 			awardXP 10;
 		otherwise:
 			say "Medals muted!";
 	otherwise:
-		now suppressMedals is false;
-		if the muteCounter is 2:
+		now SUPPRESSMEDALS is false;
+		if the SUPPRESSMEDALS has been true twice:
 			bestow "Couldn't Bear To Live Without Medals”;
 		otherwise:
 			say "Medal notifications are back, and better than ever!".
@@ -500,15 +503,13 @@ Carry out gettingPogoman:
 Chapter Initialize
 
 When play begins:
-	now suppressMedals is false;
-	now the medalCounter is zero;
-	now the muteCounter is zero;
-	now timesDrowned is zero;
-	now timesRunOver is zero;
-	now timesTarred is zero;
-	now timesRailroaded is zero;
+	now SUPPRESSMEDALS is false;
+	now TIMESDROWNED is zero;
+	now TIMESRUNOVER is zero;
+	now TIMESTARRED is zero;
+	now TIMESRAILROADED is zero;
 	now the player carries the phone;
-	now the saveur du jour is a random flavor;
+	now the SAVEURDUJOUR is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
 	move the player to a random okayStartLocation, without printing a room description;
@@ -516,15 +517,15 @@ When play begins:
 	
 To openGame:
 	say "You wake up, and it[apostrophe]s ";
-	now theTime is a random number from 1 to 24;
-	if theTime is less than 12:
-		 say "[theTime in words] in the morning";
-	otherwise if theTime is 24:
+	now THETIME is a random number from 1 to 24;
+	if THETIME is less than 12:
+		 say "[THETIME in words] in the morning";
+	otherwise if THETIME is 24:
 		say "midnight";
-	otherwise if theTime is greater than 16:
-		say "[theTime minus 12 in words] in the evening";
-	otherwise if theTime is greater than 12:
-		say "[theTime minus 12 in words] in the afternoon";
+	otherwise if THETIME is greater than 16:
+		say "[THETIME minus 12 in words] in the evening";
+	otherwise if THETIME is greater than 12:
+		say "[THETIME minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
 	say ". You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it![paragraph break]".
@@ -544,20 +545,20 @@ Every turn:
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 	
-megaCats is a number that varies. megaCats is 1000000.
+
 
 Every turn when Exploring the Tower is happening:
 	if PEC is greater than 0:
-		if catOnHold is false:
+		if CATONHOLD is false:
 			increase PEC by a random number between 120 and 130;
 		otherwise:
 			increase PEC by a random number between 18 and 23;
-	if catOnHold is false:
-		rotate heading backwards;
-	if PEC is greater than megaCats:
+	if CATONHOLD is false:
+		rotate HEADING backwards;
+	if PEC is greater than MEGACATS:
 		if the numerical counter is handled:
-			bestow "You sick puppy: [megaCats] Cat Rotations!";
-		increase megaCats by 4000000.
+			bestow "You sick puppy: [MEGACATS] Cat Rotations!";
+		increase MEGACATS by 4000000.
 		
 
 Book 2 - Places
@@ -622,6 +623,8 @@ Definition: a quadroom (called the QR)  is juxtaHighway if the Superhighway is t
 Definition: a quadroom (called the QR) is juxtaTarpit if Tarpit is the room south from the QR.
 
 Definition: a quadroom (called the QR) is juxtaRailway if the Railway is the room east from the QR.
+
+Definition: a direction (called the way) is a bad idea if the room the way from the location is in the Borderlands.
 
 Instead of smelling when the player is in a quadroom (called the place):
 	if the place is juxtaTarpit:
@@ -761,7 +764,7 @@ Instead of entering Nyantech Entrance:
 
 [Ashwell-Lott Estate]
 
-The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Aswell-Lott Estate".
+The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
 
 [Garden Gnome]
 
@@ -1079,69 +1082,75 @@ Before going a blasphemous direction when the location is in The Village:
 		bestow "No-cutting-corners";
 		stop the action.
 
-Section Town Borders
+Section Borders
 
-timesDrowned, timesRunOver, timesTarred, and timesRailroaded are numbers that vary.
-
-Instead of going north when the location of the player is a juxtaReservoir quadroom:
-	if timesDrowned is:
-		-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
-		-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
-			bestow "Hygiene";
-		-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
-		phoneDeath;
-		-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
-	increase timesDrowned by one.
-
-Instead of going west when the location of the player is a juxtaHighway quadroom:
-	if timesRunOver is:
-		-- 0:
-			say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
-		-- 1:
-			say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
-			bestow "One Jersey Barrier From Certain Death";
-		-- 2:
-			say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
-			phoneDeath;
-		-- otherwise: 
-			say "Since the accident, you have an abiding fear of highways and stay put.";
-	increase timesRunOver by one.
-	
-Instead of listening when the location is a juxtaHighway quadroom:
-	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
-
-Instead of going south when the location of the player is a juxtaTarpit quadroom:
-	if TimesTarred is:
-		-- 0:
-			say "You can smell the sulfourous tarpits just to the south of town.";
-		-- 1:
-			say "No, you’d rather not go that way: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
-			bestow "Smarter (probably) Than A Prehistoric Sloth";
-		-- 2:
-			say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don’t see it. It should be right here. It’s like you’re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone’s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty’s torch, your only regret is that you will never capture that Archeodraconozoid.";
-			phoneDeath;
-		-- otherwise:
-			say "The burns still smart -- you reconsider walking into the tarpit.";
-	increase timesTarred by one.
-			
+Table of Border Deaths
+Place of Death	Number of Times Killed
+Reservoir	0
+Superhighway	0
+Tarpit	0
+Railway	0
+Volcano	0
+Quicksand	0
+Shark-Infested Reef	0
+Cliff	0	
 
 
-Instead of going east when the location of the player is a juxtaRailway quadroom:
-	if timesRailRoaded is:
-		-- 0:
-			say "You can hear the busy railroad tracks just to the east.";
-		-- 1:
-			say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
-			bestow "Refined Sense of Priorities";
-		-- 2:
-			say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
-			phoneDeath;
-		-- otherwise:
-			say "You have an aversion to railroad tracks, so you remain where you are.";
-	increase timesRailRoaded by one.
+Instead of going a bad idea direction (called the way):
+	let R be the room the way from the location;
+	if R is:
+		-- Reservoir:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
+				-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
+					bestow "Hygiene";
+				-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
+					phoneDeath;
+				-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
+		-- Superhighway:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+				say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
+				-- 1:
+					say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
+					bestow "One Jersey Barrier From Certain Death";
+				-- 2:
+					say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
+					phoneDeath;
+				-- otherwise: 
+					say "Since the accident, you have an abiding fear of highways and stay put.";
+		-- Tarpit:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+					say "You can smell the sulfourous tarpits just to the south of town.";
+				-- 1:
+					say "No, you’d rather not go that way: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
+					bestow "Smarter (probably) Than A Prehistoric Sloth";
+				-- 2:
+					say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don’t see it. It should be right here. It’s like you’re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone’s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty’s torch, your only regret is that you will never capture that Archeodraconozoid.";
+					phoneDeath;
+				-- otherwise:
+					say "The burns still smart -- you reconsider walking into the tarpit.";
+		-- Railway:	
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+					say "You can hear the busy railroad tracks just to the east.";
+				-- 1:
+					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
+					bestow "Refined Sense of Priorities";
+				-- 2:
+					say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
+					phoneDeath;
+				-- otherwise:
+					say "You have an aversion to railroad tracks, so you remain where you are.";
+	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
+
 
 Instead of listening when the location is a juxtaRailway quadroom:
 	say "[one of]Locomotives scream by[or]A steam engine chugs away[or]A commuter train thunders through[or]A freight train rumbles along the tracks[in random order]."
+	
+Instead of listening when the location is a juxtaHighway quadroom:
+	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
 
 Chapter Inside Nyantech
 
@@ -1227,34 +1236,34 @@ The table is a scenery supporter in Snacks. The description of the table is "A r
 
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
 
-A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [saveur du jour]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [SAVEURDUJOUR]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
 
-Understand "strawberry" as the pop-tart when the saveur du jour is strawberry.
-Understand "blueberry" as the pop-tart when the saveur du jour is blueberry.
-Understand "raspberry" as the pop-tart when the saveur du jour is raspberry.
-Understand "apple" as the pop-tart when the saveur du jour is apple.
-Understand "cranberry" as the pop-tart when the saveur du jour is cranberry.
-Understand "chocolate" as the pop-tart when the saveur du jour is chocolate.
-Understand "licorice" as the pop-tart when the saveur du jour is licorice.
-Understand "pumpkin" as the pop-tart when the saveur du jour is pumpkin.
-Understand "pine-nut" as the pop-tart when the saveur du jour is pine-nut.
-Understand "pesto" as the pop-tart when the saveur du jour is pesto.
-Understand "liver" as the pop-tart when the saveur du jour is liver.
-Understand "watermelon" as the pop-tart when the saveur du jour is watermelon.
-Understand "apricot" as the pop-tart when the saveur du jour is apricot.
-Understand "teriyaki" as the pop-tart when the saveur du jour is teriyaki.
-Understand "chutney" as the pop-tart when the saveur du jour is chutney.
-Understand "fudge" as the pop-tart when the saveur du jour is fudge.
-Understand "tiramisu" as the pop-tart when the saveur du jour is tiramisu.
-Understand "cinnamon" as the pop-tart when the saveur du jour is cinnamon.
+Understand "strawberry" as the pop-tart when the SAVEURDUJOUR is strawberry.
+Understand "blueberry" as the pop-tart when the SAVEURDUJOUR is blueberry.
+Understand "raspberry" as the pop-tart when the SAVEURDUJOUR is raspberry.
+Understand "apple" as the pop-tart when the SAVEURDUJOUR is apple.
+Understand "cranberry" as the pop-tart when the SAVEURDUJOUR is cranberry.
+Understand "chocolate" as the pop-tart when the SAVEURDUJOUR is chocolate.
+Understand "licorice" as the pop-tart when the SAVEURDUJOUR is licorice.
+Understand "pumpkin" as the pop-tart when the SAVEURDUJOUR is pumpkin.
+Understand "pine-nut" as the pop-tart when the SAVEURDUJOUR is pine-nut.
+Understand "pesto" as the pop-tart when the SAVEURDUJOUR is pesto.
+Understand "liver" as the pop-tart when the SAVEURDUJOUR is liver.
+Understand "watermelon" as the pop-tart when the SAVEURDUJOUR is watermelon.
+Understand "apricot" as the pop-tart when the SAVEURDUJOUR is apricot.
+Understand "teriyaki" as the pop-tart when the SAVEURDUJOUR is teriyaki.
+Understand "chutney" as the pop-tart when the SAVEURDUJOUR is chutney.
+Understand "fudge" as the pop-tart when the SAVEURDUJOUR is fudge.
+Understand "tiramisu" as the pop-tart when the SAVEURDUJOUR is tiramisu.
+Understand "cinnamon" as the pop-tart when the SAVEURDUJOUR is cinnamon.
 		
 Instead of pushing the pop-tart, say "Futile. You push, it pops back immediately."
 
 To newPopTart:
-	now the saveur du jour is a random flavor;
+	now the SAVEURDUJOUR is a random flavor;
 	move the pop-tart to the table;
 	if the player is in Snacks:
-		say "A piping hot, fresh [saveur du jour]-flavored pop-tart drops from the chute onto the table."
+		say "A piping hot, fresh [SAVEURDUJOUR]-flavored pop-tart drops from the chute onto the table."
 
 After eating a pop-tart for the first time:
 	say "You feel young and full of energy![paragraph break]";
@@ -1274,7 +1283,7 @@ After eating a pop-tart for the third time:
 After eating a pop-tart for the fourth time:
 	move the player to the infirmary;
 	say "You wake up with a pounding headache as a nurse withdraws a hypodermic syringe from your flank.[paragraph break][quotation mark]That should do it,[quotation mark] she says as she clips off the needle and throws the syringe and a few used bottles of insulin into a bag marked biomedical waste.[paragraph break]You are still rubbing the sore spot on your side as she signs off on the paperwork and stuffs you into an elevator.[paragraph break]";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator;
 	bestow "Pancreatic Endocrine Capacity Exceeded";
 	newPopTart.
@@ -1536,40 +1545,38 @@ The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. 
 
 The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
-PhonographBroken is a truth state that varies. PhonographBroken is false.
 
-PhonographOn is a truth state that varies. PhonographOn is true.
 
-Definition: The speaker is active if phonographBroken is false and phonographOn is true and the record is on the phonograph.
+Definition: The speaker is active if PHONOBROKEN is false and PHONOON is true and the record is on the phonograph.
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
+The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if PHONOBROKEN is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if PHONOBROKEN is false and PHONOON is false]. The phono is switched off[end if][if PHONOBROKEN is false and PHONOON is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
 
 Instead of switching on the phonograph:
-	if PhonographBroken is true:
+	if PHONOBROKEN is true:
 		say "You try turning it on, but it doesn't work any more.";
 	otherwise:
-		if PhonographOn is true:
+		if PHONOON is true:
 			say "The phonograph is already on.";
 		otherwise:
 			say "You turn on the phonograph.";
 			if the speaker is not active:
-				now phonographOn is true;
+				now PHONOON is true;
 				follow the run from sound rule.
 				
 Instead of switching off the phonograph:
-	if the phonographBroken is true:
+	if the PHONOBROKEN is true:
 		say "On, off, it doesn[apostrophe]t really matter -- the phonograph is totaled.";
 	otherwise:
-		if PhonographOn is false:
+		if PHONOON is false:
 			say "The phonograph is already off.";
 		otherwise:
 			if speaker is active:
 				say "[one of]You experience a great sense of relief; even if the sound was not affecting your conscious mind, it was eating away at your soul[or]You turn off the phonograph and feel much better[stopping].";
 			otherwise:
 				say "You turn off the phonograph.";
-			now phonographOn is false.
+			now PHONOON is false.
 				
 Instead of dropping or taking off the walkman when the player is in the LAN Closet:
 	if the speaker is active:
@@ -1578,7 +1585,7 @@ Instead of dropping or taking off the walkman when the player is in the LAN Clos
 		now the LAN Closet Door is closed;
 		move the player to the Lobby;
 	otherwise:
-		if the current action is dropping and phonographBroken is false:
+		if the current action is dropping and PHONOBROKEN is false:
 			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the walkman, but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
 			now the player carries the walkman;
 		otherwise:
@@ -1599,11 +1606,11 @@ Instead of attacking the record:
 	
 Instead of attacking the phonograph:
 	say "You [one of]clobber[or]beat[or]take your aggressions out on[or]pummel[or]thrash[or]wallop[or]belt[or]slam[or]whack[in random order] the phonograph. ";
-	if phonographBroken is true:
+	if PHONOBROKEN is true:
 		say "It was already damaged beyond repair, but it makes you feel better.";
 	otherwise:
 		say  "Plastic and metal parts go flying, a spring rolls under the equipment rack, and sparks spray across the floor of the LAN closet. You got it but good. What[apostrophe]s left of the phonograph will surely never spin another record.";
-		now phonographBroken is true.
+		now PHONOBROKEN is true.
 		
 Instead of taking the record:
 	if the speaker is active:
@@ -1616,7 +1623,7 @@ Instead of putting something (called the item) on the phonograph:
 	if the item is not the record:
 		say "You realize that putting [the item] on the phonograph wouldn[apostrophe]t make a lot of sense.";
 	otherwise:
-		if phonographBroken is false and phonographOn is true:
+		if PHONOBROKEN is false and PHONOON is true:
 			now the record is on the phonograph;
 			follow the run from sound rule;
 		otherwise:
@@ -1653,9 +1660,9 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in Heading] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
+The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
 
-catOnHold is a truth state that varies. catOnHold is false.
+
 
 The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC]." Understand "display" as the numerical counter.
 
@@ -1667,22 +1674,22 @@ Instead of examining the numerical counter for the first time:
 	now the PEC is 69105;
 	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC]."
 	
-The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if catOnHold is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if CATONHOLD is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
 
 Instead of pulling the plunger:
-	if catOnHold is true:
+	if CATONHOLD is true:
 		say "The plunger was already pulled out.";
 	otherwise:
-		now catOnHold is true;
+		now CATONHOLD is true;
 		repeat with N running from 1 to 3:
-			rotate heading backwards;
-		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in Heading] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
+			rotate HEADING backwards;
+		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in HEADING] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
 	
 Instead of pushing the plunger:
-	if catOnHold is false:
+	if CATONHOLD is false:
 		say "The plunger was already pushed all the way in.";
 	otherwise:
-		now catOnHold is false;
+		now CATONHOLD is false;
 		say "The LEDs again start lighting in order, clockwise, slowly at first, but then resuming their previous pace. The PEC counter starts clicking over more rapidly as well."
 		
 
@@ -2187,7 +2194,7 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "[if catOnHold is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
+	say "[if CATONHOLD is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
 	
 To say deckExits:	
 	say "The deck continues around to the ";
@@ -2275,7 +2282,7 @@ Instead of jumping when the player is in the Deck Area:
 		if the chain is clipped:
 			say "Fortunately, the chain prevents you from taking any such foolish action.";
 		otherwise:
-			if catOnHold is false:
+			if CATONHOLD is false:
 				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
 				now the chain is clipped;
 			otherwise:
@@ -2333,11 +2340,11 @@ Section 7 - Cat OverheadProxies
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
 To decide whether the cat is visible from overhead:
-	if catOnHold is false, yes;
-	if the player is in DeckS and entry 1 in Heading is listed in {"SE", "S", "SW"}, yes;
-	if the player is in DeckN and entry 1 in Heading is listed in {"NW", "N", "NE"}, yes;
-	if the player is in DeckW and entry 1 in Heading is listed in {"SW", "W", "NW"}, yes;
-	if the player is in DeckE and entry 1 in Heading is listed in {"NE", "E", "SE"}, yes;
+	if CATONHOLD is false, yes;
+	if the player is in DeckS and entry 1 in HEADING is listed in {"SE", "S", "SW"}, yes;
+	if the player is in DeckN and entry 1 in HEADING is listed in {"NW", "N", "NE"}, yes;
+	if the player is in DeckW and entry 1 in HEADING is listed in {"SW", "W", "NW"}, yes;
+	if the player is in DeckE and entry 1 in HEADING is listed in {"NE", "E", "SE"}, yes;
 	decide no.
 	
 To say invisibleOverhead:
@@ -2637,6 +2644,14 @@ A pogoroom can be juxtaCliff.
 
 Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Walmart, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
 
+The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A fiery mountain that constantly belches molten lava."
+
+The Quicksand is a room. The Quicksand is west from Palace. The Quicksand is west from Desert.  The Quicksand is west from Canyon.  The Quicksand is west from Pogoland Terminal.  The Quicksand is west from Cemetery. The description of quicksand is "A desolate expanse of shifting sands and furtive shadows."
+
+The Shark-Infested Reef is a room. The Shark-Infested Reef is east from Beach. The Shark-Infested Reef is east from Lighthouse. The Shark-Infested Reef is east from Wharf. The Shark-Infested Reef is east from Aquarium. The Shark-Infested Reef is east from Motel. The description of the Shark-Infested Reef is "Beautiful blue-green waters chocked full of voracious sharks."
+
+The Cliff is a room. The Cliff is south from Cemetery. The Cliff is south from Service Station. The Cliff is south from Dojo. The Cliff is south from Botanical Garden. The Cliff is south from Motel. The description of Cliff is "Crumbly chalk cliffs overlooking a ridge of sharp rocks, far below."
+
 Mountain, Palace, Monastery, School House, and Lighthouse are juxtaLava.
 Palace, Desert, Canyon, Pogoland Terminal, and Cemetery are juxtaSand.
 Beach, Lighthouse, Wharf, Aquarium, and Motel are juxtaShark.
@@ -2760,26 +2775,26 @@ Instead of opening an interdicted door for the third time:
 Instead of opening an interdicted door for the fourth time:
 	move the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 	
 Instead of opening an interdicted door for the fifth time:
 	move the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 
 Instead of opening an interdicted door for the sixth time:
 	move the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 	
 Instead of opening an interdicted door:
 	move the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 	
 
@@ -2857,12 +2872,11 @@ To phoneDeath:
 	wait for any key;
 	say paragraph break;
 	clear the screen;
-	say "After beating your head against the ground a few times, you realize... you could just buy a new phone.[paragraph break]A day goes by while you [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy another yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[stopping].[paragraph break]";
+	say "After beating your head against the ground a few times, you realize... you could just buy a new phone.[paragraph break]A day goes by while you [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]";
 	openGame;
 	try looking.
 
 Book 4 - Stuff
-
 
 
 Book 5 - Tables and Boxed Text
