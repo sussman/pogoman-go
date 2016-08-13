@@ -2646,9 +2646,11 @@ Instead of taking the magnificent floating ruby:
 
 Chapter Musk Lair
 
+Section 1 - MuskLair Region
+
 The MuskLair is a region. Make Over Suite, Throne Room, and MuskTube Station are rooms in the MuskLair.
 
-MuskTube Station is a room. 
+Section 2 - The Throne Room
 
 After going south from the stairsSSB:
 	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room’s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
@@ -2668,7 +2670,7 @@ The description of the formal wear is "The finest tailored fashion[one of], more
 Instead of taking off the formal wear:
 	say "These are the best threads you[apostrophe]ve ever owned (and, you[apostrophe]re not entirely sure that robotic gadget made provisions for underwear -- it all kind of happened quickly. So, no)."
 	
-The description of the Throne Room is "A marble room with black and white floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus[if the champagne glass is in the void]. A downward passage has opened and is ringed by burning torches[otherwise]. At the far end of the magnificent hall is a raised platform lit from above by spotlights[end if]."  The possible exits of the Throne Room are "There are no obvious exits." The title of the Throne Room is "Grand Hall".
+The description of the Throne Room is "A marble room with black and white floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus[if the champagne glass is in the void]. A downward passage has opened and is ringed by burning torches[otherwise]. At the far end of the magnificent hall is a raised dais lit from above by spotlights[end if]."  The possible exits of the Throne Room are "There are no obvious exits." The title of the Throne Room is "Grand Hall".
 
 Instead of taking inventory when the Make Over Suite is visited and Exploring the Tower is happening for the first time :
 	Say "What?[paragraph break]Where did all you swag go?[paragraph break]That robot must have… Well, at least you’ve still got your phone."
@@ -2698,7 +2700,7 @@ The Prometheus fresco is scenery in the Throne Room. The description of the Prom
 Instead of doing something other than examining with the Prometheus fresco:
 	say "The painting follows the curvature of the vaulted ceiling, which is far above you."
 	
-The spotlights are plural-named scenery in the Throne Room. The description of the spotlights is "Powerful theatrical lights, too brilliant to look at directly, illuminate the dais below. However, you can[apostrophe]t really get a good look at the platform due to its high angle and glare from the lights."
+The spotlights are plural-named scenery in the Throne Room. The description of the spotlights is "Powerful theatrical lights, too brilliant to look at directly, illuminate the dais below. However, you can[apostrophe]t really get a good look at the dais due to its high angle and glare from the lights."
 
 Instead of doing something other than examining with the spotlights:
 	say "The spot lights are just below the ceiling, which is far above you."
@@ -2708,15 +2710,15 @@ The torches are plural-named scenery in the void. The description of the torches
 Instead of doing something other than examining with the torches:
 	say "The torches are burning not only bright, but hot. You don[apostrophe]t want to get too close to them."
 	
-The platform is scenery in the Throne Room. Understand "dais" as platform.
+The dais is scenery in the Throne Room. 
 
-Instead of examining the platform:
+Instead of examining the dais:
  	cueElon;
 	toastChampagne;
 	elonDescends.
 	
 Instead of drinking the champagne:
-	try examining the platform.
+	try examining the dais.
 	
 Instead of throwing the champagne at something:
 	try dropping the champagne.
@@ -2727,14 +2729,14 @@ Instead of dropping the champagne:
 	elonDescends.
 	
 To cueElon: 
-	move the platform to the void;
+	move the dais to the void;
 	move the champagne to the void;
 	now MuskTube Station is mapped down of the Throne Room;
 	now the Throne Room is mapped up of MuskTube Station;
 	move the torches to the Throne Room;
 	now the title of the Throne Room is "Throne Room";
 	now the possible exits of the Throne Room are "You can go down from here.";
-	say "The raised platform rotates as it descends theatrically revealing an elaborate throne, and in it, a man clad in a bear skin business suit and ermine stole. Atop his head, a golden crown glints in the spotlight. Fog rolls out from the base of the platform, which slowly lowers to the ground. As the man steps off the platform and walks towards you, torches ignite to each side of his path. The man stops midway to you and raises his glass. You recognize him -- he is none other than Elon Musk, billionaire industrialist, brilliant technovisionary, CEO of SpaceX and founder of Tesla Motors![paragraph break]".
+	say "The raised dais rotates as it descends theatrically revealing an elaborate throne, and in it, a man clad in a bear skin business suit and ermine stole. Atop his head, a golden crown glints in the spotlight. Fog rolls out from the base of the dais, which slowly lowers to the ground. As the man steps off the dais and walks towards you, torches ignite to each side of his path. The man stops midway to you and raises his glass. You recognize him -- he is none other than Elon Musk, billionaire industrialist, brilliant technovisionary, CEO of SpaceX and founder of Tesla Motors![paragraph break]".
 	
 To dumpChampagne:
 	say "[quotation mark]Yes, I must admit that I too despise the swill. I only keep it around because it seems to be what people expect. But who cares what people expect? Not the likes of you and I![quotation mark]  He pours the champagne on the floor and smashes the glass down, shattering it. A robot arms flashes out to mop up the mess and retracts in the wall. Before you can react, your small puddle of champagne is cleaned up in the same manner.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall, [quotation mark]champagne or no champagne, [run paragraph on]"
@@ -2745,6 +2747,79 @@ To toastChampagne:
 To elonDescends:
 	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
 	
+Section 3 - MuskTube Station
+
+MuskTube Station is a room. The description of MuskTube Station is "You[apostrophe]re in a secret maglev railway station far under the Nyantech Tower. A sign on the wall reads [quotation mark]MuskTube Station[quotation mark], and indeed it appears to be a train station of sorts, with a platform and odd-looking train tracks. An egg-shaped container with racing stripes floats above the tracks." The title of MuskTube Station is "MuskTube Station". The possible exits of MuskTube Station are "The only way out of here [if Elon Musk is in MuskTube Station](on foot, at least) would be to go back up to the Throne Room[otherwise]would be to set off in the pod[end if]."
+
+Elon Musk is a person in MuskTube Station. The description of Elon Musk is "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority."
+
+The bearskin is part of Elon Musk. The description of the bearskin is "Probably grizzly." Understand "bear" or "grizzly" or "pelt" as the bearskin.
+
+Instead of doing something other than examining with the bearskin:
+	say "You dare not ruffle Elon[apostrophe]s resplendent pelt."
+
+The stole is part of Elon Musk. The description of the stole is "An ermine stole, white fur with black spots. Supple and soft." Understand "ermine" or "fur" or "white" or "black" or "spots" as the stole.
+
+The MuskPod is an open openable enterable scenery container in MuskTube Station. The description of the MuskPod is "Made of the latest composite materials, the canopy of the maglev pod is swung up to reveal a passenger compartment enough for one person." Understand "pod" or "train" or "maglev" or "capsule" as the MuskPod.
+
+The passenger compartment is part of the MuskPod. The description of the passenger compartment is "Hard to see from here. It doesn’t look like there are any complicated controls on it." Understand "cockpit" as the passenger compartment.
+
+Instead of doing something other than examining with the passenger compartment:
+	say "You would have to climb into the pod to mess around with the passenger compartment."
+	
+The canopy is part of the MuskPod. The description of the canopy is "A transparent cowling that protects the lone passenger in the pod." Understand "cowling" as the canopy.
+
+Instead of doing something other than examining with the canopy:
+	say "It looks like you could control the canopy from inside the pod." 
+	
+The rails are scenery in MuskTube Station. The description of the rails is "The magnetic rails run parallel the platform and disappear into tunnels in both directions." Understand "rail" or "track" or "tracks" as the rails.
+
+Instead of doing something other than examining with the rails:
+	say "You would rather not mess around with the high tech (not to mention high voltage) rails that extend into the dark tunnel that leads out of the station."
+
+The tunnel is scenery in the MuskTube Station. The description of the tunnel is "The rails extend away from the platform and dive deep into the earth in the direction ahead of the small pod. It is too dark to see any further into the tunnel, which looks just wide enough to accomodate the pod." Understand "tunnels" as the tunnel.
+
+Instead of doing something other than examining with the tunnel: 
+	say "The tunnel are at the far end of the platform and not easily accessible since the rails are between you and the tunnel entrance."
+
+The platform is scenery in the MuskTube Station. 
+
+Instead of examining the platform:
+	try looking.
+	
+Every turn when the player is in MuskTube Station and Elon Musk is in the MuskTube Station:
+	say "[one of][MuskRant1][or][MuskRant2][or][MuskRant3][or][MuskRant4][or][MuskRant5][or][stopping] [paragraph break]".
+	
+To say MuskRant1:
+	say "Musk gestures grandly, [quotation mark]All of this is in pursuit of a dream. What dream? I’ll tell you... Nothing less than conquest of the galaxy![quotation mark][paragraph break]He peers at you to make sure you are suitably impressed and then continues, [quotation mark]Everything we have done with Pogoman has served that goal: why in the last two weeks alone we have tripled mobile phone battery life! Now, factor in advances in neural interfacing, psychic energy harvesting, the quantum cloud, and what do you have? Nothing less than a miracle. A miracle of science![quotation mark][paragraph break][quotation mark]Now, my friend, on your way for your, shall we say, beta-test?[quotation mark] He gestures to the plastic shell at the end of the platform. [quotation mark]Here begins the journey to unlock our greatest achievement yet: Pogoland itself, where we take the game you love so much to the next level![quotation mark][paragraph break][quotation mark]Please get in the pod.[quotation mark]".
+	
+To say MuskRant2:
+	say "Musk nods and continues his monologue, glad to have an audience. He continues, [quotation mark]PogoLand is the breakthrough towards which we have been working for decades. SpaceX, Tesla, the HAARP telepathy modulator -- all of that was mere preparation![quotation mark][paragraph break][quotation mark]Now then, hop in the pod, will you?[quotation mark]".
+	
+To say MuskRant3:
+	say "[quotation mark]Yes, yes.[quotation mark] He can barely contain his excitement and paces the platform, swinging his arms widely and spinning on his heel, [quotation mark]It is thrilling to stand here literally on the edge of the future and to lean over that edge -- or rather, I should say, to lean into it, no, to jump off the edge willingly, to take evolution into our own hands and instead of merely obeying the laws of physics, to bend them to our purpose![quotation mark][paragraph break][quotation mark]Any how, would you mind getting into the pod so we can get this show on the road?[quotation mark]".
+	
+To say MuskRant4:
+	say "[quotation mark]Everyone said that the things we want to do are impossible; well, some said impossible, some said improbable. Others -- the ones that can’t see beyond the ends of their noses -- said immoral or unethical. Hah! Just as they said that the horse and buggy would never travel more than 30 miles per hour. Let them hold to their prayer beads and voodoo dolls. Ours is the future![quotation mark][paragraph break][quotation mark]Now, into the pod. Daylight’s burning.[quotation mark]".
+	
+To say MuskRant5:
+	say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I’m pretty beat. I’m sure I’m fascinating to listen to, but I really shouldn’t keep you. You’ve got some beta-testing to do, and I have to get back to being the world’s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
+	move Elon Musk to the void;
+
+Instead of going up from MuskTube Station:
+	if Elon Musk is in MuskTube Station:
+		say "You climb the stairs to the Throne Room.";
+	otherwise:
+		say "There is no way to return to the Throne Room: the stair case retracted upward when Musk departed."
+	
+
+	
+
+	
+
+
+
+
 
 
 
@@ -2765,7 +2840,7 @@ The Infirmary is a room. The description of the infirmary is "".
 
 Chapter in the Pod
 
-The MuskPod is a room.
+The MuskPodRoom is a room.
 
 Instead of going a direction (called thataway) when the location is MuskPod, say "At this speed? That would be ludicrous!"
 
