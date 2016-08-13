@@ -232,7 +232,7 @@ Section ShowStatus
 
 To ShowStatus:
 	now the left hand status line is "PogoLevel:[pogoLevel of the player],  Team: [team color of the player][if the player carries the badge], Badge: [securityColor of the badge]";
-	now the right hand status line is "XP: [XP]".
+	now the right hand status line is "XP: [XP of the player]".
 	
 
 Section AwardXP
@@ -1958,7 +1958,7 @@ Instead of taking off the wetsuit:
 	
 [Sub-Basement]
 
-The description of the Rick Astley Shrine is "[one of]You are assaulted by an overwhelming urge to flee: the walls of the room are covered in Rick Astley memorabilia from the 1980s: posters, photos, autographs[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
+The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
 
 The rickity table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickity table is "A cheap plastic table."
 
@@ -1969,6 +1969,11 @@ Instead of entering the the rickity table, say "Surely, that would be the end of
 Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
 
 The walkman is a wearable prop on the rickity table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" as the walkman.
+
+After going north from the Rick Astley Shrine for the first time:
+	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
+	bestow "Curiousity Killed The Cat".
+
 
 Instead of listening to the walkman when the walkman is not worn:
 	say "(first putting on the earphones)[command clarification break]";
