@@ -1748,7 +1748,7 @@ After opening the drawer:
 	list the contents of the drawer, as a sentence;
 	say "."
 
-The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the Beta Testing Door is locked]Nyantech, Inc.[line break]Legal Division[paragraph break]Beta-Tester Agreement[paragraph break]By touching [quotation mark]agree[quotation mark], the user agrees to be held bound by all provisions of this agreement.[paragraph break]TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[otherwise][welcomeTester][end if]". Understand "display" as the computer screen.
+The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the Beta Testing Door is locked][fixed letter spacing]             Nyantech, Inc.[line break]             Legal Division[paragraph break]         Beta-Tester Agreement[paragraph break]  By touching [quotation mark]agree[quotation mark], the user agrees[line break]        to be held bound by all[line break]      provisions of this agreement[paragraph break]       TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[roman type][otherwise][welcomeTester][end if]". Understand "display" as the computer screen.
 
 agreeProxy is a privately-named scenery in Legal Department. The printed name of the agreeProxy is "AGREE". The description of the agreeProxy is "The word AGREE glows intensely on the screen." Understand "agree" as the agreeProxy.
 
@@ -2017,8 +2017,7 @@ Before going down from the ball pit:
 	if the player wears the wetsuit:
 		continue the action;
 	otherwise:
-		say "You hold your breath and dive down, swimming until your lungs are on the verge of bursting, but still don’t reach the bottom. Now panicking for air, you shoot back to the surface, gasping.";
-		stop the action.
+		say "[one of]You dive down and push through the mass of balls with a familiar swimming motion. As you get deeper, you begin to have difficulty getting a breath and take a last gulp of air. You plunge downward kicking now to gain depth.[paragraph break]The deeper you go, the more the multicolored light fades. You reach out a hand to blindly probe the depths, and as your lungs begin to ache, you make a final attempt to reach bottom.[paragraph break]You hold out as long as you can, but never reach the bottom. Your lungs now burning, you shoot back to the surface, and arrive gasping for air[or]You swim down as far as you can, but get no further than before. You return to the surface breathless[stopping]."
 		
 Instead of going down from the Ball Pit for the first time:
 	say "You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface. As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
