@@ -27,7 +27,7 @@ Rooms have some text called title.
 
 A prop is a kind of thing. It is usually portable.
 
- Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
+Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
 securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
 
@@ -41,11 +41,7 @@ Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, app
 
 A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry is usually blueberry. [because I like blueberry pastries.]
 
-The saveur du jour is a flavor that varies. 
-
 A pop is a kind of thing. It is usually scenery.
-
-Current floor is a number that varies.
 
 A room has a text called possible exits.
 
@@ -96,17 +92,15 @@ A Pogometh-kind is a kind of thing.  The description is "You’re not sure what�
 
 The pogostop is a backdrop. The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
 
-MIN_TOWNPOGOSTOPS is always 10.
-MAX_TOWNPOGOSTOPS is always 15.
+Min_Town_Pogostops is always 10.
+Max_Town_Pogostops is always 15.
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in PogoStopList and it is not in the Borderlands.
 
 Definition: a room is pogoStopTargeted if it is listed in PogoStopList.
 
-PogoStopList is a list of rooms that varies.
-
 To distributeTownPogostops:
-	repeat with N running from 1 to a random number between MIN_TOWNPOGOSTOPS  and MAX_TOWNPOGOSTOPS:
+	repeat with N running from 1 to a random number between Min_Town_Pogostops  and Max_Town_Pogostops:
 		add a random okayInitialPogostopLocation to PogoStopList;
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
@@ -135,15 +129,34 @@ XP is a number that varies.  XP is 320.  [TODO is this a good starting value?]
 
 TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
 
-theTime is a number that varies. theTime is 5.
+THETIME is a number that varies. THETIME is 5.
 
-medalList is a list of text that varies.
+MEDALLIST is a list of text that varies.
 
-pedometer is a number that varies. The pedometer is 0.
+PEDOMETER is a number that varies. The PEDOMETER is 0.
 
-Heading is a list of text that varies. Heading is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
+HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
 PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
+
+The saveur du jour is a flavor that varies. 
+
+Current floor is a number that varies.
+
+PogoStopList is a list of rooms that varies.
+
+suppressMedals is a truth state that varies.
+medalCounter is a number that varies.
+
+The muteCounter is a number that varies. 
+
+megaCats is a number that varies. megaCats is 1000000.
+
+PhonographBroken is a truth state that varies. PhonographBroken is false.
+
+PhonographOn is a truth state that varies. PhonographOn is true.
+
+catOnHold is a truth state that varies. catOnHold is false.
 
 Chapter Rules Modifications
 
@@ -181,9 +194,9 @@ This is the run from sound rule:
 		move the player to the Lobby.
 		
 After going from somewhere:
-	increase the pedometer by one;		
-	if the pedometer is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
-		bestow "Traveler: [pedometer] turns spent moving";
+	increase the PEDOMETER by one;		
+	if the PEDOMETER is listed in {10, 30, 100, 300, 1000, 3000, 10000, 30000}:
+		bestow "Traveler: [PEDOMETER] turns spent moving";
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
@@ -232,8 +245,8 @@ Section Amusing
 Amusing is an action applying to nothing. Understand "amusing" as amusing.
 
 Carry out amusing:
-	say "You reached level [POGOLEVEL] and obtained [the number of entries in medalList] medals:[paragraph break]";
-	repeat with L running through the medalList:
+	say "You reached level [POGOLEVEL] and obtained [the number of entries in MEDALLIST] medals:[paragraph break]";
+	repeat with L running through the MEDALLIST:
 		say "     * [L][line break]".
 	
 Section Evolving
@@ -386,9 +399,8 @@ Report tapeFailing:
 
 Chapter Medals
 
-MEDALVALUE is always 10.
-suppressMedals is a truth state that varies.
-medalCounter is a number that varies.
+Medal_Value is always 10.
+
 
 Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
 
@@ -403,17 +415,17 @@ Instead of doing something with the medals:
 To Bestow (medallion - some text):
 	let L be text;
 	now L is medallion;
-	add L to medalList;
+	add L to MEDALLIST;
 	if suppressMedals is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDALVALUE] XP![paragraph break]";		
-	awardXP MEDALVALUE;
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [Medal_Value] XP![paragraph break]";		
+	awardXP Medal_Value;
 	increment the medalCounter; 
 	if the medalCounter is 3:
 		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
 		bestow "Now Your Phone Is Talking To You".
 		
 Muting is an action applying to nothing. Understand "mute" as muting.
-The muteCounter is a number that varies. 
+
 
 Check muting:
 	If the medalCounter is less than 3:
@@ -516,15 +528,15 @@ When play begins:
 	
 To openGame:
 	say "You wake up, and it[apostrophe]s ";
-	now theTime is a random number from 1 to 24;
-	if theTime is less than 12:
-		 say "[theTime in words] in the morning";
-	otherwise if theTime is 24:
+	now THETIME is a random number from 1 to 24;
+	if THETIME is less than 12:
+		 say "[THETIME in words] in the morning";
+	otherwise if THETIME is 24:
 		say "midnight";
-	otherwise if theTime is greater than 16:
-		say "[theTime minus 12 in words] in the evening";
-	otherwise if theTime is greater than 12:
-		say "[theTime minus 12 in words] in the afternoon";
+	otherwise if THETIME is greater than 16:
+		say "[THETIME minus 12 in words] in the evening";
+	otherwise if THETIME is greater than 12:
+		say "[THETIME minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
 	say ". You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it![paragraph break]".
@@ -544,7 +556,7 @@ Every turn:
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 	
-megaCats is a number that varies. megaCats is 1000000.
+
 
 Every turn when Exploring the Tower is happening:
 	if PEC is greater than 0:
@@ -553,7 +565,7 @@ Every turn when Exploring the Tower is happening:
 		otherwise:
 			increase PEC by a random number between 18 and 23;
 	if catOnHold is false:
-		rotate heading backwards;
+		rotate HEADING backwards;
 	if PEC is greater than megaCats:
 		if the numerical counter is handled:
 			bestow "You sick puppy: [megaCats] Cat Rotations!";
@@ -1536,9 +1548,7 @@ The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. 
 
 The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
-PhonographBroken is a truth state that varies. PhonographBroken is false.
 
-PhonographOn is a truth state that varies. PhonographOn is true.
 
 Definition: The speaker is active if phonographBroken is false and phonographOn is true and the record is on the phonograph.
 
@@ -1653,9 +1663,9 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in Heading] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
+The CAT Control is scenery in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
 
-catOnHold is a truth state that varies. catOnHold is false.
+
 
 The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC]." Understand "display" as the numerical counter.
 
@@ -1675,8 +1685,8 @@ Instead of pulling the plunger:
 	otherwise:
 		now catOnHold is true;
 		repeat with N running from 1 to 3:
-			rotate heading backwards;
-		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in Heading] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
+			rotate HEADING backwards;
+		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in HEADING] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
 	
 Instead of pushing the plunger:
 	if catOnHold is false:
@@ -2334,10 +2344,10 @@ Section 7 - Cat OverheadProxies
 
 To decide whether the cat is visible from overhead:
 	if catOnHold is false, yes;
-	if the player is in DeckS and entry 1 in Heading is listed in {"SE", "S", "SW"}, yes;
-	if the player is in DeckN and entry 1 in Heading is listed in {"NW", "N", "NE"}, yes;
-	if the player is in DeckW and entry 1 in Heading is listed in {"SW", "W", "NW"}, yes;
-	if the player is in DeckE and entry 1 in Heading is listed in {"NE", "E", "SE"}, yes;
+	if the player is in DeckS and entry 1 in HEADING is listed in {"SE", "S", "SW"}, yes;
+	if the player is in DeckN and entry 1 in HEADING is listed in {"NW", "N", "NE"}, yes;
+	if the player is in DeckW and entry 1 in HEADING is listed in {"SW", "W", "NW"}, yes;
+	if the player is in DeckE and entry 1 in HEADING is listed in {"NE", "E", "SE"}, yes;
 	decide no.
 	
 To say invisibleOverhead:
