@@ -2648,14 +2648,112 @@ Chapter Musk Lair
 
 The MuskLair is a region. Make Over Suite, Throne Room, and MuskTube Station are rooms in the MuskLair.
 
-MuskTube Station is down from Throne Room.
+MuskTube Station is a room. 
 
 After going south from the stairsSSB:
 	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room’s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
+	now Make Over Suite is visited; [serves as a flag that player has progressed this far]
+	repeat with N running through the things carried by the player:
+		move N to the void;
+	repeat with N running through the things worn by the player:
+		move N to the void;
+	now the player carries the phone;
+	now the player carries the glass of champagne;
+	now the description of the player is "Well-coiffed and dressed to the nines[one of]. You clean up well[or][stopping].";
+	now the player wears the formal wear;
 	move the player to Throne Room.
 	
-The description of the Throne Room is "A marble room with black and white parquet floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus. At the far end of the magnificent hall is a raised platform lit from above by spotlights."
+The description of the formal wear is "The finest tailored fashion[one of], more haute than the couture you could typically afford[or][stopping]." The indefinite article of the formal wear is "some".
+
+Instead of taking off the formal wear:
+	say "These are the best threads you[apostrophe]ve ever owned (and, you[apostrophe]re not entirely sure that robotic gadget made provisions for underwear -- it all kind of happened quickly. So, no)."
 	
+The description of the Throne Room is "A marble room with black and white floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus[if the champagne glass is in the void]. A downward passage has opened and is ringed by burning torches[otherwise]. At the far end of the magnificent hall is a raised platform lit from above by spotlights[end if]."  The possible exits of the Throne Room are "There are no obvious exits." The title of the Throne Room is "Grand Hall".
+
+Instead of taking inventory when the Make Over Suite is visited and Exploring the Tower is happening for the first time :
+	Say "What?[paragraph break]Where did all you swag go?[paragraph break]That robot must have… Well, at least you’ve still got your phone."
+	
+Instead going north when the player is in the Throne Room:
+	say "[one of]There are no apparent exits. The robot carried you into the room from the north, but all you see in that direction is a solid wall[or]You can[apostrophe]t to that way[stopping]."
+	
+The mirrored walls are scenery in the Throne Room. The description of the mirrored walls is "The guilded mirrors put Versailles to shame." Understand "guilded" or "mirror" or "mirrors" as the mirrored walls.
+
+Instead of doing something other than examining with the mirrored walls:
+	say "You don't want to smudge up the pristine mirrors."
+
+The trompe l'oeil ceiling is scenery in the Throne Room. The description of the trompe l'oiel ceiling is "An art deco rendering of the Prometheus story, with gold overtones." 
+
+Instead of doing something other than examining with the trompe l'oiel ceiling:
+	say "The vaulted ceiling is too far above you."
+	
+The chandeliers are  plural-named scenery in the Throne Room. The description of the chandeliers is "Exquisite crystal, the chandeliers sparkle and fill the room with brilliant light."
+
+Instead of doing something other than examining with the trompe l'oiel ceiling:
+	say "They hang far above your head."
+	
+The parquet floor is scenery in the Throne Room. The description of the floor is "The floor is a diamond pattern of inlaid ebony and ivory." Understand "ebony" or "ivory" or "wood" as the floor.
+
+The Prometheus fresco is scenery in the Throne Room. The description of the Prometheus fresco is "The fresco seems to follow you around the room; its eyes are hauntingly realistic[one of]. And the face... the face reminds you of billionaire Elon Musk[or][stopping]." Understand "painting" or "Promethean" as the Prometheus fresco.
+
+Instead of doing something other than examining with the Prometheus fresco:
+	say "The painting follows the curvature of the vaulted ceiling, which is far above you."
+	
+The spotlights are plural-named scenery in the Throne Room. The description of the spotlights is "Powerful theatrical lights, too brilliant to look at directly, illuminate the dais below. However, you can[apostrophe]t really get a good look at the platform due to its high angle and glare from the lights."
+
+Instead of doing something other than examining with the spotlights:
+	say "The spot lights are just below the ceiling, which is far above you."
+	
+The torches are plural-named scenery in the void. The description of the torches is "Two rows of wooden tiki torches burn brightly around the area formerly occupied by the throne."
+
+Instead of doing something other than examining with the torches:
+	say "The torches are burning not only bright, but hot. You don[apostrophe]t want to get too close to them."
+	
+The platform is scenery in the Throne Room. Understand "dais" as platform.
+
+Instead of examining the platform:
+ 	cueElon;
+	toastChampagne;
+	elonDescends.
+	
+Instead of drinking the champagne:
+	try examining the platform.
+	
+Instead of throwing the champagne at something:
+	try dropping the champagne.
+	
+Instead of dropping the champagne:
+	cueElon;
+	dumpChampagne;
+	elonDescends.
+	
+To cueElon: 
+	move the platform to the void;
+	move the champagne to the void;
+	now MuskTube Station is mapped down of the Throne Room;
+	now the Throne Room is mapped up of MuskTube Station;
+	move the torches to the Throne Room;
+	now the title of the Throne Room is "Throne Room";
+	now the possible exits of the Throne Room are "You can go down from here.";
+	say "The raised platform rotates as it descends theatrically revealing an elaborate throne, and in it, a man clad in a bear skin business suit and ermine stole. Atop his head, a golden crown glints in the spotlight. Fog rolls out from the base of the platform, which slowly lowers to the ground. As the man steps off the platform and walks towards you, torches ignite to each side of his path. The man stops midway to you and raises his glass. You recognize him -- he is none other than Elon Musk, billionaire industrialist, brilliant technovisionary, CEO of SpaceX and founder of Tesla Motors![paragraph break]".
+	
+To dumpChampagne:
+	say "[quotation mark]Yes, I must admit that I too despise the swill. I only keep it around because it seems to be what people expect. But who cares what people expect? Not the likes of you and I![quotation mark]  He pours the champagne on the floor and smashes the glass down, shattering it. A robot arms flashes out to mop up the mess and retracts in the wall. Before you can react, your small puddle of champagne is cleaned up in the same manner.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall, [quotation mark]champagne or no champagne, [run paragraph on]"
+		
+To toastChampagne:
+	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall,[run paragraph on]"
+	
+To elonDescends:
+	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
+	
+
+
+
+
+	
+
+
+	
+
 
 Chapter in the Elevator
 
@@ -2782,6 +2880,8 @@ The Void is a room.
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
+
+The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
 section 2 - Badge
 
