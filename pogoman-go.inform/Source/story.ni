@@ -156,7 +156,6 @@ CATONHOLD is a truth state that varies. CATONHOLD is false.
 
 POGOLEVEL is a number that varies. 
 XP is a number that varies.  XP is 320.  
-THETIME is a number that varies. THETIME is 5.
 PEDOMETER is a number that varies. The PEDOMETER is 0.
 PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
 CURRENTFLOOR is a number that varies.
@@ -538,15 +537,15 @@ When play begins:
 	
 To openGame:
 	say "You wake up, and it[apostrophe]s ";
-	now THETIME is a random number from 1 to 24;
-	if THETIME is less than 12:
-		 say "[THETIME in words] in the morning";
-	otherwise if THETIME is 24:
+	Let T be a random number from 1 to 24;
+	if T is less than 12:
+		 say "[T in words] in the morning";
+	otherwise if T is 24:
 		say "midnight";
-	otherwise if THETIME is greater than 16:
-		say "[THETIME minus 12 in words] in the evening";
-	otherwise if THETIME is greater than 12:
-		say "[THETIME minus 12 in words] in the afternoon";
+	otherwise if T is greater than 16:
+		say "[T minus 12 in words] in the evening";
+	otherwise if T is greater than 12:
+		say "[T minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
 	say ". You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it![paragraph break]".
