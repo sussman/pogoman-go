@@ -95,13 +95,13 @@ The pogostop is a backdrop. The description of pogostop is "On your phone, a car
 Min_Town_Pogostops is always 10.
 Max_Town_Pogostops is always 15.
 
-Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in PogoStopList and it is not in the Borderlands.
+Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
-Definition: a room is pogoStopTargeted if it is listed in PogoStopList.
+Definition: a room is pogoStopTargeted if it is listed in POGOSTOPLIST.
 
 To distributeTownPogostops:
 	repeat with N running from 1 to a random number between Min_Town_Pogostops  and Max_Town_Pogostops:
-		add a random okayInitialPogostopLocation to PogoStopList;
+		add a random okayInitialPogostopLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
 Instead of taking the pogostop for the first time:
@@ -121,42 +121,39 @@ Instead of taking a pogoman:
 	say "You'll have to throw a Pogoball at it to capture it!".
 
 
-Chapter  Declare Global Variables
+Chapter Declare Global Variables
 
-POGOLEVEL is a number that varies.  POGOLEVEL is 3.  [TODO is this a good starting value?]
+[booleans]
 
-XP is a number that varies.  XP is 320.  [TODO is this a good starting value?]
+SUPPRESSMEDALS is a truth state that varies.
+PHONOBROKEN is a truth state that varies. PHONOBROKEN is false.
+PHONOON is a truth state that varies. PHONOON is true.
+CATONHOLD is a truth state that varies. CATONHOLD is false.
 
-TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
+[numbers]
 
+POGOLEVEL is a number that varies.  POGOLEVEL is 3. 
+XP is a number that varies.  XP is 320.  
 THETIME is a number that varies. THETIME is 5.
+PEDOMETER is a number that varies. The PEDOMETER is 0.
+PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
+CURRENTFLOOR is a number that varies.
+MEDALCOUNTER is a number that varies.
+The MUTECOUNTER is a number that varies. 
+MEGACATS is a number that varies. MEGACATS is 1000000.
+
+[rooms]
+POGOSTOPLIST is a list of rooms that varies.
+
+[lists - because Jack loves lists]
 
 MEDALLIST is a list of text that varies.
-
-PEDOMETER is a number that varies. The PEDOMETER is 0.
-
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
-PEC is a number that varies. PEC is 0. [psychic energy collected in GFr]
+[custom kinds]
 
-The saveur du jour is a flavor that varies. 
-
-Current floor is a number that varies.
-
-PogoStopList is a list of rooms that varies.
-
-suppressMedals is a truth state that varies.
-medalCounter is a number that varies.
-
-The muteCounter is a number that varies. 
-
-megaCats is a number that varies. megaCats is 1000000.
-
-PhonographBroken is a truth state that varies. PhonographBroken is false.
-
-PhonographOn is a truth state that varies. PhonographOn is true.
-
-catOnHold is a truth state that varies. catOnHold is false.
+TEAMCOLOR is a color that varies. TEAMCOLOR is usually None.
+The SAVEURDUJOUR is a flavor that varies. 
 
 Chapter Rules Modifications
 
@@ -416,11 +413,11 @@ To Bestow (medallion - some text):
 	let L be text;
 	now L is medallion;
 	add L to MEDALLIST;
-	if suppressMedals is false:
+	if SUPPRESSMEDALS is false:
 		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [Medal_Value] XP![paragraph break]";		
 	awardXP Medal_Value;
-	increment the medalCounter; 
-	if the medalCounter is 3:
+	increment the MEDALCOUNTER; 
+	if the MEDALCOUNTER is 3:
 		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
 		bestow "Now Your Phone Is Talking To You".
 		
@@ -428,21 +425,21 @@ Muting is an action applying to nothing. Understand "mute" as muting.
 
 
 Check muting:
-	If the medalCounter is less than 3:
+	If the MEDALCOUNTER is less than 3:
 		say "The phone refuses, [quotation mark]Nah, you have to put up with at least three awards. It builds character.[quotation mark][paragraph break]" instead.
 		
 Carry out muting:
-	increment the muteCounter;
-	if suppressMedals is false:
-		now suppressMedals is true;
-		if the muteCounter is 1:
+	increment the MUTECOUNTER;
+	if SUPPRESSMEDALS is false:
+		now SUPPRESSMEDALS is true;
+		if the MUTECOUNTER is 1:
 			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on. You gain 10 XP!";
 			awardXP 10;
 		otherwise:
 			say "Medals muted!";
 	otherwise:
-		now suppressMedals is false;
-		if the muteCounter is 2:
+		now SUPPRESSMEDALS is false;
+		if the MUTECOUNTER is 2:
 			bestow "Couldn't Bear To Live Without Medals”;
 		otherwise:
 			say "Medal notifications are back, and better than ever!".
@@ -512,15 +509,15 @@ Carry out gettingPogoman:
 Chapter Initialize
 
 When play begins:
-	now suppressMedals is false;
-	now the medalCounter is zero;
-	now the muteCounter is zero;
+	now SUPPRESSMEDALS is false;
+	now the MEDALCOUNTER is zero;
+	now the MUTECOUNTER is zero;
 	now timesDrowned is zero;
 	now timesRunOver is zero;
 	now timesTarred is zero;
 	now timesRailroaded is zero;
 	now the player carries the phone;
-	now the saveur du jour is a random flavor;
+	now the SAVEURDUJOUR is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
 	move the player to a random okayStartLocation, without printing a room description;
@@ -560,16 +557,16 @@ Every turn:
 
 Every turn when Exploring the Tower is happening:
 	if PEC is greater than 0:
-		if catOnHold is false:
+		if CATONHOLD is false:
 			increase PEC by a random number between 120 and 130;
 		otherwise:
 			increase PEC by a random number between 18 and 23;
-	if catOnHold is false:
+	if CATONHOLD is false:
 		rotate HEADING backwards;
-	if PEC is greater than megaCats:
+	if PEC is greater than MEGACATS:
 		if the numerical counter is handled:
-			bestow "You sick puppy: [megaCats] Cat Rotations!";
-		increase megaCats by 4000000.
+			bestow "You sick puppy: [MEGACATS] Cat Rotations!";
+		increase MEGACATS by 4000000.
 		
 
 Book 2 - Places
@@ -773,7 +770,7 @@ Instead of entering Nyantech Entrance:
 
 [Ashwell-Lott Estate]
 
-The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Aswell-Lott Estate".
+The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
 
 [Garden Gnome]
 
@@ -1239,34 +1236,34 @@ The table is a scenery supporter in Snacks. The description of the table is "A r
 
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
 
-A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [saveur du jour]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [SAVEURDUJOUR]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
 
-Understand "strawberry" as the pop-tart when the saveur du jour is strawberry.
-Understand "blueberry" as the pop-tart when the saveur du jour is blueberry.
-Understand "raspberry" as the pop-tart when the saveur du jour is raspberry.
-Understand "apple" as the pop-tart when the saveur du jour is apple.
-Understand "cranberry" as the pop-tart when the saveur du jour is cranberry.
-Understand "chocolate" as the pop-tart when the saveur du jour is chocolate.
-Understand "licorice" as the pop-tart when the saveur du jour is licorice.
-Understand "pumpkin" as the pop-tart when the saveur du jour is pumpkin.
-Understand "pine-nut" as the pop-tart when the saveur du jour is pine-nut.
-Understand "pesto" as the pop-tart when the saveur du jour is pesto.
-Understand "liver" as the pop-tart when the saveur du jour is liver.
-Understand "watermelon" as the pop-tart when the saveur du jour is watermelon.
-Understand "apricot" as the pop-tart when the saveur du jour is apricot.
-Understand "teriyaki" as the pop-tart when the saveur du jour is teriyaki.
-Understand "chutney" as the pop-tart when the saveur du jour is chutney.
-Understand "fudge" as the pop-tart when the saveur du jour is fudge.
-Understand "tiramisu" as the pop-tart when the saveur du jour is tiramisu.
-Understand "cinnamon" as the pop-tart when the saveur du jour is cinnamon.
+Understand "strawberry" as the pop-tart when the SAVEURDUJOUR is strawberry.
+Understand "blueberry" as the pop-tart when the SAVEURDUJOUR is blueberry.
+Understand "raspberry" as the pop-tart when the SAVEURDUJOUR is raspberry.
+Understand "apple" as the pop-tart when the SAVEURDUJOUR is apple.
+Understand "cranberry" as the pop-tart when the SAVEURDUJOUR is cranberry.
+Understand "chocolate" as the pop-tart when the SAVEURDUJOUR is chocolate.
+Understand "licorice" as the pop-tart when the SAVEURDUJOUR is licorice.
+Understand "pumpkin" as the pop-tart when the SAVEURDUJOUR is pumpkin.
+Understand "pine-nut" as the pop-tart when the SAVEURDUJOUR is pine-nut.
+Understand "pesto" as the pop-tart when the SAVEURDUJOUR is pesto.
+Understand "liver" as the pop-tart when the SAVEURDUJOUR is liver.
+Understand "watermelon" as the pop-tart when the SAVEURDUJOUR is watermelon.
+Understand "apricot" as the pop-tart when the SAVEURDUJOUR is apricot.
+Understand "teriyaki" as the pop-tart when the SAVEURDUJOUR is teriyaki.
+Understand "chutney" as the pop-tart when the SAVEURDUJOUR is chutney.
+Understand "fudge" as the pop-tart when the SAVEURDUJOUR is fudge.
+Understand "tiramisu" as the pop-tart when the SAVEURDUJOUR is tiramisu.
+Understand "cinnamon" as the pop-tart when the SAVEURDUJOUR is cinnamon.
 		
 Instead of pushing the pop-tart, say "Futile. You push, it pops back immediately."
 
 To newPopTart:
-	now the saveur du jour is a random flavor;
+	now the SAVEURDUJOUR is a random flavor;
 	move the pop-tart to the table;
 	if the player is in Snacks:
-		say "A piping hot, fresh [saveur du jour]-flavored pop-tart drops from the chute onto the table."
+		say "A piping hot, fresh [SAVEURDUJOUR]-flavored pop-tart drops from the chute onto the table."
 
 After eating a pop-tart for the first time:
 	say "You feel young and full of energy![paragraph break]";
@@ -1286,7 +1283,7 @@ After eating a pop-tart for the third time:
 After eating a pop-tart for the fourth time:
 	move the player to the infirmary;
 	say "You wake up with a pounding headache as a nurse withdraws a hypodermic syringe from your flank.[paragraph break][quotation mark]That should do it,[quotation mark] she says as she clips off the needle and throws the syringe and a few used bottles of insulin into a bag marked biomedical waste.[paragraph break]You are still rubbing the sore spot on your side as she signs off on the paperwork and stuffs you into an elevator.[paragraph break]";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator;
 	bestow "Pancreatic Endocrine Capacity Exceeded";
 	newPopTart.
@@ -1550,36 +1547,36 @@ The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet
 
 
 
-Definition: The speaker is active if phonographBroken is false and phonographOn is true and the record is on the phonograph.
+Definition: The speaker is active if PHONOBROKEN is false and PHONOON is true and the record is on the phonograph.
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if phonographBroken is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if phonographBroken is false and phonographOn is false]. The phono is switched off[end if][if phonographBroken is false and phonographOn is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
+The phonograph is a supporter in the LAN Closet. The description of the phonograph is "The [if PHONOBROKEN is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if PHONOBROKEN is false and PHONOON is false]. The phono is switched off[end if][if PHONOBROKEN is false and PHONOON is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
 
 Instead of switching on the phonograph:
-	if PhonographBroken is true:
+	if PHONOBROKEN is true:
 		say "You try turning it on, but it doesn't work any more.";
 	otherwise:
-		if PhonographOn is true:
+		if PHONOON is true:
 			say "The phonograph is already on.";
 		otherwise:
 			say "You turn on the phonograph.";
 			if the speaker is not active:
-				now phonographOn is true;
+				now PHONOON is true;
 				follow the run from sound rule.
 				
 Instead of switching off the phonograph:
-	if the phonographBroken is true:
+	if the PHONOBROKEN is true:
 		say "On, off, it doesn[apostrophe]t really matter -- the phonograph is totaled.";
 	otherwise:
-		if PhonographOn is false:
+		if PHONOON is false:
 			say "The phonograph is already off.";
 		otherwise:
 			if speaker is active:
 				say "[one of]You experience a great sense of relief; even if the sound was not affecting your conscious mind, it was eating away at your soul[or]You turn off the phonograph and feel much better[stopping].";
 			otherwise:
 				say "You turn off the phonograph.";
-			now phonographOn is false.
+			now PHONOON is false.
 				
 Instead of dropping or taking off the walkman when the player is in the LAN Closet:
 	if the speaker is active:
@@ -1588,7 +1585,7 @@ Instead of dropping or taking off the walkman when the player is in the LAN Clos
 		now the LAN Closet Door is closed;
 		move the player to the Lobby;
 	otherwise:
-		if the current action is dropping and phonographBroken is false:
+		if the current action is dropping and PHONOBROKEN is false:
 			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the walkman, but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
 			now the player carries the walkman;
 		otherwise:
@@ -1609,11 +1606,11 @@ Instead of attacking the record:
 	
 Instead of attacking the phonograph:
 	say "You [one of]clobber[or]beat[or]take your aggressions out on[or]pummel[or]thrash[or]wallop[or]belt[or]slam[or]whack[in random order] the phonograph. ";
-	if phonographBroken is true:
+	if PHONOBROKEN is true:
 		say "It was already damaged beyond repair, but it makes you feel better.";
 	otherwise:
 		say  "Plastic and metal parts go flying, a spring rolls under the equipment rack, and sparks spray across the floor of the LAN closet. You got it but good. What[apostrophe]s left of the phonograph will surely never spin another record.";
-		now phonographBroken is true.
+		now PHONOBROKEN is true.
 		
 Instead of taking the record:
 	if the speaker is active:
@@ -1626,7 +1623,7 @@ Instead of putting something (called the item) on the phonograph:
 	if the item is not the record:
 		say "You realize that putting [the item] on the phonograph wouldn[apostrophe]t make a lot of sense.";
 	otherwise:
-		if phonographBroken is false and phonographOn is true:
+		if PHONOBROKEN is false and PHONOON is true:
 			now the record is on the phonograph;
 			follow the run from sound rule;
 		otherwise:
@@ -1677,22 +1674,22 @@ Instead of examining the numerical counter for the first time:
 	now the PEC is 69105;
 	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC]."
 	
-The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if catOnHold is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if CATONHOLD is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
 
 Instead of pulling the plunger:
-	if catOnHold is true:
+	if CATONHOLD is true:
 		say "The plunger was already pulled out.";
 	otherwise:
-		now catOnHold is true;
+		now CATONHOLD is true;
 		repeat with N running from 1 to 3:
 			rotate HEADING backwards;
 		say "You pull the plunger out and the LEDs continue to light in progression, but slow down. Finally, the display holds steady with the [entry 1 in HEADING] light lit continuously. The rate of increase of [quotation mark]Psychic Energy Collected[quotation mark] has also dropped off markedly."
 	
 Instead of pushing the plunger:
-	if catOnHold is false:
+	if CATONHOLD is false:
 		say "The plunger was already pushed all the way in.";
 	otherwise:
-		now catOnHold is false;
+		now CATONHOLD is false;
 		say "The LEDs again start lighting in order, clockwise, slowly at first, but then resuming their previous pace. The PEC counter starts clicking over more rapidly as well."
 		
 
@@ -2197,7 +2194,7 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "[if catOnHold is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
+	say "[if CATONHOLD is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you [end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
 	
 To say deckExits:	
 	say "The deck continues around to the ";
@@ -2285,7 +2282,7 @@ Instead of jumping when the player is in the Deck Area:
 		if the chain is clipped:
 			say "Fortunately, the chain prevents you from taking any such foolish action.";
 		otherwise:
-			if catOnHold is false:
+			if CATONHOLD is false:
 				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
 				now the chain is clipped;
 			otherwise:
@@ -2343,7 +2340,7 @@ Section 7 - Cat OverheadProxies
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
 To decide whether the cat is visible from overhead:
-	if catOnHold is false, yes;
+	if CATONHOLD is false, yes;
 	if the player is in DeckS and entry 1 in HEADING is listed in {"SE", "S", "SW"}, yes;
 	if the player is in DeckN and entry 1 in HEADING is listed in {"NW", "N", "NE"}, yes;
 	if the player is in DeckW and entry 1 in HEADING is listed in {"SW", "W", "NW"}, yes;
@@ -2770,26 +2767,26 @@ Instead of opening an interdicted door for the third time:
 Instead of opening an interdicted door for the fourth time:
 	move the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 	
 Instead of opening an interdicted door for the fifth time:
 	move the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 
 Instead of opening an interdicted door for the sixth time:
 	move the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 	
 Instead of opening an interdicted door:
 	move the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
-	now the current floor is 4;
+	now the CURRENTFLOOR is 4;
 	move the player to the elevator.
 	
 
