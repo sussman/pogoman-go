@@ -904,16 +904,13 @@ Instead of giving something  (called the item) to the unicorn:
 		say "The phone -- I could care about. That? Not so much.";
 	otherwise:
 		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the trophies of the player is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
-			say "TODO:  let the player into the building and give the phone back.";
+			say "[goOnin]";
 		otherwise:
-			say "[denyPlayerEntry]."
+			say "[denyPlayerEntry]"
 			
-To say denyPlayerEntry:
-	say "Sorry - entry denied. You need to have [the requirement]"
-		
 [to require both level and xp caps implies that we're looking for an XP value above that needed to achieve the player's current level]
 
-To say the requirement:
+To say requirement:
 	if the pogoLevel of the player is less than TOWER_LEVEL_REQUIREMENT:
 		say "reached level [TOWER_LEVEL_REQUIREMENT in words]";
 	otherwise:
@@ -927,12 +924,39 @@ To say the requirement:
 					say "[TOWER_TROPHY_REQUIREMENT in words] gym troph[if TOWER_TROPHY_REQUIREMENT is greater than 1]ies[otherwise]y[end if]";
 				otherwise:
 					say "ERROR: unknown problem with entry requirements".
-			
-			
-			
+					
+To say denyPlayerEntry:
+	say "[one of][deny1][or][deny2][or][deny3][or][deny4][or][deny4][or][deny4][or][deny5][or][deny4][stopping]".
+	
+To say deny1:
+	say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[paragraph break]You still can[apostrophe]t accept this. But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe].[paragraph break]";
+	bestow "Subjected to arbitrary requirements”.
+	
+To say deny2:
+	say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogomon player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe] a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
+	bestow "That puts things in perspective”.
+
+To say deny3:
+	say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I’m telling you.[quotation mark][paragraph break]";
+	bestow “But I am a special snowflake”.
+	
+To say deny4:
+	say "The unicorn stops you and uses his horn to point out the words on the door [apostrophe]Experienced Players Only. No exceptions -- The management.[apostrophe][paragraph break][quotation mark]Come back when you have at least [requirement].[quotation mark][paragraph break]”
+	
+To say deny5:
+	say deny4;
+	say "The unicorn rolls his eyes and under his breath mutters, [quotation mark]We got a bright one here, eh, Polanski?[quotation mark][paragraph break]From the rear of the unicorn, there is a wry reply, [quotation mark]I know, right?[quotation mark][paragraph break]";
+	bestow "Exceeded The Patience Of A Unicorn".
 		
 To say unicorn topics:
 	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how JJ Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food [or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[in random order]"
+	
+To say goOnIn:
+	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words] I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. He directs you through a revolving door to a security checkpoint just inside the building.";
+	move the player to the lobby.
+	[TODO: implement security checkpoint and the dryad]
+
+
 		
 After talking to the unicorn for the first time:
 	bestow "Talks With Unicorns".		
