@@ -528,13 +528,55 @@ Carry out badgifying:
 Report badgifying:
 	say "Badge color: [securityColor of the badge]."
 
-Section GettingXP
+Section XP Getting
 
 [let player manually increase their own XP for testing]
-GettingXP is an action applying to a number.
-Understand "getXP [a number]" as gettingXP.
-Carry out gettingXP the number understood:
+XPgetting is an action applying to a number.
+Understand "getXP [a number]" as XPgetting.
+
+Carry out xpGetting the number understood:
 	AwardXP the number understood.
+	
+Report xpGetting:
+	say "[number understood] XP awarded."
+	
+Section Trophy Getting
+
+[let player manually get gym trophies for testing]
+TrophyGetting is an action applying to a number.
+Understand "getTrophy [a number]" as TrophyGetting.
+
+Carry out TrophyGetting number understood:
+	now the trophies of the player is the number understood.
+	
+Report TrophyGetting:
+	say "[number understood] trophies awarded."
+	
+Section Medal Getting
+[let player manually get medals for testing]
+
+MedalGetting is an action applying to a number.
+Understand "getMedal [a number]" as MedalGetting.
+
+Carry out MedalGetting the number understood:
+	Let T be the number understood minus the number of entries in MEDALLIST;
+	repeat with N running from 1 to T:
+		add "[N]" to medalList.
+		
+Report MedalGetting:
+	say "[number understood] medals awarded."
+	
+Section Team Joining
+
+Teamjoining is an action applying to a color. 
+
+Understand "join [a color]" as teamjoining.
+
+Carry out teamjoining:
+	Now the team color of the player is the color understood.
+	
+Report teamjoining:
+	say "Welcome to [team color of the player] team!"
 
 Section GettingPogoman
 
@@ -863,8 +905,17 @@ To say unicorn3:
 To say unicorn4:
 	say "[quotation mark]I[apostrophe]ll give you credit for being persistent, but look, I[apostrophe]m just following company policy. Before you go in, I have to check out your game credentials. Nothing personal, it[apostrophe]s just the rules. So, let[apostrophe]s see the phone, okay?[quotation mark]".
 	
+Instead of showing something (called the item) to the unicorn:
+	try giving the item to the unicorn.
 
-
+Instead of giving something  (called the item) to the unicorn:
+	if the item is not the phone:
+		say "The phone -- I could care about. That? Not so much.";
+	otherwise:
+		say "TODO RULES FOR PHONE INSPECTION".
+		
+To say unicorn topics:
+	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how JJ Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food [or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[in random order]"
 		
 		
 		
@@ -1328,6 +1379,10 @@ Instead of talking to something (called the auditor):
 			say visitorRebuff;
 		-- yourself:
 			say "[one of]You mumble to yourself[or]That[apostrophe]s mildly worrisome[or]Every pogoman player starts doing it at some point; no reason to feel self-conscious[or]Receiving no answer, you desist[or]You ignore yourself[stopping]." instead;
+		-- Elon Musk:
+			say "Elon [one of]dismisses your comment[or]seems to ignore what you just said[or]seems oblivious to anything you say[or]is in his own little world, and your words fall on deaf ears[or]looks away distractedly for a moment[or]waves aside your remark[in random order].";
+		-- the unicorn:
+			say "The unicorn nods briefly, but this leads to a long conversation about [unicorn topics].";
 		-- otherwise:
 			say "TODO: dialogue for unicorn and others".
 			
@@ -3248,6 +3303,10 @@ Instead of dropping the phone:
 	
 Before doing something with the phone:
 	if the current action is rebooting, charging, eating, examining, dropping, attacking, or throwing at:
+		continue the action;
+	if the current action is showing to:
+		continue the action;
+	if the current action is giving to:
 		continue the action;
 	otherwise:
 		say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
