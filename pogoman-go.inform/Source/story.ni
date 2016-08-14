@@ -68,10 +68,6 @@ A victrola is a kind of supporter.
 A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
 A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
 
-A Fairyland creature is a kind of person. Fairyland creatures can be impressed. Fairyland creatures are usually not impressed.
-
-
-
 Section 2 - Player properties
 
 The player has a number called pogoLevel.
@@ -844,7 +840,7 @@ Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
 
 The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". The possible exits of the Nyantech Entrance are "The entrance to the tower itself is through a revolving brass door, just beyond the unicorn."
 
-The unicorn is a Fairyland Creature. The unicorn is in Nyantech Entrance. The unicorn is not impressed. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A badge identifies the unicorn as officers C. Harris and F. Polanski." Understand "badge" or "officer" or "officers" as the unicorn.
+The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A badge identifies the unicorn as officers C. Harris and F. Polanski." Understand "badge" or "officer" or "officers" as the unicorn.
 
 The revolvingDoorProxy is a privately-named scenery in the Nyantech Entrance. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy.
 
@@ -875,8 +871,6 @@ After going to Nyantech Entrance for the first time:
 Before entering proxyEntrance for the first time:
 	say "Eager to rub elbows with the creators of your favorite game, and to have a chance at the special pogoman rumored to inhabit the building, you saunter into revolving door.";
 	continue the action.
-	
-Definition: The unicorn is impressed if the xp of the player is at least TOWER_XP_REQUIREMENT and the pogolevel of the player is at least TOWER_LEVEL_REQUIREMENT and the trophies of the player is at least TOWER_TROPHY_REQUIREMENT and the number of entries in medalList is at least TOWER_MEDAL_REQUIREMENT.
 
 Instead of climbing the proxyEntrance:
 	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, spidey.[quotation mark][paragraph break][or]The surface is too slippery.[stopping]"
@@ -885,11 +879,8 @@ Instead of attacking the proxyEntrance:
 	say "The unicorn parries the attack with his sharp horn."
 
 Instead of entering the proxyEntrance:
-	if the unicorn is not impressed:
-		say "[one of][unicorn1][or][unicorn2][or][unicorn3][or][unicorn4][or][unicorn2][stopping][paragraph break]";
-	otherwise:
-		say "TODO: dialogue to allow entry."
-		
+	say "[one of][unicorn1][or][unicorn2][or][unicorn3][or][unicorn4][or][unicorn2][stopping][paragraph break]";
+			
 Instead of going inside when the player is in Nyantech Entrance:
 	try entering the proxyEntrance.
 		
@@ -912,13 +903,39 @@ Instead of giving something  (called the item) to the unicorn:
 	if the item is not the phone:
 		say "The phone -- I could care about. That? Not so much.";
 	otherwise:
-		say "TODO RULES FOR PHONE INSPECTION".
+		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the trophies of the player is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
+			say "TODO:  let the player into the building and give the phone back.";
+		otherwise:
+			say "[denyPlayerEntry]."
+			
+To say denyPlayerEntry:
+	say "Sorry - entry denied. You need to have [the requirement]"
+		
+[to require both level and xp caps implies that we're looking for an XP value above that needed to achieve the player's current level]
+
+To say the requirement:
+	if the pogoLevel of the player is less than TOWER_LEVEL_REQUIREMENT:
+		say "reached level [TOWER_LEVEL_REQUIREMENT in words]";
+	otherwise:
+		if the xp of the player is less than TOWER_XP_REQUIREMENT:
+			say "[TOWER_XP_REQUIREMENT] XP";
+		otherwise:
+			if the number of entries in MEDALLIST is less than TOWER_MEDAL_REQUIREMENT:
+				say "[TOWER_MEDAL_REQUIREMENT in words] medal[if TOWER_MEDAL_REQUIREMENT is greater than 1]s[end if]";
+			otherwise:
+				if the trophies of the player is less than TOWER_TROPHY_REQUIREMENT:
+					say "[TOWER_TROPHY_REQUIREMENT in words] gym troph[if TOWER_TROPHY_REQUIREMENT is greater than 1]ies[otherwise]y[end if]";
+				otherwise:
+					say "ERROR: unknown problem with entry requirements".
+			
+			
+			
 		
 To say unicorn topics:
 	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how JJ Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food [or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[in random order]"
 		
-		
-		
+After talking to the unicorn for the first time:
+	bestow "Talks With Unicorns".		
 		
 	
 
