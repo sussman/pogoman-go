@@ -62,21 +62,22 @@ A lift is a kind of room. A lift has a number called currentFloor.
 A Katatron is a kind of thing. A katatron has a number called PEC.  The PEC of a katatron is usually 0.
 A katatron has a number called MegaCats. The MegaCats of a katatron is usually 0.
 A katatron has a truth state called the onHoldFlag. The onHoldFlag of a katatron is usually true.
+[Note- there is probably only one katatron in existence - the one in Nyantech Tower]
 
 A victrola is a kind of supporter. 
 A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
 A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
 
-[Note- there is probably only one katatron in existence - the one in Nyantech Tower]
+A Fairyland creature is a kind of person. Fairyland creatures can be impressed. Fairyland creatures are usually not impressed.
+
+
 
 Section 2 - Player properties
 
 The player has a number called pogoLevel.
-
 The player has a number called XP.
-
+The player has a number called Trophies.
 The player has a number called distance walked. Distance walked is 0.
-
 The player has a color called team color. The team color of the player is usually none.
 
 [  
@@ -164,6 +165,13 @@ POGOMEN_INVENTORY_LIMIT is always 100.
 POGOITEM_INVENTORY_LIMIT is always 100.
 
 The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
+
+TOWER_XP_REQUIREMENT is always 1000.
+TOWER_TROPHY_REQUIREMENT is always 1.
+TOWER_LEVEL_REQUIREMENT is always 5.
+TOWER_MEDAL_REQUIREMENT is always 10.
+
+
 
 [additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
 
@@ -621,7 +629,7 @@ After deciding the scope of a player while the player is in a quadroom (called t
 	if the QTH is juxtaRailway:
 		place the Railway in scope.
 	
-Nyantech Entrance is a quadroom.
+Nyantech Entrance is a room.
 
 Old Jail, Dung Beetle Mural, Witch Pillory, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
 
@@ -792,10 +800,77 @@ Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
 
 [Nyantech Entrance]
 
-The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you." Nyantech Entrance is an improper-named structure. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". Understand "tower" or "obsidian" as Nyantech Entrance. Understand "building" as Nyantech Entrance when the location is Nyantech Entrance. The title of Nyantech Entrance is "Nyantech Tower (outside)".
+The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". The possible exits of the Nyantech Entrance are "The entrance to the tower itself is through a revolving brass door, just beyond the unicorn."
 
-Instead of entering Nyantech Entrance:
-	say "TODO: Scenes within Nyantech[paragraph break]".
+The unicorn is a Fairyland Creature. The unicorn is in Nyantech Entrance. The unicorn is not impressed. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A badge identifies the unicorn as officers C. Harris and F. Polanski." Understand "badge" or "officer" or "officers" as the unicorn.
+
+The revolvingDoorProxy is a privately-named scenery in the Nyantech Entrance. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy.
+
+The proxyEntrance is a privately-named scenery in the Nyantech Entrance. The printed name of proxyEntrance is "building".  The description of proxyEntrance is "An imposing fifty story building of black glass and home to the creators of your favorite game, Pogoman GO!" Understand "entrance" or "building" or "office" or "tower" or "obsidian" or "glass" or "HQ" or "headquarters" or "offices" as the proxyEntrance. 
+
+Instead of doing something with the revolvingDoorProxy:
+	if the current action is examining:
+		continue the action;
+	otherwise:
+		if the current action is entering:
+			try entering proxyEntrance instead;
+		otherwise:
+			if the current action is spinning:
+				try pushing the revolvingDoorProxy instead;
+			otherwise:
+				if the current action is pushing:
+					say "The door spins around. The unicorn looks annoyed but not surprised.";
+				otherwise:
+					if the current action is rubbing:
+						say "That unicorn says, [quotation mark]Please leave that to the professionals.[quotation mark][paragraph break]";
+					otherwise:
+						say "The unicorn remarks, [quotation mark]Are you going to monkey with the door all day long, or are you here to go into the building. Gheesh.[quotation mark][paragraph break]"
+
+After going to Nyantech Entrance for the first time:
+	say "You stand reverently below the enormous Nyantech Tower, its obsidian walls reaching majestically to the sky above you. From here, you can see the giant animatronic Nyantech Cat orbiting the building fifty stories above you, spewing sparkles in its wake. Its glowing red eyes sweep up and down, looking everywhere. This is the promised land, a place you have always dreamed of visiting.[paragraph break]Through the glass, you see Nyantech employees in the lobby scooting every which way on segways and hoverboards.[paragraph break]A uniformed unicorn stands near the revolving door leading inward to the lobby. With a hint of annoyance, he rubs your nose print off the glass with a furry hoof.[paragraph break]";
+	bestow "Reached the Mothership";
+	
+Before entering proxyEntrance for the first time:
+	say "Eager to rub elbows with the creators of your favorite game, and to have a chance at the special pogoman rumored to inhabit the building, you saunter into revolving door.";
+	continue the action.
+	
+Definition: The unicorn is impressed if the xp of the player is at least TOWER_XP_REQUIREMENT and the pogolevel of the player is at least TOWER_LEVEL_REQUIREMENT and the trophies of the player is at least TOWER_TROPHY_REQUIREMENT and the number of entries in medalList is at least TOWER_MEDAL_REQUIREMENT.
+
+Instead of climbing the proxyEntrance:
+	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, spidey.[quotation mark][paragraph break][or]The surface is too slippery.[stopping]"
+	
+Instead of attacking the proxyEntrance:
+	say "The unicorn parries the attack with his sharp horn."
+
+Instead of entering the proxyEntrance:
+	if the unicorn is not impressed:
+		say "[one of][unicorn1][or][unicorn2][or][unicorn3][or][unicorn4][or][unicorn2][stopping][paragraph break]";
+	otherwise:
+		say "TODO: dialogue to allow entry."
+		
+Instead of going inside when the player is in Nyantech Entrance:
+	try entering the proxyEntrance.
+		
+To say unicorn1:
+	say "The unicorn sticks a hoof in the revolving door to block your entrance.[paragraph break][quotation mark]Not so fast,[quotation mark] it says with all the authority that comes with a plastic badge. [quotation mark]I[apostrophe]ll need to see your cell phone.[quotation mark]".
+	
+To say unicorn2:
+	say "The unicorn taps it hoof. [quotation mark]Phone, please.[quotation mark]"
+	
+To say unicorn3:
+	say "[quotation mark]Let[apostrophe]s not make this difficult, buddy.[quotation mark] The unicorn leans towards you in a way that would be intimidating were it not a fairy creature. [quotation mark]I need to check your phone before you enter. It’s the rules.[quotation mark]"
+	
+To say unicorn4:
+	say "[quotation mark]I[apostrophe]ll give you credit for being persistent, but look, I[apostrophe]m just following company policy. Before you go in, I have to check out your game credentials. Nothing personal, it[apostrophe]s just the rules. So, let[apostrophe]s see the phone, okay?[quotation mark]".
+	
+
+
+		
+		
+		
+		
+	
+
 
 [Ashwell-Lott Estate]
 
