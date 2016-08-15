@@ -265,16 +265,6 @@ Carry out spinning:
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
 
-Section Amusing
-
-[TODO - this should be an out of world action after end of game, but enabled now for testing]
-Amusing is an action applying to nothing. Understand "amusing" as amusing.
-
-Carry out amusing:
-	say "You reached level [pogoLevel of the player] and obtained [the number of entries in MEDALLIST] medals:[paragraph break]";
-	repeat with L running through the MEDALLIST:
-		say "     * [L][line break]".
-	
 Section Evolving
 
 Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
@@ -441,14 +431,34 @@ Chapter Medals
 
 Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
 
-Before doing something with medals for the first time:
+Before doing something other than examining with medals when Around The Town is happening for the first time:
 	say "The medals aren’t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman Go! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]medal self-reference[quotation mark] medal.[paragraph break]Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone’s resources and locks it up. Sorry.";
 	now the phone is hung;
 	stop the action.
 	
-Instead of doing something with the medals:
-	say "The medals [one of]aren’t tangible.[or]are a metaphor.[or]only exist on your phone -- they're not real.[or]are like the cake, a lie.[or]are not physically present. Think of them as a data structure within a program running on a computer. That shouldn't be too hard to visualize, right?[stopping][paragraph break]". 
+Instead of doing something other than examining with the medals:
+	if Around the Town is happening:
+		say "The medals [one of]aren’t tangible[or]are a metaphor[or]only exist on your phone -- they[apostrophe]re not real[or]are like the cake, a lie[or]are not physically present. Think of them as a data structure within a program running on a computer. That shouldn[apostrophe]t be too hard to visualize[stopping].[paragraph break]";
+	otherwise:
+		if the current action is rubbing:
+			say "You polish your medals.";
+		otherwise:
+			if the current action is taking:
+				say "You already have them.";
+			otherwise:
+				say "You prefer to just admire them."
 	
+Instead of examining the medals:
+	If Around The Town is happening:
+		if the number of entries in MEDALLIST is 0:
+			say "It is unthinkable that you have no medals.[paragraph break]";
+			bestow "Pity Medal";
+		say "You phone lists the [number of entries in MEDALLIST in words] medal[if the number of entries in MEDALLIST is greater than one]s[end if] you have won:[paragraph break]";
+	otherwise:
+		say "You are bespangled with the following medals:[paragraph break]";
+	repeat with L running through the MEDALLIST:
+		say "     * [L][line break]".
+
 To Bestow (medallion - some text):
 	let L be text;
 	now L is medallion;
@@ -1420,7 +1430,7 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Packing, and Processing are rooms in HQ.
 
 [Top Level, Interior]
 
@@ -2460,6 +2470,10 @@ To say printedRoofDoor:
 After going south from the stairsRoof for the first time:
 	bestow "Made it to the top".
 	
+Processing is a room.
+
+Packaging is a room.
+
 
 Section 4 - Deck
 
@@ -3150,7 +3164,7 @@ Instead of switching on the sound system for the first time:
 Instead of switching on the sound system:
 	say "You no longer trust Elon Musk[apostrophe]s musical taste."
 
-The headsUpDisplay is privately-named scenery in the MuskPodRoom. The printed name of the headsUpDisplay is "heads-up display". The headsUpDisplay is not lit. The description of the headsUpDisplay is "[HUDdescription]." Understand "display" or "heads-up" or "holograph" or "holographic" or "projection" or "HUD" as the headsUpDisplay. Understand "launch" as the headsUpDisplay when the headsUpDisplay is not lit. Understand "status" as the headsUpDisplay when the headsUpDisplay is lit.
+The headsUpDisplay is privately-named scenery in the MuskPodRoom. The printed name of the headsUpDisplay is "heads-up display". The headsUpDisplay is not lit. The description of the headsUpDisplay is "[HUDdescription]." Understand "display" or "heads-up" or "holograph" or "holographic" or "projection" or "HUD" as the headsUpDisplay. Understand "launch" as the headsUpDisplay when the headsUpDisplay is not lit. Understand "status" as the headsUpDisplay when the headsUpDisplay is lit. Understand "eject" as the headsUpDisplay when the muskPod is in Pogoland Terminal.
 
 To say HUDdescription:
 	say "Currently, the HUD displays the words  [quotation mark]";
@@ -3182,7 +3196,7 @@ After touching the headsUpDisplay when the headsUpDisplay is not lit:
 	
 After touching the headsUpDisplay:
 	if the MuskPod is in Pogoland Terminal:
-		say "You fly from the passenger compartment and land safely on an adjacent concrete platform. Looking behind, you see a large leather boot on a robotically actuated arm retract into the pod. See -- Elon Musk does have a sense of humor.[paragraph break]The canopy descends and the MuskPod is off in a flash, back along the rails in direction that it had arrived.";
+		say "You fly from the passenger compartment and land safely on an adjacent concrete platform. Looking behind, you see a large leather boot on a robotically actuated arm retract into the pod. See -- Elon Musk does have a sense of humor.[paragraph break]The canopy descends and the MuskPod is off in a flash, back along the rails in direction from which it had arrived.";
 		move the player to Pogoland Terminal;
 		move the MuskPod to the void;
 	otherwise:
@@ -3558,6 +3572,8 @@ Book 6 - Scenes
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the lobby.
 
 Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the MuskPod.
+
+Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
 
 
 
