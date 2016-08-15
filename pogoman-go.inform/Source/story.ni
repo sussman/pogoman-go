@@ -595,10 +595,10 @@ When play begins:
 	now the flavor of the pop-tart is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
-	move the player to a random okayStartLocation, without printing a room description;
 	openGame.
 	
 To openGame:
+	move the player to a random okayStartLocation, without printing a room description;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
 	if T is less than 12:
@@ -611,7 +611,7 @@ To openGame:
 		say "[T minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
-	say ". You must have drifted off for a bit, but no bother. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it![paragraph break]".
+	say ". You must have drifted off for a bit, but no bother[one of]. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it[or][stopping]!"
 	[TODO - uncomment for production - now disabled to allow replays -- >wait for any key]
 	
 After printing the banner text:
@@ -1245,6 +1245,71 @@ Toxicodendron radicans is an improper-named artifact. Understand "poison" or "iv
 The description of Perilous Passageway is "A disgusting passageway."
 
 Perilous Passageway is an improper-named place. Understand "dirty" or "alley" or "perilous" or "passage" or "passageway" as Perilous Passageway.  The printed name of proxy-PerilousPassageway is "dirty alley". The title of Perilous Passageway is "Perilous Passageway".
+
+Instead of going a direction to the perilous passageway:
+	say "[one of][passage1][or][passage2][or][passage3][or][passage4][or][passage5][or][passage6][or][passage7][or][passage8][or][passage9][or][passage10][or][passage11][or][passage12][stopping]";			
+	
+To say passage1:
+	say "You are torn. Clearly, there is a rare pogoman down the dark winding passageway you are standing in front of  -- and having a rare pogoman would certainly help you win gym battles. On the other hand, it’s narrow, poorly lit and in all the years you have lived in this town, you’ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
+	bestow "At Least Briefly Listened To Your Inner Voice".
+	
+To say passage2:
+	say "As you round a pile of boxes behind a garbage bin, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
+	phoneDeath.
+	
+To say passage3:
+	say "You recall that last time, walking into this foreboding passageway didn’t work out very well for you. You consider walking around the block. On the other hand, you’ve never even seen some of the rare pogomen that your phone has detected in there. [paragraph break]Decisions, decisions."
+	
+To say passage4:
+	say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
+[quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That’s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I’m just saying it’s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
+	phoneDeath.
+	
+To say passage5:
+	say "Hmm… that dangerous passageway to the east… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it.[paragraph break]";
+	bestow "Slow Learner".
+	
+To say passage6:
+	say "A familiar scene unfolds. Two thugs jump out from behind boxes and squint at you in the dim light.[paragraph break][quotation mark]Hey Eddy?[quotation mark][paragraph break][quotation mark]Yeah, Frankie?[quotation mark][paragraph break][quotation mark]Is that the bozo who keeps coming back?[quotation mark][paragraph break][quotation mark]The improbable ninja dude?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break][quotation mark]Yeah, I think so. Or, at least someone so similar as to be indistinguishable.[quotation mark][paragraph break][quotation mark]So, for all practical purposes, it is?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break]Eddy lifts a garbage can lid to protect himself from your ninjitsu, while Frankie winds up with two ten-pound cured salamis and claps them together around your head. The phone flies from your grip, ricochets off the dumpster and the screen shatters, showering Frankie with razor-sharp shards of trademarked Corning Gorilla Glass.[paragraph break]You go down like a sack of bricks.";
+	phoneDeath.
+	
+To say passage7:
+	say "No, just no.[paragraph break]";
+	bestow "Better Part Of Valor".
+	
+To say passage8:
+	say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]";
+	bestow "Pain Is The Best Teacher".
+	
+To say passage9:
+	say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don’t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We’re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.";
+	move the player to the perilous passageway.
+	[TODO: A rare pogoman appears]
+	
+To say passage10:
+	say "With lingering trepidation, you enter the perilous passageway.";
+	now the title of the perilous passageway is "until recently periolous passage way";
+	now the description of the perilous passageway is "A passageway that is less disgusting than the last time you were here.";
+	move the player to the perilous passageway.
+	
+To say passage11:
+	now the title of the perilous passageway is "Entirely Safe Passageway";
+	say "You walk with confidence into the formerly perilous passageway.";
+	now the description of the perilous passageway is "A well-lit passageway between buildings.";
+	move the player to the perilous passageway.
+	
+To say passage12:
+	move the player to the perilous passageway.
+
+
+
+
+
+
+
+
+
+
 
 Section Dealing with Quadrooms
 
@@ -3424,7 +3489,11 @@ To phoneDeath:
 	wait for any key;
 	say paragraph break;
 	clear the screen;
-	say "After beating your head against the ground a few times, you realize... you could just buy a new phone.[paragraph break]A day goes by while you [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]";
+	if the player is in a room adjacent to the Perilous Passageway:
+		say "Some nebulous time later, you regain consciousness not too far from the passageway, where you were so ignominiously assaulted. For the rest of the day you[run paragraph on]";
+	otherwise:
+		say "A day goes by while you[run paragraph on]";
+	say " [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]Worn out by so much activity not involving actual playing of Pogoman GO! you collapse of exhaustion.";
 	openGame;
 	try looking.
 
