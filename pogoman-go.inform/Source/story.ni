@@ -241,6 +241,7 @@ This is the run from sound rule:
 		move the player to the Lobby.
 		
 After going from somewhere:
+	increase the distance walked  of the player by one;
 	if the distance walked of the player is listed in PEDOMETER_AWARD_DISTANCES:
 		bestow "Traveler: [distance walked of the player] turns spent moving";
 	continue the action.
