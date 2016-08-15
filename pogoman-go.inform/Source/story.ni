@@ -145,6 +145,24 @@ To distributeTownGyms:
 	repeat with N running from 1 to a random number from MIN_TOWN_GYMS to MAX_TOWN_GYMS:
 		add a random okayGymLocation to GYMLIST;
 	move the gym backdrop to all the gymTargeted rooms.
+	
+Instead of examining a gym for the first time:
+	say "A stack of glowing, colored rings that float in the air. To fight in the gym, you must first enter it.[paragraph break]";
+	bestow "Noticed A Gym".
+	
+Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT for the first time:
+	say "You can[apostrophe]t fight in a gym until you reach level [GYM_ENTRY_LEVEL_REQUIREMENT in words]. It has something to do with your creditworthiness.[paragraph break]";
+	bestow "Dealt With A Minor Rebuke".
+	
+Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT:
+	say "A bouncer pogoman peers out of the gym through a narrow, sliding window and says, [quotation mark]Don[apostrophe]t nobody get in what ain[apostrophe]t got to level [GYM_ENTRY_LEVEL_REQUIREMENT in words], so [one of]beat it[or]take off[or]get yourself gone[or]get lost[or]take a powder[or]hit the road, sunshine[or]shove off[or]vamoose[or]take a hike[in random order].[quotation mark][paragraph break]"
+	
+Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the first time:
+	say "temp1".
+	
+Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the second time:
+	say "temp2".
+
 
 [The Pogomen themselves!]
 
@@ -183,9 +201,11 @@ POGOITEM_INVENTORY_LIMIT is always 100.
 
 The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
 
+GYM_ENTRY_LEVEL_REQUIREMENT is always 5.
+
 TOWER_XP_REQUIREMENT is always 1000.
 TOWER_TROPHY_REQUIREMENT is always 1.
-TOWER_LEVEL_REQUIREMENT is always 5.
+TOWER_LEVEL_REQUIREMENT is always 8.
 TOWER_MEDAL_REQUIREMENT is always 10.
 
 The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
