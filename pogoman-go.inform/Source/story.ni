@@ -743,6 +743,57 @@ Carry out hanging: [if hangin' ain't too good fer folks like them]
 	
 Report hanging:
 	say "The phone is now well hung."
+	
+Section 8 - Scan
+
+The phantom is a privately-named scenery. The description of the phantom is "A point source of energy." The phantom is in the void.
+
+To say bar:
+	repeat with N running from 1 to 21:
+		say "-";
+		
+To say the map symbol of (QTH - a room):
+	if the player is in the QTH:
+		say "X";
+	otherwise:
+		if the QTH is listed in POGOSTOPLIST:
+			say "P";
+		otherwise:
+			if the QTH is listed in GYMLIST:
+				say "G";
+			otherwise:
+				if the QTH is Nyantech Entrance:
+					say "N";
+				otherwise:
+					say "-".
+	
+Scanning is an action applying to nothing. Understand "scan" as scanning.
+
+Check scanning:
+	if the player is not in the village:
+		say "Scanner only works in the village.";
+		the rule fails.
+
+Report scanning:
+	say fixed letter spacing;
+	say line break;
+	let HOME be the Dung Beetle Mural;
+	move the phantom to HOME;
+	repeat with Y running from 1 to 7:
+		say "|";
+		say the map symbol of the location of the phantom;
+		say "|";
+		repeat with X running from 1 to 6:
+			move the phantom to the room east from the location of the phantom;
+			say the map symbol of the location of the phantom;
+			say "|";
+		say "[line break]";
+		move the phantom to home;
+		repeat with N running from 1 to Y:
+			move the phantom to the room south from the location of the phantom;		
+	say roman type;
+	move the phantom to the void.
+			
 
 Chapter Initialize
 
