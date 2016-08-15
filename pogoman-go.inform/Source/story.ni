@@ -413,19 +413,40 @@ Report rebooting:
 	say "You reboot the phone."	
 
 After rebooting:
-	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][stopping]".
+	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][or][postHang5][or][postHang6][or][postHang7][or][postHang8][stopping]".
 	
 To say postHang1:
 	say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.".
 	
 To say postHang2:
-	say "".
+	say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn’t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
+	now the phone is hung.
 	
 To say postHang3:
-	say "".
+	say "The phone rolls its figurative eyes and reboots.[paragraph break]";
+	bestow "Successfully rebooted your phone”.
 	
 To say postHang4:
-	say "The phone reboots".
+	say "The phone starts to reboot, but strangely stops mid-way through and clears the screen. The following text appears:[paragraph break]WOULD YOU RATHER PLAY A NICE GAME OF GLOBAL THERMONUCLEAR WAR?_";
+	if the player consents:
+		say "[line break]Your phone replies, [quotation mark]Great! Maybe later. Let[apostrophe]s see how the rest of the day goes[run paragraph on]";
+	otherwise:
+		say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman Go! it is, then[run paragraph on]";
+	say ",[quotation mark] and finishes rebooting."	
+		
+To say postHang5:
+	say "The phone takes a deep breath and goes down for the count. After a few seconds of sheer terror, you are relieved to see it come back to life.[paragraph break]";
+	bestow "Persistence born of unhealthy obsession".
+	
+To say postHang6:
+	say "The phone swoons dramatically, its status light blinking one last time feebly before it power cycles laconically.[paragraph break]Another splash screen, some time spent watching the progress bar’s glacial crawl… and you’re back in.[paragraph break]";
+	bestow "You type reboot a lot, don’t you?”.
+	
+To say postHang7:
+	say "After the usual reboot sequence, the phone begins installing an app update and displays a notification from Nyantech:[paragraph break][quotation mark]Although there is nothing at all wrong with our software -- and never was -- we are nonetheless providing a software update that should mostly fix it.[quotation mark][paragraph break]The update finishes, and you are back in the game."
+		
+To say postHang8:
+	say "The phone reboots."
 
 Instead of doing something when the phone is hung for the first time:
 	if the current action is phoneBooting or rebooting:
