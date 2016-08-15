@@ -116,7 +116,7 @@ Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech E
 Definition: a room is pogoStopTargeted if it is listed in POGOSTOPLIST.
 
 To distributeTownPogostops:
-	repeat with N running from 1 to a random number between MIN_TOWN_POGOSTOPS  and MAX_TOWN_POGOSTOPS:
+	repeat with N running from 1 to a random number from MIN_TOWN_POGOSTOPS  to MAX_TOWN_POGOSTOPS:
 		add a random okayInitialPogostopLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
@@ -126,6 +126,25 @@ Instead of taking the pogostop for the first time:
 	
 Instead of taking a pogostop:
 	say "You can[apostrophe]t."
+	
+[Gyms]
+
+A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
+
+Definition: A quadroom is an okayGymLocation if it is not Nyantech Entrance and it is not Perilous Passageway and it is not listed in POGOSTOPLIST and it is not listed in GYMLIST.
+
+Definition: a room is gymTargeted if it is listed in GYMLIST.
+
+To paintTheTown:
+	repeat with N running through quadrooms:
+		let R be a random number between 1 and the number of entries in CORE_TEAM_COLORS;
+		now the color of N is entry R in CORE_TEAM_COLORS.
+		
+To distributeTownGyms:
+	paintTheTown;
+	repeat with N running from 1 to a random number from MIN_TOWN_GYMS to MAX_TOWN_GYMS:
+		add a random okayGymLocation to GYMLIST;
+	move the gym backdrop to all the gymTargeted rooms.
 
 [The Pogomen themselves!]
 
@@ -142,8 +161,10 @@ Chapter Declare Constants
 INITIAL_POGOLEVEL is always 3.
 INITIAL_XP is always 320.
 
-MIN_TOWN_POGOSTOPS is always 10.
-MAX_TOWN_POGOSTOPS is always 15.
+MIN_TOWN_POGOSTOPS is always 6.
+MAX_TOWN_POGOSTOPS is always 9.
+MIN_TOWN_GYMS is always 2.
+MAX_TOWN_GYMS is always 4.
 
 POGOSTOP_TIMEOUT_DURATION is always 10.
 
@@ -167,6 +188,8 @@ TOWER_TROPHY_REQUIREMENT is always 1.
 TOWER_LEVEL_REQUIREMENT is always 5.
 TOWER_MEDAL_REQUIREMENT is always 10.
 
+The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
+
 
 
 [additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
@@ -181,6 +204,7 @@ SUPPRESSMEDALS is a truth state that varies.
 [lists - because Jack loves lists]
 
 POGOSTOPLIST is a list of rooms that varies.
+GYMLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
@@ -247,10 +271,17 @@ After going from somewhere:
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
-	if the pogostop is in the locale:
+	if the pogostop is in the locale or the gym is in the locale:
 		say "The ";
+	if the pogostop is in the locale:
 		say header of the locale;
-		say " pogostop is here."
+		say " pogostop";
+	otherwise:
+		if the gym is in the locale:
+			say color of the locale;
+			say " Gym";
+	if the pogostop is in the locale or the gym is in the locale:
+		say " is here."
 
 Chapter Activities
 
@@ -703,6 +734,7 @@ When play begins:
 	now the flavor of the pop-tart is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
+	distributeTownGyms;
 	openGame.
 	
 To openGame:
@@ -758,7 +790,7 @@ Chapter Around Town
 
 Section 1 - Framework
 
-Quadroom is a kind of room. A quadroom has a localeDescriptor. The localeDescriptor of a quadroom is usually structure. 
+Quadroom is a kind of room. A quadroom has a localeDescriptor. The localeDescriptor of a quadroom is usually structure. A quadroom has a color. The color of a quadroom is usually Teal.
 
 A quadroom can be nord.
 A quadroom can be sud.
