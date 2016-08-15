@@ -186,14 +186,20 @@ HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "S
 
 Chapter Rules Modifications
 
- For printing a locale paragraph about a door (called the item) 
-    (this is the don't mention doors in room descriptions rule): 
-    set the locale priority of the item to 0; 
-    continue the activity.
 
-[
-if a title isn't specified, the printed name will be used. If the printed name isn't specified, the printed name is automatically based on what ever name was used in declaring the object. Most locations are flagged as improper-named so the printed name will work correctly, i.e., "the object" instead of "object", when "the" is a phrase option.
-]
+Section 1 - Get rid of Get All
+
+[A more efficient no more get all, suggested by Radical Al:]
+
+After reading a command:
+	if the player's command includes "all":
+		if the phone is not hung:
+			say "One at a time, please.";
+		otherwise:
+			do nothing;
+		reject the player's command.
+
+Section 2 - Room Headers
 
 To say header of (QTH - a room):
 	let T be the title of the location;
@@ -209,10 +215,25 @@ This is the room header rule:
 	
 The room header rule substitutes for the room description heading rule.
 
+Section 3 - Get rid of door descriptions
+
+ For printing a locale paragraph about a door (called the item) 
+    (this is the don't mention doors in room descriptions rule): 
+    set the locale priority of the item to 0; 
+    continue the activity.
+
+[
+if a title isn't specified, the printed name will be used. If the printed name isn't specified, the printed name is automatically based on what ever name was used in declaring the object. Most locations are flagged as improper-named so the printed name will work correctly, i.e., "the object" instead of "object", when "the" is a phrase option.
+]
+
+Section 4 - Listing custom exits
+
 This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
 		
+Section 5 - Miscellany (probably reorganize later)
+
 This is the run from sound rule:
 	if the speaker is active and the walkman is not worn:
 		say "You run screaming from the LAN closet back into the Lobby, slamming the LAN Closet Door behind you.";
@@ -386,10 +407,26 @@ Check rebooting:
 	
 Carry out rebooting:
 	now the phone is not hung;
-	now the ignored command count of the phone is 0;
-	if the phone has been hung once:
-		say "The phone reboots[one of].[paragraph break]When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts[or][stopping]."	
+	now the ignored command count of the phone is 0.
 	
+Report rebooting:
+	say "You reboot the phone."	
+
+After rebooting:
+	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][stopping]".
+	
+To say postHang1:
+	say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.".
+	
+To say postHang2:
+	say "".
+	
+To say postHang3:
+	say "".
+	
+To say postHang4:
+	say "The phone reboots".
+
 Instead of doing something when the phone is hung for the first time:
 	if the current action is phoneBooting or rebooting:
 		continue the action;
@@ -400,21 +437,20 @@ Before doing something when the phone is hung:
 	if the current action is phoneBooting or rebooting:
 		continue the action;
 	otherwise:
+		increase the ignored command count of the phone by one;
 		if the current action is going:
-			say "No sense in walking anywhere if the game isn’t playing. Better reboot the phone.";
-			stop the action;
-		otherwise:
-			increase the ignored command count of the phone by one;
-			if the ignored command count of the phone is:
-				-- 10: 
-					say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]";
-				-- 20:
-					say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command.";
-				-- 30:
-					say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
-					try rebooting the phone;
-			stop the action.
-
+			say "[one of]No sense in walking anywhere if the game isn’t playing. Better reboot the phone.[or][run paragraph on][stopping]";
+		if the ignored command count of the phone is:
+			-- 10: 
+				say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]" instead;
+			-- 20:
+				say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command." instead;
+			-- 30:
+				say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
+				try rebooting the phone;
+				stop the action;
+			-- otherwise:
+				stop the action.
 		
 Section Swimming
 
@@ -543,24 +579,8 @@ After waiting for the first time, bestow "Loitering Around".
 
 Chapter Not Ready For Prime Time - Not for release
 
-Summarizing is an action out of world. Understand "summary" as summarizing.
 
-Report summarizing:
-	say "Summary ... more pending"
-	
-Badgifying is an action applying to nothing. Understand "badgify" as badgifying.
-
-Carry out badgifying:
-	let L be the list of securityColors;
-	while entry 1 of L is not the securityColor of the badge:
-		rotate L backwards;
-	rotate L backwards;
-	now the securityColor of the badge is entry 1 of L.
-
-Report badgifying:
-	say "Badge color: [securityColor of the badge]."
-
-Section XP Getting
+Section 1 - Getting XP
 
 [let player manually increase their own XP for testing]
 XPgetting is an action applying to a number.
@@ -572,7 +592,7 @@ Carry out xpGetting the number understood:
 Report xpGetting:
 	say "[number understood] XP awarded."
 	
-Section Trophy Getting
+Section 2 - Getting Trophies
 
 [let player manually get gym trophies for testing]
 TrophyGetting is an action applying to a number.
@@ -584,7 +604,7 @@ Carry out TrophyGetting number understood:
 Report TrophyGetting:
 	say "[number understood] trophies awarded."
 	
-Section Medal Getting
+Section 3 - Getting Medals
 [let player manually get medals for testing]
 
 MedalGetting is an action applying to a number.
@@ -598,7 +618,33 @@ Carry out MedalGetting the number understood:
 Report MedalGetting:
 	say "[number understood] medals awarded."
 	
-Section Team Joining
+Section 4 - Getting A Pogoman
+
+[forcibly grab a Pogoman without using a pogoball]
+GettingPogoman is an action applying to a thing.  Understand "getPogoman [thing]" as gettingPogoman.
+
+Carry out gettingPogoman:
+	if the noun is a pogoman:
+		now the player carries the noun;
+		say "You forcibly grab [the noun].[paragraph break]";
+	otherwise:
+		say "That's not a pogoman.[paragraph break]".
+	
+Section 5 - Badgifying
+	
+Badgifying is an action applying to nothing. Understand "badgify" as badgifying.
+
+Carry out badgifying:
+	let L be the list of securityColors;
+	while entry 1 of L is not the securityColor of the badge:
+		rotate L backwards;
+	rotate L backwards;
+	now the securityColor of the badge is entry 1 of L.
+
+Report badgifying:
+	say "Badge color: [securityColor of the badge]."
+
+Section 6 - Joining Teams
 
 Teamjoining is an action applying to a color. 
 
@@ -609,18 +655,22 @@ Carry out teamjoining:
 	
 Report teamjoining:
 	say "Welcome to [team color of the player] team!"
-
-Section GettingPogoman
-
-[forcibly grab a Pogoman without using a pogoball]
-GettingPogoman is an action applying to a thing.  Understand "getPogoman [thing]" as gettingPogoman.
-Carry out gettingPogoman:
-	if the noun is a pogoman:
-		now the player carries the noun;
-		say "You forcibly grab [the noun].[paragraph break]";
-	otherwise:
-		say "That's not a pogoman.[paragraph break]".
 	
+Section 7 - Hanging The Phone
+
+Hanging is an action applying to nothing.
+
+Understand "hang" or "crash" as hanging.
+
+Check hanging:
+	if the phone is hung, say "The phone is already hung." instead.
+	
+Carry out hanging: [if hangin' ain't too good fer folks like them]
+	now the phone is hung.
+	
+Report hanging:
+	say "The phone is now well hung."
+
 Chapter Initialize
 
 When play begins:
@@ -660,7 +710,9 @@ Chapter Every Turn
 Every turn:	
 	if the walkman is worn by the player:
 		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
-	if the current action is looking or going, follow the list exits rule;
+	if the current action is looking or going:
+		if the phone is not hung:
+			follow the list exits rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 	
@@ -1376,11 +1428,14 @@ A direction can be blasphemous or orthodox. A direction is usually orthodox. Nor
 A person can be untainted or sinful. The player is untainted.
 
 Before going a blasphemous direction when the location is in The Village:
-	say "No can do. The City Fathers were Ultra-Orthogonalists.[paragraph break]";
-	if the player is untainted:
-		now the player is sinful;
-		bestow "No-cutting-corners";
-		stop the action.
+	if the phone is hung:
+		try going north instead;
+	otherwise:
+		say "No can do. The City Fathers were Ultra-Orthogonalists.[paragraph break]";
+		if the player is untainted:
+			now the player is sinful;
+			bestow "No-cutting-corners";
+			stop the action.
 
 Section Borders
 
@@ -3490,18 +3545,24 @@ Instead of dropping the phone:
 	say "You could never bring yourself to do that -- you need it to play Pogoman Go!"
 	
 Before doing something with the phone:
-	if the current action is rebooting, charging, eating, examining, dropping, attacking, or throwing at:
-		continue the action;
-	if the current action is showing to:
-		continue the action;
-	if the current action is giving to:
-		continue the action;
+	if the phone is hung:
+		if the current action is rebooting:
+			continue the action;
+		otherwise:
+			stop the action;
 	otherwise:
-		say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
-		if the phone is not pokedat:
-			bestow "My Phone Doesn't Play That";
-			now the phone is pokedat;			
-		stop the action.
+		if the current action is rebooting, charging, eating, examining, dropping, attacking, or throwing at:
+			continue the action;
+		if the current action is showing to:
+			continue the action;
+		if the current action is giving to:
+			continue the action;
+		otherwise:
+			say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
+			if the phone is not pokedat:
+				bestow "My Phone Doesn't Play That";
+				now the phone is pokedat;			
+			stop the action.
 		
 Dialing is an action applying to one thing. Understand "dial [something]" as dialing.
 
