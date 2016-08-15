@@ -170,10 +170,21 @@ Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTR
 	say "A bouncer pogoman peers out of the gym through a narrow, sliding window and says, [quotation mark]Don[apostrophe]t nobody get in what ain[apostrophe]t got to level [GYM_ENTRY_LEVEL_REQUIREMENT in words], so [one of]beat it[or]take off[or]get yourself gone[or]get lost[or]take a powder[or]hit the road, sunshine[or]shove off[or]vamoose[or]take a hike[in random order].[quotation mark][paragraph break]"
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the first time:
-	say "temp1".
+	say "The game pauses pensively.[paragraph break]The screen changes to the interior of the gym and the camera pans. Then everything stops. The game has glitched.";
+	now the phone is hung.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the second time:
-	say "temp2".
+	say "The scene shifts fluidly to the interior of the gym. The [color of the location] team has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There’s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It’s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It’s not going anywhere.[paragraph break]It’s stuck. Your phone has crashed.";
+	now the phone is hung.
+	
+Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the third time:
+	say "The exterior of the gym dissolves and your pogoman faces off against an obviously inferior opponent: a low-level Tinkelwaif. The Tinklewaif looks like it has been through hell and back in this gym. Its fur is matted and tufts are missing. It stares ahead with wide, emotionless eyes, ready to endure yet another senseless beating for the honor of the gym. During the countdown it swigs deeply from a hip flask and shakes its scar-covered head to focus, showering the gym in tinkeldust. The countdown finishes, and your Pestilence Vermin leaps across the arena, claws bared, fangs down, sure of an easy kill.[paragraph break]Turn after turn, your pogoman rips into the frail Tinkelwaif with highly effective attacks; its special move sends the hopelessly outclassed Tinkelwaif to the mat. Its life energy trickles away and you sense victory a mere moment away.[paragraph break]And then the HP counter holds at one.[paragraph break]Through a curtain of tears and blood, the Tinkelwaif smiles vindictively and climbs back to its feet, still hanging onto your pogoman for support. You pogoman hasn’t noticed. It is still flinging attack after attack, but doing no damage.[paragraph break]Now it is your pogoman who is flagging. Its attacks come slower and slower. It fights a futile battle. Frothy blood escapes its lips as it collapses to the ground and is kicked cruelly by the opponent -- it looks imploringly at you, unable to understand how the tables have turned. The victorious Tinkelwaif pushes your pogoman to the edge of the gym platform and slow claps for itself as the empty shell of a pogoman plunges to the ground.[paragraph break]You console yourself that at least the game didn’t freeze.[paragraph break]";
+	wait for any key;
+	say "And then the game freezes.";
+	now the phone is hung.
+	
+Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
+	say "TODO: General Gym Battle Simulation HERE."
 
 
 [The Pogomen themselves!]
@@ -481,7 +492,7 @@ Report rebooting:
 	say "You reboot the phone."	
 
 After rebooting:
-	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][or][postHang5][or][postHang6][or][postHang7][or][postHang8][stopping]".
+	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][or][postHang5][or][postHang6][stopping]".
 	
 To say postHang1:
 	say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.".
@@ -501,19 +512,11 @@ To say postHang4:
 	otherwise:
 		say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman Go! it is, then[run paragraph on]";
 	say ",[quotation mark] and finishes rebooting."	
-		
+	
 To say postHang5:
-	say "The phone takes a deep breath and goes down for the count. After a few seconds of sheer terror, you are relieved to see it come back to life.[paragraph break]";
-	bestow "Persistence born of unhealthy obsession".
-	
-To say postHang6:
-	say "The phone swoons dramatically, its status light blinking one last time feebly before it power cycles laconically.[paragraph break]Another splash screen, some time spent watching the progress bar’s glacial crawl… and you’re back in.[paragraph break]";
-	bestow "You type reboot a lot, don’t you?”.
-	
-To say postHang7:
-	say "After the usual reboot sequence, the phone begins installing an app update and displays a notification from Nyantech:[paragraph break][quotation mark]Although there is nothing at all wrong with our software -- and never was -- we are nonetheless providing a software update that should mostly fix it.[quotation mark][paragraph break]The update finishes, and you are back in the game."
+	say "After the usual reboot sequence, the phone begins installing an app update and displays a notification from Nyantech:[paragraph break][quotation mark]Although there is nothing at all wrong with our software -- [italic type]and never was[roman type] -- we are nonetheless providing a software update that should mostly fix it.[quotation mark][paragraph break]The update finishes, and you are back in the game."
 		
-To say postHang8:
+To say postHang6:
 	say "The phone reboots."
 
 Instead of doing something when the phone is hung for the first time:
