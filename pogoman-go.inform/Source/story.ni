@@ -370,7 +370,7 @@ To CheckLevel:
 
 Section Rebooting
 
-PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting.
+PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" or "r" as phoneBooting when the phone has been hung. 
 
 Carry out phoneBooting:
 	try rebooting the phone.
@@ -378,12 +378,17 @@ Carry out phoneBooting:
 Rebooting is an action applying to one thing. Understand "reboot [something]" as rebooting.
 
 Check rebooting:
-	if the noun is not the phone, say "You can't reboot that.[paragraph break]" instead.
+	if the noun is not the phone:
+		say "You can't reboot that.[paragraph break]" instead;
+	if the noun is the phone:
+		if the phone is not hung:
+			say "The phone says that it [one of]has not crashed[or]is just fine[or]has not suffered a system malfunction[or]is functioning within nominal parameters[or]has better things to do with its machine cycles[in random order] and refuses to reboot[one of], because rebooting takes a lot out of it, and it just doesn[apostrophe]t feel like it.[or] and suggests that you take an unnecessary nap for a while instead.[or], but does take a few minutes for what it calls [quotation mark]me[quotation mark] time forcing you to wait while it downloads the latest updates to system software.[or] on principle.[or]. It notes that were it actually hung, it would not be able to refuse to boot, so QED.[or], but instead quotes [quotation mark]I[apostrophe]ll give you boot, I[apostrophe]ll give you three for one![quotation mark], and pedantically adds, [quotation mark]Shakespeare, [italic type]Troilus and Cressida[roman type], Act IV, Scene V.[quotation mark][line break][or].[stopping][run paragraph on][paragraph break]" instead.
 	
 Carry out rebooting:
 	now the phone is not hung;
 	now the ignored command count of the phone is 0;
-	say "The phone reboots."	
+	if the phone has been hung once:
+		say "The phone reboots[one of].[paragraph break]When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts[or][stopping]."	
 	
 Instead of doing something when the phone is hung for the first time:
 	if the current action is phoneBooting or rebooting:
