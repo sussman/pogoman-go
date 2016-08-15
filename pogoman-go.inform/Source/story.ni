@@ -842,7 +842,7 @@ The description of Nyantech Entrance is "A towering edifice hewn from solid obsi
 
 The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A badge identifies the unicorn as officers C. Harris and F. Polanski." Understand "badge" or "officer" or "officers" as the unicorn.
 
-The revolvingDoorProxy is a privately-named scenery in the Nyantech Entrance. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy.
+The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
 The proxyEntrance is a privately-named scenery in the Nyantech Entrance. The printed name of proxyEntrance is "building".  The description of proxyEntrance is "An imposing fifty story building of black glass and home to the creators of your favorite game, Pogoman GO!" Understand "entrance" or "building" or "office" or "tower" or "obsidian" or "glass" or "HQ" or "headquarters" or "offices" as the proxyEntrance. 
 
@@ -851,7 +851,10 @@ Instead of doing something with the revolvingDoorProxy:
 		continue the action;
 	otherwise:
 		if the current action is entering:
-			try entering proxyEntrance instead;
+			if the player is in the Nyantech Entrance:
+				try entering proxyEntrance instead;
+			otherwise:
+				try going inside;
 		otherwise:
 			if the current action is spinning:
 				try pushing the revolvingDoorProxy instead;
@@ -869,7 +872,7 @@ After going to Nyantech Entrance for the first time:
 	bestow "Reached the Mothership";
 	
 Before entering proxyEntrance for the first time:
-	say "Eager to rub elbows with the creators of your favorite game, and to have a chance at the special pogoman rumored to inhabit the building, you saunter into revolving door.";
+	say "Eager to rub elbows with the creators of your favorite game, and to have a chance at the special pogomen rumored to inhabit the building, you saunter into revolving door.";
 	continue the action.
 
 Instead of climbing the proxyEntrance:
@@ -952,18 +955,12 @@ To say unicorn topics:
 	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how JJ Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food [or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[in random order]"
 	
 To say goOnIn:
-	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words] I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. He directs you through a revolving door to a security checkpoint just inside the building.";
-	move the player to the lobby.
-	[TODO: implement security checkpoint and the dryad]
+	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter a the building[apostrophe]s revolving door.";
+	move the player to the RevolvingDoor.
 
-
-		
 After talking to the unicorn for the first time:
 	bestow "Talks With Unicorns".		
 		
-	
-
-
 [Ashwell-Lott Estate]
 
 The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
@@ -1733,7 +1730,7 @@ Instead of opening the barrel when penlight is switched on:
 
 [Ground Floor]
 
-The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The elevators are to the west and the revolving door back to the street is to the south. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The elevators are to the west and the security checkpoing is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
 
 Instead of going east from the Lobby when the walkman is not worn for the first time:
 	 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
@@ -1745,7 +1742,52 @@ Instead of going east from the Lobby when the walkman is not worn:
 After going east from the Lobby for the first time:
 	say "With the walkman blaring away in your ears, the arguably melodious strains of Rick Astley drown out the sonic barrier around the LAN closet, and you are able to approach it."
 
-The RevolvingDoor is south of the Lobby. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." 
+The RevolvingDoor is outside of the Security Checkpoint. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." The description of the revolving door is "A brass revolving door w at the entrance to the Nyantech Tower." The possible exits of the revolvingDoor are "You can either go inside, into Nyantech Headquarters, or outside, back to the street[one of]. Your choice[or][stopping]."
+
+Instead of going outside from the RevolvingDoor:
+	say "The helpful (and mildly passive-aggressive) unicorn gives the door an extra kick, and the door spins even further.";
+	try going inside.
+
+The Security Checkpoint is south of the Lobby. The description of the security checkpoint is "A cordoned off area that looks like it was hastily added to the lobby without a lot of forethought. The main feature of the security area is the metal detector and x-ray machine." Understand "area" as the Security Checkpoint.
+
+The dryad is a person in the Security Checkpoint. The description of the dryad is a "A burly dryad in an ill-fitting uniform, who clearly would rather be frolicking in some forest clearing rather than doing shift work."
+
+The stamp is in the void. The description of the stamp is "[quotation mark]Property of Nyantech[quotation mark]." Understand "hand" or "hands" as the stamp.
+
+After examining the stamp for the first time:
+	say "Sense of Belonging".
+	
+Instead of rubbing the stamp for the first time:
+	say "[rubPhrase][paragraph break]";
+	bestow "Don[apostrophe]t Label Me".
+	
+To say rubPhrase:
+	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected."
+
+After going inside from the revolvingDoor for the first time:
+	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts the in a big.[paragraph break][quotation mark]You’ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
+	if the player carries the salmon of turpitude:
+		say "[quotation mark]Hold on... what have we here? Hmm, the fabled Salmon of Turpitude. Interesting. It gets its own bag.[quotation mark][paragraph break]";
+	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, and boosts you towards the lobby.[paragraph break]";
+	bestow "Bagged and Tagged";
+	repeat with N running through the things carried by the player:
+		move N to the void;
+	now the player carries the phone;
+	now the stamp is part of the player;
+	move the player to the lobby.
+	
+Instead of going south from the Lobby for the first time:
+	say "You are stopped by the security nymph, who takes one look at your hand and says, [quotation mark]Sorry. Company property cannot leave the building.[quotation mark][paragraph break]";
+	bestow "Bureaucracy Is Its Own Reward".
+	
+Instead of going south from the Lobby:
+	say "The security nymph points to your property stamp and escorts you back to the lobby."
+	 
+
+
+
+
+
 
 The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The [if the LAN Closet Door is open]open[otherwise]shut[end if] white door to the LAN closet[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
 
