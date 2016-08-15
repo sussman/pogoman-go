@@ -382,13 +382,34 @@ Check rebooting:
 	
 Carry out rebooting:
 	now the phone is not hung;
-	say "You reboot your phone."	
+	now the ignored command count of the phone is 0;
+	say "The phone reboots."	
 	
-Instead of doing something when the phone is hung:
+Instead of doing something when the phone is hung for the first time:
 	if the current action is phoneBooting or rebooting:
 		continue the action;
 	otherwise:
-		do nothing.
+		say "Your phone has locked up. Since you only use it to play Pogoman GO!, you might as well [italic type]reboot[roman type] it."
+
+Before doing something when the phone is hung:
+	if the current action is phoneBooting or rebooting:
+		continue the action;
+	otherwise:
+		if the current action is going:
+			say "No sense in walking anywhere if the game isn’t playing. Better reboot the phone.";
+			stop the action;
+		otherwise:
+			increase the ignored command count of the phone by one;
+			if the ignored command count of the phone is:
+				-- 10: 
+					say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]";
+				-- 20:
+					say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command.";
+				-- 30:
+					say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
+					try rebooting the phone;
+			stop the action.
+
 		
 Section Swimming
 
@@ -3450,7 +3471,7 @@ Before wearing clothes:
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung.
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0.
 
 The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening."
 
