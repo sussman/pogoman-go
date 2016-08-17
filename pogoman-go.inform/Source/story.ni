@@ -3532,7 +3532,7 @@ To do lift arrival:
 		otherwise:
 			say " and the doors open."
 
-Section 5 - The elevator departs (whether player is in it or not)
+Section 5 - The elevator departs (after a stop, whether player is in it or not)
 
 [new people get on just before the doors close on leaving a floor, this gives flexibility for amount of dwell time with doors open]
 
@@ -3548,13 +3548,12 @@ At the time when the lift departs:
 		say "The elevator chimes ";
 		let E be 0;
 		let V be 0;
-		say "DEBUG- departing level is [floor level of the elevator]<<<";
 		if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is:
 			[how many get on at different floors?]
 			-- Black:
 				let E be a random number from 0 to 2;
 			-- White:
-				let E be a random number from 1 to 3;
+				let E be a random number from 2 to 4;
 				let V be a random number from 0 to 3;
 				[what buttons get pressed?]
 				if the floor level of the Elevator is Lobby:
@@ -3582,7 +3581,6 @@ At the time when the lift departs:
 		if the employeeCount of the EmployeeProxy is greater than 0:
 			move the employeeProxy to the Elevator;
 		fix plurality of people proxies;
-		say "DEBUG *** E departing: [E] and V [V] ***";
 		let L be E plus V;
 		if L is greater than 0:
 			say "but before the doors close, ";
@@ -3590,8 +3588,7 @@ At the time when the lift departs:
 			say " [regarding L][scoot] into the elevator and [regarding L][poke] [if L is 1]a[otherwise]some[end if] button[if L is 1][otherwise]s[end if] to select [if L is 1]a[otherwise]their[end if] floor[if L is 1][otherwise]s[end if]";
 		otherwise:
 			say "and the doors close";
-		say ".";		
-				
+		say "."	
 			
 Section 6 - Riding the elevator to the next floor
 [People can get out of the elevator when floors are reached]	
@@ -3602,19 +3599,7 @@ to blank all buttons:
 		
 
 At the time when the next floor is reached:
-	[Reach the top? Turn around and go downwards]
-	if the elevator is upward:
-		if the floor level of the elevator is the Niveau in row 1 of the Table of Building Floors:
-			now the elevator is not upward;
-			blank all buttons;
-	otherwise:
-	[Conversely, if you can't go any lower, go upwards]
-		let L be the number of rows in the Table of Building Floors;
-		if the floor level of the elevator is the Niveau in row L of the Table of Building Floors:
-			now the elevator is upward;
-			blank all buttons;
 	let L be the line corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors;
-	[move the elevator one floor]
 	if the elevator is upward:
 		decrease L by one;
 	otherwise:
@@ -3626,7 +3611,15 @@ At the time when the next floor is reached:
 		the lift departs in 1 turn from now;
 	otherwise:
 		say "The elevator passes the [floor level of the elevator] Level and continues [if the elevator is upward]upwards[otherwise]downwards[end if].";
-		the next floor is reached in 1 turn from now.
+		the next floor is reached in 1 turn from now;
+	if the elevator is upward:
+		if the floor level of the elevator is the Cafeteria:
+			now the elevator is not upward;
+			blank all buttons;
+	otherwise:
+		if the floor level of the elevator is Lobby:
+			now the elevator is upward;
+			blank all buttons.
 	
 To say who gets out here:
 	let E be 0;
@@ -3637,8 +3630,7 @@ To say who gets out here:
 		let V be the visitorCount of the visitorProxy;
 	[some employees might get off at employee levels]
 	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is black:	
-		let E be a random number from 1 to the employeeCount of EmployeeProxy;	
-		say "DEBUG E is [E]<<<<";
+		let E be a random number from 1 to the employeeCount of EmployeeProxy minus 1;	
 	now the employeeCount of the employeeProxy is the employeeCount of the employeeProxy minus E;
 	now the visitorCount of the visitorProxy is the visitorCount of the visitorProxy minus V;
 	fix plurality of people proxies;
@@ -3647,7 +3639,6 @@ To say who gets out here:
 	if the employeeCount of the employeeProxy is 0:
 		move the employeeProxy to the void;
 	let L be E plus V;
-	say "L is [L]<<<";
 	If L is less than 1:
 		say ".";
 	otherwise:
