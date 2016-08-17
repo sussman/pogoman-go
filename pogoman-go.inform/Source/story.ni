@@ -6,7 +6,7 @@ The release number is 1.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!"
 
-Use MAX_STATIC_DATA of 200000.
+Use MAX_STATIC_DATA of 250000.
 [Use MAX_OBJECTS of 700.
 Use Max_DICT_ENTRIES of 1500.]
 
@@ -55,9 +55,9 @@ A lightsource is a kind of device.
 
 LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
 
-A catTopDrop is a kind of backdrop. catTopDrops are privately-named.
+A catTopDrop is a kind of backdrop. catTopDrops are privately-named. 
 
-A lift is a kind of room. A lift has a number called currentFloor.
+An lift button is a kind of improper-named privately-named fixed in place thing. 
 
 A Katatron is a kind of thing. A katatron has a number called PEC.  The PEC of a katatron is usually 0.
 A katatron has a number called MegaCats. The MegaCats of a katatron is usually 0.
@@ -1639,7 +1639,7 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Packing, and Processing are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Interns, Engineers, Managers, Packaging, and Processing are rooms in HQ.
 
 [Top Level, Interior]
 
@@ -1770,7 +1770,7 @@ After eating a pop-tart for the third time:
 After eating a pop-tart for the fourth time:
 	move the player to the infirmary;
 	say "You wake up with a pounding headache as a nurse withdraws a hypodermic syringe from your flank.[paragraph break][quotation mark]That should do it,[quotation mark] she says as she clips off the needle and throws the syringe and a few used bottles of insulin into a bag marked biomedical waste.[paragraph break]You are still rubbing the sore spot on your side as she signs off on the paperwork and stuffs you into an elevator.[paragraph break]";
-	now the CURRENTFLOOR is 4;
+	now the floor level of the elevator is Infirmary;
 	move the player to the elevator;
 	bestow "Pancreatic Endocrine Capacity Exceeded";
 	newPopTart.
@@ -2014,7 +2014,7 @@ Instead of opening the barrel when penlight is switched on:
 
 [Ground Floor]
 
-The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The elevators are to the west and the security checkpoing is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The elevator[if the player is in the floor level of the elevator] doors are open[otherwise]s are[end if] to the west and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
 
 Instead of going east from the Lobby when the walkman is not worn for the first time:
 	 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
@@ -2677,12 +2677,13 @@ To say printedRoofDoor:
 			say "roof"
 			
 After going south from the stairsRoof for the first time:
-	bestow "Made it to the top".
+	bestow "Made it to the top".          
 	
 Processing is a room.
-
-Packaging is a room.
-
+Packaging is a room. 
+Interns is a room.
+Engineers is a room.
+Managers is a room.
 
 Section 4 - Deck
 
@@ -3347,7 +3348,207 @@ After entering the MuskPod:
 
 Chapter in the Elevator
 
-The Elevator is a lift. The currentFloor of the Elevator is 0.
+The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward.
+
+The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with the following colored buttons:[line break][elevatorButtonState]"
+
+To say elevatorButtonState:
+	repeat with N running from 1 to the number of rows in the Table of Building Floors:
+		say line break;
+		say the Niveau in row N of the Table of Building Floors;
+		say " (";
+		say the secLevel in row N of the Table of Building Floors;
+		if the Selected in row N of the Table of Building Floors is true:
+			say ", illuminated";
+		say ")".
+		
+cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "cafeteria button". Understand "cafeteria" or "button" as the cafeteriaButton.
+
+packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "packaging button". Understand "packaging" or "button" as the packagingButton.
+
+processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "processing button". Understand "processing" or "button" as the processingButton.
+
+managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButtons is "managers button". Understand "manager" or "managers" or "button" as the managersButton.
+
+engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "engineers button". Understand "engineer" or "engineers" or "button" as the engineersButton.
+
+internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "interns button". Understand "intern" or "interns" or "button" as the internsButton.
+
+lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "lobby button". Understand "lobby" or "ground" or "button" as the lobbyButton.
+
+legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" as the legalButton.
+
+Instead of pushing a lift button (called the poked item):
+	if the Selected corresponding to the Control of the poked item in the Table of Building Floors is true:
+		say "That button has already been hit.";
+	otherwise:
+		if the floor level of the elevator is the Niveau corresponding to the Control of the poked item in the Table of Building Floors:
+			say "The button illuminates briefly, but then goes out.";
+		otherwise:
+			now the Selected corresponding to the control of the poked item in the Table of Building Floors is true;
+			say "[The poked item] lights up."
+		
+The employeeProxy is a privately-named person. The employeeProxy has a number called employeeCount. The employeeCount of the employeeProxy is 1. The printed name of the employeeProxy is "[one of]employee[or]worker[purely at random][if the employeeCount of the employeeProxy is greater than 1]s[end if]". Understand "employee" or "employees" or "worker" or "workers" as the employeeProxy. The indefinite article of the employeeProxy is "[if the employeeCount of the employeeProxy is greater than 1]some[otherwise]a[end if]". The description of the employeeProxy is "The [printed name of the employeeProxy] [if the employeeCount of the employeeProxy is greater than 1]are[otherwise]is[end if] nice." 
+
+The visitorProxy is a privately-named person . The visitorProxy has a number called visitorCount. The visitorCount of the visitorProxy is 1. The printed name of the visitorProxy is "[one of]visitor[or]gamer[purely at random][if the visitorCount of the visitorProxy is greater than 1]s[end if]". Understand "visitor" or "visitors" or "gamer" or "gamers" as the visitorProxy. The indefinite article of the visitorProxy is "[if the visitorCount of the visitorProxy is greater than 1]some[otherwise]a[end if]". The description of the visitorProxy is "The [printed name of the visitorProxy] [if the visitorCount of the visitorProxy is greater than 1]are[otherwise]is[end if] pleasant."
+
+The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" as the elevatorExterior. 
+
+The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding white [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void.
+
+Instead of going west when the elevatorExterior is in the location of the player:
+	try entering the elevatorExterior.
+
+Instead of opening the elevatorExterior:
+	if the elevator is doorsajar:
+		say "The doors are already open.";
+	otherwise:
+		say "The elevator doors will open when the elevator arrives on your floor. They cannot be opened manually."
+
+Instead of pushing the call button:	
+	if the call button is lit:
+		say "The button is already lit.";
+	otherwise:
+		if the floor level of the elevator is the location of the player:
+			say "The button goes out immediately[one of] because the elevator is already here[or][stopping].";
+		otherwise:
+			say "The white plastic ring around the button lights up.";
+			now the call button is lit;
+			now the requestor of the call button is the location of the player;
+			let T be a random number from 1 to 4;
+			the lift arrives in T turns from now.
+			[should the player hit the stairs, the requestor of the call button is assigned void and the light will wink out]
+	
+[arrival after having been called with the button]
+At the time when the lift arrives:
+	now the call button is not lit;
+	now the elevator is doorsajar;
+	if the player is in the requestor of the call button:
+		now the floor level of the elevator is the requestor of the call button;	
+		now the requestor of the call button is the void;
+		do lift arrival;
+		the lift departs in 1 turn from now.
+	
+To do lift arrival:
+	if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
+		say "The doors open on an empty elevator.";
+	otherwise:
+		let E be a random number from 0 to 3;
+		let V be a random number from 0 to 3;	
+		say "With a chime from somewhere overhead, the elevator announces its arrival";
+		if E is greater than 0 and V is greater than zero:
+			say ". When the doors open, ";
+			enumerate E workers and V gamers;
+			say " walk";
+			if V plus E is 1:
+				say "s";
+			say " out of the elevator.";
+		otherwise:
+			say " and the doors open."
+	
+At the time when the lift departs:
+	say "The elevator chimes and its doors close.";
+	now the elevator is not doorsajar;
+	if the player is not in the elevator:
+		now the floor level of the elevator is the void;
+	otherwise:
+		the next floor is reached in 1 turn from now.
+	
+At the time when the next floor is reached:
+	if the elevator is upward:
+		if the floor level of the elevator is the Niveau in row 1 of the Table of Building Floors:
+			now the elevator is not upward;
+	otherwise:
+		let L be the number of rows in the Table of Building Floors;
+		if the floor level of the elevator is the Niveau in row L of the Table of Building Floors:
+			now the elevator is upward;
+	let L be the line corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors;
+	if the elevator is upward:
+		decrease L by one;
+	otherwise:
+		increase L by one;
+	now floor level of the Elevator is the Niveau corresponding to the line of L in the Table of Building Floors;
+	say "The elevator arrives at the [floor level of the elevator] floor.";
+	now the elevator is doorsajar;
+	the lift departs in 1 turn from now.
+
+To enumerate (employees - a number) workers and (visitors - a number) gamers:
+	if employees is greater than 0:
+		if employees is:
+			-- 1:
+				say "an";
+			-- 2:
+				say "a couple";
+			-- otherwise:
+				say "a few";
+		say " employee";
+		if employees is greater than 1, say "s";
+	if employees is greater than 0 and visitors is greater than 0:
+		say " and ";
+	if visitors is greater than 0:
+		if visitors is:
+			-- 1:
+				say "a";
+			-- 2: 
+				say "two";
+		 	-- otherwise:
+				say "several";
+		say " visitor";
+		if visitors is greater than 1, say "s".
+		
+To fix plurality of people proxies:
+	if the employeeCount of employeeProxy is greater than 1:
+		now employeeProxy is plural-named;
+	otherwise:
+		now employeeProxy is singular-named;
+	if the visitorCount of visitorProxy is greater than 1:
+		now visitorProxy is plural-named;
+	otherwise:
+		now visitorProxy is singular-named.
+	
+Instead of entering the elevatorExterior:
+	if the player is in the floor level of the elevator:		
+		move the player to the elevator;				
+		say "You walk into the elevator";
+		if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
+			say ".";
+		otherwise:
+			now the employeeCount of the employeeProxy is a random number from 0 to 3;
+			if the employeeCount of the employeeProxy is greater than 0:
+				move the employeeProxy to the Elevator;
+			now the visitorCount of the visitorProxy is a random number from 0 to 3;
+			if the visitorCount of the visitorProxy is greater than 0:
+				move the visitorProxy to the Elevator;
+			fix plurality of people proxies;
+			if the visitorCount of the VisitorProxy plus the employeeCount of the employeeProxy is greater than 1:
+				say " along with ";
+				enumerate employeeCount of the employeeProxy workers and visitorCount of the visitorProxy gamers;
+				say " who poke some buttons to select their floors";
+			say ".";
+	otherwise:
+		say "The elevator doors are closed."
+		
+Instead of exiting when the player is in the elevator:
+	say "You walk off the elevator";
+	move the player to the floor level of the elevator;
+	
+Every turn when the player is in the elevator and the walkman is not worn by the player:
+	say "Muzak plays."
+	
+	
+[exit zone - everyone  left in the elevator exits
+ arrive empty - force elevator to arrive empty]
+
+Table of Building Floors
+Niveau	line	secLevel	ExitZone	ArriveEmpty	Selected	Control
+Cafeteria	1	White	false	false	false	cafeteriaButton
+Packaging	2	Purple	false	true	false	packagingButton
+Processing	3	Purple	false	True	false	processingButton
+Managers	4	Black	false	false	false	managersButton
+Engineers	5	Black	false	false	false	engineersButton
+Interns	6	Black	false	false	false	internsButton
+Lobby	7	White	true	false	false	lobbyButton
+Legal Department	8	Green	false	true	false	legalButton
 
 Chapter in the Infirmary
 
@@ -3611,26 +3812,26 @@ Instead of opening an interdicted door for the third time:
 Instead of opening an interdicted door for the fourth time:
 	move the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the CURRENTFLOOR is 4;
+	now the floor level of the elevator is Infirmary;
 	move the player to the elevator.
 	
 Instead of opening an interdicted door for the fifth time:
 	move the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the CURRENTFLOOR is 4;
+	now the floor level of the elevator is Infirmary;
 	move the player to the elevator.
 
 Instead of opening an interdicted door for the sixth time:
 	move the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
-	now the CURRENTFLOOR is 4;
+	now the floor level of the elevator is Infirmary;
 	move the player to the elevator.
 	
 Instead of opening an interdicted door:
 	move the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
-	now the CURRENTFLOOR is 4;
+	now the floor level of the elevator is Infirmary;
 	move the player to the elevator.
 	
 
