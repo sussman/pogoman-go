@@ -3367,7 +3367,7 @@ Chapter in the Elevator
 
 The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward.
 
-The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with the following colored buttons:[line break][elevatorButtonState]"
+The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with the following colored buttons:[line break][elevatorButtonState]".
 
 To say elevatorButtonState:
 	repeat with N running from 1 to the number of rows in the Table of Building Floors:
@@ -3379,31 +3379,42 @@ To say elevatorButtonState:
 			say ", illuminated";
 		say ")".
 		
-cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "cafeteria button". Understand "cafeteria" or "button" as the cafeteriaButton.
+To say liftButtonDescription of (LB - a lift button):
+	say "The ";
+	say secLevel corresponding to the Control of LB in the Table of Building Floors;
+	say " [LB] is ";
+	if Selected corresponding to the Control of LB in the Table of Building Floors is false:
+		say "not ";
+	say "illuminated."
+	
+cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "Cafeteria button". Understand "cafeteria" or "button" as the cafeteriaButton. The description of the cafeteriaButton is "[liftButtonDescription of cafeteriaButton]".
 
-packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "packaging button". Understand "packaging" or "button" as the packagingButton.
+packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "Packaging button". Understand "packaging" or "button" as the packagingButton. The description of the packagingButton is "[liftButtonDescription of packagingButton]".
 
-processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "processing button". Understand "processing" or "button" as the processingButton.
+processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "Processing button". Understand "processing" or "button" as the processingButton. The description of the processingButton is "[liftButtonDescription of processingButton]".
 
-managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButtons is "managers button". Understand "manager" or "managers" or "button" as the managersButton.
+managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButton is "Managers button". Understand "manager" or "managers" or "button" as the managersButton. The description of the managersButton is "[liftButtonDescription of managersButton]".
 
-engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "engineers button". Understand "engineer" or "engineers" or "button" as the engineersButton.
+engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "Engineers button". Understand "engineer" or "engineers" or "button" as the engineersButton. The description of the engineersButton is "[liftButtonDescription of engineersButton]".
 
-internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "interns button". Understand "intern" or "interns" or "button" as the internsButton.
+internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" as the internsButton. The description of the cinternsButton is "[liftButtonDescription of internsButton]".
 
-lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "lobby button". Understand "lobby" or "ground" or "button" as the lobbyButton.
+lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "Lobby button". Understand "lobby" or "ground" or "button" as the lobbyButton. The description of the lobbyButton is "[liftButtonDescription of lobbyButton]".
 
-legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" as the legalButton.
+legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" as the legalButton. The description of the legalButton is "[liftButtonDescription of legalButton]".
 
 Instead of pushing a lift button (called the poked item):
 	if the Selected corresponding to the Control of the poked item in the Table of Building Floors is true:
 		say "That button has already been hit.";
 	otherwise:
-		if the floor level of the elevator is the Niveau corresponding to the Control of the poked item in the Table of Building Floors:
-			say "The button illuminates briefly, but then goes out.";
+		if the secLevel corresponding to the Control of the poked item in the Table of Building Floors is greater than the securityColor of the badge:
+			say "You receive a mild electrical jolt and note that the button does not light up.";
 		otherwise:
-			now the Selected corresponding to the control of the poked item in the Table of Building Floors is true;
-			say "[The poked item] lights up."
+			if the floor level of the elevator is the Niveau corresponding to the Control of the poked item in the Table of Building Floors:
+				say "The button illuminates briefly, but then goes out.";
+			otherwise:
+				now the Selected corresponding to the control of the poked item in the Table of Building Floors is true;
+				say "The [poked item] lights up."
 		
 The employeeProxy is a privately-named person. The employeeProxy has a number called employeeCount. The employeeCount of the employeeProxy is 1. The printed name of the employeeProxy is "[one of]employee[or]worker[purely at random][if the employeeCount of the employeeProxy is greater than 1]s[end if]". Understand "employee" or "employees" or "worker" or "workers" as the employeeProxy. The indefinite article of the employeeProxy is "[if the employeeCount of the employeeProxy is greater than 1]some[otherwise]a[end if]". The description of the employeeProxy is "The [printed name of the employeeProxy] [if the employeeCount of the employeeProxy is greater than 1]are[otherwise]is[end if] nice." 
 
@@ -3428,7 +3439,7 @@ Instead of pushing the call button:
 	otherwise:
 		if the floor level of the elevator is the location of the player:
 			say "The button goes out immediately[one of] because the elevator is already here[or][stopping].";
-		otherwise:
+		otherwise:			
 			say "The white plastic ring around the button lights up.";
 			now the call button is lit;
 			now the requestor of the call button is the location of the player;
@@ -3450,7 +3461,7 @@ To do lift arrival:
 	if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
 		say "The doors open on an empty elevator.";
 	otherwise:
-		let E be a random number from 0 to 3;
+		let E be a random number from 1 to 3;
 		let V be a random number from 0 to 3;	
 		say "With a chime from somewhere overhead, the elevator announces its arrival";
 		if E is greater than 0 and V is greater than zero:
@@ -3468,14 +3479,18 @@ At the time when the lift departs:
 	now the elevator is not doorsajar;
 	if the player is not in the elevator:
 		now the floor level of the elevator is the void;
+		move the employeeProxy to the void;
+		move the visitorProxy to the void;
 	otherwise:
 		the next floor is reached in 1 turn from now.
 	
 At the time when the next floor is reached:
+	[Reach the top? Turn around and go downwards]
 	if the elevator is upward:
 		if the floor level of the elevator is the Niveau in row 1 of the Table of Building Floors:
 			now the elevator is not upward;
 	otherwise:
+	[Conversely, if you can't go any lower, go upwards]
 		let L be the number of rows in the Table of Building Floors;
 		if the floor level of the elevator is the Niveau in row L of the Table of Building Floors:
 			now the elevator is upward;
@@ -3485,9 +3500,39 @@ At the time when the next floor is reached:
 	otherwise:
 		increase L by one;
 	now floor level of the Elevator is the Niveau corresponding to the line of L in the Table of Building Floors;
-	say "The elevator arrives at the [floor level of the elevator] floor.";
 	now the elevator is doorsajar;
+	say "The elevator arrives at the [floor level of the elevator] floor[who gets out here]";
 	the lift departs in 1 turn from now.
+	
+To say who gets out here:
+	let E be 0;
+	let V be 0;
+	[anyone left in the elevator gets out at top/bottom exit zones]
+	if the ExitZone corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
+		let E be the employeeCount of the employeeProxy;
+		let V be the visitorCount of the visitorProxy;
+	[some employees will get off at an employee level each trip]
+	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is black:	
+		repeat with N running from 1 to the employeeCount of the employeeProxy:
+			if a random chance of 1 in 3 succeeds:
+				increase E by one;		
+	now the employeeCount of the employeeProxy is the employeeCount of the employeeProxy minus E;
+	now the visitorCount of the visitorProxy is the visitorCount of the visitorProxy minus V;
+	if the visitorCount of the visitorProxy is 0:
+		move the visitorProxy to the void;
+	if the employeeCount of the employeeProxy is 0:
+		move the employeeProxy to the void;
+	If E plus V is less than 1:
+		say ".";
+	otherwise:
+		say ". When the doors open, ";
+		enumerate E workers and V gamers;
+		if E plus V is 1:
+			say " gets";
+		otherwise:
+			say " get";
+		say " off the elevator."
+
 
 To enumerate (employees - a number) workers and (visitors - a number) gamers:
 	if employees is greater than 0:
@@ -3511,7 +3556,7 @@ To enumerate (employees - a number) workers and (visitors - a number) gamers:
 		 	-- otherwise:
 				say "several";
 		say " visitor";
-		if visitors is greater than 1, say "s".
+		if visitors is greater than 1, say "s".				
 		
 To fix plurality of people proxies:
 	if the employeeCount of employeeProxy is greater than 1:
@@ -3546,8 +3591,17 @@ Instead of entering the elevatorExterior:
 		say "The elevator doors are closed."
 		
 Instead of exiting when the player is in the elevator:
-	say "You walk off the elevator";
-	move the player to the floor level of the elevator;
+	if the elevator is doorsajar:
+		if the securityColor of the badge is less than the secLevel corresponding to the Niveau of the floor level of the elevator in the Table of Building Floors:
+			say "You try, but the your badge literally holds you back.";
+		otherwise:
+			say "You walk off the elevator.";
+			move the player to the floor level of the elevator;
+	otherwise:
+		say "You can[apostrophe]t, the elevator is in motion."
+		
+Instead of going outside when the player is in the elevator:
+	try exiting.
 	
 Every turn when the player is in the elevator and the walkman is not worn by the player:
 	say "Muzak plays."
@@ -3558,9 +3612,9 @@ Every turn when the player is in the elevator and the walkman is not worn by the
 
 Table of Building Floors
 Niveau	line	secLevel	ExitZone	ArriveEmpty	Selected	Control
-Cafeteria	1	White	false	false	false	cafeteriaButton
+Cafeteria	1	White	true	false	false	cafeteriaButton
 Packaging	2	Purple	false	true	false	packagingButton
-Processing	3	Purple	false	True	false	processingButton
+Processing	3	Purple	false	true	false	processingButton
 Managers	4	Black	false	false	false	managersButton
 Engineers	5	Black	false	false	false	engineersButton
 Interns	6	Black	false	false	false	internsButton
