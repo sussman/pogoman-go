@@ -15,7 +15,7 @@ Use full-length room descriptions, american dialect and the serial comma.
 [TODO:  Release along with cover art.]
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
-Include Dynamic Objects by Jesse McGrew. [allows runtime creation of pogoballs, &c.]
+
 
 Book 1 - Mechanics
 
@@ -75,6 +75,7 @@ The player has a number called XP.
 The player has a number called Trophies.
 The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
+The player has a number called pogoballsCarried.  pogoballsCarried is 3.
 
 [  
    Places - Outside areas like parks
@@ -102,6 +103,17 @@ Section 3 - Pogo-Things
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
 A Pogoball-kind is a kind of thing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls.
+
+Instead of dropping a pogoball-kind:
+	decrease pogoballsCarried of the player by 1;
+	say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears.";
+	if pogoballsCarried of the player is 1:
+		say "You have only one PogoBall left!";
+	else if pogoballsCarried of the player is 0:
+		move the pogoball to the Void;
+		say "You have now run out of PogoBalls!";
+	else:
+		say "You now have [pogoballsCarried of the player] PogoBalls left."
 
 A Pogochum-kind is a kind of thing.  The description is "Rancid bits of chopped up…. something. Whatever it is, Pogomen are attracted to it. Drop a bit of it, and a Pogoman will come to you!".  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
@@ -287,7 +299,14 @@ This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
 		
-Section 5 - Miscellany (probably reorganize later)
+
+Section 5 - Customized Inventory
+
+Rule for printing inventory details of a pogoball-kind:
+	say " ([pogoballsCarried of the player] total)[run paragraph on]"
+	
+
+Section 6 - Miscellany (probably reorganize later)
 
 This is the run from sound rule:
 	if the speaker is active and the walkman is not worn:
@@ -319,7 +338,7 @@ Chapter Activities
 Section ShowStatus
 
 To ShowStatus:
-	now the left hand status line is "PogoLevel:[pogoLevel of the player],  Team: [team color of the player][if the player carries the badge], Badge: [securityColor of the badge]";
+	now the left hand status line is "PogoLevel:[pogoLevel of the player],  Team:[team color of the player][if the player carries the badge], Badge:[securityColor of the badge]";
 	now the right hand status line is "XP: [XP of the player]".
 	
 
@@ -340,12 +359,9 @@ Section Spinning
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 Carry out spinning:
 	if the noun is the pogostop:
-		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
+		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum, which you quicklly scoop up.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
 		awardXP POGOSTOP_XP_VALUE;
-		let the New PogoBall be a new object cloned from the PogoBall;
-		now the New PogoBall is in the location;
-		let the New PogoChum be a new object cloned from the PogoChum;
-		now the New PogoChum is in the location;
+		increase pogoballsCarried of the player by 1;
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
 
@@ -805,6 +821,7 @@ When play begins:
 	now pogoLevel of the player is INITIAL_POGOLEVEL;
 	now the XP of the player is INITIAL_XP;
 	now the player carries the phone;
+	now the player carries the PogoBall;
 	now the flavor of the pop-tart is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
