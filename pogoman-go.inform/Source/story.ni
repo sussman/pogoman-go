@@ -668,6 +668,12 @@ After transferring a pogoman for the first time, bestow "Practicality in managin
 
 After waiting for the first time, bestow "Loitering Around".
 
+Chapter Adaptable Verbs
+
+To ignore is a verb.
+To poke is a verb.
+To walk is a verb.
+To scoot is a verb.
 
 Chapter Not Ready For Prime Time - Not for release
 
@@ -1704,8 +1710,6 @@ Instead of asking someone (called the auditor) about some topic:
 	
 Instead of telling someone (called the auditor) about some topic:
 	try talking to the auditor instead.
-	
-To ignore is a verb.
 
 Instead of showing something (called the item) to someone (called the auditor):
 	say "[The auditor] [ignore] you. TODO: exceptions such as showing the phone to the unicorn. Also, need to cover Giving To."
@@ -3367,6 +3371,8 @@ Chapter in the Elevator
 
 The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward.
 
+Section 1 - Control Panel
+
 The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with the following colored buttons:[line break][elevatorButtonState]".
 
 To say elevatorButtonState:
@@ -3416,9 +3422,7 @@ Instead of pushing a lift button (called the poked item):
 				now the Selected corresponding to the control of the poked item in the Table of Building Floors is true;
 				say "The [poked item] lights up."
 		
-The employeeProxy is a privately-named person. The employeeProxy has a number called employeeCount. The employeeCount of the employeeProxy is 1. The printed name of the employeeProxy is "[one of]employee[or]worker[purely at random][if the employeeCount of the employeeProxy is greater than 1]s[end if]". Understand "employee" or "employees" or "worker" or "workers" as the employeeProxy. The indefinite article of the employeeProxy is "[if the employeeCount of the employeeProxy is greater than 1]some[otherwise]a[end if]". The description of the employeeProxy is "The [printed name of the employeeProxy] [if the employeeCount of the employeeProxy is greater than 1]are[otherwise]is[end if] nice." 
-
-The visitorProxy is a privately-named person . The visitorProxy has a number called visitorCount. The visitorCount of the visitorProxy is 1. The printed name of the visitorProxy is "[one of]visitor[or]gamer[purely at random][if the visitorCount of the visitorProxy is greater than 1]s[end if]". Understand "visitor" or "visitors" or "gamer" or "gamers" as the visitorProxy. The indefinite article of the visitorProxy is "[if the visitorCount of the visitorProxy is greater than 1]some[otherwise]a[end if]". The description of the visitorProxy is "The [printed name of the visitorProxy] [if the visitorCount of the visitorProxy is greater than 1]are[otherwise]is[end if] pleasant."
+Section 2 - Exterior of the elevator
 
 The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" as the elevatorExterior. 
 
@@ -3432,6 +3436,11 @@ Instead of opening the elevatorExterior:
 		say "The doors are already open.";
 	otherwise:
 		say "The elevator doors will open when the elevator arrives on your floor. They cannot be opened manually."
+		
+Instead of entering the elevatorExterior:
+	if the player is in the floor level of the elevator:		
+		move the player to the elevator;				
+		say "You [one of]walk[or]step[purely at random] into the elevator.";
 
 Instead of pushing the call button:	
 	if the call button is lit:
@@ -3447,92 +3456,11 @@ Instead of pushing the call button:
 			the lift arrives in T turns from now.
 			[should the player hit the stairs, the requestor of the call button is assigned void and the light will wink out]
 	
-[arrival after having been called with the button]
-At the time when the lift arrives:
-	now the call button is not lit;
-	now the elevator is doorsajar;
-	if the player is in the requestor of the call button:
-		now the floor level of the elevator is the requestor of the call button;	
-		now the requestor of the call button is the void;
-		do lift arrival;
-		the lift departs in 1 turn from now.
-	
-To do lift arrival:
-	if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
-		say "The doors open on an empty elevator.";
-	otherwise:
-		let E be a random number from 1 to 3;
-		let V be a random number from 0 to 3;	
-		say "With a chime from somewhere overhead, the elevator announces its arrival";
-		if E is greater than 0 and V is greater than zero:
-			say ". When the doors open, ";
-			enumerate E workers and V gamers;
-			say " walk";
-			if V plus E is 1:
-				say "s";
-			say " out of the elevator.";
-		otherwise:
-			say " and the doors open."
-	
-At the time when the lift departs:
-	say "The elevator chimes and its doors close.";
-	now the elevator is not doorsajar;
-	if the player is not in the elevator:
-		now the floor level of the elevator is the void;
-		move the employeeProxy to the void;
-		move the visitorProxy to the void;
-	otherwise:
-		the next floor is reached in 1 turn from now.
-	
-At the time when the next floor is reached:
-	[Reach the top? Turn around and go downwards]
-	if the elevator is upward:
-		if the floor level of the elevator is the Niveau in row 1 of the Table of Building Floors:
-			now the elevator is not upward;
-	otherwise:
-	[Conversely, if you can't go any lower, go upwards]
-		let L be the number of rows in the Table of Building Floors;
-		if the floor level of the elevator is the Niveau in row L of the Table of Building Floors:
-			now the elevator is upward;
-	let L be the line corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors;
-	if the elevator is upward:
-		decrease L by one;
-	otherwise:
-		increase L by one;
-	now floor level of the Elevator is the Niveau corresponding to the line of L in the Table of Building Floors;
-	now the elevator is doorsajar;
-	say "The elevator arrives at the [floor level of the elevator] floor[who gets out here]";
-	the lift departs in 1 turn from now.
-	
-To say who gets out here:
-	let E be 0;
-	let V be 0;
-	[anyone left in the elevator gets out at top/bottom exit zones]
-	if the ExitZone corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
-		let E be the employeeCount of the employeeProxy;
-		let V be the visitorCount of the visitorProxy;
-	[some employees will get off at an employee level each trip]
-	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is black:	
-		repeat with N running from 1 to the employeeCount of the employeeProxy:
-			if a random chance of 1 in 3 succeeds:
-				increase E by one;		
-	now the employeeCount of the employeeProxy is the employeeCount of the employeeProxy minus E;
-	now the visitorCount of the visitorProxy is the visitorCount of the visitorProxy minus V;
-	if the visitorCount of the visitorProxy is 0:
-		move the visitorProxy to the void;
-	if the employeeCount of the employeeProxy is 0:
-		move the employeeProxy to the void;
-	If E plus V is less than 1:
-		say ".";
-	otherwise:
-		say ". When the doors open, ";
-		enumerate E workers and V gamers;
-		if E plus V is 1:
-			say " gets";
-		otherwise:
-			say " get";
-		say " off the elevator."
+Section 3 - Sharing the elevator with other folks
 
+The employeeProxy is a privately-named person. The employeeProxy has a number called employeeCount. The employeeCount of the employeeProxy is 1. The printed name of the employeeProxy is "[one of]employee[or]worker[purely at random][if the employeeCount of the employeeProxy is greater than 1]s[end if]". Understand "employee" or "employees" or "worker" or "workers" as the employeeProxy. The indefinite article of the employeeProxy is "[if the employeeCount of the employeeProxy is greater than 1]some[otherwise]a[end if]". The description of the employeeProxy is "The [printed name of the employeeProxy] [regarding the employeeCount of the employeeProxy][are] nice." 
+
+The visitorProxy is a privately-named person . The visitorProxy has a number called visitorCount. The visitorCount of the visitorProxy is 1. The printed name of the visitorProxy is "[one of]visitor[or]gamer[purely at random][if the visitorCount of the visitorProxy is greater than 1]s[end if]". Understand "visitor" or "visitors" or "gamer" or "gamers" as the visitorProxy. The indefinite article of the visitorProxy is "[if the visitorCount of the visitorProxy is greater than 1]some[otherwise]a[end if]". The description of the visitorProxy is "The [printed name of the visitorProxy] [regarding the visitorCount of the visitorProxy][are] pleasant."
 
 To enumerate (employees - a number) workers and (visitors - a number) gamers:
 	if employees is greater than 0:
@@ -3567,29 +3495,168 @@ To fix plurality of people proxies:
 		now visitorProxy is plural-named;
 	otherwise:
 		now visitorProxy is singular-named.
-	
-Instead of entering the elevatorExterior:
-	if the player is in the floor level of the elevator:		
-		move the player to the elevator;				
-		say "You walk into the elevator";
-		if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
-			say ".";
-		otherwise:
-			now the employeeCount of the employeeProxy is a random number from 0 to 3;
-			if the employeeCount of the employeeProxy is greater than 0:
-				move the employeeProxy to the Elevator;
-			now the visitorCount of the visitorProxy is a random number from 0 to 3;
-			if the visitorCount of the visitorProxy is greater than 0:
-				move the visitorProxy to the Elevator;
-			fix plurality of people proxies;
-			if the visitorCount of the VisitorProxy plus the employeeCount of the employeeProxy is greater than 1:
-				say " along with ";
-				enumerate employeeCount of the employeeProxy workers and visitorCount of the visitorProxy gamers;
-				say " who poke some buttons to select their floors";
-			say ".";
-	otherwise:
-		say "The elevator doors are closed."
 		
+To zero the other folks count:
+	move the visitorProxy to the void;
+	now the visitorCount of the visitorProxy is 0;
+	move the employeeProxy to the void;
+	now the employeeCount of the employeeProxy is 0.
+
+Section 4 - The elevator at the player's floor
+
+[arrival after having been called with the button]
+At the time when the lift arrives:
+	now the call button is not lit;
+	now the elevator is doorsajar;
+	if the player is in the requestor of the call button:
+		now the floor level of the elevator is the requestor of the call button;	
+		now the requestor of the call button is the void;
+		do lift arrival;
+		the lift departs in 1 turn from now.
+	
+[The player always walks into an empty elevator. For floors where the player can all the elevator, it either arrives empty (green, purple) or everyone walks out (white)]
+
+To do lift arrival:
+	zero the other folks count;
+	if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
+		say "The doors open on an empty elevator.";
+	otherwise:
+		let E be a random number from 1 to 3;
+		let V be a random number from 0 to 3;	
+		say "With a chime from somewhere overhead, the elevator announces its arrival";
+		let L be E plus V;
+		if L is greater than 0:
+			say ". When the doors open, ";
+			enumerate E workers and V gamers;
+			say " [regarding L][walk] out of the elevator.";
+		otherwise:
+			say " and the doors open."
+
+Section 5 - The elevator departs (whether player is in it or not)
+
+[new people get on just before the doors close on leaving a floor, this gives flexibility for amount of dwell time with doors open]
+
+At the time when the lift departs:
+	now the elevator is not doorsajar;
+	if the player is not in the elevator:
+		[e.g., the player called the elevator, but didn't get on it in time]
+		now the floor level of the elevator is the void;
+		zero the other folks count;
+		say "The elevator chimes and the doors close.";
+	otherwise:
+		the next floor is reached in 1 turn from now;
+		say "The elevator chimes ";
+		let E be 0;
+		let V be 0;
+		say "DEBUG- departing level is [floor level of the elevator]<<<";
+		if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is:
+			[how many get on at different floors?]
+			-- Black:
+				let E be a random number from 0 to 2;
+			-- White:
+				let E be a random number from 1 to 3;
+				let V be a random number from 0 to 3;
+				[what buttons get pressed?]
+				if the floor level of the Elevator is Lobby:
+					now the Selected corresponding to the Niveau of the Cafeteria in the Table of Building Floors is true;
+				otherwise:
+					now the Selected corresponding to the Niveau of the Lobby in the Table of Building Floors is true;
+				let R be a random number from 1 to 4;
+				[at most, one employee level is visited per trip]	
+				if R is:
+					-- 1: 
+						now the Selected corresponding to the Niveau of the Interns in the Table of Building Floors is true;
+					-- 2:
+						now the Selected corresponding to the Niveau of the Engineers in the Table of Building Floors is true;
+					-- 3:
+						now the Selected corresponding to the Niveau of the Managers in the Table of Building Floors is true;
+					-- otherwise:
+						do nothing;
+			-- otherwise:
+				do nothing; [nobody gets on at Green or Purple Floors]
+		now the employeeCount of the EmployeeProxy is the employeeCount of the EmployeeProxy plus E;
+		now the visitorCount of the VisitorProxy is the visitorCount of the VisitorProxy plus V;
+		if the visitorCount of the VisitorProxy is greater than 0:
+			[may already be there, but no harm in redundancy here]
+			move the visitorProxy to the Elevator;
+		if the employeeCount of the EmployeeProxy is greater than 0:
+			move the employeeProxy to the Elevator;
+		fix plurality of people proxies;
+		say "DEBUG *** E departing: [E] and V [V] ***";
+		let L be E plus V;
+		if L is greater than 0:
+			say "but before the doors close, ";
+			enumerate E workers and V gamers;
+			say " [regarding L][scoot] into the elevator and [regarding L][poke] [if L is 1]a[otherwise]some[end if] button[if L is 1][otherwise]s[end if] to select [if L is 1]a[otherwise]their[end if] floor[if L is 1][otherwise]s[end if]";
+		otherwise:
+			say "and the doors close";
+		say ".";		
+				
+			
+Section 6 - Riding the elevator to the next floor
+[People can get out of the elevator when floors are reached]	
+
+to blank all buttons:
+	repeat with N running from 1 to the number of rows in Table of Building Floors:
+		now the Selected corresponding to the line of N in the Table of Building Floors is false.
+		
+
+At the time when the next floor is reached:
+	[Reach the top? Turn around and go downwards]
+	if the elevator is upward:
+		if the floor level of the elevator is the Niveau in row 1 of the Table of Building Floors:
+			now the elevator is not upward;
+			blank all buttons;
+	otherwise:
+	[Conversely, if you can't go any lower, go upwards]
+		let L be the number of rows in the Table of Building Floors;
+		if the floor level of the elevator is the Niveau in row L of the Table of Building Floors:
+			now the elevator is upward;
+			blank all buttons;
+	let L be the line corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors;
+	[move the elevator one floor]
+	if the elevator is upward:
+		decrease L by one;
+	otherwise:
+		increase L by one;
+	now floor level of the Elevator is the Niveau corresponding to the line of L in the Table of Building Floors;
+	if the Selected corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
+		now the elevator is doorsajar;
+		say "The elevator arrives at the [floor level of the elevator] floor[who gets out here]";
+		the lift departs in 1 turn from now;
+	otherwise:
+		say "The elevator passes the [floor level of the elevator] Level and continues [if the elevator is upward]upwards[otherwise]downwards[end if].";
+		the next floor is reached in 1 turn from now.
+	
+To say who gets out here:
+	let E be 0;
+	let V be 0;
+	[anyone left in the elevator gets out at white levels]
+	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is white:
+		let E be the employeeCount of the employeeProxy;
+		let V be the visitorCount of the visitorProxy;
+	[some employees might get off at employee levels]
+	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is black:	
+		let E be a random number from 1 to the employeeCount of EmployeeProxy;	
+		say "DEBUG E is [E]<<<<";
+	now the employeeCount of the employeeProxy is the employeeCount of the employeeProxy minus E;
+	now the visitorCount of the visitorProxy is the visitorCount of the visitorProxy minus V;
+	fix plurality of people proxies;
+	if the visitorCount of the visitorProxy is 0:
+		move the visitorProxy to the void;
+	if the employeeCount of the employeeProxy is 0:
+		move the employeeProxy to the void;
+	let L be E plus V;
+	say "L is [L]<<<";
+	If L is less than 1:
+		say ".";
+	otherwise:
+		say ". When the doors open,  ";
+		enumerate E workers and V gamers;
+		say " [regarding L][get] off the elevator."
+
+Section 7 - Getting Out of the Elevator
+	
 Instead of exiting when the player is in the elevator:
 	if the elevator is doorsajar:
 		if the securityColor of the badge is less than the secLevel corresponding to the Niveau of the floor level of the elevator in the Table of Building Floors:
@@ -3603,6 +3670,8 @@ Instead of exiting when the player is in the elevator:
 Instead of going outside when the player is in the elevator:
 	try exiting.
 	
+Section 8 - Elevator Mechanics
+	
 Every turn when the player is in the elevator and the walkman is not worn by the player:
 	say "Muzak plays."
 	
@@ -3611,15 +3680,15 @@ Every turn when the player is in the elevator and the walkman is not worn by the
  arrive empty - force elevator to arrive empty]
 
 Table of Building Floors
-Niveau	line	secLevel	ExitZone	ArriveEmpty	Selected	Control
-Cafeteria	1	White	true	false	false	cafeteriaButton
-Packaging	2	Purple	false	true	false	packagingButton
-Processing	3	Purple	false	true	false	processingButton
-Managers	4	Black	false	false	false	managersButton
-Engineers	5	Black	false	false	false	engineersButton
-Interns	6	Black	false	false	false	internsButton
-Lobby	7	White	true	false	false	lobbyButton
-Legal Department	8	Green	false	true	false	legalButton
+Niveau	line	secLevel	ArriveEmpty	Selected	Control
+Cafeteria	1	White	false	false	cafeteriaButton
+Packaging	2	Purple	true	false	packagingButton
+Processing	3	Purple	true	false	processingButton
+Managers	4	Black	false	false	managersButton
+Engineers	5	Black	false	false	engineersButton
+Interns	6	Black	false	false	internsButton
+Lobby	7	White	false	false	lobbyButton
+Legal Department	8	Green	true	false	legalButton
 
 Chapter in the Infirmary
 
