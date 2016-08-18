@@ -68,6 +68,10 @@ A victrola is a kind of supporter.
 A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
 A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
 
+A worker is a kind of person. The description of a worker is "Like all the other employees, this one stares distractedly into space." Understand "employees" or "employee" or "worker" or "workers" or "monocle" or "monocles" as a worker. 
+
+A gamer is a kind of person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or "gamers" as a gamer. 
+
 Section 2 - Player properties
 
 The player has a number called pogoLevel.
@@ -3458,9 +3462,8 @@ Instead of pushing the call button:
 	
 Section 3 - Sharing the elevator with other folks
 
-The employeeProxy is a privately-named person. The employeeProxy has a number called employeeCount. The employeeCount of the employeeProxy is 1. The printed name of the employeeProxy is "[one of]employee[or]worker[purely at random][if the employeeCount of the employeeProxy is greater than 1]s[end if]". Understand "employee" or "employees" or "worker" or "workers" as the employeeProxy. The indefinite article of the employeeProxy is "[if the employeeCount of the employeeProxy is greater than 1]some[otherwise]a[end if]". The description of the employeeProxy is "The [printed name of the employeeProxy] [regarding the employeeCount of the employeeProxy][are] nice." 
-
-The visitorProxy is a privately-named person . The visitorProxy has a number called visitorCount. The visitorCount of the visitorProxy is 1. The printed name of the visitorProxy is "[one of]visitor[or]gamer[purely at random][if the visitorCount of the visitorProxy is greater than 1]s[end if]". Understand "visitor" or "visitors" or "gamer" or "gamers" as the visitorProxy. The indefinite article of the visitorProxy is "[if the visitorCount of the visitorProxy is greater than 1]some[otherwise]a[end if]". The description of the visitorProxy is "The [printed name of the visitorProxy] [regarding the visitorCount of the visitorProxy][are] pleasant."
+There are six workers in the void. 
+There are four gamers in the void.
 
 To enumerate (employees - a number) workers and (visitors - a number) gamers:
 	if employees is greater than 0:
@@ -3485,22 +3488,24 @@ To enumerate (employees - a number) workers and (visitors - a number) gamers:
 				say "several";
 		say " visitor";
 		if visitors is greater than 1, say "s".				
+				
+To revoid everyone:
+	teleport the number of gamers in the elevator visitors from the elevator to the void;
+	teleport the number of workers in the elevator employees from the elevator to the void.
+	
+To teleport (transportees - a number) visitors from (origin - a room) to (destination - a room):
+	let Z be the number of gamers in the origin;
+	if Z is less than transportees:
+		let transportees be Z;
+	repeat with N running from 1 to the transportees:
+		move a random gamer in the origin to the destination.
 		
-To fix plurality of people proxies:
-	if the employeeCount of employeeProxy is greater than 1:
-		now employeeProxy is plural-named;
-	otherwise:
-		now employeeProxy is singular-named;
-	if the visitorCount of visitorProxy is greater than 1:
-		now visitorProxy is plural-named;
-	otherwise:
-		now visitorProxy is singular-named.
-		
-To zero the other folks count:
-	move the visitorProxy to the void;
-	now the visitorCount of the visitorProxy is 0;
-	move the employeeProxy to the void;
-	now the employeeCount of the employeeProxy is 0.
+To teleport (transportees - a number) employees from (origin - a room) to (destination - a room):
+	let Z be the number of workers in the origin;
+	if Z is less than transportees:
+		let transportees be Z;
+	repeat with N running from 1 to the transportees:
+		move a random worker in the origin to the destination.
 
 Section 4 - The elevator at the player's floor
 
@@ -3517,12 +3522,12 @@ At the time when the lift arrives:
 [The player always walks into an empty elevator. For floors where the player can all the elevator, it either arrives empty (green, purple) or everyone walks out (white)]
 
 To do lift arrival:
-	zero the other folks count;
+	revoid everyone;
 	if the ArriveEmpty corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
 		say "The doors open on an empty elevator.";
 	otherwise:
-		let E be a random number from 1 to 3;
-		let V be a random number from 0 to 3;	
+		let E be a random number from 0 to 4;
+		let V be a random number from 0 to 4;	
 		say "With a chime from somewhere overhead, the elevator announces its arrival";
 		let L be E plus V;
 		if L is greater than 0:
@@ -3541,7 +3546,7 @@ At the time when the lift departs:
 	if the player is not in the elevator:
 		[e.g., the player called the elevator, but didn't get on it in time]
 		now the floor level of the elevator is the void;
-		zero the other folks count;
+		revoid everyone;
 		say "The elevator chimes and the doors close.";
 	otherwise:
 		the next floor is reached in 1 turn from now;
@@ -3573,14 +3578,8 @@ At the time when the lift departs:
 						do nothing;
 			-- otherwise:
 				do nothing; [nobody gets on at Green or Purple Floors]
-		now the employeeCount of the EmployeeProxy is the employeeCount of the EmployeeProxy plus E;
-		now the visitorCount of the VisitorProxy is the visitorCount of the VisitorProxy plus V;
-		if the visitorCount of the VisitorProxy is greater than 0:
-			[may already be there, but no harm in redundancy here]
-			move the visitorProxy to the Elevator;
-		if the employeeCount of the EmployeeProxy is greater than 0:
-			move the employeeProxy to the Elevator;
-		fix plurality of people proxies;
+		teleport E employees from the void to the elevator;
+		teleport V visitors from the void to the elevator;
 		let L be E plus V;
 		if L is greater than 0:
 			say "but before the doors close, ";
@@ -3588,7 +3587,7 @@ At the time when the lift departs:
 			say " [regarding L][scoot] into the elevator and [regarding L][poke] [if L is 1]a[otherwise]some[end if] button[if L is 1][otherwise]s[end if] to select [if L is 1]a[otherwise]their[end if] floor[if L is 1][otherwise]s[end if]";
 		otherwise:
 			say "and the doors close";
-		say "."	
+		say "."			
 			
 Section 6 - Riding the elevator to the next floor
 [People can get out of the elevator when floors are reached]	
@@ -3597,7 +3596,6 @@ to blank all buttons:
 	repeat with N running from 1 to the number of rows in Table of Building Floors:
 		now the Selected corresponding to the line of N in the Table of Building Floors is false.
 		
-
 At the time when the next floor is reached:
 	let L be the line corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors;
 	if the elevator is upward:
@@ -3626,23 +3624,18 @@ To say who gets out here:
 	let V be 0;
 	[anyone left in the elevator gets out at white levels]
 	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is white:
-		let E be the employeeCount of the employeeProxy;
-		let V be the visitorCount of the visitorProxy;
+		let E be the number of workers in the elevator;
+		let V be the number of gamers in the elevator;
 	[some employees might get off at employee levels]
 	if the secLevel corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is black:	
-		let E be a random number from 1 to the employeeCount of EmployeeProxy minus 1;	
-	now the employeeCount of the employeeProxy is the employeeCount of the employeeProxy minus E;
-	now the visitorCount of the visitorProxy is the visitorCount of the visitorProxy minus V;
-	fix plurality of people proxies;
-	if the visitorCount of the visitorProxy is 0:
-		move the visitorProxy to the void;
-	if the employeeCount of the employeeProxy is 0:
-		move the employeeProxy to the void;
+		let E be a random number from 1 to the number of workers in the elevator minus 1;
+	teleport E employees from the elevator to the void;
+	teleport V visitors from the elevator to the void;
 	let L be E plus V;
 	If L is less than 1:
 		say ".";
 	otherwise:
-		say ". When the doors open,  ";
+		say ". When the doors open, ";
 		enumerate E workers and V gamers;
 		say " [regarding L][get] off the elevator."
 
