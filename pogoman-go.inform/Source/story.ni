@@ -3378,7 +3378,7 @@ The Elevator is a room. The description of the elevator is "The interior of the 
 
 Section 1 - Control Panel
 
-The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with the following colored buttons:[line break][elevatorButtonState]".
+The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with an arrow indicated the direction of travel and the following colored buttons:[line break][elevatorButtonState]".
 
 To say elevatorButtonState:
 	repeat with N running from 1 to the number of rows in the Table of Building Floors:
@@ -3398,21 +3398,23 @@ To say liftButtonDescription of (LB - a lift button):
 		say "not ";
 	say "illuminated."
 	
-cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "Cafeteria button". Understand "cafeteria" or "button" as the cafeteriaButton. The description of the cafeteriaButton is "[liftButtonDescription of cafeteriaButton]".
+cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "Cafeteria button". Understand "cafeteria" or "button" or "white" as the cafeteriaButton. The description of the cafeteriaButton is "[liftButtonDescription of cafeteriaButton]".
 
-packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "Packaging button". Understand "packaging" or "button" as the packagingButton. The description of the packagingButton is "[liftButtonDescription of packagingButton]".
+packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "Packaging button". Understand "packaging" or "button" or "purple" as the packagingButton. The description of the packagingButton is "[liftButtonDescription of packagingButton]".
 
-processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "Processing button". Understand "processing" or "button" as the processingButton. The description of the processingButton is "[liftButtonDescription of processingButton]".
+processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "Processing button". Understand "processing" or "button" or "purple" as the processingButton. The description of the processingButton is "[liftButtonDescription of processingButton]".
 
-managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButton is "Managers button". Understand "manager" or "managers" or "button" as the managersButton. The description of the managersButton is "[liftButtonDescription of managersButton]".
+managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButton is "Managers button". Understand "manager" or "managers" or "button" or "black" as the managersButton. The description of the managersButton is "[liftButtonDescription of managersButton]".
 
-engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "Engineers button". Understand "engineer" or "engineers" or "button" as the engineersButton. The description of the engineersButton is "[liftButtonDescription of engineersButton]".
+engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "Engineers button". Understand "engineer" or "engineers" or "button" or "black" as the engineersButton. The description of the engineersButton is "[liftButtonDescription of engineersButton]".
 
-internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" as the internsButton. The description of the cinternsButton is "[liftButtonDescription of internsButton]".
+internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" or "black" as the internsButton. The description of the cinternsButton is "[liftButtonDescription of internsButton]".
 
-lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "Lobby button". Understand "lobby" or "ground" or "button" as the lobbyButton. The description of the lobbyButton is "[liftButtonDescription of lobbyButton]".
+lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "Lobby button". Understand "lobby" or "ground" or "button" or "white" as the lobbyButton. The description of the lobbyButton is "[liftButtonDescription of lobbyButton]".
 
-legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" as the legalButton. The description of the legalButton is "[liftButtonDescription of legalButton]".
+legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" or "green" as the legalButton. The description of the legalButton is "[liftButtonDescription of legalButton]".
+
+The arrow is part of the elevatorControl. The description of the arrow is "A glowing arrow that points [if the elevator is upward]up[otherwise]down[end if]."
 
 Instead of pushing a lift button (called the poked item):
 	if the Selected corresponding to the Control of the poked item in the Table of Building Floors is true:
@@ -3564,10 +3566,14 @@ At the time when the lift departs:
 				let E be a random number from 2 to 4;
 				let V be a random number from 0 to 3;
 				[what buttons get pressed?]
-				if the floor level of the Elevator is Lobby:
-					now the Selected corresponding to the Niveau of the Cafeteria in the Table of Building Floors is true;
-				otherwise:
-					now the Selected corresponding to the Niveau of the Lobby in the Table of Building Floors is true;
+				if the floor level of the Elevator is:
+					-- Lobby:
+						now the Selected corresponding to the Niveau of the Cafeteria in the Table of Building Floors is true;
+						if the Selected corresponding to the Niveau of Legal Department in the Table of Building Floors is true:
+							let E be 0;[no one wants to take a ride from lobby to legal]
+							let V be 0;
+					-- Cafeteria:
+						now the Selected corresponding to the Niveau of the Lobby in the Table of Building Floors is true;
 				let R be a random number from 1 to 4;
 				[at most, one employee level is visited per trip]	
 				if R is:
@@ -3579,7 +3585,9 @@ At the time when the lift departs:
 						now the Selected corresponding to the Niveau of the Managers in the Table of Building Floors is true;
 					-- otherwise:
 						do nothing;
-			-- otherwise:
+			-- Green:
+				now the Selected corresponding to the Niveau of the Lobby in the Table of Building Floors is true;
+			-- Purple:
 				do nothing; [nobody gets on at Green or Purple Floors]
 		teleport E employees from the void to the elevator;
 		teleport V visitors from the void to the elevator;
@@ -3621,11 +3629,14 @@ At the time when the next floor is reached:
 		if the floor level of the elevator is the Cafeteria:
 			now the elevator is not upward;
 			blank all buttons;
-	otherwise:
-		if the floor level of the elevator is Lobby:
+	otherwise:[i.e., downward]
+		if the floor level of the elevator is Lobby and the Selected corresponding to the Niveau of Legal Department in the Table of Building Floors is false:
+			now the elevator is upward;
+			blank all buttons;
+		if the floor level of the elevator is Legal Department:
 			now the elevator is upward;
 			blank all buttons.
-	
+			
 To say who gets out here:
 	let E be 0;
 	let V be 0;
