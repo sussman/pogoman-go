@@ -3383,7 +3383,7 @@ The elevatorControl is a privately-named scenery in the Elevator. The printed na
 To say elevatorButtonState:
 	repeat with N running from 1 to the number of rows in the Table of Building Floors:
 		say line break;
-		say the Niveau in row N of the Table of Building Floors;
+		say Niveau in row N of the Table of Building Floors;
 		say " (";
 		say the secLevel in row N of the Table of Building Floors;
 		if the Selected in row N of the Table of Building Floors is true:
@@ -3403,6 +3403,8 @@ cafeteriaButton is a lift button. It is part of the elevatorControl. The printed
 packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "Packaging button". Understand "packaging" or "button" or "purple" as the packagingButton. The description of the packagingButton is "[liftButtonDescription of packagingButton]".
 
 processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "Processing button". Understand "processing" or "button" or "purple" as the processingButton. The description of the processingButton is "[liftButtonDescription of processingButton]".
+
+infirmaryButton is a lift button. It is part of the elevatorControl. The printed name of the infirmaryButton is "Infirmary button". Understand "infirmary" or "button" or "pink" as the infirmaryButton. The description of the infirmaryButton is "[liftButtonDescription of infirmaryButton]".
 
 managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButton is "Managers button". Understand "manager" or "managers" or "button" or "black" as the managersButton. The description of the managersButton is "[liftButtonDescription of managersButton]".
 
@@ -3587,8 +3589,8 @@ At the time when the lift departs:
 						do nothing;
 			-- Green:
 				now the Selected corresponding to the Niveau of the Lobby in the Table of Building Floors is true;
-			-- Purple:
-				do nothing; [nobody gets on at Green or Purple Floors]
+			-- otherwise:
+				do nothing; [nobody gets on at Green, Purple, or Pink levels]
 		teleport E employees from the void to the elevator;
 		teleport V visitors from the void to the elevator;
 		let L be E plus V;
@@ -3689,6 +3691,7 @@ Niveau	secLevel	ArriveEmpty	Selected	Control
 Cafeteria	White	false	false	cafeteriaButton
 Packaging	Purple	true	false	packagingButton
 Processing	Purple	true	false	processingButton
+Infirmary	Pink	true	false	infirmaryButton
 Managers	Black	false	false	managersButton
 Engineers	Black	false	false	engineersButton
 Interns	Black	false	false	internsButton
@@ -3964,28 +3967,39 @@ Instead of opening an interdicted door for the third time:
 Instead of opening an interdicted door for the fourth time:
 	move the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the floor level of the elevator is Infirmary;
-	move the player to the elevator.
+	hospital discharge.
 	
 Instead of opening an interdicted door for the fifth time:
 	move the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
-	now the floor level of the elevator is Infirmary;
-	move the player to the elevator.
+	hospital discharge.
 
 Instead of opening an interdicted door for the sixth time:
 	move the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
-	now the floor level of the elevator is Infirmary;
-	move the player to the elevator.
+	hospital discharge.
 	
 Instead of opening an interdicted door:
 	move the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
-	now the floor level of the elevator is Infirmary;
-	move the player to the elevator.
+	hospital discharge.
 	
+To hospital discharge:
+	now the elevator is not doorsajar;
+	teleport a random number between 1 and 3 employees from the void to the elevator;
+	teleport a random number between 1 and 3 visitors from the void to the elevator;
+	now the floor level of the elevator is infirmary;
+	move the player to the elevator;
+	let R be a random number between 1 and 2;
+	if R is:
+		-- 1:
+			now the elevator is upward;
+			now the Selected corresponding to the Niveau of Cafeteria in the Table of Building Floors is true;
+		-- 2:
+			now the elevator is not upward;
+			now the Selected corresponding to the Niveau of Lobby in the Table of Building Floors is true;
+	the next floor is reached in 1 turn from now.
 
 section 3 - The Salmon of Turpitude
 
