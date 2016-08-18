@@ -68,9 +68,9 @@ A victrola is a kind of supporter.
 A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
 A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
 
-A worker is a kind of person. The description of a worker is "Like all the other employees, this one stares distractedly into space." Understand "employees" or "employee" or "worker" or "workers" or "monocle" or "monocles" as a worker. 
+A worker is a kind of person. The description of a worker is "Like all the other employees, this one stares distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" as a worker. 
 
-A gamer is a kind of person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or "gamers" as a gamer. 
+A gamer is a kind of person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" as a gamer. 
 
 Section 2 - Player properties
 
@@ -833,6 +833,7 @@ When play begins:
 	now the player carries the phone;
 	now the player carries the PogoBall;
 	now the flavor of the pop-tart is a random flavor;
+	now the soundtrack of the elevator is a random number between 1 and 10;
 	ShowStatus;
 	distributeTownPogostops;
 	distributeTownGyms;
@@ -3445,6 +3446,8 @@ Instead of entering the elevatorExterior:
 	if the player is in the floor level of the elevator:		
 		move the player to the elevator;				
 		say "You [one of]walk[or]step[purely at random] into the elevator.";
+	otherwise:
+		say "The elevator is not here."
 
 Instead of pushing the call button:	
 	if the call button is lit:
@@ -3594,19 +3597,23 @@ Section 6 - Riding the elevator to the next floor
 
 to blank all buttons:
 	repeat with N running from 1 to the number of rows in Table of Building Floors:
-		now the Selected corresponding to the line of N in the Table of Building Floors is false.
+		now the Selected in row N of the Table of Building Floors is false.
 		
 At the time when the next floor is reached:
-	let L be the line corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors;
+	Let L be 1;
+	repeat with N running from 1 to the number of rows in Table of Building Floors:
+		if the Niveau in row N of the Table of Building Floors is the floor level of the Elevator:
+			let L be N;
 	if the elevator is upward:
 		decrease L by one;
 	otherwise:
 		increase L by one;
-	now floor level of the Elevator is the Niveau corresponding to the line of L in the Table of Building Floors;
+	now floor level of the Elevator is the Niveau in row L of the Table of Building Floors;
 	if the Selected corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
 		now the elevator is doorsajar;
 		say "The elevator arrives at the [floor level of the elevator] floor[who gets out here]";
 		the lift departs in 1 turn from now;
+		now the Selected corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is false;
 	otherwise:
 		say "The elevator passes the [floor level of the elevator] Level and continues [if the elevator is upward]upwards[otherwise]downwards[end if].";
 		the next floor is reached in 1 turn from now;
@@ -3667,17 +3674,19 @@ Every turn when the player is in the elevator and the walkman is not worn by the
  arrive empty - force elevator to arrive empty]
 
 Table of Building Floors
-Niveau	line	secLevel	ArriveEmpty	Selected	Control
-Cafeteria	1	White	false	false	cafeteriaButton
-Packaging	2	Purple	true	false	packagingButton
-Processing	3	Purple	true	false	processingButton
-Managers	4	Black	false	false	managersButton
-Engineers	5	Black	false	false	engineersButton
-Interns	6	Black	false	false	internsButton
-Lobby	7	White	false	false	lobbyButton
-Legal Department	8	Green	true	false	legalButton
+Niveau	secLevel	ArriveEmpty	Selected	Control
+Cafeteria	White	false	false	cafeteriaButton
+Packaging	Purple	true	false	packagingButton
+Processing	Purple	true	false	processingButton
+Managers	Black	false	false	managersButton
+Engineers	Black	false	false	engineersButton
+Interns	Black	false	false	internsButton
+Lobby	White	false	false	lobbyButton
+Legal Department	Green	true	false	legalButton
 
 section 9 - Elevator Soundtrack
+
+[After the sound track plays through typical elevator music, it hits Die Walküre, Act 3. All of it.]
 
 The list of text called MUZAKLISZT is always {"Hojotoho! Hojotoho! Heiaha! Heiaha!","Helmwige! Hier! Hieher mit dem Ross!","Hojotoho! Hojotoho! Heiaha!","Heiaha! Heiaha!","Zu Ortlindes Stute stell deinen Hengst","mit meiner Grauen grast gern dein Brauner!","Wer hängt dir im Sattel?","Sintolt, der Hegeling!","Führ[apostrophe] deinen Brauen fort von der Grauen","Ortlindes Mähre trägt Wittig, den Irming!","Als Feinde nur sah ich Sintolt und Wittig!","Heiaha! Die Stute stösst mir der Hengst!","Der Recken Zwist entzweit noch die Rosse!","Ruhig, Brauner! Brich nicht den Frieden!","Hoioho! Hoioho! Siegrune, hier!","Wo säumst du so lang?","Arbeit gab[apostrophe]s! Sind die andren schon da?","Hojotoho! Hojotoho! Heiaha! Heiaha!"," Heiaha!"," Hojotoho! Hojotoho! Heiaha!","Grimgerd[apostrophe] und Rossweisse!","Sie reiten zu zwei","Gegrüsst, ihr Reisige! Rossweiss[apostrophe] und Grimgerde!","Hojotoho! Hojotoho! Heiaha!","In Wald mit den Rossen zu Weid[apostrophe] und Rast!","Führet die Mähren fern von einander","bis unsrer Helden Hass sich gelegt!","Der Helden Grimm büsste schon die Graue!","Hojotoho! Hojotoho!","Willkommen! Willkommen!","Wart ihr Kühnen zu zwei?","Getrennt ritten wir und trafen uns heut[apostrophe]","Sind wir alle versammelt, so säumt nicht lange","nach Walhall brechen wir auf, Wotan zu bringen die Wal","Acht sind wir erst: eine noch fehlt","Bei dem braunen Wälsung weilt wohl noch Brünnhilde","Auf sie noch harren müssen wir hier","Walvater gäb[apostrophe] uns grimmigen Gruss","säh[apostrophe] ohne sie er uns nahn!","Hojotoho! Hojotoho!","Hieher! Hieher!","In brünstigem Ritt jagt Brünnhilde her","Hojotoho! Hojotoho! Brünnhilde! Hei!","Nach dem Tann lenkt sie das taumelnde Ross","Wie schnaubt Grane vom schnellen Ritt!","So jach sah ich nie Walküren jagen!","Was hält sie im Sattel?","Das ist kein Held!","Eine Frau führt sie!","Wie fand sie die Frau?","Mit keinem Gruss grüsst sie die Schwestern!","Heiaha! Brünnhilde! Hörst du uns nicht?","Helft der Schwester vom Ross sich schwingen!","Hojotoho! Hojotoho! Heiaha!","Zu Grunde stürzt Grane, der Starke!","Aus dem Sattel hebt sie hastig das Weib!","Schwester! Schwester! Was ist geschehn?","Schützt mich und helft in höchster Not!","Wo rittest du her in rasender Hast?","So fliegt nur, wer auf der Flucht!","Zum erstenmal flieh[apostrophe] ich und bin verfolgt","Heervater hetzt mir nach!","Bist du von Sinnen? Sprich! Sage uns!","Verfolgt dich Heervater? Fliehst du vor ihm?","O Schwestern, späht von des Felsens Spitze!","Schaut nach Norden, ob Walvater naht!","Schnell! Seht ihr ihn schon?","Gewittersturm naht von Norden","Starkes Gewölk staut sich dort auf!","Heervater reitet sein heiliges Ross!","Der wilde Jäger, der wütend mich jagt","er naht, er naht von Norden! Schützt mich, Schwestern!","Wahret dies Weib!","Was ist mit dem Weibe?","Hört mich in Eile: Sieglinde ist es","Siegmunds Schwester und Braut: gegen die Wälsungen","wütet Wotan in Grimm; dem Bruder sollte","Brünnhilde heut[apostrophe] entziehen den Sieg","doch Siegmund schützt[apostrophe] ich mit meinem Schild","trotzend dem Gott! -Der traf ihn da selbst mit dem Speer","Siegmund fiel; doch ich floh","fern mit der Frau; sie zu retten","eilt[apostrophe] ich zu euch - ob mich Bange auch","ihr berget vor dem strafenden Streich!","Betörte Schwester, was tatest du?","Wehe! Brünnhilde, wehe! Brach ungehorsam","Brünnhilde Heervaters heilig Gebot?","Nächtig zieht es von Norden heran","Wütend steuert hieher der Sturm","Wild wiehert Walvaters Ross","Schrecklich schnaubt es daher","Wehe der Armen, wenn Wotan sie trifft","den Wälsungen allendroht er Verderben!","Wer leiht mir von euch das leichteste Ross","das flink die Frau ihm entführ[apostrophe]?","Auch uns rätst du rasenden Trotz?","Rossweisse, Schwester, leih[apostrophe] mir deinen Renner!","Vor Walvater floh der fliegende nie","Helmwige, höre!","Dem Vater gehorch[apostrophe] ich","Grimgerde! Gerhilde!Gönnt mir eu[apostrophe]r Ross!","Schwertleite! Siegrune! Seht meine Angst!","Seid mir treu, wie traut ich euch war","rettet dies traurige Weib!","Nicht sehre dich Sorge um mich: einzig taugt mir der Tod!","Wer hiess dich Maid, dem Harst mich entführen?","Im Sturm dort hätt[apostrophe] ich den Streich empfah[apostrophe]n","von derselben Waffe, der Siegmund fiel","das Ende fand ich vereint mit ihm!","Fern von Siegmund - Siegmund, von dir!","O deckte mich Tod, dass ich[apostrophe]s denke!","Soll um die Flucht dir, Maid, ich nicht fluchen","so erhöre heilig mein Flehen: stosse dein Schwert mir ins Herz!","Lebe, o Weib, um der Liebe willen!","Rette das Pfand, das von ihm du empfingst","ein Wälsung wächst dir im Schoss!","Rette mich, Kühne! Rette mein Kind!","Schirmt mich, ihr Mädchen, mit mächtigstem Schutz!","Der Sturm kommt heran","Flieh[apostrophe], wer ihn fürchtet!","Fort mit dem Weibe, droht ihm Gefahr","der Walküren keine wag[apostrophe] ihren Schutz","Rette mich, Maid! Rette die Mutter!","So fliehe denn eilig - und fliehe allein!","Ich bleibe zurück, biete mich Wotans Rache","an mir zögr[apostrophe] ich den Zürnenden hier","während du seinem Rasen entrinnst","Wohin soll ich mich wenden?","Wer von euch Schwestern schweifte nach Osten?","Nach Osten weithin dehnt sich ein Wald","der Niblungen Hort entführte Fafner dorthin","Wurmes Gestalt schuf sich der Wilde","in einer Höhle hütet er Alberichs Reif!","Nicht geheu[apostrophe]r ist[apostrophe]s dort für ein hilflos[apostrophe] Weib","Und doch vor Wotans Wut schützt sie sicher der Wald","ihn scheut der Mächt[apostrophe]ge und meidet den Ort","Furchtbar fährt dort Wotan zum Fels","Brünnhilde, hör[apostrophe] seines Nahens Gebraus[apostrophe]!","Fort denn eile, nach Osten gewandt","Mutigen Trotzes ertrag[apostrophe] alle Müh[apostrophe]n","Hunger und Durst, Dorn und Gestein","ache, ob Not, ob Leiden dich nagt","Denn eines wiss[apostrophe] und wahr[apostrophe] es immer","den hehrsten Helden der Welt hegst du, o Weib","im schirmenden Schoss","Verwahr[apostrophe] ihm die starken Schwertesstücken","seines Vaters Walstatt entführt[apostrophe] ich sie glücklich","der neugefügt das Schwert einst schwingt","den Namen nehm[apostrophe] er von mir -[quotation mark]Siegfried[quotation mark] erfreu[apostrophe] sich des Siegs!","O hehrstes Wunder! Herrlichste Maid!","Dir Treuen dank[apostrophe] ich heiligen Trost!","Für ihn, den wir liebten, rett[apostrophe] ich das Liebste","meines Dankes Lohn lache dir einst!","Lebe wohl! Dich segnet Sieglindes Weh[apostrophe]!","Steh[apostrophe]! Brünnhild[apostrophe]!","Den Fels erreichten Ross und Reiter!","Weh[apostrophe], Brünnhild[apostrophe]! Rache entbrennt!","Ach, Schwestern, helft! Mir schwankt das Herz!","Sein Zorn zerschellt mich, wenn euer Schutz ihn nicht zähmt","Hieher, Verlor'ne! Lass dich nicht sehn!","Schmiege dich an uns und schweige dem Ruf!","Weh'! Wütend schwingt sich Wotan vom Ross!","Hieher rast sein rächender Schritt!"}.
 
