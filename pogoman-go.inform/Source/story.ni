@@ -82,6 +82,7 @@ The player has a number called Trophies.
 The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
 The player has a number called pogoballsCarried.  pogoballsCarried is 3.
+The player has a room called previousRoom. previousRoom is the void.
 
 [  
    Places - Outside areas like parks
@@ -149,7 +150,7 @@ Instead of taking a pogostop:
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
 
-Definition: A quadroom is an okayGymLocation if it is not Nyantech Entrance and it is not Perilous Passageway and it is not listed in POGOSTOPLIST and it is not listed in GYMLIST.
+Definition: A quadroom is an okayGymLocation if it is an okayInitialPogostopLocation and it is not listed in GYMLIST.
 
 Definition: a room is gymTargeted if it is listed in GYMLIST.
 
@@ -248,7 +249,8 @@ Chapter Declare Global Variables
 
 [booleans]
 
-SUPPRESSMEDALS is a truth state that varies.
+SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
+The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
 
 [lists - because Jack loves lists]
 
@@ -256,6 +258,8 @@ POGOSTOPLIST is a list of rooms that varies.
 GYMLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
+
+
 
 Chapter Rules Modifications
 
@@ -872,17 +876,95 @@ After printing the banner text:
 	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
 	
 
+Chapter Stage Business
+
+[This is largely lifted from Hoosegow. Set the BLOCKSTAGEBUSINESSFLAG to suppress stage business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions]
+
+The stage business rules is a rulebook.
+
+The endgame block stage business rule is listed first in the stage business rules.
+
+This is the endgame block stage business rule:
+	if the denouement is happening:
+		the rule succeeds.
+
+The block all stage business rule is listed after the endgame block stage business rule in the stage business rules. 
+
+This is the block all stage business rule:
+	if the BLOCKSTAGEBUSINESSFLAG is true:
+		the rule succeeds.
+		
+The block stage business while-looking rule is listed after the block all stage business rule in the stage business rules.
+
+This is the block stage business while-looking rule:
+	if the current action is looking:
+		the rule succeeds.
+
+The block stage business unless the player moves about rule is listed after the block stage business while-looking rule in the stage business rules.
+
+This is the block stage business unless the player moves about rule:
+	if the previousRoom of the player is the location of the player:
+		the rule succeeds.
+		
+The off limits site stage business rule is listed after the block stage business unless the player moves about rule in the stage business rules.
+
+To decide whether (QTH - a room) is off limits for stage business:
+	if the QTH is listed in {Perilous Passageway, Nyantech Entrance, The Elevator}, yes;
+	decide no.
+		
+This is the off limits site stage business rule:
+	if the location of the player is off limits for stage business:
+		the rule succeeds.
+
+[Location-specific stage business]
+
+The looming shadow of Nyantech stage business rule is listed after the off limits site stage business rule in the stage business rules.
+
+This is the looming shadow of Nyantech stage business rule:
+	if the player is in the Village:
+		if a random chance of 1 in 8 succeeds:
+			if the number of entries in NYANCLUEBAT is greater than 0:
+				say "[entry 1 of NYANCLUEBAT].";
+				remove entry 1 from NYANCLUEBAT;
+			otherwise:
+				say "[permutedTower]."
+				
+The strangely prescient rantings of Oswaldo stage business rule is listed after the looming shadow of Nyantech stage business rule in the stage business rules.
+
+This is the strangely prescient rantings of Oswaldo stage business rule:
+	if the player is in the Village:
+		if a random chance of 1 in 10 succeeds:
+			if the number of entries in OSWALDOBUSINESS is greater than 0:
+				say "[entry 1 in OSWALDOBUSINESS].";
+				remove entry 1 from OSWALDOBUSINESS.
+
+[
+
+[enable only for testing]
+The default stage business rule is listed last in the stage business rules.
+
+This is the default stage business rule:
+	say "*** DEFAULT STAGE BUSINESS FOR TESTING PURPOSES ONLY ***."
+
+
+]
+
 Chapter Every Turn 
 
 
 Every turn:	
 	if the walkman is worn by the player:
 		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
+		now the BLOCKSTAGEBUSINESSFLAG is true;
 	if the current action is looking or going:
 		if the phone is not hung:
 			follow the list exits rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
+	follow the stage business rules;
+	now the previousRoom of the player is the location of the player;
+	[unblock stage business for next turn]
+	Now the BLOCKSTAGEBUSINESSFLAG is false.
 	
 Every turn when Exploring the Tower is happening:
 	if PEC of the CAT Control is greater than 0:
@@ -1096,6 +1178,8 @@ Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
 
 The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". The possible exits of the Nyantech Entrance are "The entrance to the tower itself is through a revolving brass door, just beyond the unicorn."
 
+The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
+
 The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A badge identifies the unicorn as officers C. Harris and F. Polanski." Understand "badge" or "officer" or "officers" as the unicorn.
 
 The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
@@ -1187,8 +1271,11 @@ To say requirement:
 To say denyPlayerEntry:
 	say "[one of][deny1][or][deny2][or][deny3][or][deny4][or][deny4][or][deny4][or][deny5][or][deny4][stopping]".
 	
+To say arbitraryNoticeDescription:
+	say "[apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe]".
+	
 To say deny1:
-	say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[paragraph break]You still can[apostrophe]t accept this. But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe].[paragraph break]";
+	say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[paragraph break]You still can[apostrophe]t accept this. But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
 	bestow "Subjected to arbitrary requirements”.
 	
 To say deny2:
@@ -1208,7 +1295,7 @@ To say deny5:
 	bestow "Exceeded The Patience Of A Unicorn".
 		
 To say unicorn topics:
-	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how JJ Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food [or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[in random order]"
+	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how JJ Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[in random order]"
 	
 To say goOnIn:
 	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter a the building[apostrophe]s revolving door.";
@@ -1522,7 +1609,7 @@ To say passage4:
 	phoneDeath.
 	
 To say passage5:
-	say "Hmm… that dangerous passageway to the east… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it.[paragraph break]";
+	say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it.[paragraph break]";
 	bestow "Slow Learner".
 	
 To say passage6:
@@ -1677,9 +1764,9 @@ Instead of listening when the location is a juxtaHighway quadroom:
 	
 Section Village Atmosphere
 
-The list of text called OSWALDOBUSINESS is always {"Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone.","From somewhere down the block, you hear Oswaldo berating some of your fellow Pogoman GO! players about how the game is corrupting youth and hastening the demise of the nuclear family. As is typical for Oswaldo, his rant spins out of control, touching upon topics including the gold standard, water fluoridation, nuclear winter, the HAARP telepathy modulator, and tunnels leading to the center of the Earth.","You catch sight of Oswaldo running angrily after some teenagers, who had been making fun of his clapboard signs, painted with the words [quotation mark]Pogoman NO![quotation mark] above an angry red fist.","From somewhere nearby, you hear Oswaldo[apostrophe]s megaphone-amplified voice, cracking and shrill, denouncing the evils of truth and love.","There[apostrophe]s a bit of an incident down the street. It looks like Oswaldo has worked himself up into a lather. A pair of policemen approach him from both sides and he yells, [quotation mark]The cat eats souls! The struggle is real! Must must be defeated![quotation mark] -- or something to that effect."}.
+OSWALDOBUSINESS is a list of text that varies. OSWALDOBUSINESS is {"Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone","From somewhere down the block, you hear Oswaldo berating some of your fellow Pogoman GO! players about how the game is corrupting youth and hastening the demise of the nuclear family. As is typical for Oswaldo, his rant spins out of control, touching upon topics including the gold standard, water fluoridation, nuclear winter, the HAARP telepathy modulator, and tunnels leading to the center of the Earth","You catch sight of Oswaldo running angrily after some teenagers, who had been making fun of his clapboard signs, painted with the words [quotation mark]Pogoman NO![quotation mark] above an angry red fist","From somewhere nearby, you hear Oswaldo[apostrophe]s megaphone-amplified voice, cracking and shrill, denouncing the evils of truth and love","There[apostrophe]s a bit of an incident down the street. It looks like Oswaldo has worked himself up into a lather. A pair of policemen approach him from both sides and he yells, [quotation mark]The cat eats souls! The struggle is real! Must must be defeated![quotation mark] -- or something to that effect"}.
 
-The list of text called NYANCLUEBAT is always {"The Nyantech tower casts a long shadow over the entire town. They -- other players of pogoman, that is -- say that you can find the rarest and most powerful of pogomen within its hallowed halls.", "A red search light reflects off windows of buildings and cars along the street and then is gone.", "You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite.","The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow.","A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they’re still accepting beta-testers![quotation mark]", "In the distance, the Nyantech Cat mechanically purrs the time as it continues its never-ending journey around the Nyantech building.","A group of hyperexcitable tourists walks by, gaping in awe at the soaring Nyantech tower. One of them remarks that were it not for Nyantech, this town would be little more than a collection of historic markers -- and it[apostrophe]s true.","From across the street, you over hear a despondent gamer confiding to a friend, [quotation mark]I thought I was beta-tester material. But… I failed. I couldn[apostrophe]t cut it.[quotation mark]  They walk away in silent shame.","The Nyantech Cat, its glowing red eyes a beacon of hope to mobile gamers everywhere, slowly rotates around the top of the Nyantech corporate headquarters building downtown."}.
+NYANCLUEBAT is a list of text that varies. NYANCLUEBAT is {"The Nyantech tower casts a long shadow over the entire town. They -- other players of pogoman, that is -- say that you can find the rarest and most powerful of pogomen within its hallowed halls", "A red search light reflects off windows of buildings and cars along the street and then is gone", "You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite","The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow","A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they’re still accepting beta-testers![quotation mark] They disappear from sight", "In the distance, the Nyantech Cat mechanically purrs the time as it continues its never-ending journey around the Nyantech building","A group of hyperexcitable tourists walks by, gaping in awe at the soaring Nyantech tower. One of them remarks that were it not for Nyantech, this town would be little more than a collection of historic markers -- and it[apostrophe]s true","From across the street, you over hear a despondent gamer confiding to a friend, [quotation mark]I thought I was beta-tester material. But… I failed. I couldn[apostrophe]t cut it.[quotation mark] They walk away in silent shame","The Nyantech Cat, its glowing red eyes a beacon of hope to mobile gamers everywhere, slowly rotates around the top of the Nyantech corporate headquarters building downtown"}.
 
 To say permutedTower:
 	say "The [one of]shiny, black[or]ebony[or]majestic[or]jet black[or]monolith-like[or]imposing[purely at random] Nyantech [one of]tower[or]building[or]office building[or]corporate headquarters[or]operations center[purely at random] [one of]looms[or]towers[or]stands out[or]rises[or]soars[purely at random] [one of]in the distance[or]on the horizon[or]over the roof tops[or]majestically[or]regally[or]in a class of its own[purely at random], [one of]dwarfing[or]dominating[or]putting to shame[purely at random] surrounding [one of]buildings[or]structures[or]edifices[purely at random]".
@@ -2083,9 +2170,9 @@ Instead of going east from the Lobby when the walkman is not worn:
 After going east from the Lobby for the first time:
 	say "With the walkman blaring away in your ears, the arguably melodious strains of Rick Astley drown out the sonic barrier around the LAN closet, and you are able to approach it."
 
-The RevolvingDoor is outside of the Security Checkpoint. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." The description of the revolving door is "A brass revolving door w at the entrance to the Nyantech Tower." The possible exits of the revolvingDoor are "You can either go inside, into Nyantech Headquarters, or outside, back to the street[one of]. Your choice[or][stopping]."
+The RevolvingDoor is inside of Nyantech Entrance. The RevolvingDoor is outside of the Security Checkpoint. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." The description of the revolving door is "A brass revolving door w at the entrance to the Nyantech Tower." The possible exits of the revolvingDoor are "You can either go inside, into Nyantech Headquarters, or outside, back to the street[one of]. Your choice[or][stopping]."
 
-Instead of going outside from the RevolvingDoor:
+Instead of going outside when the player is in the revolvingDoor:
 	say "The helpful (and mildly passive-aggressive) unicorn gives the door an extra kick, and the door spins even further.";
 	try going inside.
 
@@ -3740,6 +3827,7 @@ Instead of going outside when the player is in the elevator:
 Section 8 - Elevator Mechanics
 	
 Every turn when the player is in the elevator and the walkman is not worn by the player:
+	now the BLOCKSTAGEBUSINESSFLAG is true;
 	say "... [italic type] [entry soundtrack of the elevator of MUZAKLISZT] [roman type]...";
 	if soundtrack of the elevator is the number of entries in MUZAKLISZT:
 		now soundtrack of the elevator is 1;
@@ -4274,6 +4362,8 @@ Around the Town is a scene. Around the Town begins when play begins. Around the 
 Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the MuskPod.
 
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
+
+Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
 
 
 
