@@ -264,17 +264,20 @@ HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "S
 Chapter Rules Modifications
 
 
-Section 1 - Get rid of Get All
+Section 1 - Direct Parser Block (hung phone, get all) 
 
-[A more efficient no more get all, suggested by Radical Al:]
+Understand "reboot/reinitialize/initialize/IPL/r" or "reboot phone" as "[rebootage]".
 
 After reading a command:
-	if the player's command includes "all":
-		if the phone is not hung:
-			say "One at a time, please.";
+	if the phone is hung:
+		if the player's command includes "[rebootage]":
+			continue the action;
 		otherwise:
-			do nothing;
-		reject the player's command.
+			reject the player's command;
+	otherwise:	
+		if the player's command includes "all":
+			say "One at a time, please.";
+			reject the player's command.
 
 Section 2 - Room Headers
 
@@ -490,7 +493,7 @@ To CheckLevel:
 
 Section Rebooting
 
-PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" or "r" as phoneBooting when the phone has been hung. 
+PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting. Understand "r" as phoneBooting when the phone has been hung. 
 
 Carry out phoneBooting:
 	try rebooting the phone.
