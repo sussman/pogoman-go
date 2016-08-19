@@ -72,6 +72,8 @@ A worker is a kind of person. The description of a worker is "Like all the other
 
 A gamer is a kind of person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" as a gamer. 
 
+A workerProxy are a kind of plural-named scenery thing. 
+
 Section 2 - Player properties
 
 The player has a number called pogoLevel.
@@ -2709,10 +2711,31 @@ After going south from the stairsRoof for the first time:
 	bestow "Made it to the top".          
 	
 Processing is a room.
+
 Packaging is a room. 
-Interns is a room.
-Engineers is a room.
-Managers is a room.
+
+Interns is a room. Interns has a  number called describeIndex. The describeIndex of Interns is 1.
+
+internsProxy are a workerProxy. internsProxy are in the void. The description of internsProxy are "[entry describeIndex of Interns of INTERNSDESCRIBE]". Understand "intern" or "interns" as the internsProxy.
+
+The list of text called INTERNSDESCRIBE is always {"text here", "and here"};
+
+Engineers is a room. Engineers has a  number called describeIndex. The describeIndex of Engineers is 1.
+
+The list of text called ENGINEERSDESCRIBE is always {"text here", "and here"};
+
+engineersProxy are a workerProxy . engineersProxy are in the void. The description of engineersProxy are "[entry describeIndex of Engineers of ENGINEERSDESCRIBE]". Understand "engineer" or "engineers" as the engineersProxy.
+
+Managers is a room. Managers has a  number called describeIndex. The describeIndex of Managers is 1.
+
+The list of text called MANAGERSDESCRIBE is always {"text here", "and here"};
+
+managersProxy are a workerProxy. managersProxy are in the void. The description of managersProxy are "[entry describeIndex of Managers of MANAGERSDESCRIBE]". Understand "manager" or "managers" as the managersProxy.
+
+Instead of doing something other than examining with a workerProxy:
+	say "You would have to exit the elevator here to do that."
+
+
 
 Section 4 - Deck
 
