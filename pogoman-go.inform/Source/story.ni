@@ -1674,6 +1674,16 @@ Instead of listening when the location is a juxtaRailway quadroom:
 	
 Instead of listening when the location is a juxtaHighway quadroom:
 	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
+	
+Section Village Atmosphere
+
+The list of text called OSWALDOBUSINESS is always {"Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone.","From somewhere down the block, you hear Oswaldo berating some of your fellow Pogoman GO! players about how the game is corrupting youth and hastening the demise of the nuclear family. As is typical for Oswaldo, his rant spins out of control, touching upon topics including the gold standard, water fluoridation, nuclear winter, the HAARP telepathy modulator, and tunnels leading to the center of the Earth.","You catch sight of Oswaldo running angrily after some teenagers, who had been making fun of his clapboard signs, painted with the words [quotation mark]Pogoman NO![quotation mark] above an angry red fist.","From somewhere nearby, you hear Oswaldo[apostrophe]s megaphone-amplified voice, cracking and shrill, denouncing the evils of truth and love.","There[apostrophe]s a bit of an incident down the street. It looks like Oswaldo has worked himself up into a lather. A pair of policemen approach him from both sides and he yells, [quotation mark]The cat eats souls! The struggle is real! Must must be defeated![quotation mark] -- or something to that effect."}.
+
+The list of text called NYANCLUEBAT is always {"The Nyantech tower casts a long shadow over the entire town. They -- other players of pogoman, that is -- say that you can find the rarest and most powerful of pogomen within its hallowed halls.", "A red search light reflects off windows of buildings and cars along the street and then is gone.", "You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite.","The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow.","A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they’re still accepting beta-testers![quotation mark]", "In the distance, the Nyantech Cat mechanically purrs the time as it continues its never-ending journey around the Nyantech building.","A group of hyperexcitable tourists walks by, gaping in awe at the soaring Nyantech tower. One of them remarks that were it not for Nyantech, this town would be little more than a collection of historic markers -- and it[apostrophe]s true.","From across the street, you over hear a despondent gamer confiding to a friend, [quotation mark]I thought I was beta-tester material. But… I failed. I couldn[apostrophe]t cut it.[quotation mark]  They walk away in silent shame.","The Nyantech Cat, its glowing red eyes a beacon of hope to mobile gamers everywhere, slowly rotates around the top of the Nyantech corporate headquarters building downtown."}.
+
+To say permutedTower:
+	say "The [one of]shiny, black[or]ebony[or]majestic[or]jet black[or]monolith-like[or]imposing[purely at random] Nyantech [one of]tower[or]building[or]office building[or]corporate headquarters[or]operations center[purely at random] [one of]looms[or]towers[or]stands out[or]rises[or]soars[purely at random] [one of]in the distance[or]on the horizon[or]over the roof tops[or]majestically[or]regally[or]in a class of its own[purely at random], [one of]dwarfing[or]dominating[or]putting to shame[purely at random] surrounding [one of]buildings[or]structures[or]edifices[purely at random]".
+
 
 Chapter Inside Nyantech
 
@@ -4259,7 +4269,7 @@ To say openingText:
 
 Book 6 - Scenes
 
-Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the lobby.
+Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the RevolvingDoor.
 
 Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the MuskPod.
 
