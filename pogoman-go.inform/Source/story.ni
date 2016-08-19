@@ -68,11 +68,11 @@ A victrola is a kind of supporter.
 A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
 A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
 
-A worker is a kind of person. The description of a worker is "Like all the other employees, this one stares distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" as a worker. 
+A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of  workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
 
-A gamer is a kind of person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" as a gamer. 
+A gamer is a kind of  privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
 
-A workerProxy are a kind of plural-named scenery thing. 
+A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list of text called WPLIST. 
 
 Section 2 - Player properties
 
@@ -2724,28 +2724,24 @@ Processing is a room.
 
 Packaging is a room. 
 
-Interns is a room. Interns has a  number called describeIndex. The describeIndex of Interns is 1.
+Interns is a room. 
 
-internsProxy are a workerProxy. internsProxy are in the void. The description of internsProxy are "[entry describeIndex of Interns of INTERNSDESCRIBE]". Understand "intern" or "interns" as the internsProxy.
+To say fromElevator:
+	say "Looking out from the elevator, you can see ".
 
-The list of text called INTERNSDESCRIBE is always {"text here", "and here"};
+[TODO Example floor description for the three employee levels]
+internsProxy are a workerProxy. internsProxy are in the void. The description of a internsProxy is "[fromElevator][entry 1 of the WPLIST of internsProxy]." Understand "intern" or "interns" or "employee" or "employees" or "worker" or "workers" as the internsProxy. The WPLIST of internsProxy is {"a roiling mass of interns playing three-dimensional twister to the accompaniment of a driving disco beat", "interns running around in leotards and dancing in a stream of bubbles"}. The printed name of the internsProxy is "interns".
 
-Engineers is a room. Engineers has a  number called describeIndex. The describeIndex of Engineers is 1.
+Engineers is a room. 
 
-The list of text called ENGINEERSDESCRIBE is always {"text here", "and here"};
+engineersProxy are a workerProxy . engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychodelic patterns and text", "bolts of lightning richocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
 
-engineersProxy are a workerProxy . engineersProxy are in the void. The description of engineersProxy are "[entry describeIndex of Engineers of ENGINEERSDESCRIBE]". Understand "engineer" or "engineers" as the engineersProxy.
+Managers is a room.
 
-Managers is a room. Managers has a  number called describeIndex. The describeIndex of Managers is 1.
-
-The list of text called MANAGERSDESCRIBE is always {"text here", "and here"};
-
-managersProxy are a workerProxy. managersProxy are in the void. The description of managersProxy are "[entry describeIndex of Managers of MANAGERSDESCRIBE]". Understand "manager" or "managers" as the managersProxy.
+managersProxy are a workerProxy. managersProxy are in the void. The description of a managersProxy is "[fromElevator][entry 1 of the WPLIST of managersProxy]." Understand "manager" or "managers" or "employee" or "employees" or "worker" or "workers" as the managersProxy. The WPLIST of managersProxy is  {"the managers processing in circles with lit candles", "shadowy figures serving hors d'oeuvres to the managers, who are dressed as french maids"}. The printed name of the managersProxy is "managers".
 
 Instead of doing something other than examining with a workerProxy:
 	say "You would have to exit the elevator here to do that."
-
-
 
 Section 4 - Deck
 
@@ -3593,6 +3589,9 @@ Section 5 - The elevator departs (after a stop, whether player is in it or not)
 
 At the time when the lift departs:
 	now the elevator is not doorsajar;
+	repeat with WP running through workerProxies in the elevator:
+		rotate the WPLIST of the WP;
+		move the WP to the void;
 	if the player is not in the elevator:
 		[e.g., the player called the elevator, but didn't get on it in time]
 		now the floor level of the elevator is the void;
@@ -3665,6 +3664,17 @@ At the time when the next floor is reached:
 	if the Selected corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is true:
 		now the elevator is doorsajar;
 		say "The elevator arrives at the [floor level of the elevator] floor[who gets out here]";
+		if the floor level of the Elevator is:
+			-- Interns:
+				move internsProxy to the elevator;
+			-- Engineers:
+				move engineersProxy to the elevator;
+			-- Managers:
+				move managersProxy to the elevator;
+		repeat with WP running through workerProxies in the elevator:
+			say line break;
+			say the description of the WP;
+			say line break;
 		the lift departs in 1 turn from now;
 		now the Selected corresponding to the Niveau of the floor level of the Elevator in the Table of Building Floors is false;
 	otherwise:
