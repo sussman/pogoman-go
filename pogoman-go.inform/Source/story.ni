@@ -1056,10 +1056,11 @@ This is the strangely prescient rantings of Oswaldo stage business rule:
 				remove entry 1 from OSWALDOBUSINESS;
 				the rule succeeds.
 				
-The lobby stage business rule is listed after the strangely prescient rantings of Oswaldo stage business rule in the stage business rules.
+The public areas stage business rule is listed after the strangely prescient rantings of Oswaldo stage business rule in the stage business rules.
 
-This is the lobby stage business rule:
-	if the player is in the Lobby:
+[was going to have separate dialogue for cafeteria, but decided it wouldn't really be different from lobby]
+This is the public areas stage business rule:
+	if the player is in the Lobby or the player is in the Cafeteria:
 		if a random chance of 1 in 2 succeeds:
 			say lobby stage business;
 			the rule succeeds.
@@ -1079,9 +1080,6 @@ Chapter Every Turn
 
 
 Every turn:	
-	if the walkman is worn by the player:
-		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
-		now the BLOCKSTAGEBUSINESSFLAG is true;
 	if the current action is looking or going:
 		if the phone is not hung:
 			follow the list exits rule;
@@ -1093,6 +1091,10 @@ Every turn:
 	Now the BLOCKSTAGEBUSINESSFLAG is false.
 	
 Every turn when Exploring the Tower is happening:
+	[the walkman is confiscated prior to Not In Kansas Anymore]
+	if the walkman is worn by the player:
+		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
+		now the BLOCKSTAGEBUSINESSFLAG is true;
 	if PEC of the CAT Control is greater than 0:
 		if onHoldFlag of the CAT Control is false:
 			increase PEC of the CAT Control by a random number between 120 and 130;
@@ -1935,6 +1937,9 @@ Instead of taking the nose for the first time:
 Instead of taking the nose:
 	say "Yech."
 	
+Instead of listening when the player is in the cafeteria:
+	say lobby stage business.
+	
 Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
 
 The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level-twenty pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
@@ -2284,7 +2289,8 @@ Instead of opening the barrel when penlight is switched on:
 
 The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]." The lobby has a list of text called stage business.
 
-Instead of listening when the player is in the lobby:		say lobby stage business.
+Instead of listening when the player is in the lobby:		
+	say lobby stage business.
 
 To say lobby stage business:
 	say "You overhear [one of]some[or]a bit of[or]fragments of[or]a snipped of[or]a couple snatches of[or]some random[or]some background[in random order] conversation, [quotation mark] ...[italic type][run paragraph on]";
