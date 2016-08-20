@@ -270,10 +270,21 @@ Understand "reboot/reinitialize/initialize/IPL/r" or "reboot phone" as "[reboota
 
 After reading a command:
 	if the phone is hung:
+		increase the ignored command count of the phone by one;
 		if the player's command includes "[rebootage]":
 			continue the action;
+		if the player's command includes "[a direction]":
+			say "[one of]No sense in walking anywhere if the game isn’t playing. Better reboot the phone.[or][run paragraph on][stopping]";
 		otherwise:
-			reject the player's command;
+			if the ignored command count of the phone is:
+				-- 10: 
+					say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]" instead;
+				-- 20:
+					say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command." instead;
+				-- 30:
+					say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
+					try rebooting the phone;
+		reject the player's command;
 	otherwise:	
 		if the player's command includes "all":
 			say "One at a time, please.";
@@ -548,7 +559,7 @@ Instead of doing something when the phone is hung for the first time:
 	otherwise:
 		say "Your phone has locked up. Since you only use it to play Pogoman GO!, you might as well [italic type]reboot[roman type] it."
 
-Before doing something when the phone is hung:
+[Before doing something when the phone is hung:
 	if the current action is phoneBooting or rebooting:
 		continue the action;
 	otherwise:
@@ -565,7 +576,7 @@ Before doing something when the phone is hung:
 				try rebooting the phone;
 				stop the action;
 			-- otherwise:
-				stop the action.
+				stop the action.]
 		
 Section Swimming
 
@@ -930,7 +941,8 @@ This is the looming shadow of Nyantech stage business rule:
 				say "[entry 1 of NYANCLUEBAT].";
 				remove entry 1 from NYANCLUEBAT;
 			otherwise:
-				say "[permutedTower]."
+				say "[permutedTower].";
+			the rule succeeds.
 				
 The strangely prescient rantings of Oswaldo stage business rule is listed after the looming shadow of Nyantech stage business rule in the stage business rules.
 
@@ -939,7 +951,8 @@ This is the strangely prescient rantings of Oswaldo stage business rule:
 		if a random chance of 1 in 10 succeeds:
 			if the number of entries in OSWALDOBUSINESS is greater than 0:
 				say "[entry 1 in OSWALDOBUSINESS].";
-				remove entry 1 from OSWALDOBUSINESS.
+				remove entry 1 from OSWALDOBUSINESS;
+				the rule succeeds.
 
 [
 
@@ -1338,7 +1351,7 @@ The description of Old Town Hall is "A single story edifice of white-washed roug
 
 [Spit n' Solder Hardware]
 
-The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark]." Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
+The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark].". Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
 
 [Rotary Clock Tower]
 
