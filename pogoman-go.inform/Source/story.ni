@@ -327,6 +327,8 @@ After reading a command:
 							say disgusted with indecision;
 					otherwise:
 						say disgusted with indecision;
+			[status has to be updated here, because rejecting the command means no turn as passed, so every turn hook will not fire]
+			showStatus;
 			reject the player's command.
 				
 To say disgusted with indecision:
@@ -343,7 +345,7 @@ To say sweeten the deal:
 		
 To say might as well be a politician:
 	bestow "Might As Well Be A Politician Because You Didn[apostrophe]t Answer The Question That Was Asked";
-	say "The choice of team color is of earthshaking importance. Please pick one of the team colors ([CORE_TEAM_COLORS])[paragraph break]";
+	say "The choice of team color is of earthshaking importance. Please pick one of the team colors ([CORE_TEAM_COLORS]).";
 	increase the teamColorPrompt of the player by one.
 	
 To say another seizure is coming on:
