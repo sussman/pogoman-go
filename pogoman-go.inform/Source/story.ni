@@ -971,7 +971,8 @@ At the time when the trip ends:
 	say "The mind-altering effects of the pogometh seem to have worn off.";
 	now the testPogoMeth is not trippy.
 	
-After smelling when the testPogoMeth is trippy for the first time:
+Instead of smelling when the testPogoMeth is trippy for the first time:
+	say "You are assaulted by the world of scents.[paragraph break]";
 	bestow "Smell-O-Vision".
 	
 After tasting when the testPogoMeth is trippy for the first time:
@@ -996,7 +997,7 @@ After touching when the testPogoMeth is trippy for the first time:
 	bestow "This Touching Moment Brought To You By Hallmark".
 	
 After touching when the testPogoMeth is trippy:
-	say "alteredTouch."
+	say "[The noun] feels [one of]bumpy[or]squishy[or]ridged[or]wispy[or]feathery[or]sharp[or]velvety[or]creamy[or]cold[or]solid[in random order]."
 	
 To say alteredTouch:
 	say "You touch [the noun] all over the place".
