@@ -4945,44 +4945,13 @@ before waving hands:
 	say nr.
 
 to say nr:
-	say "[fixed letter spacing][nr9][roman type]".
+	say "[fixed letter spacing][nr2][roman type]".
 
 To say nr1:
-say "    1111111[line break]";        
-say "   1::::::1[line break]";        
-say "  1:::::::1[line break]";        
-say "  111:::::1[line break]";        
-say "     1::::1[line break]";        
-say "     1::::1[line break]";        
-say "     1::::1[line break]";        
-say "     1::::l[line break]";        
-say "     1::::l[line break]";        
-say "     1::::l[line break]";        
-say "     1::::l[line break]";        
-say "     1::::l[line break]";        
-say "  111::::::111[line break]";     
-say "  1::::::::::1[line break]";     
-say "  1::::::::::1[line break]";     
-say "  111111111111[line break]". 
-
+say "    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]". 
 
 To say nr2:
-say "   222222222222222[line break]";         
-say "  2:::::::::::::::22[line break]";       
-say "  2::::::222222:::::2[line break]";      
-say "  2222222     2:::::2[line break]";      
-say "              2:::::2[line break]";      
-say "              2:::::2[line break]";      
-say "           2222::::2[line break]";       
-say "      22222::::::22[line break]";        
-say "    22::::::::222[line break]";          
-say "   2:::::22222[line break]";             
-say "  2:::::2[line break]";                  
-say "  2:::::2[line break]";                  
-say "  2:::::2       222222[line break]";     
-say "  2::::::2222222:::::2[line break]";     
-say "  2::::::::::::::::::2[line break]";     
-say "  22222222222222222222[line break]".
+say "   222222222222222[line break]  2:::::::::::::::22[line break]  2::::::222222:::::2[line break]  2222222     2:::::2[line break]              2:::::2[line break]              2:::::2[line break]           2222::::2[line break]      22222::::::22[line break]    22::::::::222[line break]   2:::::22222[line break]  2:::::2[line break]  2:::::2[line break]  2:::::2       222222[line break]  2::::::2222222:::::2[line break]  2::::::::::::::::::2[line break]  22222222222222222222[line break]".
 
 To say nr3:
 say "   333333333333333[line break]";        
