@@ -85,27 +85,6 @@ The player has a number called pogoballsCarried.  pogoballsCarried is 3.
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 
-[  
-   Places - Outside areas like parks
-   Structures - Buildings, places with an interior that would have to be entered
-   Artifacts - Specific items in outside locations, like a bench, sculpture, etc. 
-]
-
-
-[
-  7 Roof
-  6 Processing 
-  5 Packaging
-  4 Infirmary
-  3 Managers
-  2 Engineers
-  1 Interns
-  0 Ground
--1 Legal
--2 Rick Astley Shrine
--3 Throne Room
-]
-
 Section 3 - Pogo-Things
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
@@ -350,12 +329,7 @@ After reading a command:
 							if the player's command includes "taste":
 								replace the matched text with "smell".
 				
-			
-			
-	
-			
-				
-To say disgusted with indecision:
+			To say disgusted with indecision:
 	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled unbleached titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
 	bestow "Welcome To Team Unbleached Titanium";
 	now the teamColorPrompt of the player is zero;
@@ -1188,11 +1162,17 @@ Section 1 - Framework
 
 Quadroom is a kind of room. A quadroom has a localeDescriptor. The localeDescriptor of a quadroom is usually structure. A quadroom has a color. The color of a quadroom is usually Teal.
 
+[  
+   Places - Outside areas like parks
+   Structures - Buildings, places with an interior that would have to be entered
+   Artifacts - Specific items in outside locations, like a bench, sculpture, etc. 
+]
+
+[Their orientation determines which can be seen from heights - the south face of the tower and the top of the cat. Four boolean properties are needed because a room can be both of these, e..g, north and west of the tower. In principle, the relationship could be calculated by figuring routes to each room, but that seems like too much work at run time.]
 A quadroom can be nord.
 A quadroom can be sud.
 A quadroom can be est.
 A quadroom can be ouest.
-
 
 After deciding the scope of a player while the player is in a quadroom (called the QTH):
 	place the QTH in scope;
@@ -1235,6 +1215,8 @@ The Borderlands are a region. The  Tarpit, The Railway, The Superhighway, and Th
 
 Definition: a quadroom is okayStartLocation if it is not JuxtaReservoir and it is not JuxtaHighway and it is not JuxtaTarpit and it is not JuxtaRailway, and it is not Nyantech Entrance, and it is not Perilous Passageway, and it is not Biocontainment Facility, and it is not in the Borderlands.
 
+[The deadly rooms on the edges of the map have one-way incoming connections to every room along the border (which inform allows. One way out-going connections wouldn't make much sense, though). Corner rooms fall into two categories, e.g., the NW-most room in the Village is both juxtaReservoir and juxtaHighway. ]
+
 Definition: a quadroom (called the QR) is juxtaReservoir if the Reservoir is the room north from the QR.
 
 Definition: a quadroom (called the QR)  is juxtaHighway if the Superhighway is the room west from the QR.
@@ -1243,7 +1225,7 @@ Definition: a quadroom (called the QR) is juxtaTarpit if Tarpit is the room sout
 
 Definition: a quadroom (called the QR) is juxtaRailway if the Railway is the room east from the QR.
 
-Definition: a direction (called the way) is a bad idea if the room the way from the location is in the Borderlands.
+[The borderlands is the name for the collection of deadly rooms that are outside the town borders. This takes advantage of being able to define a region to include non-contiguous rooms]
 
 Instead of smelling when the player is in a quadroom (called the place):
 	if the place is juxtaTarpit:
@@ -1256,13 +1238,13 @@ Instead of smelling when the player is in a quadroom (called the place):
 			
 Instead of listening when the player is in a quadroom (called the place):
 	if the place is juxtaHighway:
-		say "Just west of here, cars and trucks roar by at breakneck speeds along Superhighway 17.";
+		say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order].";
 	otherwise:
 		if the place is juxtaRailway:
-			say "Trains rattle up and down the tracks noisily.";
+			say "[one of]Locomotives scream by[or]A steam engine chugs away[or]A commuter train thunders through[or]A freight train rumbles along the tracks[in random order].";
 		otherwise:
 			continue the action.
-	
+			
 [Geographic Layout of the Town]
 Dung Beetle Mural is west of Witch Pillory and north of Cyclorama.
 Witch Pillory is west of Old Jail and north of Flag Pole.
@@ -1850,6 +1832,7 @@ Section Dealing with Quadrooms
 Instead of taking a quadroom (called the QTH):
 	say "[The QTH] [are] not something you can take."
 	
+[the qualification ...when in the village is retained to keep the timing right]
 Instead of entering a quadroom (called the QTH) when the player is in the village:
 	if the localeDescriptor of the QTH is:
 		-- structure:
@@ -1878,7 +1861,7 @@ Before going a blasphemous direction when the location is in The Village:
 		try going north instead;
 	otherwise:
 		say "No can do. The City Fathers were Ultra-Orthogonalists.[paragraph break]";
-		if the player is untainted:
+		if the player is untainted:[state is tracked so this only fires once]
 			now the player is sinful;
 			bestow "No-cutting-corners";
 			stop the action.
@@ -1896,6 +1879,7 @@ Quicksand	0
 Shark-Infested Reef	0
 Cliff	0	
 
+Definition: a direction (called the way) is a bad idea if the room the way from the location is in the Borderlands.
 
 Instead of going a bad idea direction (called the way):
 	let R be the room the way from the location;
@@ -1945,13 +1929,6 @@ Instead of going a bad idea direction (called the way):
 				-- otherwise:
 					say "You have an aversion to railroad tracks, so you remain where you are.";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
-
-
-Instead of listening when the location is a juxtaRailway quadroom:
-	say "[one of]Locomotives scream by[or]A steam engine chugs away[or]A commuter train thunders through[or]A freight train rumbles along the tracks[in random order]."
-	
-Instead of listening when the location is a juxtaHighway quadroom:
-	say "[one of]Cars scream by at breakneck speed[or]A tractor trailer blasts its horn[or]Sounds like traffic on the highway is particularly heavy today[or]A heavy truck rumbles by[in random order]."
 	
 Section Village Atmosphere
 
@@ -3159,6 +3136,8 @@ To say deckExits:
 			say ". The door to the emergency stairs is to the south";
 		-- deckS: 
 			say ". The roof-top restaurant is to the north".
+
+[When the player is at height, these remote locations -- and everything in them -- are in scope, so if the player sees the a room title or just knows that something is located there, the player can try to see it. Most actions at that distance are blocked.]
 
 After deciding the scope of a player while the player is in the Deck Area:
 	let L be a list of quadrooms;
@@ -4535,12 +4514,60 @@ Instead of exiting when the player is in the MuskPodRoom:
 
 Chapter In Pogoland
 
-A pogoroom is a kind of room.  
-A pogoroom can be juxtaLava.
-A pogoroom can be juxtaSand.
-A pogoroom can be juxtaShark.
-A pogoroom can be juxtaCliff.
+Section 1 - Framework
 
+A pogoroom is a kind of room.  A pogoroom has a localeDescriptor. The localeDescriptor of a pogoroom is usually structure.
+
+Definition: a pogoroom (called the PR) is juxtaLava if the Volcano is the room north from the PR.
+
+Definition: a pogoroom (called the PR)  is juxtaSand if the Quicksand is the room west from the PR.
+
+Definition: a pogoroom (called the PR) is juxtaCliff if the Cliff is the room south from the PR.
+
+Definition: a pogoroom (called the PR) is juxtaShark if the Shark-Infested Reef is the room east from the PR.
+
+After deciding the scope of a player while the player is in a quadroom (called the QTH):
+	place the QTH in scope;
+	if the QTH is juxtaLava:
+		place the Volcano in scope;
+	if the QTH is juxtaSand:
+		place the Quicksand in scope;
+	if the QTH is juxtaCliff:
+		place the Cliff in scope;
+	if the QTH is juxtaShark:
+		place the Shark-Infested Reef in scope.
+
+Instead of smelling when the player is in a pogoroom (called the place):
+	if the place is JuxtaLava:
+		if the place is JuxtaShark:
+			say "It smells like grilled shark. Kinda fishy, kinda charcoaly.";
+		otherwise:
+			say "It smells like a tarpit, minus the tar: fire, brimstone, but not a hint of charred sloth.";
+	otherwise:
+		if the place is juxtaShark:
+			say "Salty air, a mild ocean breeze, ah.";
+		otherwise:
+			say "Nothing but the smell of recent rain.".
+			
+			
+Instead of listening when the player is in a pogoroom (called the place):
+	if the place is juxtaLava:
+		if the place is juxtaShark:
+			say "Between occasional rumblings of the volcano, you can hear the waves lapping against the shore.";
+		otherwise:
+			say "There is a constant rumble, but sometimes the volcano thunders as its erupts.";
+	otherwise:
+		if the place is JuxtaShark:
+			say "Waves pound against the shore to the east in a reassuring rhythm.";
+		otherwise:
+			if the place is juxtaCliff:
+				say "The cries of swallows and seagulls can be heard just off the cliffs to the south.";
+			otherwise:
+				if the place is juxtaSand:
+					say "From time to time, the ominous grating cry of vultures can be heard from the desert to the west.";
+				otherwise:
+					continue the action.
+		
 Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
 
 The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A fiery mountain that constantly belches molten lava."
@@ -4551,10 +4578,7 @@ The Shark-Infested Reef is a room. The Shark-Infested Reef is east from Beach. T
 
 The Cliff is a room. The Cliff is south from Cemetery. The Cliff is south from Service Station. The Cliff is south from Dojo. The Cliff is south from Botanical Garden. The Cliff is south from Motel. The description of Cliff is "Crumbly chalk cliffs overlooking a ridge of sharp rocks, far below."
 
-Mountain, Palace, Monastery, School House, and Lighthouse are juxtaLava.
-Palace, Desert, Canyon, Pogoland Terminal, and Cemetery are juxtaSand.
-Beach, Lighthouse, Wharf, Aquarium, and Motel are juxtaShark.
-Cemetery, Service Station, Dojo, Botanical Garden, and Motel are juxtaCliff.
+The Frontier are a region. The Volcano, the Quicksand, the Shark-Infested Reef, and the Cliff are in the Frontier.
 
 Palace is west of Mountain and north of Desert. 
 Mountain is west of Monastery and north of Blacksmith.
@@ -4584,6 +4608,8 @@ Cemetery is west of Service Station.
 Service Station is west of Dojo.
 Dojo is west of Botanical Garden.
 Botanical Garden is west of Motel.
+
+Section 2 - Location-specific elements in Pogoland
 
 The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds."
 
@@ -4634,6 +4660,43 @@ The description of Post Office is "A modern building with advertisements in the 
 The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland."
 
 The description of Pogoland Terminal is "A concrete platform next to some maglev rails."
+
+Section 3 - Dealing with Pogorooms
+
+Instead of taking a pogoroom (called the QTH):
+	say "[The QTH] [are] not something you can take."
+	
+Instead of entering a pogoroom (called the QTH) when the player is in Pogoland:
+	if the localeDescriptor of the QTH is:
+		-- structure:
+			say "Everything is locked up[one of]. Looks like the entire town has evacuated[or][stopping]!";
+		-- place:
+			say "You[apostrophe]re already at the [location].";
+		-- artifact:
+			say "You can[apostrophe]t, but you are standing right next to it."
+			
+Before doing something with a quadroom (called the QTH) when the player is in the village:
+	if the current action is examining:
+		continue the action;
+	if the player is not in the QTH:
+		say "You would have to go over there." instead;
+	otherwise:
+		continue the action.
+
+Section 4 - Enforced Orthotopia
+
+Before going a blasphemous direction when the location is Pogoland:
+	say "[one of]The town seems to be laid out with avenues and streets running north-south and east-west. Going diagonally isn[apostrophe]t an option[or]You can[apostrophe]t go that way[stopping].";
+	stop the action.
+	
+Section 5 - Frontiers
+
+Definition: a direction (called the way) is a poor idea if the room the way from the location is in the Frontier.
+
+
+	
+
+
 
 Chapter The Void
 
