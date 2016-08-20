@@ -83,6 +83,7 @@ The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
 The player has a number called pogoballsCarried.  pogoballsCarried is 3.
 The player has a room called previousRoom. previousRoom is the void.
+The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 
 [  
    Places - Outside areas like parks
@@ -239,8 +240,7 @@ TOWER_LEVEL_REQUIREMENT is always 8.
 TOWER_MEDAL_REQUIREMENT is always 10.
 
 The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
-
-
+The list of colors called EXTENDED_TEAM_COLORS is always {Viridian, Papayawhip}.
 
 [additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
 
@@ -264,7 +264,7 @@ HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "S
 Chapter Rules Modifications
 
 
-Section 1 - Direct Parser Block (hung phone, get all) 
+Section 1 - Direct Parser Input (hung phone, get all) 
 
 Understand "reboot/reinitialize/initialize/IPL/r" or "reboot phone" as "[rebootage]".
 
@@ -288,7 +288,78 @@ After reading a command:
 	otherwise:	
 		if the player's command includes "all":
 			say "One at a time, please.";
+			reject the player's command;
+		if the teamColorPrompt of the player is greater than 0:
+			if the teamColorPrompt of the player is:
+				-- 1: 
+					if the player's command includes "[color]":
+						if the color understood is listed in CORE_TEAM_COLORS:
+							now the team color of the player is the color understood;
+							say picked a nice color;
+						otherwise:
+							say might as well be a politician;
+					otherwise:
+						say might as well be a politician;
+				-- 2:
+					if the player's command includes "[color]":
+						if the color understood is listed in CORE_TEAM_COLORS:
+							now the team color of the player is the color understood;
+							say picked a nice color;
+						otherwise:
+							say another seizure is coming on;
+					otherwise:
+						say another seizure is coming on;
+				-- 3:
+					if the player's command includes "[color]":
+						if the color understood is listed in CORE_TEAM_COLORS:
+							now the team color of the player is the color understood;
+							say picked a nice color;
+						otherwise:
+							say sweeten the deal;
+					otherwise:
+						say sweeten the deal;
+				-- 4:
+					if the player's command includes "[color]":
+						if the color understood is listed in CORE_TEAM_COLORS or the color understood is listed in EXTENDED_TEAM_COLORS:
+							now the team color of the player is the color understood;
+							say picked a nice color;
+						otherwise:
+							say disgusted with indecision;
+					otherwise:
+						say disgusted with indecision;
 			reject the player's command.
+				
+To say disgusted with indecision:
+	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled unbleached titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
+	bestow "Welcome To Team Unbleached Titanium";
+	now the teamColorPrompt of the player is zero;
+	now the phone is hung.
+	
+
+To say sweeten the deal:
+	say "Okay, tell you what. Let me sweeten the deal. Truth be told, there are some elite colors that are held aside for discerning players such as yourself. How about if in addition to [CORE_TEAM_COLORS], I throw in [EXTENDED_TEAM_COLORS]? Now how about picking one of those team colors?";
+	increase the teamColorPrompt of the player by one.
+	
+		
+To say might as well be a politician:
+	bestow "Might As Well Be A Politician Because You Didn[apostrophe]t Answer The Question That Was Asked";
+	say "The choice of team color is of earthshaking importance. Please pick one of the team colors ([CORE_TEAM_COLORS])[paragraph break]";
+	increase the teamColorPrompt of the player by one.
+	
+To say another seizure is coming on:
+	say "You better pick a color before the phone decides to lock up again. What[apostrophe]ll it be? Your choices are [CORE_TEAM_COLORS]? The phone vibrates weakly, as if another seizure is coming on.";
+	increase the teamColorPrompt of the player by one.
+					
+To say picked a nice color:
+	say "Welcome to Team [the team color of the player]![paragraph break]";
+	bestow "Picked A Nice Color";	
+	let R be a random number from 1 to the number of entries in CORE_TEAM_COLORS;
+	let C be entry R in CORE_TEAM_COLORS;
+	while C is the team color of the player:
+		let R be a random number from 1 to the number of entries in CORE_TEAM_COLORS;
+		let C be entry R in CORE_TEAM_COLORS;
+	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first :-([paragraph break]";
+	now the teamColorPrompt of the player is 0.
 
 Section 2 - Room Headers
 
@@ -363,7 +434,8 @@ Chapter Activities
 Section ShowStatus
 
 To ShowStatus:
-	now the left hand status line is "PogoLevel:[pogoLevel of the player],  Team:[team color of the player][if the player carries the badge], Badge:[securityColor of the badge]";
+	let C be "[securitycolor of the badge]";
+	now the left hand status line is "PogoLevel: [pogoLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player carries the badge]  |  Badge: [C in title case]";
 	now the right hand status line is "XP: [XP of the player]".
 	
 
@@ -498,14 +570,24 @@ Section Levelling
 
 CheckLevel is an action out of world.
 To CheckLevel:
+	let F be pogoLevel of the player;
 	let goalXP be 100 * (pogoLevel of the player + 1);
 	if XP of the player > goalXP:
 		now pogoLevel of the player is (XP of the player / 100);  [TODO make this an exponential table]
-		say "You glow with power as your PogoLevel rises to [pogoLevel of the player].[paragraph break]".
+		say "You glow with power as your PogoLevel rises to [pogoLevel of the player].[paragraph break]";
+		if F is less than GYM_ENTRY_LEVEL_REQUIREMENT and pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT:
+			pickGym.
+		
+		
+To pickGym:
+	say "Your credit score soars, and gyms are now willing to talk to you. You should pick a team color so you can accessorize! Your choices are: [CORE_TEAM_COLORS]. Which one is right for you?";
+	now the teamColorPrompt of the player is 1.
+	[and the rest is handed under the "after reading a command" section because it involves direct input from
+	 the command line]
 
 Section Rebooting
 
-PhoneBooting is an action applying to nothing. Understand "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting. Understand "r" as phoneBooting when the phone has been hung. 
+PhoneBooting is an action applying to nothing. Understand  "r" or "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting. 
 
 Carry out phoneBooting:
 	try rebooting the phone.
@@ -1211,7 +1293,7 @@ The description of Nyantech Entrance is "A towering edifice hewn from solid obsi
 
 The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
 
-The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A badge identifies the unicorn as officers C. Harris and F. Polanski." Understand "badge" or "officer" or "officers" as the unicorn.
+The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" as the unicorn.
 
 The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
