@@ -401,7 +401,13 @@ Rule for printing inventory details of a pogoball-kind:
 	say " ([pogoballsCarried of the player] total)[run paragraph on]"
 	
 
-Section 6 - Miscellany (probably reorganize later)
+Section 6 - Rotational text lists
+
+To overhear things in (QTH - room):
+	rotate the stage business of the QTH backwards;
+	say entry 1 of the stage business of QTH.
+
+Section 7 - Miscellany (probably reorganize later)
 
 This is the run from sound rule:
 	if the speaker is active and the walkman is not worn:
@@ -960,7 +966,6 @@ When play begins:
 	now the player carries the phone;
 	now the player carries the PogoBall;
 	now the flavor of the pop-tart is a random flavor;
-	now the soundtrack of the elevator is a random number between 1 and 10;
 	ShowStatus;
 	distributeTownPogostops;
 	distributeTownGyms;
@@ -1050,6 +1055,14 @@ This is the strangely prescient rantings of Oswaldo stage business rule:
 				say "[entry 1 in OSWALDOBUSINESS].";
 				remove entry 1 from OSWALDOBUSINESS;
 				the rule succeeds.
+				
+The lobby stage business rule is listed after the strangely prescient rantings of Oswaldo stage business rule in the stage business rules.
+
+This is the lobby stage business rule:
+	if the player is in the Lobby:
+		if a random chance of 1 in 2 succeeds:
+			say lobby stage business;
+			the rule succeeds.
 
 [
 
@@ -1758,15 +1771,6 @@ To say passage12:
 	move the player to the perilous passageway.
 
 
-
-
-
-
-
-
-
-
-
 Section Dealing with Quadrooms
 
 Instead of taking a quadroom (called the QTH):
@@ -1877,9 +1881,25 @@ Instead of listening when the location is a juxtaHighway quadroom:
 	
 Section Village Atmosphere
 
-OSWALDOBUSINESS is a list of text that varies. OSWALDOBUSINESS is {"Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone","From somewhere down the block, you hear Oswaldo berating some of your fellow Pogoman GO! players about how the game is corrupting youth and hastening the demise of the nuclear family. As is typical for Oswaldo, his rant spins out of control, touching upon topics including the gold standard, water fluoridation, nuclear winter, the HAARP telepathy modulator, and tunnels leading to the center of the Earth","You catch sight of Oswaldo running angrily after some teenagers, who had been making fun of his clapboard signs, painted with the words [quotation mark]Pogoman NO![quotation mark] above an angry red fist","From somewhere nearby, you hear Oswaldo[apostrophe]s megaphone-amplified voice, cracking and shrill, denouncing the evils of truth and love","There[apostrophe]s a bit of an incident down the street. It looks like Oswaldo has worked himself up into a lather. A pair of policemen approach him from both sides and he yells, [quotation mark]The cat eats souls! The struggle is real! Must must be defeated![quotation mark] -- or something to that effect"}.
+OSWALDOBUSINESS is a list of text that varies. OSWALDOBUSINESS is {
+"Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone",
+"From somewhere down the block, you hear Oswaldo berating some of your fellow Pogoman GO! players about how the game is corrupting youth and hastening the demise of the nuclear family. As is typical for Oswaldo, his rant spins out of control, touching upon topics including the gold standard, water fluoridation, nuclear winter, the HAARP telepathy modulator, and tunnels leading to the center of the Earth",
+"You catch sight of Oswaldo running angrily after some teenagers, who had been making fun of his clapboard signs, painted with the words [quotation mark]Pogoman NO![quotation mark] above an angry red fist",
+"From somewhere nearby, you hear Oswaldo[apostrophe]s megaphone-amplified voice, cracking and shrill, denouncing the evils of truth and love",
+"There[apostrophe]s a bit of an incident down the street. It looks like Oswaldo has worked himself up into a lather. A pair of policemen approach him from both sides and he yells, [quotation mark]The cat eats souls! The struggle is real! Must must be defeated![quotation mark] -- or something to that effect"
+}.
 
-NYANCLUEBAT is a list of text that varies. NYANCLUEBAT is {"The Nyantech tower casts a long shadow over the entire town. They -- other players of pogoman, that is -- say that you can find the rarest and most powerful of pogomen within its hallowed halls", "A red search light reflects off windows of buildings and cars along the street and then is gone", "You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite","The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow","A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they’re still accepting beta-testers![quotation mark] They disappear from sight", "In the distance, the Nyantech Cat mechanically purrs the time as it continues its never-ending journey around the Nyantech building","A group of hyperexcitable tourists walks by, gaping in awe at the soaring Nyantech tower. One of them remarks that were it not for Nyantech, this town would be little more than a collection of historic markers -- and it[apostrophe]s true","From across the street, you over hear a despondent gamer confiding to a friend, [quotation mark]I thought I was beta-tester material. But… I failed. I couldn[apostrophe]t cut it.[quotation mark] They walk away in silent shame","The Nyantech Cat, its glowing red eyes a beacon of hope to mobile gamers everywhere, slowly rotates around the top of the Nyantech corporate headquarters building downtown"}.
+NYANCLUEBAT is a list of text that varies. NYANCLUEBAT is {
+"The Nyantech tower casts a long shadow over the entire town. They -- other players of pogoman, that is -- say that you can find the rarest and most powerful of pogomen within its hallowed halls", 
+"A red search light reflects off windows of buildings and cars along the street and then is gone", 
+"You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite",
+"The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow",
+"A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they’re still accepting beta-testers![quotation mark] They disappear from sight",
+"In the distance, the Nyantech Cat mechanically purrs the time as it continues its never-ending journey around the Nyantech building",
+"A group of hyperexcitable tourists walks by, gaping in awe at the soaring Nyantech tower. One of them remarks that were it not for Nyantech, this town would be little more than a collection of historic markers -- and it[apostrophe]s true",
+"From across the street, you over hear a despondent gamer confiding to a friend, [quotation mark]I thought I was beta-tester material. But… I failed. I couldn[apostrophe]t cut it.[quotation mark] They walk away in silent shame",
+"The Nyantech Cat, its glowing red eyes a beacon of hope to mobile gamers everywhere, slowly rotates around the top of the Nyantech corporate headquarters building downtown"
+}.
 
 To say permutedTower:
 	say "The [one of]shiny, black[or]ebony[or]majestic[or]jet black[or]monolith-like[or]imposing[purely at random] Nyantech [one of]tower[or]building[or]office building[or]corporate headquarters[or]operations center[purely at random] [one of]looms[or]towers[or]stands out[or]rises[or]soars[purely at random] [one of]in the distance[or]on the horizon[or]over the roof tops[or]majestically[or]regally[or]in a class of its own[purely at random], [one of]dwarfing[or]dominating[or]putting to shame[purely at random] surrounding [one of]buildings[or]structures[or]edifices[purely at random]".
@@ -2262,13 +2282,55 @@ Instead of opening the barrel when penlight is switched on:
 
 [Ground Floor]
 
-The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background.[paragraph break]A silvery reception desk hovers in the middle of the lobby." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]."
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]." The lobby has a list of text called stage business.
+
+Instead of listening when the player is in the lobby:		say lobby stage business.
+
+To say lobby stage business:
+	say "You overhear [one of]some[or]a bit of[or]fragments of[or]a snipped of[or]a couple snatches of[or]some random[or]some background[in random order] conversation, [quotation mark] ...[italic type][run paragraph on]";
+	overhear things in the Lobby;
+	say "...[roman type][quotation mark][paragraph break]".
+
+The stage business of the lobby is {
+"are kept in the sub-basement, but only for those who have proven",
+"and two ultra-rare ones out on the observation deck",
+"for sure. And who knows what else they[apostrophe]re hiding here",
+"the laws of god? Or of man? Anyhow, I say they[apostrophe]re harmless",
+"a few with the green badges, but only one or two with the blue",
+"but absolutely wretched taste in 80s music”,
+"that he’s behind the project, but so far, no one has met”,
+"how a wet-suit would relate to anything at all, but I guess”,
+"absolutely amazing. I mean, I’ve had magret de canard before”,
+"not just a conspiracy theory, but so far no one has penetrated”,
+"instead of the elevator, which permits access to the”,
+"has published on Glénard’s Disease, the vagaries of visceroptosis”,
+"would have to slow it down somehow for that to be at all feasible”,
+"are isolated from the rest of the building and the only way",
+"are sitting right on top of it, but the chances that you will manage”,
+"is too powerful for the International Court of Justice, unless we”,
+"were to shut down abruptly, the momentum would tear apart the”,
+"a simple mascot, but -- and this is where it gets weird -- actually a”,
+"far below, in the parts that are inaccessible. However, I have it on”,
+"not just a legend, but actually exists, but in a geographically remote”,
+"weeks ago, but no one has seen them since. I have to presume”,
+"and [apostrophe]indexed text[apostrophe] - but there's now only [apostrophe]text[apostrophe], which has all of the abilities",
+"get word to the authorities. I have to admit, they have thought it out",
+"sort of dystopianism, but not for the prosimians that populate it along",
+"never would have imagined that sort of power concentrated into",
+"clinically insane, but he is so well protected that none of us have",
+"using magnetic levitation to essentially remove the term for the coefficient",
+"that Heinlein[apostrophe]s ship stone might be an apt analogy but for",
+"corrupts. Or, at least that is the common wisdom. However, in his case",
+"amassed more than just technology; in this case social upheaval",
+"in some way to the events of 1893 -- but the record is vague. I think"
+}
 
 The lobbyEmployees are privately-named plural-named scenery persons. The lobbyEmployees are in the lobby. The printed name of the lobbyEmployees is "employees". The description of the lobbyEmployees is "Employees hustle and bustle around the lobby on their motorized contrivances." Understand "workers" or "worker" or "employee" as the lobbyEmployees. 
 
 The lobbyPlayers are privately-named plural-named scenery persons. The lobbyPlayers are in the lobby. The printed name of the lobbyPlayers is "visitors". The description of the lobbyPlayers is "Players mull about the lobby in awe." Understand "visitor" or "visitors" or "gamer" or "player" or "gamers" or "players" as the lobbyPlayers. 
 
 The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" as the high-tech conveyances.
+
 
 Instead of doing something other than examining with high-tech conveyances:
 	say "They are darting about too quickly to even get a good look at them."
@@ -2296,7 +2358,7 @@ The dryad is a person in the Security Checkpoint. The description of the dryad i
 The stamp is in the void. The description of the stamp is "[quotation mark]Property of Nyantech[quotation mark]." Understand "hand" or "hands" as the stamp.
 
 After examining the stamp for the first time:
-	say "Sense of Belonging".
+	bestow "Sense of Belonging".
 	
 Instead of rubbing the stamp for the first time:
 	say "[rubPhrase][paragraph break]";
@@ -2309,11 +2371,12 @@ After going inside from the revolvingDoor for the first time:
 	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts the in a big.[paragraph break][quotation mark]You’ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
 	if the player carries the salmon of turpitude:
 		say "[quotation mark]Hold on... what have we here? Hmm, the fabled Salmon of Turpitude. Interesting. It gets its own bag.[quotation mark][paragraph break]";
-	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, and boosts you towards the lobby.[paragraph break]";
+	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, pins a badge on you, and boosts you towards the lobby.[paragraph break]";
 	bestow "Bagged and Tagged";
 	repeat with N running through the things carried by the player:
 		move N to the void;
 	now the player carries the phone;
+	now the player wears the badge;
 	now the stamp is part of the player;
 	move the player to the lobby.
 	
@@ -2944,7 +3007,7 @@ internsProxy are a workerProxy. internsProxy are in the void. The description of
 
 Engineers is a room. 
 
-engineersProxy are a workerProxy . engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychodelic patterns and text", "bolts of lightning richocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
+engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychodelic patterns and text", "bolts of lightning richocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
 
 Managers is a room.
 
@@ -3616,7 +3679,7 @@ After entering the MuskPod:
 
 Chapter in the Elevator
 
-The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward. The elevator has a number called soundtrack. The soundtrack of the elevator is 1.
+The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward. The elevator has a list of text called stage business.
 
 Section 1 - Control Panel
 
@@ -3941,12 +4004,10 @@ Section 8 - Elevator Mechanics
 	
 Every turn when the player is in the elevator and the walkman is not worn by the player:
 	now the BLOCKSTAGEBUSINESSFLAG is true;
-	say "... [italic type] [entry soundtrack of the elevator of MUZAKLISZT] [roman type]...";
-	if soundtrack of the elevator is the number of entries in MUZAKLISZT:
-		now soundtrack of the elevator is 1;
-	otherwise:
-		increase the soundtrack of the elevator by 1.
-	
+	say "... [italic type] ";
+	overhear things in Elevator;
+	say " [roman type]...".
+
 [exit zone - everyone  left in the elevator exits
  arrive empty - force elevator to arrive empty]
 
@@ -4021,7 +4082,247 @@ Song Name	Writer
 "You Don't Bring Me Flowers"	"Neil Diamond, Alan Bergman, Marilyn Bergman"
 "You LIght Up My Life"	"Joe Brooks"
 
-The list of text called MUZAKLISZT is always {"It[apostrophe]s not unusual to be loved by anyone","It[apostrophe]s not unusual to have fun with anyone", "Feelings, nothing more than feelings", "Feelings, wo-o-o feelings", "Muskrat Suzie, Muskrat Sam", "Do the jitterbug out in Muskrat Land", "I write the songs that make the whole world sing", "I write the songs of love and special things", "When you get lost between the moon and New York City", "I know it[apostrophe]s crazy, but it[apostrophe]s true", "But where are the clowns? Send in the clowns", "Well, maybe next year", "Do sol de Ipanema O seu balançado","É mais que um poema","É a coisa mais linda", "Come sail away, Come sail away", "Come sail away with me", "If a face could launch a thousand ships", "Then where am I to go?", "Hello, is it me you[apostrophe]re looking for?", "I can see it in your eyes", "Sometimes when the touch", "the honesty[apostrophe]s too much", "At the Copa (Co) Copacobana (Copacabana)", "The hottest spot north of Havana", "Who's reaching out to capture a moment?", "Everyone knows it[apostrophe]s Windy", "Islands In The Stream, that is what we are", "No one in between, how can we be wrong?", "I[apostrophe]m on top of the world lookin[apostrophe] down on creation", "And the only explanation I can find", "All by myself, Don[apostrophe]t wanna be", "All by myself anymore", "Memories light the corners of my mind", "Misty water-colored memories of the way we were", "The girl from Ipanema goes walking", "And when she passes, each one she passes", "Lean on me, when you[apostrophe]re not strong", "And I[apostrophe]ll be your friend", "The answer, my friend, is blowin[apostrophe] in the wind", "The answer is blowin[apostrophe] in the wind", "Moja droga, ja cię kocham", "Means I love you so", "[apostrophe]Cause you light up my life", "You give me hope to carry on", "Plenty of room at the Hotel California", "Any time of year, you can find it here", "I don[apostrophe]t want clever conversation", "I never want to work that hard", "Like a bridge over troubled waters", "I will lay me down", "Knowing me, knowing you (ah-haa)", "There is nothing we can do", "Fantasy, it gets the best of me", "When I[apostrophe]m sailing", "I know just how to fake it", "And I know just how to scheme", "Why do stars fall down from the sky", "Every time you walk by", "Skyrockets at night", "Afternoon delight, afternoon delight", "Billy, don[apostrophe]t be a hero", "Come back and make me your wife", "My first love, you[apostrophe]re every breath that I take", "You[apostrophe]re every step I make", "It[apostrophe]s a world of laughter, a world of tears", "It[apostrophe]s a world of hope and a world of fears", "As time goes by so slowly", "And time can do so much", "MacArthur[apostrophe]s Park is melting in the dark", "All the sweet, green icing flowing down", "Havin[apostrophe] my baby", "What a lovely way of sayin[apostrophe]", "Wherever you go, Whatever you do", "I[apostrophe]ll be waiting here for you", "Wasted away again in Margaritaville", "Searchin[apostrophe] for my lost shaker of salt", "Where do I begin", "to tell a story of how great a love can be", "We[apostrophe]re up all night for good fun", "we're up all night to get lucky", "Hanging around nothing to do but frown", "Rainy days and mondays always get me down", "Hojotoho! Hojotoho! Heiaha! Heiaha!","Helmwige! Hier! Hieher mit dem Ross!","Hojotoho! Hojotoho! Heiaha!","Heiaha! Heiaha!","Zu Ortlindes Stute stell deinen Hengst","mit meiner Grauen grast gern dein Brauner!","Wer hängt dir im Sattel?","Sintolt, der Hegeling!","Führ[apostrophe] deinen Brauen fort von der Grauen","Ortlindes Mähre trägt Wittig, den Irming!","Als Feinde nur sah ich Sintolt und Wittig!","Heiaha! Die Stute stösst mir der Hengst!","Der Recken Zwist entzweit noch die Rosse!","Ruhig, Brauner! Brich nicht den Frieden!","Hoioho! Hoioho! Siegrune, hier!","Wo säumst du so lang?","Arbeit gab[apostrophe]s! Sind die andren schon da?","Hojotoho! Hojotoho! Heiaha! Heiaha!"," Heiaha!"," Hojotoho! Hojotoho! Heiaha!","Grimgerd[apostrophe] und Rossweisse!","Sie reiten zu zwei","Gegrüsst, ihr Reisige! Rossweiss[apostrophe] und Grimgerde!","Hojotoho! Hojotoho! Heiaha!","In Wald mit den Rossen zu Weid[apostrophe] und Rast!","Führet die Mähren fern von einander","bis unsrer Helden Hass sich gelegt!","Der Helden Grimm büsste schon die Graue!","Hojotoho! Hojotoho!","Willkommen! Willkommen!","Wart ihr Kühnen zu zwei?","Getrennt ritten wir und trafen uns heut[apostrophe]","Sind wir alle versammelt, so säumt nicht lange","nach Walhall brechen wir auf, Wotan zu bringen die Wal","Acht sind wir erst: eine noch fehlt","Bei dem braunen Wälsung weilt wohl noch Brünnhilde","Auf sie noch harren müssen wir hier","Walvater gäb[apostrophe] uns grimmigen Gruss","säh[apostrophe] ohne sie er uns nahn!","Hojotoho! Hojotoho!","Hieher! Hieher!","In brünstigem Ritt jagt Brünnhilde her","Hojotoho! Hojotoho! Brünnhilde! Hei!","Nach dem Tann lenkt sie das taumelnde Ross","Wie schnaubt Grane vom schnellen Ritt!","So jach sah ich nie Walküren jagen!","Was hält sie im Sattel?","Das ist kein Held!","Eine Frau führt sie!","Wie fand sie die Frau?","Mit keinem Gruss grüsst sie die Schwestern!","Heiaha! Brünnhilde! Hörst du uns nicht?","Helft der Schwester vom Ross sich schwingen!","Hojotoho! Hojotoho! Heiaha!","Zu Grunde stürzt Grane, der Starke!","Aus dem Sattel hebt sie hastig das Weib!","Schwester! Schwester! Was ist geschehn?","Schützt mich und helft in höchster Not!","Wo rittest du her in rasender Hast?","So fliegt nur, wer auf der Flucht!","Zum erstenmal flieh[apostrophe] ich und bin verfolgt","Heervater hetzt mir nach!","Bist du von Sinnen? Sprich! Sage uns!","Verfolgt dich Heervater? Fliehst du vor ihm?","O Schwestern, späht von des Felsens Spitze!","Schaut nach Norden, ob Walvater naht!","Schnell! Seht ihr ihn schon?","Gewittersturm naht von Norden","Starkes Gewölk staut sich dort auf!","Heervater reitet sein heiliges Ross!","Der wilde Jäger, der wütend mich jagt","er naht, er naht von Norden! Schützt mich, Schwestern!","Wahret dies Weib!","Was ist mit dem Weibe?","Hört mich in Eile: Sieglinde ist es","Siegmunds Schwester und Braut: gegen die Wälsungen","wütet Wotan in Grimm; dem Bruder sollte","Brünnhilde heut[apostrophe] entziehen den Sieg","doch Siegmund schützt[apostrophe] ich mit meinem Schild","trotzend dem Gott! -Der traf ihn da selbst mit dem Speer","Siegmund fiel; doch ich floh","fern mit der Frau; sie zu retten","eilt[apostrophe] ich zu euch - ob mich Bange auch","ihr berget vor dem strafenden Streich!","Betörte Schwester, was tatest du?","Wehe! Brünnhilde, wehe! Brach ungehorsam","Brünnhilde Heervaters heilig Gebot?","Nächtig zieht es von Norden heran","Wütend steuert hieher der Sturm","Wild wiehert Walvaters Ross","Schrecklich schnaubt es daher","Wehe der Armen, wenn Wotan sie trifft","den Wälsungen allendroht er Verderben!","Wer leiht mir von euch das leichteste Ross","das flink die Frau ihm entführ[apostrophe]?","Auch uns rätst du rasenden Trotz?","Rossweisse, Schwester, leih[apostrophe] mir deinen Renner!","Vor Walvater floh der fliegende nie","Helmwige, höre!","Dem Vater gehorch[apostrophe] ich","Grimgerde! Gerhilde!Gönnt mir eu[apostrophe]r Ross!","Schwertleite! Siegrune! Seht meine Angst!","Seid mir treu, wie traut ich euch war","rettet dies traurige Weib!","Nicht sehre dich Sorge um mich: einzig taugt mir der Tod!","Wer hiess dich Maid, dem Harst mich entführen?","Im Sturm dort hätt[apostrophe] ich den Streich empfah[apostrophe]n","von derselben Waffe, der Siegmund fiel","das Ende fand ich vereint mit ihm!","Fern von Siegmund - Siegmund, von dir!","O deckte mich Tod, dass ich[apostrophe]s denke!","Soll um die Flucht dir, Maid, ich nicht fluchen","so erhöre heilig mein Flehen: stosse dein Schwert mir ins Herz!","Lebe, o Weib, um der Liebe willen!","Rette das Pfand, das von ihm du empfingst","ein Wälsung wächst dir im Schoss!","Rette mich, Kühne! Rette mein Kind!","Schirmt mich, ihr Mädchen, mit mächtigstem Schutz!","Der Sturm kommt heran","Flieh[apostrophe], wer ihn fürchtet!","Fort mit dem Weibe, droht ihm Gefahr","der Walküren keine wag[apostrophe] ihren Schutz","Rette mich, Maid! Rette die Mutter!","So fliehe denn eilig - und fliehe allein!","Ich bleibe zurück, biete mich Wotans Rache","an mir zögr[apostrophe] ich den Zürnenden hier","während du seinem Rasen entrinnst","Wohin soll ich mich wenden?","Wer von euch Schwestern schweifte nach Osten?","Nach Osten weithin dehnt sich ein Wald","der Niblungen Hort entführte Fafner dorthin","Wurmes Gestalt schuf sich der Wilde","in einer Höhle hütet er Alberichs Reif!","Nicht geheu[apostrophe]r ist[apostrophe]s dort für ein hilflos[apostrophe] Weib","Und doch vor Wotans Wut schützt sie sicher der Wald","ihn scheut der Mächt[apostrophe]ge und meidet den Ort","Furchtbar fährt dort Wotan zum Fels","Brünnhilde, hör[apostrophe] seines Nahens Gebraus[apostrophe]!","Fort denn eile, nach Osten gewandt","Mutigen Trotzes ertrag[apostrophe] alle Müh[apostrophe]n","Hunger und Durst, Dorn und Gestein","ache, ob Not, ob Leiden dich nagt","Denn eines wiss[apostrophe] und wahr[apostrophe] es immer","den hehrsten Helden der Welt hegst du, o Weib","im schirmenden Schoss","Verwahr[apostrophe] ihm die starken Schwertesstücken","seines Vaters Walstatt entführt[apostrophe] ich sie glücklich","der neugefügt das Schwert einst schwingt","den Namen nehm[apostrophe] er von mir -[quotation mark]Siegfried[quotation mark] erfreu[apostrophe] sich des Siegs!","O hehrstes Wunder! Herrlichste Maid!","Dir Treuen dank[apostrophe] ich heiligen Trost!","Für ihn, den wir liebten, rett[apostrophe] ich das Liebste","meines Dankes Lohn lache dir einst!","Lebe wohl! Dich segnet Sieglindes Weh[apostrophe]!","Steh[apostrophe]! Brünnhild[apostrophe]!","Den Fels erreichten Ross und Reiter!","Weh[apostrophe], Brünnhild[apostrophe]! Rache entbrennt!","Ach, Schwestern, helft! Mir schwankt das Herz!","Sein Zorn zerschellt mich, wenn euer Schutz ihn nicht zähmt","Hieher, Verlor'ne! Lass dich nicht sehn!","Schmiege dich an uns und schweige dem Ruf!","Weh'! Wütend schwingt sich Wotan vom Ross!","Hieher rast sein rächender Schritt!"}.
+The stage business of the elevator is {
+"It[apostrophe]s not unusual to be loved by anyone",
+"It[apostrophe]s not unusual to have fun with anyone", 
+"Feelings, nothing more than feelings", "Feelings, wo-o-o feelings", 
+"Muskrat Suzie, Muskrat Sam", "Do the jitterbug out in Muskrat Land", 
+"I write the songs that make the whole world sing", 
+"I write the songs of love and special things", 
+"When you get lost between the moon and New York City", 
+"I know it[apostrophe]s crazy, but it[apostrophe]s true", 
+"But where are the clowns? Send in the clowns", 
+"Well, maybe next year", 
+"Do sol de Ipanema O seu balançado",
+"É mais que um poema","É a coisa mais linda", 
+"Come sail away, Come sail away", 
+"Come sail away with me",
+"If a face could launch a thousand ships",
+"Then where am I to go?",
+"Hello, is it me you[apostrophe]re looking for?", 
+"I can see it in your eyes", 
+"Sometimes when the touch",
+"the honesty[apostrophe]s too much", 
+"At the Copa (Co) Copacobana (Copacabana)",
+"The hottest spot north of Havana", 
+"Who's reaching out to capture a moment?",
+ "Everyone knows it[apostrophe]s Windy", 
+"Islands In The Stream, that is what we are", 
+"No one in between, how can we be wrong?", 
+"I[apostrophe]m on top of the world lookin[apostrophe] down on creation", 
+"And the only explanation I can find", 
+"All by myself, Don[apostrophe]t wanna be", 
+"All by myself anymore", 
+"Memories light the corners of my mind", 
+"Misty water-colored memories of the way we were", 
+"The girl from Ipanema goes walking",
+ "And when she passes, each one she passes", 
+"Lean on me, when you[apostrophe]re not strong", 
+"And I[apostrophe]ll be your friend", 
+"The answer, my friend, is blowin[apostrophe] in the wind", 
+"The answer is blowin[apostrophe] in the wind", 
+"Moja droga, ja cię kocham", 
+"Means I love you so", 
+"[apostrophe]Cause you light up my life", 
+"You give me hope to carry on", 
+"Plenty of room at the Hotel California", 
+"Any time of year, you can find it here", 
+"I don[apostrophe]t want clever conversation", 
+"I never want to work that hard", 
+"Like a bridge over troubled waters", 
+"I will lay me down", 
+"Knowing me, knowing you (ah-haa)", 
+"There is nothing we can do", 
+"Fantasy, it gets the best of me", 
+"When I[apostrophe]m sailing", 
+"I know just how to fake it", 
+"And I know just how to scheme", 
+"Why do stars fall down from the sky", 
+"Every time you walk by", 
+"Skyrockets at night", 
+"Afternoon delight, afternoon delight", 
+"Billy, don[apostrophe]t be a hero", 
+"Come back and make me your wife", 
+"My first love, you[apostrophe]re every breath that I take", 
+"You[apostrophe]re every step I make", 
+"It[apostrophe]s a world of laughter, a world of tears", 
+"It[apostrophe]s a world of hope and a world of fears", 
+"As time goes by so slowly", 
+"And time can do so much", 
+"MacArthur[apostrophe]s Park is melting in the dark", 
+"All the sweet, green icing flowing down", 
+"Havin[apostrophe] my baby", 
+"What a lovely way of sayin[apostrophe]", 
+"Wherever you go, Whatever you do", 
+"I[apostrophe]ll be waiting here for you", 
+"Wasted away again in Margaritaville", 
+"Searchin[apostrophe] for my lost shaker of salt", 
+"Where do I begin", "to tell a story of how great a love can be", 
+"We[apostrophe]re up all night for good fun", 
+"we're up all night to get lucky", 
+"Hanging around nothing to do but frown", 
+"Rainy days and mondays always get me down", 
+"Hojotoho! Hojotoho! Heiaha! Heiaha!",
+"Helmwige! Hier! Hieher mit dem Ross!",
+"Hojotoho! Hojotoho! Heiaha!","Heiaha! Heiaha!",
+"Zu Ortlindes Stute stell deinen Hengst",
+"mit meiner Grauen grast gern dein Brauner!",
+"Wer hängt dir im Sattel?",
+"Sintolt, der Hegeling!",
+"Führ[apostrophe] deinen Brauen fort von der Grauen",
+"Ortlindes Mähre trägt Wittig, den Irming!",
+"Als Feinde nur sah ich Sintolt und Wittig!",
+"Heiaha! Die Stute stösst mir der Hengst!",
+"Der Recken Zwist entzweit noch die Rosse!",
+"Ruhig, Brauner! Brich nicht den Frieden!",
+"Hoioho! Hoioho! Siegrune, hier!",
+"Wo säumst du so lang?",
+"Arbeit gab[apostrophe]s! Sind die andren schon da?",
+"Hojotoho! Hojotoho! Heiaha! Heiaha!",
+" Heiaha!"," Hojotoho! Hojotoho! Heiaha!",
+"Grimgerd[apostrophe] und Rossweisse!",
+"Sie reiten zu zwei",
+"Gegrüsst, ihr Reisige! Rossweiss[apostrophe] und Grimgerde!",
+"Hojotoho! Hojotoho! Heiaha!",
+"In Wald mit den Rossen zu Weid[apostrophe] und Rast!",
+"Führet die Mähren fern von einander",
+"bis unsrer Helden Hass sich gelegt!",
+"Der Helden Grimm büsste schon die Graue!",
+"Hojotoho! Hojotoho!","Willkommen! Willkommen!",
+"Wart ihr Kühnen zu zwei?",
+"Getrennt ritten wir und trafen uns heut[apostrophe]",
+"Sind wir alle versammelt, so säumt nicht lange",
+"nach Walhall brechen wir auf, Wotan zu bringen die Wal","
+Acht sind wir erst: eine noch fehlt",
+"Bei dem braunen Wälsung weilt wohl noch Brünnhilde",
+"Auf sie noch harren müssen wir hier",
+"Walvater gäb[apostrophe] uns grimmigen Gruss",
+"säh[apostrophe] ohne sie er uns nahn!",
+"Hojotoho! Hojotoho!",
+"Hieher! Hieher!",
+"In brünstigem Ritt jagt Brünnhilde her",
+"Hojotoho! Hojotoho! Brünnhilde! Hei!",
+"Nach dem Tann lenkt sie das taumelnde Ross",
+"Wie schnaubt Grane vom schnellen Ritt!",
+"So jach sah ich nie Walküren jagen!",
+"Was hält sie im Sattel?",
+"Das ist kein Held!",
+"Eine Frau führt sie!",
+"Wie fand sie die Frau?",
+"Mit keinem Gruss grüsst sie die Schwestern!",
+"Heiaha! Brünnhilde! Hörst du uns nicht?",
+"Helft der Schwester vom Ross sich schwingen!",
+"Hojotoho! Hojotoho! Heiaha!",
+"Zu Grunde stürzt Grane, der Starke!",
+"Aus dem Sattel hebt sie hastig das Weib!",
+"Schwester! Schwester! Was ist geschehn?",
+"Schützt mich und helft in höchster Not!",
+"Wo rittest du her in rasender Hast?",
+"So fliegt nur, wer auf der Flucht!",
+"Zum erstenmal flieh[apostrophe] ich und bin verfolgt",
+"Heervater hetzt mir nach!",
+"Bist du von Sinnen? Sprich! Sage uns!",
+"Verfolgt dich Heervater? Fliehst du vor ihm?",
+"O Schwestern, späht von des Felsens Spitze!",
+"Schaut nach Norden, ob Walvater naht!",
+"Schnell! Seht ihr ihn schon?",
+"Gewittersturm naht von Norden",
+"Starkes Gewölk staut sich dort auf!",
+"Heervater reitet sein heiliges Ross!",
+"Der wilde Jäger, der wütend mich jagt",
+"er naht, er naht von Norden! Schützt mich, Schwestern!",
+"Wahret dies Weib!",
+"Was ist mit dem Weibe?",
+"Hört mich in Eile: Sieglinde ist es",
+"Siegmunds Schwester und Braut: gegen die Wälsungen",
+"wütet Wotan in Grimm; dem Bruder sollte",
+"Brünnhilde heut[apostrophe] entziehen den Sieg",
+"doch Siegmund schützt[apostrophe] ich mit meinem Schild",
+"trotzend dem Gott! -Der traf ihn da selbst mit dem Speer",
+"Siegmund fiel; doch ich floh",
+"fern mit der Frau; sie zu retten",
+"eilt[apostrophe] ich zu euch - ob mich Bange auch",
+"ihr berget vor dem strafenden Streich!",
+"Betörte Schwester, was tatest du?",
+"Wehe! Brünnhilde, wehe! Brach ungehorsam",
+"Brünnhilde Heervaters heilig Gebot?",
+"Nächtig zieht es von Norden heran",
+"Wütend steuert hieher der Sturm",
+"Wild wiehert Walvaters Ross",
+"Schrecklich schnaubt es daher",
+"Wehe der Armen, wenn Wotan sie trifft",
+"den Wälsungen allendroht er Verderben!",
+"Wer leiht mir von euch das leichteste Ross",
+"das flink die Frau ihm entführ[apostrophe]?",
+"Auch uns rätst du rasenden Trotz?",
+"Rossweisse, Schwester, leih[apostrophe] mir deinen Renner!",
+"Vor Walvater floh der fliegende nie",
+"Helmwige, höre!",
+"Dem Vater gehorch[apostrophe] ich",
+"Grimgerde! Gerhilde!Gönnt mir eu[apostrophe]r Ross!",
+"Schwertleite! Siegrune! Seht meine Angst!",
+"Seid mir treu, wie traut ich euch war",
+"rettet dies traurige Weib!",
+"Nicht sehre dich Sorge um mich: einzig taugt mir der Tod!",
+"Wer hiess dich Maid, dem Harst mich entführen?",
+"Im Sturm dort hätt[apostrophe] ich den Streich empfah[apostrophe]n",
+"von derselben Waffe, der Siegmund fiel",
+"das Ende fand ich vereint mit ihm!",
+"Fern von Siegmund - Siegmund, von dir!",
+"O deckte mich Tod, dass ich[apostrophe]s denke!",
+"Soll um die Flucht dir, Maid, ich nicht fluchen",
+"so erhöre heilig mein Flehen: stosse dein Schwert mir ins Herz!",
+"Lebe, o Weib, um der Liebe willen!",
+"Rette das Pfand, das von ihm du empfingst",
+"ein Wälsung wächst dir im Schoss!",
+"Rette mich, Kühne! Rette mein Kind!",
+"Schirmt mich, ihr Mädchen, mit mächtigstem Schutz!",
+"Der Sturm kommt heran",
+"Flieh[apostrophe], wer ihn fürchtet!",
+"Fort mit dem Weibe, droht ihm Gefahr",
+"der Walküren keine wag[apostrophe] ihren Schutz",
+"Rette mich, Maid! Rette die Mutter!",
+"So fliehe denn eilig - und fliehe allein!",
+"Ich bleibe zurück, biete mich Wotans Rache",
+"an mir zögr[apostrophe] ich den Zürnenden hier",
+"während du seinem Rasen entrinnst",
+"Wohin soll ich mich wenden?",
+"Wer von euch Schwestern schweifte nach Osten?",
+"Nach Osten weithin dehnt sich ein Wald",
+"der Niblungen Hort entführte Fafner dorthin",
+"Wurmes Gestalt schuf sich der Wilde",
+"in einer Höhle hütet er Alberichs Reif!",
+"Nicht geheu[apostrophe]r ist[apostrophe]s dort für ein hilflos[apostrophe] Weib",
+"Und doch vor Wotans Wut schützt sie sicher der Wald",
+"ihn scheut der Mächt[apostrophe]ge und meidet den Ort",
+"Furchtbar fährt dort Wotan zum Fels",
+"Brünnhilde, hör[apostrophe] seines Nahens Gebraus[apostrophe]!",
+"Fort denn eile, nach Osten gewandt",
+"Mutigen Trotzes ertrag[apostrophe] alle Müh[apostrophe]n",
+"Hunger und Durst, Dorn und Gestein",
+"ache, ob Not, ob Leiden dich nagt",
+"Denn eines wiss[apostrophe] und wahr[apostrophe] es immer",
+"den hehrsten Helden der Welt hegst du, o Weib",
+"im schirmenden Schoss",
+"Verwahr[apostrophe] ihm die starken Schwertesstücken",
+"seines Vaters Walstatt entführt[apostrophe] ich sie glücklich",
+"der neugefügt das Schwert einst schwingt",
+"den Namen nehm[apostrophe] er von mir -[quotation mark]Siegfried[quotation mark] erfreu[apostrophe] sich des Siegs!",
+"O hehrstes Wunder! Herrlichste Maid!",
+"Dir Treuen dank[apostrophe] ich heiligen Trost!",
+"Für ihn, den wir liebten, rett[apostrophe] ich das Liebste",
+"meines Dankes Lohn lache dir einst!",
+"Lebe wohl! Dich segnet Sieglindes Weh[apostrophe]!",
+"Steh[apostrophe]! Brünnhild[apostrophe]!",
+"Den Fels erreichten Ross und Reiter!",
+"Weh[apostrophe], Brünnhild[apostrophe]! Rache entbrennt!",
+"Ach, Schwestern, helft! Mir schwankt das Herz!",
+"Sein Zorn zerschellt mich, wenn euer Schutz ihn nicht zähmt",
+"Hieher, Verlor'ne! Lass dich nicht sehn!",
+"Schmiege dich an uns und schweige dem Ruf!",
+"Weh'! Wütend schwingt sich Wotan vom Ross!",
+"Hieher rast sein rächender Schritt!"
+}.
 
 
 Chapter in the Infirmary
@@ -4259,9 +4560,7 @@ The glass of champagne is a prop in the void. The description of the champagne g
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]."
-
-Instead of examining the badge for the first time, say "You are pretty sure that Annastasia, the receptionist, had that card in her hand as soon as you walked in and you don[apostrophe]t recall having seen any cameras, so you wonder how the badge was produced -- and so quickly. Ah well, best not to question the technological wizardry that is Nyantech."
+The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face [one of]--wait a minute, how did they get that? -- [or][stopping]overlaid with a bright, [team color of the player] number [pogoLevel of the player]."
 
 Instead of dropping the badge for the first time:
 	say "No, you’ve worked too hard and come too far to cast it all away.[paragraph break]";
