@@ -330,6 +330,7 @@ After reading a command:
 			[status has to be updated here, because rejecting the command means no turn as passed, so every turn hook will not fire]
 			showStatus;
 			reject the player's command.
+			
 				
 To say disgusted with indecision:
 	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled unbleached titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
@@ -956,6 +957,23 @@ Report scanning:
 	say roman type;
 	move the phantom to the void.
 			
+Section 9 - Test Objects
+
+The testPogoMeth is an edible prop. The testPogoMeth is in the void. The description of the testPogoMeth is "A pogometh stand-in TODO: remove me from the game prior to release." The testPogoMeth can be trippy. The testPogoMeth is not trippy.
+
+After eating testPogoMeth when Not in Kansas Anymore is happening for the first time:
+	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.";
+	now the testPogoMeth is trippy;
+	the trip ends in five turns from now;
+	bestow "Iatrogenically Induced Synesthesia".
+	
+After eating testPogoMeth when Not in Kansas Anymore is happening:
+	say "Dude. You feel much better."
+	
+At the time when the trip ends:
+	now the testPogoMeth is not trippy.
+
+
 
 Chapter Initialize
 
@@ -4794,12 +4812,13 @@ Book 6 - Scenes
 
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the RevolvingDoor.
 
-Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the MuskPod.
+Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the Pogoland Terminal.
 
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
 
 When Not in Kansas Anymore begins:
-	Desolation strikes in five turns from now.
+	Desolation strikes in five turns from now;
+	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet, and have been beaten to a pulp by a cartoon character. How do you think you look? In short: not too healthy."
 	
 At the time when desolation strikes:
 	say "After walking around for a while you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
