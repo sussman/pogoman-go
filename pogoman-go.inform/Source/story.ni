@@ -4939,6 +4939,185 @@ a Plague Rhat	a Plague Vermin	a Rodentikor
 
 Chapter ASCII ART
 
+[for testing]
+
+before waving hands:
+	say nr.
+
+to say nr:
+	say "[fixed letter spacing][nr9][roman type]".
+
+To say nr1:
+say "    1111111[line break]";        
+say "   1::::::1[line break]";        
+say "  1:::::::1[line break]";        
+say "  111:::::1[line break]";        
+say "     1::::1[line break]";        
+say "     1::::1[line break]";        
+say "     1::::1[line break]";        
+say "     1::::l[line break]";        
+say "     1::::l[line break]";        
+say "     1::::l[line break]";        
+say "     1::::l[line break]";        
+say "     1::::l[line break]";        
+say "  111::::::111[line break]";     
+say "  1::::::::::1[line break]";     
+say "  1::::::::::1[line break]";     
+say "  111111111111[line break]". 
+
+
+To say nr2:
+say "   222222222222222[line break]";         
+say "  2:::::::::::::::22[line break]";       
+say "  2::::::222222:::::2[line break]";      
+say "  2222222     2:::::2[line break]";      
+say "              2:::::2[line break]";      
+say "              2:::::2[line break]";      
+say "           2222::::2[line break]";       
+say "      22222::::::22[line break]";        
+say "    22::::::::222[line break]";          
+say "   2:::::22222[line break]";             
+say "  2:::::2[line break]";                  
+say "  2:::::2[line break]";                  
+say "  2:::::2       222222[line break]";     
+say "  2::::::2222222:::::2[line break]";     
+say "  2::::::::::::::::::2[line break]";     
+say "  22222222222222222222[line break]".
+
+To say nr3:
+say "   333333333333333[line break]";        
+say "  3:::::::::::::::33[line break]";      
+say "  3::::::33333::::::3[line break]";     
+say "  3333333     3:::::3[line break]";     
+say "              3:::::3[line break]";     
+say "              3:::::3[line break]";     
+say "      33333333:::::3[line break]";      
+say "      3:::::::::::3[line break]";       
+say "      33333333:::::3[line break]";      
+say "              3:::::3[line break]";     
+say "              3:::::3[line break]";     
+say "              3:::::3[line break]";     
+say "  3333333     3:::::3[line break]";     
+say "  3::::::33333::::::3[line break]";     
+say "  3:::::::::::::::33[line break]";      
+say "   333333333333333[line break]".
+
+
+To say nr4:
+	say "         444444444[line break]";       
+	say "        4::::::::4[line break]";       
+	say "       4:::::::::4[line break]";       
+	say "      4::::44::::4[line break]";       
+	say "     4::::4 4::::4[line break]";       
+	say "    4::::4  4::::4[line break]";       
+	say "   4::::4   4::::4[line break]";       
+	say "  4::::444444::::444[line break]";     
+	say "  4::::::::::::::::4[line break]";     
+	say "  4444444444:::::444[line break]";     
+	say "            4::::4[line break]";       
+	say "            4::::4[line break]";       
+	say "            4::::4[line break]";       
+	say "          44::::::44[line break]";     
+	say "          4::::::::4[line break]";     
+	say "          4444444444[line break]".
+
+
+to say nr5:
+	say "  555555555555555555[line break]";      
+	say "  5::::::::::::::::5[line break]";      
+	say "  5::::::::::::::::5[line break]";      
+	say "  5:::::555555555555[line break]";      
+	say "  5:::::5[line break]";                 
+	say "  5:::::5[line break]";                 
+	say "  5:::::5555555555[line break]";        
+	say "  5:::::::::::::::5[line break]";       
+	say "  555555555555:::::5[line break]";      
+	say "              5:::::5[line break]";     
+	say "              5:::::5[line break]";     
+	say "  5555555     5:::::5[line break]";     
+	say "  5::::::55555::::::5[line break]";     
+	say "   55:::::::::::::55[line break]";      
+	say "     55:::::::::55[line break]";        
+	say "       555555555[line break]".
+	
+to say nr6:
+	say "          66666666[line break]";        
+	say "         6::::::6[line break]";         
+	say "        6::::::6[line break]";          
+	say "       6::::::6[line break]";           
+	say "      6::::::6[line break]";            
+	say "     6::::::6[line break]";             
+	say "    6::::::6[line break]";              
+	say "   6::::::::66666[line break]";         
+	say "  6::::::::::::::66[line break]";       
+	say "  6::::::66666:::::6[line break]";      
+	say "  6:::::6     6:::::6[line break]";     
+	say "  6:::::6     6:::::6[line break]";     
+	say "  6::::::66666::::::6[line break]";     
+	say "   66:::::::::::::66[line break]";      
+	say "     66:::::::::66[line break]";        
+	say "       666666666[line break]".     
+	
+
+to say nr7:
+	say "  77777777777777777777[line break]";
+	say "  7::::::::::::::::::7[line break]";
+	say "  7::::::::::::::::::7[line break]";
+	say "  777777777777:::::::7[line break]";
+	say "             7::::::7[line break]"; 
+	say "            7::::::7[line break]";  
+	say "           7::::::7[line break]";   
+	say "          7::::::7[line break]";    
+	say "         7::::::7[line break]";     
+	say "        7::::::7[line break]";      
+	say "       7::::::7[line break]";       
+	say "      7::::::7[line break]";        
+	say "     7::::::7[line break]";         
+	say "    7::::::7[line break]";          
+	say "   7::::::7[line break]";           
+	say "  77777777[line break]". 
+
+
+to say nr8:
+	say "       888888888[line break]";        
+	say "     88:::::::::88[line break]";      
+	say "   88:::::::::::::88[line break]";    
+	say "  8::::::88888::::::8[line break]";   
+	say "  8:::::8     8:::::8[line break]";   
+	say "  8:::::8     8:::::8[line break]";   
+	say "   8:::::88888:::::8[line break]";    
+	say "    8:::::::::::::8[line break]";     
+	say "   8:::::88888:::::8[line break]";    
+	say "  8:::::8     8:::::8[line break]";   
+	say "  8:::::8     8:::::8[line break]";   
+	say "  8:::::8     8:::::8[line break]";   
+	say "  8::::::88888::::::8[line break]";   
+	say "   88:::::::::::::88[line break]";    
+	say "     88:::::::::88[line break]";      
+	say "       888888888[line break]";   
+
+to say nr9:
+	say "       999999999[line break]";     
+	say "     99:::::::::99[line break]";   
+	say "   99:::::::::::::99[line break]"; 
+	say "  9::::::99999::::::9[line break]";
+	say "  9:::::9     9:::::9[line break]";
+	say "  9:::::9     9:::::9[line break]";
+	say "   9:::::99999::::::9[line break]";
+	say "    99::::::::::::::9[line break]";
+	say "      99999::::::::9[line break]"; 
+	say "           9::::::9[line break]";  
+	say "          9::::::9[line break]";   
+	say "         9::::::9[line break]";    
+	say "        9::::::9[line break]";     
+	say "       9::::::9[line break]";      
+	say "      9::::::9[line break]";       
+	say "     99999999[line break]".        
+
+
+	
+
+
 
 Chapter 2 Text
 
