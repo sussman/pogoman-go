@@ -4799,7 +4799,7 @@ Exploring the Tower is scene. Exploring the Tower begins when Around the Town en
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
 
 When Not in Kansas Anymore begins:
-	Desolations strikes in five turns from now.
+	Desolation strikes in five turns from now.
 	
 At the time when desolation strikes:
 	say "After walking around for a while you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
