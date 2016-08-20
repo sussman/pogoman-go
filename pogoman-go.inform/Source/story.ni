@@ -3743,10 +3743,18 @@ Instead of pushing a lift button (called the poked item):
 			otherwise:
 				now the Selected corresponding to the control of the poked item in the Table of Building Floors is true;
 				say "The [poked item] lights up."
+				
+The looseLipsSign is a privately-named scenery. The looseLipsSign is in the Elevator. The description of the looseLipsSign is "It says, [quotation mark]Loose lips sink ships -- Absolutely no discussion in the elevator -- Management.[quotation mark]".  Understand "sign" as the looseLipsSign. The printed name of the looseLipsSign is "sign".
+
+Instead of talking to someone (called the auditor) in the elevator:
+	say "With [one of]the barest movement[or]slight annoyance[or]a hint of despair[or]accustomed indifference[or]an almost inaudible sigh[or]mild disapprobation[or]a tilt of the jaw[or]furrowed brow[or]a shrug[or]peevish delight[or]deliberate rudeness[or]an apologetic glance[or]zealous fervor[in random order], [the auditor] points to a sign in the elevator."
+
 		
 Section 2 - Exterior of the elevator
 
 The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" as the elevatorExterior. 
+
+
 
 To say elevatorDoorDesc:
 	say "elevator[if the player is in the floor level of the elevator] doors are open[otherwise]s are[end if] to the west".
@@ -4568,7 +4576,11 @@ The glass of champagne is a prop in the void. The description of the champagne g
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white.The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face [one of]--wait a minute, how did they get that? -- [or][stopping]overlaid with a bright, [team color of the player] number [pogoLevel of the player]."
+The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]."
+
+Instead of examining the badge for the first time:
+	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
+	bestow "Sometimes Technology Is Mysterious".
 
 Instead of dropping the badge for the first time:
 	say "No, you’ve worked too hard and come too far to cast it all away.[paragraph break]";
