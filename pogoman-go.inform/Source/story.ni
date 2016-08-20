@@ -4945,7 +4945,7 @@ before waving hands:
 	say nr.
 
 to say nr:
-	say "[fixed letter spacing][nr6][roman type]".
+	say "[fixed letter spacing][nr9][roman type]".
 
 To say nr1:
 say "    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]". 
@@ -4968,59 +4968,14 @@ to say nr6:
 	
 
 to say nr7:
-	say "  77777777777777777777[line break]";
-	say "  7::::::::::::::::::7[line break]";
-	say "  7::::::::::::::::::7[line break]";
-	say "  777777777777:::::::7[line break]";
-	say "             7::::::7[line break]"; 
-	say "            7::::::7[line break]";  
-	say "           7::::::7[line break]";   
-	say "          7::::::7[line break]";    
-	say "         7::::::7[line break]";     
-	say "        7::::::7[line break]";      
-	say "       7::::::7[line break]";       
-	say "      7::::::7[line break]";        
-	say "     7::::::7[line break]";         
-	say "    7::::::7[line break]";          
-	say "   7::::::7[line break]";           
-	say "  77777777[line break]". 
+	say "  77777777777777777777[line break]  7::::::::::::::::::7[line break]  7::::::::::::::::::7[line break]  777777777777:::::::7[line break]             7::::::7[line break]            7::::::7[line break]           7::::::7[line break]          7::::::7[line break]         7::::::7[line break]        7::::::7[line break]       7::::::7[line break]      7::::::7[line break]     7::::::7[line break]    7::::::7[line break]   7::::::7[line break]  77777777[line break]". 
 
 
 to say nr8:
-	say "       888888888[line break]";        
-	say "     88:::::::::88[line break]";      
-	say "   88:::::::::::::88[line break]";    
-	say "  8::::::88888::::::8[line break]";   
-	say "  8:::::8     8:::::8[line break]";   
-	say "  8:::::8     8:::::8[line break]";   
-	say "   8:::::88888:::::8[line break]";    
-	say "    8:::::::::::::8[line break]";     
-	say "   8:::::88888:::::8[line break]";    
-	say "  8:::::8     8:::::8[line break]";   
-	say "  8:::::8     8:::::8[line break]";   
-	say "  8:::::8     8:::::8[line break]";   
-	say "  8::::::88888::::::8[line break]";   
-	say "   88:::::::::::::88[line break]";    
-	say "     88:::::::::88[line break]";      
-	say "       888888888[line break]";   
+	say "       888888888[line break]     88:::::::::88[line break]   88:::::::::::::88[line break]  8::::::88888::::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]   8:::::88888:::::8[line break]    8:::::::::::::8[line break]   8:::::88888:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8::::::88888::::::8[line break]   88:::::::::::::88[line break]     88:::::::::88[line break]       888888888[line break]";   
 
 to say nr9:
-	say "       999999999[line break]";     
-	say "     99:::::::::99[line break]";   
-	say "   99:::::::::::::99[line break]"; 
-	say "  9::::::99999::::::9[line break]";
-	say "  9:::::9     9:::::9[line break]";
-	say "  9:::::9     9:::::9[line break]";
-	say "   9:::::99999::::::9[line break]";
-	say "    99::::::::::::::9[line break]";
-	say "      99999::::::::9[line break]"; 
-	say "           9::::::9[line break]";  
-	say "          9::::::9[line break]";   
-	say "         9::::::9[line break]";    
-	say "        9::::::9[line break]";     
-	say "       9::::::9[line break]";      
-	say "      9::::::9[line break]";       
-	say "     99999999[line break]".        
+	say "       999999999[line break]     99:::::::::99[line break]   99:::::::::::::99[line break]  9::::::99999::::::9[line break]  9:::::9     9:::::9[line break]  9:::::9     9:::::9[line break]   9:::::99999::::::9[line break]    99::::::::::::::9[line break]      99999::::::::9[line break]           9::::::9[line break]          9::::::9[line break]         9::::::9[line break]        9::::::9[line break]       9::::::9[line break]      9::::::9[line break]     99999999[line break]".        
 
 
 	
