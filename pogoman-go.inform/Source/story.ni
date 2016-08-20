@@ -329,7 +329,30 @@ After reading a command:
 						say disgusted with indecision;
 			[status has to be updated here, because rejecting the command means no turn as passed, so every turn hook will not fire]
 			showStatus;
-			reject the player's command.
+			reject the player's command;
+		if the testPogoMeth is trippy:
+			if the player's command includes "listen":
+				replace the matched text with "examine";
+			otherwise:
+				if the player's command includes "examine":
+					replace the matched text with "listen to";
+				if the player's command includes "x ":
+					replace the matched text with "listen to";
+				if the player's command includes "read":
+					replace the matched text with "listen to";
+				otherwise:
+					if the player's command includes "smell":
+						replace the matched text with "touch";
+					otherwise:
+						if the player's command includes "touch":
+							replace the matched text with "taste";
+						otherwise:
+							if the player's command includes "taste":
+								replace the matched text with "smell".
+				
+			
+			
+	
 			
 				
 To say disgusted with indecision:
@@ -962,7 +985,7 @@ Section 9 - Test Objects
 The testPogoMeth is an edible prop. The testPogoMeth is in the void. The description of the testPogoMeth is "A pogometh stand-in TODO: remove me from the game prior to release." The testPogoMeth can be trippy. The testPogoMeth is not trippy.
 
 After eating testPogoMeth when Not in Kansas Anymore is happening for the first time:
-	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.";
+	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
 	now the testPogoMeth is trippy;
 	the trip ends in five turns from now;
 	bestow "Iatrogenically Induced Synesthesia".
@@ -971,9 +994,38 @@ After eating testPogoMeth when Not in Kansas Anymore is happening:
 	say "Dude. You feel much better."
 	
 At the time when the trip ends:
+	say "The mind-altering effects of the pogometh seem to have worn off.";
 	now the testPogoMeth is not trippy.
-
-
+	
+After smelling when the testPogoMeth is trippy for the first time:
+	bestow "Smell-O-Vision".
+	
+After tasting when the testPogoMeth is trippy for the first time:
+	say "[alteredTaste].[paragraph break]";
+	bestow "Sorry, Charlie. Tasty Is Not The Goal".
+	
+After tasting when the testPogoMeth is trippy:
+	say "[alteredTaste]."
+	
+To say alteredTaste:
+	say "Mmm. Tastes like [one of]chicken[or]turkish delight[or]marmelade[or]vegemite[or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzepam might have cooked up[in random order]";
+	
+Instead of listening when the testPogoMeth is trippy for the first time:
+	say "You hear nothing but the rain.[paragraph break]";
+	bestow "The Grab Your Gun and Bring In The Cat".
+	
+After examining when the testPogoMeth is trippy for the first time:
+	bestow "Reality Distortion Field Is Go".
+	
+After touching when the testPogoMeth is trippy for the first time:
+	say "[alteredTouch].[paragraph break]";
+	bestow "This Touching Moment Brought To You By Hallmark".
+	
+After touching when the testPogoMeth is trippy:
+	say "alteredTouch."
+	
+To say alteredTouch:
+	say "You touch [the noun] all over the place".
 
 Chapter Initialize
 
