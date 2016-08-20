@@ -4945,7 +4945,7 @@ before waving hands:
 	say nr.
 
 to say nr:
-	say "[fixed letter spacing][nr4][roman type]".
+	say "[fixed letter spacing][nr6][roman type]".
 
 To say nr1:
 say "    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]". 
@@ -4960,42 +4960,11 @@ say "   333333333333333[line break]  3:::::::::::::::33[line break]  3::::::3333
 To say nr4:
 	say "         444444444[line break]        4::::::::4[line break]       4:::::::::4[line break]      4::::44::::4[line break]     4::::4 4::::4[line break]    4::::4  4::::4[line break]   4::::4   4::::4[line break]  4::::444444::::444[line break]  4::::::::::::::::4[line break]  4444444444:::::444[line break]            4::::4[line break]            4::::4[line break]            4::::4[line break]          44::::::44[line break]          4::::::::4[line break]          4444444444[line break]".
 
-
 to say nr5:
-	say "  555555555555555555[line break]";      
-	say "  5::::::::::::::::5[line break]";      
-	say "  5::::::::::::::::5[line break]";      
-	say "  5:::::555555555555[line break]";      
-	say "  5:::::5[line break]";                 
-	say "  5:::::5[line break]";                 
-	say "  5:::::5555555555[line break]";        
-	say "  5:::::::::::::::5[line break]";       
-	say "  555555555555:::::5[line break]";      
-	say "              5:::::5[line break]";     
-	say "              5:::::5[line break]";     
-	say "  5555555     5:::::5[line break]";     
-	say "  5::::::55555::::::5[line break]";     
-	say "   55:::::::::::::55[line break]";      
-	say "     55:::::::::55[line break]";        
-	say "       555555555[line break]".
+	say "  555555555555555555[line break]  5::::::::::::::::5[line break]  5::::::::::::::::5[line break]  5:::::555555555555[line break]  5:::::5[line break]  5:::::5[line break]  5:::::5555555555[line break]  5:::::::::::::::5[line break]  555555555555:::::5[line break]              5:::::5[line break]              5:::::5[line break]  5555555     5:::::5[line break]  5::::::55555::::::5[line break]   55:::::::::::::55[line break]     55:::::::::55[line break]       555555555[line break]".
 	
 to say nr6:
-	say "          66666666[line break]";        
-	say "         6::::::6[line break]";         
-	say "        6::::::6[line break]";          
-	say "       6::::::6[line break]";           
-	say "      6::::::6[line break]";            
-	say "     6::::::6[line break]";             
-	say "    6::::::6[line break]";              
-	say "   6::::::::66666[line break]";         
-	say "  6::::::::::::::66[line break]";       
-	say "  6::::::66666:::::6[line break]";      
-	say "  6:::::6     6:::::6[line break]";     
-	say "  6:::::6     6:::::6[line break]";     
-	say "  6::::::66666::::::6[line break]";     
-	say "   66:::::::::::::66[line break]";      
-	say "     66:::::::::66[line break]";        
-	say "       666666666[line break]".     
+	say "          66666666[line break]         6::::::6[line break]        6::::::6[line break]       6::::::6[line break]      6::::::6[line break]     6::::::6[line break]    6::::::6[line break]   6::::::::66666[line break]  6::::::::::::::66[line break]  6::::::66666:::::6[line break]  6:::::6     6:::::6[line break]  6:::::6     6:::::6[line break]  6::::::66666::::::6[line break]   66:::::::::::::66[line break]     66:::::::::66[line break]       666666666[line break]".     
 	
 
 to say nr7:
