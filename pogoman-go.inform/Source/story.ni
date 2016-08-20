@@ -858,6 +858,8 @@ Chapter Initialize
 
 When play begins:
 	now SUPPRESSMEDALS is false;
+	now BLOCKSTAGEBUSINESSFLAG is true;
+	[don't want stage buiness on first turn (otherwise enabled b/c previous player room is void)]
 	now pogoLevel of the player is INITIAL_POGOLEVEL;
 	now the XP of the player is INITIAL_XP;
 	now the player carries the phone;
