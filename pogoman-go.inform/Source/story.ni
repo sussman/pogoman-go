@@ -4945,7 +4945,7 @@ before waving hands:
 	say nr.
 
 to say nr:
-	say "[fixed letter spacing][nr2][roman type]".
+	say "[fixed letter spacing][nr4][roman type]".
 
 To say nr1:
 say "    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]". 
@@ -4954,41 +4954,11 @@ To say nr2:
 say "   222222222222222[line break]  2:::::::::::::::22[line break]  2::::::222222:::::2[line break]  2222222     2:::::2[line break]              2:::::2[line break]              2:::::2[line break]           2222::::2[line break]      22222::::::22[line break]    22::::::::222[line break]   2:::::22222[line break]  2:::::2[line break]  2:::::2[line break]  2:::::2       222222[line break]  2::::::2222222:::::2[line break]  2::::::::::::::::::2[line break]  22222222222222222222[line break]".
 
 To say nr3:
-say "   333333333333333[line break]";        
-say "  3:::::::::::::::33[line break]";      
-say "  3::::::33333::::::3[line break]";     
-say "  3333333     3:::::3[line break]";     
-say "              3:::::3[line break]";     
-say "              3:::::3[line break]";     
-say "      33333333:::::3[line break]";      
-say "      3:::::::::::3[line break]";       
-say "      33333333:::::3[line break]";      
-say "              3:::::3[line break]";     
-say "              3:::::3[line break]";     
-say "              3:::::3[line break]";     
-say "  3333333     3:::::3[line break]";     
-say "  3::::::33333::::::3[line break]";     
-say "  3:::::::::::::::33[line break]";      
-say "   333333333333333[line break]".
+say "   333333333333333[line break]  3:::::::::::::::33[line break]  3::::::33333::::::3[line break]  3333333     3:::::3[line break]              3:::::3[line break]              3:::::3[line break]      33333333:::::3[line break]      3:::::::::::3[line break]      33333333:::::3[line break]              3:::::3[line break]              3:::::3[line break]              3:::::3[line break]  3333333     3:::::3[line break]  3::::::33333::::::3[line break]  3:::::::::::::::33[line break]   333333333333333[line break]".
 
 
 To say nr4:
-	say "         444444444[line break]";       
-	say "        4::::::::4[line break]";       
-	say "       4:::::::::4[line break]";       
-	say "      4::::44::::4[line break]";       
-	say "     4::::4 4::::4[line break]";       
-	say "    4::::4  4::::4[line break]";       
-	say "   4::::4   4::::4[line break]";       
-	say "  4::::444444::::444[line break]";     
-	say "  4::::::::::::::::4[line break]";     
-	say "  4444444444:::::444[line break]";     
-	say "            4::::4[line break]";       
-	say "            4::::4[line break]";       
-	say "            4::::4[line break]";       
-	say "          44::::::44[line break]";     
-	say "          4::::::::4[line break]";     
-	say "          4444444444[line break]".
+	say "         444444444[line break]        4::::::::4[line break]       4:::::::::4[line break]      4::::44::::4[line break]     4::::4 4::::4[line break]    4::::4  4::::4[line break]   4::::4   4::::4[line break]  4::::444444::::444[line break]  4::::::::::::::::4[line break]  4444444444:::::444[line break]            4::::4[line break]            4::::4[line break]            4::::4[line break]          44::::::44[line break]          4::::::::4[line break]          4444444444[line break]".
 
 
 to say nr5:
