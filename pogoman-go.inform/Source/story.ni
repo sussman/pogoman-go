@@ -4694,10 +4694,56 @@ Section 5 - Frontiers
 
 Definition: a direction (called the way) is a poor idea if the room the way from the location is in the Frontier.
 
+Instead of going a poor idea direction (called the way):
+	let R be the room the way from the location;
+	if R is:
+		-- Shark-Infested Reef:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0: 
+					say "You dip a toe into the gentle waves and the sea erupts into a frothy nightmare of teeth vying to take off your leg. You jump back just in time. Clearly, entering the sea will result in an immediate, but painful, end.[paragraph break]";
+					bestow "Chicken Of The Sea";
+				-- 1: 
+					say "[quotation mark]Damn your logic, Spock![quotation mark] you cry as you throw self-preservation to the wind and dive majestically into the waves.[paragraph break]There is a sharp pain in your arm, then your leg, then where your leg used to be, and then the water turns red and your vision fades.[paragraph break] *** EATEN BY SHARKS! ***[paragraph break]";
+					frontierDeath;
+				-- otherwise: 
+					say "No, from now on, if you are going out to sea, it will be in a boat.";
+		-- Quicksand:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+				say "Ah, nothing but miles and miles of luscious sand out to the west. Beautiful but desolate. You pause to admire it, but you are also a bit concerned that there is nothing -- not even a cactus --  alive over there.[paragraph break]";
+				bestow "Getting Away From It All";
+				-- 1:
+					say "TODO [paragraph break]*** DESSICATED! ***";
+					frontierDeath;
+				-- otherwise: 
+					say "no more.";
+		-- Cliff:
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+					say "TODO";
+				-- 1:
+					say "TODO";
+				-- 2:
+					say "TODO   [paragraph break]*** PULVERISED! ***[paragraph break]";
+					frontierDeath;
+				-- otherwise:
+					say "";
+		-- Volcano:	
+			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
+				-- 0:
+					say "TODO";
+				-- 1:
+					say "TODO";
+				-- 2:
+					say "TODO  [paragraph break]*** INCINERATED! ***[paragraph break]";
+					frontierDeath;
+				-- otherwise:
+					say "";
+	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
-	
-
-
+To frontierDeath:
+	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly, your disembodied essence floating numinously past a few objects that are not currently in play: [one of]a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or]Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or]Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or]A frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
+	move the player to the Hospital.
 
 Chapter The Void
 
