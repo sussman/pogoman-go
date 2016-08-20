@@ -4942,40 +4942,24 @@ Chapter ASCII ART
 [for testing]
 
 before waving hands:
-	say nr.
+	say 3 in ASCII.
 
-to say nr:
-	say "[fixed letter spacing][nr9][roman type]".
-
-To say nr1:
-say "    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]". 
-
-To say nr2:
-say "   222222222222222[line break]  2:::::::::::::::22[line break]  2::::::222222:::::2[line break]  2222222     2:::::2[line break]              2:::::2[line break]              2:::::2[line break]           2222::::2[line break]      22222::::::22[line break]    22::::::::222[line break]   2:::::22222[line break]  2:::::2[line break]  2:::::2[line break]  2:::::2       222222[line break]  2::::::2222222:::::2[line break]  2::::::::::::::::::2[line break]  22222222222222222222[line break]".
-
-To say nr3:
-say "   333333333333333[line break]  3:::::::::::::::33[line break]  3::::::33333::::::3[line break]  3333333     3:::::3[line break]              3:::::3[line break]              3:::::3[line break]      33333333:::::3[line break]      3:::::::::::3[line break]      33333333:::::3[line break]              3:::::3[line break]              3:::::3[line break]              3:::::3[line break]  3333333     3:::::3[line break]  3::::::33333::::::3[line break]  3:::::::::::::::33[line break]   333333333333333[line break]".
-
-
-To say nr4:
-	say "         444444444[line break]        4::::::::4[line break]       4:::::::::4[line break]      4::::44::::4[line break]     4::::4 4::::4[line break]    4::::4  4::::4[line break]   4::::4   4::::4[line break]  4::::444444::::444[line break]  4::::::::::::::::4[line break]  4444444444:::::444[line break]            4::::4[line break]            4::::4[line break]            4::::4[line break]          44::::::44[line break]          4::::::::4[line break]          4444444444[line break]".
-
-to say nr5:
-	say "  555555555555555555[line break]  5::::::::::::::::5[line break]  5::::::::::::::::5[line break]  5:::::555555555555[line break]  5:::::5[line break]  5:::::5[line break]  5:::::5555555555[line break]  5:::::::::::::::5[line break]  555555555555:::::5[line break]              5:::::5[line break]              5:::::5[line break]  5555555     5:::::5[line break]  5::::::55555::::::5[line break]   55:::::::::::::55[line break]     55:::::::::55[line break]       555555555[line break]".
+to say (numero - a number) in ASCII:
+	say "[fixed letter spacing][entry numero in ASCII_NUMBERS][roman type]".
 	
-to say nr6:
-	say "          66666666[line break]         6::::::6[line break]        6::::::6[line break]       6::::::6[line break]      6::::::6[line break]     6::::::6[line break]    6::::::6[line break]   6::::::::66666[line break]  6::::::::::::::66[line break]  6::::::66666:::::6[line break]  6:::::6     6:::::6[line break]  6:::::6     6:::::6[line break]  6::::::66666::::::6[line break]   66:::::::::::::66[line break]     66:::::::::66[line break]       666666666[line break]".     
-	
+[!!! note - don't monkey with the white space below !!!]
 
-to say nr7:
-	say "  77777777777777777777[line break]  7::::::::::::::::::7[line break]  7::::::::::::::::::7[line break]  777777777777:::::::7[line break]             7::::::7[line break]            7::::::7[line break]           7::::::7[line break]          7::::::7[line break]         7::::::7[line break]        7::::::7[line break]       7::::::7[line break]      7::::::7[line break]     7::::::7[line break]    7::::::7[line break]   7::::::7[line break]  77777777[line break]". 
-
-
-to say nr8:
-	say "       888888888[line break]     88:::::::::88[line break]   88:::::::::::::88[line break]  8::::::88888::::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]   8:::::88888:::::8[line break]    8:::::::::::::8[line break]   8:::::88888:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8::::::88888::::::8[line break]   88:::::::::::::88[line break]     88:::::::::88[line break]       888888888[line break]";   
-
-to say nr9:
-	say "       999999999[line break]     99:::::::::99[line break]   99:::::::::::::99[line break]  9::::::99999::::::9[line break]  9:::::9     9:::::9[line break]  9:::::9     9:::::9[line break]   9:::::99999::::::9[line break]    99::::::::::::::9[line break]      99999::::::::9[line break]           9::::::9[line break]          9::::::9[line break]         9::::::9[line break]        9::::::9[line break]       9::::::9[line break]      9::::::9[line break]     99999999[line break]".        
+The list of text called ASCII_NUMBERS is always {
+"    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]",
+ "   222222222222222[line break]  2:::::::::::::::22[line break]  2::::::222222:::::2[line break]  2222222     2:::::2[line break]              2:::::2[line break]              2:::::2[line break]           2222::::2[line break]      22222::::::22[line break]    22::::::::222[line break]   2:::::22222[line break]  2:::::2[line break]  2:::::2[line break]  2:::::2       222222[line break]  2::::::2222222:::::2[line break]  2::::::::::::::::::2[line break]  22222222222222222222[line break]",
+"   333333333333333[line break]  3:::::::::::::::33[line break]  3::::::33333::::::3[line break]  3333333     3:::::3[line break]              3:::::3[line break]              3:::::3[line break]      33333333:::::3[line break]      3:::::::::::3[line break]      33333333:::::3[line break]              3:::::3[line break]              3:::::3[line break]              3:::::3[line break]  3333333     3:::::3[line break]  3::::::33333::::::3[line break]  3:::::::::::::::33[line break]   333333333333333[line break]",
+"         444444444[line break]        4::::::::4[line break]       4:::::::::4[line break]      4::::44::::4[line break]     4::::4 4::::4[line break]    4::::4  4::::4[line break]   4::::4   4::::4[line break]  4::::444444::::444[line break]  4::::::::::::::::4[line break]  4444444444:::::444[line break]            4::::4[line break]            4::::4[line break]            4::::4[line break]          44::::::44[line break]          4::::::::4[line break]          4444444444[line break]",
+"  555555555555555555[line break]  5::::::::::::::::5[line break]  5::::::::::::::::5[line break]  5:::::555555555555[line break]  5:::::5[line break]  5:::::5[line break]  5:::::5555555555[line break]  5:::::::::::::::5[line break]  555555555555:::::5[line break]              5:::::5[line break]              5:::::5[line break]  5555555     5:::::5[line break]  5::::::55555::::::5[line break]   55:::::::::::::55[line break]     55:::::::::55[line break]       555555555[line break]",
+"          66666666[line break]         6::::::6[line break]        6::::::6[line break]       6::::::6[line break]      6::::::6[line break]     6::::::6[line break]    6::::::6[line break]   6::::::::66666[line break]  6::::::::::::::66[line break]  6::::::66666:::::6[line break]  6:::::6     6:::::6[line break]  6:::::6     6:::::6[line break]  6::::::66666::::::6[line break]   66:::::::::::::66[line break]     66:::::::::66[line break]       666666666[line break]",
+"  77777777777777777777[line break]  7::::::::::::::::::7[line break]  7::::::::::::::::::7[line break]  777777777777:::::::7[line break]             7::::::7[line break]            7::::::7[line break]           7::::::7[line break]          7::::::7[line break]         7::::::7[line break]        7::::::7[line break]       7::::::7[line break]      7::::::7[line break]     7::::::7[line break]    7::::::7[line break]   7::::::7[line break]  77777777[line break]",
+"       888888888[line break]     88:::::::::88[line break]   88:::::::::::::88[line break]  8::::::88888::::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]   8:::::88888:::::8[line break]    8:::::::::::::8[line break]   8:::::88888:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8::::::88888::::::8[line break]   88:::::::::::::88[line break]     88:::::::::88[line break]       888888888[line break]",  
+"       999999999[line break]     99:::::::::99[line break]   99:::::::::::::99[line break]  9::::::99999::::::9[line break]  9:::::9     9:::::9[line break]  9:::::9     9:::::9[line break]   9:::::99999::::::9[line break]    99::::::::::::::9[line break]      99999::::::::9[line break]           9::::::9[line break]          9::::::9[line break]         9::::::9[line break]        9::::::9[line break]       9::::::9[line break]      9::::::9[line break]     99999999[line break]"
+}
 
 
 	
