@@ -341,7 +341,8 @@ This is the run from sound rule:
 After going from somewhere:
 	increase the distance walked  of the player by one;
 	if the distance walked of the player is listed in PEDOMETER_AWARD_DISTANCES:
-		bestow "Traveler: [distance walked of the player] turns spent moving";
+		let L be "Traveler: [distance walked of the player] turns spent moving";
+		bestow "[L]";
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
@@ -654,9 +655,21 @@ To Bestow (medallion - some text):
 	if SUPPRESSMEDALS is false:
 		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP![paragraph break]";		
 	awardXP MEDAL_XP_VALUE;
-	if the number of entries in MEDALLIST is 3:
-		say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
-		bestow "Now Your Phone Is Talking To You".
+	if the number of entries in MEDALLIST is:
+		-- 3: 
+			say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
+			bestow "Now Your Phone Is Talking To You";
+		-- 5:
+			bestow "You Just Collected Five Medals";
+			bestow "Collector of Meta-Medals";
+		-- 10:
+			bestow "Collected Decade of Medals";
+		-- 31:
+			bestow "Collected 10^1.5 Medals";
+		-- 100:
+			bestow "Collected A Century of Medals";
+		-- 1000:
+			bestow "Collected A Millenium of Medals".
 		
 Muting is an action applying to nothing. Understand "mute" as muting.
 
