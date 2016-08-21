@@ -82,6 +82,9 @@ The player has a number called Trophies.
 The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
 The player has a number called pogoballsCarried.  pogoballsCarried is 3.
+The player has a number called pogoChumsCarried. pogoChumsCarried is 2.
+The player has a number called pogoMethsCarried. pogoMethsCarried is 2.
+The player has a number called pogoEggsCarried. pogoEggsCarried is 3.
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 
@@ -89,7 +92,7 @@ Section 3 - Pogo Items
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
-A Pogoball-kind is a kind of thing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls.
+A Pogoball-kind is a kind of thing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
 
 Instead of dropping a pogoball-kind:
 	decrease pogoballsCarried of the player by 1;
@@ -104,11 +107,11 @@ Instead of dropping a pogoball-kind:
 
 A Pogochum-kind is a kind of thing.  The description is "Rancid bits of chopped up…. something. Whatever it is, Pogomen are attracted to it. Drop a bit of it, and a Pogoman will come to you!".  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of thing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths.
+A Pogometh-kind is a kind of thing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
-The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]."
+The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
@@ -653,16 +656,38 @@ Section Spinning
 [TODO:  user must wait 20 turns before being allowed to spin sign again]
 
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
+
 Carry out spinning:
 	if the noun is the pogostop:
-		say "The PogoSign spins around and spews out a PogoBall and a piece of PogoChum, which you quicklly scoop up.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
-		awardXP POGOSTOP_XP_VALUE;
-		increase pogoballsCarried of the player by 1;
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+		if T is POGOITEM_INVENTORY_LIMIT:
+			say "Your inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
+		otherwise:
+			now the booty of the pogostop is {};
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let B be a random number between 1 and 3;
+			if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
+				let B be POGOITEM_INVENTORY_LIMIT minus T;
+			if B is greater than 0:
+				add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
+				increase pogoballsCarried of the player by B;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let C be a random number between 1 and 3;
+			if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
+				let C be POGOITEM_INVENTORY_LIMIT minus T;
+			if C is greater than 0:
+				add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
+				increase pogoChumsCarried of the player by C;
+			let M be a random number between 1 and 3;
+			if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
+				let M be POGOITEM_INVENTORY_LIMIT minus T;
+			if M is greater than 0:
+				add "[M] pogometh[if C is greater than 1]s[end if]" to the booty of the pogostop;
+				increase pogoMethsCarried of the player by M;
+			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
+			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
-
-
-
 
 Section Help
 
