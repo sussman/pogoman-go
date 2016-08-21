@@ -174,14 +174,51 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	say "TODO: General Gym Battle Simulation HERE."
 
 
-[The Pogomen themselves!]
+[There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
+ When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition.]
 
-A Pogoman is a kind of neuter animal.  The plural of pogoman is pogomen.  Some pogomen are defined by the Table of Creatures.
+Pogoman is a neuter animal.  Pogoman has some text called currentName.  The printed name of pogoman is "[currentName of pogoman]".  The description of pogoman is "[pogoDescription corresponding to pogomanName of currentName of pogoman in the Table of Creatures]".
+	  
+Pogoman has a number called evolutionLevel.  The evolutionLevel is usually 1.  Pogoman can be wounded.  Pogoman is not wounded.
 
-A pogoman has a number called evolutionLevel.  The evolutionLevel is usually 1.  The description of a pogoman is "A magical creature with combat powers - [description].  Like all Pogomen, it can be evolved."
-
-Instead of taking a pogoman:
+Instead of taking pogoman:
 	say "You'll have to throw a Pogoball at it to capture it!".
+	
+
+		
+Table of Creatures
+pogomanName	pogoDescription
+"Edator"	"A creature of note."
+"Vicore"	"Simple and clean, covered with lines."
+"Emaks"	"A buffed and buffered creature."
+"Plague Rhat"	"A mysterious rodent of a vermininous nature."
+"Plague Vermin"	"A rodent with extra poison."
+"Rodentikor"	"Too much rodent for mortals to handle."
+
+Table of Evolution
+Original	Ev2	Ev3
+"Edator"	"Vicore"	"Emaks"
+"Plague Rhat"	"Plague Vermin"	"Rodentikor"
+	
+[Table of Inventory
+Type	Wounded		Defending]
+
+
+		
+Understand "edator" as pogoman. [... when the currentName of pogoman is "edator"... why doesn't this work??]
+Understand "vicore" as pogoman.
+Understand "emaks" as pogoman.
+Understand "plague rhat" as pogoman.
+Understand "plague vermin" as pogoman.
+Understand "rodentikor" as pogoman.
+
+[Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat,  ]
+	
+	
+Before doing anything to pogoman:
+	if the topic understood is not the currentName of pogoman:
+		say "You don't see one here." [this always prints -- not what we want.]
+
 
 
 Chapter Declare Constants
@@ -470,7 +507,7 @@ Carry out spinning:
 
 Section Evolving
 
-Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
+[Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
 
 Check evolving:
 	if the noun is not a pogoman:
@@ -485,7 +522,7 @@ Carry out evolving:
 	now the player carries the new-pogoman;
 	move the noun to the Void;
 	awardXP EVOLUTION_XP_VALUE;
-	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]".
+	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]". ]
 	
 Section PoweringUpping
 
@@ -793,9 +830,9 @@ After examining the Teslatronic Energy Module for the first time, bestow "Awfull
 
 After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn’t like the truth".
 
-After evolving a pogoman for the first time, bestow "Turned something into something else!".
+[After evolving a pogoman for the first time, bestow "Turned something into something else!".
 
-After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again".
+After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again". ]
 
 After powerUpping a pogoman for the first time, bestow "Made something even bigger".
 
@@ -1019,7 +1056,10 @@ When play begins:
 	openGame.
 	
 To openGame:
-	move the player to a random okayStartLocation, without printing a room description;
+	let startRoom be a random okayStartLocation;
+	move the player to startRoom, without printing a room description;
+	now the currentName of pogoman is "Edator"; 
+	move pogoman to startRoom;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
 	if T is less than 12:
@@ -4923,19 +4963,7 @@ Chapter Tables
 
 [TODO fill this out with all pogomen]
 
-Table of Creatures
-Name	Description
-an Edator	"A creature of note."
-a Vicore	"Simple and clean, covered with lines."
-an Emaks	"A buffed and buffered creature."
-a Plague Rhat	"A mysterious rodent of a vermininous nature."
-a Plague Vermin	"A rodent with extra poison."
-a Rodentikor	"Too much rodent for mortals to handle."
 
-Table of Evolution
-Original	Ev2	Ev3
-an Edator	a Vicore	an Emaks
-a Plague Rhat	a Plague Vermin	a Rodentikor
 
 Chapter ASCII ART
 
