@@ -347,8 +347,20 @@ This is the pogo-inventory rule:
 				let LASTWOUNDED be the wounded entry;
 			otherwise:
 				increase LASTCOUNT by one;
-		say line break.
-
+		say line break;
+		if Not In Kansas Anymore is happening:
+			let D be 0;
+			repeat with N running from 1 to the number of rows in Table of Defenders:
+				if there is a guardian entry:
+					increase D by one;
+			if D is 0:
+				say "No loyal pogomen are on guard in Pogoland.";
+			otherwise:
+				say "[D in words] team ";
+				let T be the team color of the player;
+				say "[T]" in lower case;
+				say " pogomen hold defensive positions.[paragraph break]Use the [quotation mark]guards[quotation mark] for a list or [quotation mark]scanner[quotation mark] command for a display."
+				 		
 [
 Section Evolving
 
