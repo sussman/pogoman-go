@@ -76,6 +76,7 @@ A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list
 
 Section 2 - Player properties
 
+[TODO randomize initial items carried by player]
 The player has a number called pogoLevel.
 The player has a number called XP.
 The player has a number called Trophies.
@@ -85,6 +86,7 @@ The player has a number called pogoballsCarried.  pogoballsCarried is 3.
 The player has a number called pogoChumsCarried. pogoChumsCarried is 2.
 The player has a number called pogoMethsCarried. pogoMethsCarried is 2.
 The player has a number called pogoEggsCarried. pogoEggsCarried is 3.
+The player has a number called pogoIncenseCarried. pogoIncenseCarried is 1.
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 
@@ -110,6 +112,8 @@ A Pogochum-kind is a kind of thing.  The description is "Rancid bits of chopped 
 A Pogometh-kind is a kind of thing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
 A Pogoegg-kind is a kind of thing. The description is "A speckled egg." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
+
+A PogoIncense-kind is a kind of thing. The description is "A hockey-puck shaped plastic disc." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
 
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
@@ -223,6 +227,34 @@ Table of Inventory
 pogoName (a pogotype)	wounded (a truth state)
 with 100 blank rows.
 
+Table of Defenders
+pogoLandQTH	guardian	
+The Palace	a pogotype
+Mountain
+Monastery
+School House
+Lighthouse
+Desert
+Blacksmith
+Farm
+Forest
+Beach
+Canyon
+Stadium
+Dark Alley
+Post Office
+Wharf
+Pogoland Terminal
+Valley
+Baseball Diamond
+Hospital
+Aquarium
+Cemetery
+Service Station
+Dojo
+Botanical Garden
+Motel
+
 Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
 Understand "vicore" as attackerPogoman when the type of attackerPogoman is vicore.
@@ -261,6 +293,7 @@ Check capturing:
 				continue the action;
 			otherwise:
 				say "You don[apostrophe]t have any pogoballs[one of]! You capture pogomen by throwing pogoballs at them, so go get some pogoballs first[or][stopping]!";
+				stop the action;
 		otherwise:
 			say "That[apostrophe]s illegal, well, at least here it is.";	
 			the rule fails;	
@@ -371,16 +404,31 @@ InventoryDropping is an action applying to one pogotype.
 Understand "drop [pogotype]" as inventoryDropping.
 
 carry out inventorydropping:
-	sort Table of Inventory in wounded order;
-	sort Table of Inventory in pogoName order;
-	repeat with N running from 1 to the number of rows in the Table of Inventory:
-		choose row N in the Table of Inventory;
-		if there is no pogoName entry, break;
-		if the pogoName entry is the pogotype understood:	
-			blank out the whole row;
-			say "You drop a [pogotype understood]."
-
-
+	if Not in Kansas Anymore is Happening:
+		[would prefer defenders to be stronger]
+		sort Table of Inventory in pogoName order;
+		sort Table of Inventory in wounded order;
+	otherwise:
+		[otherwise, selectively dump the weaker]
+		sort Table of Inventory in wounded order;
+		sort Table of Inventory in pogoName order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to drop!";
+	otherwise:
+		repeat with N running from 1 to the number of rows in the Table of Inventory:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				say "You don[apostrophe] have [a pogotype understood] in stock.";
+				break;
+			if the pogoName entry is the pogotype understood:	
+				blank out the whole row;
+				if Not in Kansas Anymore is Happening:
+					move the defenderPogoman to the location of the player;
+					now the type of defenderPogoman is pogotype understood;
+					say "[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson][team color of the player] [pogotype understood] bursts from its pogoball and takes up a defensive stance.";
+				otherwise:
+					say "As soon as the [pogotype understood] is free, it zips away immediately.";
+				break.
 
 Chapter Declare Constants
 
@@ -674,7 +722,7 @@ Carry out spinning:
 			say "Your inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
 		otherwise:
 			now the booty of the pogostop is {};
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 			let B be a random number between 0 and 4;
 			if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
 				let B be POGOITEM_INVENTORY_LIMIT minus T;
@@ -682,7 +730,7 @@ Carry out spinning:
 				add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoballsCarried of the player by B;
 				move the pogoball to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 			let C be a random number between 0 and 1;
 			if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
 				let C be POGOITEM_INVENTORY_LIMIT minus T;
@@ -690,7 +738,7 @@ Carry out spinning:
 				add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoChumsCarried of the player by C;
 				move the pogoChum to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 			let M be a random number between 0 and 1;
 			if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
 				let M be POGOITEM_INVENTORY_LIMIT minus T;
@@ -698,7 +746,15 @@ Carry out spinning:
 				add "[M] pogometh[if C is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoMethsCarried of the player by M;
 				move the pogoMeth to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
+			let EYE be a random number from 0 to 1;
+			if T plus EYE is greater than POGOITEM_INVENTORY_LIMIT:
+				let EYE be POGOITEM_INVENTORY_LIMIT minus T;
+			if EYE is greater than 0:
+				add "[EYE] incense" to the booty of the pogostop;
+				increase pogoIncenseCarried of the player by EYE;
+				move the pogoIncense to the player;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 			let E be a random number from 0 to 1;
 			if T plus E is greater than POGOITEM_INVENTORY_LIMIT:
 				let E be POGOITEM_INVENTORY_LIMIT minus T;
@@ -4724,7 +4780,7 @@ Chapter In Pogoland
 
 Section 1 - Framework
 
-A pogoroom is a kind of room.  A pogoroom has a localeDescriptor. The localeDescriptor of a pogoroom is usually structure.
+A pogoroom is a kind of room.  A pogoroom has a localeDescriptor. The localeDescriptor of a pogoroom is usually structure. 
 
 Definition: a pogoroom (called the PR) is juxtaLava if the Volcano is the room north from the PR.
 
@@ -4962,6 +5018,7 @@ The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
 The Void contains a Pogoegg-kind called PogoEgg.
+The Void contains a PogoIncense-kind called PogoIncense.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
