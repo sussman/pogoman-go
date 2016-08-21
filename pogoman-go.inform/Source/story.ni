@@ -327,23 +327,27 @@ After taking inventory:
 	
 This is the pogo-inventory rule:
 	sort Table of Inventory in wounded order;
-	sort Table of Inventory in pogoName order;
+	sort Table of Inventory in pogoName order;	
 	if there is no pogoName in row 1 of the Table of Inventory:
 		say "Alas, you have no pogomen!";
 	otherwise:
 		say "Pogomen Stock:[line break]";
-		repeat with N running from 1 to the number of rows in the Table of Inventory:
-			choose row N in the Table of Inventory;
-			if there is no pogoName entry, break;
-			let C be "[pogoName entry]";
-			let T be C in title case;
-			[
-			this needs refinement, but full list is given for development purposes. Later, would only display defending 
-			when Not In Kansas Anymore is happening. Also, would group pogomen that have the same attributes.
-			]
-			say "* [T][if wounded entry is true] (wounded)[end if][line break]";
-	say line break.
-	
+		let LASTPOGO be the pogoName in row 1 of Table of Inventory;
+		let LASTWOUNDED be the wounded in row 1 of Table of Inventory;
+		let LASTCOUNT be 1;
+		repeat with N running from 2 to the number of rows in the Table of Inventory:
+			choose row N in the Table of Inventory;		
+			if there is no pogoName entry:
+				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
+				break;
+			if LASTWOUNDED is not the wounded entry or LASTPOGO is not the pogoName entry:
+				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
+				let LASTCOUNT be 1;
+				let LASTPOGO be the pogoName entry;
+				let LASTWOUNDED be the wounded entry;
+			otherwise:
+				increase LASTCOUNT by one;
+		say line break.
 
 [
 Section Evolving
