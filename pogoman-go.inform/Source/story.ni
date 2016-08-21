@@ -109,6 +109,8 @@ A Pogochum-kind is a kind of thing.  The description is "Rancid bits of chopped 
 
 A Pogometh-kind is a kind of thing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
+A Pogoegg-kind is a kind of thing. The description is "A speckled egg." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
+
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
 The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
@@ -600,6 +602,9 @@ Rule for printing inventory details of a pogochum-kind:
 	
 Rule for printing inventory details of a pogoball-kind:
 	say " ([pogoMethsCarried of the player] total)[run paragraph on]"
+	
+Rule for printing inventory details of a pogoegg-kind:
+	say " ([pogoEggsCarried of the player] total)[run paragraph on]"
 
 
 Section 6 - Rotational text lists
@@ -670,7 +675,7 @@ Carry out spinning:
 		otherwise:
 			now the booty of the pogostop is {};
 			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
-			let B be a random number between 1 and 3;
+			let B be a random number between 0 and 4;
 			if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
 				let B be POGOITEM_INVENTORY_LIMIT minus T;
 			if B is greater than 0:
@@ -678,20 +683,29 @@ Carry out spinning:
 				increase pogoballsCarried of the player by B;
 				move the pogoball to the player;
 			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
-			let C be a random number between 1 and 3;
+			let C be a random number between 0 and 1;
 			if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
 				let C be POGOITEM_INVENTORY_LIMIT minus T;
 			if C is greater than 0:
 				add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoChumsCarried of the player by C;
 				move the pogoChum to the player;
-			let M be a random number between 1 and 3;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let M be a random number between 0 and 1;
 			if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
 				let M be POGOITEM_INVENTORY_LIMIT minus T;
 			if M is greater than 0:
 				add "[M] pogometh[if C is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoMethsCarried of the player by M;
 				move the pogoMeth to the player;
+			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+			let E be a random number from 0 to 1;
+			if T plus E is greater than POGOITEM_INVENTORY_LIMIT:
+				let E be POGOITEM_INVENTORY_LIMIT minus T;
+			if E is greater than 0:
+				add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
+				increase pogoEggsCarried of the player by E;
+				move the pogoEgg to the player;
 			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
 			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
@@ -4947,6 +4961,7 @@ The Void is a room.
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
+The Void contains a Pogoegg-kind called PogoEgg.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
