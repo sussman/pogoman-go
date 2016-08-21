@@ -85,7 +85,7 @@ The player has a number called pogoballsCarried.  pogoballsCarried is 3.
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 
-Section 3 - Pogo-Things
+Section 3 - Pogo Items
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -126,7 +126,7 @@ Instead of taking the pogostop for the first time:
 Instead of taking a pogostop:
 	say "You can[apostrophe]t."
 	
-[Gyms]
+Section 4 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
 
@@ -173,6 +173,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
 	say "TODO: General Gym Battle Simulation HERE."
 	
+Section 5 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
 Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rhat, plague vermin, and rodentikor.
@@ -180,7 +181,7 @@ Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rha
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
  When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
 
-The pogoman is a neuter animal.  The description of pogoman is "[pogoDescription corresponding to pogomanName of type of pogoman in the Table of Creatures]". The printed name of pogoman is "[type of pogoman]".
+The pogoman is a neuter animal.  The description of pogoman is "[pogoDescription corresponding to pogomanName of type of pogoman in the Table of Creatures][if the isWounded of the pogoman is true]. This [type of pogoman] is wounded[end if].". The printed name of pogoman is "[type of pogoman]".
 	  
 Pogoman has a number called evolutionLevel.  Pogoman has a pogotype called type. Pogoman has a truth state called isWounded.[true if wounded]
 
@@ -189,12 +190,12 @@ Instead of taking pogoman:
 		
 Table of Creatures
 pogomanName	pogoDescription
-edator	"A creature of note."
-vicore	"Simple and clean, covered with lines."
-emaks	"A buffed and buffered creature."
-plague rhat	"A mysterious rodent of a vermininous nature."
-plague vermin	"A rodent with extra poison."
-rodentikor	"Too much rodent for mortals to handle."
+edator	"A creature of note"
+vicore	"Simple and clean, covered with lines"
+emaks	"A buffed and buffered creature"
+plague rhat	"A mysterious rodent of a vermininous nature"
+plague vermin	"A rodent with extra poison"
+rodentikor	"Too much rodent for mortals to handle"
 
 Table of Evolution
 Original	Ev2	Ev3
@@ -202,7 +203,7 @@ edator	vicore	emaks
 plague rhat	plague vermin	rodentikor
 	
 Table of Inventory
-PogoName(a pogotype)	wounded (a truth state)	Defending (a room)
+pogoName(a pogotype)	wounded (a truth state)	defending (a room)
 with 100 blank rows.
 
 Understand "edator" as pogoman when the type of pogoman is edator.
@@ -216,31 +217,70 @@ Understand "rodentikor" as pogoman when the type of pogoman is rodentikor.
 
 JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
 
+section 6 - Capture Pogomen
+
 Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
 
 Check capturing:
 	if the noun is a person:
 		if the noun is an animal:
-			say "okay.";
+			if the player carries the pogoball:
+				continue the action;
+			otherwise:
+				say "You don[apostrophe]t have any pogoballs[one of]! You capture pogomen by throwing pogoballs at them, so go get some pogoballs first[or][stopping]!";
 		otherwise:
-			say "that's illegal.";
+			say "That[apostrophe]s illegal, well, at least here it is.";	
+			the rule fails;	
 	otherwise:
 		try taking the noun.
-			
-[for purposes of demonstration, simplified for now to just move the pogoman to inventory, but will need expansion to allow captures where the throw misses or the pogoman escapes the pogoball]
 
 Carry out capturing:
-	move the pogoman to the void;
-	choose a blank row in the table of inventory;
-	now pogoName entry is the type of the pogoman;
-	now wounded entry is the isWounded of the pogoman;
-	now defending entry is the location of the player.
+	try throwing the pogoball at the pogoman.
 	
-Report capturing:
-	say "The hapless [type of the pogoman] is sucked into a pogoball!"
+Instead of throwing a pogoball at something (called the target):
+	if the target is the pogoman:
+		[for purposes of demonstration, simplified for now to just move the pogoman to inventory, but will need expansion to allow captures where the throw misses or the pogoman escapes the pogoball]
+		decrease pogoballsCarried of the player by one;
+		move the pogoman to the void;
+		choose a blank row in the table of inventory;
+		now pogoName entry is the type of the pogoman;
+		now wounded entry is the isWounded of the pogoman;
+		now defending entry is the location of the player;
+		say "The hapless [type of pogoman] is sucked into the ball!";
+	otherwise:
+		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.";
+		decrease pogoballsCarried of the player by one.
+		
+section 7 - PogoInventory
 	
+After taking inventory:
+	follow the pogo-inventory rule.
 	
+This is the pogo-inventory rule:
+	sort Table of Inventory in defending order;
+	sort Table of Inventory in wounded order;
+	sort Table of Inventory in pogoName order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "Alas, you have no pogomen!";
+	otherwise:
+		say "Pogomen Stock:[line break]";
+		repeat with N running from 1 to the number of rows in the Table of Inventory:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry, break;
+			let C be "[pogoName entry]";
+			let T be C in title case;
+			[
+			this needs refinement, but full list is given for development purposes. Later, would only display defending 
+			when Not In Kansas Anymore is happening. Also, would group pogomen that have the same attributes.
+			]
+			say "* [T][if wounded entry is true] (wounded)[end if], Defending ";
+			say header of defending entry;
+			say line break;
+	say line break.
 
+section 8 - Spawning
+
+[see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
 
 Chapter Declare Constants
@@ -842,7 +882,9 @@ Carry out muting:
 	
 After examining the player for the first time, bestow "Introspection".
 
-After taking inventory for the first time, bestow "Taking Stock".
+After taking inventory for the first time:
+	follow the pogo-inventory rule;
+	bestow "Taking Stock".
 
 After examining a pogoball for the first time, bestow "Attention To Detail".
 
@@ -1012,8 +1054,28 @@ Report scanning:
 			move the phantom to the room south from the location of the phantom;		
 	say roman type;
 	move the phantom to the void.
+	
+Section 9 - Spawn Pogomen
+
+Spawning is an action applying to nothing. Understand "spawn" as spawning.
+	
+Check spawning:
+	if the pogoman is in the location of the player:
+		say "There is already a pogoman here. Only one per location.";
+		stop the action.
+		
+Carry out spawning:
+	move the pogoman to the location of the player;
+	now the type of pogoman is a random pogotype;
+	if a random chance of 1 in 2 succeeds:
+		now the isWounded of the pogoman is true;
+	otherwise:
+		now the isWounded of the pogoman is false.
+		
+Report spawning:
+	say "A freshly-minted [type of pogoman] appears!"
 			
-Section 9 - Test Objects
+Section 10 - Test Objects
 
 The testPogoMeth is an edible prop. The testPogoMeth is in the void. The description of the testPogoMeth is "A pogometh stand-in TODO: remove me from the game prior to release." The testPogoMeth can be trippy. The testPogoMeth is not trippy.
 
