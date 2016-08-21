@@ -590,12 +590,17 @@ This is the list exits rule:
 	if the possible exits of the location is not "":
 		say "[the possible exits of the location][paragraph break]".
 		
-
-Section 5 - Customized Inventory
+Section 5 - Customized Inventory Details
 
 Rule for printing inventory details of a pogoball-kind:
 	say " ([pogoballsCarried of the player] total)[run paragraph on]"
 	
+Rule for printing inventory details of a pogochum-kind:
+	say " ([pogoChumsCarried of the player] total)[run paragraph on]"
+	
+Rule for printing inventory details of a pogoball-kind:
+	say " ([pogoMethsCarried of the player] total)[run paragraph on]"
+
 
 Section 6 - Rotational text lists
 
@@ -671,6 +676,7 @@ Carry out spinning:
 			if B is greater than 0:
 				add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoballsCarried of the player by B;
+				move the pogoball to the player;
 			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
 			let C be a random number between 1 and 3;
 			if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
@@ -678,12 +684,14 @@ Carry out spinning:
 			if C is greater than 0:
 				add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoChumsCarried of the player by C;
+				move the pogoChum to the player;
 			let M be a random number between 1 and 3;
 			if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
 				let M be POGOITEM_INVENTORY_LIMIT minus T;
 			if M is greater than 0:
 				add "[M] pogometh[if C is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoMethsCarried of the player by M;
+				move the pogoMeth to the player;
 			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
 			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
