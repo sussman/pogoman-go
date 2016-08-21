@@ -283,6 +283,18 @@ section 8 - Spawning
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
 
+section 9 - Commands operating on pogomen in inventory
+[these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
+
+InventoryDropping is an action applying to one pogotype.
+
+Understand "drop [pogotype]" as inventoryDropping.
+
+carry out inventorydropping:
+	say "You drop a [pogotype understood]."
+
+
+
 Chapter Declare Constants
 
 INITIAL_POGOLEVEL is always 3.
