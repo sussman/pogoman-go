@@ -172,52 +172,74 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
 	say "TODO: General Gym Battle Simulation HERE."
+	
 
+[This can go up with kinds later, but for now, here for clarify]
+Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rhat, plague vermin, and rodentikor.
 
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
- When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition.]
+ When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
 
-Pogoman is a neuter animal.  Pogoman has some text called currentName.  The printed name of pogoman is "[currentName of pogoman]".  The description of pogoman is "[pogoDescription corresponding to pogomanName of currentName of pogoman in the Table of Creatures]".
+The pogoman is a neuter animal.  The description of pogoman is "[pogoDescription corresponding to pogomanName of type of pogoman in the Table of Creatures]". The printed name of pogoman is "[type of pogoman]".
 	  
-Pogoman has a number called evolutionLevel.  The evolutionLevel is usually 1.  Pogoman can be wounded.  Pogoman is not wounded.
+Pogoman has a number called evolutionLevel.  Pogoman has a pogotype called type. Pogoman has a truth state called isWounded.[true if wounded]
 
 Instead of taking pogoman:
 	say "You'll have to throw a Pogoball at it to capture it!".
-	
-
 		
 Table of Creatures
 pogomanName	pogoDescription
-"Edator"	"A creature of note."
-"Vicore"	"Simple and clean, covered with lines."
-"Emaks"	"A buffed and buffered creature."
-"Plague Rhat"	"A mysterious rodent of a vermininous nature."
-"Plague Vermin"	"A rodent with extra poison."
-"Rodentikor"	"Too much rodent for mortals to handle."
+edator	"A creature of note."
+vicore	"Simple and clean, covered with lines."
+emaks	"A buffed and buffered creature."
+plague rhat	"A mysterious rodent of a vermininous nature."
+plague vermin	"A rodent with extra poison."
+rodentikor	"Too much rodent for mortals to handle."
 
 Table of Evolution
 Original	Ev2	Ev3
-"Edator"	"Vicore"	"Emaks"
-"Plague Rhat"	"Plague Vermin"	"Rodentikor"
+edator	vicore	emaks
+plague rhat	plague vermin	rodentikor
 	
-[Table of Inventory
-Type	Wounded		Defending]
+Table of Inventory
+PogoName(a pogotype)	wounded (a truth state)	Defending (a room)
+with 100 blank rows.
 
+Understand "edator" as pogoman when the type of pogoman is edator.
+Understand "vicore" as pogoman when the type of pogoman is vicore.
+Understand "emaks" as pogoman when the type of pogoman is emaks.
+Understand "plague rhat" as pogoman when the type of pogoman is plague rhat.
+Understand "plague vermin" as pogoman when the type of pogoman is plague vermin.
+Understand "rodentikor" as pogoman when the type of pogoman is rodentikor.
 
-		
-Understand "edator" as pogoman. [... when the currentName of pogoman is "edator"... why doesn't this work??]
-Understand "vicore" as pogoman.
-Understand "emaks" as pogoman.
-Understand "plague rhat" as pogoman.
-Understand "plague vermin" as pogoman.
-Understand "rodentikor" as pogoman.
+[BEN: Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat, 
 
-[Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat,  ]
+JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
+
+Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
+
+Check capturing:
+	if the noun is a person:
+		if the noun is an animal:
+			say "okay.";
+		otherwise:
+			say "that's illegal.";
+	otherwise:
+		try taking the noun.
+			
+[for purposes of demonstration, simplified for now to just move the pogoman to inventory, but will need expansion to allow captures where the throw misses or the pogoman escapes the pogoball]
+
+Carry out capturing:
+	move the pogoman to the void;
+	choose a blank row in the table of inventory;
+	now pogoName entry is the type of the pogoman;
+	now wounded entry is the isWounded of the pogoman;
+	now defending entry is the location of the player.
+	
+Report capturing:
+	say "The hapless [type of the pogoman] is sucked into a pogoball!"
 	
 	
-Before doing anything to pogoman:
-	if the topic understood is not the currentName of pogoman:
-		say "You don't see one here." [this always prints -- not what we want.]
 
 
 
@@ -366,7 +388,7 @@ After reading a command:
 							if the player's command includes "taste":
 								replace the matched text with "smell".
 				
-			To say disgusted with indecision:
+To say disgusted with indecision:
 	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled unbleached titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
 	bestow "Welcome To Team Unbleached Titanium";
 	now the teamColorPrompt of the player is zero;
@@ -1058,7 +1080,7 @@ When play begins:
 To openGame:
 	let startRoom be a random okayStartLocation;
 	move the player to startRoom, without printing a room description;
-	now the currentName of pogoman is "Edator"; 
+	now  the type of pogoman is edator;
 	move pogoman to startRoom;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
@@ -1370,8 +1392,6 @@ Instead of searching the sky:
 [The City Park]
 
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  City Park is an improper-named place. The title of City Park is "City Park". The printed name of City Park is "municipal park". Understand "municipal" as the City Park.
-
-City Park contains an Edator.
 
 The trees are scenery in City Park. The description of the trees is "A variety of trees are scattered throughout the park to provide shade for picnickers.". Understand "tree" as trees.
 
