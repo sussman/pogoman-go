@@ -181,11 +181,23 @@ Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rha
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
  When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
 
-The pogoman is a neuter animal.  The description of pogoman is "[pogoDescription corresponding to pogomanName of type of pogoman in the Table of Creatures][if the isWounded of the pogoman is true]. This [type of pogoman] is wounded[end if].". The printed name of pogoman is "[type of pogoman]".
-	  
-Pogoman has a number called evolutionLevel.  Pogoman has a pogotype called type. Pogoman has a truth state called isWounded.[true if wounded]
+A pogoentity is a kind of neuter animal.  
 
-Instead of taking pogoman:
+[do not need to record evolution level - it is implicit from the table of evolution. Pogomen are wild until captured, after that, they take on the team color (important in pogoland, where they defend a position)]
+	  
+Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild.
+
+The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDescription corresponding to pogomanName of type of defenderPogoman in the Table of Creatures][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s".
+
+To say defendingPogomanName:
+	let T be the team color of the player;
+	say "[T]" in lower case;
+	say " ";
+	say the type of defenderPogoman.
+
+The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "wild [type of attackerPogoman]". The printed plural name of attackerPogoman is "[type of attackerPogoman]s".
+
+Instead of taking a pogoentity:
 	say "You'll have to throw a Pogoball at it to capture it!".
 		
 Table of Creatures
@@ -203,15 +215,31 @@ edator	vicore	emaks
 plague rhat	plague vermin	rodentikor
 	
 Table of Inventory
-pogoName(a pogotype)	wounded (a truth state)	defending (a room)
+pogoName (a pogotype)	wounded (a truth state)
 with 100 blank rows.
 
-Understand "edator" as pogoman when the type of pogoman is edator.
-Understand "vicore" as pogoman when the type of pogoman is vicore.
-Understand "emaks" as pogoman when the type of pogoman is emaks.
-Understand "plague rhat" as pogoman when the type of pogoman is plague rhat.
-Understand "plague vermin" as pogoman when the type of pogoman is plague vermin.
-Understand "rodentikor" as pogoman when the type of pogoman is rodentikor.
+Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
+Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
+Understand "vicore" as attackerPogoman when the type of attackerPogoman is vicore.
+Understand "vicore" as the defenderPogoman when the type of defenderPogoman is vicore.
+Understand "emaks" as attackerPogoman when the type of attackerPogoman is emaks.
+Understand "emaks" as the defenderPogoman when the type of defenderPogoman is emaks.
+Understand "plague rhat" as attackerPogoman when the type of attackerPogoman is plague rhat.
+Understand "plague rhat" as the defenderPogoman when the type of defenderPogoman is plague rhat.
+Understand "plague vermin" as attackerPogoman when the type of attackerPogoman is plague vermin.
+Understand "plague vermin" as the defenderPogoman when the type of defenderPogoman is plague vermin.
+Understand "rodentikor" as attackerPogoman when the type of attackerPogoman is rodentikor.
+Understand "rodentikor" as the defenderPogoman when the type of defenderPogoman is rodentikor.
+
+Understand "loyal" or "defending" or "defender" as the defenderPogoman.
+Understand "wild" or "attacking" or "attacker" as the attackerPogoman.
+Understand "Teal" as the defenderPogoman when the team color of the player is Teal.
+Understand "Chartreuse" as the defenderPogoman when the team color of the player is Chartreuse.
+Understand "Alizarin Crimson" or "Alizarin" or "Crimson" as the defenderPogoman when the team color of the player is Alizarin Crimson.
+Understand "Viridian" as the defenderPogoman when the team color of the player is Viridian.
+Understand "Papayawhip" or "papaya" as the defenderPogoman when the team color of the player is Papayawhip.
+Understand "Unbleached Titanium" or "Titanium" or "Unbleached" as the defenderPogoman when the team color of the player is Unbleached Titanium.
+
 
 [BEN: Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat, 
 
@@ -235,21 +263,24 @@ Check capturing:
 		try taking the noun.
 
 Carry out capturing:
-	try throwing the pogoball at the pogoman.
+	try throwing the pogoball at the noun.
 	
 Instead of throwing a pogoball at something (called the target):
-	if the target is the pogoman:
+	if the target is a pogoentity:
 		[for purposes of demonstration, simplified for now to just move the pogoman to inventory, but will need expansion to allow captures where the throw misses or the pogoman escapes the pogoball]
-		decrease pogoballsCarried of the player by one;
-		move the pogoman to the void;
+		move the target to the void;
 		choose a blank row in the table of inventory;
-		now pogoName entry is the type of the pogoman;
-		now wounded entry is the isWounded of the pogoman;
-		now defending entry is the location of the player;
-		say "The hapless [type of pogoman] is sucked into the ball!";
+		now pogoName entry is the type of the target;
+		if the target is injured:
+			now the wounded entry is true;
+		otherwise:
+			now the wounded entry is false;
+		say "The hapless [type of target] is sucked into the ball!";
 	otherwise:
 		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.";
-		decrease pogoballsCarried of the player by one.
+	decrease pogoballsCarried of the player by one;
+	if the pogoballsCarried of the player is 0:
+		move the pogoball to the void.
 		
 section 7 - PogoInventory
 	
@@ -257,7 +288,6 @@ After taking inventory:
 	follow the pogo-inventory rule.
 	
 This is the pogo-inventory rule:
-	sort Table of Inventory in defending order;
 	sort Table of Inventory in wounded order;
 	sort Table of Inventory in pogoName order;
 	if there is no pogoName in row 1 of the Table of Inventory:
@@ -273,10 +303,55 @@ This is the pogo-inventory rule:
 			this needs refinement, but full list is given for development purposes. Later, would only display defending 
 			when Not In Kansas Anymore is happening. Also, would group pogomen that have the same attributes.
 			]
-			say "* [T][if wounded entry is true] (wounded)[end if], Defending ";
-			say header of defending entry;
-			say line break;
+			say "* [T][if wounded entry is true] (wounded)[end if][line break]";
 	say line break.
+	
+
+[
+Section Evolving
+
+Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
+
+Check evolving:
+	if the noun is not a pogoman:
+		say "Only Pogomen can evolve![paragraph break]";
+		stop the action;
+	if the player does not carry the noun:
+		say "You have to capture it first![paragraph break]";
+		stop the action.
+
+Carry out evolving:
+	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
+	now the player carries the new-pogoman;
+	move the noun to the Void;
+	awardXP EVOLUTION_XP_VALUE;
+	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]". 
+	
+Section Transferring
+
+Transferring is an action applying to a thing. Understand "transfer [thing]" or "transfer [thing] to/-- professor" as transferring.
+
+Check transferring:
+	if the noun is not a pogoman:
+		say "Only Pogomen can be transferred[paragraph break]";
+		stop the action;
+	if the player does not carry the noun:
+		say "You have to capture it first![paragraph break]";
+		stop the action.
+		
+Carry out transferring:
+	awardXP 10;
+	[TODO remove the noun from play]
+	say "[One of]You ship your [noun] off to the glue factory[or]The [noun] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [noun], I’ll miss you briefly[or]See ya[or]One less [noun] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [the noun] went, but decide not to worry about it[or]Shipped[or]The [noun] disappears in a wisp of smoke[or]The [noun] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! You gain 10 XP!"
+	
+
+After evolving a pogoman for the first time, bestow "Turned something into something else!".
+After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again". 
+After powerUpping a pogoentity for the first time, bestow "Made something even bigger".
+After transferring a pogoentity for the first time, bestow "Practicality in managing resources".
+
+]
+
 
 section 8 - Spawning
 
@@ -291,7 +366,14 @@ InventoryDropping is an action applying to one pogotype.
 Understand "drop [pogotype]" as inventoryDropping.
 
 carry out inventorydropping:
-	say "You drop a [pogotype understood]."
+	sort Table of Inventory in wounded order;
+	sort Table of Inventory in pogoName order;
+	repeat with N running from 1 to the number of rows in the Table of Inventory:
+		choose row N in the Table of Inventory;
+		if there is no pogoName entry, break;
+		if the pogoName entry is the pogotype understood:	
+			blank out the whole row;
+			say "You drop a [pogotype understood]."
 
 
 
@@ -579,57 +661,8 @@ Carry out spinning:
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
 
-Section Evolving
 
-[Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
 
-Check evolving:
-	if the noun is not a pogoman:
-		say "Only Pogomen can evolve![paragraph break]";
-		stop the action;
-	if the player does not carry the noun:
-		say "You have to capture it first![paragraph break]";
-		stop the action.
-
-Carry out evolving:
-	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
-	now the player carries the new-pogoman;
-	move the noun to the Void;
-	awardXP EVOLUTION_XP_VALUE;
-	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]". ]
-	
-Section PoweringUpping
-
-PowerUpping is an action applying to a thing. Understand "power up [thing]" as powerUpping.
-
-Check powerUpping:
-	if the noun is not a pogoman:
-		say "Only Pogomen can evolve![paragraph break]";
-		stop the action;
-	if the player does not carry the noun:
-		say "You have to capture it first![paragraph break]";
-		stop the action.
-		
-Carry out powerUpping:
-	awardXP 10;
-	say "Your [noun] is now even more impressive! You gain 10 XP![paragraph break]".
-	
-Section Transferring
-
-Transferring is an action applying to a thing. Understand "transfer [thing]" or "transfer [thing] to/-- professor" as transferring.
-
-Check transferring:
-	if the noun is not a pogoman:
-		say "Only Pogomen can be transferred[paragraph break]";
-		stop the action;
-	if the player does not carry the noun:
-		say "You have to capture it first![paragraph break]";
-		stop the action.
-		
-Carry out transferring:
-	awardXP 10;
-	[TODO remove the noun from play]
-	say "[One of]You ship your [noun] off to the glue factory[or]The [noun] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [noun], I’ll miss you briefly[or]See ya[or]One less [noun] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [the noun] went, but decide not to worry about it[or]Shipped[or]The [noun] disappears in a wisp of smoke[or]The [noun] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! You gain 10 XP!"
 
 Section Help
 
@@ -906,13 +939,6 @@ After examining the Teslatronic Energy Module for the first time, bestow "Awfull
 
 After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn’t like the truth".
 
-[After evolving a pogoman for the first time, bestow "Turned something into something else!".
-
-After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again". ]
-
-After powerUpping a pogoman for the first time, bestow "Made something even bigger".
-
-After transferring a pogoman for the first time, bestow "Practicality in managing resources".
 
 After waiting for the first time, bestow "Loitering Around".
 
@@ -970,7 +996,7 @@ Section 4 - Getting A Pogoman
 GettingPogoman is an action applying to a thing.  Understand "getPogoman [thing]" as gettingPogoman.
 
 Carry out gettingPogoman:
-	if the noun is a pogoman:
+	if the noun is a pogoentity:
 		now the player carries the noun;
 		say "You forcibly grab [the noun].[paragraph break]";
 	otherwise:
@@ -1072,20 +1098,20 @@ Section 9 - Spawn Pogomen
 Spawning is an action applying to nothing. Understand "spawn" as spawning.
 	
 Check spawning:
-	if the pogoman is in the location of the player:
-		say "There is already a pogoman here. Only one per location.";
+	if the the attackerPogoman is in the location of the player:
+		say "There is already a wild pogoman here. Only one per location.";
 		stop the action.
 		
 Carry out spawning:
-	move the pogoman to the location of the player;
-	now the type of pogoman is a random pogotype;
+	move attackerPogoman to the location of the player;
+	now the type of attackerPogoman is a random pogotype;
 	if a random chance of 1 in 2 succeeds:
-		now the isWounded of the pogoman is true;
+		now the attackerPogoman is injured;
 	otherwise:
-		now the isWounded of the pogoman is false.
+		now the attackerPogoman is not injured.
 		
 Report spawning:
-	say "A freshly-minted [type of pogoman] appears!"
+	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][type of attackerPogoman] appears!"
 			
 Section 10 - Test Objects
 
@@ -1154,8 +1180,8 @@ When play begins:
 To openGame:
 	let startRoom be a random okayStartLocation;
 	move the player to startRoom, without printing a room description;
-	now  the type of pogoman is edator;
-	move pogoman to startRoom;
+	now  the type of attackerPogoman is edator;
+	move the attackerPogoman to startRoom;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
 	if T is less than 12:
