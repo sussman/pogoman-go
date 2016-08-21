@@ -5023,6 +5023,129 @@ Instead of going a poor idea direction (called the way):
 To frontierDeath:
 	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly, your disembodied essence floating numinously past a few objects that are not currently in play: [one of]a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or]Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or]Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or]A frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
 	move the player to the Hospital.
+	
+section 6 - The Boat
+
+
+
+The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]."
+
+The engine is scenery in the fishing boat. The description of the engine is "[one of]Given the size of the boat, you won[apostrophe]t be setting any speed records, but the motor looks to be in reasonable repair. [or][stopping]On top of the engine, there is a gas cap. To the side, there is a valve marked choke. On the front, there is a speed control, which is in the [quotation mark]fast[quotation mark] position. [one of] In fact, it looks like it has been pushed a bit beyond the marking, and the handle is bent a bit in that direction.[paragraph break]It speaks of desperation.[paragraph break]Or poor manufacturing processes; hard to say. [paragraph break][or][stopping]Between the gas cap and the speed control a plastic handle that dangles by a bit of cord. The motor [motorPosition]."  The engine can be uptilted or downtilted. The engine is uptilted. Understand "motor" or "outboard" as the engine. 
+
+The rickety ladder is a backdrop. The rickety ladder is in the Wharf and the fishing boat. The description of the rickety ladder is "Splinters held together with rust."
+
+Instead of climbing the ladder:
+	if the player is in the fishing boat:
+		try going up;
+	otherwise:
+		try going down.
+
+The propellar is part of the motor. The description of the propellar is "These razor-sharp rotating blades propel the boat through the water."
+
+Instead of doing something other than examining with the propellar:
+	say "You[apostrophe]re more intent on keeping all your fingers than monkeying around with the rotating blades of the propellar."
+
+To say motorPosition:
+	say "is currently tilted [if the motor is uptilted]up, out of the[otherwise]down, in the[end if] water"
+
+After going down from the Wharf:
+	say "You carefully descend the splintery ladder and jump into a beat-up fiberglass fishing boat."
+	
+After going up from the fishing boat:
+	say "You scale the shaky ladder on the wharf. [one of]A rung breaks off[or]A few nails pop out[or]One side of the ladder gives way[or]A few more nails pop out[or]The [quotation mark]good[quotation mark] side of the ladder seems to be developing a lengthwise crack[or]Bits of dust fly from the ladder[or]Termites flee from the crumbling ladder[or]the ladder shudders ominously[stopping]."
+	
+The gas cap is part of the engine. The description of the gas cap is "A screw-on plastic cap. The cap is [if the gas cap is screwed tight]screwed on tight[otherwise]unscrewed, but retained by an internal chain[end if]." The gas cap can be screwed tight. The gas cap is screwed tight. Understand "chain" as the gas cap when the gas cap is not screwed tight.
+
+To say tankDescription:
+	say "[if the gas tank is empty]Bone dry[otherwise]Full of gas[end if]".
+
+The gas tank is a closed openable container. The gas tank is part of the engine. The gas tank can be full or empty. The gas tank is empty. The description of the gas tank is "[tankDescription]."
+
+The choke valve is part of the engine. The description of the choke valve is "A knob that rotates either on (choke) or off. Current the choked is [if the choke is not engaged]not[end if] engaged."  The choke valve can be engaged. The choke valve is not engaged. 
+
+Instead of switching on the choke valve:
+	if the choke valve is not engaged:
+		say "You flip the choke valve up, engaging the choke.";
+		now the choke valve is engaged;
+	otherwise:
+		say "The choke valve is already in the engaged position."
+		
+Instead of switching off the choke valve:
+	if the choke valve is engaged:
+		say "You cut out the choke.";
+		now the choke valve is not engaged;
+	otherwise:
+		say "The choke valve is already off."
+
+The speed control lever is a part of the engine. The description of the speed control lever is "A lever that selects the engine speed by sliding back and forth between [quotation mark]slow[quotation mark] at the left to [quotation mark]fast[quotation mark] at the right. The lever is currently pushed ot the right and then some." Understand "throttle" as the speed control lever.
+
+The handle is part of the engine. The description of the handle is "It looks like the starter cord on your dad[apostrophe]s lawn mower: a knurled plastic handle to which a heavy cord is attached." Understand "cord" or "starter" or "magneto" as the handle.
+
+Instead of pulling the handle:
+	if the motor is uptilted:
+		say "[one of]This is a boat, not a helicopter. [or][stopping]You realize you won[apostrophe]t get anywhere with the motor tilted forward and the propellar out of the water.";
+	otherwise:
+		if the engine is empty:
+			say "[one of]The cord makes a cord-pulling sound and retracts back into the engine. Clearly, this situation is going to require the utmost knowledge of the principle of operation of an internal combustion engine[or]Nothing happens[or]The cord makes a cord-pulling sound, but nothing happens, which is distinctly different from the sound of an engine starting[stopping].";
+		otherwise:
+			say "You pull the handle and TODO happens."
+			
+Instead of pushing the engine:
+	if the engine is uptilted:
+		say "The motor teeters back and splashed into the water.";
+		now the engine is downtilted;
+	otherwise:
+		say "The motor is already in the down position and ready to run."
+		
+Instead of pulling the engine:
+	if the engine is downtilted:
+		say "With some effort, you raise the engine out of the water.";
+	otherwise:
+		say "The engine is already high and dry."
+		
+Instead of pushing or pulling the speed lever control:
+	say "You try pushing and pulling the lever in both directions[one of ] and even spend some time waggling it back and forth, trying to get it to loosen up[or][stopping], but it seems frozen in the [quotation mark]fast[quotation mark] position."
+		
+Instead of opening the gas cap:
+	if the gas cap is screwed tight:
+		say "After a few turns, the cap is open. The cap is retained by a small chain so it can[apostrophe]t accidentally fall into the water. You can now see into the gas tank.";
+		now the gas cap is not screwed tight;
+		now the gas tank is open;
+	otherwise:
+		say "The gas cap is already unscrewed."
+		
+Instead of opening the gas tank:
+	try opening the gas cap.
+	
+Instead of closing the gas tank:
+	try closing the gas cap.
+		
+Instead of closing the gas cap:
+	if the gas cap is not screwed tight:
+		say "You screw down the gas cap and it makes a tight seal with the engine.";
+		now the gas cap is screwed tight;
+		now the gas tank is closed;
+	otherwise:
+		say "The gas cap is already securely tightened."
+		
+Instead of searching the gas tank:
+	if the gas tank is open:
+		say "[tankDescription].";
+	otherwise:
+		try opening the tank;
+		say "(first opening the tank)[command clarification break]";
+		now the gas cap is not screwed tight;
+		now the gas tank is open;
+		say "[tankDescription]."
+		
+
+
+
+
+	
+
+	
+
 
 Chapter The Void
 
