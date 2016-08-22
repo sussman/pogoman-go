@@ -5219,6 +5219,12 @@ The gas tank is a closed openable container. The gas tank is part of the engine.
 
 The choke valve is part of the engine. The description of the choke valve is "A knob that rotates either on (choke) or off. Current the choked is [if the choke is not engaged]not[end if] engaged."  The choke valve can be engaged. The choke valve is not engaged. 
 
+Instead of opening the choke:
+	try switching on the choke.
+	
+Instead of closing the choke:
+	try switching off the choke.
+	
 Instead of switching on the choke valve:
 	if the choke valve is not engaged:
 		say "You flip the choke valve up, engaging the choke.";
@@ -5250,7 +5256,13 @@ Instead of pulling the handle:
 			if the gas cap is not screwed tight:
 				say "[one of]Fuel sloshes back and forth, some spills out. A rainbow pattern forms on the water. Maybe you better put the cap on the fuel tank?[or]More fuel splashes out -- it’s going everywhere. This is sort of dangerous.[or]Most of the fuel has splashed out of the tank. If you don’t put the cap on, you won’t have enough to go anywhere. Also, you are kind of polluting the water around the boat -- not cool. A few fish float to the surface, which is covered in spilled fuel.[or][thirdCapWarning][or]No. You have learned your lesson about leaving the gas cap off.[stopping]";
 			otherwise:
-				say "TODO."
+				if the choke is not engaged:
+					say "[one of]The engine sputter[or]The engine sputters; it sounds like it is starved for fuel[or]Despite the throttle being all the way to the right in the fast position, something the engine is not getting enough fuel to start[stopping].";
+				otherwise:
+					say "The engine kicks to life and, the speed control being set to full, you soon find yourself skimming across the wave tops with pieces of the wharf in tow behind you. You wind back the choke and settle in for a journey. You don’t care where you are going, as long as it is away from Pogoland.[paragraph break]";
+					wait for any key;
+					lemurEnding.
+				
 				
 To say thirdCapWarning:	
 	say "Standing in a fuel-soaked boat, covered from head to toe in in gasoline, surrounded by a shimmering slick of fuel that has already reached the shore and is drifting down the coast, a random spark lights it all up.[paragraph break]BOOM! The boat briefly flirts with the idea of being an airplane and sails over the wharf on its way into town.[paragraph break]";
@@ -5593,7 +5605,7 @@ To say openingText:
 Book 6 - Endings
 
 To lemurEnding:
-	say "Years have passed since your arrived on the small island. From maps in the boat, you know you are somewhere in the Indian Ocean, but you don[apostrophe]t really care precisely where. Since your arrival, you have lived peacefully with the lemurian inhabitants of the island and even learned to communicate with them. Having no cell phone reception and plenty of time on your hands, you and a group of the more technically-minded prosimians have reverse-engineered the phone, which now provides the community with electrical lighting and heat for cooking. You have even programmed the phone to play Snake and Tetris, which the lemurs have found amusing enough to make you their ruler.[paragraph break]And yet, when the Nyantech Blimps appear on the horizon, their red beams searching, you wonder what has become of the rest of the world.[paragraph break]";
+	say "EPILOGUE[paragraph break]Years have passed since your arrived on the small island. From maps in the boat, you know you are somewhere in the Indian Ocean, but you don[apostrophe]t really care precisely where. Since your arrival, you have lived peacefully with the lemurian inhabitants of the island and even learned to communicate with them. Having no cell phone reception and plenty of time on your hands, you and a group of the more technically-minded prosimians have reverse-engineered the phone, which now provides the community with electrical lighting and heat for cooking. You have even programmed the phone to play Snake and Tetris, which the lemurs have found amusing enough to make you their ruler.[paragraph break]And yet, when the Nyantech Blimps appear on the horizon, their red beams searching, you wonder what has become of the rest of the world.[paragraph break]";
 	end the story saying "ESCAPED TO LEMUR ISLAND!".
 	
 to muskEnding:
