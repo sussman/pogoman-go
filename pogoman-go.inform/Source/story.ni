@@ -4889,87 +4889,7 @@ Service Station is west of Dojo.
 Dojo is west of Botanical Garden.
 Botanical Garden is west of Motel.
 
-Section 2 - Location-specific elements in Pogoland
-
-The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds."
-
-The description of Palace is "This is the McMansion of Palaces - clearly, they started with a typical walled keep and kept adding towers and crenulations. The overall effect is a bit gaudy."
-
-The description of Baseball Diamond is "A regulation baseball diamond, with field markings."
-
-The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak."
-
-The description of Valley is "A lush valley with rolling, flower-covered hills."
-
-The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here."
-
-The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction."
-
-The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well. "
-
-The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat."
-
-The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."
-
-The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay."
-
-The description of Beach is "Waves roll in gently, breaking upon the pristine white sands."
-
-The description of Stadium is "The large, concrete arena must accommodate crowds of at least 50,000. A large scoreboard and banks of lights are visible above the seating area."
-
-The description of Service Station is "A one-pump gas station."
-
-The description of School House is "A simple, one-room brick school house with a small steeple and bell."
-
-The description of Monastery is "A walled fortress surrounding a church and its fields."
-
-The description of Hospital is "A sprawling and state-of-the-art, but strangely windowless, medical facility."
-
-The description of Motel is "A classic two-level drive-in motel with no-vacancy sign out front. It looks a bit dumpy."
-
-The description of Garden is "Trimmed hedges line the paths of this flower garden."
-
-The description of Blacksmith is "Black smoke pours from the chimney and hot coals are visible in the forge."
-
-The description of Farm is "A red farmhouse and tall grain silo stand in front of furrowed fields of wheat."
-
-The description of Aquarium is "The shell-shaped building is surrounded by fountains that shoot water in arcs back and forth above the sidewalk."
-
-The description of Post Office is "A modern building with advertisements in the window about how the post office is still somewhat relevant."
-
-The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland."
-
-The description of Pogoland Terminal is "A concrete platform next to some maglev rails."
-
-Section 3 - Dealing with Pogorooms
-
-Instead of taking a pogoroom (called the QTH):
-	say "[The QTH] [are] not something you can take."
-	
-Instead of entering a pogoroom (called the QTH) when the player is in Pogoland:
-	if the localeDescriptor of the QTH is:
-		-- structure:
-			say "Everything is locked up[one of]. Looks like the entire town has evacuated[or][stopping]!";
-		-- place:
-			say "You[apostrophe]re already at the [location].";
-		-- artifact:
-			say "You can[apostrophe]t, but you are standing right next to it."
-			
-Before doing something with a quadroom (called the QTH) when the player is in the village:
-	if the current action is examining:
-		continue the action;
-	if the player is not in the QTH:
-		say "You would have to go over there." instead;
-	otherwise:
-		continue the action.
-
-Section 4 - Enforced Orthotopia
-
-Before going a blasphemous direction when the location is Pogoland:
-	say "[one of]The town seems to be laid out with avenues and streets running north-south and east-west. Going diagonally isn[apostrophe]t an option[or]You can[apostrophe]t go that way[stopping].";
-	stop the action.
-	
-Section 5 - Frontiers
+Section 2 - Frontiers
 
 Definition: a direction (called the way) is a poor idea if the room the way from the location is in the Frontier.
 
@@ -5023,10 +4943,203 @@ Instead of going a poor idea direction (called the way):
 To frontierDeath:
 	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly, your disembodied essence floating numinously past a few objects that are not currently in play: [one of]a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or]Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or]Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or]A frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
 	move the player to the Hospital.
+
+
+
+
+
+Section 3 - Lighthouse
+
+The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds."
+
+Section 4 - Palace
+
+The description of Palace is "This is the McMansion of Palaces - clearly, they started with a typical walled keep and kept adding towers and crenulations. The overall effect is a bit gaudy."
+
+Section 5 - Baseball Diamond
+
+The description of Baseball Diamond is "A regulation baseball diamond, with field markings."
+
+Section 6 - Mountain
+
+The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak."
+
+Section 7 - Valley
+
+The description of Valley is "A lush valley with rolling, flower-covered hills."
+
+Section 8 - Desert
+
+The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here."
+
+Section 9 - Canyon
+
+The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction."
+
+Section 10 - Forest
+
+The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well. "
+
+Section 11 - Wharf
+
+The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat."
+
+Section 12 - Dojo
+
+The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."
+
+Section 13 - Cemetery
+
+The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay."
+
+Section 14 - Beach
+
+The description of Beach is "Waves roll in gently, breaking upon the pristine white sands."
+
+Section 15 - Stadium
+
+The description of Stadium is "The large, concrete arena must accommodate crowds of at least 50,000. A large scoreboard and banks of lights are visible above the seating area."
+
+Section 16 - Service Station
+
+The description of Service Station is "A one-pump gas station."
+
+Section 17 - School House
+
+The description of School House is "A simple, one-room brick school house with a small steeple and bell."
+
+Section 18 - Monastery
+
+The description of Monastery is "A walled fortress surrounding a church and its fields."
+
+Section 19 - Hospital
+
+The description of Hospital is "A sprawling and state-of-the-art, but strangely windowless, medical facility."
+
+Section 20 - Motel
+
+The description of Motel is "A classic two-level drive-in motel with no-vacancy sign out front. It looks a bit dumpy."
+
+Section 21 - Botanical Garden
+
+The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this flower garden." Understand "hedges" or "paths" as the botanical garden.
+
+A watering can is an open container in the Botanical Garden. The description of the watering can is "An old school gardening can: sheet metal and at least two gallons capacity. Unfortunately, the end of the spout is broken off and it can only pour, not sprinkle." 
+
+The spout is part of the watering can. The description of the spout is "[one of]The watering can is no doubt self-conscious of its shortcomings when it comes to performance of nubby little spout, so please stop staring at it[or]The end of the spout is broken off, but the watering can is still capable of pouring[stopping]."
+
+A single glove is in the Botanical Garden. The single glove is a wearable prop. The description of the single glove is "A single glove covered in rhinestones." Understand "rhinestone" or "rhinestones" as the single glove.
+
+After wearing the glove for the first time:
+	bestow "Michael Jackson Impersonator".
 	
-section 6 - The Boat
+A water is in the watering can.  The indefinite article of water is "some".The description of the water is "Some rusty stagnant water."
+
+A gasoline is in the void. The indefinite article of gasoline is "some". The description of the gasoline is "Smelly, oily, and light brown in color."
+
+Instead of doing something other than examining or emptying or drinking with the water:
+	say "You are not keen to get the discolored water on your hands[if the single glove is worn], not even the gloved one[end if]."
+	
+Instead of doing something other than examining or emptying or drinking with the gasoline:
+	say "You are not keen to get the discolored water on your hands[if the single glove is worn], not even the gloved one[end if]."
+	
+Instead of inserting something  (called the additive) into the watering can:
+	if the additive is the gasoline or the additive is the water:
+		continue the action;
+	otherwise:
+		say "You can only put a liquid in the watering can."
+		
+Instead of drinking the water:
+	say "It[apostrophe]s too disgusting."
+	
+Instead of drinking the gasoline:
+	say "You gag on the vapor as it approaches your mouth."
 
 
+Emptying is an action applying to one thing. 	
+Understand "pour" or "empty" or "dump" as "[emptying]".
+Understand "[emptying] [something]" as emptying. 
+Understand "[emptying] out [something]" as emptying.
+Understand "[emptying] [something] out" as emptying.
+
+Check emptying:
+	if the noun is the watering can:
+		if the watering can is not held by the player:
+			say "(first taking the watering can)[command clarification break]";
+			try silently taking the watering can;
+		if the watering can contains nothing:
+			say "The can is already empty.";
+			stop the action;
+	else if the noun is water:
+		if the watering can contains water:
+			continue the action;
+	else if the noun is gasoline:
+		if the watering can contains gasoline:
+			continue the action;
+	else:
+		say "You can[apostrophe]t.";
+		stop the action.
+					
+Carry out emptying:
+	say "You pour out the ";
+	if the watering can contains water:	
+		say "water and";
+		move the water to the void;
+	else if the watering can contains gasoline:
+		say "gasoline, dowsing everything including yourself int he flammable liquid[one of]. Did you mean to pour it into something or are you actually a latent pyromaniac with self-destructive tendencies? In any event[or][stopping]";
+		move the gasoline to the void;
+	say " you now have an empty watering can."
+		
+Understand "[emptying] [something] in/into [something]" as inserting it into.
+
+Instead of inserting the water into something (called the recipient):
+	if the recipient is the gas tank:
+		say "You realize that would irreperable damage the engine and think better of it. At the last moment, you pour the water overboard.";
+		move the water to the void;
+	otherwise:
+		continue the action.
+		
+Instead of inserting the gasoline into something (called the recipient):
+	if the recipient is the gas tank:
+		say "You pour the entire contents of the can into the thirsty tank.";
+		move the gasoline to the gas tank;
+	otherwise:
+		continue the action.
+		
+Instead of inserting the watering can into something (called the recipient):
+	if the watering can contains water:
+		try inserting the water into the gas tank;
+	else if the watering can contains gasoline:
+		try inserting gasoline into the gas tank;
+	else if the watering can contains nothing:
+		say "The can is empty.";
+		stop the action;
+	otherwise:
+		continue the action.
+
+Section 22 - Blacksmith
+
+The description of Blacksmith is "Black smoke pours from the chimney and hot coals are visible in the forge."
+
+Section 23 - Farm
+
+The description of Farm is "A red farmhouse and tall grain silo stand in front of furrowed fields of wheat."
+
+Section 24 - Aquarium
+
+The description of Aquarium is "The shell-shaped building is surrounded by fountains that shoot water in arcs back and forth above the sidewalk."
+
+Section 25 - Post Office
+
+The description of Post Office is "A modern building with advertisements in the window about how the post office is still somewhat relevant."
+
+Section 26 - Dark Alley
+
+The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland."
+
+The description of Pogoland Terminal is "A concrete platform next to some maglev rails."
+
+Section 27 - The Boat
 
 The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]."
 
@@ -5056,6 +5169,9 @@ After going up from the fishing boat:
 	
 The gas cap is part of the engine. The description of the gas cap is "A screw-on plastic cap. The cap is [if the gas cap is screwed tight]screwed on tight[otherwise]unscrewed, but retained by an internal chain[end if]." The gas cap can be screwed tight. The gas cap is screwed tight. Understand "chain" as the gas cap when the gas cap is not screwed tight.
 
+Understand "unscrew" as opening when the player is in the fishing boat.
+Understand "screw" or "tighten" as closing when the player is in the fishing boat.
+
 To say tankDescription:
 	say "[if the gas tank is empty]Bone dry[otherwise]Full of gas[end if]".
 
@@ -5076,6 +5192,9 @@ Instead of switching off the choke valve:
 		now the choke valve is not engaged;
 	otherwise:
 		say "The choke valve is already off."
+		
+Understand "engage" as switching on.
+Understand "disengage" as switching off.
 
 The speed control lever is a part of the engine. The description of the speed control lever is "A lever that selects the engine speed by sliding back and forth between [quotation mark]slow[quotation mark] at the left to [quotation mark]fast[quotation mark] at the right. The lever is currently pushed ot the right and then some." Understand "throttle" as the speed control lever.
 
@@ -5086,7 +5205,7 @@ Instead of pulling the handle:
 		say "[one of]This is a boat, not a helicopter. [or][stopping]You realize you won[apostrophe]t get anywhere with the motor tilted forward and the propellar out of the water.";
 	otherwise:
 		if the engine is empty:
-			say "[one of]The cord makes a cord-pulling sound and retracts back into the engine. Clearly, this situation is going to require the utmost knowledge of the principle of operation of an internal combustion engine[or]Nothing happens[or]The cord makes a cord-pulling sound, but nothing happens, which is distinctly different from the sound of an engine starting[stopping].";
+			say "[one of]The cord makes a cord-pulling sound and retracts back into the engine. Clearly, this situation is going to require the utmost knowledge of the principles of operation of an internal combustion engine[or]Nothing happens[or]The cord makes a cord-pulling sound, but nothing happens, which is distinctly different from the sound of an engine starting[stopping].";
 		otherwise:
 			say "You pull the handle and TODO happens."
 			
@@ -5114,6 +5233,15 @@ Instead of opening the gas cap:
 	otherwise:
 		say "The gas cap is already unscrewed."
 		
+Instead of taking off the gas cap:
+	try opening the gas cap. 
+	
+Instead of putting the gas cap on something (called the receiver):
+	if the receiver is the gas tank or the receiver is the engine:
+		try closing the gas cap;
+	otherwise:
+		say "You can[apostrophe]t put the gap cap on [the receiver]."
+			
 Instead of opening the gas tank:
 	try opening the gas cap.
 	
@@ -5138,11 +5266,37 @@ Instead of searching the gas tank:
 		now the gas tank is open;
 		say "[tankDescription]."
 		
+Instead of doing something with the gas tank when the gas tank is not open:
+	say "The tank is not open; you need to unscrew the gas cap to get a look inside."
 
 
+Section 28 - Dealing with Pogorooms
 
-
+Instead of taking a pogoroom (called the QTH):
+	say "[The QTH] [are] not something you can take."
 	
+Instead of entering a pogoroom (called the QTH) when the player is in Pogoland:
+	if the localeDescriptor of the QTH is:
+		-- structure:
+			say "Everything is locked up[one of]. Looks like the entire town has evacuated[or][stopping]!";
+		-- place:
+			say "You[apostrophe]re already at the [location].";
+		-- artifact:
+			say "You can[apostrophe]t, but you are standing right next to it."
+			
+Before doing something with a quadroom (called the QTH) when the player is in the village:
+	if the current action is examining:
+		continue the action;
+	if the player is not in the QTH:
+		say "You would have to go over there." instead;
+	otherwise:
+		continue the action.
+
+Section 29 - Enforced Orthotopia
+
+Before going a blasphemous direction when the location is Pogoland:
+	say "[one of]The town seems to be laid out with avenues and streets running north-south and east-west. Going diagonally isn[apostrophe]t an option[or]You can[apostrophe]t go that way[stopping].";
+	stop the action.
 
 	
 
