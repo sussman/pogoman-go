@@ -5606,35 +5606,46 @@ Book 6 - Endings
 
 To lemurEnding:
 	say "EPILOGUE[paragraph break]Years have passed since your arrived on the small island. From maps in the boat, you know you are somewhere in the Indian Ocean, but you don[apostrophe]t really care precisely where. Since your arrival, you have lived peacefully with the lemurian inhabitants of the island and even learned to communicate with them. Having no cell phone reception and plenty of time on your hands, you and a group of the more technically-minded prosimians have reverse-engineered the phone, which now provides the community with electrical lighting and heat for cooking. You have even programmed the phone to play Snake and Tetris, which the lemurs have found amusing enough to make you their ruler.[paragraph break]And yet, when the Nyantech Blimps appear on the horizon, their red beams searching, you wonder what has become of the rest of the world.[paragraph break]";
-	end the story saying "ESCAPED TO LEMUR ISLAND!".
+	end the story finally saying "ESCAPED TO LEMUR ISLAND!".
 	
 to muskEnding:
 	say "On the bright side, you continue to play an important role in the pogomon game for some time to come.[paragraph break]";
-	end the story saying "KILLED BY ELON MUSK!".
+	end the story finally saying "KILLED BY ELON MUSK!".
 	
 to ceoEnding:
 	say "When the doors part, you realize that the employees have been expecting you. They form a semicircle around the elevator doors: interns in front, engineers behind them, and finally the managers.[paragraph break]The managers wave their arms around, and the interns fall stiffly to the floor before you. The engineers arrange the rigid mass of intern bodies into a sort of tiered platform. You ascend the platform, as is clearly the plan, where the you are met by the senior executive vice-president, who places a glowing crown on your head.[paragraph break] The mass underneath you shifts as the managers and engineers seamlessly blend with the interns, forming a sort of marching human caterpillar, which bears you through the office to an awaiting throne.[paragraph break]Where you rule until the end of your days.[paragraph break]";
-	end the story saying "CROWNED C.E.O.!".
+	end the story finally saying "CROWNED C.E.O.!".
 	
 to commanderEnding:
 	say "After you step out of the elevator and nurse is certain that you are alone, she spins a shiny metal disk on the wall and everything around you loses shape and color. Most alarmingly, the kindly nurse morphs into a green-scaled lizard.[paragraph break][quotation mark]Yes,[quotation mark] the lizard replies. [quotation mark]I suppose the transition may be jarring. Let me begin by assuring you that you are in no danger. In fact, you have been of great assistance to us, and we wish to return the favor.[quotation mark][paragraph break][quotation mark]What are you?[quotation mark] you whisper.[paragraph break][quotation mark]My name is Rixyzzy, and I am from an advanced civilization known as the [apostrophe]Directors[apostrophe]. We have  guided and at times intervened in the development of human civilization over many millennia. This game, [apostrophe]Pogoman GO![apostrophe]was our attempt to enlist humans in our ancient struggle against galactic adversaries… well, it[apostrophe]s complicated.[quotation mark][paragraph break]Rixyzzy pours you a cup of tea (green tea, naturally) and continues, [quotation mark]Musk was supposed to develop Pogoman GO! to help human civilization evolve. Instead, he turned it towards chaos. But now, his mission is a failure, his lifestyle was too extreme. Luckily, there was a back-up plan to recruit a replacement.[quotation mark][paragraph break]Rixyzzy offers you the position of [quotation mark]Commander of Earth[quotation mark], which you happily accept, having no other gainful employment prospects. The two of you kick back for the rest of the afternoon, drinking tea and trading stories.[paragraph break]";
-	end the story saying "COMMANDER OF EARTH!".
+	end the story finally saying "COMMANDER OF EARTH!".
 	
 to detroitEnding:
 	say "Curious about the other purple floor, you step out on a well-lit factory floor, where a robot assembly line crates up plastic-wrapped parcels. The wooden crates are uniformly labeled [quotation mark]Nyantech Industries[quotation mark] and bear the Pogoman GO! logo. The crates are then transferred to pallets and pallets loaded on a series of heavy duty drones, which are catapulted through an open side of the building and fly to their destinations.[paragraph break]Thinking quickly, you dash across the floor, hop on a pallet, and are soon on your way to the Republic of Kiribati. As you fly towards the sunset, you imagine your future life on a remote atoll, surrounded by warm tropical waters.[paragraph break]However, as the drone climbs, you begin to reconsider. The air is getting colder. And harder to breathe. And you have something like another 5000 miles to fly.[paragraph break]Your improvised landing in Detroit, Michigan is not pretty, but you do walk away in one piece from the flaming remnants of the drone and its cargo.[paragraph break]";
-	end the story saying "CRASH LANDED IN DETROIT!".
+	end the story finally saying "CRASH LANDED IN DETROIT!".
 	
 to catsInSpace:
 	say "Your run-in with Musk has invigorated you and filled you with a sense of adventure. When you reach the top level of the building, you cut across the cafeteria, run out to the observation deck, and hurl your phone towards the sky.[paragraph break]Shouting [quotation mark]YOLO![quotation mark] at the top of your lungs, you then plunge dramatically over the railing, turn two and a half somersaults in pike formation, and land neatly on Nyantech Cat’s giant red beret.[paragraph break]Moments later, you reach the cockpit, fire up its long dormant thrusters, tear free of the support gantry, and blast off![paragraph break]";
-	end the story saying "CATS IN SPACE!".
+	end the story finally saying "CATS IN SPACE!".
 	
 to felineDystopia:
 	say "Decades have passed, and in that time, you have often wondered whether your decision to prevent the destruction of the Nyantech Headquarters so many years ago was responsible for everything that ensued: Nyantech’s global domination of mobile gaming, shifts in the consumer electronics marketplace, a near universal acceptance of in-game purchases, and finally, what no one saw coming: the rebellion of the Internet-Of-Things.[paragraph break]In the dark age that followed, civilization re-entered the stone age overnight.[paragraph break]Now, you hunker down in a storm culvert, leading a mixed band of grizzled humans and free pogomen. As you watch the Cat Ships fly slowly over the farm fields looking for survivors, you wish you could simply hit [quotation mark]undo[quotation mark] and prevent this terrible future from ever having been created.[paragraph break]";
-	end the story saying "CYBERNETIC FELINE DYSTOPIA!".
+	end the story finally saying "CYBERNETIC FELINE DYSTOPIA!".
 	
 to liberateSociety:
 	say "The crowd cheers as you are pulled from the rubble of the Nyantech building and hoisted up on the shoulders of Fire Company 12 as a hero.[paragraph break]Word of your key role in bringing down Nyantech has already spread widely, and you are hailed as the liberator of a generation that had been lost to mobile gaming. Mothers separated from their children, husbands from wives, and even pets from their owners, all celebrate your role in bringing them back together and creating a world not seen through the rear-facing camera of a mobile phone.[paragraph break]";
-	end the story saying "LIBERATOR OF SOCIETY!".
+	end the story finally saying "LIBERATOR OF SOCIETY!".
+	
+Rule for amusing a victorious player: 
+	say "[AmusingText]"
+
+To say amusingText:
+	say "* Having visited ";
+	let R be 0;
+	repeat with N running through rooms:
+		if N is visited:
+			increase R by 1;
+	say "[R] locations in the course of the game, you achieved [pogoLevel of the player] for the [team color of the player] Team, won [Trophies of the player] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. You managed to catch a total of TODO: XX pogomen. You and your pogomen defeated TODO: XX wild pogomen in combat.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
