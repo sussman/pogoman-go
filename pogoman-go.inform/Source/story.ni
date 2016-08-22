@@ -5002,8 +5002,48 @@ The description of Stadium is "The large, concrete arena must accommodate crowds
 
 Section 16 - Service Station
 
-The description of Service Station is "A one-pump gas station."
+The description of Service Station is "A one-pump gas station." 
 
+The pump is scenery in the service station. The description of the pump is "A clunky pump with an advertisement that offers, [quotation mark]Fill [apostrophe]er up?[quotation mark]". Understand  "gas" or "gasoline" or "fuel" or "petrol" or "diesel" or "gasoil" or "kerosene" as the pump.
+
+Filling is an action applying to one thing. Understand "fill [something]" or "fill [something] up" or "fill up [something]" as filling.
+
+Report Filling:
+	say "You fill the [noun]."
+	
+Instead of filling the watering can:
+	if the location is the service station:
+		if the watering can contains water:
+			say "You would have to dump out the water first.";
+		otherwise:
+			if the player does not carry the watering can:
+				say "(first taking the watering can)[command clarification break]";
+				try silently taking the watering can;
+			say "You fill the watering can with gasoline.";
+			move the gasoline to the watering can;
+	else if the location is the boat:
+		if the watering can contains nothing:
+			say "A can full of salt water wouldn[apostrophe]t do you any good.";
+		otherwise:
+			say "The watering can is already full of [list of things in the watering can].";
+	else:
+		say "You don[apostrophe]t see anything that makes sense to put into the watering can."
+		
+Instead of filling the gas tank:
+	if the player carries the watering can:
+		try inserting the watering can into the gas tank.
+		
+Understand "fill [something] with/from [something]" as inserting it into (with nouns reversed).
+
+Instead of inserting the pump into the watering can:
+	say "You fill the can up with premium unleaded.";
+	move the gasoline to the watering can.
+	
+
+
+
+
+		
 Section 17 - School House
 
 The description of School House is "A simple, one-room brick school house with a small steeple and bell."
@@ -5086,7 +5126,7 @@ Carry out emptying:
 		say "water and";
 		move the water to the void;
 	else if the watering can contains gasoline:
-		say "gasoline, dowsing everything including yourself int he flammable liquid[one of]. Did you mean to pour it into something or are you actually a latent pyromaniac with self-destructive tendencies? In any event[or][stopping]";
+		say "gasoline, dowsing everything including yourself in the flammable liquid[one of]. Did you mean to pour it into something or are you actually a latent pyromaniac with self-destructive tendencies? In any event[or][stopping]";
 		move the gasoline to the void;
 	say " you now have an empty watering can."
 		
@@ -5101,7 +5141,7 @@ Instead of inserting the water into something (called the recipient):
 		
 Instead of inserting the gasoline into something (called the recipient):
 	if the recipient is the gas tank:
-		say "You pour the entire contents of the can into the thirsty tank.";
+		say "You pour the entire contents of the watering can into the thirsty tank.";
 		move the gasoline to the gas tank;
 	otherwise:
 		continue the action.
@@ -5173,9 +5213,9 @@ Understand "unscrew" as opening when the player is in the fishing boat.
 Understand "screw" or "tighten" as closing when the player is in the fishing boat.
 
 To say tankDescription:
-	say "[if the gas tank is empty]Bone dry[otherwise]Full of gas[end if]".
+	say "[if gasoline is in the gas tank]Full[otherwise]Bone dry[end if]".
 
-The gas tank is a closed openable container. The gas tank is part of the engine. The gas tank can be full or empty. The gas tank is empty. The description of the gas tank is "[tankDescription]."
+The gas tank is a closed openable container. The gas tank is part of the engine. The description of the gas tank is "[tankDescription]."
 
 The choke valve is part of the engine. The description of the choke valve is "A knob that rotates either on (choke) or off. Current the choked is [if the choke is not engaged]not[end if] engaged."  The choke valve can be engaged. The choke valve is not engaged. 
 
@@ -5204,10 +5244,19 @@ Instead of pulling the handle:
 	if the motor is uptilted:
 		say "[one of]This is a boat, not a helicopter. [or][stopping]You realize you won[apostrophe]t get anywhere with the motor tilted forward and the propellar out of the water.";
 	otherwise:
-		if the engine is empty:
+		if the gasoline is not in the gas tank:
 			say "[one of]The cord makes a cord-pulling sound and retracts back into the engine. Clearly, this situation is going to require the utmost knowledge of the principles of operation of an internal combustion engine[or]Nothing happens[or]The cord makes a cord-pulling sound, but nothing happens, which is distinctly different from the sound of an engine starting[stopping].";
 		otherwise:
-			say "You pull the handle and TODO happens."
+			if the gas cap is not screwed tight:
+				say "[one of]Fuel sloshes back and forth, some spills out. A rainbow pattern forms on the water. Maybe you better put the cap on the fuel tank?[or]More fuel splashes out -- it’s going everywhere. This is sort of dangerous.[or]Most of the fuel has splashed out of the tank. If you don’t put the cap on, you won’t have enough to go anywhere. Also, you are kind of polluting the water around the boat -- not cool. A few fish float to the surface, which is covered in spilled fuel.[or][thirdCapWarning][or]No. You have learned your lesson about leaving the gas cap off.[stopping]";
+			otherwise:
+				say "TODO."
+				
+To say thirdCapWarning:	
+	say "Standing in a fuel-soaked boat, covered from head to toe in in gasoline, surrounded by a shimmering slick of fuel that has already reached the shore and is drifting down the coast, a random spark lights it all up.[paragraph break]BOOM! The boat briefly flirts with the idea of being an airplane and sails over the wharf on its way into town.[paragraph break]";
+	if the player carries the watering can:
+		move the watering can to the boat;
+	frontierDeath.
 			
 Instead of pushing the engine:
 	if the engine is uptilted:
