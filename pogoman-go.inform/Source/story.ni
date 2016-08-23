@@ -102,7 +102,7 @@ A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town
 
 A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
-A Pogoegg-kind is a kind of pogothing. The description is "A speckled egg." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
+A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg [one of](drop the egg to hatch it)[or][stopping]." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
 A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
 
@@ -129,14 +129,13 @@ To decrement (item - a pogothing) count:
 		-- 1:
 			say "You have only one [item] left!";
 		-- 0:
-			move the pogoball to the Void;
+			move the item to the Void;
 			say "You have now run out of [printed plural name of the item]!";
 		-- otherwise:
 			say "You now have ";
 			say  N in words;
-			say "[printed plural name of the item] left."
+			say " [printed plural name of the item] left."
 
-	
 
 Understand "feed [a pogothing]" as giving it to.
 
@@ -186,36 +185,76 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 				else:
 					say ".";
 				decrement pogometh count.
+				
+[parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
 								
 To say first time is free:
 	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
 	bestow "Enabler".				
+
+Instead of dropping a pogothing (called the item):
+	If the item is:
+		-- pogoball:
+			say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears.";
+			decrement pogoball count;
+		-- pogoincense:
+			say "You throw away a pogoincense.";
+			decrement pogoincense count;
+		-- pogochum:
+			if Around the Town is happening:
+				say "You throw away a piece of pogochum.";
+			otherwise:
+				say "The mouldy chunk of meat hits the ground with a wet smack and then melts[one of]. Creepy[or][stopping].";
+			decrement pogochum count;
+		-- pogometh:
+			if Around the Town is happening:
+				if the location of the player contains the attackerPogoman:
+					try giving pogometh to the attackerPogoman;
+				otherwise:
+					say "You throw away a vial of pogometh.";
+					decrement pogometh count;
+			otherwise:
+				say "Dude. You totally drop some pogometh.[paragraph break]";
+				try eating pogometh;
+		-- pogoEgg:
+			let P be a random pogotype;
+			sort the Table of Inventory in PogoName order;
+			repeat with N running from 1 to the number of rows in the Table of Inventory:
+				choose row N in the Table of Inventory;
+				if there is no pogoName entry:
+					break;
+					say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell[end if].";
+					AwardXP EGG_HATCH_XP_VALUE;
+					decrement pogoEgg count;
+			say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping]."
 			
-Instead of dropping a pogoball-kind:
-	say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears."		
+Instead of putting a pogothing (called the item) on something:
+	try dropping the item;
+	
+Instead of throwing a pogothing (called the item) at something:
+	if the item is the pogoball:
+		continue the action;
+	otherwise:
+		try dropping the item.
+		
+Instead of inserting a pogothing (called the item) into something:
+	try dropping the item.
+	
+Instead of touching a pogothing (called the item):
+	if Around the Town is happening:
+		say "You can[apostrophe]t of course, because [the item] is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence.";
+	otherwise:
+		continue the action.
 
 
-			
+[			
+Instead of eating a pogothing (called the item):
+	if the item is not pogometh:
+		continue the action;
 	
 
 
-[Instead of doing something with pogochum:
-		else if the current action is dropping:
-		if Around the Town is happening:
-			say "You throw away a piece of virtual pogochum.";
-			decrease the PogochumsCarried of the player by one;
-		otherwise:
-			say "The mouldy chunk of meat hits the ground with a wet smack.";
-			continue the action;
-	else if the current action is putting on:
-		try dropping it;
-	else if the current action is inserting into:
-		try dropping it;
-	else if the current action is throwing at:
-		try dropping it;
-	else if the current action is 
-	else if the current action is eating:
-		if Around the Town is happening:
+
 			say "Don[apostrophe]t be silly. Pogochum is merely a virtual representation of an in-game object. Right?";
 		otherwise:Hm. Kind of tasty, actually. Like sushi, but a bit more rangy. It[apostrophe]s not really to your liking.
 			say "[one of]It must be a developed taste[or]Actually, the taste isn[apostrophe]t too bad[or]You are kind of enjoying it[or]The pogochum is quite tasty[or]This stuff is great[or]Mmm... Nothing beats pogochum[stopping].";
@@ -389,7 +428,14 @@ Understand "Unbleached Titanium" or "Titanium" or "Unbleached" as the defenderPo
 
 JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
 
-section 6 - Capture Pogomen
+Section 6 - Generate Pogomen
+
+To generate a pogoman:
+	move attackerPogoman to the location of the player;
+	now the type of attackerPogoman is a random pogotype;
+	now the attackerPogoman is not injured.
+
+Section 7 - Capture Pogomen
 
 Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
 
@@ -427,7 +473,7 @@ Instead of throwing a pogoball at something (called the target):
 	if the pogoballsCarried of the player is 0:
 		move the pogoball to the void.
 		
-section 7 - PogoInventory
+section 8 - PogoInventory
 	
 After taking inventory:
 	follow the pogo-inventory rule.
@@ -514,12 +560,12 @@ After transferring a pogoentity for the first time, bestow "Practicality in mana
 ]
 
 
-section 8 - Spawning
+section 9 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
 
-section 9 - Commands operating on pogomen in inventory
+section 10 - Commands operating on pogomen in inventory
 [these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
 
 InventoryDropping is an action applying to one pogotype.
@@ -573,6 +619,7 @@ INCENSE_XP_VALUE is always 10.
 TRANSFER_XP_VALUE is always 20.
 GYM_VICTORY_XP_VALUE is always 300.
 CHUMMING_XP_VALUE is always 10.
+EGG_HATCH_XP_VALUE is always 25.
 
 
 SPECIAL_ATTACK_XP_COST is always 100.
@@ -1413,8 +1460,7 @@ When play begins:
 To openGame:
 	let startRoom be a random okayStartLocation;
 	move the player to startRoom, without printing a room description;
-	now  the type of attackerPogoman is edator;
-	move the attackerPogoman to startRoom;
+	generate a pogoman;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
 	if T is less than 12:
