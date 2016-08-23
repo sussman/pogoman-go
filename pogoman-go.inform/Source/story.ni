@@ -6,7 +6,7 @@ The release number is 1.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!"
 
-Use MAX_STATIC_DATA of 250000.
+Use MAX_STATIC_DATA of 260000.
 [Use MAX_OBJECTS of 700.
 Use Max_DICT_ENTRIES of 1500.]
 
@@ -96,7 +96,7 @@ Section 3 - Pogo Items
 
 A pogothing is a kind of thing.
 
-A Pogoball-kind is a kind of pogothing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
+A Pogoball-kind is a kind of pogothing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
 
 A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
@@ -214,19 +214,24 @@ Instead of dropping a pogothing (called the item):
 					say "You throw away a vial of pogometh.";
 					decrement pogometh count;
 			otherwise:
-				say "Dude. You totally drop some pogometh.[paragraph break]";
 				try eating pogometh;
 		-- pogoEgg:
 			let P be a random pogotype;
 			sort the Table of Inventory in PogoName order;
-			repeat with N running from 1 to the number of rows in the Table of Inventory:
-				choose row N in the Table of Inventory;
-				if there is no pogoName entry:
-					break;
-					say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell[end if].";
-					AwardXP EGG_HATCH_XP_VALUE;
-					decrement pogoEgg count;
-			say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping]."
+			let T be the number of rows in the Table of Inventory;
+			repeat with N running from 1 to T plus one: 
+				if N is T:
+					say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";
+				otherwise:
+					choose row N in the Table of Inventory;
+					if there is no pogoName entry :
+						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell[end if].";
+						now pogoName entry is P;
+						now wounded entry is false;						
+						AwardXP EGG_HATCH_XP_VALUE;
+						decrement pogoEgg count;
+						break.
+			
 			
 Instead of putting a pogothing (called the item) on something:
 	try dropping the item;
@@ -245,23 +250,57 @@ Instead of touching a pogothing (called the item):
 		say "You can[apostrophe]t of course, because [the item] is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence.";
 	otherwise:
 		continue the action.
+		
+Section 4 - Pogometh
 
-
-[			
-Instead of eating a pogothing (called the item):
-	if the item is not pogometh:
-		continue the action;
+Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first time:
+	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
+	decrement PogoMeth count;
+	now the PogoMeth is trippy;
+	the trip ends in five turns from now;
+	bestow "Iatrogenically Induced Synesthesia".
 	
+Instead of eating PogoMeth when Not in Kansas Anymore is happening:
+	decrement PogoMeth count;
+	say "Dude. You feel much better."
+	
+At the time when the trip ends:
+	say "The mind-altering effects of the pogometh seem to have worn off.";
+	now the PogoMeth is not trippy.
+	
+Instead of smelling when the PogoMeth is trippy for the first time:
+	say "You are assaulted by the world of scents.[paragraph break]";
+	bestow "Smell-O-Vision".
+	
+After tasting when the PogoMeth is trippy for the first time:
+	say "[alteredTaste].[paragraph break]";
+	bestow "Sorry, Charlie. Tasty Is Not The Goal".
+	
+After tasting when the PogoMeth is trippy:
+	say "[alteredTaste]."
+	
+To say alteredTaste:
+	say "Mmm. Tastes like [one of]chicken[or]turkish delight[or]marmelade[or]vegemite[or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzepam might have cooked up[in random order]";
+	
+Instead of listening when the PogoMeth is trippy for the first time:
+	say "You hear nothing but the rain.[paragraph break]";
+	bestow "The Grab Your Gun and Bring In The Cat".
+	
+After examining when the PogoMeth is trippy for the first time:
+	bestow "Reality Distortion Field Is Go".
+	
+After touching when the PogoMeth is trippy for the first time:
+	say "[alteredTouch].[paragraph break]";
+	bestow "This Touching Moment Brought To You By Hallmark".
+	
+After touching when the PogoMeth is trippy:
+	say "[The noun] feels [one of]bumpy[or]squishy[or]ridged[or]wispy[or]feathery[or]sharp[or]velvety[or]creamy[or]cold[or]solid[in random order]."
+	
+To say alteredTouch:
+	say "You touch [the noun] all over the place".
 
 
-
-			say "Don[apostrophe]t be silly. Pogochum is merely a virtual representation of an in-game object. Right?";
-		otherwise:Hm. Kind of tasty, actually. Like sushi, but a bit more rangy. It[apostrophe]s not really to your liking.
-			say "[one of]It must be a developed taste[or]Actually, the taste isn[apostrophe]t too bad[or]You are kind of enjoying it[or]The pogochum is quite tasty[or]This stuff is great[or]Mmm... Nothing beats pogochum[stopping].";
-	else
-		continue the action.]
-
-[No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
+Section 5 - Pogostops
 
 The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
 
@@ -281,7 +320,7 @@ Instead of taking the pogostop for the first time:
 Instead of taking a pogostop:
 	say "You can[apostrophe]t."
 	
-Section 4 - Gyms
+Section 6 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
 
@@ -328,7 +367,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
 	say "TODO: General Gym Battle Simulation HERE."
 	
-Section 5 - Pogomen
+Section 7 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
 Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rhat, plague vermin, and rodentikor.
@@ -428,14 +467,14 @@ Understand "Unbleached Titanium" or "Titanium" or "Unbleached" as the defenderPo
 
 JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
 
-Section 6 - Generate Pogomen
+Section 8 - Generate Pogomen
 
 To generate a pogoman:
 	move attackerPogoman to the location of the player;
 	now the type of attackerPogoman is a random pogotype;
 	now the attackerPogoman is not injured.
 
-Section 7 - Capture Pogomen
+Section 9 - Capture Pogomen
 
 Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
 
@@ -473,7 +512,7 @@ Instead of throwing a pogoball at something (called the target):
 	if the pogoballsCarried of the player is 0:
 		move the pogoball to the void.
 		
-section 8 - PogoInventory
+section 10 - PogoInventory
 	
 After taking inventory:
 	follow the pogo-inventory rule.
@@ -560,12 +599,12 @@ After transferring a pogoentity for the first time, bestow "Practicality in mana
 ]
 
 
-section 9 - Spawning
+section 11 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
 
-section 10 - Commands operating on pogomen in inventory
+section 12 - Commands operating on pogomen in inventory
 [these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
 
 InventoryDropping is an action applying to one pogotype.
@@ -727,7 +766,7 @@ After reading a command:
 			[status has to be updated here, because rejecting the command means no turn as passed, so every turn hook will not fire]
 			showStatus;
 			reject the player's command;
-		if the testPogoMeth is trippy:
+		if the PogoMeth is trippy:
 			if the player's command includes "listen":
 				replace the matched text with "examine";
 			otherwise:
@@ -899,7 +938,8 @@ Carry out spinning:
 		otherwise:
 			now the booty of the pogostop is {};
 			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-			let B be a random number between 0 and 4;
+			let B be a random number between 1 and 4;
+			[guarantees at least one item is produced by the stop]
 			if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
 				let B be POGOITEM_INVENTORY_LIMIT minus T;
 			if B is greater than 0:
@@ -1241,7 +1281,7 @@ Carry out xpGetting the number understood:
 	AwardXP the number understood.
 	
 Report xpGetting:
-	say "[number understood] XP awarded."
+	say "[number understood] XP awarded, for a total of [xp of the player] XP."
 	
 Section 2 - Getting Trophies
 
@@ -1250,24 +1290,24 @@ TrophyGetting is an action applying to a number.
 Understand "getTrophy [a number]" as TrophyGetting.
 
 Carry out TrophyGetting number understood:
-	now the trophies of the player is the number understood.
+	now the trophies of the player is the trophies of the player plus the number understood.
 	
 Report TrophyGetting:
-	say "[number understood] trophies awarded."
+	say "[number understood] trophies awarded, so [trophies of the player] in total."
 	
 Section 3 - Getting Medals
 [let player manually get medals for testing]
 
 MedalGetting is an action applying to a number.
+
 Understand "getMedal [a number]" as MedalGetting.
 
 Carry out MedalGetting the number understood:
-	Let T be the number understood minus the number of entries in MEDALLIST;
-	repeat with N running from 1 to T:
+	repeat with N running from 1 to the number understood:
 		add "[N]" to medalList.
 		
 Report MedalGetting:
-	say "[number understood] medals awarded."
+	say "[number understood] medals awarded, for a total of [number of entries in MEDALLIST]."
 	
 Section 4 - Getting A Pogoman
 
@@ -1394,7 +1434,8 @@ Report spawning:
 			
 Section 10 - Test Objects
 
-The testPogoMeth is an edible prop. The testPogoMeth is in the void. The description of the testPogoMeth is "A pogometh stand-in TODO: remove me from the game prior to release." The testPogoMeth can be trippy. The testPogoMeth is not trippy.
+
+[The testPogoMeth is an edible prop. The testPogoMeth is in the void. The description of the testPogoMeth is "A pogometh stand-in TODO: remove me from the game prior to release." The testPogoMeth can be trippy. The testPogoMeth is not trippy.
 
 After eating testPogoMeth when Not in Kansas Anymore is happening for the first time:
 	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
@@ -1438,7 +1479,7 @@ After touching when the testPogoMeth is trippy:
 	say "[The noun] feels [one of]bumpy[or]squishy[or]ridged[or]wispy[or]feathery[or]sharp[or]velvety[or]creamy[or]cold[or]solid[in random order]."
 	
 To say alteredTouch:
-	say "You touch [the noun] all over the place".
+	say "You touch [the noun] all over the place".]
 
 Chapter Initialize
 
@@ -1901,7 +1942,7 @@ To say deny1:
 	bestow "Subjected to arbitrary requirements”.
 	
 To say deny2:
-	say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogomon player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe] a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
+	say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogomon player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
 	bestow "That puts things in perspective”.
 
 To say deny3:
@@ -5613,7 +5654,7 @@ section 1 - Plato's Cave
 The Void is a room.   
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
-The Void contains a Pogometh-kind called PogoMeth.
+The Void contains a Pogometh-kind called PogoMeth. PogoMeth is edible. PogoMeth can be trippy. PogoMeth is not trippy.
 The Void contains a Pogoegg-kind called PogoEgg.
 The Void contains a PogoIncense-kind called PogoIncense.
 
