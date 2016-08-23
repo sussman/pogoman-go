@@ -106,6 +106,38 @@ A Pogoegg-kind is a kind of pogothing. The description is "A speckled egg." Unde
 
 A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
 
+To decrement (item - a pogothing) count:
+	let N be 0;
+	if item is:
+		-- pogoball:
+			decrease pogoballsCarried of the player by one;
+			let N be pogoballsCarried of the player;
+		-- pogochum:
+			decrease pogoChumsCarried of the player by one;
+			let N be pogoChumsCarried of the player;
+		-- pogometh:
+			decrease pogoMethsCarried of the player by one;
+			let N be pogoMethsCarried of the player;
+		-- pogoincense:
+			decrease pogoIncenseCarried of the player by one;
+			let N be pogoIncenseCarried of the player;
+		-- pogoEgg:
+			decrease pogoEggsCarried of the player by one;
+			let N be pogoEggsCarried of the player;
+	say line break;
+	if N is:
+		-- 1:
+			say "You have only one [item] left!";
+		-- 0:
+			move the pogoball to the Void;
+			say "You have now run out of [printed plural name of the item]!";
+		-- otherwise:
+			say "You now have ";
+			say  N in words;
+			say "[printed plural name of the item] left."
+
+	
+
 Understand "feed [a pogothing]" as giving it to.
 
 Healing is an action applying to one thing. Understand "heal [a pogoentity]" as healing.
@@ -129,7 +161,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 					say "docilely.";
 				say "[one of][line break]You gain [CHUMMING_XP_VALUE] XP![or][stopping]";
 				awardXP CHUMMING_XP_VALUE;
-				decrease the pogoChumsCarried of the player by one;
+				decrement pogochum count;
 		-- pogoIncense:
 				if the pogorecipient is the attackerPogoman:
 					if Around the Town is happening:
@@ -152,24 +184,15 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 					say ". It seems restored to full health.[one of][first time is free][or][stopping]";
 					now the pogorecipient is not injured;
 				else:
-					say "."
-				decrease the pogoMethsCarrried of the player by one.
+					say ".";
+				decrement pogometh count.
 								
 To say first time is free:
 	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
 	bestow "Enabler".				
 			
 Instead of dropping a pogoball-kind:
-	decrease pogoballsCarried of the player by 1;
-	say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears.";
-	if pogoballsCarried of the player is 1:
-		say "You have only one PogoBall left!";
-	else if pogoballsCarried of the player is 0:
-		move the pogoball to the Void;
-		say "You have now run out of PogoBalls!";
-	else:
-		say "You now have [pogoballsCarried of the player] PogoBalls left."
-		
+	say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears."		
 
 
 			
