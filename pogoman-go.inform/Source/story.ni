@@ -3354,6 +3354,8 @@ Instead of going a direction (called the way) when the player is in the StairsPa
 		say "You can[apostrophe]t go that way because there is no door there -- just solid wall.";
 	otherwise:
 		continue the action.
+		
+section 33 - Stairs - Roof
 
 The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The possible exits of StairsRoof is "To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
@@ -3372,15 +3374,15 @@ To say printedRoofDoor:
 After going south from the stairsRoof for the first time:
 	bestow "Made it to the top".          
 	
-Section Processing
+Section 34 - Processing
 
 Processing is a room.
 
-Section Packaging
+Section 35 - Packaging
 
 Packaging is a room. 
 
-Section Interns
+Section 36 - Interns
 
 Interns is a room. 
 
@@ -3390,13 +3392,13 @@ To say fromElevator:
 [TODO Example floor description for the three employee levels]
 internsProxy are a workerProxy. internsProxy are in the void. The description of a internsProxy is "[fromElevator][entry 1 of the WPLIST of internsProxy]." Understand "intern" or "interns" or "employee" or "employees" or "worker" or "workers" as the internsProxy. The WPLIST of internsProxy is {"a roiling mass of interns playing three-dimensional twister to the accompaniment of a driving disco beat", "interns running around in leotards and dancing in a stream of bubbles"}. The printed name of the internsProxy is "interns".
 
-Section Engineers
+Section 37 - Engineers
 
 Engineers is a room. 
 
 engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychodelic patterns and text", "bolts of lightning richocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
 
-Section Managers
+Section 38 - Managers
 
 Managers is a room.
 
@@ -3405,8 +3407,8 @@ managersProxy are a workerProxy. managersProxy are in the void. The description 
 Instead of doing something other than examining with a workerProxy:
 	say "You would have to exit the elevator here to do that."
 
-Section 33 - Deck
 
+Section 39 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
@@ -3558,12 +3560,12 @@ Instead of climbing the railing when the player is in the deck area:
 Instead of going down from deckS:
 	try jumping.
 
-Section 34 - Cat Region
+Section 40 - Cat Region
 
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
 
-Section 35 - Cat Navigation
+Section 41 - Cat Navigation
 
 [Based on Recipe 42: Example Fore]
 
@@ -3596,7 +3598,8 @@ Instead of going starboard, say noLateral.
 
 Instead of going port, say noLateral.
 
-Section 36 - Cat OverheadProxies
+Section 42 - Cat Overhead Proxies
+
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
 To decide whether the cat is visible from overhead:
@@ -3678,7 +3681,7 @@ Before doing something other than examining with a catTopDrop (called the QTH):
 		say "You would have to walk over to [the QTH].";
 		the rule fails.
 
-Section 37 - Cat View
+Section 43 - Cat View
 
 Definition: A room is cat-top if it is the Cat's Beret or it is the Maintenance Hatch or it is The Catwalk or it is the Poop Deck.
 
@@ -3686,7 +3689,7 @@ After deciding the scope of the player while the player is in a cat-top room:
 	repeat with R running through the list of sud quadrooms:
 		place R in scope.
 		
-Section 38 - Cat's Beret
+Section 44 - Cat's Beret
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
 
@@ -3695,7 +3698,7 @@ The possible exits of the Cat's Beret are "The only way to go from here [one of]
 Instead of going up from the Cat's Beret:
 	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping]."
 	
-Section 39 - Maintenance Hatch
+Section 45 - Maintenance Hatch
 
 Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
@@ -3731,7 +3734,7 @@ Instead of pushing the hatchway:
 		otherwise:
 			try closing the hatchway.
 			
-Section 40 - Catwalk
+Section 46 - Catwalk
 
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
@@ -3750,7 +3753,7 @@ Instead of eating the pop-tart shingles for the first time:
 
 Instead of doing something other than examining with the pop-tart shingles, say "They are tantalizingly out of reach."
 
-Section 41 - Poop Deck
+Section 47 - Poop Deck
 
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
@@ -3772,7 +3775,7 @@ Instead of taking the sparks for the first time:
 Instead of doing something other than examining with the sparks:
 	say "They are too hot to handle."
 	
-Section 42 - Captain's Cabin
+Section 48 - Captain's Cabin
 	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
 "Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
@@ -3838,7 +3841,7 @@ Instead of putting something (called the item) on the hammock:
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
 
-Section 43 - Gantry Chamber
+Section 49 - Gantry Chamber
 
 Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain’s cabin."
 
@@ -3853,7 +3856,7 @@ After going outside from the Gantry Chamber for the first time:
 After going outside from the Gantry Chamber:
 	say "You make a beeline for the Gearing Assembly chamber at the other end."
 	
-Section 44 - Cat Head
+Section 50 - Cat's Head
 	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
