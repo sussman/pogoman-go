@@ -2725,8 +2725,8 @@ After going inside from the revolvingDoor for the first time:
 	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, pins a badge on you, and boosts you towards the lobby.[paragraph break]";
 	bestow "Bagged and Tagged";
 	repeat with N running through the things carried by the player:
-		move N to the void;
-	now the player carries the phone;
+		if N is not safe from seizure:
+			move N to the void;
 	now the player wears the badge;
 	now the stamp is part of the player;
 	move the player to the lobby.
@@ -3896,10 +3896,10 @@ After going south from the stairsSSB:
 	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room’s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
 	now Make Over Suite is visited; [serves as a flag that player has progressed this far]
 	repeat with N running through the things carried by the player:
-		move N to the void;
+		if N is not safe from seizure:
+			move N to the void;
 	repeat with N running through the things worn by the player:
 		move N to the void;
-	now the player carries the phone;
 	now the player carries the glass of champagne;
 	now the description of the player is "Well-coiffed and dressed to the nines[one of]. You clean up well[or][stopping].";
 	now the player wears the formal wear;
@@ -5444,24 +5444,20 @@ Instead of going up in the gymnasium:
 	try climbing the rope.
 	
 
-	
-
-
-
-
-
-
 Chapter The Void
 
 section 1 - Plato's Cave
 
 [An unconnected place  where 'original' clonable objects live... very platonic.]
+
 The Void is a room.   
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth.
 The Void contains a Pogoegg-kind called PogoEgg.
 The Void contains a PogoIncense-kind called PogoIncense.
+
+Definition: A thing (called the contraband) is safe from seizure if the contraband is listed in {phone, pogoBall, pogoChum, PogoMeth, PogoEgg, PogoIncense}.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
