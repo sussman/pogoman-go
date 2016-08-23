@@ -82,11 +82,11 @@ The player has a number called XP.
 The player has a number called Trophies.
 The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
-The player has a number called pogoballsCarried.  pogoballsCarried is 3.
+The player has a number called pogoballsCarried.  pogoballsCarried is 5.
 The player has a number called pogoChumsCarried. pogoChumsCarried is 2.
-The player has a number called pogoMethsCarried. pogoMethsCarried is 2.
-The player has a number called pogoEggsCarried. pogoEggsCarried is 3.
-The player has a number called pogoIncenseCarried. pogoIncenseCarried is 1.
+The player has a number called pogoMethsCarried. pogoMethsCarried is 0.
+The player has a number called pogoEggsCarried. pogoEggsCarried is 0. [if any, add to when play begins]
+The player has a number called pogoIncenseCarried. pogoIncenseCarried is 0 [if any, add to when play begins].
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 
@@ -94,8 +94,71 @@ Section 3 - Pogo Items
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
-A Pogoball-kind is a kind of thing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
+A pogothing is a kind of thing.
 
+A Pogoball-kind is a kind of pogothing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
+
+A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
+
+A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+
+A Pogoegg-kind is a kind of pogothing. The description is "A speckled egg." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
+
+A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
+
+Understand "feed [a pogothing]" as giving it to.
+
+Healing is an action applying to one thing. Understand "heal [a pogoentity]" as healing.
+
+Carry out healing:
+	try giving pogometh to the noun instead.		
+	
+Instead of giving a pogothing (called the pogoitem) to someone (called the pogorecipient):
+	if the pogorecipient is not a pogoentity:
+		say "That earns you a strange look.";
+	otherwise:
+		if the pogoitem is:
+			-- pogochum:
+				say "[The pogorecipient] wolfs down the pogochum ";
+				if the pogorecipient is the attackerPogoman:
+					if Around the Town is happening:
+						say "hungrily and appears more friendly.";
+					else:
+						say "fiercely.";
+				else:
+					say "docilely.";
+				say "[one of][line break]You gain [CHUMMING_XP_VALUE] XP![or][stopping]";
+				awardXP CHUMMING_XP_VALUE;
+				decrease the pogoChumsCarried of the player by one;
+		-- pogoIncense:
+				if the pogorecipient is the attackerPogoman:
+					if Around the Town is happening:
+						say "[The pogorecipient] sniffs at it with desire";
+					else:
+						say "[The pogorecipient] snorts at it viciously";
+				otherwise:
+					say "[The pogorecipient] looks at it longingly";
+				say " but does not seem inclined to take it.";
+		-- pogoball:
+				if the pogorecipient is the attackerPogoman:
+					say "[The pogorecipient] looks on the ball with some trepidation and keeps its distance.";
+				else:
+					say "Your loyal [team color of the player] [pogorecipient] is eager to return to the cozy ball[one of]. You can recapture your own pogomen by throwing the ball at them[or][stopping].";
+		-- pogoEgg:
+				say "[The pogorecipient] does not seem interested in the egg.";
+		-- pogometh:
+				say "[The pogorecipient] snorts the pogometh greedily and afterwards glows warmly";
+				if the pogorecipient is injured:
+					say ". It seems restored to full health.[one of][first time is free][or][stopping]";
+					now the pogorecipient is not injured;
+				else:
+					say "."
+				decrease the pogoMethsCarrried of the player by one.
+								
+To say first time is free:
+	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
+	bestow "Enabler".				
+			
 Instead of dropping a pogoball-kind:
 	decrease pogoballsCarried of the player by 1;
 	say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears.";
@@ -106,14 +169,35 @@ Instead of dropping a pogoball-kind:
 		say "You have now run out of PogoBalls!";
 	else:
 		say "You now have [pogoballsCarried of the player] PogoBalls left."
+		
 
-A Pogochum-kind is a kind of thing.  The description is "Rancid bits of chopped up…. something. Whatever it is, Pogomen are attracted to it. Drop a bit of it, and a Pogoman will come to you!".  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of thing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in.".  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+			
+	
 
-A Pogoegg-kind is a kind of thing. The description is "A speckled egg." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
-A PogoIncense-kind is a kind of thing. The description is "A hockey-puck shaped plastic disc." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
+[Instead of doing something with pogochum:
+		else if the current action is dropping:
+		if Around the Town is happening:
+			say "You throw away a piece of virtual pogochum.";
+			decrease the PogochumsCarried of the player by one;
+		otherwise:
+			say "The mouldy chunk of meat hits the ground with a wet smack.";
+			continue the action;
+	else if the current action is putting on:
+		try dropping it;
+	else if the current action is inserting into:
+		try dropping it;
+	else if the current action is throwing at:
+		try dropping it;
+	else if the current action is 
+	else if the current action is eating:
+		if Around the Town is happening:
+			say "Don[apostrophe]t be silly. Pogochum is merely a virtual representation of an in-game object. Right?";
+		otherwise:Hm. Kind of tasty, actually. Like sushi, but a bit more rangy. It[apostrophe]s not really to your liking.
+			say "[one of]It must be a developed taste[or]Actually, the taste isn[apostrophe]t too bad[or]You are kind of enjoying it[or]The pogochum is quite tasty[or]This stuff is great[or]Mmm... Nothing beats pogochum[stopping].";
+	else
+		continue the action.]
 
 [No need to dynamicallly clone these kinds-- theyre created in locations at compile-time.]
 
@@ -465,6 +549,8 @@ CAPTURE_XP_VALUE is always 100.
 INCENSE_XP_VALUE is always 10.
 TRANSFER_XP_VALUE is always 20.
 GYM_VICTORY_XP_VALUE is always 300.
+CHUMMING_XP_VALUE is always 10.
+
 
 SPECIAL_ATTACK_XP_COST is always 100.
 
@@ -664,11 +750,14 @@ Rule for printing inventory details of a pogoball-kind:
 Rule for printing inventory details of a pogochum-kind:
 	say " ([pogoChumsCarried of the player] total)[run paragraph on]"
 	
-Rule for printing inventory details of a pogoball-kind:
+Rule for printing inventory details of a pogometh-kind:
 	say " ([pogoMethsCarried of the player] total)[run paragraph on]"
 	
 Rule for printing inventory details of a pogoegg-kind:
 	say " ([pogoEggsCarried of the player] total)[run paragraph on]"
+	
+Rule for printing inventory details of a pogoincense-kind:
+	say " ([pogoIncenseCarried of the player] total)[run paragraph on]"
 
 
 Section 6 - Rotational text lists
@@ -733,9 +822,10 @@ Spinning is an action applying to a thing. Understand "spin [thing]" as spinning
 
 Carry out spinning:
 	if the noun is the pogostop:
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player;
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		if T is POGOITEM_INVENTORY_LIMIT:
-			say "Your inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
+			say "Your game inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
+			stop the action;
 		otherwise:
 			now the booty of the pogostop is {};
 			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
@@ -759,7 +849,7 @@ Carry out spinning:
 			if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
 				let M be POGOITEM_INVENTORY_LIMIT minus T;
 			if M is greater than 0:
-				add "[M] pogometh[if C is greater than 1]s[end if]" to the booty of the pogostop;
+				add "[M] pogometh[if M is greater than 1]s[end if]" to the booty of the pogostop;
 				increase pogoMethsCarried of the player by M;
 				move the pogoMeth to the player;
 			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
@@ -1290,6 +1380,7 @@ When play begins:
 	now the XP of the player is INITIAL_XP;
 	now the player carries the phone;
 	now the player carries the PogoBall;
+	now the player carries the PogoChum;
 	now the flavor of the pop-tart is a random flavor;
 	ShowStatus;
 	distributeTownPogostops;
@@ -5457,7 +5548,7 @@ The Void contains a Pogometh-kind called PogoMeth.
 The Void contains a Pogoegg-kind called PogoEgg.
 The Void contains a PogoIncense-kind called PogoIncense.
 
-Definition: A thing (called the contraband) is safe from seizure if the contraband is listed in {phone, pogoBall, pogoChum, PogoMeth, PogoEgg, PogoIncense}.
+Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
