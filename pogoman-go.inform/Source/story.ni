@@ -1585,7 +1585,7 @@ Unearthly Geometry is west of MarkerSeven.
 
 The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
-Section Location-specific elements in The Village
+Section 2 - Location-specific elements in The Village
 
 [
    Proxy objects allow the player to use the place name, which often refers to the main feature in the location.
@@ -1593,7 +1593,7 @@ Section Location-specific elements in The Village
    can't subclass scenery itself.
 ]
 
-[The Sky Itself]
+Section 3 - The Sky Itself
 
 The sky is a backdrop. The sky is in The Village, DeckN, DeckS, DeckW, and DeckE. The description of the sky is "Clear as the eye can see."
 
@@ -1608,7 +1608,7 @@ Instead of searching the sky:
 	otherwise:
 		try examining the sky.
 	
-[The City Park]
+Section 4 - City Park
 
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  City Park is an improper-named place. The title of City Park is "City Park". The printed name of City Park is "municipal park". Understand "municipal" as the City Park.
 
@@ -1620,23 +1620,23 @@ The hedges are scenery in City Park. The description of the hedges is "Tall, tho
 
 Instead of entering or climbing the hedges, say "Ow. No thanks."
 
-[Old Courthouse]
+Section 5 - Old Court House
 
 The description of Old Courthouse is "A brick court house, probably of historical significance." Old Courthouse is an improper-named structure.  The title of Old Courthouse is "Old Courthouse". The printed name of the Old Courthouse is "courthouse".  Understand "court" as Old Courthouse. Understand "building" or "brick" as Old Courthouse when the location is Old Courthouse.
 
-[Old Jail]
+Section 6 - Old Jail
 
 The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for online for play or download.[quotation mark][paragraph break]Disgusted with [if the dog exercise area is unvisited]the[otherwise]yet another[end if] blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."  Old Jail is an improper-named structure. Understand "clink" or "lock-up" or "lock up" or "hoosegow" or "jailhouse" as Old Jail. Understand "building" or "brick"  as Old Jail when the location is Old Jail. The title of Old Jail is "Old Jail". The printed name of Old Jail is "old brick jailhouse".
 
 Instead of entering Old Jail, say "You aren[apostrophe]t sure whether the Old Jail is still in business or not. Given that, you[apostrophe]d just as soon stay on this side of the bars." 
 
-[Johnson's Rock]
+Section 7 - Johnson's Rock
 
 The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  Johnson's Rock is an  improper-named artifact. Understand "johnson" or "johnsons" as Johnson's Rock. Understand "rock"  or "stone" or "ground" or "site" as Johnson's Rock when the location is Johnson's Rock. The title of Johnson's Rock is "Johnson's Rock". The printed name of Johnson's Rock is "site of Johnson's Rock".
 
 Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
 
-[Nyantech Entrance]
+Section 8 - Nyantech Entrance
 
 The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". The possible exits of the Nyantech Entrance are "The entrance to the tower itself is through a revolving brass door, just beyond the unicorn."
 
@@ -1766,11 +1766,11 @@ To say goOnIn:
 After talking to the unicorn for the first time:
 	bestow "Talks With Unicorns".		
 		
-[Ashwell-Lott Estate]
+Section 9 - Ashwell-Lott Estate
 
 The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
 
-[Garden Gnome]
+Section 10 - Garden Gnome
 
 The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Garden Gnome Without Head is an improper-named artifact. Understand "decapitated" as Garden Gnome Without Head. Understand "sculpture" or "art" as Garden Gnome Without Head when the location is Garden Gnome Without Head. The printed name of Garden Gnome Without Head is "decapitated garden gnome statue". The title of Garden Gnome Without Head is "Garden Gnome Without Head".
 
@@ -1787,23 +1787,23 @@ Instead of searching the lawn:
 	move the severed head to the player;
 	bestow "Found A Garden Gnome's Severed Head".
 	
-[Parking Lot]
+Section 11 - Parking Lot Award
 
 The description of Parking Lot Award is "A tarnished brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason." Parking Lot Award is an improper-named place. Understand "plaque" or "brass" as Parking Lot Award when the location is Parking Lot Award. The printed name of Parking Lot Award is "award for best parking lot design". The title of Parking Lot Award is "Parking Lot Award".
 
-[Old Town Hall]
+Section 12 - Old Town Hall
 
 The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling." Old Town Hall is a structure. Understand "building" as Old Town Hall when the location is Old Town Hall.
 
-[Spit n' Solder Hardware]
+Section 13 - Spit n' Solder
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark].". Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
 
-[Rotary Clock Tower]
+Section 14 - Rotary Clock Tower
 
 The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours." Rotary Clock Tower is an improper-named artifact. The printed name of Rotary Clock Tower is "rotary clock tower".
 
-[Floyd Memorial]
+Section 15 - Floyd Memorial Bench
 
 The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate." Floyd Memorial Bench is an improper-named place. The printed name of Floyd Memorial Bench is "bench". The title of Floyd Memorial Bench is "Floyd Memorial Bench".
 
@@ -1813,35 +1813,35 @@ Before entering the Floyd Memorial Bench:
 The nameplate is scenery in Floyd Memorial Bench. The description of the nameplate is "[quotation mark]In Read-Only-Memoriam of Floyd.[quotation mark][line break]".
 
 
-[Giant Chicken]
+Section 16 - Giant Chicken
 
 The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks." Giant Chicken is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Giant Chicken when the location is Giant Chicken. The title of Giant Chicken is "Giant Chicken". The printed name of Giant Chicken is "giant chicken sculpture".
 
 The swizzle sticks are scenery in Giant Chicken. The description of the swizzle-sticks is "How many drinks must have been stirred in this effort?"
 
-[Welbourne Travel]
+Section 17 - Welbourne Travel
 
 The description of Welbourne Travel is "Maps of various adventures fill the windows of this travel agency." Welbourne Travel is an improper-named structure. The printed name of Welbourne Travel is "Welbourne Travel Agency". Understand "agency" as Welbourne Travel. Understand "building" or "store" as Welbourne Travel when the location is Welbourne Travel. The printed name of Welbourne Travel is "Welbourne Travel Agency". The title of Welbourne Travel is "Welbourne Travel". 
 
-[Hook & Ladder]
+Section 18 - Hook & Ladder
 
 The description of Hook & Ladder is "The home of Fire Bridage Number 12." Hook & Ladder is an improper-named structure. Understand "hook and ladder" or "firehouse" as Hook & Ladder. Understand "building" as Hook & Ladder when the location is Hook & Ladder. The title of Hook & Ladder is "Hook & Ladder". The printed name of Hook & Ladder is "firehouse".
 
-[Prissy's Little Sausages]
+Section 19 - Prissy's Little Sausages
 
 The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. Understand "building" or "store" or "restaurant" as Prissy's Little Sausages when the location is Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant".
 
-[Yummi Tummi Softserve]
+Section 20 - Yummi Tummi Softserve
 
 The description of Yummi Tummi Softserve is "Pink robotic pigs rollerskate between tables serving up sundaes, cones, and floats." Yummi Tummi Softserve is an improper-named artifact. Understand "ice" or "cream" or "soft" or "serve" or "parlor" as Yummi Tummi Softserve. Understand "building" or "restaurant" as Yummi Tummi Softserve when the location is Yummi Tummi Softserve. The printed name of Yummi Tummi Softserve is "ice cream parlor". The title of Yummi Tummi Softserve is "Yummi Tummi Softserve".
 
 [TODO: implement robots, tables, ice cream?]
 
-[Service Dog Memorial]
+Section 21 - Service Dog Memorial
 
 The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]". Service Dog Memorial is an improper-named artifact. Understand "scruffy" as the Service Dog Memorial. Understand "statue" or "sculpture" as Service Dog Memorial when the location is Service Dog Memorial. The title of Service Dog Memorial is "Service Dog Memorial". The printed name of Service Dog Memorial is "elaborate memorial to service dogs".
 
-[The Gardens of Zarf]
+Section 22 - Gardens of Zarf
 
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "zarfian garden".
 
@@ -1855,7 +1855,7 @@ Instead of entering The Gardens of Zarf :
 	say "Weeds grab at your feet and a sunflower nearly slices your head off. While struggling free, the azalias grab your wrist and shake the phone free. It falls into a horde of marigolds that rip it to pieces.";
 	phoneDeath.
 
-[Flan Emporium]
+Section 23 - Flan Emporium
 
 The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some." Flan Emporium is an improper-named structure. Understand "building" or "store" as Flan Emporium when the location is Flan Emporium. The printed name of Flan Emporium is "flan store". The title of Flan Emporium is "Flan Emporium".
 
@@ -1863,11 +1863,11 @@ Instead of eating Flan Emporium, say "Unfortunately, there is no tasty flan layi
 
 Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
 
-[General Nelson]
+Section 24 - General Nelson
 	
 The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson." General Nelson is an improper-named artifact. Understand "sculpture" or "art"  or "statue" as General Nelson when the location is General Nelson. The printed name of General Nelson is "statue of General Nelson". The title of General Nelson is "General Nelson".
 
-[Church of the Orthogonal Sticks]
+Section 25 - Church of the Orthogonal Sticks
 
 The description of Church of the Orthogonal Sticks is "The church is constructed entirely of Lincoln Logs except for the stained glass."  Church of the Orthogonal Sticks is an improper-named structure. Understand "lincoln" or "logs" as Church of the Orthogonal Sticks. Understand "building" as Church of the Orthogonal Sticks when the location is Church of the Orthogonal Sticks. The printed name of the Church of the Orthogonal Sticks is "church". The Title of the Church of the Orthogonal Sticks is "Church of the Orthogonal Sticks".
 
@@ -1875,13 +1875,13 @@ The stained glass is scenery in the Church of the Orthogonal Sticks. The descrip
 
 Instead of doing something other than examining with the stained glass, say "You can't, the windows are too high up."
 
-[Witch Pillory]
+Section 26 - Witch Pillory
 
 The description of Witch Pillory is "This site commemorates the town’s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]". Witch Pillory is an improper-named artifact. The printed name of Witch Pillory is "witch pillory".
 
 Instead of entering Witch Pillory, say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
 
-[Flag Pole]
+Section 27 - Flag Pole
 
 The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base." Flag Pole is an improper-named artifact. The printed name of flag pole is "flag pole".
 
@@ -1902,15 +1902,15 @@ Check Flagging:
 	otherwise:
 		say "You don't see how that would help the situation."
 
-[Krusty Kronuts]
+Section 28 - Krusty Kronuts
 
 The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken." Krusty Kronuts is an improper-named structure. Understand "donut" or "donuts" or "doughnut" or "doughnuts" or "kroughnut" or "kroughnuts" or "kronut" as Krusty Kronuts. Understand "building" or "store" or "restaurant" as Krusty Kronuts when the location is Krusty Kronuts. The printed name of Krusty Kronuts is "kroughnut store". The title of Krusty Kronuts is "Krusty Kronuts".
 
-[Cyclorama]
+Section 29 - Cyclorama
 
 The description of Cyclorama is "The indoor bicycle track yields important radionuclides for pharmaceutical use." Cyclorama is an improper-named structure. Understand "bike" or "bicycle" or "track" or "cycle" as Cyclorama. Understand "building" as Cyclorama when the location is Cyclorama. The printed name of Cyclorama is "indoor bike track". The title of Cyclorama is "Cyclorama".
 
-[Biocontainment Facility]
+Section 30 - Biocontainment Facility
 
 The description of Biocontainment Facility is "[bioConDescription]". Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
 
@@ -1921,89 +1921,89 @@ To say bioConDescription:
 		say line break;
 		bestow "Just One of the Boys".
 
-[Battle of Margot's Pantry]
+Section 31 - Battle of Margot's Pantry
 
 The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
 
-[Gas Station Gazebo]
+Section 32 - Gas Station Gazebo
 
 The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] Wht is it with gas stations and gazebos?[or][stopping]".  Gas Station Gazebo is an improper-named artifact. Understand "building"  as Gas Station Gazebo when the location is Gas Station Gazebo. The title of Gas Station Gazebo is "Gas Station Gazebo". The printed name of Gas Station Gazebo is "gazebo".
 
-[Dung Beetle Mural]
+Section 33 - Dung Beetle Mural
 
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium." Dung Beetle Mural is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Dung Beetle Mural when the location is Dung Beetle Mural. The printed name of Dung Beetle Mural is "mural". The title of Dung Beetle Mural is "Dung Beetle Mural".
 
-[Hank's Tavern]
+Section 34 - Hank's Tavern
 
 The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "the pub".
 
-[Olde Train Station]
+Section 35 - Olde Train Station
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers." Olde Train Station is an improper-named structure. Understand "old" as Olde Train Station. Understand "building" as Olde Train Station when the location is Olde Train Station. The printed name of Olde Train Station is "station". The title of Olde Train Station is "Olde Train Station".
 
-[Dog Exercise Area]
+Section 36 - Dog Exercise Area
 
 The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like like dogs, check out our canine-centric sci fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
 
 Dog Exercise Area is an improper-named place. Understand "field" or "run" as Dog Exercise Area. Understand "park" as Dog Exercise Area when the location is Dog Exercise Area. The title of Dog Exercise Area is "Dog Exercise Area". The printed name of Dog Exercise Area is "dog run".
 
-[Bottle Cap Wall]
+Section 37 - Bottle Cap Wall
 
 The description of Bottle Cap Wall is "A wall made entirely of bottle caps." Bottle Cap Wall is an improper-named artifact. Understand "mural" as Bottle Cap Wall. Understand "sculpture" or "statue" or [even, liberally] "art" as Bottle Cap Wall when the location is Bottle Cap Wall. The printed name of the Bottle Cap Wall is "wall made entirely of bottle caps". The title of Bottle Cap Wall is "Bottle Cap Wall".
 
-[Mile Marker 0,7]
+Section 38 - Mile Marker 0.7
 
 The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what." MarkerSeven is privately-named. MarkerSeven is a proper-named artifact. Understand "seven" or "zero" or "naught" or "point" or "decimal" or "mile" or "marker" or "post" as MarkerSeven.  The printed name of MarkerSeven is "mile marker 0.7". 
 
-[Unfathomable Orb]
+Section 39 - Unfathomable Orb
 
 The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
 
 Unfathomable Orb is an improper-named artifact. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as Unfathomable Orb when the location is Unfathomable Orb. The title of Unfathomable Orb is "Unfathomable Orb". The printed name of the Unfathomable Orb is "orb".
 
-[Rottweiler Art]
+Section 40 - Rottweiler Art
 
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
 
 Rottweiler Art is an improper-named artifact. Understand "doggy" as Rottweiler Art. Understand "sculpture" or "statue" or "art" as Rottweiler Art when the location is Rottweiler Art. The title of Rottweiler Art is "Rottweiler Art". The printed name of Rottweiler Art is "doggy art".
 
-[Sister City Friendship Altar]
+Section 41 - Sister City Friendship Altar
 
 The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
 
 Sister City Friendship Altar is an improper-named artifact. Understand "sacrifice" or "human" or "sacrificial" as the Sister City Friendship Altar. Understand "city"  or [questionably] "art" as Sister City Friendship Altar when the location is Sister City Friendship Altar. The printed name of Sister City Friendship Altar is "altar". The title of Sister City Friendship Altar is "Sister City Friendship Altar".
 
-[1893]
+Section 42 - 1893
 
 The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year." 
 
 Year1893 is an improper-named artifact. Year1893 is privately-named.  Understand "1893" or "plaque" as Year1893. The printed name of Year1893 is "plaque". The title of Year1893 is "1893 Plaque".
 
-[Eagle's Sojourn]
+Section 43 - Eagle's Sojourn
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
 Eagle's Sojourn is an improper-named artifact. Understand "eagle" or "eagles" or "carving" or "moon" or "cowboy" as Eagle's Sojourn. Understand "sculpture" or "statue" or "art" as Eagle's Sojourn when the location is Eagle's Sojourn. The title of Eagle's Sojourn is "Eagle[apostrophe]s Sojourn". The printed name of Eagle's Sojourn is "carving".
 
-[Nymph with Telescope]
+Section 44 - Nymph With Telescope
 
 The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
 
 Telescope Nymph is an improper-named artifact. Understand "with" as Telescope Nymph. Understand "sculpture" or "statue" or "art" as Telescope Nymph when the location is Telescope Nymph. The printed name of Telescope Nymph is "nymph statue". The title of Telescope Nymph is "Nymph With Telescope".
 
-[Fire is our Friend]
+Section 45 - Fire Is Our Friend
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
 
 Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
 
-[Unearthly Geometry]
+Section 46 - Unearthly Geometry
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
 
 Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outre" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horro" or "grotesque" or "vision" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
 
-[Cranberry Bog]
+Section 47 - Cranberry Bog
 
 The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog."
 
@@ -2015,7 +2015,7 @@ Instead of searching the Cranberry Bog:
 Instead of entering the Cranberry Bog:
 	say "You don[apostrophe]t want to become it[apostrophe]s next victim!"
 
-[Found Art]
+Section 48 - Found Art
 
 The description of Found Art is "A single screw attached to a surfboard.[one of] This is what counts as art these days. Jeesh.[or][stopping]".
 
@@ -2024,7 +2024,7 @@ Found Art is an improper-named artifact. Understand "surfboard" or "screw" as Fo
 Instead of searching the Found Art:
 	say "It is right in front of you."
 	
-[Crystal Skull]
+Section 49 - Crystal Skull
 
 The description of Crystal Skull is "There isn’t much left of the Salt Skull exhibit. Occasionally, deer walk through town just to lick it."
 
@@ -2033,19 +2033,19 @@ Crystal Skull is an improper-named artifact. Understand "exhibit" as Crystal Sku
 Instead of tasting Crystal Skull:
 	say "It tastes like deer spittle."
 
-[Vuvuzelas]
+Section 50 - Vuvuzelas For Freedom
 
 The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
 
 Vuvuzelas For Freedom is an improper-named artifact. Understand "vuvuzela" or "uprising" or "bronze" or "plate" or "sidewalk" as Vuvuzelas For Freedom. Understand "commemorative" or "plaque" as Vuvuzelas For Freedom when the location is Vuvuzelas For Freedom. The printed name of Vuvuzelas for Freedom is "plaque". The title of Vuvuzelas for Freedom is "Vuvuzelas For Freedom".
 
-[Poison Ivy]
+Section 51 - Poison Ivy
 
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]"
 
 Toxicodendron radicans is an improper-named artifact. Understand "poison" or "ivy" or "poison ivy" or "sign" as Toxicodendron radicans. Understand "field" as Toxicodendron radicans when the location is Toxicodendron radicans. The printed name of Toxicodendron radicans is "field of poison ivy". The title of Toxicodendron radicans is "Toxicodendron radicans".
 
-[Perilous Passageway]
+Section 52 - Perilous Passageway
 
 The description of Perilous Passageway is "A disgusting passageway."
 
@@ -2106,8 +2106,7 @@ To say passage11:
 To say passage12:
 	move the player to the perilous passageway.
 
-
-Section Dealing with Quadrooms
+Section 53 - Dealing with Quadrooms
 
 Instead of taking a quadroom (called the QTH):
 	say "[The QTH] [are] not something you can take."
@@ -2130,7 +2129,7 @@ Before doing something with a quadroom (called the QTH) when the player is in th
 	otherwise:
 		continue the action.
 			
-Section Sticking to the Straight and Narrow
+Section 54 - Stick to the Straight and Narrow
 
 A direction can be blasphemous or orthodox. A direction is usually orthodox. Northeast, northwest, southeast, and southwest are blasphemous.
 
@@ -2146,7 +2145,7 @@ Before going a blasphemous direction when the location is in The Village:
 			bestow "No-cutting-corners";
 			stop the action.
 
-Section Borders
+Section 55 - Border Death Table
 
 Table of Border Deaths
 Place of Death	Number of Times Killed
@@ -2210,7 +2209,7 @@ Instead of going a bad idea direction (called the way):
 					say "You have an aversion to railroad tracks, so you remain where you are.";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 	
-Section Village Atmosphere
+Section 56 - Town Atmosphere
 
 OSWALDOBUSINESS is a list of text that varies. OSWALDOBUSINESS is {
 "Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone",
@@ -2242,7 +2241,7 @@ Section 1 - Region HQ
 
 HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Interns, Engineers, Managers, Packaging, and Processing are rooms in HQ.
 
-[Top Level, Interior]
+Section 2 - Cafeteria
 
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant."  The possible exits of the Cafeteria are "The [elevatorDoorDesc], the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]."
 
@@ -2319,6 +2318,8 @@ To say employeeRant2:
 	
 To say visitorRebuff:
 	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping]."
+	
+Section 3 - Snacks
 
 Snacks is northeast of the Cafeteria. The description of Snacks is "A poster above a table advertises every kind of pop-tart known to man, all of them glazed and sprinkled: strawberry, blueberry, raspberry, apple, chocolate, cranberry, and many more. Just above the table is a metal chute, which projects just a bit from the wall." The possible exits of Snacks are "The company cafeteria is to the southwest."
 
@@ -2384,6 +2385,8 @@ After eating a pop-tart:
 	say "After vivid dreams involving [one of]intelligent sessile polyps capable of taking over people[apostrophe]s minds[or]worship of a tiki god[or]the political aspirations of the three little pigs[or]giant cooing pigeons[or]swimming against the pull of a voracious whirlpool[or]a Pink Floyd tribute band consisting of the original cast of The Wizard of Oz[or]going bowling with Steve Jobs[or]the endless void[stopping], you awaken in the cafeteria.[paragraph break]No one really pays you any attention, but you notice that several hours have passed.";
 	move the player to the cafeteria;
 	newPopTart.
+	
+Section 4 - Beverages
 
 Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with coke, sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
 
@@ -2417,7 +2420,7 @@ Before taking or drinking a pop (called the liquid):
 After going southeast from beverages when the securityColor of the badge is green for the first time:
 	say "As you emerge from the beverage room, kool-aid dripping from your lips, one of the employees looks over towards you conspiratorily and gives you a little salute before returning to a trance-like state."
 
-[Mechanical Access Shaft]
+Section 5 - Mechanical Access Shaft
 
 The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, Somewhere Along The Ladder, and Bottom Rung are rooms in the Ladder Area.
 
@@ -2443,6 +2446,8 @@ Instead of climbing the ladderProxy:
 		try going down;
 	otherwise:
 		try going up.
+		
+Section 6 - Gearing Assembly
 
 The Gearing Assembly is outside from Gantry Chamber. The Gantry Chamber is south from the Gearing Assembly.
 
@@ -2481,6 +2486,8 @@ Instead of doing something with the ladderProxy when the player is in the Gearin
 	otherwise:
 		say "The ladder is just below this room. You would have to go down."
 	
+Section 7 - Boom Arm
+
 The boomArm is a privately-named backdrop in the Gearing Assembly and in the Gantry Chamber. The description of the boomArm is "A long metal boom that extends from the building, and suspends the cat almost 50 stories above street level." The printed name of the boomArm is "support boom". Understand "boom" or "support" as the boomArm
 
 The gears are plural-named scenery in the Gearing Assembly. The description of the gears is "Huge, greasy gears that move the room and its attached boom along a toothed track that circles the upper portion of the building, just below the observation deck." Understand "gear" or "assembly" or "transmission" as the gears.
@@ -2502,14 +2509,18 @@ The Top Of The Ladder is above Somewhere Along the Ladder. The description of To
 After going down from the Top Of The Ladder:
 	say "You descend further into the dark shaft."
 
+Section 8 - Somewhere Along The Ladder
+
 Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a lightsource], although there really isn[apostrophe]t all that much to see here, many stories below the top of the shaft."
 
 After going down from Somewhere Along The Ladder for the first time:
 	say "There’s good news and bad news.[paragraph break]The good news: you have reached the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
 
+Section 9 - Bottom Rung
+
 The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up hundreds of feet almost the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
 
-[Crawl Space]
+Section 10 - Crawl Space
 
 The Crawl Space is above the LAN Closet.  The description of the Crawl Space is "[crawlspaceDescription]."
 
@@ -2617,7 +2628,7 @@ Instead of opening the barrel when penlight is switched on:
 	say "As soon as you open the end cap, the light winks off.";
 	now the penlight is switched off.
 
-[Ground Floor]
+Section 11 - Lobby
 
 The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]." The lobby has a list of text called stage business.
 
@@ -2688,6 +2699,8 @@ The RevolvingDoor is inside of Nyantech Entrance. The RevolvingDoor is outside o
 Instead of going outside when the player is in the revolvingDoor:
 	say "The helpful (and mildly passive-aggressive) unicorn gives the door an extra kick, and the door spins even further.";
 	try going inside.
+	
+Section 12 - Securty Checkpoint
 
 The Security Checkpoint is south of the Lobby. The description of the security checkpoint is "A cordoned off area that looks like it was hastily added to the lobby without a lot of forethought. The main feature of the security area is the metal detector and x-ray machine." Understand "area" as the Security Checkpoint.
 
@@ -2725,6 +2738,8 @@ Instead of going south from the Lobby for the first time:
 Instead of going south from the Lobby:
 	say "The security nymph points to your property stamp and escorts you back to the lobby."
 	 
+Section 13 - LAN Closet
+
 The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The [if the LAN Closet Door is open]open[otherwise]shut[end if] white door to the LAN closet[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
 
 The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
@@ -2845,7 +2860,6 @@ Instead of going up from the LAN Closet for the first time:
 The CAT Control is  a scenery katatron in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
 
 
-
 The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" as the numerical counter.
 
 After examining the numerical counter:
@@ -2874,9 +2888,7 @@ Instead of pushing the plunger:
 		now onHoldFlag of the CAT Control is false;
 		say "The LEDs again start lighting in order, clockwise, slowly at first, but then resuming their previous pace. The PEC counter starts clicking over more rapidly as well."
 		
-
-
-[Basement]
+Section 14 - Legal Department
 
 The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
@@ -3049,6 +3061,8 @@ The LED is a thing. The LED is part of the remote. The description of the LED is
 
 The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position." 
 
+Section 15 - Welcome to Beta Testing
+
 Welcome to Beta Testing is south of the Beta Testing Door.  The description of Welcome to Beta Testing is "The room is brightly lit and the walls are covered with inspirational posters." The possible exits of Welcome to Beta Testing are "To the north is the door to the Legal Department office and to the south is a wide [if the Cousteau Door is closed]metal door[otherwise]door way[end if] leading to the Cousteau Room."
 
 The party hat is a wearable prop in Welcome to Beta Testing. The description of the party hat is "A brightly colored cardboard hat bearing the words [quotation mark]Yeah! Beta-Testing![quotation mark]."
@@ -3064,6 +3078,8 @@ After wearing the hat for the first time:
 	
 After wearing the hat:
 	say "You pop the hat onto your head at what you think is a rakish angle."
+	
+Section 16 - Cousteau Room
 	
 Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
 
@@ -3105,7 +3121,7 @@ Instead of taking off the wetsuit:
 	say "You perform a small dance and manage to take off the suit and are now carrying it[if the player wears the party hat]. As for the stylish party hat, you consciensiouly replace it atop your head[end if].";
 	now the player carries the wetsuit.
 	
-[Sub-Basement]
+Section 17 - Rick Astley Shrine
 
 The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
 
@@ -3142,16 +3158,21 @@ After wearing the walkman:
 To say A Ghastly Astley Lyric:
 	say "[one of]We[apostrophe]re no strangers to love[or]You know the rules and so do I[or]A full commitment[apostrophe]s what I[apostrophe]m thinking of[or]You wouldn[apostrophe]t get this from any other guy[or]I just wanna tell you how I[apostrophe]m feeling[or]Gotta make you understand[or]Never gonna give you up[or]Never gonna let you down[or]Never gonna run around and desert you[or]Never gonna make you cry[or]Never gonna say goodbye[or]Never gonna tell a lie and hurt you[or]We[apostrophe]ve known each other for so long[or]Your heart[apostrophe]s been aching, but[or]You[apostrophe]re too shy to say it[or]Inside, we both know what[apostrophe]s been going on[or]We know the game and we[apostrophe]re gonna play it[or]And if you ask me how I[apostrophe]m feeling[or]Don[apostrophe]t tell me you[apostrophe]re too blind to see[or](Ooh, give you up)[or]Never gonna give, never gonna give[or](Give you up)[in random order]".
 
-
-section 2 - Ball Pit
+Section 18 - Ball Pit
 
 The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
 	
 Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to keep your head above sea of colorful rubber balls."  The possible exits of Ball Pit are "The cafeteria is back to the west."
 
+Section 19 - Ball Pit Shallow
+
 BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface". The description of BallPitShallow is "Swimming through brightly colored rubber balls."
 
+Section 20 - Ball Pit Deep
+
 BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit". The description of BallPitDeep is "Far enough down in the ball pit that only dim rainbow-colored light filters down."
+
+Section 21 - Ball Pit Bottom
 
 BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "The Bottom Of The Ball Pit". "The dark depths of the ball pit."
 
@@ -3205,7 +3226,7 @@ Instead of going up when the player is in the BallPit Area:
 	otherwise:
 		say "You are already at the surface[one of] and despite your best effort, you are unable to levitate above it[or][stopping]."
 
-Section 3 - Stairwell
+Section 22 - Stairwell Layout
 
 To say shortEmergencyStairs:
 	say "emergency stairs"
@@ -3226,6 +3247,8 @@ To say stairwellDescription:
 	say "from here"
 
 The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are staircase rooms in the Stairwell. The Stairwell is in HQ.	
+
+Section 23 - Stairs -Ground
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
@@ -3234,11 +3257,17 @@ After going north from the lobby for the first time:
 
 The printed name of the StairsGround is "Emergency Stairs: Ground Level". The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
+Section 24 - Stairs - Basement
+
 The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
 
 The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The possible exits of StairsBasement is "To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
 
+Section 25 - Stairs - Sub-Basement
+
 The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The possible exits of StairsSB is "To the south there is a blue door with no label."
+
+Section 26 - Stairs - Sub-Sub-Basement
 
 The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the basementDoor.
 
@@ -3258,21 +3287,31 @@ The subSubBasementDoor is a red door. It is north of the Make Over Suite and sou
 
 The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Make Over Suite][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" or "subsubbasement" as the subSubBasementDoor.
 
+Section 27 - Stairs - Interns
+
 The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
 
 The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The possible exits of StairsInterns is "To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
+
+Section 28 - Stairs - Engineers
 
 The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineering offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
 The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The possible exits of StairsEngineers are "To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
 
+Section 29 - Stairs - Managers
+
 The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managerial offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
 The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The possible exits of StairsManagers is "To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
 
+Section 30 - Stairs -  Infirmary
+
 The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The possible exits of StairsInfirmary is "To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
 
 The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printed name of the infirmaryDoor is "pink [shortDoorToThe] infirmary". Understand "pink" or "door" or "infirmary" or "emergency" or "stairs" as the infirmaryDoor
+
+Section 31 - Stairs -  Processing
 
 The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". 
 
@@ -3306,6 +3345,8 @@ After going down from the StairsPackaging:
 		say ". [one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewher in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
 	say "."
 	
+Section 32 - Stairs -  Packaging
+	
 The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". 
 
 Instead of going a direction (called the way) when the player is in the StairsPackaging or the player is in the StairsProcessing:
@@ -3331,9 +3372,15 @@ To say printedRoofDoor:
 After going south from the stairsRoof for the first time:
 	bestow "Made it to the top".          
 	
+Section Processing
+
 Processing is a room.
 
+Section Packaging
+
 Packaging is a room. 
+
+Section Interns
 
 Interns is a room. 
 
@@ -3343,9 +3390,13 @@ To say fromElevator:
 [TODO Example floor description for the three employee levels]
 internsProxy are a workerProxy. internsProxy are in the void. The description of a internsProxy is "[fromElevator][entry 1 of the WPLIST of internsProxy]." Understand "intern" or "interns" or "employee" or "employees" or "worker" or "workers" as the internsProxy. The WPLIST of internsProxy is {"a roiling mass of interns playing three-dimensional twister to the accompaniment of a driving disco beat", "interns running around in leotards and dancing in a stream of bubbles"}. The printed name of the internsProxy is "interns".
 
+Section Engineers
+
 Engineers is a room. 
 
 engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychodelic patterns and text", "bolts of lightning richocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
+
+Section Managers
 
 Managers is a room.
 
@@ -3354,7 +3405,7 @@ managersProxy are a workerProxy. managersProxy are in the void. The description 
 Instead of doing something other than examining with a workerProxy:
 	say "You would have to exit the elevator here to do that."
 
-Section 4 - Deck
+Section 33 - Deck
 
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
@@ -3507,13 +3558,12 @@ Instead of climbing the railing when the player is in the deck area:
 Instead of going down from deckS:
 	try jumping.
 
-Section 5 - Cat
+Section 34 - Cat Region
 
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
 
-
-Section 6 - Cat Navigation
+Section 35 - Cat Navigation
 
 [Based on Recipe 42: Example Fore]
 
@@ -3546,7 +3596,7 @@ Instead of going starboard, say noLateral.
 
 Instead of going port, say noLateral.
 
-Section 7 - Cat OverheadProxies
+Section 36 - Cat OverheadProxies
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
 To decide whether the cat is visible from overhead:
@@ -3628,13 +3678,15 @@ Before doing something other than examining with a catTopDrop (called the QTH):
 		say "You would have to walk over to [the QTH].";
 		the rule fails.
 
-Section 8 - Cat Layout
+Section 37 - Cat View
 
 Definition: A room is cat-top if it is the Cat's Beret or it is the Maintenance Hatch or it is The Catwalk or it is the Poop Deck.
 
 After deciding the scope of the player while the player is in a cat-top room:
 	repeat with R running through the list of sud quadrooms:
 		place R in scope.
+		
+Section 38 - Cat's Beret
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
 
@@ -3642,6 +3694,8 @@ The possible exits of the Cat's Beret are "The only way to go from here [one of]
 
 Instead of going up from the Cat's Beret:
 	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping]."
+	
+Section 39 - Maintenance Hatch
 
 Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
@@ -3676,6 +3730,8 @@ Instead of pushing the hatchway:
 			complain that the hatchway is already closed;
 		otherwise:
 			try closing the hatchway.
+			
+Section 40 - Catwalk
 
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
@@ -3693,6 +3749,8 @@ Instead of eating the pop-tart shingles for the first time:
 	bestow "Wow. Just wow."
 
 Instead of doing something other than examining with the pop-tart shingles, say "They are tantalizingly out of reach."
+
+Section 41 - Poop Deck
 
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
@@ -3713,6 +3771,8 @@ Instead of taking the sparks for the first time:
 	
 Instead of doing something other than examining with the sparks:
 	say "They are too hot to handle."
+	
+Section 42 - Captain's Cabin
 	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
 "Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
@@ -3778,6 +3838,8 @@ Instead of putting something (called the item) on the hammock:
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
 
+Section 43 - Gantry Chamber
+
 Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain’s cabin."
 
 Every turn when the player is in the Gantry Chamber:
@@ -3790,6 +3852,8 @@ After going outside from the Gantry Chamber for the first time:
 	
 After going outside from the Gantry Chamber:
 	say "You make a beeline for the Gearing Assembly chamber at the other end."
+	
+Section 44 - Cat Head
 	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
