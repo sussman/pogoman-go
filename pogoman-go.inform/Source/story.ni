@@ -5426,7 +5426,29 @@ Before going a blasphemous direction when the location is Pogoland:
 	say "[one of]The town seems to be laid out with avenues and streets running north-south and east-west. Going diagonally isn[apostrophe]t an option[or]You can[apostrophe]t go that way[stopping].";
 	stop the action.
 
+Chapter Gym Fight
+
+Section 1 - Gym Interior
+
+The gymnasium is a room. The description of the gymnasium is "A typical pogogym, the light streaming in from high windows accentuates the griminess of the worm gym mats." The possible exits of the gymnasium are "You don[apostrophe]t see any doors leading out of the gym." Understand "gym" as gymnasium.
+
+The rope is in the gymnasium. The description of the rope is "A thick natural fiber rope that hangs down from the ceiling off to one side of the gym."
+
+The gymceiling is privately-named scenery. The gymceiling is in the gymnasium. The printed name of the gymceiling is "ceiling". The description of the gymceiling is "A high ceiling supported by metal beams." Understand "beams" or "ceiling" or "roof" as the gymceiling.
+
+Instead of climbing the rope:
+	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.";
+	move the player to the Dojo.
 	
+Instead of going up in the gymnasium:
+	try climbing the rope.
+	
+
+	
+
+
+
+
 
 
 Chapter The Void
