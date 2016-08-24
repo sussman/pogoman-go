@@ -96,15 +96,15 @@ Section 3 - Pogo Items
 
 A pogothing is a kind of thing.
 
-A Pogoball-kind is a kind of pogothing.  The description is "It's a cheap mass-produced red and white plastic ball.".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
+A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoballs at them[or][stopping].".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
 
-A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
+A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in[one of]. Use pogometh to heal (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
 A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg [one of](drop the egg to hatch it)[or][stopping]." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
-A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
+A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc[one of]. Burn the incense to activate it[or][stopping]." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
 
 To decrement (item - a pogothing) count:
 	let N be 0;
@@ -245,13 +245,32 @@ Instead of throwing a pogothing (called the item) at something:
 Instead of inserting a pogothing (called the item) into something:
 	try dropping the item.
 	
-Instead of touching a pogothing (called the item):
-	if Around the Town is happening:
-		say "You can[apostrophe]t of course, because [the item] is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence.";
-	otherwise:
-		continue the action.
+Instead of touching a pogothing when Around the Town is happening for the first time:
+	say "[notReal][paragraph break]";
+	bestow "Harsh Reality".
 		
-Section 4 - Pogometh
+To say notReal:
+	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence."
+	
+Instead of touching a pogothing when Around the Town is happening:
+	say notReal.
+	
+Instead of eating pogochum:
+	if Around the Town is happening:
+		try touching the pogochum;
+	otherwise:
+		say "[one of]It must be an acquired taste, because this time, it is not too bad[or]You find yourself rather enjoying pogochum[or]This is some fine pogochum[or]Musk is a genius! This stuff is awesome[or]Where has pogochum been all your life. You can[apostrophe]t get enough[or]Mmm. Pogochum[stopping].";
+		decrement pogochum count.						
+				
+Instead of eating pogochum when Not In Kansas Anymore is happening for the first time:
+	say "Hm. Kind of tasty, actually. Like sushi, but a bit more rangy.[paragraph break]";
+	bestow "Best not to think about what you just put in your mouth";
+	decrement pogochum count.
+	
+Instead of eating the pogoball:
+	say "While red and round, they are not apples[one of]. This oral fixation is only going to get you in trouble[or][stopping]."
+		
+Section 4 - The Wonderful World of Pogometh
 
 Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first time:
 	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
@@ -298,9 +317,32 @@ After touching when the PogoMeth is trippy:
 	
 To say alteredTouch:
 	say "You touch [the noun] all over the place".
+	
+Section 5 - Incense
 
+Instead of burning incense:
+	If Around The Town is happening:
+		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admittedly virtual pogomen to you[or][stopping].";
+		decrement the pogoIncense count;
+		now the pogoIncense is ignited;
+		Incense dissipates in five turns from now;
+	else if Exploring The Tower is happening:
+		say "This is prohibited by Nyantech's strict smoke-free workplace policy.";
+	else:
+		say "You light up some incense and are immediately engulfed in a thick cloud of sickeningly sweet smoke. With a bit of coughing, you wave it away, but the smell lingers for a while.";
+		decrement the pogoIncense count;
+		now the pogoIncense is ignited;
+		Incense dissipates in five turns from now.
+	
+At the time when Incense dissipates:
+	say "The incense wears off[one of]; pogomen no longer find you quite so attractive[or][stopping].";
+	now the pogoIncense is not ignited.
+	
+Instead of switching on pogoincense:
+	try burning the pogoincense.
+	
 
-Section 5 - Pogostops
+Section 6 - Pogostops
 
 The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
 
@@ -320,7 +362,7 @@ Instead of taking the pogostop for the first time:
 Instead of taking a pogostop:
 	say "You can[apostrophe]t."
 	
-Section 6 - Gyms
+Section 7 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
 
@@ -367,7 +409,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
 	say "TODO: General Gym Battle Simulation HERE."
 	
-Section 7 - Pogomen
+Section 8 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
 Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rhat, plague vermin, and rodentikor.
@@ -467,14 +509,14 @@ Understand "Unbleached Titanium" or "Titanium" or "Unbleached" as the defenderPo
 
 JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
 
-Section 8 - Generate Pogomen
+Section 9 - Generate Pogomen
 
 To generate a pogoman:
 	move attackerPogoman to the location of the player;
 	now the type of attackerPogoman is a random pogotype;
 	now the attackerPogoman is not injured.
 
-Section 9 - Capture Pogomen
+Section 10 - Capture Pogomen
 
 Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
 
@@ -512,7 +554,7 @@ Instead of throwing a pogoball at something (called the target):
 	if the pogoballsCarried of the player is 0:
 		move the pogoball to the void.
 		
-section 10 - PogoInventory
+section 11 - PogoInventory
 	
 After taking inventory:
 	follow the pogo-inventory rule.
@@ -599,12 +641,12 @@ After transferring a pogoentity for the first time, bestow "Practicality in mana
 ]
 
 
-section 11 - Spawning
+section 12 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
 
-section 12 - Commands operating on pogomen in inventory
+section 13 - Commands operating on pogomen in inventory
 [these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
 
 InventoryDropping is an action applying to one pogotype.
@@ -1432,54 +1474,6 @@ Carry out spawning:
 Report spawning:
 	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][type of attackerPogoman] appears!"
 			
-Section 10 - Test Objects
-
-
-[The testPogoMeth is an edible prop. The testPogoMeth is in the void. The description of the testPogoMeth is "A pogometh stand-in TODO: remove me from the game prior to release." The testPogoMeth can be trippy. The testPogoMeth is not trippy.
-
-After eating testPogoMeth when Not in Kansas Anymore is happening for the first time:
-	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
-	now the testPogoMeth is trippy;
-	the trip ends in five turns from now;
-	bestow "Iatrogenically Induced Synesthesia".
-	
-After eating testPogoMeth when Not in Kansas Anymore is happening:
-	say "Dude. You feel much better."
-	
-At the time when the trip ends:
-	say "The mind-altering effects of the pogometh seem to have worn off.";
-	now the testPogoMeth is not trippy.
-	
-Instead of smelling when the testPogoMeth is trippy for the first time:
-	say "You are assaulted by the world of scents.[paragraph break]";
-	bestow "Smell-O-Vision".
-	
-After tasting when the testPogoMeth is trippy for the first time:
-	say "[alteredTaste].[paragraph break]";
-	bestow "Sorry, Charlie. Tasty Is Not The Goal".
-	
-After tasting when the testPogoMeth is trippy:
-	say "[alteredTaste]."
-	
-To say alteredTaste:
-	say "Mmm. Tastes like [one of]chicken[or]turkish delight[or]marmelade[or]vegemite[or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzepam might have cooked up[in random order]";
-	
-Instead of listening when the testPogoMeth is trippy for the first time:
-	say "You hear nothing but the rain.[paragraph break]";
-	bestow "The Grab Your Gun and Bring In The Cat".
-	
-After examining when the testPogoMeth is trippy for the first time:
-	bestow "Reality Distortion Field Is Go".
-	
-After touching when the testPogoMeth is trippy for the first time:
-	say "[alteredTouch].[paragraph break]";
-	bestow "This Touching Moment Brought To You By Hallmark".
-	
-After touching when the testPogoMeth is trippy:
-	say "[The noun] feels [one of]bumpy[or]squishy[or]ridged[or]wispy[or]feathery[or]sharp[or]velvety[or]creamy[or]cold[or]solid[in random order]."
-	
-To say alteredTouch:
-	say "You touch [the noun] all over the place".]
 
 Chapter Initialize
 
@@ -5656,7 +5650,7 @@ The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
 The Void contains a Pogometh-kind called PogoMeth. PogoMeth is edible. PogoMeth can be trippy. PogoMeth is not trippy.
 The Void contains a Pogoegg-kind called PogoEgg.
-The Void contains a PogoIncense-kind called PogoIncense.
+The Void contains a PogoIncense-kind called PogoIncense. PogoIncense can be ignited. PogoIncense is not ignited.
 
 Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing.
 
