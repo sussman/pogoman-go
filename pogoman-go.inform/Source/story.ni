@@ -412,7 +412,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Section 8 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
-Pogotype is a kind of value. The pogotypes are edator, vicore, emaks, plague rhat, plague vermin, and rodentikor.
+Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonux, and rodentikor.
 
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
  When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
@@ -440,15 +440,15 @@ Table of Creatures
 pogomanName	pogoDescription
 edator	"A creature of note"
 vicore	"Simple and clean, covered with lines"
-emaks	"A buffed and buffered creature"
-plague rhat	"A mysterious rodent of a vermininous nature"
-plague vermin	"A rodent with extra poison"
+emak	"A buffed and buffered creature"
+plaigrhat	"A mysterious rodent of a vermininous nature"
+vermonux	"A rodent with extra poison"
 rodentikor	"Too much rodent for mortals to handle"
 
 Table of Evolution
 Original	Ev2	Ev3
-edator	vicore	emaks
-plague rhat	plague vermin	rodentikor
+edator	vicore	emak
+plaigrhat	vermonux	rodentikor
 	
 Table of Inventory
 pogoName (a pogotype)	wounded (a truth state)
@@ -486,12 +486,12 @@ Understand "edator" as attackerPogoman when the type of attackerPogoman is edato
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
 Understand "vicore" as attackerPogoman when the type of attackerPogoman is vicore.
 Understand "vicore" as the defenderPogoman when the type of defenderPogoman is vicore.
-Understand "emaks" as attackerPogoman when the type of attackerPogoman is emaks.
-Understand "emaks" as the defenderPogoman when the type of defenderPogoman is emaks.
-Understand "plague rhat" as attackerPogoman when the type of attackerPogoman is plague rhat.
-Understand "plague rhat" as the defenderPogoman when the type of defenderPogoman is plague rhat.
-Understand "plague vermin" as attackerPogoman when the type of attackerPogoman is plague vermin.
-Understand "plague vermin" as the defenderPogoman when the type of defenderPogoman is plague vermin.
+Understand "emak" as attackerPogoman when the type of attackerPogoman is emak.
+Understand "emak" as the defenderPogoman when the type of defenderPogoman is emak.
+Understand "plaigrhat" as attackerPogoman when the type of attackerPogoman is plaigrhat.
+Understand "plaigrhat" as the defenderPogoman when the type of defenderPogoman is plaigrhat.
+Understand "vermonux" as attackerPogoman when the type of attackerPogoman is vermonux.
+Understand "vermonux" as the defenderPogoman when the type of defenderPogoman is vermonux.
 Understand "rodentikor" as attackerPogoman when the type of attackerPogoman is rodentikor.
 Understand "rodentikor" as the defenderPogoman when the type of defenderPogoman is rodentikor.
 
@@ -512,9 +512,9 @@ JACK: The number of things we do with pogomen in inventory is very limited: drop
 Section 9 - Generate Pogomen
 
 To generate a pogoman:
-	move attackerPogoman to the location of the player;
 	now the type of attackerPogoman is a random pogotype;
-	now the attackerPogoman is not injured.
+	now the attackerPogoman is not injured;
+	move attackerPogoman to the location of the player.
 
 Section 10 - Capture Pogomen
 
@@ -702,6 +702,14 @@ GYM_VICTORY_XP_VALUE is always 300.
 CHUMMING_XP_VALUE is always 10.
 EGG_HATCH_XP_VALUE is always 25.
 
+POGOMAN_GENERATION_DELAY is always 3. [how many turns before pogomen show up
+]
+[likelihood of encountering a pogoman is encounter_value * incense effect out of 100]
+INCENSE_EFFECT_VALUE is always 2.
+PREPOGO_ENCOUNTER_VALUE is always 10.
+POGO_ENCOUNTER_VALUE is always 10.
+
+
 
 SPECIAL_ATTACK_XP_COST is always 100.
 
@@ -729,6 +737,7 @@ Chapter Declare Global Variables
 
 SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
 The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
+The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
 
 [lists - because Jack loves lists]
 
@@ -933,18 +942,19 @@ After going from somewhere:
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
-	if the pogostop is in the locale or the gym is in the locale:
-		say "The ";
-	if the pogostop is in the locale:
-		say header of the locale;
-		say " pogostop";
-	otherwise:
-		if the gym is in the locale:
-			say color of the locale;
-			say " Gym";
-	if the pogostop is in the locale or the gym is in the locale:
-		say " is here."
-
+	if the player is in the village:
+		if the pogostop is in the locale or the gym is in the locale:
+			say "The ";
+		if the pogostop is in the locale:
+			say header of the locale;
+			say " pogostop";
+		otherwise:
+			if the gym is in the locale:
+				say color of the locale;
+				say " Gym";
+		if the pogostop is in the locale or the gym is in the locale:
+			say " is here.".
+	
 Chapter Activities
 
 Section ShowStatus
@@ -1495,6 +1505,7 @@ When play begins:
 To openGame:
 	let startRoom be a random okayStartLocation;
 	move the player to startRoom, without printing a room description;
+	now the previousRoom of the player is startRoom;
 	generate a pogoman;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
@@ -1603,6 +1614,7 @@ Chapter Every Turn
 
 
 Every turn:	
+	follow the pogoman apparition rule;
 	if the current action is looking or going:
 		if the phone is not hung:
 			follow the list exits rule;
@@ -1629,6 +1641,36 @@ Every turn when Exploring the Tower is happening:
 		if the numerical counter is handled:
 			bestow "You sick puppy: [megaCats of the CAT Control] Cat Rotations!";
 		increase megaCats of the CAT Control by 4000000.
+
+Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom.
+
+This is the pogoman apparition rule:
+	if the previousRoom of the player is not the location of the player:
+		move the attackerPogoman to the void;
+		move the defenderPogoman to the void;
+	if the BLOCKPOGOMANFLAG is true:
+		the rule fails;
+	if the location of the player is pogoman interdicted:
+		the rule fails;
+	if the attackerPogoman is in the location of the player:
+		the rule fails;
+	if Denouement is happening:
+		the rule fails;
+	if Not In Kansas Anymore is happening:
+		let N be POGO_ENCOUNTER_VALUE;
+		if the pogoIncense is ignited:
+			let N be N times INCENSE_EFFECT_VALUE;
+		if a random chance of N in 100 succeeds:
+			generate a pogoman;
+			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared!";
+	otherwise:
+		let N be PREPOGO_ENCOUNTER_VALUE;
+		if the pogoIncense is ignited:
+			let N be N times INCENSE_EFFECT_VALUE;
+		if a random chance of N in 100 succeeds:
+			generate a pogoman;
+			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [type of the attackerPogoman] appears!".
+
 		
 
 Book 2 - Places
@@ -2122,7 +2164,7 @@ The description of Battle of Margot's Pantry is "The Descendants of Posterity ha
 
 Section 32 - Gas Station Gazebo
 
-The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] Wht is it with gas stations and gazebos?[or][stopping]".  Gas Station Gazebo is an improper-named artifact. Understand "building"  as Gas Station Gazebo when the location is Gas Station Gazebo. The title of Gas Station Gazebo is "Gas Station Gazebo". The printed name of Gas Station Gazebo is "gazebo".
+The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] What is it with gas stations and gazebos?[or][stopping]".  Gas Station Gazebo is an improper-named artifact. Understand "building"  as Gas Station Gazebo when the location is Gas Station Gazebo. The title of Gas Station Gazebo is "Gas Station Gazebo". The printed name of Gas Station Gazebo is "gazebo".
 
 Section 33 - Dung Beetle Mural
 
@@ -5847,39 +5889,6 @@ The list of text called ASCII_NUMBERS is always {
 "       888888888[line break]     88:::::::::88[line break]   88:::::::::::::88[line break]  8::::::88888::::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]   8:::::88888:::::8[line break]    8:::::::::::::8[line break]   8:::::88888:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8::::::88888::::::8[line break]   88:::::::::::::88[line break]     88:::::::::88[line break]       888888888[line break]",  
 "       999999999[line break]     99:::::::::99[line break]   99:::::::::::::99[line break]  9::::::99999::::::9[line break]  9:::::9     9:::::9[line break]  9:::::9     9:::::9[line break]   9:::::99999::::::9[line break]    99::::::::::::::9[line break]      99999::::::::9[line break]           9::::::9[line break]          9::::::9[line break]         9::::::9[line break]        9::::::9[line break]       9::::::9[line break]      9::::::9[line break]     99999999[line break]"
 }
-
-
-	
-
-
-
-Chapter 2 Text
-
-To say asciiPogoBall:
-	say "[fixed letter spacing]";
-	say "────────▄███████████▄────────[line break]";
-	say "─────▄███▓▓▓▓▓▓▓▓▓▓▓███▄─────[line break]";
-	say "────███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███────[line break]";
-	say "───██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██───[line break]";
-	say "──██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██──[line break]";
-	say "─██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██─[line break]";
-	say "██▓▓▓▓▓▓▓▓▓███████▓▓▓▓▓▓▓▓▓██[line break]";
-	say "██▓▓▓▓▓▓▓▓██░░░░░██▓▓▓▓▓▓▓▓██[line break]";	
-	say "██▓▓▓▓▓▓▓██░░███░░██▓▓▓▓▓▓▓██[line break]"; 
-	say "███████████░░███░░███████████[line break]";
-	say "██░░░░░░░██░░███░░██░░░░░░░██[line break]";
-	say "██░░░░░░░░██░░░░░██░░░░░░░░██[line break]";
-	say "██░░░░░░░░░███████░░░░░░░░░██[line break]";
-	say "─██░░░░░░░░░░░░░░░░░░░░░░░██─[line break]";
-	say "──██░░░░░░░░░░░░░░░░░░░░░██──[line break]";
-	say "───██░░░░░░░░░░░░░░░░░░░██───[line break]";
-	say "────███░░░░░░░░░░░░░░░███────[line break]";
-	say "─────▀███░░░░░░░░░░░███▀─────[line break]";
-	say "────────▀███████████▀────────[paragraph break]";
-	say "[variable letter spacing]";
-
-To say openingText:
-	say asciiPogoBall.
 
 
 Book 6 - Endings
