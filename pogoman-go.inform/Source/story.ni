@@ -426,42 +426,96 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	say "And then the game freezes.";
 	freeze the phone.
 	
+
+	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
 	sort the Table of Inventory in wounded order;
+	sort the Table of Inventory in pogoName order;
 	if there is no pogoName in row 1 of the Table of Inventory:
 		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen.";
 		bestow "Poor Gym Etiquette";
 		stop the action;
 	otherwise:
 		let LAST be 100;
-		let CHOSEN be a pogotype;
+		let SELECTED be 1;
+		let DONE be false;
 		repeat with N running from 1 to the number of rows in Table of Inventory:
 			if there is no pogoName in row N of the Table of Inventory:
 				let LAST be N minus 1;
 				break;
 		repeat with N running from 1 to LAST:[choose high to low evolution, the same but with wounded]
-			if the pogoName in row N of the Table of Inventory is an EV3 listed in the Table of Evolution and the wounded in row N of the Table of Inventory is false:
-				let CHOSEN be the pogoName in row N of the Table of Inventory;
+			if the pogoName in row N of the Table of Inventory is third level and the wounded in row N of the Table of Inventory is false:
+				let SELECTED be N;
+				let DONE be true;
 				break;
-			else if pogoName in row N of the Table of Inventory is an EV2 listed in the Table of Evolution and the wounded in row N of the Table of Inventory is false:
-				let CHOSEN be the pogoName in row N of the Table of Inventory;
-				break;
-			else if pogoName in row N of the Table of Inventory is an original listed in the Table of Evolution and the wounded in row N of the Table of Inventory is false:
-				let CHOSEN be the pogoName in row N of the Table of Inventory;
-				break;
-			else if the pogoName in row N of the Table of Inventory is an EV3 listed in the Table of Evolution:
-				let CHOSEN be the pogoName in row N of the Table of Inventory;
-				break;
-			else if the pogoName in row N of the Table of Inventory is an EV2 listed in the Table of Evolution:
-				let CHOSEN be the pogoName in row N of the Table of Inventory;
-				break;
-			else if the pogoName in row N of the Table of Inventory is an original listed in the Table of Evolution:
-				let CHOSEN be the pogoName in row N of the Table of Inventory;
-				break;
-		say "You say, [quotation mark]";
-		say "[CHOSEN]" in Title Case;
-		say ", I choose you![paragraph break]".
-				
+		if DONE is false:
+			repeat with N running from 1 to LAST:
+				if the pogoName in row N of the Table of Inventory is second level and the wounded in row N of the Table of Inventory is false:
+					let SELECTED be N;
+					let DONE be true;
+					break;
+		else if DONE is false:
+			repeat with N running from 1 to LAST:
+				if the pogoName in row N of the Table of Inventory is first level and the wounded in row N of the Table of Inventory is false:
+					let SELECTED be N;
+					let DONE be true;
+					break;
+		else if DONE is false:
+			repeat with N running from 1 to LAST:
+				if the pogoName in row N of the Table of Inventory is third level:
+					let SELECTED be N;
+					let DONE be true;
+					break;
+		else if DONE is false:
+			repeat with N running from 1 to LAST:
+				if the pogoName in row N of the Table of Inventory is second level:
+					let SELECTED be N;
+					let DONE be true;
+					break;
+		else if DONE is false:
+			let SELECTED be 1;
+		let CHOSEN be the pogoName in row SELECTED of the Table of Inventory;
+		let CHOSEN-W be the wounded in row SELECTED of the Table of Inventory;
+		let P be a random pogotype;
+		let P-DEF be 0;
+		if P is first level:
+			let P-DEF be OFFENSIVE_RATING_EVO1;
+		else if P is second level:
+			let P-DEF be OFFENSIVE_RATING_EVO2;
+		else:
+			let P-DEF be OFFENSIVE_RATING_EVO3;
+		let P-DEF be P-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
+		say "DEBUG: PDEF [P-DEF][line break]";
+		let CHOSEN-DEF be 0;
+		if CHOSEN is first level:
+			let CHOSEN-DEF be OFFENSIVE_RATING_EVO1;
+		else if CHOSEN is second level:
+			let CHOSEN-DEF be OFFENSIVE_RATING_EVO2;
+		else:
+			let CHOSEN-DEF be OFFENSIVE_RATING_EVO3;
+		let CHOSEN-DEF be CHOSEN-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
+		if CHOSEN-W is true:
+			let CHOSEN-DEF be CHOSEN-DEF minus WOUNDED_PENALTY;
+		say "DEBUG: CHOSENDEF [CHOSEN-DEF][line break]";
+		let PP be "[P]" in Title Case;
+		let CCHOSEN be "[CHOSEN]" in Title Case;
+		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] squeezing the life out of its opponent. [if P-DEF is greater than CHOSEN-DEF]The opponent [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
+		choose row SELECTED in the Table of Inventory;
+		if P-DEF is greater than CHOSEN-DEF:
+			blank out the whole row;
+			say "[one of][loserDurge][or][stopping]";
+		otherwise:
+			now the wounded entry is true;
+			say "[one of][chickenDinner][or][stopping]".
+			
+To say loserDurge:
+	say "[line break]You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain [GYM_LOSS_XP_VALUE] XP![paragraph break]";
+	bestow "Their Pain; Your Gain".
+	
+To say chickenDinner:
+	say "[line break]You win! Yes, your pogoman is mildly injured, but you gain [GYM_VICTORY_XP_VALUE] XP, and more importantly, a coveted Gym Trophy![paragraph break]";
+	bestow "Shiny!".
+			
 			
 	
 Section 8 - Pogomen
@@ -499,6 +553,10 @@ emak	"A buffed and buffered creature"
 plaigrhat	"A mysterious rodent of a vermininous nature"
 vermonux	"A rodent with extra poison"
 rodentikor	"Too much rodent for mortals to handle"
+
+Definition: A pogotype is first level if it is an original listed in the Table of Evolution.
+Definition: A pogotype is second level if it is an ev2 listed in the Table of Evolution.
+Definition: A pogotype is third level if it is an ev3 listed in the Table of Evolution.
 
 Table of Evolution
 Original	Ev2	Ev3
@@ -606,11 +664,11 @@ Instead of throwing a pogoball at something (called the target):
 					break;
 		[Does the ball hit the target?]
 		let DIFFICULTY be 100;
-		if the type of target is an original listed in the Table of Evolution:
+		if the type of target is first level:
 			let DIFFICULTY be CAPTURE_EVOL1_DIFFICULTY;
-		else if type of target is an Ev2 listed in the Table of Evolution:
+		else if type of target is second level:
 			let DIFFICULTY be CAPTURE_EVOL2_DIFFICULTY;
-		else if type of target is an Ev3 listed in the Table of Evolution:
+		else if type of target is third level:
 			let DIFFICULTY be CAPTURE_EVOL3_DIFFICULTY;
 		if FIRSTTHROW is true:
 			let DIFFICULTY be 100;
@@ -778,6 +836,7 @@ MAX_TOWN_POGOSTOPS is always 9.
 MIN_TOWN_GYMS is always 2.
 MAX_TOWN_GYMS is always 4.
 
+[TODO: add a universal timer and quadrooms have a timestamp property; lockout pogostops per room]
 POGOSTOP_TIMEOUT_DURATION is always 10.
 
 MEDAL_XP_VALUE is always 10.
@@ -787,6 +846,7 @@ CAPTURE_XP_VALUE is always 100.
 INCENSE_XP_VALUE is always 10.
 TRANSFER_XP_VALUE is always 20.
 GYM_VICTORY_XP_VALUE is always 300.
+GYM_LOSS_XP_VALUE is always 50.
 CHUMMING_XP_VALUE is always 10.
 EGG_HATCH_XP_VALUE is always 25.
 
@@ -800,7 +860,13 @@ POGO_ENCOUNTER_VALUE is always 10.
 [Difficulty for capturing items with pogoball, always out of 100]
 CAPTURE_EVOL1_DIFFICULTY is always 80.
 CAPTURE_EVOL2_DIFFICULTY is always 60.
-CAPTURE_EVOL3_DIFFICULTY is always 40
+CAPTURE_EVOL3_DIFFICULTY is always 40.
+
+OFFENSIVE_RATING_EVO1 is always 30.
+OFFENSIVE_RATING_EVO2 is always 50.
+OFFENSIVE_RATING_EVO3 is always 70.
+WOUNDED_PENALTY is always 25.
+FIGHT_RANDOMNESS is always 40.
 
 SPECIAL_ATTACK_XP_COST is always 100.
 
@@ -1799,13 +1865,13 @@ After deciding the scope of a player while the player is in a quadroom (called t
 	
 Nyantech Entrance is a room.
 
-Old Jail, Dung Beetle Mural, Witch Pillory, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
+Old Jail, Dung Beetle Mural, Witch Pillory, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
 
 Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
 
 Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
 
-General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
+General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
 
 The Reservoir is a nord quadroom. The Reservoir is north from Dung Beetle Mural. The Reservoir is north from Witch Pillory. The Reservoir is north from Old Jail. The Reservoir is north from Johnson's Rock. The Reservoir is north from General Nelson. The Reservoir is north from Church of the Orthogonal Sticks. The Reservoir is north from Crystal Skull. 
 
@@ -1866,7 +1932,7 @@ General Nelson is west of Church of the Orthogonal Sticks and north of Yummi Tum
 Church of the Orthogonal Sticks is west of Crystal Skull and north of Giant Chicken.
 Crystal Skull is north of Telescope Nymph.  
 
-Giant Chicken is west of Telescope Nymph and north of Welbourne Travel.
+Giant Chicken is west of Telescope Nymph and north of Welbourn Travel.
 Yummi Tummi Softserve is west of Giant Chicken and north of The Gardens of Zarf.
 City Park is west of Yummi Tummi Softserve and north of Hook & Ladder.
 Old Courthouse is west of City Park and north of Spit n' Solder.
@@ -1874,8 +1940,8 @@ Flag Pole is west of Old Courthouse and north of Service Dog Memorial.
 Cyclorama is west of Flag Pole and north of Unfathomable Orb.
 Telescope Nymph is north of Dog Exercise Area.
 
-Welbourne Travel is west of Dog Exercise Area and north of Floyd Memorial Bench.
-The Gardens of Zarf is west of Welbourne Travel and north of Rotary Clock Tower.
+Welbourn Travel is west of Dog Exercise Area and north of Floyd Memorial Bench.
+The Gardens of Zarf is west of Welbourn Travel and north of Rotary Clock Tower.
 Hook and & Ladder is west of The Gardens of Zarf and north of Nyantech Entrance.
 Spit n' Solder is west of Hook & Ladder and north of Prissy's Little Sausages.
 Service Dog Memorial is west of Spit n' Solder and north of Krusty Kronuts.
@@ -1913,7 +1979,7 @@ Garden Gnome Without Head is west of Found Art.
 MarkerSeven is west of Garden Gnome Without Head.
 Unearthly Geometry is west of MarkerSeven.
 
-The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourne Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
+The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
 Section 2 - Location-specific elements in The Village
 
@@ -2149,9 +2215,9 @@ The description of Giant Chicken is "A giant chicken statue made of recycled swi
 
 The swizzle sticks are scenery in Giant Chicken. The description of the swizzle-sticks is "How many drinks must have been stirred in this effort?"
 
-Section 17 - Welbourne Travel
+Section 17 - Welbourn Travel
 
-The description of Welbourne Travel is "Maps of various adventures fill the windows of this travel agency." Welbourne Travel is an improper-named structure. The printed name of Welbourne Travel is "Welbourne Travel Agency". Understand "agency" as Welbourne Travel. Understand "building" or "store" as Welbourne Travel when the location is Welbourne Travel. The printed name of Welbourne Travel is "Welbourne Travel Agency". The title of Welbourne Travel is "Welbourne Travel". 
+The description of Welbourn Travel is "Maps of various adventures fill the windows of this travel agency." Welbourn Travel is an improper-named structure. The printed name of Welbourn Travel is "Welbourn Travel Agency". Understand "agency" as Welbourn Travel. Understand "building" or "store" as Welbourn Travel when the location is Welbourn Travel. The printed name of Welbourn Travel is "Welbourn Travel Agency". The title of Welbourn Travel is "Welbourn Travel". 
 
 Section 18 - Hook & Ladder
 
