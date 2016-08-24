@@ -124,7 +124,6 @@ To decrement (item - a pogothing) count:
 		-- pogoEgg:
 			decrease pogoEggsCarried of the player by one;
 			let N be pogoEggsCarried of the player;
-	say line break;
 	if N is:
 		-- 1:
 			say "You have only one [item] left!";
@@ -160,6 +159,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 					say "docilely.";
 				say "[one of][line break]You gain [CHUMMING_XP_VALUE] XP![or][stopping]";
 				awardXP CHUMMING_XP_VALUE;
+				say line break;
 				decrement pogochum count;
 		-- pogoIncense:
 				if the pogorecipient is the attackerPogoman:
@@ -184,6 +184,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 					now the pogorecipient is not injured;
 				else:
 					say ".";
+				say line break;
 				decrement pogometh count.
 				
 [parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
@@ -196,15 +197,18 @@ Instead of dropping a pogothing (called the item):
 	If the item is:
 		-- pogoball:
 			say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears.";
+			say line break;
 			decrement pogoball count;
 		-- pogoincense:
 			say "You throw away a pogoincense.";
+			say line break;
 			decrement pogoincense count;
 		-- pogochum:
 			if Around the Town is happening:
 				say "You throw away a piece of pogochum.";
 			otherwise:
 				say "The mouldy chunk of meat hits the ground with a wet smack and then melts[one of]. Creepy[or][stopping].";
+			say line break;
 			decrement pogochum count;
 		-- pogometh:
 			if Around the Town is happening:
@@ -212,6 +216,7 @@ Instead of dropping a pogothing (called the item):
 					try giving pogometh to the attackerPogoman;
 				otherwise:
 					say "You throw away a vial of pogometh.";
+					say line break;
 					decrement pogometh count;
 			otherwise:
 				try eating pogometh;
@@ -222,13 +227,14 @@ Instead of dropping a pogothing (called the item):
 			repeat with N running from 1 to T plus one: 
 				if N is T:
 					say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";
-				otherwise:
+				otherwise:												
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
 						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell[end if].";
 						now pogoName entry is P;
 						now wounded entry is false;						
 						AwardXP EGG_HATCH_XP_VALUE;
+						say line break;
 						decrement pogoEgg count;
 						break.
 			
@@ -260,11 +266,13 @@ Instead of eating pogochum:
 		try touching the pogochum;
 	otherwise:
 		say "[one of]It must be an acquired taste, because this time, it is not too bad[or]You find yourself rather enjoying pogochum[or]This is some fine pogochum[or]Musk is a genius! This stuff is awesome[or]Where has pogochum been all your life. You can[apostrophe]t get enough[or]Mmm. Pogochum[stopping].";
+		say line break;
 		decrement pogochum count.						
 				
 Instead of eating pogochum when Not In Kansas Anymore is happening for the first time:
 	say "Hm. Kind of tasty, actually. Like sushi, but a bit more rangy.[paragraph break]";
 	bestow "Best not to think about what you just put in your mouth";
+	say line break;
 	decrement pogochum count.
 	
 Instead of eating the pogoball:
@@ -274,12 +282,14 @@ Section 4 - The Wonderful World of Pogometh
 
 Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first time:
 	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
+	say line break;
 	decrement PogoMeth count;
 	now the PogoMeth is trippy;
 	the trip ends in five turns from now;
 	bestow "Iatrogenically Induced Synesthesia".
 	
 Instead of eating PogoMeth when Not in Kansas Anymore is happening:
+	say line break;
 	decrement PogoMeth count;
 	say "Dude. You feel much better."
 	
@@ -323,6 +333,7 @@ Section 5 - Incense
 Instead of burning incense:
 	If Around The Town is happening:
 		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admittedly virtual pogomen to you[or][stopping].";
+		say line break;
 		decrement the pogoIncense count;
 		now the pogoIncense is ignited;
 		Incense dissipates in five turns from now;
@@ -330,6 +341,7 @@ Instead of burning incense:
 		say "This is prohibited by Nyantech's strict smoke-free workplace policy.";
 	else:
 		say "You light up some incense and are immediately engulfed in a thick cloud of sickeningly sweet smoke. With a bit of coughing, you wave it away, but the smell lingers for a while.";
+		say line break;
 		decrement the pogoIncense count;
 		now the pogoIncense is ignited;
 		Incense dissipates in five turns from now.
@@ -539,20 +551,53 @@ Carry out capturing:
 	
 Instead of throwing a pogoball at something (called the target):
 	if the target is a pogoentity:
-		[for purposes of demonstration, simplified for now to just move the pogoman to inventory, but will need expansion to allow captures where the throw misses or the pogoman escapes the pogoball]
-		move the target to the void;
-		choose a blank row in the table of inventory;
-		now pogoName entry is the type of the target;
-		if the target is injured:
-			now the wounded entry is true;
-		otherwise:
-			now the wounded entry is false;
-		say "The hapless [type of target] is sucked into the ball!";
+		[Is there room in stock?]
+		sort the Table of Inventory in PogoName order;
+		let T be the number of rows in the Table of Inventory;
+		repeat with N running from 1 to T plus one:
+			if N is T:
+				say "Your pogostock is all ready at capacity ([POGOMEN_INVENTORY_LIMIT] pogomen.";
+			otherwise:
+				choose row N in the Table of Inventory;
+				if there is no pogoName entry:
+					break;
+		[Does the ball hit the target?]
+		let DIFFICULTY be 100;
+		if the type of target is an original listed in the Table of Evolution:
+			let DIFFICULTY be CAPTURE_EVOL1_DIFFICULTY;
+		else if type of target is an Ev2 listed in the Table of Evolution:
+			let DIFFICULTY be CAPTURE_EVOL2_DIFFICULTY;
+		else if type of target is an Ev3 listed in the Table of Evolution:
+			let DIFFICULTY be CAPTURE_EVOL3_DIFFICULTY;
+		if FIRSTTHROW is true:
+			let DIFFICULTY be 100;
+		if a random chance of DIFFICULTY in 100 succeeds:[target hit]
+			move the target to the void;
+			choose a blank row in the table of inventory;
+			now pogoName entry is the type of the target;
+			if the target is injured:
+				now the wounded entry is true;
+			otherwise:
+				now the wounded entry is false;
+			say "[one of]You throw a pogoball at [type of the target]. The ball cracks it squarely on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
+			say "You[apostrophe]ve captured ";
+			if Not In Kansas Anymore is happening:
+				say "an evil";
+			otherwise:
+				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order]"; 
+			say " [type of the target].";
+			if FIRSTTHROW is true:
+				say line break;
+				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
+				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark] or [italic type]evolve[roman type] them to make them stronger. Pogomen in stock will show up in your inventory.";
+				now FIRSTTHROW is false;
+		otherwise:[target missed]
+			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].";
 	otherwise:
 		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.";
-	decrease pogoballsCarried of the player by one;
-	if the pogoballsCarried of the player is 0:
-		move the pogoball to the void.
+	say line break;
+	decrement pogoball count.
+		
 		
 section 11 - PogoInventory
 	
@@ -570,7 +615,7 @@ This is the pogo-inventory rule:
 		let LASTWOUNDED be the wounded in row 1 of Table of Inventory;
 		let LASTCOUNT be 1;
 		repeat with N running from 2 to the number of rows in the Table of Inventory:
-			choose row N in the Table of Inventory;		
+			choose row N			 in the Table of Inventory;		
 			if there is no pogoName entry:
 				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
 				break;
@@ -709,7 +754,10 @@ INCENSE_EFFECT_VALUE is always 2.
 PREPOGO_ENCOUNTER_VALUE is always 10.
 POGO_ENCOUNTER_VALUE is always 10.
 
-
+[Difficulty for capturing items with pogoball, always out of 100]
+CAPTURE_EVOL1_DIFFICULTY is always 80.
+CAPTURE_EVOL2_DIFFICULTY is always 60.
+CAPTURE_EVOL3_DIFFICULTY is always 40
 
 SPECIAL_ATTACK_XP_COST is always 100.
 
@@ -738,6 +786,7 @@ Chapter Declare Global Variables
 SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
 The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
 The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
+FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
 
 [lists - because Jack loves lists]
 
