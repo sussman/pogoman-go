@@ -406,20 +406,63 @@ Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTR
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the first time:
 	say "The game pauses pensively.[paragraph break]The screen changes to the interior of the gym and the camera pans. Then everything stops. The game has glitched.";
-	now the phone is hung.
+	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the second time:
-	say "The scene shifts fluidly to the interior of the gym. The [color of the location] team has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There’s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It’s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It’s not going anywhere.[paragraph break]It’s stuck. Your phone has crashed.";
-	now the phone is hung.
+	say "The scene shifts fluidly to the interior of the gym. [if the color of the location is the team color of the player]Your team (Team [team color of the player])[otherwise]The [color of the location][end if] team has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There’s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It’s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It’s not going anywhere.[paragraph break]It’s stuck. Your phone has crashed.";
+	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the third time:
-	say "The exterior of the gym dissolves and your pogoman faces off against an obviously inferior opponent: a low-level Tinkelwaif. The Tinklewaif looks like it has been through hell and back in this gym. Its fur is matted and tufts are missing. It stares ahead with wide, emotionless eyes, ready to endure yet another senseless beating for the honor of the gym. During the countdown it swigs deeply from a hip flask and shakes its scar-covered head to focus, showering the gym in tinkeldust. The countdown finishes, and your Pestilence Vermin leaps across the arena, claws bared, fangs down, sure of an easy kill.[paragraph break]Turn after turn, your pogoman rips into the frail Tinkelwaif with highly effective attacks; its special move sends the hopelessly outclassed Tinkelwaif to the mat. Its life energy trickles away and you sense victory a mere moment away.[paragraph break]And then the HP counter holds at one.[paragraph break]Through a curtain of tears and blood, the Tinkelwaif smiles vindictively and climbs back to its feet, still hanging onto your pogoman for support. You pogoman hasn’t noticed. It is still flinging attack after attack, but doing no damage.[paragraph break]Now it is your pogoman who is flagging. Its attacks come slower and slower. It fights a futile battle. Frothy blood escapes its lips as it collapses to the ground and is kicked cruelly by the opponent -- it looks imploringly at you, unable to understand how the tables have turned. The victorious Tinkelwaif pushes your pogoman to the edge of the gym platform and slow claps for itself as the empty shell of a pogoman plunges to the ground.[paragraph break]You console yourself that at least the game didn’t freeze.[paragraph break]";
+	sort the Table of Inventory in wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen. How embarassing.";
+		bestow "Friendless";
+		stop the action;
+	otherwise:
+		let P be "[pogoName in row 1 of the Table of Inventory]";
+		let PP be P in Title Case;
+		say "The exterior of the gym dissolves and your [PP] faces off against an obviously inferior opponent: a low-level Tinkelwaif. The Tinklewaif looks like it has been through hell and back in this gym. Its fur is matted and tufts are missing. It stares ahead with wide, emotionless eyes, ready to endure yet another senseless beating for the honor of the gym. During the countdown it swigs deeply from a hip flask and shakes its scar-covered head to focus, showering the gym in tinkeldust. The countdown finishes, and your [PP] leaps across the arena, claws bared, fangs down, sure of an easy kill.[paragraph break]Turn after turn, your [PP] rips into the frail Tinkelwaif with highly effective attacks; its special move sends the hopelessly outclassed Tinkelwaif to the mat. Its life energy trickles away and you sense victory a mere moment away.[paragraph break]And then the HP counter holds at one.[paragraph break]Through a curtain of tears and blood, the Tinkelwaif smiles vindictively and climbs back to its feet, still hanging onto your [PP] for support. You [PP] hasn’t noticed. It is still flinging attack after attack, but doing no damage.[paragraph break]Now it is your [PP] who is flagging. Its attacks come slower and slower. It fights a futile battle. Frothy blood escapes its lips as it collapses to the ground and is kicked cruelly by the opponent -- it looks imploringly at you, unable to understand how the tables have turned. The victorious Tinkelwaif pushes your [PP] to the edge of the gym platform and slow claps for itself as the empty shell of a pogoman plunges to the ground.[paragraph break]You console yourself that at least the game didn’t freeze.[paragraph break]";
 	wait for any key;
 	say "And then the game freezes.";
-	now the phone is hung.
+	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
-	say "TODO: General Gym Battle Simulation HERE."
+	sort the Table of Inventory in wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen.";
+		bestow "Poor Gym Etiquette";
+		stop the action;
+	otherwise:
+		let LAST be 100;
+		let CHOSEN be a pogotype;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
+			if there is no pogoName in row N of the Table of Inventory:
+				let LAST be N minus 1;
+				break;
+		repeat with N running from 1 to LAST:[choose high to low evolution, the same but with wounded]
+			if the pogoName in row N of the Table of Inventory is an EV3 listed in the Table of Evolution and the wounded in row N of the Table of Inventory is false:
+				let CHOSEN be the pogoName in row N of the Table of Inventory;
+				break;
+			else if pogoName in row N of the Table of Inventory is an EV2 listed in the Table of Evolution and the wounded in row N of the Table of Inventory is false:
+				let CHOSEN be the pogoName in row N of the Table of Inventory;
+				break;
+			else if pogoName in row N of the Table of Inventory is an original listed in the Table of Evolution and the wounded in row N of the Table of Inventory is false:
+				let CHOSEN be the pogoName in row N of the Table of Inventory;
+				break;
+			else if the pogoName in row N of the Table of Inventory is an EV3 listed in the Table of Evolution:
+				let CHOSEN be the pogoName in row N of the Table of Inventory;
+				break;
+			else if the pogoName in row N of the Table of Inventory is an EV2 listed in the Table of Evolution:
+				let CHOSEN be the pogoName in row N of the Table of Inventory;
+				break;
+			else if the pogoName in row N of the Table of Inventory is an original listed in the Table of Evolution:
+				let CHOSEN be the pogoName in row N of the Table of Inventory;
+				break;
+		say "You say, [quotation mark]";
+		say "[CHOSEN]" in Title Case;
+		say ", I choose you![paragraph break]".
+				
+			
 	
 Section 8 - Pogomen
 
@@ -615,7 +658,7 @@ This is the pogo-inventory rule:
 		let LASTWOUNDED be the wounded in row 1 of Table of Inventory;
 		let LASTCOUNT be 1;
 		repeat with N running from 2 to the number of rows in the Table of Inventory:
-			choose row N			 in the Table of Inventory;		
+			choose row N in the Table of Inventory;		
 			if there is no pogoName entry:
 				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
 				break;
@@ -720,7 +763,7 @@ carry out inventorydropping:
 				if Not in Kansas Anymore is Happening:
 					move the defenderPogoman to the location of the player;
 					now the type of defenderPogoman is pogotype understood;
-					say "[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson][team color of the player] [pogotype understood] bursts from its pogoball and takes up a defensive stance.";
+					say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if][team color of the player] [pogotype understood] bursts from its pogoball and takes up a defensive stance.";
 				otherwise:
 					say "As soon as the [pogotype understood] is free, it zips away immediately.";
 				break.
@@ -890,7 +933,7 @@ To say disgusted with indecision:
 	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled unbleached titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
 	bestow "Welcome To Team Unbleached Titanium";
 	now the teamColorPrompt of the player is zero;
-	now the phone is hung.
+	freeze the phone.
 	
 
 To say sweeten the deal:
@@ -1173,6 +1216,7 @@ Check rebooting:
 	
 Carry out rebooting:
 	now the phone is not hung;
+	now BLOCKPOGOMANFLAG is false;
 	now the ignored command count of the phone is 0.
 	
 Report rebooting:
@@ -1186,7 +1230,7 @@ To say postHang1:
 	
 To say postHang2:
 	say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn’t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
-	now the phone is hung.
+	freeze the phone.
 	
 To say postHang3:
 	say "The phone rolls its figurative eyes and reboots.[paragraph break]";
@@ -1274,7 +1318,7 @@ Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
 
 Before doing something other than examining with medals when Around The Town is happening for the first time:
 	say "The medals aren’t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman Go! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]medal self-reference[quotation mark] medal.[paragraph break]Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone’s resources and locks it up. Sorry.";
-	now the phone is hung;
+	freeze the phone;
 	stop the action.
 	
 Instead of doing something other than examining with the medals:
@@ -1458,7 +1502,7 @@ Check hanging:
 	if the phone is hung, say "The phone is already hung." instead.
 	
 Carry out hanging: [if hangin' ain't too good fer folks like them]
-	now the phone is hung.
+	freeze the phone.
 	
 Report hanging:
 	say "The phone is now well hung."
@@ -5837,7 +5881,11 @@ Before wearing clothes:
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0.
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. 
+
+To freeze the phone:
+	now the phone is hung;
+	now BLOCKPOGOMANFLAG is true.
 
 The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening."
 
