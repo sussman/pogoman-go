@@ -542,17 +542,22 @@ A pogoentity is a kind of neuter animal.
 
 [do not need to record evolution level - it is implicit from the table of evolution. Pogomen are wild until captured, after that, they take on the team color (important in pogoland, where they defend a position)]
 	  
-Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild.
+Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild. 
 
-The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDescription corresponding to pogomanName of type of defenderPogoman in the Table of Creatures][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s".
+The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDescription corresponding to pogomanName of type of defenderPogoman in the Table of Creatures][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured.
 
 To say defendingPogomanName:
+	if the defenderPogoman is injured:
+		say "wounded ";
 	let T be the team color of the player;
 	say "[T]" in lower case;
 	say " ";
 	say the type of defenderPogoman.
 
-The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "wild [type of attackerPogoman]". The printed plural name of attackerPogoman is "[type of attackerPogoman]s".
+The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured.
+
+To say attackingPogomanName:
+	say "[if the attackerPogoman is injured]wounded [end if][if exploring the tower has happened]attacking[otherwise]wild[end if] [type of attackerPogoman]".
 
 Instead of taking a pogoentity:
 	say "You'll have to throw a Pogoball at it to capture it!".
@@ -580,8 +585,8 @@ pogoName (a pogotype)	wounded (a truth state)
 with 100 blank rows.
 
 Table of Defenders
-pogoLandQTH	guardian	
-The Palace	a pogotype
+pogoLandQTH	guardian	wounded
+The Palace	a pogotype	a truth state
 Mountain
 Monastery
 School House
@@ -695,7 +700,7 @@ Instead of throwing a pogoball at something (called the target):
 				now the wounded entry is true;
 			otherwise:
 				now the wounded entry is false;
-			say "[one of]You throw a pogoball at [type of the target]. The ball cracks it squarely on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
+			say "[one of]You throw a pogoball at the [type of the target]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
 			say "You[apostrophe]ve captured ";
 			if Not In Kansas Anymore is happening:
 				say "an evil";
@@ -743,18 +748,21 @@ This is the pogo-inventory rule:
 			otherwise:
 				increase LASTCOUNT by one;
 		say line break;
-		if Not In Kansas Anymore is happening:
-			let D be 0;
-			repeat with N running from 1 to the number of rows in Table of Defenders:
-				if there is a guardian entry:
-					increase D by one;
-			if D is 0:
-				say "No loyal pogomen are on guard in Pogoland.";
-			otherwise:
-				say "[D in words] team ";
-				let T be the team color of the player;
-				say "[T]" in lower case;
-				say " pogomen hold defensive positions.[paragraph break]Use the [quotation mark]guards[quotation mark] for a list or [quotation mark]scanner[quotation mark] command for a display."
+	[Defending Pogomen]
+	if Not In Kansas Anymore is happening:
+		let D be 0;
+		repeat with N running from 1 to the number of rows in Table of Defenders:
+			choose row N in the Table of Defenders;
+			if there is a guardian entry:
+				increase D by one;
+		if D is 0:
+			say "No loyal pogomen are on guard in Pogoland.";
+		otherwise:
+			let DD be "[D in words]" in title case;
+			say "[DD] team ";
+			let T be the team color of the player;
+			say "[T]" in lower case;
+			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scanner[quotation mark] command for a display of deployed pogomen."
 				 		
 [
 Section Evolving
@@ -839,16 +847,22 @@ carry out inventorydropping:
 		repeat with N running from 1 to the number of rows in the Table of Inventory:
 			choose row N in the Table of Inventory;
 			if there is no pogoName entry:
-				say "You don[apostrophe] have [a pogotype understood] in stock.";
+				say "You don[apostrophe]t have [a pogotype understood] in stock.";
 				break;
 			if the pogoName entry is the pogotype understood:	
+				let W be the wounded entry;
+				let P be the pogoName entry;
 				blank out the whole row;
 				if Not in Kansas Anymore is Happening:					
 					move the defenderPogoman to the location of the player;
-					now the type of defenderPogoman is pogotype understood;
-					say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if][team color of the player] [pogotype understood] bursts from its pogoball and takes up a defensive stance.";
+					now the type of defenderPogoman is P;
+					let C be the team color of the player;
+					let CC be "[C]" in lower case;
+					say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoball and takes up a defensive stance.";
+					now the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is P;
+					now the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is W;
 				otherwise:
-					say "As soon as the [pogotype understood] is free, it zips away immediately.";
+					say "As soon as the [P] is free, it zips away immediately.";
 				break.
 
 Chapter Declare Constants
