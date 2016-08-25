@@ -877,6 +877,9 @@ WOUNDED_PENALTY is always 25.
 FIGHT_RANDOMNESS is always 40.
 SPECIAL_ATTACK_XP_COST is always 100.
 
+[Baseball Cap of Pogomastery affects both capture and combat]
+HAT_EFFECT is always 20.
+
 [Inventory]
 
 POGOMEN_INVENTORY_LIMIT is always 100.
@@ -2500,7 +2503,7 @@ To say passage9:
 	
 To say passage10:
 	say "With lingering trepidation, you enter the perilous passageway.";
-	now the title of the perilous passageway is "until recently periolous passage way";
+	now the title of the perilous passageway is "until recently perilous passageway";
 	now the description of the perilous passageway is "A passageway that is less disgusting than the last time you were here.";
 	move the player to the perilous passageway.
 	
@@ -2512,6 +2515,63 @@ To say passage11:
 	
 To say passage12:
 	move the player to the perilous passageway.
+	
+The garbage bin is a closed openable fixed in place container. The garbage bin is in perilous passageway. The description of the garbage bin is "An filthy metal trash bin." Understand "bin" or "skip" or "waste" or "dust" as the garbage bin.
+
+The Baseball Cap of Pogomastery is a wearable pogothing. The Baseball Cap of Pogomastery is in void. The description of the Baseball Cap of Pogomastery is "[one of]You immediately recognize the[or]The[stopping] legendary Baseball Cap of Pogomastery, a red and white hat with a broad brim." Understand "hat" or "brim" as the Baseball Cap of Pogomastery.
+
+The disgusting refuse is in the void. The description of the disgusting refuse is "Half-rotted tuna sandwiches, bits of plastic, and a collection of headless barbie dolls; the whole lot of it held together with some sort of sticky black ooze." Understand "garbage" or "trash" or "rubbish" as the disgusting refuse. The indefinite article of the disgusting refuse is "some". Understand "plastic" or "headless" or "barbie" or  "doll" or "barbies" or "dolls" or "black" or "ooze" or "tuna" or "sandwich" or "sandwiches" as the disgusting refuse.
+
+After opening the garbage bin for the first time:
+	let D be a direction;
+	let N be a random number from 1 to 4;
+	let D be entry N of {north, south, east, west};
+	say "The refuse in this bin has been waiting millenia for a hero like you to come by and set it free. The olfactory shockwave ripples out, throwing you from the passageway.[paragraph break]";
+	bestow "Unleashed Untold Power";
+	move the disgusting refuse to the garbage bin;
+	move the player to the room D from the perilous passageway.
+
+Instead of smelling the disgusting refuse for the first time:
+	say "You add your stomach contents to the fetid mass in the garbage can.";
+	bestow "What[apostrophe]s up, Chuck?".
+	
+Instead of smelling the disgusting refuse: 
+	say "It smells the way it looks."
+	
+Instead of taking the disgusting refuse:
+	try searching the disgusting refuse.
+	
+Instead of touching the disgusting refuse:
+	try searching the disgusting refuse.
+	
+Instead of searching the garbage bin when the garbage bin is open and the disgusting refuse is in the garbage bin:
+	try searching the disgusting refuse.
+		
+Instead of searching the disgusting refuse:	
+	say "Overcoming your initial reflex (and all subsequent ones), you hold your breath and search through the putrid garbage. As you toss each useless bit away of your shoulder -- tooth brush, plastic wrappers, a banana peel, and apparently some medical waste -- you spot a fashionable hat.[paragraph break]Sure, it required a little brushing off, but it seems none the worse for having rested for so long at the bottom of a rancid pile of loathsome waste.[paragraph break]";
+	bestow "To Cap It All Off";
+	move the disgusting refuse to the void;
+	now the player carries the Baseball Cap of Pogomastery.	
+
+After wearing the Baseball Cap of Pogomastery for the first time:
+	say "The hat adds to your gravitas.[paragraph break]";
+	bestow "Crowning Achievement";
+	awardXP 1000.
+	
+After wearing the Baseball Cap of Pogomastery:
+	say "You put the hat on your head and twist the brim [one of]frontwards[or]backwards[cycling]."
+	
+After taking off the Baseball Cap of Pogomastery for the first time:
+	say "You take off the cap.[paragraph break]";
+	bestow "Uneasy Lies The Head That Wears A Crown".
+	
+After taking off the Baseball Cap of Pogomastery:
+	say "You take off the cap.".
+	
+Instead of smelling the Baseball Cap of Pogomastery:
+	say "It smells better than it should, considering."
+	
+	
 
 Section 53 - Dealing with Quadrooms
 
