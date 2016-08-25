@@ -1689,6 +1689,8 @@ To say the map symbol of (QTH - a room):
 		say "G";
 	else if the QTH is Nyantech Entrance:
 		say "N";
+	else if there is a guardian corresponding to the pogolandQTH of the QTH in the Table of Defenders:
+		say "D";
 	else:
 		say "-".
 	
