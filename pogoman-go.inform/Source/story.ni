@@ -76,6 +76,8 @@ A gamer is a kind of  privately-named person. The description of the gamer is "N
 
 A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list of text called WPLIST. 
 
+An Awarddrop is a kind of backdrop.
+
 Section 2 - Player properties
 
 [TODO randomize initial items carried by player]
@@ -515,7 +517,10 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		otherwise:
 			[say "DEBUG: selecting for wounding [SELECTED][line break]";]
 			now the wounded entry is true;
-			say "[one of][chickenDinner][or][line break]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy![stopping]".
+			say "[one of][chickenDinner][or][line break]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy![stopping]";
+			let T be "Your [CCHOSEN] victorious over a [color of the location] [PP]";
+			add T to TROPHYLIST.
+			
 			
 To say loserDurge:
 	say "[line break]You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain [GYM_LOSS_XP_VALUE] XP![paragraph break]";
@@ -921,6 +926,7 @@ FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
 POGOSTOPLIST is a list of rooms that varies.
 GYMLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
+TROPHYLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
 
@@ -1397,37 +1403,61 @@ Report tapeFailing:
 	otherwise:
 		say "That doesn[apostrophe]t seem to be an option."
 
-Chapter Medals
+Chapter Medals & Trophies
 
-Medals are a backdrop. Medals are everywhere. Understand "medal" as medals.
+Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals.
+Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy".
 
-Before doing something other than examining with medals when Around The Town is happening for the first time:
-	say "The medals aren’t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman Go! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]medal self-reference[quotation mark] medal.[paragraph break]Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone’s resources and locks it up. Sorry.";
+Before doing something other than examining with the medals when Around The Town is happening for the first time:
+	say "The medals aren[apostrophe]t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[paragraph break]";
+	add "Medal Self-Reference" to MEDALLIST;
+	say awardParadox;
+	stop the action.
+		
+Before doing something other than examining with the bronzes when Around The Town is happening for the first time:
+	say "The trophies aren[apostrophe]t actual, physical bronze cups or little statues that you put on your mantelpiece in case you ever need a prop for a murder mystery. No, they are just part of the Pogoman GO! game you phone. Fear not. A common error.[paragraph break]Congratulations! You have earned the [quotation mark]Intangible Award[quotation mark] medal.[paragraph break]";
+		add "Intangible Award" to MEDALLIST;
+	say awardParadox;
+	stop the action.
+	
+To say awardParadox:
+	say "Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone[apostrophe]s resources and locks it up. Sorry.[paragraph break]";
 	freeze the phone;
 	stop the action.
 	
-Instead of doing something other than examining with the medals:
+Instead of doing something other than examining with an awarddrop:
 	if Around the Town is happening:
-		say "The medals [one of]aren’t tangible[or]are a metaphor[or]only exist on your phone -- they[apostrophe]re not real[or]are like the cake, a lie[or]are not physically present. Think of them as a data structure within a program running on a computer. That shouldn[apostrophe]t be too hard to visualize[stopping].[paragraph break]";
+		say "The [noun] is just a metaphor -- it only exists on your phone. Think of the [noun] as a data structure within a program running on a computer. That shouldn[apostrophe]t be too hard to visualize.[paragraph break]";
 	otherwise:
 		if the current action is rubbing:
-			say "You polish your medals.";
+			say "You polish your [noun] collection.";
 		otherwise:
 			if the current action is taking:
 				say "You already have them.";
 			otherwise:
 				say "You prefer to just admire them."
 	
-Instead of examining the medals:
-	If Around The Town is happening:
-		if the number of entries in MEDALLIST is 0:
-			say "It is unthinkable that you have no medals.[paragraph break]";
-			bestow "Pity Medal";
-		say "You phone lists the [number of entries in MEDALLIST in words] medal[if the number of entries in MEDALLIST is greater than one]s[end if] you have won:[paragraph break]";
-	otherwise:
-		say "You are bespangled with the following medals:[paragraph break]";
-	repeat with L running through the MEDALLIST:
-		say "     * [L][line break]".
+Instead of examining an awarddrop:
+	if the noun is medals:
+		If Around The Town is happening:
+			if the number of entries in MEDALLIST is 0:
+				say "It is unthinkable that you have no medals.[paragraph break]";
+				bestow "Pity Medal";
+			say "Your phone lists the [number of entries in MEDALLIST in words] medal[if the number of entries in MEDALLIST is greater than one]s[end if] you have won:[paragraph break]";
+		otherwise:
+			say "You are bespangled with the following medals:[paragraph break]";
+		repeat with L running through the MEDALLIST:
+			say "     * [L][line break]";
+	otherwise:[i.e., trophies]
+		If Around the Town is happening:
+			if the number of entries in TROPHYLIST is 0:
+				say "You have not won any gym fights, so you have no trophies.";
+			otherwise:
+				say "Your phone lists the [number of entries in TROPHYLIST in words] troph[if the number of entries in TROPHYLIST is 1]y[otherwise]ies[end if] you have won in gym battles:[paragraph break]";
+		otherwise:
+			say "Your trophy collection includes the following shiny metal trophies:";
+		repeat with L running through TROPHYLIST:
+			say "     *[L][line break]".
 
 To Bestow (medallion - some text):
 	let L be text;
