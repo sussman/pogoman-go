@@ -516,7 +516,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		otherwise:
 			[say "DEBUG: selecting for wounding [SELECTED][line break]";]
 			now the wounded entry is true;
-			say "[one of][chickenDinner][or][line break]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy![stopping]";
+			say "[one of][chickenDinner][or]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy! [stopping]";
 			let T be "Your [CCHOSEN] victorious over a [color of the location] [PP]";
 			add T to TROPHYLIST.
 			
@@ -526,8 +526,7 @@ To say loserDurge:
 	bestow "Their Pain; Your Gain".
 	
 To say chickenDinner:
-	say "[line break]You win! Yes, your pogoman is mildly injured, but you gain [GYM_VICTORY_XP_VALUE] XP, and more importantly, a coveted Gym Trophy![paragraph break]";
-	bestow "Shiny!".
+	say "[line break]You win! Yes, your pogoman is mildly injured, but you gain [GYM_VICTORY_XP_VALUE] XP, and more importantly, a coveted Gym Trophy![paragraph break]To see a list of your trophies, use the command [italic type]examine trophies[roman type]."
 			
 			
 	
@@ -705,9 +704,9 @@ Instead of throwing a pogoball at something (called the target):
 			say " [type of the target].";
 			if FIRSTTHROW is true:
 				say line break;
-				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
-				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark] or [italic type]evolve[roman type] them to make them stronger. Pogomen in stock will show up in your inventory.";
+				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger,or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory.[paragraph break]";
 				now FIRSTTHROW is false;
+				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
 			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].";
 	otherwise:
@@ -944,15 +943,14 @@ After reading a command:
 			continue the action;
 		if the player's command includes "[a direction]":
 			say "[one of]No sense in walking anywhere if the game isn’t playing. Better reboot the phone.[or][run paragraph on][stopping]";
-		otherwise:
-			if the ignored command count of the phone is:
-				-- 10: 
-					say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]" instead;
-				-- 20:
-					say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command." instead;
-				-- 30:
-					say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
-					try rebooting the phone;
+		if the ignored command count of the phone is:
+			-- 10: 
+				say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]" instead;
+			-- 20:
+				say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command." instead;
+			-- 30:
+				say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
+				try rebooting the phone;
 		reject the player's command;
 	otherwise:	
 		if the player's command includes "all":
@@ -1020,9 +1018,10 @@ After reading a command:
 								replace the matched text with "smell".
 				
 To say disgusted with indecision:
-	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled unbleached titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
+	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled Unbleached Titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
 	bestow "Welcome To Team Unbleached Titanium";
 	now the teamColorPrompt of the player is zero;
+	now the team color of the player is Unbleached Titanium;
 	freeze the phone.
 	
 
@@ -1212,7 +1211,7 @@ Carry out spinning:
 				add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 				increase pogoEggsCarried of the player by E;
 				move the pogoEgg to the player;
-			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.[paragraph break][one of]You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
+			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.[one of] You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
 			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
@@ -1456,14 +1455,15 @@ Instead of examining an awarddrop:
 		otherwise:
 			say "Your trophy collection includes the following shiny metal trophies:";
 		repeat with L running through TROPHYLIST:
-			say "     *[L][line break]".
+			say "     * [L][line break]".
 
 To Bestow (medallion - some text):
 	let L be text;
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP![paragraph break]";		
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP! [paragraph break]";	
+	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type].[line break][or][stopping]";
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
 		-- 3: 
