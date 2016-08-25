@@ -824,9 +824,12 @@ Understand "drop titanium [pogotype]" as inventoryDropping when the team color o
 Understand "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defender [pogotype]" as InventoryDropping when Around the Town has ended.
 
 carry out inventorydropping:
-	if Not in Kansas Anymore is Happening:
-		[would prefer defenders to be stronger]
-		sort Table of Inventory in wounded order;
+	if Exploring The Tower has happened:
+		if the defenderPogoman is in the location of the player:
+			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
+			stop the action;
+		otherwise:
+			sort Table of Inventory in wounded order;
 	otherwise:
 		[otherwise, selectively dump the weaker]
 		sort Table of Inventory in reverse wounded order;
@@ -840,7 +843,7 @@ carry out inventorydropping:
 				break;
 			if the pogoName entry is the pogotype understood:	
 				blank out the whole row;
-				if Not in Kansas Anymore is Happening:
+				if Not in Kansas Anymore is Happening:					
 					move the defenderPogoman to the location of the player;
 					now the type of defenderPogoman is pogotype understood;
 					say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if][team color of the player] [pogotype understood] bursts from its pogoball and takes up a defensive stance.";
@@ -6228,11 +6231,11 @@ Exploring the Tower is scene. Exploring the Tower begins when Around the Town en
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
 
 When Not in Kansas Anymore begins:
-	Desolation strikes in five turns from now;
+	Desolation strikes in ten turns from now;
 	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet, and have been beaten to a pulp by a cartoon character. How do you think you look? In short: not too healthy."
 	
 At the time when desolation strikes:
-	say "After walking around for a while you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
+	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
 
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
 
