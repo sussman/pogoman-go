@@ -812,15 +812,16 @@ section 13 - Commands operating on pogomen in inventory
 
 InventoryDropping is an action applying to one pogotype.
 
-Understand "drop [pogotype]"  or "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defender [pogotype]" as inventoryDropping.
-Understand "drop teal [pogotype]'" as inventoryDropping when the team color of the player is teal.
-Understand "drop chartreuse [pogotype]" as inventoryDropping when the team color of the player is chartreuse.
-Understand "drop alizarin crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
-Understand "drop viridian [pogotype]" as inventoryDropping when the team color of the player is viridian.
-Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color of the player is papayawhip.
-Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
-Understand "drop unbleached [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
-Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
+Understand "drop [pogotype]" as inventoryDropping.
+Understand "drop teal [pogotype]'" as inventoryDropping when the team color of the player is teal and Around the Town has ended.
+Understand "drop chartreuse [pogotype]" as inventoryDropping when the team color of the player is chartreuse and Around the Town has ended.
+Understand "drop alizarin crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson and Around the Town has ended.
+Understand "drop viridian [pogotype]" as inventoryDropping when the team color of the player is viridian and Around the Town has ended.
+Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color of the player is papayawhip and Around the Town has ended.
+Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium and Around the Town has ended.
+Understand "drop unbleached [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium and Around the Town has ended.
+Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium and Around the Town has ended.
+Understand "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defender [pogotype]" as InventoryDropping when Around the Town has ended.
 
 carry out inventorydropping:
 	if Not in Kansas Anymore is Happening:
