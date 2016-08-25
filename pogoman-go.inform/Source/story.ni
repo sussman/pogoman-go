@@ -439,10 +439,11 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		let LAST be 100;
 		let SELECTED be 1;
 		let DONE be false;
-		repeat with N running from 1 to the number of rows in Table of Inventory:
+		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
 			if there is no pogoName in row N of the Table of Inventory:
 				let LAST be N minus 1;
 				break;
+		say "DEBUG: LAST = [LAST][line break]";
 		repeat with N running from 1 to LAST:[choose high to low evolution, the same but with wounded]
 			if the pogoName in row N of the Table of Inventory is third level and the wounded in row N of the Table of Inventory is false:
 				let SELECTED be N;
@@ -454,26 +455,27 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 					let SELECTED be N;
 					let DONE be true;
 					break;
-		else if DONE is false:
+		if DONE is false:
 			repeat with N running from 1 to LAST:
 				if the pogoName in row N of the Table of Inventory is first level and the wounded in row N of the Table of Inventory is false:
 					let SELECTED be N;
 					let DONE be true;
 					break;
-		else if DONE is false:
+		if DONE is false:
 			repeat with N running from 1 to LAST:
 				if the pogoName in row N of the Table of Inventory is third level:
 					let SELECTED be N;
 					let DONE be true;
 					break;
-		else if DONE is false:
+		if DONE is false:
 			repeat with N running from 1 to LAST:
 				if the pogoName in row N of the Table of Inventory is second level:
 					let SELECTED be N;
 					let DONE be true;
 					break;
-		else if DONE is false:
+		if DONE is false:
 			let SELECTED be 1;
+		say "DEBUG SELECTED = [SELECTED][line break]";
 		let CHOSEN be the pogoName in row SELECTED of the Table of Inventory;
 		let CHOSEN-W be the wounded in row SELECTED of the Table of Inventory;
 		let P be a random pogotype;
@@ -499,14 +501,16 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		say "DEBUG: CHOSENDEF [CHOSEN-DEF][line break]";
 		let PP be "[P]" in Title Case;
 		let CCHOSEN be "[CHOSEN]" in Title Case;
-		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] squeezing the life out of its opponent. [if P-DEF is greater than CHOSEN-DEF]The opponent [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
+		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![quotation mark][paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] [one of]squeezing the life out of[or]obliterating[or]wiping the floor with[or]pulverizing[or]smashing[or]trashing[or]throttling[or]annihilating[in random order] [if CHOSEN-DEF is greater than P-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if]. [if P-DEF is greater than CHOSEN-DEF]The enemy [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
 		choose row SELECTED in the Table of Inventory;
 		if P-DEF is greater than CHOSEN-DEF:
+			say "DEBUG: selecting for obliteration [SELECTED][line break]";
 			blank out the whole row;
-			say "[one of][loserDurge][or][stopping]";
+			say "[one of][loserDurge][or][line break]Your pogoman lost, but you still gain [GYM_LOSS_XP_VALUE] XP.[stopping]";
 		otherwise:
+			say "DEBUG: selecting for wounding [SELECTED][line break]";
 			now the wounded entry is true;
-			say "[one of][chickenDinner][or][stopping]".
+			say "[one of][chickenDinner][or][line break]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy![stopping]".
 			
 To say loserDurge:
 	say "[line break]You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain [GYM_LOSS_XP_VALUE] XP![paragraph break]";
@@ -1425,7 +1429,7 @@ To Bestow (medallion - some text):
 			bestow "You Just Collected Five Medals";
 			bestow "Collector of Meta-Medals";
 		-- 10:
-			bestow "Collected Decade of Medals";
+			bestow "Collected A Decade of Medals";
 		-- 31:
 			bestow "Collected 10^1.5 Medals";
 		-- 100:
