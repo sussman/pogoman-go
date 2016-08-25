@@ -826,12 +826,10 @@ Understand "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defen
 carry out inventorydropping:
 	if Not in Kansas Anymore is Happening:
 		[would prefer defenders to be stronger]
-		sort Table of Inventory in pogoName order;
 		sort Table of Inventory in wounded order;
 	otherwise:
 		[otherwise, selectively dump the weaker]
-		sort Table of Inventory in wounded order;
-		sort Table of Inventory in pogoName order;
+		sort Table of Inventory in reverse wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
 		say "You have no pogomen in stock to drop!";
 	otherwise:
