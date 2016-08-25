@@ -1683,17 +1683,14 @@ To say bar:
 To say the map symbol of (QTH - a room):
 	if the player is in the QTH:
 		say "X";
-	otherwise:
-		if the QTH is listed in POGOSTOPLIST:
-			say "P";
-		otherwise:
-			if the QTH is listed in GYMLIST:
-				say "G";
-			otherwise:
-				if the QTH is Nyantech Entrance:
-					say "N";
-				otherwise:
-					say "-".
+	else if the QTH is listed in POGOSTOPLIST:
+		say "P";
+	else if the QTH is listed in GYMLIST:
+		say "G";
+	else if the QTH is Nyantech Entrance:
+		say "N";
+	else:
+		say "-".
 	
 Scanning is an action applying to nothing. Understand "scan" as scanning.
 
@@ -1707,26 +1704,40 @@ Check scanning:
 Report scanning:
 	say fixed letter spacing;
 	say line break;
-	let HOME be the Dung Beetle Mural;
-	move the phantom to HOME;
-	repeat with Y running from 1 to 7:
-		say "|";
-		say the map symbol of the location of the phantom;
-		say "|";
-		repeat with X running from 1 to 6:
-			move the phantom to the room east from the location of the phantom;
+	if the player is in the Village:
+		let HOME be the Dung Beetle Mural;
+		move the phantom to HOME;
+		repeat with Y running from 1 to 7:
+			say "|";
 			say the map symbol of the location of the phantom;
 			say "|";
-		say "[line break]";
-		move the phantom to home;
-		repeat with N running from 1 to Y:
-			move the phantom to the room south from the location of the phantom;		
-	say roman type;
-	move the phantom to the void;
-	if the player is in the village:
+			repeat with X running from 1 to 6:
+				move the phantom to the room east from the location of the phantom;
+				say the map symbol of the location of the phantom;
+				say "|";
+			say "[line break]";
+			move the phantom to HOME;
+			repeat with N running from 1 to Y:
+				move the phantom to the room south from the location of the phantom;		
 		say "[one of][line break][fixed letter spacing]X: Your location[line break]G: A pogoman gym[line break]P: A pogostop[line break]N: Nyantech Headquarters[roman type][line break][or][stopping]";
 	otherwise:[i.e., in pogoland]
-		say "[one of][line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break][or][stopping]".
+		let HOME be Palace;
+		move the phantom to HOME;
+		repeat with Y running from 1 to 5:
+			say "|";
+			say the map symbol of the location of the phantom;
+			say "|";
+			repeat with X running from 1 to 4:
+				move the phantom to the room east from the location of the phantom;
+				say the map symbol of the location of the phantom;
+				say "|";
+			say "[line break]";
+			move the phantom to HOME;
+			repeat with N running from 1 to Y:
+				move the phantom to the room south from the location of the phantom;
+		say "[one of][line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break][or][stopping]";
+	say roman type;
+	move the phantom to the void.
 	
 	
 Section 9 - Spawn Pogomen
