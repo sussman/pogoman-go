@@ -364,6 +364,8 @@ The pogostop is a backdrop. Understand "stop" as the pogostop.  The description 
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
+Definition: a room is an okayPogolandLocation if it is in Pogoland and it is not listed in POGOSTOPLIST.
+
 Definition: a room is pogoStopTargeted if it is listed in POGOSTOPLIST.
 
 To distributeTownPogostops:
@@ -371,7 +373,13 @@ To distributeTownPogostops:
 		add a random okayInitialPogostopLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms.
 	
-Instead of taking the pogostop for the first time:
+To distributePogolandPogostops:
+	now POGOSTOPLIST is {};
+	repeat with N running from 1 to a random number from MIN_PL_POGOSTOPS to MAX_PL_POGOSTOPS:
+		add a random okayPogolandLocation to POGOSTOPLIST;
+	move the pogostop backdrop to all the pogoStopTargeted rooms. 
+	
+Instead of taking the pogostop when Exploring the Tower has not happened for the first time:
 	say "The pogostops are just pictures on your phone.[paragraph break]";
 	bestow "Get Real".
 	
@@ -880,6 +888,9 @@ MAX_TOWN_GYMS is always 4.
 [TODO: add a universal timer and quadrooms have a timestamp property; lockout pogostops per room]
 POGOSTOP_TIMEOUT_DURATION is always 10.
 
+[Pogoland Setup]
+MIN_PL_POGOSTOPS is always 2.
+MAX_PL_POGOSTOPS is always 4.
 
 [Ways of gaining XP]
 MEDAL_XP_VALUE is always 10.
@@ -1149,7 +1160,7 @@ After going from somewhere:
 	continue the action.
 	
 After printing the locale description of a room (called the locale):
-	if the player is in the village:
+	if the player is in the village or the player is in pogoland:
 		if the pogostop is in the locale or the gym is in the locale:
 			say "The ";
 		if the pogostop is in the locale:
@@ -1261,7 +1272,8 @@ Carry out spinning:
 				add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 				increase pogoEggsCarried of the player by E;
 				move the pogoEgg to the player;
-			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.[one of] You gain [POGOSTOP_XP_VALUE] XP![or][stopping]";
+			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up. [run paragraph on][one of] You gain [POGOSTOP_XP_VALUE] XP![or][stopping][run paragraph on]";
+			say paragraph break;
 			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
@@ -5637,7 +5649,7 @@ The description of Beach is "Waves roll in gently, breaking upon the pristine wh
 
 Section 15 - Stadium
 
-The description of Stadium is "The large, concrete arena must accommodate crowds of at least 50,000. A large scoreboard and banks of lights are visible above the seating area."
+The description of Stadium is "The large, concrete arena must accommodate crowds of at least fifty thousand (of course, no one is there now). A large scoreboard and banks of lights are visible above the seating area."
 
 Section 16 - Service Station
 
@@ -6282,6 +6294,9 @@ Around the Town is a scene. Around the Town begins when play begins. Around the 
 Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the Pogoland Terminal.
 
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
+
+When Not In Kansas Anymore begins:
+	distributePogolandPogostops.
 
 When Not in Kansas Anymore begins:
 	Desolation strikes in ten turns from now;
