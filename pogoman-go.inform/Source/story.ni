@@ -856,6 +856,8 @@ carry out inventorydropping:
 				if Not in Kansas Anymore is Happening:					
 					move the defenderPogoman to the location of the player;
 					now the type of defenderPogoman is P;
+					if W is true:
+						now the defenderPogoman is injured;
 					let C be the team color of the player;
 					let CC be "[C]" in lower case;
 					say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoball and takes up a defensive stance.";
@@ -1179,7 +1181,31 @@ To AwardXP (award - a number):
 
 Chapter Verbs
 
-Section Spinning
+Section 1 - Guarding
+
+Guarding is an action applying to nothing. Understand "guard" or "guards" as guarding.
+
+Check guarding:
+	if Exploring the Tower has not happened:
+		say "This feature not available at present.";
+		the rule fails.
+
+Carry out guarding:
+	let ONGUARD be false;
+	repeat with N running from 1 to the number of rows in Table of Defenders:
+		if there is a guardian in row N of the Table of Defenders:
+			let ONGUARD be true;
+			break;
+	if ONGUARD is false:
+		say "No loyal pogomen hold defensive positions[one of]. Any that were out there must have fallen to enemy pogomen[or][stopping].";
+	otherwise:
+		say "Loyal Pogomen guard:[paragraph break]";
+		repeat with N running from 1 to the number of rows in Table of Defenders:
+			choose row N in the Table of Defenders;
+			if there is a guardian entry:
+				say "[pogoLandQTH entry]: [guardian entry] [if wounded entry is true](wounded)[end if][line break]".
+
+Section 2 - Spinning
 
 [TODO:  randomize what comes out]
 [TODO:  user must wait 20 turns before being allowed to spin sign again]
@@ -1240,7 +1266,7 @@ Carry out spinning:
 	otherwise:
 		say "That's probably not something you should spin.[paragraph break]".
 
-Section Help
+Section 3 - Help
 
 Helping is an action applying to nothing. Understand "help" as helping.
 
@@ -1262,7 +1288,7 @@ Instead of helping for the third time:
 Instead of helping for the fourth time:
 	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored. Consider it [quotation mark]tough love.[quotation mark][paragraph break]No medal for you.";
 		
-Section About
+Section 4 - About
 
 Abouting is an action applying to nothing. Understand "about" as abouting.
 
@@ -1270,7 +1296,7 @@ Report abouting:
 	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman Go![paragraph break]";
 	bestow "Typed a Meta-Command” .
 
-Section Credits
+Section 5 - Credits
 
 Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" as crediting.
 	
@@ -1278,7 +1304,7 @@ Report crediting:
 	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? We hear that term is out of favor these days. Story? Yeah, we could go with that. But maybe something that sounds more grand. How about  Œuvre. Yes, that sounds very fancy and even forces interpreters to implement ligatures, so we[apostrophe]ll go with that. Enough about us, onto our honored contributors:[paragraph break]Early Concept Review:[line break]Jacqueline Lott[line break]Sam Kabo Ashwell[paragraph break]First pass editorial review:[line break]TBD[paragraph break]Beta-testers:[line break]TBD[paragraph break]Cover Art:[line break]TBD[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
 	bestow "So, who is to blame?".
 	
-Section Music Credits
+Section 6 - Music Credits
 
 MusicCrediting is an action out of world. Understand "music credits" as musicCrediting.
 
@@ -1288,11 +1314,11 @@ Carry out musicCrediting:
 Report musicCrediting:
 	roll music credits.
 	
-Section Waving
+Section 7 - Waving
 
 Instead of waving hands, say "You wave your cell phone around in the air, dissipating heat."
 	
-Section Levelling
+Section 8 - Levelling
 
 CheckLevel is an action out of world.
 To CheckLevel:
@@ -1311,7 +1337,7 @@ To pickGym:
 	[and the rest is handed under the "after reading a command" section because it involves direct input from
 	 the command line]
 
-Section Rebooting
+Section 9 - Rebooting
 
 PhoneBooting is an action applying to nothing. Understand  "r" or "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting. 
 
@@ -1388,7 +1414,7 @@ Instead of doing something when the phone is hung for the first time:
 			-- otherwise:
 				stop the action.]
 		
-Section Swimming
+Section 10 - Swimming
 
 Swimming is an action applying to nothing. Understand "swim" as swimming.
 
@@ -1402,20 +1428,20 @@ Report swimming:
 	otherwise:
 		say "You swim through a mass of rubber balls."
 		
-Section Diving
+Section 11 - Diving
 
 Diving is an action applying to nothing. Understand "dive" or "sink" or "descend" or "submerge" as diving.
 
 Check Diving:
 	try going down instead.
 
-Section Playing
+Section 12 - Playing
 
 Understand "play [a thing]" as switching on.
 
 Understand "stop [a thing]" as switching off.
 
-Section TapeFailing
+Section 13 - TapeFailing
 
 tapeFailing is an action applying to one thing. Understand "fast forward [a thing]" or "reverse [a thing]" or "record [a thing]" or "eject [a thing]" as tapeFailing.
 
