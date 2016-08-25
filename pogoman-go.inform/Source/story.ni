@@ -29,6 +29,8 @@ A prop is a kind of thing. It is usually portable.
 
 Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
+Health state is a kind of value. The health states are healthy, a bit injured, moderately injured, badly injured, near death, and dead.
+
 securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
 
 A door has a securityColor. The securityColor of a door is usually white.
@@ -89,6 +91,7 @@ The player has a number called pogoEggsCarried. pogoEggsCarried is 0. [if any, a
 The player has a number called pogoIncenseCarried. pogoIncenseCarried is 0 [if any, add to when play begins].
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
+The player has a health state called healthiness. The healthiness of the player is healthy.
 
 Section 3 - Pogo Items
 
@@ -832,9 +835,9 @@ carry out inventorydropping:
 
 Chapter Declare Constants
 
+[Game Setup]
 INITIAL_POGOLEVEL is always 3.
 INITIAL_XP is always 320.
-
 MIN_TOWN_POGOSTOPS is always 6.
 MAX_TOWN_POGOSTOPS is always 9.
 MIN_TOWN_GYMS is always 2.
@@ -843,6 +846,8 @@ MAX_TOWN_GYMS is always 4.
 [TODO: add a universal timer and quadrooms have a timestamp property; lockout pogostops per room]
 POGOSTOP_TIMEOUT_DURATION is always 10.
 
+
+[Ways of gaining XP]
 MEDAL_XP_VALUE is always 10.
 EVOLUTION_XP_VALUE is always 50.
 POGOSTOP_XP_VALUE is always 10.
@@ -854,10 +859,8 @@ GYM_LOSS_XP_VALUE is always 50.
 CHUMMING_XP_VALUE is always 10.
 EGG_HATCH_XP_VALUE is always 25.
 
-POGOMAN_GENERATION_DELAY is always 3. [how many turns before pogomen show up
-]
-[likelihood of encountering a pogoman is encounter_value * incense effect out of 100]
-INCENSE_EFFECT_VALUE is always 2.
+[likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
+INCENSE_EFFECT_VALUE is always 10.
 PREPOGO_ENCOUNTER_VALUE is always 10.
 POGO_ENCOUNTER_VALUE is always 10.
 
@@ -866,28 +869,32 @@ CAPTURE_EVOL1_DIFFICULTY is always 80.
 CAPTURE_EVOL2_DIFFICULTY is always 60.
 CAPTURE_EVOL3_DIFFICULTY is always 40.
 
+[Combat]
 OFFENSIVE_RATING_EVO1 is always 30.
 OFFENSIVE_RATING_EVO2 is always 50.
 OFFENSIVE_RATING_EVO3 is always 70.
 WOUNDED_PENALTY is always 25.
 FIGHT_RANDOMNESS is always 40.
-
 SPECIAL_ATTACK_XP_COST is always 100.
+
+[Inventory]
 
 POGOMEN_INVENTORY_LIMIT is always 100.
 POGOITEM_INVENTORY_LIMIT is always 100.
 
-The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
+[Advancement Requirements]
 
 GYM_ENTRY_LEVEL_REQUIREMENT is always 5.
-
 TOWER_XP_REQUIREMENT is always 1000.
 TOWER_TROPHY_REQUIREMENT is always 1.
 TOWER_LEVEL_REQUIREMENT is always 8.
 TOWER_MEDAL_REQUIREMENT is always 10.
 
+[Invariant Lists]
+
 The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
 The list of colors called EXTENDED_TEAM_COLORS is always {Viridian, Papayawhip}.
+The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
 
 [additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
 
@@ -1822,14 +1829,14 @@ This is the pogoman apparition rule:
 	if Not In Kansas Anymore is happening:
 		let N be POGO_ENCOUNTER_VALUE;
 		if the pogoIncense is ignited:
-			let N be N times INCENSE_EFFECT_VALUE;
+			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
 			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared!";
 	otherwise:
 		let N be PREPOGO_ENCOUNTER_VALUE;
 		if the pogoIncense is ignited:
-			let N be N times INCENSE_EFFECT_VALUE;
+			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
 			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [type of the attackerPogoman] appears!".
