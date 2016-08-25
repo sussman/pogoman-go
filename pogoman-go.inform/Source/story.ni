@@ -446,7 +446,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 			if there is no pogoName in row N of the Table of Inventory:
 				let LAST be N minus 1;
 				break;
-		say "DEBUG: LAST = [LAST][line break]";
+		[say "DEBUG: LAST = [LAST][line break]";]
 		repeat with N running from 1 to LAST:[choose high to low evolution, the same but with wounded]
 			if the pogoName in row N of the Table of Inventory is third level and the wounded in row N of the Table of Inventory is false:
 				let SELECTED be N;
@@ -478,7 +478,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 					break;
 		if DONE is false:
 			let SELECTED be 1;
-		say "DEBUG SELECTED = [SELECTED][line break]";
+		[say "DEBUG SELECTED = [SELECTED][line break]";]
 		let CHOSEN be the pogoName in row SELECTED of the Table of Inventory;
 		let CHOSEN-W be the wounded in row SELECTED of the Table of Inventory;
 		let P be a random pogotype;
@@ -490,7 +490,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		else:
 			let P-DEF be OFFENSIVE_RATING_EVO3;
 		let P-DEF be P-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
-		say "DEBUG: PDEF [P-DEF][line break]";
+		[say "DEBUG: PDEF [P-DEF][line break]";]
 		let CHOSEN-DEF be 0;
 		if CHOSEN is first level:
 			let CHOSEN-DEF be OFFENSIVE_RATING_EVO1;
@@ -498,20 +498,22 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 			let CHOSEN-DEF be OFFENSIVE_RATING_EVO2;
 		else:
 			let CHOSEN-DEF be OFFENSIVE_RATING_EVO3;
+		if the player wears the Baseball Cap of Pogomastery:
+			let CHOSEN-DEF be CHOSEN-DEF plus HAT_EFFECT;
 		let CHOSEN-DEF be CHOSEN-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
 		if CHOSEN-W is true:
 			let CHOSEN-DEF be CHOSEN-DEF minus WOUNDED_PENALTY;
-		say "DEBUG: CHOSENDEF [CHOSEN-DEF][line break]";
+		[say "DEBUG: CHOSENDEF [CHOSEN-DEF][line break]";]
 		let PP be "[P]" in Title Case;
 		let CCHOSEN be "[CHOSEN]" in Title Case;
 		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![quotation mark][paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] [one of]squeezing the life out of[or]obliterating[or]wiping the floor with[or]pulverizing[or]smashing[or]trashing[or]throttling[or]annihilating[in random order] [if CHOSEN-DEF is greater than P-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if]. [if P-DEF is greater than CHOSEN-DEF]The enemy [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
 		choose row SELECTED in the Table of Inventory;
 		if P-DEF is greater than CHOSEN-DEF:
-			say "DEBUG: selecting for obliteration [SELECTED][line break]";
+			[say "DEBUG: selecting for obliteration [SELECTED][line break]";]
 			blank out the whole row;
 			say "[one of][loserDurge][or][line break]Your pogoman lost, but you still gain [GYM_LOSS_XP_VALUE] XP.[stopping]";
 		otherwise:
-			say "DEBUG: selecting for wounding [SELECTED][line break]";
+			[say "DEBUG: selecting for wounding [SELECTED][line break]";]
 			now the wounded entry is true;
 			say "[one of][chickenDinner][or][line break]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy![stopping]".
 			
@@ -679,6 +681,9 @@ Instead of throwing a pogoball at something (called the target):
 			let DIFFICULTY be CAPTURE_EVOL3_DIFFICULTY;
 		if FIRSTTHROW is true:
 			let DIFFICULTY be 100;
+		otherwise:
+			if the player wears the Baseball Cap of Pogomastery:
+				let DIFFICULTY be DIFFICULTY plus HAT_EFFECT;
 		if a random chance of DIFFICULTY in 100 succeeds:[target hit]
 			move the target to the void;
 			choose a blank row in the table of inventory;
@@ -878,7 +883,7 @@ FIGHT_RANDOMNESS is always 40.
 SPECIAL_ATTACK_XP_COST is always 100.
 
 [Baseball Cap of Pogomastery affects both capture and combat]
-HAT_EFFECT is always 20.
+HAT_EFFECT is always 15.
 
 [Inventory]
 
