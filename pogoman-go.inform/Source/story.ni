@@ -83,7 +83,6 @@ Section 2 - Player properties
 [TODO randomize initial items carried by player]
 The player has a number called pogoLevel.
 The player has a number called XP.
-The player has a number called Trophies.
 The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
 The player has a number called pogoballsCarried.  pogoballsCarried is 5.
@@ -1550,10 +1549,11 @@ TrophyGetting is an action applying to a number.
 Understand "getTrophy [a number]" as TrophyGetting.
 
 Carry out TrophyGetting number understood:
-	now the trophies of the player is the trophies of the player plus the number understood.
+	repeat with N running from 1 to the number understood:
+		add "Filler pogoman battle victory number [N]" to TROPHYLIST.
 	
 Report TrophyGetting:
-	say "[number understood] trophies awarded, so [trophies of the player] in total."
+	say "[number understood] trophies awarded, so [number of entries in TROPHYLIST] in total."
 	
 Section 3 - Getting Medals
 [let player manually get medals for testing]
@@ -1648,8 +1648,10 @@ To say the map symbol of (QTH - a room):
 Scanning is an action applying to nothing. Understand "scan" as scanning.
 
 Check scanning:
-	if the player is not in the village:
-		say "Scanner only works in the village.";
+	if the player is in the Village or the player is in Pogoland:
+		continue the action;
+	otherwise:
+		say "The scanner does not appear to function in this location. [bracket][fixed letter spacing]Network Error: [a random number between 100 and 500][roman type][close bracket][paragraph break]";
 		the rule fails.
 
 Report scanning:
@@ -1670,7 +1672,12 @@ Report scanning:
 		repeat with N running from 1 to Y:
 			move the phantom to the room south from the location of the phantom;		
 	say roman type;
-	move the phantom to the void.
+	move the phantom to the void;
+	if the player is in the village:
+		say "[one of][line break][fixed letter spacing]X: Your location[line break]G: A pogoman gym[line break]P: A pogostop[line break]N: Nyantech Headquarters[roman type][line break][or][stopping]";
+	otherwise:[i.e., in pogoland]
+		say "[one of][line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break][or][stopping]".
+	
 	
 Section 9 - Spawn Pogomen
 
@@ -2153,7 +2160,7 @@ Instead of giving something  (called the item) to the unicorn:
 	if the item is not the phone:
 		say "The phone -- I could care about. That? Not so much.";
 	otherwise:
-		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the trophies of the player is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
+		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the number of entries in TROPHYLIST is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
 			say "[goOnin]";
 		otherwise:
 			say "[denyPlayerEntry]"
@@ -2170,7 +2177,7 @@ To say requirement:
 			if the number of entries in MEDALLIST is less than TOWER_MEDAL_REQUIREMENT:
 				say "[TOWER_MEDAL_REQUIREMENT in words] medal[if TOWER_MEDAL_REQUIREMENT is greater than 1]s[end if]";
 			otherwise:
-				if the trophies of the player is less than TOWER_TROPHY_REQUIREMENT:
+				if the number of entries in TROPHYLIST is less than TOWER_TROPHY_REQUIREMENT:
 					say "[TOWER_TROPHY_REQUIREMENT in words] gym troph[if TOWER_TROPHY_REQUIREMENT is greater than 1]ies[otherwise]y[end if]";
 				otherwise:
 					say "ERROR: unknown problem with entry requirements".
@@ -6053,7 +6060,7 @@ Before wearing clothes:
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. 
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. 
 
 To freeze the phone:
 	now the phone is hung;
@@ -6203,7 +6210,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved [pogoLevel of the player] for the [team color of the player] Team, won [Trophies of the player] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. You managed to catch a total of TODO: XX pogomen. You and your pogomen defeated TODO: XX wild pogomen in combat.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved [pogoLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. You managed to catch a total of TODO: XX pogomen. You and your pogomen defeated TODO: XX wild pogomen in combat.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
