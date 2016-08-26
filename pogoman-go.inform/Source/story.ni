@@ -923,9 +923,10 @@ OFFENSIVE_RATING_EVO2 is always 50.
 OFFENSIVE_RATING_EVO3 is always 70.
 WOUNDED_PENALTY is always 25.
 FIGHT_RANDOMNESS is always 40.
-SPECIAL_ATTACK_XP_COST is always 100.
-DESIRE_TO_CAPTURE_INCREMENT is always 20. [tendency to capture rather than attack]
-
+SPECIAL_ATTACK_XP_COST is always 500.
+DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
+CAPTURE_RANDOMNESS is always 30.
+CAPTURE_THRESHOLD is always 100. [above desire + randomness, pogoman decides to try a capture]
 [Baseball Cap of Pogomastery affects both capture and combat]
 HAT_EFFECT is always 15.
 
@@ -1201,7 +1202,7 @@ Before printing the locale description of a room:
 [the "or in pogoland terminal" above was added to catch the transition where player is moving as scene is changing; otherwise, the not in kansas condition doesn't apply, a turn goes by, and the player isn't moving between rooms, so this doesn't fire. This seems safe (but oddly redundant otherwise) since the player can only be in pogoland terminal if not in kansas is happening]
 	
 Rule for writing a paragraph about the defenderPogoman:
-	say "Your[if the defenderPogoman is injured] heroically [end if] [defenderPogoman] is on guard here."
+	say "Your[if the defenderPogoman is injured] heroically[end if] [defenderPogoman] is on guard here."
 	
 	
 Chapter Activities
@@ -1437,25 +1438,6 @@ Instead of doing something when the phone is hung for the first time:
 		continue the action;
 	otherwise:
 		say "Your phone has locked up. Since you only use it to play Pogoman GO!, you might as well [italic type]reboot[roman type] it."
-
-[Before doing something when the phone is hung:
-	if the current action is phoneBooting or rebooting:
-		continue the action;
-	otherwise:
-		increase the ignored command count of the phone by one;
-		if the current action is going:
-			say "[one of]No sense in walking anywhere if the game isn’t playing. Better reboot the phone.[or][run paragraph on][stopping]";
-		if the ignored command count of the phone is:
-			-- 10: 
-				say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]" instead;
-			-- 20:
-				say "In desperation, the phone write [quotation mark]R E B O O T[quotation mark] to its screen, one painstaking letter at a time to suggest to you that you might want to reset the crashed phone by using the [italic type]reboot[roman type] command." instead;
-			-- 30:
-				say "The phone falls back into emergency double redundant backup exception escape contingency mode, reaches around, and reboots itself with a sigh.";
-				try rebooting the phone;
-				stop the action;
-			-- otherwise:
-				stop the action.]
 		
 Section 10 - Swimming
 
@@ -1493,6 +1475,34 @@ Report tapeFailing:
 		say "The only function that seems to work on this Reagan-era relic is [quotation mark]Play[quotation mark].";
 	otherwise:
 		say "That doesn[apostrophe]t seem to be an option."
+		
+Section 14 - Special Attack
+
+Special attacking is an action applying to one thing. Understand "special attack [a thing]" as special attacking when Exploring The Tower has happened.
+
+Check special attacking:
+	if the noun is not a person:
+		say "You special attack can only be unleashed on living tissue.";
+		stop the action;
+	else if the noun is the player:
+		say "You cannot turn your inner power against yourself. It is sort of a tautology.";
+		stop the action;
+	else if the noun is the defenderPogoman:
+		say "Your [team color of the player] Energy cannot harm one of your own pogomen.";
+		stop the action;
+	else if the xp of the player is less than the SPECIAL_ATTACK_XP_COST:
+		say "Your XP reserves are too low to must the special attack.";
+		stop the action;
+	else:
+		continue the action.
+		
+Carry out special attacking:
+	say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
+	now xp of the player is xp of the player minus SPECIAL_ATTACK_XP_COST;
+	move the noun to the void.
+	
+After special attacking the attackerPogoman for the first time:
+	bestow "Extra Crispy".
 
 Chapter Medals & Trophies
 
@@ -2032,18 +2042,24 @@ This is the fightclub rule:
 				blank out the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders;
 				move the defenderPogoman to the void;
 				now the attackerPogoman is injured;
-		otherwise:
-			if a random chance of desire to capture of the attackerPogoman in 100 succeeds:
-				say "capture";
-			otherwise:
-				if the healthiness of the player is less than near death:
-					now the healthiness of the player is the health state after the healthiness of the player;
-					say "The [AA] attacks you! You are [healthiness of the player]!";
+		otherwise:[there is no defender pogoman, so the player must defend themself]
+			if the player is not in the giant ball:
+				let R be desire to capture of the attackerPogoman plus a random number from 0 to CAPTURE_RANDOMNESS;
+				if R is greater than CAPTURE_THRESHOLD:
+					follow the hunter is the hunted rule;
 				otherwise:
-					say "The [AA] finishes you off![paragraph break]";
-					let AAA be "[type of attackerPogoman]" in upper case;
-					say "[bold type]*** KILLED BY AN ENEMY [AAA]! ***[roman type][paragraph break]";
-					frontierDeath.
+					now the desire to capture of the attackerPogoman is desire to capture of the attackerPogoman plus DESIRE_TO_CAPTURE_INCREMENT;
+					if the healthiness of the player is less than near death:
+						now the healthiness of the player is the health state after the healthiness of the player;
+						say "The [AA] attacks you! You are [healthiness of the player]!";
+					otherwise:
+						say "The [AA] finishes you off![paragraph break]";
+						let AAA be "[type of attackerPogoman]" in upper case;
+						say "[bold type]*** KILLED BY AN ENEMY [AAA]! ***[roman type][paragraph break]";
+						frontierDeath.
+						
+This is the hunter is the hunted rule:
+	say "NOW YOU ARE THE HUNTED! HA!".
 					
 		
 		
@@ -2772,7 +2788,6 @@ After taking off the Baseball Cap of Pogomastery:
 	
 Instead of smelling the Baseball Cap of Pogomastery:
 	say "It smells better than it should, considering."
-	
 	
 
 Section 53 - Dealing with Quadrooms
@@ -5545,7 +5560,7 @@ Definition: a pogoroom (called the PR) is juxtaCliff if the Cliff is the room so
 
 Definition: a pogoroom (called the PR) is juxtaShark if the Shark-Infested Reef is the room east from the PR.
 
-After deciding the scope of a player while the player is in a quadroom (called the QTH):
+After deciding the scope of a player while the player is in a pogoroom (called the QTH):
 	place the QTH in scope;
 	if the QTH is juxtaLava:
 		place the Volcano in scope;
@@ -5587,15 +5602,15 @@ Instead of listening when the player is in a pogoroom (called the place):
 				otherwise:
 					continue the action.
 		
-Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland.
+Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Fishing Boat, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland. 
 
-The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A fiery mountain that constantly belches molten lava."
+The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A range of fiery mountains that constantly belches molten lava." Understand "mountains" or "range" or "lava" as the volcano.
 
-The Quicksand is a room. The Quicksand is west from Palace. The Quicksand is west from Desert.  The Quicksand is west from Canyon.  The Quicksand is west from Pogoland Terminal.  The Quicksand is west from Cemetery. The description of quicksand is "A desolate expanse of shifting sands and furtive shadows."
+The Quicksand is a room. The Quicksand is west from Palace. The Quicksand is west from Desert.  The Quicksand is west from Canyon.  The Quicksand is west from Pogoland Terminal.  The Quicksand is west from Cemetery. The description of quicksand is "A desolate expanse of shifting sands and furtive shadows." Understand "sand" or "desolation" or "wasteland" or "quicksand" or "shadows" or "shadow" as the quicksand.
 
-The Shark-Infested Reef is a room. The Shark-Infested Reef is east from Beach. The Shark-Infested Reef is east from Lighthouse. The Shark-Infested Reef is east from Wharf. The Shark-Infested Reef is east from Aquarium. The Shark-Infested Reef is east from Motel. The description of the Shark-Infested Reef is "Beautiful blue-green waters chocked full of voracious sharks."
+The Shark-Infested Reef is a room. The Shark-Infested Reef is east from Beach. The Shark-Infested Reef is east from Lighthouse. The Shark-Infested Reef is east from Wharf. The Shark-Infested Reef is east from Aquarium. The Shark-Infested Reef is east from Motel. The description of the Shark-Infested Reef is "Beautiful blue-green waters chocked full of voracious sharks." Understand "water" or "water" or "ocean" or "sea" or "reef" or "oceans" or "seas" or "shore" as the Shark-Infested Reef.
 
-The Cliff is a room. The Cliff is south from Cemetery. The Cliff is south from Service Station. The Cliff is south from Dojo. The Cliff is south from Botanical Garden. The Cliff is south from Motel. The description of Cliff is "Crumbly chalk cliffs overlooking a ridge of sharp rocks, far below."
+The Cliff is a room. The Cliff is south from Cemetery. The Cliff is south from Service Station. The Cliff is south from Dojo. The Cliff is south from Botanical Garden. The Cliff is south from Motel. The description of Cliff is "Crumbly chalk cliffs overlooking a ridge of sharp rocks, far below." Understand "chalk" or "cliff" or "rocks" or "rock" or "precipice" as the Cliff.
 
 The Frontier are a region. The Volcano, the Quicksand, the Shark-Infested Reef, and the Cliff are in the Frontier.
 
@@ -5683,13 +5698,9 @@ To frontierDeath:
 	say "(RESTART, RESTORE, AMUSING, QUIT)";
 	wait for any key;
 	say paragraph break;
-	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly[one of], your disembodied essence floating numinously past a few objects that are not currently in play: a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or], your psychic energy propagating past Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or], your spirit astrally passing by Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or], vaguely aware of drifting by a frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[or][stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
+	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly[one of], your disembodied essence floating numinously past a few objects that are not currently in play: a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or], your psychic energy propagating past Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or], your spirit astrally passing by Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or], vaguely aware of drifting by a frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[or]. Having passed through so frequently, you are beginning to get a metaphysical headache and just close your eyes waiting for it to be over[stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
 	now the healthiness of the player is healthy;
 	teleport the player to the Hospital.
-
-
-
-
 
 Section 3 - Lighthouse
 
@@ -6088,7 +6099,7 @@ Instead of entering a pogoroom (called the QTH) when the player is in Pogoland:
 		-- artifact:
 			say "You can[apostrophe]t, but you are standing right next to it."
 			
-Before doing something with a quadroom (called the QTH) when the player is in the village:
+Before doing something with a pogoroom (called the QTH) when the player is in the Pogoland:
 	if the current action is examining:
 		continue the action;
 	if the player is not in the QTH:
@@ -6136,6 +6147,24 @@ The Void contains a PogoIncense-kind called PogoIncense. PogoIncense can be igni
 Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
+
+The giant ball is a closed container in the void. The description of the giant ball is "It is dark in here, but some reddish light leaks through the plastic case." Understand "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0. 
+
+Instead of doing something other than searching or examining with the giant ball:
+	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
+
+Instead of exiting when the player is in the giant ball for the first time:
+	say "You can[apostrophe]t squeeze out through the small crack that remains. You[apostrophe]ll need to beat your way out, if you can. If you have been waiting for violence to be the answer to something, this is it.";
+	bestow "Violence Vindicated".
+	
+Instead of exiting when the player is in the giant ball:
+	say "The crack is too small!"
+	
+Instead of looking when the player is in the giant ball:
+	try examining the giant ball.
+	
+	
+
 
 section 2 - Badge
 
