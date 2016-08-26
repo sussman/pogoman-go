@@ -234,7 +234,7 @@ Instead of dropping a pogothing (called the item):
 				otherwise:												
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
-						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell[end if].";
+						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if].";
 						now pogoName entry is P;
 						now wounded entry is false;						
 						AwardXP EGG_HATCH_XP_VALUE;
@@ -336,7 +336,7 @@ Section 5 - Incense
 
 Instead of burning incense:
 	If Around The Town is happening:
-		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admittedly virtual pogomen to you[or][stopping].";
+		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admitly virtual pogomen to you[or][stopping].";
 		say line break;
 		decrement the pogoIncense count;
 		now the pogoIncense is ignited;
@@ -1154,7 +1154,7 @@ This is the run from sound rule:
 	if the speaker is active and the walkman is not worn:
 		say "You run screaming from the LAN closet back into the Lobby, slamming the LAN Closet Door behind you.";
 		now the LAN Closet Door is closed;
-		move the player to the Lobby.
+		teleport the player to the Lobby.
 		
 After going from somewhere:
 	increase the distance walked  of the player by one;
@@ -1177,21 +1177,28 @@ After printing the locale description of a room (called the locale):
 		if the pogostop is in the locale or the gym is in the locale:
 			say " is here.".
 			
+[Use teleport rather than move since it assures that the player will always be considered to have moved from a different location, so all updates will work. If, for example, a player were pseudokilled at the Hospital and then teleported to the hospital, the player will be considered to have briefly passed through the void on the way. Very metaphysical.]
+To teleport the player to (destination - a room):
+	now the previousRoom of the player is the void;
+	move the player to the destination.
+			
 Section 8 - Mentioning Defenders
 
 [This is to update the pogomen in the room; has to happen before deciding what objects to list in the room; every turn procedures would be too late, for example]
 
 Before printing the locale description of a room:
 	if the previousRoom of the player is not the location of the player:
-		move the attackerPogoman to the void;
+		move the attackerPogoman to the void;[clear the attacker when moving rooms]
 		move the defenderPogoman to the void;
-		if Not In Kansas Anymore is happening:[update the defender ]
+		if Not In Kansas Anymore is happening or the player is in Pogoland Terminal:[update the defender ]
 			if there is a guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders:
 				now the type of defenderPogoman is the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders;
 				if the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is true:
 					now the defenderPogoman is injured;
 				move the defenderPogoman to the location of the player;
 	continue the action.
+	
+[the "or in pogoland terminal" above was added to catch the transition where player is moving as scene is changing; otherwise, the not in kansas condition doesn't apply, a turn goes by, and the player isn't moving between rooms, so this doesn't fire. This seems safe (but oddly redundant otherwise) since the player can only be in pogoland terminal if not in kansas is happening]
 	
 Rule for writing a paragraph about the defenderPogoman:
 	say "Your[if the defenderPogoman is injured] heroically [end if] [defenderPogoman] is on guard here."
@@ -2366,7 +2373,7 @@ To say chitChat:
 	
 To say goOnIn:
 	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter a the building[apostrophe]s revolving door.";
-	move the player to the RevolvingDoor.
+	teleport the player to the RevolvingDoor.
 
 After talking to the unicorn for the first time:
 	bestow "Talks With Unicorns".		
@@ -2693,23 +2700,23 @@ To say passage8:
 	
 To say passage9:
 	say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don’t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We’re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.";
-	move the player to the perilous passageway.
+	teleport the player to the perilous passageway.
 	[TODO: A rare pogoman appears]
 	
 To say passage10:
 	say "With lingering trepidation, you enter the perilous passageway.";
 	now the title of the perilous passageway is "until recently perilous passageway";
 	now the description of the perilous passageway is "A passageway that is less disgusting than the last time you were here.";
-	move the player to the perilous passageway.
+	teleport the player to the perilous passageway.
 	
 To say passage11:
 	now the title of the perilous passageway is "Entirely Safe Passageway";
 	say "You walk with confidence into the formerly perilous passageway.";
 	now the description of the perilous passageway is "A well-lit passageway between buildings.";
-	move the player to the perilous passageway.
+	teleport the player to the perilous passageway.
 	
 To say passage12:
-	move the player to the perilous passageway.
+	teleport the player to the perilous passageway.
 	
 The garbage bin is a closed openable fixed in place container. The garbage bin is in perilous passageway. The description of the garbage bin is "An filthy metal trash bin." Understand "bin" or "skip" or "waste" or "dust" as the garbage bin.
 
@@ -2724,7 +2731,7 @@ After opening the garbage bin for the first time:
 	say "The refuse in this bin has been waiting millenia for a hero like you to come by and set it free. The olfactory shockwave ripples out, throwing you from the passageway.[paragraph break]";
 	bestow "Unleashed Untold Power";
 	move the disgusting refuse to the garbage bin;
-	move the player to the room D from the perilous passageway.
+	teleport the player to the room D from the perilous passageway.
 
 Instead of smelling the disgusting refuse for the first time:
 	say "You add your stomach contents to the fetid mass in the garbage can.";
@@ -3036,16 +3043,16 @@ After eating a pop-tart for the third time:
 	newPopTart.
 	
 After eating a pop-tart for the fourth time:
-	move the player to the infirmary;
+	teleport the player to the infirmary;
 	say "You wake up with a pounding headache as a nurse withdraws a hypodermic syringe from your flank.[paragraph break][quotation mark]That should do it,[quotation mark] she says as she clips off the needle and throws the syringe and a few used bottles of insulin into a bag marked biomedical waste.[paragraph break]You are still rubbing the sore spot on your side as she signs off on the paperwork and stuffs you into an elevator.[paragraph break]";
 	now the floor level of the elevator is Infirmary;
-	move the player to the elevator;
+	teleport the player to the elevator;
 	bestow "Pancreatic Endocrine Capacity Exceeded";
 	newPopTart.
 	
 After eating a pop-tart:
 	say "After vivid dreams involving [one of]intelligent sessile polyps capable of taking over people[apostrophe]s minds[or]worship of a tiki god[or]the political aspirations of the three little pigs[or]giant cooing pigeons[or]swimming against the pull of a voracious whirlpool[or]a Pink Floyd tribute band consisting of the original cast of The Wizard of Oz[or]going bowling with Steve Jobs[or]the endless void[stopping], you awaken in the cafeteria.[paragraph break]No one really pays you any attention, but you notice that several hours have passed.";
-	move the player to the cafeteria;
+	teleport the player to the cafeteria;
 	newPopTart.
 	
 Section 4 - Beverages
@@ -3210,13 +3217,13 @@ Instead of examining the ladderProxy when the player is in the Crawl Space:
 	
 Instead of jumping when the player is in the Crawl Space:
 	say "You jump off the equipment rack and land on the floor of the LAN closet.";
-	move the player to the LAN Closet.
+	teleport the player to the LAN Closet.
 	
 To finishFall:
 	say " plunge through a false ceiling, which crashes down around you.[paragraph break]You find yourself in the cat control room.";
 	if the penlight is in the Crawl Space and the player does not carry the penlight:
 		move the penlight to the LAN Closet;
-	move the player to the LAN Closet.
+	teleport the player to the LAN Closet.
 	
 Instead of jumping when the player is in The Top of the Ladder or the player is in Somewhere Along The Ladder:
 	say "You plummet through the building upside down, cheeks flapping against the metal shaft walls and occasionally catching a foot or hand on the ladder enough to flip you around the other way.[paragraph break]Finally, your fall is broken by your[run paragraph on]";
@@ -3391,7 +3398,7 @@ After going inside from the revolvingDoor for the first time:
 			move N to the void;
 	now the player wears the badge;
 	now the stamp is part of the player;
-	move the player to the lobby.
+	teleport the player to the lobby.
 	
 Instead of going south from the Lobby for the first time:
 	say "You are stopped by the security nymph, who takes one look at your hand and says, [quotation mark]Sorry. Company property cannot leave the building.[quotation mark][paragraph break]";
@@ -3442,7 +3449,7 @@ Instead of dropping or taking off the walkman when the player is in the LAN Clos
 		say "Before you can slip the earphone off, you are overcome by nauseous fear -- even worse than Rick Astley -- and you sprint out of the LAN closet, hanging onto the walkman.";
 		now the player carries the walkman;
 		now the LAN Closet Door is closed;
-		move the player to the Lobby;
+		teleport the player to the Lobby;
 	otherwise:
 		if the current action is dropping and isBrokenFlag of the phonograph is false:
 			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the walkman, but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
@@ -3765,14 +3772,14 @@ Instead of taking off the wetsuit:
 			say "With some difficulty you float on the soft and shifting surface of the ball pit, while at the same time peeling out of the tight wetsuit, which you now hold on to.";
 		otherwise:
 			say "You struggle out of the wet suit, grab it, and shoot immediately to the surface of the ball pit for a breath.";
-			move the player to the ball pit;
+			teleport the player to the ball pit;
 	otherwise:
 		continue the action.
 			
 Instead of going a direction (called the way) when the player wears the wetsuit:
 	if the player is in the Cafeteria and the way is east:
 		say "You dive into the ball pit and swim around the surface effortless, propelled by your flippers.";
-		move the player to the Ball Pit;
+		teleport the player to the Ball Pit;
 		the rule succeeds;
 	if the player is in the BallPit Area:
 		continue the action;
@@ -3859,12 +3866,12 @@ Before going down from the ball pit:
 Instead of going down from the Ball Pit for the first time:
 	say "You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface. As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
 	bestow "Got that sinking feeling";
-	move the player to the room down from the location.
+	teleport the player to the room down from the location.
 	
 Instead of going down from the BallPitShallow for the first time:
 	say "At this depth, the weight of the balls above you is noticeable, but not uncomfortable. The light filtering down through the rubber balls is muted, but another pale, blue light shines upward from below. In the distance, low bass notes resonate.[paragraph break]";
 	bestow "In Over Your Head";
-	move the player to the room down from the location.
+	teleport the player to the room down from the location.
 	
 Instead of going down from the BallPitDeep for the first time:
 	say "You swim with difficulty through the viscous sea of rubber balls, which at this depth are nearly flat. Finally, you arrive at the bottom of the pit, where you come face to face with a robotic blue whale. Your organs quiver with each resounding note of its deep, lamenting song.[paragraph break]";
@@ -3872,7 +3879,7 @@ Instead of going down from the BallPitDeep for the first time:
 	say "You and the whale just hover there for a moment communing with each other. The whale blinks and its eyes shine with a bright blue light.[paragraph break]A moment later, you find yourself standing in the cafeteria, not quite sure of what just happened and wondering if you imagined it. The diving suit is gone, but… what’s this? Your badge has turned blue with a white bar.";
 	now the securityColor of the badge is blue;
 	move the wetsuit to the void;
-	move the player to the cafeteria.
+	teleport the player to the cafeteria.
 
 Instead of going down when the player is in the BallPit area:
 	if the player is not in BallPitBottom:
@@ -4212,7 +4219,7 @@ Instead of jumping when the player is in the Deck Area:
 				now the chain is clipped;
 			otherwise:
 				say "The things you do for this game… You hold on tightly to your phone and step over the edge.[paragraph break]Arms and legs flailing, you fall without the slightest hint of dignity. Your screams are carried away by the stiff breeze.  Despite any skill whatsoever at jumping off buildings, you land squarely in the center of the cat[apostrophe]s red beret, which is just as warm and fluffy as it looks.";
-				move the player to the Cat's Beret;
+				teleport the player to the Cat's Beret;
 	otherwise:
 		say cantJump
 		
@@ -4565,7 +4572,7 @@ After going south from the stairsSSB:
 	now the player carries the glass of champagne;
 	now the description of the player is "Well-coiffed and dressed to the nines[one of]. You clean up well[or][stopping].";
 	now the player wears the formal wear;
-	move the player to Throne Room.
+	teleport the player to Throne Room.
 	
 The description of the formal wear is "The finest tailored fashion[one of], more haute than the couture you could typically afford[or][stopping]." The indefinite article of the formal wear is "some".
 
@@ -4744,7 +4751,7 @@ After going down from the Throne Room when MuskTube Station is visited:
 	
 After entering the MuskPod:
 	say "The pod dips slightly and rocks as you step into it the sleek cockpit and then slide into a custom-molded seat. Moments later, the cowling pivots down and clicks shut. A single word appears on the cockpit display [quotation mark]LAUNCH[quotation mark].";
-	move the player to the MuskPodRoom.
+	teleport the player to the MuskPodRoom.
 
 Chapter in the Elevator
 
@@ -4837,7 +4844,7 @@ Instead of entering the elevatorExterior:
 			now the elevator is not upward;
 		otherwise:
 			now the elevator is upward;
-		move the player to the elevator;				
+		teleport the player to the elevator;				
 		say "You [one of]walk[or]step[purely at random] into the elevator.";
 	otherwise:
 		say "The elevator is not here."
@@ -4888,7 +4895,7 @@ To enumerate (employees - a number) workers and (visitors - a number) gamers:
 To revoid everyone:
 	teleport the number of gamers in the elevator visitors from the elevator to the void;
 	teleport the number of workers in the elevator employees from the elevator to the void.
-	
+
 To teleport (transportees - a number) visitors from (origin - a room) to (destination - a room):
 	let Z be the number of gamers in the origin;
 	if Z is less than transportees:
@@ -5070,7 +5077,7 @@ Instead of exiting when the player is in the elevator:
 			say "You try, but the your badge literally holds you back.";
 		otherwise:
 			say "You walk off the elevator.";
-			move the player to the floor level of the elevator;
+			teleport the player to the floor level of the elevator;
 	otherwise:
 		say "You can[apostrophe]t, the elevator is in motion."
 		
@@ -5459,7 +5466,7 @@ After touching the headsUpDisplay when the headsUpDisplay is not lit:
 After touching the headsUpDisplay:
 	if the MuskPod is in Pogoland Terminal:
 		say "You fly from the passenger compartment and land safely on an adjacent concrete platform. Looking behind, you see a large leather boot on a robotically actuated arm retract into the pod. See -- Elon Musk does have a sense of humor.[paragraph break]The canopy descends and the MuskPod is off in a flash, back along the rails in direction from which it had arrived.";
-		move the player to Pogoland Terminal;
+		teleport the player to Pogoland Terminal;
 		move the MuskPod to the void;
 	otherwise:
 		say "[one of][status1][or][status2][or][status3][or][status4][or][stopping]"	
@@ -5511,15 +5518,18 @@ Instead of going a direction (called thataway) when the location is MuskPodRoom:
 		say "At this speed? That would be ludicrous!"
 				
 Instead of exiting when the player is in the MuskPodRoom:
-	if the MuskPod is not in Pogoland Terminal:
+	if the MuskPod is not in Pogoland Terminal:[location of pod serves as event marker]
 		say "The canopy refuses to open[one of]. It seems committed to keeping you alive during hypersonic transport. Go figure[or][stopping].";
 	otherwise:
-		say "As you straddle the gap between the pod and platform, you stumble and a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, a Pyromelion pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. A pyromelion.[paragraph break]";
+		say "As you straddle the gap between the pod and platform, you stumble and a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
 		say "As soon as you step clear, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
-		move the player to Pogoland Terminal.
-		[and put a Pyromelion on guard here.]
+		now the guardian corresponding to the pogoLandQTH of Pogoland Terminal in the Table of Defenders is emak;
+		now the wounded corresponding to the pogoLandQTH of Pogoland Terminal in the Table of Defenders is false;
+		teleport the player to Pogoland Terminal.
+		
+		
 
 Chapter In Pogoland
 
@@ -5675,7 +5685,7 @@ To frontierDeath:
 	say paragraph break;
 	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly[one of], your disembodied essence floating numinously past a few objects that are not currently in play: a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or], your psychic energy propagating past Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or], your spirit astrally passing by Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or], vaguely aware of drifting by a frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[or][stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
 	now the healthiness of the player is healthy;
-	move the player to the Hospital.
+	teleport the player to the Hospital.
 
 
 
@@ -6104,7 +6114,7 @@ The gymceiling is privately-named scenery. The gymceiling is in the gymnasium. T
 
 Instead of climbing the rope:
 	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.";
-	move the player to the Dojo.
+	teleport the player to the Dojo.
 	
 Instead of going up in the gymnasium:
 	try climbing the rope.
@@ -6156,23 +6166,23 @@ Instead of opening an interdicted door for the third time:
 	bestow "Poor Understanding of Physiology".
 	
 Instead of opening an interdicted door for the fourth time:
-	move the player to the Infirmary;
+	teleport the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 	
 Instead of opening an interdicted door for the fifth time:
-	move the player to the Infirmary;
+	teleport the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 
 Instead of opening an interdicted door for the sixth time:
-	move the player to the Infirmary;
+	teleport the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
 	hospital discharge.
 	
 Instead of opening an interdicted door:
-	move the player to the Infirmary;
+	teleport the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
 	hospital discharge.
 	
@@ -6181,7 +6191,7 @@ To hospital discharge:
 	teleport a random number between 1 and 3 employees from the void to the elevator;
 	teleport a random number between 1 and 3 visitors from the void to the elevator;
 	now the floor level of the elevator is infirmary;
-	move the player to the elevator;
+	teleport the player to the elevator;
 	let R be a random number between 1 and 2;
 	if R is:
 		-- 1:
@@ -6373,7 +6383,7 @@ Book 8 - Scenes
 
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the RevolvingDoor.
 
-Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location is the Pogoland Terminal.
+Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location of the player is Pogoland Terminal.
 
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
 
