@@ -438,8 +438,6 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	say "And then the game freezes.";
 	freeze the phone.
 	
-
-	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for more than the third time:
 	sort the Table of Inventory in wounded order;
 	sort the Table of Inventory in pogoName order;
@@ -562,7 +560,7 @@ To say defendingPogomanName:
 	say " ";
 	say the type of defenderPogoman.
 
-The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0.
+The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
 
 To say attackingPogomanName:
 	say "[if the attackerPogoman is injured]wounded [end if][if exploring the tower has happened]attacking[otherwise]wild[end if] [type of attackerPogoman]".
@@ -1945,6 +1943,7 @@ This is the pogoman apparition rule:
 	if the location of the player is pogoman interdicted:
 		the rule fails;
 	if the attackerPogoman is in the location of the player:
+		follow the fightclub rule;
 		the rule fails;
 	if Denouement is happening:
 		the rule fails;
@@ -2015,7 +2014,7 @@ This is the fightclub rule:
 				otherwise:
 					say "The [AA] finishes you off![paragraph break]";
 					let AAA be "[type of attackerPogoman]" in upper case;
-					say "[bold type]*** KILLED BY [AAA]! ***[roman type][paragraph break]";
+					say "[bold type]*** KILLED BY AN ENEMY [AAA]! ***[roman type][paragraph break]";
 					frontierDeath.
 					
 		
