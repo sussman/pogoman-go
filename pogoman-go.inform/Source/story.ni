@@ -1177,6 +1177,25 @@ After printing the locale description of a room (called the locale):
 		if the pogostop is in the locale or the gym is in the locale:
 			say " is here.".
 			
+Section 8 - Mentioning Defenders
+
+[This is to update the pogomen in the room; has to happen before deciding what objects to list in the room; every turn procedures would be too late, for example]
+
+Before printing the locale description of a room:
+	if the previousRoom of the player is not the location of the player:
+		move the attackerPogoman to the void;
+		move the defenderPogoman to the void;
+		if Not In Kansas Anymore is happening:[update the defender ]
+			if there is a guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders:
+				now the type of defenderPogoman is the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders;
+				if the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is true:
+					now the defenderPogoman is injured;
+				move the defenderPogoman to the location of the player;
+	continue the action.
+	
+Rule for writing a paragraph about the defenderPogoman:
+	say "Your[if the defenderPogoman is injured] heroically [end if] [defenderPogoman] is on guard here."
+	
 	
 Chapter Activities
 
@@ -1939,15 +1958,6 @@ Every turn when Exploring the Tower is happening:
 Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium.
 
 This is the pogoman apparition rule:
-	if the previousRoom of the player is not the location of the player:
-		move the attackerPogoman to the void;
-		move the defenderPogoman to the void;
-		if Not In Kansas Anymore is happening:[update the defender ]
-			if there is a guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders:
-				now the type of defenderPogoman is the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders;
-				if the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is true:
-					now the defenderPogoman is injured;
-				move the defenderPogoman to the location of the player;
 	if the BLOCKPOGOMANFLAG is true:
 		the rule fails;
 	if the location of the player is pogoman interdicted:
