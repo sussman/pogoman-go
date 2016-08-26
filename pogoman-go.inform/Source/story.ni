@@ -29,7 +29,7 @@ A prop is a kind of thing. It is usually portable.
 
 Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
-Health state is a kind of value. The health states are healthy, a bit injured, moderately injured, badly injured, near death, and dead.
+Health state is a kind of value. The health states are healthy, beaten-up, near death, and dead.
 
 securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
 
@@ -770,7 +770,7 @@ This is the pogo-inventory rule:
 			say "[DD] team ";
 			let T be the team color of the player;
 			say "[T]" in lower case;
-			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scanner[quotation mark] command for a display of deployed pogomen."
+			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scan[quotation mark] command for a display of deployed pogomen."
 				 		
 [
 Section Evolving
@@ -903,6 +903,7 @@ GYM_VICTORY_XP_VALUE is always 300.
 GYM_LOSS_XP_VALUE is always 50.
 CHUMMING_XP_VALUE is always 10.
 EGG_HATCH_XP_VALUE is always 25.
+STREETFIGHT_XP_VALUE is always 100.
 
 [likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
 INCENSE_EFFECT_VALUE is always 10.
@@ -1932,7 +1933,7 @@ Every turn when Exploring the Tower is happening:
 			bestow "You sick puppy: [megaCats of the CAT Control] Cat Rotations!";
 		increase megaCats of the CAT Control by 4000000.
 
-Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom.
+Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium.
 
 This is the pogoman apparition rule:
 	if the previousRoom of the player is not the location of the player:
@@ -1952,7 +1953,8 @@ This is the pogoman apparition rule:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
-			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared!";
+			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared![paragraph break]";
+			follow the fightclub rule;
 	otherwise:
 		let N be PREPOGO_ENCOUNTER_VALUE;
 		if the pogoIncense is ignited:
@@ -1960,7 +1962,48 @@ This is the pogoman apparition rule:
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
 			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [type of the attackerPogoman] appears!".
-
+			
+This is the fightclub rule:
+	if the attackerPogoman is in the location of the player:
+		let ATTACKER-DEF be 0;
+		if the type of the attackerPogoman is first level:
+			let ATTACKER-DEF be OFFENSIVE_RATING_EVO1;
+		else if the type of the attackerPogoman is second level:
+			let ATTACKER-DEF be OFFENSIVE_RATING_EVO2;
+		else:
+			let ATTACKER-DEF be OFFENSIVE_RATING_EVO3;
+		if the attackerPogoman is injured:
+			let ATTACKER-DEF be ATTACKER-DEF minus WOUNDED_PENALTY;
+		let ATTACKER-DEF be ATTACKER-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
+		[say "DEBUG: ATTACKER [ATTACKER-DEF][line break]";]
+		if the defenderPogoman is in the location of the player:
+			let GUARD-DEF be 0;
+			if the the type of the defenderPogoman is first level:
+				let GUARD-DEF be OFFENSIVE_RATING_EVO1;
+			else if the the type of the defenderPogoman is second level:
+				let GUARD-DEF be OFFENSIVE_RATING_EVO2;
+			else:
+				let GUARD-DEF be OFFENSIVE_RATING_EVO3;
+			if the player wears the Baseball Cap of Pogomastery:
+				let GUARD-DEF be GUARD-DEF plus HAT_EFFECT;
+			let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
+			if the defenderPogoman is injured:
+				let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;
+				[say "DEBUG: GUARDDEF [GUARD-DEF][line break]";]
+			let AA be "[type of attackerPogoman]" in Title Case;
+			let DD be "[type of defenderPogoman]" in Title Case;
+			say "The wild [AA] immediately attacks your [DD]";
+			if ATTACKER-DEF is greater than GUARD-DEF:
+				say " but is defeated after a brief combat. The [AA] disappears in a puff of smoke. You gain [STREETFIGHT_XP_VALUE] XP!";
+				move the attackerPogoman to the void;
+				now the defenderPogoman is injured;
+				now the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders is true;
+			otherwise:
+				say " and defeats it! Your [DD] disappears in a puff of smoke.[paragraph break]The wild [AA] now turns its eyes to you.";
+				blank out the guardian corresponding to the pogolandQTH of the location of the player in the Table of Defenders;
+				blank out the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders;
+				move the defenderPogoman to the void;
+				now the attackerPogoman is injured.
 		
 
 Book 2 - Places
