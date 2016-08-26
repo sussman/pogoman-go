@@ -617,6 +617,7 @@ Service Station
 Dojo
 Botanical Garden
 Motel
+Fishing Boat
 
 Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
@@ -708,14 +709,17 @@ Instead of throwing a pogoball at something (called the target):
 				now the wounded entry is false;
 			say "[one of]You throw a pogoball at the [type of the target]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
 			say "You[apostrophe]ve captured ";
-			if Not In Kansas Anymore is happening:
-				say "an evil";
+			if Around The Town is happening or Exploring The Tower is Happening:
+				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]."; 
 			otherwise:
-				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order]"; 
-			say " [type of the target].";
+				if the target is the defenderPogoman:
+					say "a loyal [type of target]";
+				otherwise:
+					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping]";
+				say ".";
 			if FIRSTTHROW is true:
 				say line break;
-				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger,or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory.[paragraph break]";
+				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory.[paragraph break]";
 				now FIRSTTHROW is false;
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
@@ -1172,6 +1176,7 @@ After printing the locale description of a room (called the locale):
 				say " Gym";
 		if the pogostop is in the locale or the gym is in the locale:
 			say " is here.".
+			
 	
 Chapter Activities
 
@@ -1695,14 +1700,14 @@ To say bar:
 To say the map symbol of (QTH - a room):
 	if the player is in the QTH:
 		say "X";
+	else if there is a guardian corresponding to the pogolandQTH of the QTH in the Table of Defenders:
+		say "D";[defenders need to be above the rest of list to avoid being masked]
 	else if the QTH is listed in POGOSTOPLIST:
 		say "P";
 	else if the QTH is listed in GYMLIST:
 		say "G";
 	else if the QTH is Nyantech Entrance:
 		say "N";
-	else if there is a guardian corresponding to the pogolandQTH of the QTH in the Table of Defenders:
-		say "D";
 	else:
 		say "-".
 	
@@ -1902,7 +1907,6 @@ This is the default stage business rule:
 
 Chapter Every Turn 
 
-
 Every turn:	
 	follow the pogoman apparition rule;
 	if the current action is looking or going:
@@ -1938,13 +1942,20 @@ This is the pogoman apparition rule:
 	if the previousRoom of the player is not the location of the player:
 		move the attackerPogoman to the void;
 		move the defenderPogoman to the void;
+		if Not In Kansas Anymore is happening:[update the defender ]
+			if there is a guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders:
+				now the type of defenderPogoman is the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders;
+				if the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is true:
+					now the defenderPogoman is injured;
+				move the defenderPogoman to the location of the player;
 	if the BLOCKPOGOMANFLAG is true:
 		the rule fails;
 	if the location of the player is pogoman interdicted:
 		the rule fails;
 	if the attackerPogoman is in the location of the player:
-		follow the fightclub rule;
-		the rule fails;
+		if Not In Kansas Anymore is happening:
+			follow the fightclub rule;[there's already an attacker here, so fight it]
+		the rule fails;[already one here, no need to generate a new one]
 	if Denouement is happening:
 		the rule fails;
 	if Not In Kansas Anymore is happening:
@@ -1952,7 +1963,7 @@ This is the pogoman apparition rule:
 		if the pogoIncense is ignited:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
-			generate a pogoman;
+			generate a pogoman;[no attacker is here, so generate a new one]
 			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared![paragraph break]";
 			follow the fightclub rule;
 	otherwise:
@@ -5883,7 +5894,7 @@ The description of Aquarium is "The shell-shaped building is surrounded by fount
 
 Section 25 - Post Office
 
-The description of Post Office is "A modern building with advertisements in the window about how the post office is still somewhat relevant."
+The description of Post Office is "A modern building with advertisements in the window about how the post office is still somehow relevant."
 
 Section 26 - Dark Alley
 
