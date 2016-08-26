@@ -29,7 +29,7 @@ A prop is a kind of thing. It is usually portable.
 
 Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
-Health state is a kind of value. The health states are healthy, beaten-up, near death, and dead.
+Health state is a kind of value. The health states are healthy, bruised, moderately wounded, near death, and dead.
 
 securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
 
@@ -562,7 +562,7 @@ To say defendingPogomanName:
 	say " ";
 	say the type of defenderPogoman.
 
-The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured.
+The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0.
 
 To say attackingPogomanName:
 	say "[if the attackerPogoman is injured]wounded [end if][if exploring the tower has happened]attacking[otherwise]wild[end if] [type of attackerPogoman]".
@@ -922,6 +922,7 @@ OFFENSIVE_RATING_EVO3 is always 70.
 WOUNDED_PENALTY is always 25.
 FIGHT_RANDOMNESS is always 40.
 SPECIAL_ATTACK_XP_COST is always 100.
+DESIRE_TO_CAPTURE_INCREMENT is always 20. [tendency to capture rather than attack]
 
 [Baseball Cap of Pogomastery affects both capture and combat]
 HAT_EFFECT is always 15.
@@ -1975,6 +1976,7 @@ This is the fightclub rule:
 		if the attackerPogoman is injured:
 			let ATTACKER-DEF be ATTACKER-DEF minus WOUNDED_PENALTY;
 		let ATTACKER-DEF be ATTACKER-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
+		let AA be "[type of attackerPogoman]" in Title Case;
 		[say "DEBUG: ATTACKER [ATTACKER-DEF][line break]";]
 		if the defenderPogoman is in the location of the player:
 			let GUARD-DEF be 0;
@@ -1986,14 +1988,13 @@ This is the fightclub rule:
 				let GUARD-DEF be OFFENSIVE_RATING_EVO3;
 			if the player wears the Baseball Cap of Pogomastery:
 				let GUARD-DEF be GUARD-DEF plus HAT_EFFECT;
-			let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
+			let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;			
 			if the defenderPogoman is injured:
 				let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;
 				[say "DEBUG: GUARDDEF [GUARD-DEF][line break]";]
-			let AA be "[type of attackerPogoman]" in Title Case;
 			let DD be "[type of defenderPogoman]" in Title Case;
 			say "The wild [AA] immediately attacks your [DD]";
-			if ATTACKER-DEF is greater than GUARD-DEF:
+			if GUARD-DEF is greater than ATTACKER-DEF:
 				say " but is defeated after a brief combat. The [AA] disappears in a puff of smoke. You gain [STREETFIGHT_XP_VALUE] XP!";
 				move the attackerPogoman to the void;
 				now the defenderPogoman is injured;
@@ -2003,7 +2004,21 @@ This is the fightclub rule:
 				blank out the guardian corresponding to the pogolandQTH of the location of the player in the Table of Defenders;
 				blank out the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders;
 				move the defenderPogoman to the void;
-				now the attackerPogoman is injured.
+				now the attackerPogoman is injured;
+		otherwise:
+			if a random chance of desire to capture of the attackerPogoman in 100 succeeds:
+				say "capture";
+			otherwise:
+				if the healthiness of the player is less than near death:
+					now the healthiness of the player is the health state after the healthiness of the player;
+					say "The [AA] attacks you! You are [healthiness of the player]!";
+				otherwise:
+					say "The [AA] finishes you off![paragraph break]";
+					let AAA be "[type of attackerPogoman]" in upper case;
+					say "[bold type]*** KILLED BY [AAA]! ***[roman type][paragraph break]";
+					frontierDeath.
+					
+		
 		
 
 Book 2 - Places
@@ -5596,7 +5611,7 @@ Instead of going a poor idea direction (called the way):
 					say "You dip a toe into the gentle waves and the sea erupts into a frothy nightmare of teeth vying to take off your leg. You jump back just in time. Clearly, entering the sea will result in an immediate, but painful, end.[paragraph break]";
 					bestow "Chicken Of The Sea";
 				-- 1: 
-					say "[quotation mark]Damn your logic, Spock![quotation mark] you cry as you throw self-preservation to the wind and dive majestically into the waves.[paragraph break]There is a sharp pain in your arm, then your leg, then where your leg used to be, and then the water turns red and your vision fades.[paragraph break] *** EATEN BY SHARKS! ***[paragraph break]";
+					say "[quotation mark]Damn your logic, Spock![quotation mark] you cry as you throw self-preservation to the wind and dive majestically into the waves.[paragraph break]There is a sharp pain in your arm, then your leg, then where your leg used to be, and then the water turns red and your vision fades.[paragraph break][bold type]*** EATEN BY SHARKS! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
 					say "No, from now on, if you are going out to sea, it will be in a boat.";
@@ -5606,7 +5621,7 @@ Instead of going a poor idea direction (called the way):
 				say "Ah, nothing but miles and miles of luscious sand out to the west. Beautiful but desolate. You pause to admire it, but you are also a bit concerned that there is nothing -- not even a cactus --  alive over there.[paragraph break]";
 				bestow "Getting Away From It All";
 				-- 1:
-					say "TODO [paragraph break]*** DESSICATED! ***";
+					say "TODO [paragraph break][bold type]*** DESSICATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
 					say "no more.";
@@ -5617,7 +5632,7 @@ Instead of going a poor idea direction (called the way):
 				-- 1:
 					say "TODO";
 				-- 2:
-					say "TODO   [paragraph break]*** PULVERISED! ***[paragraph break]";
+					say "TODO   [paragraph break][bold type]*** PULVERISED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
 					say "";
@@ -5628,14 +5643,18 @@ Instead of going a poor idea direction (called the way):
 				-- 1:
 					say "TODO";
 				-- 2:
-					say "TODO  [paragraph break]*** INCINERATED! ***[paragraph break]";
+					say "TODO  [paragraph break][bold type]*** INCINERATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
 					say "";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
 To frontierDeath:
-	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly, your disembodied essence floating numinously past a few objects that are not currently in play: [one of]a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or]Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or]Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or]A frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
+	say "(RESTART, RESTORE, AMUSING, QUIT)";
+	wait for any key;
+	say paragraph break;
+	say "Oh, wait a minute. That contract you signed back at Nyantech? They had actually anticipated this potential outcome. It seems that death does not release you from your obligations as a beta-tester.[paragraph break]You transit limbo briefly[one of], your disembodied essence floating numinously past a few objects that are not currently in play: a pair of flippers, a half-drunk bottle of champagne, and a town full of semi-sentient lemurs[or], your psychic energy propagating past Oswaldo, who waves at you from a lawn-chair, a fleet of flying cat-spaceships, and a telepathic sessile polyp[or], your spirit astrally passing by Muddy Charlie, some equipment from an ophthalmologist[apostrophe]s office, and a stack of lobster bibs[or], vaguely aware of drifting by a frisky dalmatian, a group of interior designers with wallpaper swatches, and a golden identification badge[or][stopping].[paragraph break]Moments later, you reincorporate in a vat of what you think might be maple syrup and are hustled outside by some burly attendants. When regain your wits a few minutes later, you find yourself standing on the lawn of Pogoland Community Hospital.";
+	now the healthiness of the player is healthy;
 	move the player to the Hospital.
 
 
@@ -6343,14 +6362,12 @@ When Not In Kansas Anymore begins:
 
 When Not in Kansas Anymore begins:
 	Desolation strikes in ten turns from now;
-	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet, and have been beaten to a pulp by a cartoon character. How do you think you look? In short: not too healthy."
-	
+	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
+		
 At the time when desolation strikes:
 	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
 
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
-
-
 
 
 Book 9 - Hints
