@@ -2082,16 +2082,24 @@ Every turn when the player is in the giant ball:
 		-- 3:
 			say "The ball is almost entirely closed.";
 		-- 4:
-			say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogomon![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break]Some time goes by.[paragraph break]";
-			wait for any key;
-			say "No, I mean a [italic type]lot[roman type] of time goes by.[paragraph break]";
-			wait for any key;
-			say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play pogomon. Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoball.[paragraph break]";
-			wait for any key;
-			say "So, yeah, a really long time.[paragraph break]";
-			wait for any key;
-			teleport the player to the gymnasium;
-			say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoball like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat."
+			if the gymnasium is unvisited:
+				say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogomon![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break]Some time goes by.[paragraph break]";
+				wait for any key;
+				say "No, I mean a [italic type]lot[roman type] of time goes by.[paragraph break]";
+				wait for any key;
+				say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play pogomon. Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoball.[paragraph break]";
+				wait for any key;
+				say "So, yeah, a really long time.[paragraph break]";
+				wait for any key;
+				teleport the player to the gymnasium;
+				if the healthiness of the player is greater than bruised:
+					now the healthiness of the player is bruised;
+				now the rounds imprisoned of the giant ball is 0;
+				move the giant ball to the void;
+				say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoball like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat.";
+			otherwise:
+				say "The ball seals shut around you and you are bounced around some time as your captor goes around collecting any other holdouts that have hidden away in Pogoland.[paragraph break]Later that evening, the [type of attackerPogoman] gets in a car and while waiting for a soda and burrito, you hear it mutter something about transferring you to the professor.";
+				move the player to Processing.
 			
 Every turn when the player is in the gymnasium:
 	say "[one of]From far off, you hear another voice, [quotation mark]Vermonux, I choose...[quotation mark][paragraph break][or][quotation mark]You![quotation mark][paragraph break][or][verminate]And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you.[or][stopping]".
@@ -6575,7 +6583,7 @@ At the time when desolation strikes:
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
 
 When denouement begins:
-	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meathooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
 	
 Every turn during denouement:
 	if the healthiness of the player is dead:
