@@ -1488,6 +1488,7 @@ Check special attacking:
 	else:
 		continue the action.
 		
+[TODO: refactor the special cases of the action definition and into one or more "instead". ]
 Carry out special attacking:
 	if the location of the player is in Pogoland:
 		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
@@ -1499,6 +1500,8 @@ Carry out special attacking:
 			if a random chance of 75 in 100 succeeds:
 				say "and is obliterated![paragraph break]There is a sound of clapping, and someone says [quotation mark]Well done, well done.[quotation mark][paragraph break]";
 				teleport the player to Processing;
+			otherwise:
+				say "but seems to weather it.";
 		otherwise:
 			if a random chance of 50 in 100 succeeds:
 				say ", who falls to its knees and appears to be wounded.";
@@ -1506,9 +1509,18 @@ Carry out special attacking:
 			otherwise:
 				say ", who weathers the blast without apparent damage.";
 	else if the player is in processing:
-		say "You concentrate your XP into a precision blast aimed at Musk. The scintillating blue energy rips across the meat processing facility ";
-		if a random chance of 90 in 100 succeeds:
-			say "and slams into Musk, hurting him.";
+		say "You concentrate your XP into a precision blast aimed at [if the vitality of Elon Musk is dead]the corpse of Elon [end if]Musk. The scintillating blue energy rips across the meat processing facility ";
+		if the vitality of Elon Musk is dead:
+			say "The inanimate corpse is reduced to cinders, which scatter";
+			if the goldenBadge is worn by Elon Musk:
+				say ", leaving behind only a golden badge.[paragraph break]";
+				move the goldenBadge to Processing;
+			otherwise:
+				say ".[paragraph break]";
+			move Elon Musk to the void;
+			bestow "Kill It With Fire!";
+		else if a random chance of 90 in 100 succeeds:
+			say "and slams into Musk, hurting him[if the vitality of Elon Musk is not dead]; he looks [vitality of Elon Musk][end if].";
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
 			if the vitality of Elon Musk is dead:
 				transform the processing area;
@@ -2116,7 +2128,7 @@ Every turn when the player is in the giant ball:
 				move the player to Processing.
 			
 Every turn when the player is in the gymnasium:
-	say "[one of]From far off, you hear another voice, [quotation mark]Vermonux, I choose...[quotation mark][paragraph break][or][quotation mark]You![quotation mark][paragraph break][or][verminate]And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you.[or][stopping]".
+	say "[one of]From far off, you hear another voice, [quotation mark]Vermonux, I choose... You![quotation mark][paragraph break][or][verminate]And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you.[or][stopping]".
 	
 To say verminate:
 	now the type of attackerPogoman is vermonux;
@@ -4121,9 +4133,9 @@ After going south from the stairsRoof for the first time:
 	
 Section 34 - Processing
 
-Processing is a room.
+Processing is a room. The description of Processing is "A vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling. The [elevatorDoorDesc]. "
 
-The weaponized clipboard is a prop. The description of the weaponized clipboard is "A sturdy electronic clipboard with exceptionally sharp edges. A checklist is displayed on the clipboard."
+The weaponized clipboard is a prop. The description of the weaponized clipboard is "A sturdy electronic clipboard with exceptionally sharp edges. A checklist is displayed on the clipboard." The clipboard is carried by Elon Musk.
 
 The labcoat is worn by Elon Musk. The description of the labcoat is "A [if the vitality of Elon Musk is dead]bloodied and shredded[otherwise]starched and pressed white[end if] full length labcoat."
 
@@ -4134,12 +4146,55 @@ The checklist is part of the weaponized clipboard. The description of the checkl
 4. Recruit human subjects to fuel project - check[line break]
 5. Take Over The World!!!![paragraph break]".
 
-The goldenBadge is a privately-named prop. The goldenBadge is worn by Elon Musk. The description of the goldenBadge is "It has the same overall design as your badge, but no photo or name. It just says [quotation mark]CEO[quotation mark]."
+The goldenBadge is a privately-named prop. The goldenBadge is worn by Elon Musk. The description of the goldenBadge is "It has the same overall design as your badge, but no photo or name. It just says [quotation mark]CEO[quotation mark]." The goldenBadge is worn by Elon Musk. The printed name of the goldenBadge is "golden badge". Understand "golden" or "badge" as the goldenBadge.
 
+Does the player mean the goldenBadge doing something with the goldenBadge: it is likely.
+	
+The meat hooks are scenery in Processing. The description of the meat hooks is "Heavy, jointed (and no doubt sharp) cast iron hooks that hang from a track along the ceiling." The meat hooks are plural-named. Understand "iron" or "hook" or "track" or "ceiling" as the meat hooks. 
+
+Instead of doing something other than examining with the meat hooks:
+	say "They are too high up."
+	
 To transform the processing area:
-	move Elon Musk to Processing;
-	say "TODO DEBUG XFORM PROCESSING."
-
+	say "[paragraph break]He[apostrophe]s clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloque, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You’re still going. There must be a bit more to this.[paragraph break]";
+	bestow "Still ticking”;
+	if the defenderPogoman is in processing:
+		say "Your [type of the defenderPogoman] flees the crime scene.".
+		
+Before pushing the call button when the denouement is happening:
+	if the player wears the goldenBadge:
+		continue the action;
+	otherwise:
+		say "You receive a mild shock from the elevator, which beeps at you insistently and refuses to open[if the vitality of Musk is not dead].[paragraph break]Musk laughs at you derisively[end if].";
+		stop the action.
+	
+Before touching the call button when the denouement is happening:
+	try pushing the call button.
+	
+Instead of pushing a lift button (called the poked item) when the denouement is happening:
+	if the poked item is the processingButton:
+		say "The button does not light.";
+		stop the action;
+	otherwise:
+		say "The [poked item] lights up.";
+	if the poked item is:
+		-- cafeteriaButton:
+			catsInSpace;
+		-- packagingButton:
+			detroitEnding;
+		-- infirmaryButton:
+			commanderEnding;
+		-- managersButton:
+			ceoEnding;
+		-- engineersButton:
+			ceoEnding;
+		-- internsButton:
+			ceoEnding;
+		-- lobbyButton:
+			say "TODO: lobby exit ending";
+		-- legalButton:
+			say "TODO: legal office, ending in either feline Dystopia or liberations of Society."
+		
 Section 35 - Packaging
 
 Packaging is a room. 
@@ -4931,8 +4986,6 @@ Section 2 - Exterior of the elevator
 
 The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" as the elevatorExterior. 
 
-
-
 To say elevatorDoorDesc:
 	say "elevator[if the player is in the floor level of the elevator] doors are open[otherwise]s are[end if] to the west".
 
@@ -5029,7 +5082,8 @@ At the time when the lift arrives:
 		now the floor level of the elevator is the requestor of the call button;	
 		now the requestor of the call button is the void;
 		do lift arrival;
-		the lift departs in 1 turn from now.
+		if denouement is not happening:
+			the lift departs in 1 turn from now.
 	
 [The player always walks into an empty elevator. For floors where the player can all the elevator, it either arrives empty (green, purple) or everyone walks out (white)]
 
@@ -6597,7 +6651,8 @@ At the time when desolation strikes:
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
 
 When denouement begins:
-	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meathooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	move Elon Musk to Processing.
 	
 Every turn during denouement:
 	if the healthiness of the player is dead:
