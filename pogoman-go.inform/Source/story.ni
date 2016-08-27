@@ -348,7 +348,7 @@ Instead of burning incense:
 		say line break;
 		decrement the pogoIncense count;
 		now the pogoIncense is ignited;
-		Incense dissipates in five turns from now.
+		Incense dissipates in INCENSE_DURATION turns from now.
 	
 At the time when Incense dissipates:
 	say "The incense wears off[one of]; pogomen no longer find you quite so attractive[or][stopping].";
@@ -596,14 +596,13 @@ Instead of attacking a pogoentity (called the opponent):
 			if Exploring The Tower has happened:
 				say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]show no mercy to[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]whallop[or]repeatedly punch[in random order] the [type of attackerPogoman]";
 				if the attackerPogoman is injured:
-					if the player is in the gymnasium and a random chance of 75 in 100 succeeds:
-						say "[nearMiss].";
-					otherwise:
-						say ". Defeated, it vanishes.";
-						say "TODO:move player to processing with intro text";
-						teleport the player to Processing;
-				otherwise:
 					if the player is in the gymnasium and a random chance of 50 in 100 succeeds:
+						say ". Defeated, it vanishes. A moment later, you are sucked back into a pogoball.";
+						teleport the player to Processing;
+					otherwise:
+						say "[nearMiss].";
+				otherwise:
+					if the player is in the gymnasium and a random chance of 25 in 100 succeeds:
 						say "[nearMiss]";
 					otherwise:
 						say ". You have wounded it.";
@@ -1470,15 +1469,38 @@ Check special attacking:
 		say "Your [team color of the player] Energy cannot harm one of your own pogomen.";
 		stop the action;
 	else if the xp of the player is less than the SPECIAL_ATTACK_XP_COST:
-		say "Your XP reserves are too low to must the special attack.";
+		say "You are too low on XP to muster a special attack, a few bits of scintillating blue energy dribble out of your phone.";
 		stop the action;
 	else:
 		continue the action.
 		
 Carry out special attacking:
-	say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
+	if the location of the player is in Pogoland:
+		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
+		move the noun to the void;
+	else if the location of the player is the Gymnasium:
+		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone and strikes your opponent, the [type of the attackerPogoman]";
+		if the attackerPogoman is injured:
+			say ". It is entirely engulfed in the blast ";
+			if a random chance of 75 in 100 succeeds:
+				say "and is obliterated![paragraph break]There is a sound of clapping, and someone says [quotation mark]Well done, well done.[quotation mark][paragraph break]";
+				teleport the player to Processing;
+		otherwise:
+			if a random chance of 50 in 100 succeeds:
+				say ", who falls to its knees and appears to be wounded.";
+				now the attackerPogoman is injured;
+			otherwise:
+				say ", who weathers the blast without apparent damage.";
+	else if the player is in processing:
+		say "You concentrate your XP into a precision blast aimed at Musk. The scintillating blue energy rips across the meat processing facility ";
+		if a random chance of 90 in 100 succeeds:
+			say "and slams into Musk, hurting him.";
+			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
+			if the vitality of Elon Musk is dead:
+				transform the processing area;
+		otherwise:
+			say "but [one of]shoots right past him[or]Musk deflects the discharge, searing the hanging meat nearby[or]Musk evades the attack[or]Musk ducks[or]Musk dives out of the way[or]Musk takes only a grazing hit[or]Musk seems to weather the blast[or]Musk somehow bends the blast around him and it strikes the wall[or]Musk ducks behind a hanging piece of meat[or]Musk is too quick and evades[or]the blast is too high[or]the blast goes wide[in random order].";
 	now xp of the player is xp of the player minus SPECIAL_ATTACK_XP_COST;
-	move the noun to the void.
 	
 After special attacking the attackerPogoman for the first time:
 	bestow "Extra Crispy".
@@ -2039,9 +2061,8 @@ This is the fightclub rule:
 						let AAA be "[type of attackerPogoman]" in upper case;
 						say "[bold type]*** KILLED BY AN ENEMY [AAA]! ***[roman type][paragraph break]";
 						if the player is in the gymnasium:
+							say "You notice that you are dematerializing and find the sound of some accompanying laughter concerning. Echoing hollowly, you hear some one say [quotation mark]Well, dead in relative terms, I suppose.[quotation mark][paragraph break]";
 							teleport the player to Processing;
-							now the healthiness of the player is healthy;
-							say "TODO: denouement";
 						otherwise:
 							frontierDeath.
 						
@@ -4080,6 +4101,23 @@ Section 34 - Processing
 
 Processing is a room.
 
+The weaponized clipboard is a prop. The description of the weaponized clipboard is "A sturdy electronic clipboard with exceptionally sharp edges. A checklist is displayed on the clipboard."
+
+The labcoat is worn by Elon Musk. The description of the labcoat is "A [if the vitality of Elon Musk is dead]bloodied and shredded[otherwise]starched and pressed white[end if] full length labcoat."
+
+The checklist is part of the weaponized clipboard. The description of the checklist is "[quotation mark][fixed letter spacing]TTD:[line break]
+1. Develop perpetual battery for mobile phone - check[line break]
+2. Drill hole through earth, set up maglev train - check[line break]
+3. Invent way of melding real and virtual world - check[line break]
+4. Recruit human subjects to fuel project - check[line break]
+5. Take Over The World!!!![paragraph break]".
+
+The goldenBadge is a privately-named prop. The goldenBadge is worn by Elon Musk. The description of the goldenBadge is "It has the same overall design as your badge, but no photo or name. It just says [quotation mark]CEO[quotation mark]."
+
+To transform the processing area:
+	move Elon Musk to Processing;
+	say "TODO DEBUG XFORM PROCESSING."
+
 Section 35 - Packaging
 
 Packaging is a room. 
@@ -4696,7 +4734,20 @@ Section 3 - MuskTube Station
 
 MuskTube Station is a room. The description of MuskTube Station is "You[apostrophe]re in a secret maglev railway station far under the Nyantech Tower. A sign on the wall reads [quotation mark]MuskTube Station[quotation mark], and indeed it appears to be a train station of sorts, with a platform and odd-looking train tracks. An egg-shaped container with racing stripes floats above the tracks." The title of MuskTube Station is "MuskTube Station". The possible exits of MuskTube Station are "The only way out of here [if Elon Musk is in MuskTube Station](on foot, at least) would be to go back up to the Throne Room[otherwise]would be to set off in the pod[end if]."
 
-Elon Musk is a person in MuskTube Station. The description of Elon Musk is "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority."
+Elon Musk is a person in MuskTube Station. Elon Musk has a health state called vitality. The vitality of Elon Musk is healthy. 
+
+To say the description of Elon Musk:
+	if denouement is not happening:
+		say "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority.";
+	otherwise:
+		if the vitality of Elon Musk is dead:
+			say "The remains of former Nyantech CEO, Elon Musk. His labcoat formerly pristine labcoat is a ruin and he hangs on tightly to his clip board even in death.";
+		otherwise:
+			say "Musk appears somewhat less regal dressed in a labcoat and carrying his clipboard, but he still has an air of arrogance and authority."
+			
+The printed name of Elon Musk is "[if the vitality of Elon Musk is dead]corpse of Elon Musk[otherwise]Elon Musk[end if]".
+
+Understand "corpse" or "cadaver" or "stiff" or "body" as Elon Musk when the vitality of Elon Musk is dead.
 
 The bearskin is part of Elon Musk. The description of the bearskin is "Probably grizzly." Understand "bear" or "grizzly" or "pelt" as the bearskin.
 
@@ -6523,6 +6574,14 @@ At the time when desolation strikes:
 
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
 
+When denouement begins:
+	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	
+Every turn during denouement:
+	if the healthiness of the player is dead:
+		say "Elon Musk slices your head clean off with his razor-sharp clipboard, ending the battle.[paragraph break]On the bright side, you continue to play an important role in the pogomon game for some time to come.";
+		muskEnding.
+		
 
 Book 9 - Hints
 
