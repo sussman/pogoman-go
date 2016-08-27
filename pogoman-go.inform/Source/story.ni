@@ -659,11 +659,11 @@ Instead of throwing a pogoball at something (called the target):
 			let DIFFICULTY be CAPTURE_EVOL2_DIFFICULTY;
 		else if type of target is third level:
 			let DIFFICULTY be CAPTURE_EVOL3_DIFFICULTY;
-		if FIRSTTHROW is true:
-			let DIFFICULTY be 100;
 		otherwise:
 			if the player wears the Baseball Cap of Pogomastery:
 				let DIFFICULTY be DIFFICULTY plus HAT_EFFECT;
+		if the target is the defenderPogoman or FIRSTTHROW is true:
+			let DIFFICULTY be 100;
 		if a random chance of DIFFICULTY in 100 succeeds:[target hit]
 			move the target to the void;
 			choose a blank row in the table of inventory;
@@ -679,6 +679,8 @@ Instead of throwing a pogoball at something (called the target):
 			otherwise:
 				if the target is the defenderPogoman:
 					say "a loyal [type of target]";
+					choose the row with a pogoLandQTH of the location of player in the Table of Defenders;
+					blank out the whole row;
 				otherwise:
 					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping]";
 				say ".";
