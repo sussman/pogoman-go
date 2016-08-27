@@ -104,7 +104,7 @@ A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a c
 
 A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in[one of]. Use pogometh to heal (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
 A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg [one of](drop the egg to hatch it)[or][stopping]." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
@@ -568,57 +568,6 @@ To say attackingPogomanName:
 Instead of taking a pogoentity:
 	say "You'll have to throw a Pogoball at it to capture it!".
 		
-Table of Creatures
-pogomanName	pogoDescription
-edator	"A creature of note"
-vicore	"Simple and clean, covered with lines"
-emak	"A buffed and buffered creature"
-plaigrhat	"A mysterious rodent of a vermininous nature"
-vermonux	"A rodent with extra poison"
-rodentikor	"Too much rodent for mortals to handle"
-
-Definition: A pogotype is first level if it is an original listed in the Table of Evolution.
-Definition: A pogotype is second level if it is an ev2 listed in the Table of Evolution.
-Definition: A pogotype is third level if it is an ev3 listed in the Table of Evolution.
-
-Table of Evolution
-Original	Ev2	Ev3
-edator	vicore	emak
-plaigrhat	vermonux	rodentikor
-	
-Table of Inventory
-pogoName (a pogotype)	wounded (a truth state)
-with 100 blank rows.
-
-Table of Defenders
-pogoLandQTH	guardian	wounded
-The Palace	a pogotype	a truth state
-Mountain
-Monastery
-School House
-Lighthouse
-Desert
-Blacksmith
-Farm
-Forest
-Beach
-Canyon
-Stadium
-Dark Alley
-Post Office
-Wharf
-Pogoland Terminal
-Valley
-Baseball Diamond
-Hospital
-Aquarium
-Cemetery
-Service Station
-Dojo
-Botanical Garden
-Motel
-Fishing Boat
-
 Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
 Understand "vicore" as attackerPogoman when the type of attackerPogoman is vicore.
@@ -640,6 +589,22 @@ Understand "Alizarin Crimson" or "Alizarin" or "Crimson" as the defenderPogoman 
 Understand "Viridian" as the defenderPogoman when the team color of the player is Viridian.
 Understand "Papayawhip" or "papaya" as the defenderPogoman when the team color of the player is Papayawhip.
 Understand "Unbleached Titanium" or "Titanium" or "Unbleached" as the defenderPogoman when the team color of the player is Unbleached Titanium.
+
+Instead of attacking a pogoentity (called the opponent):
+	if the opponent is:
+		-- the attackerPogoman:
+			if Exploring The Tower has happened:
+				say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]show no mercy to[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]whallop[or]repeatedly punch[in random order] the [type of attackerPogoman]";
+				if the attackerPogoman is injured:
+					say ". Defeated, it vanishes.";
+					move the attackerPogoman to the void;
+				otherwise:
+					say ". You have wounded it.";
+					now the attackerPogoman is injured;
+			otherwise:
+				say "People don[apostrophe]t battle pogomen, pogomen battle pogomen[one of].[paragraph break]-- A public service message brought to you by the National Association of Pogomasters[or][stopping].";
+		-- the defenderPogoman:
+			say "The [type of defenderPogoman] reminds you that it is on your side.".
 
 
 [BEN: Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat, 
@@ -918,25 +883,27 @@ CAPTURE_EVOL2_DIFFICULTY is always 60.
 CAPTURE_EVOL3_DIFFICULTY is always 40.
 
 [Combat]
-OFFENSIVE_RATING_EVO1 is always 30.
+OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
 OFFENSIVE_RATING_EVO2 is always 50.
 OFFENSIVE_RATING_EVO3 is always 70.
-WOUNDED_PENALTY is always 25.
+WOUNDED_PENALTY is always 25.[both attacker and defender pogomen at disadvantage when wounded]
 FIGHT_RANDOMNESS is always 40.
 SPECIAL_ATTACK_XP_COST is always 500.
+
+[Capturing the Player in the Giant Pogoball]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
 CAPTURE_RANDOMNESS is always 30.
-CAPTURE_THRESHOLD is always 50. [100 above desire + randomness, pogoman decides to try a capture]
+CAPTURE_THRESHOLD is always 100. [when desire + randomness > threshold, pogoman decides to try a capture]
 [Baseball Cap of Pogomastery affects both capture and combat]
+
+[Magical Items]
 HAT_EFFECT is always 15.
 
 [Inventory]
-
 POGOMEN_INVENTORY_LIMIT is always 100.
 POGOITEM_INVENTORY_LIMIT is always 100.
 
 [Advancement Requirements]
-
 GYM_ENTRY_LEVEL_REQUIREMENT is always 5.
 TOWER_XP_REQUIREMENT is always 1000.
 TOWER_TROPHY_REQUIREMENT is always 1.
@@ -944,7 +911,6 @@ TOWER_LEVEL_REQUIREMENT is always 8.
 TOWER_MEDAL_REQUIREMENT is always 10.
 
 [Invariant Lists]
-
 The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
 The list of colors called EXTENDED_TEAM_COLORS is always {Viridian, Papayawhip}.
 The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
@@ -1222,7 +1188,7 @@ Section AwardXP
 To AwardXP (award - a number):
 	increase the XP of the player by award.
 
-Chapter Verbs
+Chapter Actions
 
 Section 1 - Guarding
 
@@ -2059,7 +2025,7 @@ This is the fightclub rule:
 						frontierDeath.
 						
 This is the hunter is the hunted rule:
-	say "[one of]The [attackerPogoman] chucks a pogoball at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman]  takes careful aim and fires a pogoball at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
+	say "[one of]The [attackerPogoman] chucks a pogoball at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman] takes careful aim and fires a pogoball at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
 	move the giant ball to the location of the player;
 	now the player is in the giant ball.
 	
@@ -2074,11 +2040,11 @@ Every turn when the player is in the giant ball:
 		-- 3:
 			say "The ball is almost entirely closed.";
 		-- 4:
-			say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogomon![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break] Some time goes by.[paragraph break]";
+			say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogomon![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break]Some time goes by.[paragraph break]";
 			wait for any key;
 			say "No, I mean a [italic type]lot[roman type] of time goes by.[paragraph break]";
 			wait for any key;
-			say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play pogomon. Attempts to scratch the number of days into the plastic walls of the ball have also met with failure.[paragraph break]";
+			say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play pogomon. Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoball.[paragraph break]";
 			wait for any key;
 			say "So, yeah, a really long time.[paragraph break]";
 			wait for any key;
@@ -2243,7 +2209,7 @@ Section 2 - Location-specific elements in The Village
 
 Section 3 - The Sky Itself
 
-The sky is a backdrop. The sky is in The Village, DeckN, DeckS, DeckW, and DeckE. The description of the sky is "Clear as the eye can see."
+The sky is a backdrop. The sky is in The Village, DeckN, DeckS, DeckW, DeckE. The description of the sky is "Clear as the eye can see."
 
 Instead of searching the sky:
 	if the location is Telescope Nymph:
@@ -5569,7 +5535,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 To ArriveInPogoland:
 	say "a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
-		say "As soon as you step clear, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
+		say "[line break]Behind you, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
 		now the guardian corresponding to the pogoLandQTH of Pogoland Terminal in the Table of Defenders is emak;
 		now the wounded corresponding to the pogoLandQTH of Pogoland Terminal in the Table of Defenders is false;
@@ -5633,7 +5599,7 @@ Instead of listening when the player is in a pogoroom (called the place):
 				otherwise:
 					continue the action.
 		
-Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Fishing Boat, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland. 
+Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Fishing Boat, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland. The sky is in Pogoland.
 
 The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A range of fiery mountains that constantly belches molten lava." Understand "mountains" or "range" or "lava" as the volcano.
 
@@ -6375,14 +6341,67 @@ Book 5 - Tables
 
 Chapter Tables
 
-[TODO fill this out with all pogomen]
+Section 1 - Table of Creatures
 
+Table of Creatures
+pogomanName	pogoDescription
+edator	"A creature of note"
+vicore	"Simple and clean, covered with lines"
+emak	"A buffed and buffered creature"
+plaigrhat	"A mysterious rodent of a vermininous nature"
+vermonux	"A rodent with extra poison"
+rodentikor	"Too much rodent for mortals to handle"
+
+Definition: A pogotype is first level if it is an original listed in the Table of Evolution.
+Definition: A pogotype is second level if it is an ev2 listed in the Table of Evolution.
+Definition: A pogotype is third level if it is an ev3 listed in the Table of Evolution.
+
+Section 2 - Table of Evolution
+
+Table of Evolution
+Original	Ev2	Ev3
+edator	vicore	emak
+plaigrhat	vermonux	rodentikor
+
+Section 3 - Table of Inventory
+	
+Table of Inventory
+pogoName (a pogotype)	wounded (a truth state)
+with 100 blank rows.
+
+Table of Defenders
+pogoLandQTH	guardian	wounded
+The Palace	a pogotype	a truth state
+Mountain
+Monastery
+School House
+Lighthouse
+Desert
+Blacksmith
+Farm
+Forest
+Beach
+Canyon
+Stadium
+Dark Alley
+Post Office
+Wharf
+Pogoland Terminal
+Valley
+Baseball Diamond
+Hospital
+Aquarium
+Cemetery
+Service Station
+Dojo
+Botanical Garden
+Motel
+Fishing Boat
 
 
 Chapter ASCII ART
 
-[for testing]
-
+[DEBUG TODO for testing]
 before waving hands:
 	say 3 in ASCIIART.
 
@@ -6402,7 +6421,6 @@ The list of text called ASCII_ART_NUMBERS is always {
 "       888888888[line break]     88:::::::::88[line break]   88:::::::::::::88[line break]  8::::::88888::::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]   8:::::88888:::::8[line break]    8:::::::::::::8[line break]   8:::::88888:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8:::::8     8:::::8[line break]  8::::::88888::::::8[line break]   88:::::::::::::88[line break]     88:::::::::88[line break]       888888888[line break]",  
 "       999999999[line break]     99:::::::::99[line break]   99:::::::::::::99[line break]  9::::::99999::::::9[line break]  9:::::9     9:::::9[line break]  9:::::9     9:::::9[line break]   9:::::99999::::::9[line break]    99::::::::::::::9[line break]      99999::::::::9[line break]           9::::::9[line break]          9::::::9[line break]         9::::::9[line break]        9::::::9[line break]       9::::::9[line break]      9::::::9[line break]     99999999[line break]"
 }
-
 
 Book 6 - Endings
 
