@@ -608,7 +608,7 @@ Instead of attacking a pogoentity (called the opponent):
 	if the opponent is:
 		-- the attackerPogoman:
 			if Exploring The Tower has happened:
-				say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]show no mercy to[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]whallop[or]repeatedly punch[in random order] the [type of attackerPogoman]";
+				say "[attackStyle] the [type of attackerPogoman]";
 				if the attackerPogoman is injured:
 					if the player is in the gymnasium and a random chance of 50 in 100 succeeds:
 						say ". Defeated, it vanishes. A moment later, you are sucked back into a pogoball.";
@@ -625,6 +625,22 @@ Instead of attacking a pogoentity (called the opponent):
 				say "People don[apostrophe]t battle pogomen, pogomen battle pogomen[one of].[paragraph break]-- A public service message brought to you by the National Association of Pogomasters[or][stopping].";
 		-- the defenderPogoman:
 			say "The [type of defenderPogoman] reminds you that it is on your side.".
+			
+Instead of attacking Elon Musk:
+	say "[attackStyle] Elon Musk";
+	if a random chance of 1 in 2 succeeds:
+		now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
+		if the vitality of Elon Musk is dead:
+			say ", finishing";
+		otherwise:
+			say ", wounding";
+		say " him.";
+	otherwise:
+		say "[nearMiss]."
+		
+			
+To say attackStyle:
+	say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]whallop[or]repeatedly punch[in random order]".
 			
 To say nearMiss:
 	say ", but you[one of]r attack goes wide[or] miss[or]r opponent is too quick for you[in random order]"
@@ -853,7 +869,7 @@ carry out inventorydropping:
 				let W be the wounded entry;
 				let P be the pogoName entry;
 				blank out the whole row;
-				if Not in Kansas Anymore is Happening:					
+				if Exploring The Tower has happened:					
 					move the defenderPogoman to the location of the player;
 					now the type of defenderPogoman is P;
 					if W is true:
@@ -914,6 +930,7 @@ OFFENSIVE_RATING_EVO3 is always 70.
 WOUNDED_PENALTY is always 25.[both attacker and defender pogomen at disadvantage when wounded]
 FIGHT_RANDOMNESS is always 40.
 SPECIAL_ATTACK_XP_COST is always 500.
+MUSK_DEF is always 80.
 
 [Capturing the Player in the Giant Pogoball]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
@@ -1509,9 +1526,9 @@ Carry out special attacking:
 			otherwise:
 				say ", who weathers the blast without apparent damage.";
 	else if the player is in processing:
-		say "You concentrate your XP into a precision blast aimed at [if the vitality of Elon Musk is dead]the corpse of Elon [end if]Musk. The scintillating blue energy rips across the meat processing facility ";
+		say "You concentrate your XP into a precision blast aimed at [if the vitality of Elon Musk is dead]the corpse of Elon [end if]Musk. The scintillating blue energy rips across the meat processing facility";
 		if the vitality of Elon Musk is dead:
-			say "The inanimate corpse is reduced to cinders, which scatter";
+			say ". The inanimate corpse is reduced to cinders, which scatter";
 			if the goldenBadge is worn by Elon Musk:
 				say ", leaving behind only a golden badge.[paragraph break]";
 				move the goldenBadge to Processing;
@@ -1522,8 +1539,6 @@ Carry out special attacking:
 		else if a random chance of 90 in 100 succeeds:
 			say "and slams into Musk, hurting him[if the vitality of Elon Musk is not dead]; he looks [vitality of Elon Musk][end if].";
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
-			if the vitality of Elon Musk is dead:
-				transform the processing area;
 		otherwise:
 			say "but [one of]shoots right past him[or]Musk deflects the discharge, searing the hanging meat nearby[or]Musk evades the attack[or]Musk ducks[or]Musk dives out of the way[or]Musk takes only a grazing hit[or]Musk seems to weather the blast[or]Musk somehow bends the blast around him and it strikes the wall[or]Musk ducks behind a hanging piece of meat[or]Musk is too quick and evades[or]the blast is too high[or]the blast goes wide[in random order].";
 	now xp of the player is xp of the player minus SPECIAL_ATTACK_XP_COST;
@@ -2052,7 +2067,7 @@ This is the fightclub rule:
 				let GUARD-DEF be OFFENSIVE_RATING_EVO3;
 			if the player wears the Baseball Cap of Pogomastery:
 				let GUARD-DEF be GUARD-DEF plus HAT_EFFECT;
-			let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;			
+			let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;	
 			if the defenderPogoman is injured:
 				let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;
 				[say "DEBUG: GUARDDEF [GUARD-DEF][line break]";]
@@ -4171,7 +4186,7 @@ Before pushing the call button when the denouement is happening:
 Before touching the call button when the denouement is happening:
 	try pushing the call button.
 	
-Instead of pushing a lift button (called the poked item) when the denouement is happening:
+Instead of pushing a lift button (called the poked item) when the plusQueDenouement is happening:
 	if the poked item is the processingButton:
 		say "The button does not light.";
 		stop the action;
@@ -4818,7 +4833,7 @@ To say the description of Elon Musk:
 		say "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority.";
 	otherwise:
 		if the vitality of Elon Musk is dead:
-			say "The remains of former Nyantech CEO, Elon Musk. His labcoat formerly pristine labcoat is a ruin and he hangs on tightly to his clip board even in death.";
+			say "The remains of former Nyantech CEO, Elon Musk. His labcoat formerly pristine labcoat is a ruin[if elon musk carries the weaponized clipboard] and he hangs on tightly to his clipboard even in death[end if].";
 		otherwise:
 			say "Musk appears somewhat less regal dressed in a labcoat and carrying his clipboard, but he still has an air of arrogance and authority."
 			
@@ -6560,6 +6575,8 @@ Dojo
 Botanical Garden
 Motel
 Fishing Boat
+Gymnasium
+Processing
 
 
 Chapter ASCII ART
@@ -6648,17 +6665,58 @@ When Not in Kansas Anymore begins:
 At the time when desolation strikes:
 	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
 
-Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. 
+Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. Denouement ends when vitality of Elon Musk is dead.
 
 When denouement begins:
 	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	now the healthiness of the player is healthy;
 	move Elon Musk to Processing.
 	
 Every turn during denouement:
-	if the healthiness of the player is dead:
-		say "Elon Musk slices your head clean off with his razor-sharp clipboard, ending the battle.[paragraph break]On the bright side, you continue to play an important role in the pogomon game for some time to come.";
-		muskEnding.
-		
+	if the defenderPogoman is in Processing:
+		say "Your [type of defenderPogoman] attacks ";
+		let GUARD-DEF be 0;
+		if the the type of the defenderPogoman is first level:
+			let GUARD-DEF be OFFENSIVE_RATING_EVO1;
+		else if the the type of the defenderPogoman is second level:
+			let GUARD-DEF be OFFENSIVE_RATING_EVO2;
+		else:
+			let GUARD-DEF be OFFENSIVE_RATING_EVO3;
+		if the player wears the Baseball Cap of Pogomastery:
+			let GUARD-DEF be GUARD-DEF plus HAT_EFFECT;
+		let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;	
+		if the defenderPogoman is injured:
+			let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;	
+		if GUARD-DEF is greater than MUSK_DEF:
+			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
+			if the vitality of Elon Musk is dead:
+				say "and deals a lethal blow to";
+			otherwise:
+				say "and lands a solid hit against";
+		otherwise:
+			say "but does not land a hit on";
+		say " the mad billionaire.[paragraph break]";
+		if the vitality of Elon Musk is less than dead:
+			say "Musk ";
+			if the defenderPogoman is in Processing:
+				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";
+			say "slashes left and right towards you with his strangely effective clipboard.[paragraph break]";
+			if a random chance of 1 in 2 succeeds:
+				now the healthiness of the player is the health state after the healthiness of the player;
+				if the healthiness of the player is dead:
+					say "Elon Musk slices your head clean off with his razor-sharp clipboard, ending the battle.";
+					muskEnding;
+				otherwise:
+					say "Musk comes at you with his twirling razor-edged clipboard and cuts you. You are [healthiness of the player].";
+			otherwise:
+				say "Elon Musk slashes at you with is clipboard, but misses."
+					
+Plusquedenouement is a scene. Plusquedenouement begins when denouement ends. 
+
+When plusquedenouement begins:
+	transform the processing area.
+
+
 
 Book 9 - Hints
 
