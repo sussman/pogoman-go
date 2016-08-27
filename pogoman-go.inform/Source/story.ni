@@ -340,7 +340,7 @@ Instead of burning incense:
 		say line break;
 		decrement the pogoIncense count;
 		now the pogoIncense is ignited;
-		Incense dissipates in five turns from now;
+		Incense dissipates in INCENSE_DURATION turns from now;
 	else if Exploring The Tower is happening:
 		say "This is prohibited by Nyantech's strict smoke-free workplace policy.";
 	else:
@@ -898,6 +898,7 @@ CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman 
 
 [Magical Items]
 HAT_EFFECT is always 15.
+INCENSE_DURATION is always 10.
 
 [Inventory]
 POGOMEN_INVENTORY_LIMIT is always 100.
