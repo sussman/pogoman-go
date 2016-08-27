@@ -892,8 +892,8 @@ SPECIAL_ATTACK_XP_COST is always 500.
 
 [Capturing the Player in the Giant Pogoball]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
-CAPTURE_RANDOMNESS is always 30.
-CAPTURE_THRESHOLD is always 100. [when desire + randomness > threshold, pogoman decides to try a capture]
+CAPTURE_RANDOMNESS is always 50.
+CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman decides to try a capture]
 [Baseball Cap of Pogomastery affects both capture and combat]
 
 [Magical Items]
@@ -1476,7 +1476,7 @@ Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals.
 Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy".
 
 Before doing something other than examining with the medals when Around The Town is happening for the first time:
-	say "The medals aren[apostrophe]t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[paragraph break]";
+	say "The medals aren[apostrophe]t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[conditional paragraph break]";
 	add "Medal Self-Reference" to MEDALLIST;
 	say awardParadox;
 	stop the action.
@@ -1943,13 +1943,13 @@ Definition: A room is pogoman interdicted if it is in Ladder Area or it is in Ba
 This is the pogoman apparition rule:
 	if the BLOCKPOGOMANFLAG is true:
 		the rule fails;
-	if the location of the player is pogoman interdicted:
-		the rule fails;
 	if the attackerPogoman is in the location of the player:
 		if Not In Kansas Anymore is happening:
 			follow the fightclub rule;[there's already an attacker here, so fight it]
 		the rule fails;[already one here, no need to generate a new one]
 	if Denouement is happening:
+		the rule fails;
+	if the location of the player is pogoman interdicted:
 		the rule fails;
 	if Not In Kansas Anymore is happening:
 		let N be POGO_ENCOUNTER_VALUE;
@@ -1959,7 +1959,7 @@ This is the pogoman apparition rule:
 			generate a pogoman;[no attacker is here, so generate a new one]
 			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared![paragraph break]";
 			follow the fightclub rule;
-	otherwise:
+	otherwise:[before Not In Kansas Anymore]
 		let N be PREPOGO_ENCOUNTER_VALUE;
 		if the pogoIncense is ignited:
 			let N be N plus INCENSE_EFFECT_VALUE;
@@ -2011,10 +2011,13 @@ This is the fightclub rule:
 		otherwise:[there is no defender pogoman, so the player must defend themself]
 			if the player is not in the giant ball:
 				let R be desire to capture of the attackerPogoman plus a random number from 0 to CAPTURE_RANDOMNESS;
+				if the player is in the gymnasium:
+					let R be 0;
 				if R is greater than CAPTURE_THRESHOLD:
 					follow the hunter is the hunted rule;
 				otherwise:
-					now the desire to capture of the attackerPogoman is desire to capture of the attackerPogoman plus DESIRE_TO_CAPTURE_INCREMENT;
+					if the desire to capture of the attackerPogoman is less than the CAPTURE_THRESHOLD:
+						now the desire to capture of the attackerPogoman is desire to capture of the attackerPogoman plus DESIRE_TO_CAPTURE_INCREMENT;
 					if the healthiness of the player is less than near death:
 						now the healthiness of the player is the health state after the healthiness of the player;
 						say "The [AA] attacks you! You are [healthiness of the player]!";
@@ -2022,7 +2025,12 @@ This is the fightclub rule:
 						say "The [AA] finishes you off![paragraph break]";
 						let AAA be "[type of attackerPogoman]" in upper case;
 						say "[bold type]*** KILLED BY AN ENEMY [AAA]! ***[roman type][paragraph break]";
-						frontierDeath.
+						if the player is in the gymnasium:
+							teleport the player to Processing;
+							now the healthiness of the player is healthy;
+							say "TODO: denouement";
+						otherwise:
+							frontierDeath.
 						
 This is the hunter is the hunted rule:
 	say "[one of]The [attackerPogoman] chucks a pogoball at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman] takes careful aim and fires a pogoball at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
@@ -2048,7 +2056,18 @@ Every turn when the player is in the giant ball:
 			wait for any key;
 			say "So, yeah, a really long time.[paragraph break]";
 			wait for any key;
-			teleport the player to Processing.	
+			teleport the player to the gymnasium;
+			say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoball like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat."
+			
+Every turn when the player is in the gymnasium:
+	say "[one of]From far off, you hear another voice, [quotation mark]Vermonux, I choose...[quotation mark][paragraph break][or][quotation mark]You![quotation mark][paragraph break][or][verminate]And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you.[or][stopping]".
+	
+To say verminate:
+	now the type of attackerPogoman is vermonux;
+	now the attackerPogoman is not injured;
+	teleport the player to the gymnasium;
+	move the attackerPogoman to the gymnasium.
+
 
 Book 2 - Places
 
