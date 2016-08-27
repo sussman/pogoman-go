@@ -364,7 +364,7 @@ The pogostop is a backdrop. Understand "stop" as the pogostop.  The description 
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
-Definition: a room is an okayPogolandLocation if it is in Pogoland and it is not listed in POGOSTOPLIST.
+Definition: a room is an okayPogolandLocation if it is in Pogoland and it is not listed in POGOSTOPLIST and it is not fishing boat.
 
 Definition: a room is pogoStopTargeted if it is listed in POGOSTOPLIST.
 
@@ -596,15 +596,25 @@ Instead of attacking a pogoentity (called the opponent):
 			if Exploring The Tower has happened:
 				say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]show no mercy to[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]whallop[or]repeatedly punch[in random order] the [type of attackerPogoman]";
 				if the attackerPogoman is injured:
-					say ". Defeated, it vanishes.";
-					move the attackerPogoman to the void;
+					if the player is in the gymnasium and a random chance of 75 in 100 succeeds:
+						say "[nearMiss].";
+					otherwise:
+						say ". Defeated, it vanishes.";
+						say "TODO:move player to processing with intro text";
+						teleport the player to Processing;
 				otherwise:
-					say ". You have wounded it.";
-					now the attackerPogoman is injured;
+					if the player is in the gymnasium and a random chance of 50 in 100 succeeds:
+						say "[nearMiss]";
+					otherwise:
+						say ". You have wounded it.";
+						now the attackerPogoman is injured;
 			otherwise:
 				say "People don[apostrophe]t battle pogomen, pogomen battle pogomen[one of].[paragraph break]-- A public service message brought to you by the National Association of Pogomasters[or][stopping].";
 		-- the defenderPogoman:
 			say "The [type of defenderPogoman] reminds you that it is on your side.".
+			
+To say nearMiss:
+	say ", but you[one of]r attack goes wide[or] miss[or]r opponent is too quick for you[in random order]"
 
 
 [BEN: Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat, 
@@ -6167,7 +6177,7 @@ Definition: A thing (called the contraband) is safe from seizure if the contraba
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
-The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the transluscent plastic case." Understand "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0. 
+The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the transluscent plastic case." Understand "pogoball" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
 
 Instead of doing something other than searching or examining or attacking with the giant ball:
 	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
@@ -6194,6 +6204,10 @@ Instead of attacking the giant ball:
 			now rounds imprisoned of the giant ball is 0;
 		-- 1:
 			say "[one of]You pound the sides of the pogoball with your fists, but the ball does not yield[or]You launch a flying kick against the walls of the ball. You don[apostrophe]t open it, but you do send the ball into a spin, tumbling you head over heels[or]You slam into the plastic walls with everything you have, but the ball continues to seal up[or]You pound futilely against the walls of the red orb[stopping]."
+			
+Instead of going a direction when the player is in the giant ball:
+	try exiting.
+	
 
 section 2 - Badge
 
