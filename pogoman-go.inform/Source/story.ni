@@ -219,11 +219,12 @@ Instead of dropping a pogothing (called the item):
 				if the location of the player contains the attackerPogoman:
 					try giving pogometh to the attackerPogoman;
 				otherwise:
-					say "You throw away a vial of pogometh.";
+					say "You throw away a vial of pogometh[one of].[paragraph break]Kids: Just say [quotation mark]No![quotation mark] to pogometh[or][stopping].";
 					say line break;
 					decrement pogometh count;
 			otherwise:
-				try eating pogometh;
+				say "You totally drop some pogometh.";
+				pogoMethEffect;
 		-- pogoEgg:
 			let P be a random pogotype;
 			sort the Table of Inventory in PogoName order;
@@ -286,16 +287,29 @@ Section 4 - The Wonderful World of Pogometh
 
 Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first time:
 	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
-	say line break;
-	decrement PogoMeth count;
-	now the PogoMeth is trippy;
-	the trip ends in five turns from now;
+	pogoMethEffect;
 	bestow "Iatrogenically Induced Synesthesia".
 	
 Instead of eating PogoMeth when Not in Kansas Anymore is happening:
-	say line break;
+	say "You munch down a pogometh[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].";
+	pogoMethEffect.
+	
+Instead of taking pogometh when Not in Kansas Anymore is happening for the first time:
+	say "You take one standard adult (which is questionable) dose.[paragraph break]";
+	pogoMethEffect;
+	bestow "Self-Medicating".
+	
+Instead of taking the pogometh when Not in Kansas Anymore is happening:
+	say "You take one dose.[paragraph break]";
+	pogoMethEffect.
+	
+To pogoMethEffect:
 	decrement PogoMeth count;
-	say "Dude. You feel much better."
+	now the PogoMeth is trippy;
+	the trip ends in five turns from now;
+	repeat with N running from 1 to 2:
+		if the healthiness of the player is greater than healthy:
+			now the healthiness of the player is the health state before the healthiness of the player.
 	
 At the time when the trip ends:
 	say "The mind-altering effects of the pogometh seem to have worn off.";
