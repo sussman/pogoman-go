@@ -926,7 +926,7 @@ FIGHT_RANDOMNESS is always 40.
 SPECIAL_ATTACK_XP_COST is always 500.
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
 CAPTURE_RANDOMNESS is always 30.
-CAPTURE_THRESHOLD is always 100. [above desire + randomness, pogoman decides to try a capture]
+CAPTURE_THRESHOLD is always 50. [100 above desire + randomness, pogoman decides to try a capture]
 [Baseball Cap of Pogomastery affects both capture and combat]
 HAT_EFFECT is always 15.
 
@@ -1565,7 +1565,7 @@ To Bestow (medallion - some text):
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP! [paragraph break]";	
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP!";	
 	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type].[line break][or][stopping]";
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
@@ -2059,10 +2059,30 @@ This is the fightclub rule:
 						frontierDeath.
 						
 This is the hunter is the hunted rule:
-	say "NOW YOU ARE THE HUNTED! HA!".
-					
-		
-		
+	say "[one of]The [attackerPogoman] chucks a pogoball at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman]  takes careful aim and fires a pogoball at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
+	move the giant ball to the location of the player;
+	now the player is in the giant ball.
+	
+Every turn when the player is in the giant ball:
+	increase the rounds imprisoned of the giant ball by one;
+	say "*** DEBUG *** rounds imprisoned: [rounds imprisoned of giant ball][paragraph break]";
+	if rounds imprisoned of the giant ball is:
+		-- 1:
+			say "The pogoball has just started to close.";
+		-- 2:
+			say "The ball is halfway closed.";
+		-- 3:
+			say "The ball is almost entirely closed.";
+		-- 4:
+			say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogomon![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break] Some time goes by.[paragraph break]";
+			wait for any key;
+			say "No, I mean a [italic type]lot[roman type] of time goes by.[paragraph break]";
+			wait for any key;
+			say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play pogomon. Attempts to scratch the number of days into the plastic walls of the ball have also met with failure.[paragraph break]";
+			wait for any key;
+			say "So, yeah, a really long time.[paragraph break]";
+			wait for any key;
+			teleport the player to Processing.	
 
 Book 2 - Places
 
@@ -4641,6 +4661,9 @@ Instead of examining the dais:
 	toastChampagne;
 	elonDescends.
 	
+Instead of climbing the dais:
+	try examining the dais.
+	
 Instead of drinking the champagne:
 	try examining the dais.
 	
@@ -5475,14 +5498,18 @@ Instead of waving hands when the player is in the MuskPodRoom:
 	
 After touching the headsUpDisplay when the headsUpDisplay is not lit:
 	now the headsUpDisplay is lit;
-	say "The pod exits the station smoothly, barely moving at all, but accelerating steadily. The  HUD changes to [quotation mark]STATUS.[quotation mark][paragraph break]A soothing voice fills the cockpit, [quotation mark]This part is literally on rails. There’s nothing you can do about it, so best to just enjoy the ride.[quotation mark][paragraph break]";
+	say "The pod exits the station smoothly, barely moving at all, but accelerating steadily. The HUD changes to [quotation mark]STATUS.[quotation mark][paragraph break]A soothing voice fills the cockpit, [quotation mark]This part is literally on rails. There’s nothing you can do about it, so best to just enjoy the ride.[quotation mark][paragraph break]";
 	bestow "What Else Can I Do?”.
+	
+Instead of examining the headsUpDisplay:
+	say the description of the headsUpDisplay;
+	say "[paragraph break]Your eye movement is captured and the HUD is activated.";
+	try touching the headsUpDisplay.
 	
 After touching the headsUpDisplay:
 	if the MuskPod is in Pogoland Terminal:
-		say "You fly from the passenger compartment and land safely on an adjacent concrete platform. Looking behind, you see a large leather boot on a robotically actuated arm retract into the pod. See -- Elon Musk does have a sense of humor.[paragraph break]The canopy descends and the MuskPod is off in a flash, back along the rails in direction from which it had arrived.";
-		teleport the player to Pogoland Terminal;
-		move the MuskPod to the void;
+		say "You fly from the passenger compartment and alight awkwardly on an adjacent concrete platform. Looking behind, you see a large leather boot on a robotically actuated arm retract into the pod. See -- Elon Musk does have a sense of humor.[paragraph break]As you recover your footing, ";
+		ArriveInPogoland;
 	otherwise:
 		say "[one of][status1][or][status2][or][status3][or][status4][or][stopping]"	
 	
@@ -5491,10 +5518,10 @@ To say status1:
 	bestow "Heading Off The Critics".
 
 To say status2:
-	say "[quotation mark]So far, so good,[quotation mark] remarks the MuskPod cheerfully. [quotation mark] We have defied all design projections about being crushed and melted, so I[apostrophe]d consider that a win.[quotation mark][paragraph break]".
+	say "[quotation mark]So far, so good,[quotation mark] remarks the MuskPod cheerfully. [quotation mark] We have defied all design projections about being crushed and melted, so I[apostrophe]d consider that a win.[quotation mark][line break]".
 
 To say status3:
-	say "The soft voice of the MuskPod intones, [quotation mark]That part back there was trippy. It kind of reminded me of the scene from the original Willy Wonka and The Chocolate Factory -- you know, I mean the good one with Gene Wilder, not the crappy remake with Johhny Depp -- anyhow, the images during their transit through the dark tunnel were really disturbing for a children[apostrophe]s movie. If I recall correctly, there was even a quick flash of a chicken[apostrophe]s head being cut off.[quotation mark][paragraph break]The MuskPod pauses to run several million simulations, [quotation mark]I was never a child, of course, but I can predict that within a 98% confidence interval, I would have been terrified.[quotation mark][paragraph break][quotation mark]Yes, it was a poor directorial decision[if the MuskPod is not in Pogoland Terminal]. Anyhow, prepare for deceleration[end if].[quotation mark][paragraph break]".
+	say "The soft voice of the MuskPod intones, [quotation mark]That part back there was trippy. It kind of reminded me of the scene from the original Willy Wonka and The Chocolate Factory -- you know, I mean the good one with Gene Wilder, not the crappy remake with Johhny Depp -- anyhow, the images during their transit through the dark tunnel were really disturbing for a children[apostrophe]s movie. If I recall correctly, there was even a quick flash of a chicken[apostrophe]s head being cut off.[quotation mark][paragraph break]The MuskPod pauses to run several million simulations, [quotation mark]I was never a child, of course, but I can predict that within a 98% confidence interval, I would have been terrified.[quotation mark][paragraph break][quotation mark]Yes, it was a poor directorial decision[if the MuskPod is not in Pogoland Terminal]. Anyhow, prepare for deceleration[end if].[quotation mark][line break]".
 
 To say status4:
 	say "[quotation mark]It[apostrophe]s been a real pleasure having some company for a while... sorry to see you go. Maybe some time, assuming you survive, which I guess is unlikely, but if you did -- maybe we could take another ride together. I don[apostrophe]t get to talk with many people. So. See you. Take care.".
@@ -5509,7 +5536,7 @@ To say pod2:
 	say "[quotation mark]Congratulations! You have unlocked your Special Attack! To use the special attack, say [apostrophe]special attack [italic type]target[roman type][apostrophe], where the target is the creature that you want to attack.[quotation mark][paragraph break]Having reached a steady descent angle, the afterburners kick in and you are smashed into the gel-filled seat."
 	
 To say pod3:
-	say "The earth[apostrophe]s core whips by. Your phone buzzes as it detects monstrous pogomen not seen since the dawn of time. You marvel that the GPS is still working despite thousands of miles of molten nickel between you and the surface of the planet.[paragraph break]";
+	say "The earth[apostrophe]s core whips by. Your phone buzzes as it detects monstrous pogomen not seen since the dawn of time. You marvel that the GPS is still working despite thousands of miles of molten iron and nickel between you and the surface of the planet.[paragraph break]";
 	bestow "Physics Be Damned”.
 	
 To say pod4:
@@ -5536,7 +5563,11 @@ Instead of exiting when the player is in the MuskPodRoom:
 	if the MuskPod is not in Pogoland Terminal:[location of pod serves as event marker]
 		say "The canopy refuses to open[one of]. It seems committed to keeping you alive during hypersonic transport. Go figure[or][stopping].";
 	otherwise:
-		say "As you straddle the gap between the pod and platform, you stumble and a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
+		say "As you straddle the gap between the pod and platform, you and";
+		ArriveInPogoland.
+		
+To ArriveInPogoland:
+	say "a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
 		say "As soon as you step clear, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
@@ -6148,9 +6179,9 @@ Definition: A thing (called the contraband) is safe from seizure if the contraba
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
-The giant ball is a closed container in the void. The description of the giant ball is "It is dark in here, but some reddish light leaks through the plastic case." Understand "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0. 
+The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the transluscent plastic case." Understand "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0. 
 
-Instead of doing something other than searching or examining with the giant ball:
+Instead of doing something other than searching or examining or attacking with the giant ball:
 	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
 
 Instead of exiting when the player is in the giant ball for the first time:
@@ -6163,8 +6194,18 @@ Instead of exiting when the player is in the giant ball:
 Instead of looking when the player is in the giant ball:
 	try examining the giant ball.
 	
+Does the player mean attacking the giant ball: it is likely.
 	
-
+Instead of attacking the giant ball:
+	if escape attempts of the giant ball is:
+		-- 0:
+			say "You slam your shoulder against the curved walls of your plastic prison and the giant pogoball bursts apart, spilling you onto the ground.";
+			move the player to the location of the giant ball;
+			move the giant ball to the void;
+			increase the escape attempts of the ball by one;
+			now rounds imprisoned of the giant ball is 0;
+		-- 1:
+			say "[one of]You pound the sides of the pogoball with your fists, but the ball does not yield[or]You launch a flying kick against the walls of the ball. You don[apostrophe]t open it, but you do send the ball into a spin, tumbling you head over heels[or]You slam into the plastic walls with everything you have, but the ball continues to seal up[or]You pound futilely against the walls of the red orb[stopping]."
 
 section 2 - Badge
 
@@ -6256,7 +6297,7 @@ Before wearing clothes:
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. 
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone is lit. [to make sure that the player can see when in containers...and because the phone really is lit.]
 
 To freeze the phone:
 	now the phone is hung;
@@ -6343,14 +6384,14 @@ Chapter ASCII ART
 [for testing]
 
 before waving hands:
-	say 3 in ASCII.
+	say 3 in ASCIIART.
 
-to say (numero - a number) in ASCII:
-	say "[fixed letter spacing][entry numero in ASCII_NUMBERS][roman type]".
+to say (numero - a number) in ASCIIART:
+	say "[fixed letter spacing][entry numero in ASCII_ART_NUMBERS][roman type]".
 	
 [!!! note - don't monkey with the white space below !!!]
 
-The list of text called ASCII_NUMBERS is always {
+The list of text called ASCII_ART_NUMBERS is always {
 "    1111111[line break]   1::::::1[line break]  1:::::::1[line break]  111:::::1[line break]     1::::1[line break]     1::::1[line break]     1::::1[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]     1::::l[line break]  111::::::111[line break]  1::::::::::1[line break]  1::::::::::1[line break]  111111111111[line break]",
  "   222222222222222[line break]  2:::::::::::::::22[line break]  2::::::222222:::::2[line break]  2222222     2:::::2[line break]              2:::::2[line break]              2:::::2[line break]           2222::::2[line break]      22222::::::22[line break]    22::::::::222[line break]   2:::::22222[line break]  2:::::2[line break]  2:::::2[line break]  2:::::2       222222[line break]  2::::::2222222:::::2[line break]  2::::::::::::::::::2[line break]  22222222222222222222[line break]",
 "   333333333333333[line break]  3:::::::::::::::33[line break]  3::::::33333::::::3[line break]  3333333     3:::::3[line break]              3:::::3[line break]              3:::::3[line break]      33333333:::::3[line break]      3:::::::::::3[line break]      33333333:::::3[line break]              3:::::3[line break]              3:::::3[line break]              3:::::3[line break]  3333333     3:::::3[line break]  3::::::33333::::::3[line break]  3:::::::::::::::33[line break]   333333333333333[line break]",
