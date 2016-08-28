@@ -1016,8 +1016,6 @@ Check inventoryEvolving:
 			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
 			stop the action.
 
-
-
 Carry out inventoryEvolving:
 	repeat with N running from 1 to the number of rows in Table of Inventory:
 		choose row N in the Table of Inventory;
@@ -1058,11 +1056,21 @@ Understand "x unbleached [pogotype]" or "examine unbleached [pogotype]" as inven
 Understand "x titanium [pogotype]" or "examine titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
 Understand "x loyal [pogotype]" or "examine [pogotype]" as InventoryExamining.
 
-
 Check inventoryExamining:
+	let OUTSIDER be 0;
+	if the attackerPogoman is in the location of the player and the type of attackerPogoman is the pogotype understood:
+		let OUTSIDER be 1;
+	else if the defenderPogoman is in the location of the player and the type of defenderPogoman is the pogotype understood:
+		let OUTSIDER be 2;
 	sort Table of Inventory in reverse wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "You have no pogomen in stock to examine!";
+		if OUTSIDER is:
+			-- 0:
+				say "You have no pogomen in stock to examine!";
+			-- 1:
+				try examining the attackerPogoman;
+			-- 2:
+				try examining the defenderPogoman;
 		stop the action;
 	otherwise:
 		let PRESENT be false;
@@ -1074,9 +1082,15 @@ Check inventoryExamining:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			if OUTSIDER is:
+				-- 0:
+					say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+				-- 1:
+					try examining the attackerPogoman;
+				-- 2:
+					try examining the defenderPogoman;
 			stop the action.
-
+	
 Carry out inventoryExamining:
 	let H be false; [healthy]
 	let W be false; [wounded]
