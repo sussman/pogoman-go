@@ -1235,7 +1235,7 @@ Section AwardXP
 
 To AwardXP (award - a number):
 	increase the XP of the player by award;
-	say "(You receive [award] XP.)".
+	say "(You receive [award] XP)[paragraph break]".
 	
 
 Chapter Actions
@@ -1614,8 +1614,8 @@ To Bestow (medallion - some text):
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal!";	
-	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type].[line break][or][stopping]";
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! ";	
+	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type]. [or][stopping]";
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
 		-- 3: 
