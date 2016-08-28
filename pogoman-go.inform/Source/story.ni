@@ -78,6 +78,14 @@ A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list
 
 An Awarddrop is a kind of backdrop.
 
+A externalRoom is a kind of room. An externalRoom has a localeDescriptor. The localeDescriptor of an externalRoom is usually structure. An externalRoom has a number called time stamp. The time stamp of an externalRoom is usually -999. [arbitrary biggish negative number; assures that nothing is locked out when game commences]
+
+[  
+   Places - Outside areas like parks
+   Structures - Buildings, places with an interior that would have to be entered
+   Artifacts - Specific items in outside locations, like a bench, sculpture, etc. 
+]
+
 Section 2 - Player properties
 
 [TODO randomize initial items carried by player]
@@ -945,6 +953,7 @@ HAT_EFFECT is always 15.
 [TIMING]
 INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.
+POGOSTOP_LOCKOUT_DURATION is always 10.
 
 [Inventory]
 POGOMEN_INVENTORY_LIMIT is always 100.
@@ -1266,65 +1275,72 @@ Carry out guarding:
 
 Section 2 - Spinning
 
-[TODO:  randomize what comes out]
-[TODO:  user must wait 20 turns before being allowed to spin sign again]
-
 Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
 
-Carry out spinning:
-	if the noun is the pogostop:
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-		if T is POGOITEM_INVENTORY_LIMIT:
-			say "Your game inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
+Check spinning:
+	if the noun is not a pogostop:
+		say "That's probably not something you should spin.[paragraph break]";
+		stop the action;
+	otherwise:
+		if the TURNCOUNTER minus the time stamp of the location of the player is less than the POGOSTOP_LOCKOUT_DURATION:
+			say "The pogospot spins around and around. Your phone makes a sad face and says, [quotation mark]Sorry. Try again later.[quotation mark][paragraph break]";
 			stop the action;
 		otherwise:
-			now the booty of the pogostop is {};
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-			let B be a random number between 1 and 4;
-			[guarantees at least one item is produced by the stop]
-			if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
-				let B be POGOITEM_INVENTORY_LIMIT minus T;
-			if B is greater than 0:
-				add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
-				increase pogoballsCarried of the player by B;
-				move the pogoball to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-			let C be a random number between 0 and 1;
-			if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
-				let C be POGOITEM_INVENTORY_LIMIT minus T;
-			if C is greater than 0:
-				add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
-				increase pogoChumsCarried of the player by C;
-				move the pogoChum to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-			let M be a random number between 0 and 1;
-			if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
-				let M be POGOITEM_INVENTORY_LIMIT minus T;
-			if M is greater than 0:
-				add "[M] pogometh[if M is greater than 1]s[end if]" to the booty of the pogostop;
-				increase pogoMethsCarried of the player by M;
-				move the pogoMeth to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
-			let EYE be a random number from 0 to 1;
-			if T plus EYE is greater than POGOITEM_INVENTORY_LIMIT:
-				let EYE be POGOITEM_INVENTORY_LIMIT minus T;
-			if EYE is greater than 0:
-				add "[EYE] incense" to the booty of the pogostop;
-				increase pogoIncenseCarried of the player by EYE;
-				move the pogoIncense to the player;
-			let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-			let E be a random number from 0 to 1;
-			if T plus E is greater than POGOITEM_INVENTORY_LIMIT:
-				let E be POGOITEM_INVENTORY_LIMIT minus T;
-			if E is greater than 0:
-				add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
-				increase pogoEggsCarried of the player by E;
-				move the pogoEgg to the player;
-			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.";
-			say paragraph break;
-			awardXP POGOSTOP_XP_VALUE;
+			continue the action;
+
+		
+
+Carry out spinning:
+	let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+	if T is POGOITEM_INVENTORY_LIMIT:
+		say "Your game inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
+		stop the action;
 	otherwise:
-		say "That's probably not something you should spin.[paragraph break]".
+		now the booty of the pogostop is {};
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let B be a random number between 1 and 4;
+		[guarantees at least one item is produced by the stop]
+		if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
+			let B be POGOITEM_INVENTORY_LIMIT minus T;
+		if B is greater than 0:
+			add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
+			increase pogoballsCarried of the player by B;
+			move the pogoball to the player;
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let C be a random number between 0 and 1;
+		if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
+			let C be POGOITEM_INVENTORY_LIMIT minus T;
+		if C is greater than 0:
+			add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
+			increase pogoChumsCarried of the player by C;
+			move the pogoChum to the player;
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let M be a random number between 0 and 1;
+		if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
+			let M be POGOITEM_INVENTORY_LIMIT minus T;
+		if M is greater than 0:
+			add "[M] pogometh[if M is greater than 1]s[end if]" to the booty of the pogostop;
+			increase pogoMethsCarried of the player by M;
+			move the pogoMeth to the player;
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
+		let EYE be a random number from 0 to 1;
+		if T plus EYE is greater than POGOITEM_INVENTORY_LIMIT:
+			let EYE be POGOITEM_INVENTORY_LIMIT minus T;
+		if EYE is greater than 0:
+			add "[EYE] incense" to the booty of the pogostop;
+			increase pogoIncenseCarried of the player by EYE;
+			move the pogoIncense to the player;
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let E be a random number from 0 to 1;
+		if T plus E is greater than POGOITEM_INVENTORY_LIMIT:
+			let E be POGOITEM_INVENTORY_LIMIT minus T;
+		if E is greater than 0:
+			add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
+			increase pogoEggsCarried of the player by E;
+			move the pogoEgg to the player;
+		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up. ";
+		awardXP POGOSTOP_XP_VALUE;
+		now the time stamp of the location of the player is the TURNCOUNTER.
 
 Section 3 - Help
 
@@ -2167,13 +2183,7 @@ Chapter Around Town
 
 Section 1 - Framework
 
-Quadroom is a kind of room. A quadroom has a localeDescriptor. The localeDescriptor of a quadroom is usually structure. A quadroom has a color. The color of a quadroom is usually Teal.
-
-[  
-   Places - Outside areas like parks
-   Structures - Buildings, places with an interior that would have to be entered
-   Artifacts - Specific items in outside locations, like a bench, sculpture, etc. 
-]
+Quadroom is a kind of externalRoom. A quadroom has a color. The color of a quadroom is usually Teal.
 
 [Their orientation determines which can be seen from heights - the south face of the tower and the top of the cat. Four boolean properties are needed because a room can be both of these, e..g, north and west of the tower. In principle, the relationship could be calculated by figuring routes to each room, but that seems like too much work at run time.]
 A quadroom can be nord.
@@ -5730,7 +5740,7 @@ Chapter In Pogoland
 
 Section 1 - Framework
 
-A pogoroom is a kind of room.  A pogoroom has a localeDescriptor. The localeDescriptor of a pogoroom is usually structure. 
+A pogoroom is a kind of externalRoom.  
 
 Definition: a pogoroom (called the PR) is juxtaLava if the Volcano is the room north from the PR.
 
