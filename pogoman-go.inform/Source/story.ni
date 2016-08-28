@@ -940,7 +940,10 @@ CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman 
 
 [Magical Items]
 HAT_EFFECT is always 15.
+
+[TIMING]
 INCENSE_DURATION is always 10.
+POGOMAN_LOCKOUT_DURATION is always 5.
 
 [Inventory]
 POGOMEN_INVENTORY_LIMIT is always 100.
@@ -964,14 +967,15 @@ The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300
 Chapter Declare Global Variables
 
 [booleans]
-
 SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
 The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
 The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
 FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
 
-[lists - because Jack loves lists]
+[numbers]
+TURNCOUNTER is a number that varies. TURNCOUNTER is 0.
 
+[lists - because Jack loves lists]
 POGOSTOPLIST is a list of rooms that varies.
 GYMLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
@@ -1879,7 +1883,6 @@ To openGame:
 	let startRoom be a random okayStartLocation;
 	move the player to startRoom, without printing a room description;
 	now the previousRoom of the player is startRoom;
-	generate a pogoman;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
 	if T is less than 12:
@@ -1995,7 +1998,8 @@ Every turn:
 	follow the stage business rules;
 	now the previousRoom of the player is the location of the player;
 	[unblock stage business for next turn]
-	Now the BLOCKSTAGEBUSINESSFLAG is false.
+	Now the BLOCKSTAGEBUSINESSFLAG is false;
+	increase the TURNCOUNTER by one.
 	
 Every turn when Exploring the Tower is happening:
 	[the walkman is confiscated prior to Not In Kansas Anymore]
@@ -2026,6 +2030,8 @@ This is the pogoman apparition rule:
 	if Denouement is happening:
 		the rule fails;
 	if the location of the player is pogoman interdicted:
+		the rule fails;
+	if the TURNCOUNTER is less than POGOMAN_LOCKOUT_DURATION:
 		the rule fails;
 	if Not In Kansas Anymore is happening:
 		let N be POGO_ENCOUNTER_VALUE;
@@ -6349,6 +6355,8 @@ Instead of attacking the giant ball:
 			
 Instead of going a direction when the player is in the giant ball:
 	try exiting.
+	
+The game counter is a thing. The game counter is in the void. The game counter can be running. The game counter is not running.
 	
 
 section 2 - Badge
