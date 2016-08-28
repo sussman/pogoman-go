@@ -125,6 +125,7 @@ The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 The player has a health state called healthiness. The healthiness of the player is healthy.
 The player has a truth state called superuser. The superuser of the player is false.
+The player is lit. [light emiting, not hammered - to make sure that the player can see when in containers]
 
 Section 8 - BackDrops
 
@@ -507,6 +508,8 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 			if there is no pogoName in row N of the Table of Inventory:
 				let LAST be N minus 1;
 				break;
+		if LAST is 0:
+			let LAST be 1;
 		[say "DEBUG: LAST = [LAST][line break]";]
 		repeat with N running from 1 to LAST:[choose high to low evolution, the same but with wounded]
 			if the pogoName in row N of the Table of Inventory is third level and the wounded in row N of the Table of Inventory is false:
@@ -648,6 +651,10 @@ Understand "Alizarin Crimson" or "Alizarin" or "Crimson" as the defenderPogoman 
 Understand "Viridian" as the defenderPogoman when the team color of the player is Viridian.
 Understand "Papayawhip" or "papaya" as the defenderPogoman when the team color of the player is Papayawhip.
 Understand "Unbleached Titanium" or "Titanium" or "Unbleached" as the defenderPogoman when the team color of the player is Unbleached Titanium.
+Understand "wounded" as the attackerPogoman when the attackerPogoman is injured.
+Understand "wounded" as the defenderPogoman when the defenderPogoman is injured.
+Understand "healthy" as the attackerPogoman when the attackerPogoman is not injured.
+Understand "healthy" as the defenderPogoman when the defenderPogoman is not injured.
 
 Instead of attacking a pogoentity (called the opponent):
 	if the opponent is:
@@ -881,7 +888,7 @@ Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color
 Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
 Understand "drop unbleached [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
 Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
-Understand "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defender [pogotype]" as InventoryDropping.
+Understand "drop loyal [pogotype]" as InventoryDropping.
 
 carry out inventorydropping:
 	if Exploring The Tower has happened:
@@ -901,6 +908,8 @@ carry out inventorydropping:
 			if there is no pogoName in row N of the Table of Inventory:
 				let LAST be N minus 1;
 				break;
+		if LAST is 0:
+			let LAST be 1;
 		repeat with N running from 1 to LAST:
 			choose row N in the Table of Inventory;
 			if N is LAST and the pogoName entry is not the pogotype understood:
@@ -937,28 +946,34 @@ Understand "transfer papayawhip [pogotype]" or "transfer papayawhip [pogotype] t
 Understand "transfer unbleached titanium [pogotype]" or "transfer unbleached titanium [pogotype] to/-- professor"  as inventorytransferring when the team color of the player is unbleached titanium.
 Understand "transfer unbleached [pogotype]" or  "transfer unbleached titanium [pogotype] to/-- professor" as inventorytransferring when the team color of the player is unbleached titanium.
 Understand "transfer titanium [pogotype]" or "transfer titanium [pogotype] to/-- professor" as inventorytransferring when the team color of the player is unbleached titanium.
-Understand "transfer loyal [pogotype]" or "transfer defending [pogotype]" or "transfer defender [pogotype]" or "transfer loyal [pogotype] to/-- professor" or "transfer defending [pogotype] to/-- professor" or "transfer defender [pogotype] to/-- professor" as inventorytransferring.
-		
-Carry out inventoryTransferring:
+Understand "transfer loyal [pogotype]" or "transfer loyal [pogotype] to/-- professor" as inventorytransferring.
+
+Check inventoryTransferring:
 	sort Table of Inventory in reverse wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
 		say "You have no pogomen in stock to transfer!";
+		stop the action;
 	otherwise:
-		let LAST be 1;
-		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
-			if there is no pogoName in row N of the Table of Inventory:
-				let LAST be N minus 1;
-				break;		
-		repeat with N running from 1 to LAST:
+		let PRESENT be false;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
 			choose row N in the Table of Inventory;
-			if N is LAST and the pogoName entry is not the pogotype understood:
-				say "You don[apostrophe]t have [a pogotype understood] in stock.";
+			if there is no pogoName entry:
 				break;
-			else if the pogoName entry is the pogotype understood:	
-				blank out the whole row;
-				say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! ";
-				awardXP TRANSFER_XP_VALUE;
-				break.		
+			if the pogoName entry is the pogotype understood:
+				let PRESENT be true;
+				break;
+		if PRESENT is false:
+			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			stop the action.
+	
+Carry out inventoryTransferring:
+	repeat with N running from 1 to the number of rows in Table of Inventory:
+		choose row N in the Table of Inventory;
+		if the pogoName entry is the pogotype understood:
+			blank out the whole row;
+			say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! ";
+			awardXP TRANSFER_XP_VALUE;
+			break.		
 	
 After inventoryTransferring for the first time:
 	bestow "Practicality in managing resources".
@@ -967,16 +982,16 @@ Section 3 - Evolving
 
 inventoryEvolving is an action applying to one pogotype. 
 
-Understand "evolve [pogotype]" or "evolve [pogotype] to/-- professor" as inventoryEvolving.
-Understand "evolve teal [pogotype]" or "evolve teal [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is teal.
-Understand "evolve chartreuse [pogotype]" or "evolve chartreuse [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is chartreuse.
-Understand "evolve alizarin crimson [pogotype]" or "evolve alizarin crimson [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is alizarin crimson.
-Understand "evolve viridian [pogotype]" or "evolve viridian [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is viridian.
-Understand "evolve papayawhip [pogotype]" or "evolve papayawhip [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is papayawhip.
-Understand "evolve unbleached titanium [pogotype]" or "evolve unbleached titanium [pogotype] to/-- professor"  as inventoryEvolving when the team color of the player is unbleached titanium.
-Understand "evolve unbleached [pogotype]" or  "evolve unbleached titanium [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is unbleached titanium.
-Understand "evolve titanium [pogotype]" or "evolve titanium [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is unbleached titanium.
-Understand "evolve loyal [pogotype]" or "evolve defending [pogotype]" or "evolve defender [pogotype]" or "evolve loyal [pogotype] to/-- professor" or "evolve defending [pogotype] to/-- professor" or "evolve defender [pogotype] to/-- professor" as inventoryEvolving.
+Understand "evolve [pogotype]" as inventoryEvolving.
+Understand "evolve teal [pogotype]" as inventoryEvolving when the team color of the player is teal.
+Understand "evolve chartreuse [pogotype]" as inventoryEvolving when the team color of the player is chartreuse.
+Understand "evolve alizarin crimson [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
+Understand "evolve viridian [pogotype]" as inventoryEvolving when the team color of the player is viridian.
+Understand "evolve papayawhip [pogotype]" as inventoryEvolving when the team color of the player is papayawhip.
+Understand "evolve unbleached titanium [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve unbleached [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve titanium [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve loyal [pogotype]" as inventoryEvolving.
 
 
 Carry out inventoryEvolving:
@@ -988,7 +1003,9 @@ Carry out inventoryEvolving:
 		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
 			if there is no pogoName in row N of the Table of Inventory:
 				let LAST be N minus 1;
-				break;		
+				break;
+		if LAST is 0:
+			let LAST be 1;		
 		repeat with N running from 1 to LAST:
 			choose row N in the Table of Inventory;
 			if N is LAST and the pogoName entry is not the pogotype understood:
@@ -1009,15 +1026,60 @@ Carry out inventoryEvolving:
 					awardXP EVOLUTION_XP_VALUE;
 					break.
 					
-	
 After inventoryEvolving for the first time:
 	bestow "Turned something into something else!".
 	
 After inventoryEvolving for the second time:
 	bestow "Did something before and it worked, so I did it again". 
+	
+Section 4 - InventoryExamining
 
 
+inventoryExamining is an action applying to one pogotype.
 
+Understand "x [pogotype]" or "examine [pogotype]" as inventoryExamining.
+Understand "x teal [pogotype]"  or "examine teal [pogotype]" as inventoryExamining when the team color of the player is teal.
+Understand "x chartreuse [pogotype]" or "examine chartreuse [pogotype]"  as inventoryExamining when the team color of the player is chartreuse.
+Understand "x alizarin crimson [pogotype]" or "examine alizarin crimson [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
+Understand "x viridian [pogotype]" or "examine viridian [pogotype]" as inventoryExamining when the team color of the player is viridian.
+Understand "x papayawhip [pogotype]" or "examine papayawhip [pogotype]" as inventoryExamining when the team color of the player is papayawhip.
+Understand "x unbleached titanium [pogotype]" or "examine unbleached titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
+Understand "x unbleached [pogotype]" or "examine unbleached [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
+Understand "x titanium [pogotype]" or "examine titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
+Understand "x loyal [pogotype]" or "examine [pogotype]" as InventoryExamining.
+
+Carry out inventoryExamining:
+	sort Table of Inventory in wounded order;
+	let H be false; [healthy]
+	let W be false; [wounded]
+	let LAST be 1;
+	repeat with N running from 1 to the number of rows in Table of Inventory plus one:
+		if there is no pogoName in row N of the Table of Inventory:
+			let LAST be N minus 1;
+			break;		
+	repeat with N running from 1 to LAST:
+		choose row N in the Table of Inventory;
+		if N is LAST and the pogoName entry is not the pogotype understood:
+			say "You don[apostrophe]t have [a pogotype understood] in stock.";
+			break;
+		if the pogoName entry is the pogotype understood:
+			if the wounded entry is true:
+				let W be true;
+			otherwise:
+				let H be true;
+			if W is true and H is true:
+				break;[no need to keep looking]
+	if W is true or H is true:
+		say "[pogoDex data for pogotype understood]. Health status: ";
+		if W is true:
+			if H is true:
+				say "both healthy and wounded.";
+			else:
+				say "wounded";
+		else:
+			say "healthy";
+		say ".[paragraph break]Note, that only certain commands are available for pogoman in your stock, these include [italic type]drop, transfer, and evolve[roman type]."
+			
 
 Chapter Declare Constants
 
@@ -6654,7 +6716,7 @@ Before wearing clothes:
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone is lit. [to make sure that the player can see when in containers...and because the phone really is lit.]
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. 
 
 To freeze the phone:
 	now the phone is hung;
