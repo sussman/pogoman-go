@@ -23,44 +23,7 @@ Chapter Kinds
 
 Section 1 - General
 
-Rooms have some text called title. 
-
-A prop is a kind of thing. It is usually portable.
-
-Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
-
-Health state is a kind of value. The health states are healthy, bruised, moderately wounded, near death, and dead.
-
-securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
-
-A door has a securityColor. The securityColor of a door is usually white.
-
-A prop has a securityColor. The securityColor of a prop is usually white.
-
-A chainItem is a kind of thing. A chainItem can be clipped or unclipped. A chainItem is usually clipped, fixed in place scenery.
-
-Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, apple, cranberry, chocolate, licorice, pumpkin, pine-nut, pesto, liver, watermelon, apricot, teriyaki, chutney, fudge, tiramisu, and cinnamon.
-
-A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry is usually blueberry. [because I like blueberry pastries.]
-
-A pop is a kind of thing. It is usually scenery.
-
-A room has a text called possible exits.
-
-Deck rooms are a kind of room. The description of deck rooms is "[deckDescription]." The possible exits of deck rooms is "[deckExits]."
-
-Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]."
-
-Nyantechnology is a kind of thing. 
-
-A lightsource is a kind of device.
-
-LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
-
-A catTopDrop is a kind of backdrop. catTopDrops are privately-named. 
-
-An lift button is a kind of improper-named privately-named fixed in place thing. 
-
+[TODO: get these out of kinds - they can be things since they don't need to be class unto themselves]
 A Katatron is a kind of thing. A katatron has a number called PEC.  The PEC of a katatron is usually 0.
 A katatron has a number called MegaCats. The MegaCats of a katatron is usually 0.
 A katatron has a truth state called the onHoldFlag. The onHoldFlag of a katatron is usually true.
@@ -70,13 +33,22 @@ A victrola is a kind of supporter.
 A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
 A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
 
-A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of  workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
+Section 2 - Values
 
-A gamer is a kind of  privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
+Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
-A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list of text called WPLIST. 
+Health state is a kind of value. The health states are healthy, bruised, moderately wounded, near death, and dead.
 
-An Awarddrop is a kind of backdrop.
+securityColor is a kind of value. The securityColors are white, green, blue, red, black, pink, purple, gold.
+
+Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, apple, cranberry, chocolate, licorice, pumpkin, pine-nut, pesto, liver, watermelon, apricot, teriyaki, chutney, fudge, tiramisu, and cinnamon.
+
+
+Section 3 - Rooms
+
+Rooms have some text called title. A room has a text called possible exits.
+
+LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure, and artifact.
 
 A externalRoom is a kind of room. An externalRoom has a localeDescriptor. The localeDescriptor of an externalRoom is usually structure. An externalRoom has a number called time stamp. The time stamp of an externalRoom is usually -999. [arbitrary biggish negative number; assures that nothing is locked out when game commences]
 
@@ -86,7 +58,40 @@ A externalRoom is a kind of room. An externalRoom has a localeDescriptor. The lo
    Artifacts - Specific items in outside locations, like a bench, sculpture, etc. 
 ]
 
-Section 2 - Player properties
+Deck rooms are a kind of room. The description of deck rooms is "[deckDescription]." The possible exits of deck rooms is "[deckExits]."
+
+Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]."
+
+
+Section 4 - Doors
+
+A door has a securityColor. The securityColor of a door is usually white.
+
+Section 5 - Things
+
+A prop is a kind of thing. It is usually portable. A prop has a securityColor. The securityColor of a prop is usually white.
+
+A pop is a kind of thing. It is usually scenery.
+
+Nyantechnology is a kind of thing. 
+
+A lightsource is a kind of device.
+
+A chainItem is a kind of thing. A chainItem can be clipped or unclipped. A chainItem is usually clipped, fixed in place scenery.
+
+A pastry is a kind of edible prop. A pastry has a flavor. The flavor of a pastry is usually blueberry. [because I like blueberry pastries.]
+
+An lift button is a kind of improper-named privately-named fixed in place thing. 
+
+A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list of text called WPLIST. 
+
+Section 6 - People
+
+A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of  workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
+
+A gamer is a kind of  privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
+
+Section 7 - Player properties
 
 [TODO randomize initial items carried by player]
 The player has a number called pogoLevel.
@@ -103,7 +108,15 @@ The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 The player has a health state called healthiness. The healthiness of the player is healthy.
 The player has a truth state called superuser. The superuser of the player is false.
 
-Section 3 - Pogo Items
+Section 8 - BackDrops
+
+A catTopDrop is a kind of backdrop. catTopDrops are privately-named. 
+
+An Awarddrop is a kind of backdrop.
+
+Chapter Pogo-Machinery
+
+Section 1 - Pogo Items
 
 [These 'kinds' each have a platonic forms in the Void which we dynamically clone as needed during run-time.]
 
@@ -244,7 +257,7 @@ Instead of dropping a pogothing (called the item):
 				otherwise:												
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
-						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if].";
+						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if]. ";
 						now pogoName entry is P;
 						now wounded entry is false;						
 						AwardXP EGG_HATCH_XP_VALUE;
@@ -292,7 +305,7 @@ Instead of eating pogochum when Not In Kansas Anymore is happening for the first
 Instead of eating the pogoball:
 	say "While red and round, they are not apples[one of]. This oral fixation is only going to get you in trouble[or][stopping]."
 		
-Section 4 - The Wonderful World of Pogometh
+Section 2 - The Wonderful World of Pogometh
 
 Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first time:
 	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
@@ -355,7 +368,7 @@ After touching when the PogoMeth is trippy:
 To say alteredTouch:
 	say "You touch [the noun] all over the place".
 	
-Section 5 - Incense
+Section 3 - Incense
 
 Instead of burning incense:
 	If Around The Town is happening:
@@ -381,7 +394,7 @@ Instead of switching on pogoincense:
 	try burning the pogoincense.
 	
 
-Section 6 - Pogostops
+Section 4 - Pogostops
 
 The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
 
@@ -409,7 +422,7 @@ Instead of taking the pogostop when Exploring the Tower has not happened for the
 Instead of taking a pogostop:
 	say "You can[apostrophe]t."
 	
-Section 7 - Gyms
+Section 5 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
 
@@ -538,28 +551,33 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		let CCHOSEN be "[CHOSEN]" in Title Case;
 		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![quotation mark][paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] [one of]squeezing the life out of[or]obliterating[or]wiping the floor with[or]pulverizing[or]smashing[or]trashing[or]throttling[or]annihilating[in random order] [if CHOSEN-DEF is greater than P-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if]. [if P-DEF is greater than CHOSEN-DEF]The enemy [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
 		choose row SELECTED in the Table of Inventory;
+		say line break;
 		if P-DEF is greater than CHOSEN-DEF:
 			[say "DEBUG: selecting for obliteration [SELECTED][line break]";]
 			blank out the whole row;
-			say "[one of][loserDurge][or][line break]Your pogoman lost, but you still gain [GYM_LOSS_XP_VALUE] XP.[stopping]";
+			say "[one of][loserDurge][or]Your pogoman lost, but you still gain valuable experience. [stopping]";
+			awardXP GYM_LOSS_XP_VALUE;
 		otherwise:
 			[say "DEBUG: selecting for wounding [SELECTED][line break]";]
 			now the wounded entry is true;
-			say "[one of][chickenDinner][or]You pogoman won! You gain [GYM_VICTORY_XP_VALUE]  and a Gym Trophy! [stopping]";
+			say "[one of][chickenDinner][or]You pogoman won!  Gym Trophy! [stopping]";
+			awardXP GYM_VICTORY_XP_VALUE;
 			let T be "Your [CCHOSEN] victorious over a [color of the location] [PP]";
 			add T to TROPHYLIST.
 			
 			
 To say loserDurge:
-	say "[line break]You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain [GYM_LOSS_XP_VALUE] XP![paragraph break]";
+	say "You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain some experience! ";
+	awardXP GYM_LOSS_XP_VALUE;
+	say paragraph break;
 	bestow "Their Pain; Your Gain".
 	
 To say chickenDinner:
-	say "[line break]You win! Yes, your pogoman is mildly injured, but you gain [GYM_VICTORY_XP_VALUE] XP, and more importantly, a coveted Gym Trophy![paragraph break]To see a list of your trophies, use the command [italic type]examine trophies[roman type]."
+	say "You win! Yes, your pogoman is mildly injured, but you gain a heap of experience, and more importantly, a coveted Gym Trophy![paragraph break]To see a list of your trophies, use the command [italic type]examine trophies[roman type]. ".
 			
 			
 	
-Section 8 - Pogomen
+Section 6 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
 Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonux, and rodentikor.
@@ -659,14 +677,14 @@ To say nearMiss:
 
 JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
 
-Section 9 - Generate Pogomen
+Section 7 - Generate Pogomen
 
 To generate a pogoman:
 	now the type of attackerPogoman is a random pogotype;
 	now the attackerPogoman is not injured;
 	move attackerPogoman to the location of the player.
 
-Section 10 - Capture Pogomen
+Section 8 - Capture Pogomen
 
 Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
 
@@ -746,7 +764,7 @@ Instead of throwing a pogoball at something (called the target):
 	decrement pogoball count.
 		
 		
-section 11 - PogoInventory
+section 9 - PogoInventory
 	
 After taking inventory:
 	follow the pogo-inventory rule.
@@ -836,12 +854,12 @@ After transferring a pogoentity for the first time, bestow "Practicality in mana
 ]
 
 
-section 12 - Spawning
+section 10 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
 
-section 13 - Commands operating on pogomen in inventory
+section 11 - Commands operating on pogomen in inventory
 [these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
 
 InventoryDropping is an action applying to one pogotype.
@@ -1245,7 +1263,7 @@ Section AwardXP
 
 To AwardXP (award - a number):
 	increase the XP of the player by award;
-	say "(You receive [award] XP)[paragraph break]".
+	say "(You receive [award] XP!)[paragraph break]".
 	
 
 Chapter Actions
