@@ -3757,10 +3757,12 @@ Instead of doing something other than examining with high-tech conveyances:
 	say "They are darting about too quickly to even get a good look at them."
 
 Instead of going east from the Lobby when the walkman is not worn for the first time:
+	say the headline of the Lobby;
 	 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
 	bestow "Terrified of a LAN closet".
 	
 Instead of going east from the Lobby when the walkman is not worn:
+	say the headline of the Lobby;
 	say "You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you."
 	
 After going east from the Lobby for the first time:
@@ -3804,10 +3806,12 @@ After going inside from the revolvingDoor for the first time:
 	teleport the player to the lobby.
 	
 Instead of going south from the Lobby for the first time:
+	say the headline of the Lobby;
 	say "You are stopped by the security nymph, who takes one look at your hand and says, [quotation mark]Sorry. Company property cannot leave the building.[quotation mark][paragraph break]";
 	bestow "Bureaucracy Is Its Own Reward".
 	
 Instead of going south from the Lobby:
+	say the headline of the Lobby;
 	say "The security nymph points to your property stamp and escorts you back to the lobby."
 	 
 Section 13 - LAN Closet
@@ -3926,6 +3930,7 @@ Instead of climbing the racks:
 	try going up.
 
 Instead of going up from the LAN Closet for the first time:
+	say "[bold type]Somewhere above the LAN closet[roman type][line break]";
 	say "You scamper up the racks and hang onto the bundles of red CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
@@ -4181,12 +4186,14 @@ Instead of taking off the wetsuit:
 			
 Instead of going a direction (called the way) when the player wears the wetsuit:
 	if the player is in the Cafeteria and the way is east:
-		say "You dive into the ball pit and swim around the surface effortless, propelled by your flippers.";
+		say "You dive into the ball pit and swim around the surface effortlessly, propelled by your flippers.";
 		teleport the player to the Ball Pit;
 		the rule succeeds;
 	if the player is in the BallPit Area:
+		say the headline of the location of the player;
 		continue the action;
 	otherwise:
+		say the headline of the location of the player;
 		say "[one of]You waddle around in your flippers and fall flat on your face. Luckily, the face mask doesn’t break[or]You struggle and flail, but are not able to walk around wearing the whole undersea get-up[or]The wetsuit is just not made for walking around on land[stopping]."
 		
 Instead of taking off the wetsuit:
@@ -4249,6 +4256,7 @@ Section 21 - Ball Pit Bottom
 BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "The Bottom Of The Ball Pit". "The dark depths of the ball pit."
 
 After going east from the Cafeteria for the first time:
+	say the headline of the location of the player;
 	say "As you step over the threshold, you fall immediately into a giant pit filled with small rubber balls of every color. You panic as you sink into the pit and your uncoordinated thrashing just buries you deeper. You pass several other pit explorers and take an elbow to the jaw before you catch on to the trick of swimming through the balls. Eventually you make it to the top and hang on to the edge of the pit.[paragraph break]";
 	bestow "Staying Afloat In A Sea of Chaos".
 	
@@ -4264,7 +4272,9 @@ Before going down from the ball pit:
 	if the player wears the wetsuit:
 		continue the action;
 	otherwise:
-		say "[one of]You dive down and push through the mass of balls with a familiar swimming motion. As you get deeper, you begin to have difficulty getting a breath and take a last gulp of air. You plunge downward kicking now to gain depth.[paragraph break]The deeper you go, the more the multicolored light fades. You reach out a hand to blindly probe the depths, and as your lungs begin to ache, you make a final attempt to reach bottom.[paragraph break]You hold out as long as you can, but never reach the bottom. Your lungs now burning, you shoot back to the surface, and arrive gasping for air[or]You swim down as far as you can, but get no further than before. You return to the surface breathless[stopping]."
+		say the headline of the location of the player;
+		say "[one of]You dive down and push through the mass of balls with a familiar swimming motion. As you get deeper, you begin to have difficulty getting a breath and take a last gulp of air. You plunge downward kicking now to gain depth.[paragraph break]The deeper you go, the more the multicolored light fades. You reach out a hand to blindly probe the depths, and as your lungs begin to ache, you make a final attempt to reach bottom.[paragraph break]You hold out as long as you can, but never reach the bottom. Your lungs now burning, you shoot back to the surface, and arrive gasping for air[or]You swim down as far as you can, but get no further than before. You return to the surface breathless[stopping].";
+		stop the action.
 		
 Instead of going down from the Ball Pit for the first time:
 	say "[if the player wears the wetsuit]You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface.[end if] As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
