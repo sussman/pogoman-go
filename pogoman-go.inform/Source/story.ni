@@ -1229,7 +1229,9 @@ Section AwardXP
 [moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
 
 To AwardXP (award - a number):
-	increase the XP of the player by award.
+	increase the XP of the player by award;
+	say "(You receive [award] XP.)".
+	
 
 Chapter Actions
 
@@ -1313,7 +1315,7 @@ Carry out spinning:
 				add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 				increase pogoEggsCarried of the player by E;
 				move the pogoEgg to the player;
-			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up. [run paragraph on][one of] You gain [POGOSTOP_XP_VALUE] XP![or][stopping][run paragraph on]";
+			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.";
 			say paragraph break;
 			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
@@ -1607,7 +1609,7 @@ To Bestow (medallion - some text):
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP!";	
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal!";	
 	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type].[line break][or][stopping]";
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
@@ -1636,7 +1638,7 @@ Carry out muting:
 	if SUPPRESSMEDALS is false:
 		now SUPPRESSMEDALS is true;
 		if SUPPRESSMEDALS is true for the first time:
-			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on. You gain 10 XP!";
+			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on.";
 			awardXP 10;
 		otherwise:
 			say "Medals muted!";
