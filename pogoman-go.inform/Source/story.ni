@@ -7,6 +7,7 @@ The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!"
 
 Use MAX_STATIC_DATA of 260000.
+Use MAX_NUM_STATIC_STRINGS of 25000.
 [Use MAX_OBJECTS of 700.
 Use Max_DICT_ENTRIES of 1500.]
 
@@ -52,6 +53,8 @@ LocaleDescriptor is a kind of value. The LocaleDescriptors are place, structure,
 
 A externalRoom is a kind of room. An externalRoom has a localeDescriptor. The localeDescriptor of an externalRoom is usually structure. An externalRoom has a number called time stamp. The time stamp of an externalRoom is usually -999. [arbitrary biggish negative number; assures that nothing is locked out when game commences]
 
+The possible exits of an externalRoom are "[externalRoomExits]."
+
 [  
    Places - Outside areas like parks
    Structures - Buildings, places with an interior that would have to be entered
@@ -61,6 +64,21 @@ A externalRoom is a kind of room. An externalRoom has a localeDescriptor. The lo
 Deck rooms are a kind of room. The description of deck rooms is "[deckDescription]." The possible exits of deck rooms is "[deckExits]."
 
 Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]."
+
+To say externalRoomExits:
+	let D be a list of directions;
+	repeat with WAY running through directions:
+		if the room the way from the location of the player is not nothing:
+			add the way to D;
+	if the number of entries in D is greater than 1:
+		say "From here, you can go ";
+		repeat with N running from 1 to the number of entries in D:
+			if N is greater than 1 and the number of entries in D is greater than 2:
+				say ", ";
+			if the N is the number of entries in D:
+				say "or ";
+			say "[entry N of D] to the [room the entry N of D from the location of the player]".
+		
 
 
 Section 4 - Doors
@@ -1134,12 +1152,12 @@ To say picked a nice color:
 	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first :-([paragraph break]";
 	now the teamColorPrompt of the player is 0.
 
-Section 2 - Room Headers
+Section 2 - Room Headers and Headlines
 
 To say header of (QTH - a room):
-	let T be the title of the location;
+	let T be the title of the QTH;
 	if T is "":
-		let T be the printed name of the location;
+		let T be the printed name of the QTH;
 	let T be T in title case;
 	say "[T]".
 
@@ -1149,6 +1167,11 @@ This is the room header rule:
 	say roman type.
 	
 The room header rule substitutes for the room description heading rule.
+
+[The headline is used to say the name of rooms when that is not automatically printed, as during looking. For example, if a going action is intercepted with an instead rule]
+
+To say the headline of (QTH - a room):
+	say "[line break][bold type][header of QTH][roman type][line break]".
 
 Section 3 - Get rid of door descriptions
 
@@ -1937,7 +1960,6 @@ When play begins:
 To openGame:
 	let startRoom be a random okayStartLocation;
 	move the player to startRoom, without printing a room description;
-	now the previousRoom of the player is startRoom;
 	say "You wake up, and it[apostrophe]s ";
 	Let T be a random number from 1 to 24;
 	if T is less than 12:
@@ -1950,11 +1972,12 @@ To openGame:
 		say "[T minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
-	say ". You must have drifted off for a bit, but no bother[one of]. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it[or][stopping]!"
+	say ". You must have drifted off for a bit, but no bother[one of]. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it[or][stopping]!";
 	[TODO - uncomment for production - now disabled to allow replays -- >wait for any key]
 	
 After printing the banner text:
-	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]"
+	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]";
+
 	
 
 Chapter Stage Business
@@ -2045,13 +2068,13 @@ Chapter Every Turn
 
 Every turn:	
 	follow the pogoman apparition rule;
-	if the current action is looking or going:
-		if the phone is not hung:
-			follow the list exits rule;
 	CheckLevel; [possibly level-up the player]
 	ShowStatus;  [display current level, team, XP in status bar]
 	follow the stage business rules;
 	now the previousRoom of the player is the location of the player;
+	if the previousRoom of the player is not the location of the player or the current action is looking or going:
+		if the phone is not hung:
+			follow the list exits rule;
 	[unblock stage business for next turn]
 	Now the BLOCKSTAGEBUSINESSFLAG is false;
 	increase the TURNCOUNTER by one.
@@ -2238,7 +2261,7 @@ After deciding the scope of a player while the player is in a quadroom (called t
 	if the QTH is juxtaRailway:
 		place the Railway in scope.
 	
-Nyantech Entrance is a room.
+Nyantech Entrance is a quadroom.
 
 Old Jail, Dung Beetle Mural, Witch Pillory, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
 
@@ -2409,7 +2432,7 @@ Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
 
 Section 8 - Nyantech Entrance
 
-The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". The possible exits of the Nyantech Entrance are "The entrance to the tower itself is through a revolving brass door, just beyond the unicorn."
+The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance, which is just through a revolving door past the unicorn, beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". 
 
 The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
 
@@ -2441,6 +2464,7 @@ Instead of doing something with the revolvingDoorProxy:
 						say "The unicorn remarks, [quotation mark]Are you going to monkey with the door all day long, or are you here to go into the building. Gheesh.[quotation mark][paragraph break]"
 
 After going to Nyantech Entrance for the first time:
+	say the headline of Nyantech Entrance;
 	say "You stand reverently below the enormous Nyantech Tower, its obsidian walls reaching majestically to the sky above you. From here, you can see the giant animatronic Nyantech Cat orbiting the building fifty stories above you, spewing sparkles in its wake. Its glowing red eyes sweep up and down, looking everywhere. This is the promised land, a place you have always dreamed of visiting.[paragraph break]Through the glass, you see Nyantech employees in the lobby scooting every which way on segways and hoverboards.[paragraph break]A uniformed unicorn stands near the revolving door leading inward to the lobby. With a hint of annoyance, he rubs your nose print off the glass with a furry hoof.[paragraph break]";
 	bestow "Reached the Mothership";
 	
@@ -2614,7 +2638,7 @@ The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battali
 
 Section 22 - Gardens of Zarf
 
-The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "zarfian garden".
+The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
 The sign is scenery in The Gardens of Zarf. The description of the sign is "[zarfSign]". 
 
@@ -2987,52 +3011,72 @@ Cliff	0
 
 Definition: a direction (called the way) is a bad idea if the room the way from the location is in the Borderlands.
 
-Instead of going a bad idea direction (called the way):
+Instead of going a bad idea direction (called the way):	
 	let R be the room the way from the location;
 	if R is:
 		-- Reservoir:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
-				-- 0: say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
-				-- 1: say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
+				-- 0: 
+					say the headline of the location of the player;
+					say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
+				-- 1: 
+					say the headline of the location of the player;
+					say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
 					bestow "Hygiene";
-				-- 2: say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
+				-- 2: 
+					say the headline of Reservoir;
+					say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
 					phoneDeath;
-				-- otherwise: say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
+				-- otherwise: 
+					say the headline of the location of the player;
+					say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
 		-- Superhighway:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
+				say the headline of the location of the player;
 				say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
 				-- 1:
+					say the headline of the location of the player;
 					say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
 					bestow "One Jersey Barrier From Certain Death";
 				-- 2:
+					say the headline of R;
 					say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
 					phoneDeath;
 				-- otherwise: 
+					say the headline of the location of the player;
 					say "Since the accident, you have an abiding fear of highways and stay put.";
 		-- Tarpit:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
+					say the headline of the location of the player;
 					say "You can smell the sulfourous tarpits just to the south of town.";
 				-- 1:
+					say the headline of the location of the player;
 					say "No, you’d rather not go that way: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
 					bestow "Smarter (probably) Than A Prehistoric Sloth";
 				-- 2:
+					say the headline of R;
 					say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don’t see it. It should be right here. It’s like you’re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone’s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty’s torch, your only regret is that you will never capture that Archeodraconozoid.";
 					phoneDeath;
 				-- otherwise:
+					say the headline of the location of the player;
 					say "The burns still smart -- you reconsider walking into the tarpit.";
 		-- Railway:	
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-					say "You can hear the busy railroad tracks just to the east.";
+					say the headline of the location of the player;
+					say "The sound of busy railroad just to the east halts you in your, um, tracks.";
 				-- 1:
+					say the headline of the location of the player;
 					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
 					bestow "Refined Sense of Priorities";
 				-- 2:
+					say the headline of R;
 					say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
 					phoneDeath;
 				-- otherwise:
+					say the headline of the location of the player;
 					say "You have an aversion to railroad tracks, so you remain where you are.";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 	
@@ -5873,50 +5917,64 @@ Section 2 - Frontiers
 
 Definition: a direction (called the way) is a poor idea if the room the way from the location is in the Frontier.
 
-Instead of going a poor idea direction (called the way):
+Instead of going a poor idea direction (called the way):	
 	let R be the room the way from the location;
 	if R is:
 		-- Shark-Infested Reef:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0: 
+					say the headline of the location of the player;
 					say "You dip a toe into the gentle waves and the sea erupts into a frothy nightmare of teeth vying to take off your leg. You jump back just in time. Clearly, entering the sea will result in an immediate, but painful, end.[paragraph break]";
 					bestow "Chicken Of The Sea";
 				-- 1: 
+					say the headline of R;
 					say "[quotation mark]Damn your logic, Spock![quotation mark] you cry as you throw self-preservation to the wind and dive majestically into the waves.[paragraph break]There is a sharp pain in your arm, then your leg, then where your leg used to be, and then the water turns red and your vision fades.[paragraph break][bold type]*** EATEN BY SHARKS! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
+					say the headline of the location of the player;
 					say "No, from now on, if you are going out to sea, it will be in a boat.";
 		-- Quicksand:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
+				say the headline of the location of the player;
 				say "Ah, nothing but miles and miles of luscious sand out to the west. Beautiful but desolate. You pause to admire it, but you are also a bit concerned that there is nothing -- not even a cactus --  alive over there.[paragraph break]";
 				bestow "Getting Away From It All";
 				-- 1:
+					say the headline of R;
 					say "TODO [paragraph break][bold type]*** DESSICATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
+					say the headline of the location of the player;
 					say "no more.";
 		-- Cliff:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
+					say the headline of the location of the player;
 					say "TODO";
 				-- 1:
+					say the headline of the location of the player;
 					say "TODO";
 				-- 2:
+					say the headline of R;
 					say "TODO   [paragraph break][bold type]*** PULVERISED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
-					say "";
+					say the headline of the location of the player;
+					say "TODO";
 		-- Volcano:	
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
+					say the headline of the location of the player;
 					say "TODO";
 				-- 1:
+					say the headline of the location of the player;
 					say "TODO";
 				-- 2:
+					say the headline of R;
 					say "TODO  [paragraph break][bold type]*** INCINERATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
+					say the headline of the location of the player;
 					say "";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
