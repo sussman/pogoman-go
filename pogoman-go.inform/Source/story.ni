@@ -862,9 +862,14 @@ carry out inventorydropping:
 	if there is no pogoName in row 1 of the Table of Inventory:
 		say "You have no pogomen in stock to drop!";
 	otherwise:
-		repeat with N running from 1 to the number of rows in the Table of Inventory:
+		let LAST be 1;
+		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
+			if there is no pogoName in row N of the Table of Inventory:
+				let LAST be N minus 1;
+				break;
+		repeat with N running from 1 to LAST:
 			choose row N in the Table of Inventory;
-			if there is no pogoName entry:
+			if N is LAST and the pogoName entry is not the pogotype understood:
 				say "You don[apostrophe]t have [a pogotype understood] in stock.";
 				break;
 			if the pogoName entry is the pogotype understood:	
@@ -885,7 +890,7 @@ carry out inventorydropping:
 					say "As soon as the [P] is free, it zips away immediately.";
 				break.		
 						
-Section 2 - transferring
+Section 2 - Transferring
 
 inventoryTransferring is an action applying to one pogotype. 
 
@@ -914,6 +919,7 @@ Carry out inventoryTransferring:
 			choose row N in the Table of Inventory;
 			if N is LAST and the pogoName entry is not the pogotype understood:
 				say "You don[apostrophe]t have [a pogotype understood] in stock.";
+				break;
 			else if the pogoName entry is the pogotype understood:	
 				blank out the whole row;
 				say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! ";
@@ -922,32 +928,60 @@ Carry out inventoryTransferring:
 	
 After inventoryTransferring for the first time:
 	bestow "Practicality in managing resources".
+
+Section 3 - Evolving
+
+inventoryEvolving is an action applying to one pogotype. 
+
+Understand "evolve [pogotype]" or "evolve [pogotype] to/-- professor" as inventoryEvolving.
+Understand "evolve teal [pogotype]" or "evolve teal [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is teal.
+Understand "evolve chartreuse [pogotype]" or "evolve chartreuse [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is chartreuse.
+Understand "evolve alizarin crimson [pogotype]" or "evolve alizarin crimson [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is alizarin crimson.
+Understand "evolve viridian [pogotype]" or "evolve viridian [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is viridian.
+Understand "evolve papayawhip [pogotype]" or "evolve papayawhip [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is papayawhip.
+Understand "evolve unbleached titanium [pogotype]" or "evolve unbleached titanium [pogotype] to/-- professor"  as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve unbleached [pogotype]" or  "evolve unbleached titanium [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve titanium [pogotype]" or "evolve titanium [pogotype] to/-- professor" as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve loyal [pogotype]" or "evolve defending [pogotype]" or "evolve defender [pogotype]" or "evolve loyal [pogotype] to/-- professor" or "evolve defending [pogotype] to/-- professor" or "evolve defender [pogotype] to/-- professor" as inventoryEvolving.
+
+
+Carry out inventoryEvolving:
+	sort Table of Inventory in wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to transfer!";
+	otherwise:
+		let LAST be 1;
+		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
+			if there is no pogoName in row N of the Table of Inventory:
+				let LAST be N minus 1;
+				break;		
+		repeat with N running from 1 to LAST:
+			choose row N in the Table of Inventory;
+			if N is LAST and the pogoName entry is not the pogotype understood:
+				say "You don[apostrophe]t have [a pogotype understood] in stock.";
+				break;
+			else if the pogoName entry is the pogotype understood:
+				if the pogotype understood is third level:
+					say "Your [pogotype understood] is already fully evolved.";
+					break;
+				else:
+					let E be a pogotype;
+					if the pogotype understood is second level:
+						let E be the Ev3 corresponding to the Ev2 of the pogotype understood in the Table of Evolution;
+					else:
+						let E be the Ev2 corresponding to the original of the pogotype understood in the Table of Evolution;
+					now the pogoName entry is E;[wounded status carries over]
+					say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into a freshly-minted [E]! ";
+					awardXP EVOLUTION_XP_VALUE;
+					break.
 					
-[
-Section Evolving
-
-Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
-
-Check evolving:
-	if the noun is not a pogoman:
-		say "Only Pogomen can evolve![paragraph break]";
-		stop the action;
-	if the player does not carry the noun:
-		say "You have to capture it first![paragraph break]";
-		stop the action.
-
-Carry out evolving:
-	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
-	now the player carries the new-pogoman;
-	move the noun to the Void;
-	awardXP EVOLUTION_XP_VALUE;
-	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]". 
 	
-After evolving a pogoman for the first time, bestow "Turned something into something else!".
-After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again". 
+After inventoryEvolving for the first time:
+	bestow "Turned something into something else!".
 	
+After inventoryEvolving for the second time:
+	bestow "Did something before and it worked, so I did it again". 
 
-]
 
 
 
