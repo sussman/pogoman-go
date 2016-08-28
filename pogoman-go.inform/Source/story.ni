@@ -714,7 +714,8 @@ Instead of throwing a pogoball at something (called the target):
 			say "[one of]You throw a pogoball at the [type of the target]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
 			say "You[apostrophe]ve captured ";
 			if Around The Town is happening or Exploring The Tower is Happening:
-				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]."; 
+				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]. ";
+				awardXP 30; 
 			otherwise:
 				if the target is the defenderPogoman:
 					say "a loyal [type of target]";
