@@ -101,6 +101,7 @@ The player has a number called pogoIncenseCarried. pogoIncenseCarried is 0 [if a
 The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 The player has a health state called healthiness. The healthiness of the player is healthy.
+The player has a truth state called superuser. The superuser of the player is false.
 
 Section 3 - Pogo Items
 
@@ -1282,7 +1283,7 @@ Check spinning:
 		say "That's probably not something you should spin.[paragraph break]";
 		stop the action;
 	otherwise:
-		if the TURNCOUNTER minus the time stamp of the location of the player is less than the POGOSTOP_LOCKOUT_DURATION:
+		if the TURNCOUNTER minus the time stamp of the location of the player is less than the POGOSTOP_LOCKOUT_DURATION and the superuser of the player is false:
 			say "The pogospot spins around and around. Your phone makes a sad face and says, [quotation mark]Sorry. Try again later.[quotation mark][paragraph break]";
 			stop the action;
 		otherwise:
@@ -1879,7 +1880,24 @@ Carry out spawning:
 		
 Report spawning:
 	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][type of attackerPogoman] appears!"
-			
+	
+Section 10 - Sudo
+
+Sudoing is an action applying to nothing. Understand "sudo" as sudoing.
+
+Carry out sudoing:
+	let L be the list of securityColors;
+	rotate L;
+	now the securityColor of the badge is entry 1 of L;
+	try trophygetting TOWER_TROPHY_REQUIREMENT;
+	try medalgetting TOWER_MEDAL_REQUIREMENT;
+	now the xp of the player is TOWER_XP_REQUIREMENT;
+	now the pogoLevel of the player is GYM_ENTRY_LEVEL_REQUIREMENT;
+	now the team color of the player is Viridian;
+	now the superuser of the player is true.
+	
+Report sudoing:
+	say "Privilege Elevated, Your Sudoship."	
 
 Chapter Initialize
 
