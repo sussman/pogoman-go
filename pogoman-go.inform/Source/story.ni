@@ -104,7 +104,7 @@ A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a c
 
 A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogoman feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogomen feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
 A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg [one of](drop the egg to hatch it)[or][stopping]." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
@@ -350,7 +350,7 @@ Section 5 - Incense
 
 Instead of burning incense:
 	If Around The Town is happening:
-		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admitly virtual pogomen to you[or][stopping].";
+		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admittedly virtual pogomen to you[or][stopping].";
 		say line break;
 		decrement the pogoIncense count;
 		now the pogoIncense is ignited;
@@ -714,7 +714,8 @@ Instead of throwing a pogoball at something (called the target):
 			say "[one of]You throw a pogoball at the [type of the target]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
 			say "You[apostrophe]ve captured ";
 			if Around The Town is happening or Exploring The Tower is Happening:
-				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]."; 
+				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]. ";
+				awardXP 30; 
 			otherwise:
 				if the target is the defenderPogoman:
 					say "a loyal [type of target]";
@@ -1233,7 +1234,9 @@ Section AwardXP
 [moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
 
 To AwardXP (award - a number):
-	increase the XP of the player by award.
+	increase the XP of the player by award;
+	say "(You receive [award] XP.)".
+	
 
 Chapter Actions
 
@@ -1317,7 +1320,7 @@ Carry out spinning:
 				add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 				increase pogoEggsCarried of the player by E;
 				move the pogoEgg to the player;
-			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up. [run paragraph on][one of] You gain [POGOSTOP_XP_VALUE] XP![or][stopping][run paragraph on]";
+			say "The pogostop spews out [booty of the pogostop], which you quickly scoop up.";
 			say paragraph break;
 			awardXP POGOSTOP_XP_VALUE;
 	otherwise:
@@ -1611,7 +1614,7 @@ To Bestow (medallion - some text):
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! You gain [MEDAL_XP_VALUE] XP!";	
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal!";	
 	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type].[line break][or][stopping]";
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
@@ -1640,7 +1643,7 @@ Carry out muting:
 	if SUPPRESSMEDALS is false:
 		now SUPPRESSMEDALS is true;
 		if SUPPRESSMEDALS is true for the first time:
-			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on. You gain 10 XP!";
+			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on.";
 			awardXP 10;
 		otherwise:
 			say "Medals muted!";
@@ -2459,7 +2462,7 @@ To say arbitraryNoticeDescription:
 	say "[apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe]".
 	
 To say deny1:
-	say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[paragraph break]You still can[apostrophe]t accept this. But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
+	say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You still can[apostrophe]t accept this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
 	bestow "Subjected to arbitrary requirements”.
 	
 To say deny2:
@@ -3497,7 +3500,7 @@ To say rubPhrase:
 	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected."
 
 After going inside from the revolvingDoor for the first time:
-	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts the in a big.[paragraph break][quotation mark]You’ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
+	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts them in a bag.[paragraph break][quotation mark]You’ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
 	if the player carries the salmon of turpitude:
 		say "[quotation mark]Hold on... what have we here? Hmm, the fabled Salmon of Turpitude. Interesting. It gets its own bag.[quotation mark][paragraph break]";
 	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, pins a badge on you, and boosts you towards the lobby.[paragraph break]";
@@ -3973,7 +3976,7 @@ Before going down from the ball pit:
 		say "[one of]You dive down and push through the mass of balls with a familiar swimming motion. As you get deeper, you begin to have difficulty getting a breath and take a last gulp of air. You plunge downward kicking now to gain depth.[paragraph break]The deeper you go, the more the multicolored light fades. You reach out a hand to blindly probe the depths, and as your lungs begin to ache, you make a final attempt to reach bottom.[paragraph break]You hold out as long as you can, but never reach the bottom. Your lungs now burning, you shoot back to the surface, and arrive gasping for air[or]You swim down as far as you can, but get no further than before. You return to the surface breathless[stopping]."
 		
 Instead of going down from the Ball Pit for the first time:
-	say "You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface. As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
+	say "[if the player wears the wetsuit]You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface.[end if] As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
 	bestow "Got that sinking feeling";
 	teleport the player to the room down from the location.
 	
@@ -4944,7 +4947,7 @@ The Elevator is a room. The description of the elevator is "The interior of the 
 
 Section 1 - Control Panel
 
-The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with an arrow indicated the direction of travel and the following colored buttons:[line break][elevatorButtonState]".
+The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with an arrow indicating the direction of travel and the following colored buttons:[line break][elevatorButtonState]".
 
 To say elevatorButtonState:
 	repeat with N running from 1 to the number of rows in the Table of Building Floors:
@@ -5026,9 +5029,9 @@ Instead of entering the elevatorExterior:
 		if the floor level of the elevator is Cafeteria:
 			now the elevator is not upward;
 		otherwise:
-			now the elevator is upward;
-		teleport the player to the elevator;				
+			now the elevator is upward;				
 		say "You [one of]walk[or]step[purely at random] into the elevator.";
+		teleport the player to the elevator;
 	otherwise:
 		say "The elevator is not here."
 
