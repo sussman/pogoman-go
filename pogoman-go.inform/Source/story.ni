@@ -1666,25 +1666,25 @@ Check rebooting:
 	
 Carry out rebooting:
 	now the phone is not hung;
-	now BLOCKPOGOMANFLAG is false;
+	now BLOCKPOGOMANFLAG is false;	
 	now the ignored command count of the phone is 0.
 	
 Report rebooting:
 	say "You reboot the phone."	
 
-After rebooting:
+After rebooting:	
 	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][or][postHang5][or][postHang6][stopping]".
 	
 To say postHang1:
-	say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.".
+	say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.[paragraph break]";
+	bestow "Successfully rebooted your phone”.
 	
 To say postHang2:
 	say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn’t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
 	freeze the phone.
 	
 To say postHang3:
-	say "The phone rolls its figurative eyes and reboots.[paragraph break]";
-	bestow "Successfully rebooted your phone”.
+	say "The phone rolls its figurative eyes and reboots.[paragraph break]".
 	
 To say postHang4:
 	say "The phone starts to reboot, but strangely stops mid-way through and clears the screen. The following text appears:[paragraph break]WOULD YOU RATHER PLAY A NICE GAME OF GLOBAL THERMONUCLEAR WAR?_";
