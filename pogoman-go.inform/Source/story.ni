@@ -2850,38 +2850,47 @@ Instead of going a direction to the perilous passageway:
 	say "[one of][passage1][or][passage2][or][passage3][or][passage4][or][passage5][or][passage6][or][passage7][or][passage8][or][passage9][or][passage10][or][passage11][or][passage12][stopping]";			
 	
 To say passage1:
+	say the headline of the location of the player;
 	say "You are torn. Clearly, there is a rare pogoman down the dark winding passageway you are standing in front of  -- and having a rare pogoman would certainly help you win gym battles. On the other hand, it’s narrow, poorly lit and in all the years you have lived in this town, you’ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
 	bestow "At Least Briefly Listened To Your Inner Voice".
 	
 To say passage2:
+	say the headline of the Perilous Passageway;
 	say "As you round a pile of boxes behind a garbage bin, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
 	phoneDeath.
 	
 To say passage3:
+	say the headline of the location of the player;
 	say "You recall that last time, walking into this foreboding passageway didn’t work out very well for you. You consider walking around the block. On the other hand, you’ve never even seen some of the rare pogomen that your phone has detected in there. [paragraph break]Decisions, decisions."
 	
 To say passage4:
+	say the headline of the Perilous Passageway;
 	say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
 [quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That’s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I’m just saying it’s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
 	phoneDeath.
 	
 To say passage5:
+	say the headline of the location of the player;
 	say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it.[paragraph break]";
 	bestow "Slow Learner".
 	
 To say passage6:
+	say the headline of the Perilous Passageway;
 	say "A familiar scene unfolds. Two thugs jump out from behind boxes and squint at you in the dim light.[paragraph break][quotation mark]Hey Eddy?[quotation mark][paragraph break][quotation mark]Yeah, Frankie?[quotation mark][paragraph break][quotation mark]Is that the bozo who keeps coming back?[quotation mark][paragraph break][quotation mark]The improbable ninja dude?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break][quotation mark]Yeah, I think so. Or, at least someone so similar as to be indistinguishable.[quotation mark][paragraph break][quotation mark]So, for all practical purposes, it is?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break]Eddy lifts a garbage can lid to protect himself from your ninjitsu, while Frankie winds up with two ten-pound cured salamis and claps them together around your head. The phone flies from your grip, ricochets off the dumpster and the screen shatters, showering Frankie with razor-sharp shards of trademarked Corning Gorilla Glass.[paragraph break]You go down like a sack of bricks.";
 	phoneDeath.
 	
 To say passage7:
+	say the headline of the location of the player;
 	say "No, just no.[paragraph break]";
 	bestow "Better Part Of Valor".
 	
 To say passage8:
+	say the headline of the location of the player;
 	say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]";
 	bestow "Pain Is The Best Teacher".
 	
 To say passage9:
+	say the headline of the Perilous Passageway;
 	say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don’t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We’re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.";
 	teleport the player to the perilous passageway.
 	[TODO: A rare pogoman appears]
@@ -2940,7 +2949,6 @@ Instead of searching the disgusting refuse:
 
 After wearing the Baseball Cap of Pogomastery for the first time:
 	say "The hat adds to your gravitas.[paragraph break]";
-	bestow "Crowning Achievement";
 	awardXP 1000.
 	
 After wearing the Baseball Cap of Pogomastery:
