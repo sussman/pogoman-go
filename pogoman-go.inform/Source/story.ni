@@ -5023,9 +5023,9 @@ Instead of entering the elevatorExterior:
 		if the floor level of the elevator is Cafeteria:
 			now the elevator is not upward;
 		otherwise:
-			now the elevator is upward;
-		teleport the player to the elevator;				
+			now the elevator is upward;				
 		say "You [one of]walk[or]step[purely at random] into the elevator.";
+		teleport the player to the elevator;
 	otherwise:
 		say "The elevator is not here."
 
