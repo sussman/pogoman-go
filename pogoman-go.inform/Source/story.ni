@@ -998,38 +998,43 @@ Understand "evolve unbleached [pogotype]" as inventoryEvolving when the team col
 Understand "evolve titanium [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
 Understand "evolve loyal [pogotype]" as inventoryEvolving.
 
-
-Carry out inventoryEvolving:
+Check inventoryEvolving:
 	sort Table of Inventory in wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "You have no pogomen in stock to transfer!";
+		say "You have no pogomen in stock to evolve!";
+		stop the action;
 	otherwise:
-		let LAST be 1;
-		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
-			if there is no pogoName in row N of the Table of Inventory:
-				let LAST be N minus 1;
-				break;
-		if LAST is 0:
-			let LAST be 1;		
-		repeat with N running from 1 to LAST:
+		let PRESENT be false;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
 			choose row N in the Table of Inventory;
-			if N is LAST and the pogoName entry is not the pogotype understood:
-				say "You don[apostrophe]t have [a pogotype understood] in stock.";
+			if there is no pogoName entry:
 				break;
-			else if the pogoName entry is the pogotype understood:
-				if the pogotype understood is third level:
-					say "Your [pogotype understood] is already fully evolved.";
-					break;
+			if the pogoName entry is the pogotype understood:
+				let PRESENT be true;
+				break;
+		if PRESENT is false:
+			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			stop the action.
+
+
+
+Carry out inventoryEvolving:
+	repeat with N running from 1 to the number of rows in Table of Inventory:
+		choose row N in the Table of Inventory;
+		if the pogoName entry is the pogotype understood:
+			if the pogotype understood is third level:
+				say "Your [pogotype understood] is already fully evolved.";
+				break;
+			else:
+				let E be a pogotype;
+				if the pogotype understood is second level:
+					let E be the Ev3 corresponding to the Ev2 of the pogotype understood in the Table of Evolution;
 				else:
-					let E be a pogotype;
-					if the pogotype understood is second level:
-						let E be the Ev3 corresponding to the Ev2 of the pogotype understood in the Table of Evolution;
-					else:
-						let E be the Ev2 corresponding to the original of the pogotype understood in the Table of Evolution;
-					now the pogoName entry is E;[wounded status carries over]
-					say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into a freshly-minted [E]! ";
-					awardXP EVOLUTION_XP_VALUE;
-					break.
+					let E be the Ev2 corresponding to the original of the pogotype understood in the Table of Evolution;
+				now the pogoName entry is E;[wounded status carries over]
+				say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into a freshly-minted [E]! ";
+				awardXP EVOLUTION_XP_VALUE;
+				break.
 					
 After inventoryEvolving for the first time:
 	bestow "Turned something into something else!".
