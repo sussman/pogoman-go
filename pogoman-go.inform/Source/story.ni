@@ -825,73 +825,29 @@ This is the pogo-inventory rule:
 			let T be the team color of the player;
 			say "[T]" in lower case;
 			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scan[quotation mark] command for a display of deployed pogomen."
-				 		
-[
-Section Evolving
-
-Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
-
-Check evolving:
-	if the noun is not a pogoman:
-		say "Only Pogomen can evolve![paragraph break]";
-		stop the action;
-	if the player does not carry the noun:
-		say "You have to capture it first![paragraph break]";
-		stop the action.
-
-Carry out evolving:
-	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
-	now the player carries the new-pogoman;
-	move the noun to the Void;
-	awardXP EVOLUTION_XP_VALUE;
-	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]". 
-	
-Section Transferring
-
-Transferring is an action applying to a thing. Understand "transfer [thing]" or "transfer [thing] to/-- professor" as transferring.
-
-Check transferring:
-	if the noun is not a pogoman:
-		say "Only Pogomen can be transferred[paragraph break]";
-		stop the action;
-	if the player does not carry the noun:
-		say "You have to capture it first![paragraph break]";
-		stop the action.
-		
-Carry out transferring:
-	awardXP 10;
-	[TODO remove the noun from play]
-	say "[One of]You ship your [noun] off to the glue factory[or]The [noun] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [noun], I’ll miss you briefly[or]See ya[or]One less [noun] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [the noun] went, but decide not to worry about it[or]Shipped[or]The [noun] disappears in a wisp of smoke[or]The [noun] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! You gain 10 XP!"
-	
-
-After evolving a pogoman for the first time, bestow "Turned something into something else!".
-After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again". 
-After powerUpping a pogoentity for the first time, bestow "Made something even bigger".
-After transferring a pogoentity for the first time, bestow "Practicality in managing resources".
-
-]
-
 
 section 10 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
+Chapter Commands Operating On Pogoman Inventory
 
-section 11 - Commands operating on pogomen in inventory
 [these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
+
+section 1 - InventoryDropping
 
 InventoryDropping is an action applying to one pogotype.
 
 Understand "drop [pogotype]" as inventoryDropping.
-Understand "drop teal [pogotype]'" as inventoryDropping when the team color of the player is teal and Around the Town has ended.
-Understand "drop chartreuse [pogotype]" as inventoryDropping when the team color of the player is chartreuse and Around the Town has ended.
-Understand "drop alizarin crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson and Around the Town has ended.
-Understand "drop viridian [pogotype]" as inventoryDropping when the team color of the player is viridian and Around the Town has ended.
-Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color of the player is papayawhip and Around the Town has ended.
-Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium and Around the Town has ended.
-Understand "drop unbleached [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium and Around the Town has ended.
-Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium and Around the Town has ended.
-Understand "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defender [pogotype]" as InventoryDropping when Around the Town has ended.
+Understand "drop teal [pogotype]'" as inventoryDropping when the team color of the player is teal.
+Understand "drop chartreuse [pogotype]" as inventoryDropping when the team color of the player is chartreuse.
+Understand "drop alizarin crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
+Understand "drop viridian [pogotype]" as inventoryDropping when the team color of the player is viridian.
+Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color of the player is papayawhip.
+Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
+Understand "drop unbleached [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
+Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
+Understand "drop loyal [pogotype]" or "drop defending [pogotype]" or "drop defender [pogotype]" as InventoryDropping.
 
 carry out inventorydropping:
 	if Exploring The Tower has happened:
@@ -899,9 +855,9 @@ carry out inventorydropping:
 			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
 			stop the action;
 		otherwise:
-			sort Table of Inventory in wounded order;
+			sort Table of Inventory in wounded order;[select stronger defenders]
 	otherwise:
-		[otherwise, selectively dump the weaker]
+		[otherwise, selectively dump the weaker in the Village]
 		sort Table of Inventory in reverse wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
 		say "You have no pogomen in stock to drop!";
@@ -927,7 +883,73 @@ carry out inventorydropping:
 					now the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is W;
 				otherwise:
 					say "As soon as the [P] is free, it zips away immediately.";
-				break.
+				break.		
+						
+Section 2 - transferring
+
+inventoryTransferring is an action applying to one pogotype. 
+
+Understand "transfer [pogotype]" or "transfer [pogotype] to/-- professor" as inventorytransferring.
+Understand "transfer teal [pogotype]" or "transfer teal [pogotype] to/-- professor" as inventorytransferring when the team color of the player is teal.
+Understand "transfer chartreuse [pogotype]" or "transfer chartreuse [pogotype] to/-- professor" as inventorytransferring when the team color of the player is chartreuse.
+Understand "transfer alizarin crimson [pogotype]" or "transfer alizarin crimson [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
+Understand "transfer viridian [pogotype]" or "transfer viridian [pogotype] to/-- professor" as inventorytransferring when the team color of the player is viridian.
+Understand "transfer papayawhip [pogotype]" or "transfer papayawhip [pogotype] to/-- professor" as inventorytransferring when the team color of the player is papayawhip.
+Understand "transfer unbleached titanium [pogotype]" or "transfer unbleached titanium [pogotype] to/-- professor"  as inventorytransferring when the team color of the player is unbleached titanium.
+Understand "transfer unbleached [pogotype]" or  "transfer unbleached titanium [pogotype] to/-- professor" as inventorytransferring when the team color of the player is unbleached titanium.
+Understand "transfer titanium [pogotype]" or "transfer titanium [pogotype] to/-- professor" as inventorytransferring when the team color of the player is unbleached titanium.
+Understand "transfer loyal [pogotype]" or "transfer defending [pogotype]" or "transfer defender [pogotype]" or "transfer loyal [pogotype] to/-- professor" or "transfer defending [pogotype] to/-- professor" or "transfer defender [pogotype] to/-- professor" as inventorytransferring.
+		
+Carry out inventoryTransferring:
+	sort Table of Inventory in reverse wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to transfer!";
+	otherwise:
+		let LAST be 1;
+		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
+			if there is no pogoName in row N of the Table of Inventory:
+				let LAST be N minus 1;
+				break;		
+		repeat with N running from 1 to LAST:
+			choose row N in the Table of Inventory;
+			if N is LAST and the pogoName entry is not the pogotype understood:
+				say "You don[apostrophe]t have [a pogotype understood] in stock.";
+			else if the pogoName entry is the pogotype understood:	
+				blank out the whole row;
+				say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! ";
+				awardXP TRANSFER_XP_VALUE;
+				break.		
+	
+After inventoryTransferring for the first time:
+	bestow "Practicality in managing resources".
+					
+[
+Section Evolving
+
+Evolving is an action applying to a thing.  Understand "evolve [thing]" as evolving.
+
+Check evolving:
+	if the noun is not a pogoman:
+		say "Only Pogomen can evolve![paragraph break]";
+		stop the action;
+	if the player does not carry the noun:
+		say "You have to capture it first![paragraph break]";
+		stop the action.
+
+Carry out evolving:
+	let the new-pogoman be the Ev2 corresponding to Original of noun in the Table of Evolution;
+	now the player carries the new-pogoman;
+	move the noun to the Void;
+	awardXP EVOLUTION_XP_VALUE;
+	say "[The noun] ripples and glows with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into [a new-pogoman]! [paragraph break][one of]You gain [EVOLUTION_XP_VALUE] XP![or][stopping]". 
+	
+After evolving a pogoman for the first time, bestow "Turned something into something else!".
+After evolving a pogoman for the second time, bestow "Did something before and it worked, so I did it again". 
+	
+
+]
+
+
 
 Chapter Declare Constants
 
