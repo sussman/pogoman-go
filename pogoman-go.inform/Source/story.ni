@@ -1058,20 +1058,37 @@ Understand "x unbleached [pogotype]" or "examine unbleached [pogotype]" as inven
 Understand "x titanium [pogotype]" or "examine titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
 Understand "x loyal [pogotype]" or "examine [pogotype]" as InventoryExamining.
 
+
+Check inventoryExamining:
+	sort Table of Inventory in reverse wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to examine!";
+		stop the action;
+	otherwise:
+		let PRESENT be false;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			if the pogoName entry is the pogotype understood:
+				let PRESENT be true;
+				break;
+		if PRESENT is false:
+			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			stop the action.
+
 Carry out inventoryExamining:
-	sort Table of Inventory in wounded order;
 	let H be false; [healthy]
 	let W be false; [wounded]
 	let LAST be 1;
 	repeat with N running from 1 to the number of rows in Table of Inventory plus one:
 		if there is no pogoName in row N of the Table of Inventory:
 			let LAST be N minus 1;
-			break;		
+			break;	
+	if LAST is 0:
+		let LAST be 1;	
 	repeat with N running from 1 to LAST:
 		choose row N in the Table of Inventory;
-		if N is LAST and the pogoName entry is not the pogotype understood:
-			say "You don[apostrophe]t have [a pogotype understood] in stock.";
-			break;
 		if the pogoName entry is the pogotype understood:
 			if the wounded entry is true:
 				let W be true;
