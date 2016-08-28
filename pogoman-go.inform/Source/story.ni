@@ -609,7 +609,7 @@ A pogoentity is a kind of neuter animal.
 	  
 Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild. 
 
-The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDescription corresponding to pogomanName of type of defenderPogoman in the Table of Creatures][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured.
+The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDex data for type of defenderPogoman][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured.
 
 To say defendingPogomanName:
 	if the defenderPogoman is injured:
@@ -619,7 +619,7 @@ To say defendingPogomanName:
 	say " ";
 	say the type of defenderPogoman.
 
-The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
+The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDex data for type of attackerPogoman][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
 
 To say attackingPogomanName:
 	say "[if the attackerPogoman is injured]wounded [end if][if exploring the tower has happened]attacking[otherwise]wild[end if] [type of attackerPogoman]".
@@ -694,6 +694,40 @@ To say nearMiss:
 [BEN: Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat, 
 
 JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
+
+To say pogoDex data for (creature - a pogotype):
+	let CAT be text;
+	let ATK be text;
+	let E1 be a pogotype;
+	let E2 be a pogotype;
+	let E3 be a pogotype;
+	let C be "[creature]" in title case;
+	say "[C]: [pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures]. [C] is a ";
+	if creature is first level:
+		say "first";
+		let CAT be the Category corresponding to the Original of creature in the Table of Evolution;
+		let ATK be the AttackType corresponding to the Original of creature in the Table of Evolution;
+		let E2 be the Ev2 corresponding to the Original of creature in the Table of Evolution;
+		let E3 be the Ev3 corresponding to the Original of creature in the Table of Evolution;
+	else if creature is second level:
+		say "second";
+		let CAT be the Category corresponding to the Ev2 of creature in the Table of Evolution;
+		let ATK be the AttackType corresponding to the Ev2 of creature in the Table of Evolution;
+		let E1 be the original corresponding to the Ev2 of creature in the Table of Evolution;
+		let E3 be the Ev3 corresponding to the Ev2 of creature in the Table of Evolution;
+	else:
+		say "third";
+		let CAT be the Category corresponding to the Ev3 of creature in the Table of Evolution;
+		let ATK be the AttackType corresponding to the Ev3 of creature in the Table of Evolution;
+		let E1 be the original corresponding to the Ev3 of creature in the Table of Evolution;
+		let E2 be the Ev2 corresponding to the Ev3 of creature in the Table of Evolution;
+	say " level pogoman of the [CAT] variety, with a [ATK] attack. [C] ";
+	if the creature is first level:
+		say "evolves into [E2], and finally into [E3]";
+	else if creature is second level:
+		say "is the evolved form of [E1], and evolves into [E3]";
+	else:
+		say "is the final evolution of [E2], which itself is the mid-way evolved form of [E1]"
 
 Section 7 - Generate Pogomen
 
@@ -6701,8 +6735,8 @@ Chapter Tables
 Section 1 - Table of Creatures
 
 Table of Creatures
-pogomanName	pogoDescription
-edator	"A creature of note"
+pogomanName	pogoDescription			
+edator	"A creature of note"	
 vicore	"Simple and clean, covered with lines"
 emak	"A buffed and buffered creature"
 plaigrhat	"A mysterious rodent of a vermininous nature"
@@ -6716,11 +6750,13 @@ Definition: A pogotype is third level if it is an ev3 listed in the Table of Evo
 Section 2 - Table of Evolution
 
 Table of Evolution
-Original	Ev2	Ev3
-edator	vicore	emak
-plaigrhat	vermonux	rodentikor
+Category	Original	Ev2	Ev3	AttackType
+"clerical"	edator	vicore	emak	"character assasination"
+"pestilence" 	plaigrhat	vermonux	rodentikor	"filth and disease"
 
-Section 3 - Table of Inventory
+section 3 - Table of Relations
+
+Section 4 - Table of Inventory
 	
 Table of Inventory
 pogoName (a pogotype)	wounded (a truth state)
