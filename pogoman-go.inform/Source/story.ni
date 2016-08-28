@@ -890,7 +890,23 @@ Understand "drop unbleached [pogotype]" as inventoryDropping when the team color
 Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
 Understand "drop loyal [pogotype]" as InventoryDropping.
 
-carry out inventorydropping:
+Check inventoryDropping:
+	sort Table of Inventory in reverse wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to drop!";
+		stop the action;
+	otherwise:
+		let PRESENT be false;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			if the pogoName entry is the pogotype understood:
+				let PRESENT be true;
+				break;
+		if PRESENT is false:
+			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			stop the action;
 	if Exploring The Tower has happened:
 		if the defenderPogoman is in the location of the player:
 			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
@@ -899,39 +915,28 @@ carry out inventorydropping:
 			sort Table of Inventory in wounded order;[select stronger defenders]
 	otherwise:
 		[otherwise, selectively dump the weaker in the Village]
-		sort Table of Inventory in reverse wounded order;
-	if there is no pogoName in row 1 of the Table of Inventory:
-		say "You have no pogomen in stock to drop!";
-	otherwise:
-		let LAST be 1;
-		repeat with N running from 1 to the number of rows in Table of Inventory plus one:
-			if there is no pogoName in row N of the Table of Inventory:
-				let LAST be N minus 1;
-				break;
-		if LAST is 0:
-			let LAST be 1;
-		repeat with N running from 1 to LAST:
-			choose row N in the Table of Inventory;
-			if N is LAST and the pogoName entry is not the pogotype understood:
-				say "You don[apostrophe]t have [a pogotype understood] in stock.";
-				break;
-			if the pogoName entry is the pogotype understood:	
-				let W be the wounded entry;
-				let P be the pogoName entry;
-				blank out the whole row;
-				if Exploring The Tower has happened:					
-					move the defenderPogoman to the location of the player;
-					now the type of defenderPogoman is P;
-					if W is true:
-						now the defenderPogoman is injured;
-					let C be the team color of the player;
-					let CC be "[C]" in lower case;
-					say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoball and takes up a defensive stance.";
-					now the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is P;
-					now the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is W;
-				otherwise:
-					say "As soon as the [P] is free, it zips away immediately.";
-				break.		
+		sort Table of Inventory in reverse wounded order.
+		
+Carry out inventoryDropping:
+	repeat with N running from 1 to the number of rows in Table of Inventory:
+		choose row N in the Table of Inventory;
+		if the pogoName entry is the pogotype understood:
+			let W be the wounded entry;
+			let P be the pogoName entry;
+			blank out the whole row;
+			if Exploring The Tower has happened:					
+				move the defenderPogoman to the location of the player;
+				now the type of defenderPogoman is P;
+				if W is true:
+					now the defenderPogoman is injured;
+				let C be the team color of the player;
+				let CC be "[C]" in lower case;
+				say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoball and takes up a defensive stance.";
+				now the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is P;
+				now the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is W;
+			otherwise:
+				say "As soon as the [P] is free, it zips away immediately.";
+			break.		
 						
 Section 2 - Transferring
 
