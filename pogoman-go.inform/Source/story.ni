@@ -20,21 +20,11 @@ Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 
 Book 1 - Mechanics
 
+
 Chapter Kinds
 
-Section 1 - General
 
-[TODO: get these out of kinds - they can be things since they don't need to be class unto themselves]
-A Katatron is a kind of thing. A katatron has a number called PEC.  The PEC of a katatron is usually 0.
-A katatron has a number called MegaCats. The MegaCats of a katatron is usually 0.
-A katatron has a truth state called the onHoldFlag. The onHoldFlag of a katatron is usually true.
-[Note- there is probably only one katatron in existence - the one in Nyantech Tower]
-
-A victrola is a kind of supporter. 
-A victrola has a truth state called isBrokenFlag. The isBrokenFlag of a victrola is usually false.
-A victrola has a truth state called isOnFlag. The isOnFlag of a victrola is usually true.
-
-Section 2 - Values
+Section 1 - Values
 
 Color is a kind of value. The colors are None, Teal, Chartreuse, Alizarin Crimson, Viridian, Papayawhip, and Unbleached Titanium.
 
@@ -45,7 +35,7 @@ securityColor is a kind of value. The securityColors are white, green, blue, red
 Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, apple, cranberry, chocolate, licorice, pumpkin, pine-nut, pesto, liver, watermelon, apricot, teriyaki, chutney, fudge, tiramisu, and cinnamon.
 
 
-Section 3 - Rooms
+Section 2 - Rooms
 
 Rooms have some text called title. A room has a text called possible exits.
 
@@ -78,14 +68,12 @@ To say externalRoomExits:
 			if the N is the number of entries in D:
 				say "or ";
 			say "[entry N of D] to the [room the entry N of D from the location of the player]".
-		
 
-
-Section 4 - Doors
+Section 3 - Doors
 
 A door has a securityColor. The securityColor of a door is usually white.
 
-Section 5 - Things
+Section 4 - Things
 
 A prop is a kind of thing. It is usually portable. A prop has a securityColor. The securityColor of a prop is usually white.
 
@@ -103,13 +91,13 @@ An lift button is a kind of improper-named privately-named fixed in place thing.
 
 A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list of text called WPLIST. 
 
-Section 6 - People
+Section 5 - People
 
 A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of  workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
 
 A gamer is a kind of  privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
 
-Section 7 - Player properties
+Section 6 - Player properties
 
 [TODO randomize initial items carried by player]
 The player has a number called pogoLevel.
@@ -127,11 +115,115 @@ The player has a health state called healthiness. The healthiness of the player 
 The player has a truth state called superuser. The superuser of the player is false.
 The player is lit. [light emiting, not hammered - to make sure that the player can see when in containers]
 
-Section 8 - BackDrops
+Section 7 - BackDrops
 
 A catTopDrop is a kind of backdrop. catTopDrops are privately-named. 
 
 An Awarddrop is a kind of backdrop.
+
+
+Chapter Declare Constants
+
+
+[Game Setup]
+INITIAL_POGOLEVEL is always 3.
+INITIAL_XP is always 320.
+MIN_TOWN_POGOSTOPS is always 6.
+MAX_TOWN_POGOSTOPS is always 9.
+MIN_TOWN_GYMS is always 2.
+MAX_TOWN_GYMS is always 4.
+
+[Rooms in Village and Pogoland have a pogostop timestamp]
+POGOSTOP_TIMEOUT_DURATION is always 10.
+
+[Pogoland Setup]
+MIN_PL_POGOSTOPS is always 2.
+MAX_PL_POGOSTOPS is always 4.
+
+[Ways of gaining XP]
+MEDAL_XP_VALUE is always 10.
+EVOLUTION_XP_VALUE is always 50.
+POGOSTOP_XP_VALUE is always 10.
+CAPTURE_XP_VALUE is always 100.
+INCENSE_XP_VALUE is always 10.
+TRANSFER_XP_VALUE is always 20.
+GYM_VICTORY_XP_VALUE is always 300.
+GYM_LOSS_XP_VALUE is always 50.
+CHUMMING_XP_VALUE is always 10.
+EGG_HATCH_XP_VALUE is always 25.
+STREETFIGHT_XP_VALUE is always 100.
+
+[likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
+INCENSE_EFFECT_VALUE is always 10.
+PREPOGO_ENCOUNTER_VALUE is always 10.
+POGO_ENCOUNTER_VALUE is always 10.
+
+[Difficulty for capturing items with pogoball, always out of 100]
+CAPTURE_EVOL1_DIFFICULTY is always 80.
+CAPTURE_EVOL2_DIFFICULTY is always 60.
+CAPTURE_EVOL3_DIFFICULTY is always 40.
+
+[Combat]
+OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
+OFFENSIVE_RATING_EVO2 is always 50.
+OFFENSIVE_RATING_EVO3 is always 70.
+WOUNDED_PENALTY is always 25.[both attacker and defender pogomen at disadvantage when wounded]
+FIGHT_RANDOMNESS is always 40.
+SPECIAL_ATTACK_XP_COST is always 500.
+MUSK_DEF is always 80.
+
+[Capturing the Player in the Giant Pogoball]
+DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
+CAPTURE_RANDOMNESS is always 50.
+CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman decides to try a capture]
+[Baseball Cap of Pogomastery affects both capture and combat]
+
+[Magical Items]
+HAT_EFFECT is always 15.
+
+[TIMING]
+INCENSE_DURATION is always 10.
+POGOMAN_LOCKOUT_DURATION is always 5.
+POGOSTOP_LOCKOUT_DURATION is always 10.
+
+[Inventory]
+POGOMEN_INVENTORY_LIMIT is always 100.
+POGOITEM_INVENTORY_LIMIT is always 100.
+
+[Advancement Requirements]
+GYM_ENTRY_LEVEL_REQUIREMENT is always 5.
+TOWER_XP_REQUIREMENT is always 1000.
+TOWER_TROPHY_REQUIREMENT is always 1.
+TOWER_LEVEL_REQUIREMENT is always 8.
+TOWER_MEDAL_REQUIREMENT is always 10.
+
+[Invariant Lists]
+The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
+The list of colors called EXTENDED_TEAM_COLORS is always {Viridian, Papayawhip}.
+The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
+
+[additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
+
+
+Chapter Declare Global Variables
+
+
+[booleans]
+SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
+The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
+The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
+FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
+
+[numbers]
+TURNCOUNTER is a number that varies. TURNCOUNTER is 0.
+
+[lists - because Jack loves lists]
+POGOSTOPLIST is a list of rooms that varies.
+GYMLIST is a list of rooms that varies.
+MEDALLIST is a list of text that varies.
+TROPHYLIST is a list of text that varies.
+HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
+
 
 Chapter Pogo-Machinery
 
@@ -1121,107 +1213,6 @@ Carry out inventoryExamining:
 			say "healthy";
 		say ".[paragraph break]Note, that only certain commands are available for pogoman in your stock, these include [italic type]drop, transfer, and evolve[roman type]."
 			
-
-Chapter Declare Constants
-
-[Game Setup]
-INITIAL_POGOLEVEL is always 3.
-INITIAL_XP is always 320.
-MIN_TOWN_POGOSTOPS is always 6.
-MAX_TOWN_POGOSTOPS is always 9.
-MIN_TOWN_GYMS is always 2.
-MAX_TOWN_GYMS is always 4.
-
-[TODO: add a universal timer and quadrooms have a timestamp property; lockout pogostops per room]
-POGOSTOP_TIMEOUT_DURATION is always 10.
-
-[Pogoland Setup]
-MIN_PL_POGOSTOPS is always 2.
-MAX_PL_POGOSTOPS is always 4.
-
-[Ways of gaining XP]
-MEDAL_XP_VALUE is always 10.
-EVOLUTION_XP_VALUE is always 50.
-POGOSTOP_XP_VALUE is always 10.
-CAPTURE_XP_VALUE is always 100.
-INCENSE_XP_VALUE is always 10.
-TRANSFER_XP_VALUE is always 20.
-GYM_VICTORY_XP_VALUE is always 300.
-GYM_LOSS_XP_VALUE is always 50.
-CHUMMING_XP_VALUE is always 10.
-EGG_HATCH_XP_VALUE is always 25.
-STREETFIGHT_XP_VALUE is always 100.
-
-[likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
-INCENSE_EFFECT_VALUE is always 10.
-PREPOGO_ENCOUNTER_VALUE is always 10.
-POGO_ENCOUNTER_VALUE is always 10.
-
-[Difficulty for capturing items with pogoball, always out of 100]
-CAPTURE_EVOL1_DIFFICULTY is always 80.
-CAPTURE_EVOL2_DIFFICULTY is always 60.
-CAPTURE_EVOL3_DIFFICULTY is always 40.
-
-[Combat]
-OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
-OFFENSIVE_RATING_EVO2 is always 50.
-OFFENSIVE_RATING_EVO3 is always 70.
-WOUNDED_PENALTY is always 25.[both attacker and defender pogomen at disadvantage when wounded]
-FIGHT_RANDOMNESS is always 40.
-SPECIAL_ATTACK_XP_COST is always 500.
-MUSK_DEF is always 80.
-
-[Capturing the Player in the Giant Pogoball]
-DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
-CAPTURE_RANDOMNESS is always 50.
-CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman decides to try a capture]
-[Baseball Cap of Pogomastery affects both capture and combat]
-
-[Magical Items]
-HAT_EFFECT is always 15.
-
-[TIMING]
-INCENSE_DURATION is always 10.
-POGOMAN_LOCKOUT_DURATION is always 5.
-POGOSTOP_LOCKOUT_DURATION is always 10.
-
-[Inventory]
-POGOMEN_INVENTORY_LIMIT is always 100.
-POGOITEM_INVENTORY_LIMIT is always 100.
-
-[Advancement Requirements]
-GYM_ENTRY_LEVEL_REQUIREMENT is always 5.
-TOWER_XP_REQUIREMENT is always 1000.
-TOWER_TROPHY_REQUIREMENT is always 1.
-TOWER_LEVEL_REQUIREMENT is always 8.
-TOWER_MEDAL_REQUIREMENT is always 10.
-
-[Invariant Lists]
-The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
-The list of colors called EXTENDED_TEAM_COLORS is always {Viridian, Papayawhip}.
-The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
-
-[additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
-
-
-Chapter Declare Global Variables
-
-[booleans]
-SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
-The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
-The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
-FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
-
-[numbers]
-TURNCOUNTER is a number that varies. TURNCOUNTER is 0.
-
-[lists - because Jack loves lists]
-POGOSTOPLIST is a list of rooms that varies.
-GYMLIST is a list of rooms that varies.
-MEDALLIST is a list of text that varies.
-TROPHYLIST is a list of text that varies.
-HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
-
 
 
 Chapter Rules Modifications
@@ -3824,7 +3815,7 @@ Definition: The speaker is active if isBrokenFlag of the phonograph is false and
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a victrola in the LAN Closet. The description of the phonograph is "The [if isBrokenFlag of the phonograph is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is false]. The phono is switched off[end if][if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. 
+The phonograph is a supporter. The phonograph is in the LAN Closet. The description of the phonograph is "The [if isBrokenFlag of the phonograph is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is false]. The phono is switched off[end if][if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. The phonograph has a truth state called isBrokenFlag. The isBrokenFlag of the phonograph is false. The phonograph has a truth state called isOnFlag. The isOnFlag of the phonograph is true.
 
 Instead of switching on the phonograph:
 	if isBrokenFlag of the phonograph is true:
@@ -3934,7 +3925,7 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of red CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is  a scenery katatron in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control.
+The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control. The CAT Control has a number called PEC. The PEC of the CAT control is 0. The CAT Control has a number called MegaCats. The MegaCats of the CAT Control is 0. The CAT Control has a truth state called the onHoldFlag. The onHoldFlag of the CAT Control is true.
 
 
 The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" as the numerical counter.
