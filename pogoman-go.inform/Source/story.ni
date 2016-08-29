@@ -3074,7 +3074,7 @@ To say passage6:
 	
 To say passage7:
 	say the headline of the location of the player;
-	say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph]Well, maybe. You daydream winning the adoration of hoardes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passsageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
+	say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph break]Well, maybe. You daydream winning the adoration of hoardes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passsageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
 	bestow "Better Part Of Valor".
 	
 To say passage8:
