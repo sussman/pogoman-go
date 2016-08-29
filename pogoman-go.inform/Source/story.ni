@@ -889,8 +889,10 @@ Instead of throwing a pogoball at something (called the target):
 				now the wounded entry is true;
 			otherwise:
 				now the wounded entry is false;
-			say "[one of]You throw a pogoball at the [type of the target]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound. The ball bounces around a bit, but finally glows red.[paragraph break][or][stopping]";
-			say "You[apostrophe]ve captured ";
+			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoball[or]curve ball[or]slider[or]spinning pogoball[or]winding pogoball[or]fastball[or]whirling pogoball[or]tumbling pogoball[or]screwball[in random order] at the [type of the target]";	
+			say "[one of]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound[or]. The ball opens and the [type of the target] is somehow sucked into a much smaller volume that should be possible[or]and hit it dead on. The [type of target] leaves claw marks in the ground as it struggles to resist the ball[apostrophe]s attraction, but is ultimately pulled in[in random order]. ";			 
+			say "[one of]The ball bounces around a bit, but finally glows red[or]The ball rolls around until the pogoman tires and ceases struggling[in random order].[paragraph break]";
+			say "You[apostrophe]ve captured ";[todo expand]
 			if Around The Town is happening or Exploring The Tower is Happening:
 				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]. ";
 				awardXP 30; 
