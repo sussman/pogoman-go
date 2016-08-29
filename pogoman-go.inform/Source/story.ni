@@ -6147,46 +6147,54 @@ Instead of going a poor idea direction (called the way):
 		-- Quicksand:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-				say the headline of the location of the player;
-				say "Ah, nothing but miles and miles of luscious sand out to the west. Beautiful but desolate. You pause to admire it, but you are also a bit concerned that there is nothing -- not even a cactus --  alive over there.[paragraph break]";
-				bestow "Getting Away From It All";
+					say the headline of the location of the player;
+					say "Ah, nothing but miles and miles of luscious sand out to the west. Beautiful but desolate. You pause to admire it, but you are also a bit concerned that there is nothing -- not even a cactus --  alive over there.[paragraph break]";
+					bestow "Getting Away From It All";
 				-- 1:
+					say the headline of the location of the player;
+					say "As you head west, you catch sight of some vultures -- and they catch sight of you. They had been squawking and clawing each other savagely, but now you have their full attention. They quit their bickering and take again to the air, flying patiently over the bone-laden sandy wasteland.[paragraph break]";
+					bestow "Lazy Circles In The Sky";
+				-- 2:
 					say the headline of R;
-					say "TODO [paragraph break][bold type]*** DESSICATED! ***[roman type][paragraph break]";
+					say "Curious about the absence of any living creatures whatsoever to the west, while at the same time showing remarkable ability to disregard the heavy handed hinted of Mother Nature, you wander into the sandy expanse, carefully shading your phone[apostrophe]s screen from the sun[apostrophe]s punishing glare.[paragraph break]You are not more than 100 yards -- say, as far as anyone could reasonably throw a rope to rescue someone -- when the sand begins sucking at your feet. As you struggle to regain purchase, you sink some more. Soon, the sand is up to your hips and you have to hold the phone at an awkward angle.[paragraph break] A bit more struggling, and your shoulders go under, forcing you to look up into the bright sky. The contrast is awful and you are forced to turn the screen to maximum brightness. Finally, the sand fills your mouth, then your nose. As your head goes under the sand, you continue to blow the sand away, not quite able to make out detail on your screen. You struggle for a while more, guided only by the phone[apostrophe]s haptic feedback.[paragraph break]When the phone vibrates indicating the presence of a nearby pogoman, you inadvisably squeal in delight. In that moment, sand fills your mouth and lungs. Your fingers scrape their last on the screen, and you descend below the surface of the quicksand.[paragraph break][bold type]*** SLOW THINKING! QUICK SINKING! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
 					say the headline of the location of the player;
-					say "no more.";
+					say "There doesn[apostrophe]t appear to be anything alive over there, and you[apostrophe]ve learned that you won[apostrophe]t be either if you go that way, so you stay put.";
 		-- Cliff:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 					say the headline of the location of the player;
-					say "TODO";
+					say "The view to the south is magnificent: far below, just beyond a rocky area, you can see a rich forest canopy, with birds flitting between the tree tops. It isn[apostrophe]t entirely clear how one would get down to the level, but it sure does seem worth a try. As you set off in that direction, though, the ground drops off rather suddenly and the ground becomes more gravely. You realize that the pogoman that are showing up to the south may be a few hundred feet below your current position and remark how poorly cliffs are rendered in the map view on your phone.[paragraph break]";
+					bestow "Scenic View";
 				-- 1:
 					say the headline of the location of the player;
-					say "TODO";
+					say "As you lean over the edge of the escarpment to the south, you contemplate just what sort of pogomen are most likely to be living in the field of sharp rocks just below you. You try the phone in portrait view to get a better look at the full breadth of pointed crags. As you ponder the view, you shift your foot and dislodge a chunk of the cliff face, which showers down, hitting the bottom a few moments later. Startled, you draw back.[paragraph break]";
+					bestow "Life On The Edge";
 				-- 2:
 					say the headline of R;
-					say "TODO   [paragraph break][bold type]*** PULVERISED! ***[roman type][paragraph break]";
+					say "he ground gives way under you suddenly, and you find yourself hanging from a tree root by your one free hand. Looking down, you see the rocks you kicked loose still on their way towards the rocky spires below.[paragraph break]Hanging precariously, your sweaty grip on the thin root none too certain, you realize that with your other hand hanging downward, the phone[apostrophe]s power save mode is engaged and the screen dimmed. That[apostrophe]s no good, because you can[apostrophe]t see the screen, so you raise the phone and are pleased to see the screen illuminate.[paragraph break]In fact, it looks like there is a wild emak just[paragraph break][bold type]*** PLUMMETED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
 					say the headline of the location of the player;
-					say "TODO";
+					say "You have developed a sudden, powerful fear of heights and no longer want to explore the treacherous cliffs to the south.";
 		-- Volcano:	
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 					say the headline of the location of the player;
-					say "TODO";
+					say "As you walk north, the ground shakes under your feet, making text hard to read, so you increase the font size a bit. When the mountain in front of you explodes, showering you with ash, you reflexively wipe it off the phone screen and continue to scan for pogomen, stepping carefully over rivulets of molten rock.[paragraph break]However, before you continue, you realize that excessive heat could damage the phone, indeed blisters are already forming on your feet and lower leg, so no doubt this is not good for the phone’s sensitive screen. You withdraw to a point that the phone’s plastic case is no longer searingly hot.[paragraph break]";
+					bestow "Too Hot To Trot";
 				-- 1:
 					say the headline of the location of the player;
-					say "TODO";
+					say "You find that jumping from foot to foot, you can walk even further towards the active volcano to the north. You marvel as large chunks of rock are blown skyward and the phone’s screen spins -- there must be some iron in those boulders flying towards you.[paragraph break]One lands on your leg, pinning it against the oven-hot mountain, flattening and cooking your lower extremity like an olive-oil soaked panini in a George Foreman grill. You prudently roll to the side dragging your deformed appendage, careful to shield the phone from the flaming cinders, which now rain down all around you. Painfully, you manage to retreat slightly to a place where you get full bars on cell phone reception.[paragraph break]";
+					bestow "Shake A Leg";
 				-- 2:
 					say the headline of R;
-					say "TODO  [paragraph break][bold type]*** INCINERATED! ***[roman type][paragraph break]";
+					say " As you wander northward, flanked by incandescent streams of lava that bubble and slosh down the side of the volcano, some annoying text pops up on the phone warning you to pay attention to your surroundings while playing the game.[paragraph break]How patronizing, you think, as the ledge of rock you are standing on breaks free of the mountainside. As you surf through a lava tube towards a magma lake, you petulantly thumb the phone to dismiss the nagging window. [paragraph break][bold type]*** INCINERATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
 					say the headline of the location of the player;
-					say "";
+					say "The shimmering heat and fiery skies create too much glare, so you decide to steer clear of the hellish inferno to the north";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
 To frontierDeath:
