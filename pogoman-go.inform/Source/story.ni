@@ -890,8 +890,14 @@ Instead of throwing a pogoball at something (called the target):
 			otherwise:
 				now the wounded entry is false;
 			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoball[or]curve ball[or]slider[or]spinning pogoball[or]winding pogoball[or]fastball[or]whirling pogoball[or]tumbling pogoball[or]screwball[in random order] at the [type of the target]";	
-			say "[one of]. The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound[or]. The ball opens and the [type of the target] is somehow sucked into a much smaller volume that should be possible[or]and hit it dead on. The [type of target] leaves claw marks in the ground as it struggles to resist the ball[apostrophe]s attraction, but is ultimately pulled in[in random order]. ";			 
-			say "[one of]The ball bounces around a bit, but finally glows red[or]The ball rolls around until the pogoman tires and ceases struggling[in random order].[paragraph break]";
+			let N be a random number between 1 and the number of entries in TRAJECTORYLIST;
+			let TXT be entry N of TRAJECTORYLIST;
+			replace the word "xxx" in TXT with "[type of target]";
+			say "[TXT]. The ball ";
+			let N be a random number between 1 and the number of entries in BALLLIST;
+			let TXT be entry N of BALLLIST;
+			replace the word "xxx" in TXT with "[type of target]";
+			say "[TXT].[paragraph break]";
 			say "You[apostrophe]ve captured ";[todo expand]
 			if Around The Town is happening or Exploring The Tower is Happening:
 				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]. ";
@@ -915,7 +921,95 @@ Instead of throwing a pogoball at something (called the target):
 		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.";
 	say line break;
 	decrement pogoball count.
-		
+	
+
+The list of text called TRAJECTORYLIST is always {
+" and are amused when the half-open ball plops down on the its head and pulls it upward into the ball",
+". Futily, it yells something at you in defiance, but the sound is drowned out by the energy vortex that draws the pogoman into the waiting pogoball",
+" and bowl it down with the deadly accuracy of a world-class pétanque champion",
+" and are amused by its futile attempt to escape the overwhelming attraction of the ball, which snaps shut as soon as the pogoman is imprisoned",
+" nailing it right between the eyes. Dazed, it falls stiffly forward into the waiting ball and is pulled in",
+". Judging by the bits of xxx fur around the ball, it looks like the pogoman didn[apostrophe]t entirely make it into the ball when it had snapped closed",
+" and it is imprisoned in the flying ball before it can even react",
+" trying to put just the right amount of English on the ball to have it drop the xxx where it stands. You [one of]overestimate[or]underestimate[or]overcompensate[or]undercompensate[in random order] and the pogoman is knocked to the ground and dragged for several yards when the ball opens. Eventually, the whole pogoman is pulled in and the ball snaps shut",
+" aiming for the [one of]head[or]neck[or]legs[in random order], but catching it [one of]in the small of the back[or]on the shoulder[or]on the rump[in random order]. No matter, that works too -- the ball snaps open and pulls in the xxx",
+" and knock it on its [one of]back[or]stomach[or]side[in random order]. It flails helpless for an instant and is then sucked into the ball",
+" and clip it in the [one of]leg[or]shin[or]ankle[or]knee[in random order] as it runs. The xxx stumbles but is dragged backward by the attractive force of the ball",
+". The pogoman lifts its paws to protect its [one of]face[or]nose[or]eyes[or]teeth[or]neck[or]throat[in random order] and the ball strikes it in the chest, knocking it down. There is a flash of light and the xxx is aspirated neatly into the ball and locked away",
+". The ball skips up off the ground and catches the xxx [one of]in the neck[or]in the throat[or]on the chin[or]on the cheek[or]just below the eye[or]in the middle of its forehead[or]just behind the ears[in random order], which it clutches. As the pogoman is drawn into the ball you can hear its labored breathing",
+", which darts to the side, but the ball flies erratically, and ironically, it ends up stumbling right into the ball[apostrophe] path",
+", which ducks, but not quickly enough",
+". It runs, but the ball over takes it and draws it in",
+" and peg it in the [one of]thigh[or]hip[or]buttocks[or]nape of the neck[or]groin[in random order]. A moment later, the ball absorbs the xxx",
+". The xxx says a brief prayer to a pogodeity, but to no avail; the ball splits open and pulls the pogoman in as the words die on its lips",
+" and watch it home in on its target. The xxx tries to run, but is not fast enough to evade the pogoball",
+". In mid-flight, the ball opens and smaller ball jets forward, also opening on its way to the xxx. The smaller ball sucks in the xxx, and then is itself captured by the larger ball",
+". About halfway to the pogoman, the ball opens and closes repeatedly, like a red and white spherical Pacman. This evokes some sort of deep-seated race memory of videogame ur-predators and the xxx falls to the ground, shaking in terror before being drawn into the ball",
+". The ball hits so hard that the pogoman pixelates at the point of impact. A moment later, the xxx is vacuumed up",
+". The ball is flying so fast as it passes the pogoman that the creature is drawn out into a long string of glowing plasma before the it is spooled into the closing pogoball",
+" and bag it neatly",
+" and add another xxx to today[apostrophe]s take",
+" and nail it with [one of]deadly accuracy[or]an eagle eye[or]great acumen[or]pinache[or]exquisite style[or]ease[in random order]",
+" careful to keep it centered on the target, lest the xxx try to duck or evade to the side. The ball flies true and pogoman is drawn in",
+" with a flick of the wrist, capturing the pogoman in a rotating attraction field that wrings xxx out like a wet rag before sucking into the ball",
+" eager to add one more prize to your collection. Your aim is good and the xxx is pulled into the ball",
+" and hear a loud crack. At first you suspect it is the plastic ball, but one look at the pogoman tells you otherwise. Holding its [one of]aching head[or]disarticulated shoulder[or]unnaturally bent leg[or]bowed arm[in random order], the pogoman is pulled into the red and white pogoball",
+" and nearly put out its eye. The startled pogoman is easy pickings for the ball, which pops open and consumes the now sight-impaired xxx",
+" and knock it unconscious. Regardless, the ball sucks in the limp body of the xxx",
+". The pogoman scrapes at the ground to resist, but the attractive force of the ball is too great",
+". As luck would have it, the ball goes right past the xxx, ricochets, and catches it neatly from behind",
+", which panics and starts to flee. It doesn[apostrophe]t get very far, though, as the ball splits open and reels in its anxious prey",
+ ". The ball flies just above the ground and strikes the pogoman in the [one of]shins[or]calves[or]ribs[in random order]. The pogoman collapses and the ball traps the xxx in its irresistible grasp",
+". The ball skims the ground, bounces upward and smashes the xxx in the [one of]face[or]jaw[or]mouth[or]lips[or]temples[in random order]. The ball splits open, energy spills out, and the pogoman is pulled in by its nose",
+" and cut another notch in your pogoman belt as the ball yanks it in",
+" and pick it off like the professional pogo[one of]master[or]hunter[or]-athlete[or]-acquisition specialist[in random order] that you are",
+", which has no chance at all. It is pulled kicking and [one of]hissing[or]bawling[or]spitting[or]barking[or]scratching[in random order] into the ball, which slams shut a moment later",
+". The ball lands and appears inert. Just when the pogoman thinks it is clear -- bam! The ball cracks open and yanks it in",
+". The ball flies past the pogoman, but opens near enough to yank the xxx into the ball before it hits the ground",
+" and almost (but [one of]not quite[or]only momentarily[or]fleetingly[or]at best distantly[in random order]) feel some sense of pity as it is ripped from its surroundings and stuffed into the ball.",
+". The ball lands nearby and the xxx paws at it, only to be pulled in when the ball splits open",
+", watches with innocent curiosity as the ball opens and entraps it",
+", which initially thinks you are playing, but realizes too late that you are, in fact, hunting it",
+" and knock its legs out from under it. The xxx falls backwards into the ball, which gobbles it up",
+". The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound",
+". The ball opens and the xxx is somehow compacted into a much smaller volume that should be possible",
+" and hit it dead on. The xxx leaves claw marks in the ground as it struggles to resist the ball[apostrophe]s attraction, but is ultimately pulled in",
+" and knock it off its feet. Before it can recover, it is drawn into the pogoball, which immediately clamps shut around it",
+". The pogoman attempts to catch it, but the ball goes off like grenade, nearly tearing the limbs off the xxx as it is yanked into the ball",
+", which dives under it, only to be sucked upwards into the ball",
+", who jumps up just in time to be hit in the [one of]gut[or]belly[or]stomach[in random order] by the ball. The xxx is thrown backwards and disappears into the ball before it hits the ground",
+" and the ball brushes just to one side, but close enough to draw the xxx in",
+". The pogoman attempts to leap over it, but instead finds itself diving face first into the ball",
+". The pogoman is caught off guard and devoured by the ball",
+". The pogoman shrieks with surprise as it flies into the ball",
+", which watches with resignation as the ball swallows it whole"
+}
+
+The list of text called BALLLIST is always {
+"bounces around a bit, but finally glows red",
+"rolls around until the pogoman tires and ceases struggling",
+"rolls languidly for a few moments and then ceases movement",
+"successfully contains the xxx",
+"hops around for a while",
+"drops straight down and comes to a rest",
+"spins like a top and then is still",
+"rattles with pent up frustration until whatever little air is left in the ball is consumed",
+"zigzags along the ground and rolls to a stop",
+"deforms as the pogoman inside struggles to regain its freedom, but eventually the creature fatigues",
+"threatens to reopen, but holds together",
+"skitters along the ground for several yards and the holds still",
+"lands with clunk, but does not appear to be damaged",
+"pulsates with energy [one of]for a moment[or]twice[or]three times[or]several times[in random order] and then grows dark",
+"has proven itself up to the task",
+"performs remarkably well, no doubt due to your [one of]skill[or]finesse[or]training[or]natural proficiency[or]robust athleticism[in random order]",
+"remains shut",
+"rolls away, but you are able to find it",
+"rolls right to you. How convenient",
+"hits the ground at an awkward angle, bounces away, and it take you some time to find it again",
+"creaks and groans with the strain of holding in the xxx until it loses hope and submits to its fate",
+"lands where the xxx stood just a moment ago"
+}
+
 		
 section 9 - PogoInventory
 	
