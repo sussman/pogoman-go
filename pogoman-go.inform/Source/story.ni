@@ -127,7 +127,7 @@ Chapter Declare Constants
 
 [Game Setup]
 INITIAL_POGOLEVEL is always 3.
-INITIAL_XP is always 320.
+INITIAL_XP is always 460.
 MIN_TOWN_POGOSTOPS is always 6.
 MAX_TOWN_POGOSTOPS is always 9.
 MIN_TOWN_GYMS is always 2.
@@ -191,19 +191,16 @@ POGOMEN_INVENTORY_LIMIT is always 100.
 POGOITEM_INVENTORY_LIMIT is always 100.
 
 [Advancement Requirements]
-GYM_ENTRY_LEVEL_REQUIREMENT is always 5.
-TOWER_XP_REQUIREMENT is always 1000.
-TOWER_TROPHY_REQUIREMENT is always 1.
-TOWER_LEVEL_REQUIREMENT is always 8.
+GYM_ENTRY_LEVEL_REQUIREMENT is always 4.
+TOWER_XP_REQUIREMENT is always 1500.
+TOWER_TROPHY_REQUIREMENT is always 3.
+TOWER_LEVEL_REQUIREMENT is always 5.
 TOWER_MEDAL_REQUIREMENT is always 10.
 
 [Invariant Lists]
 The list of colors called CORE_TEAM_COLORS is always {Teal, Chartreuse, Alizarin Crimson}.
 The list of colors called EXTENDED_TEAM_COLORS is always {Viridian, Papayawhip}.
 The list of numbers called PEDOMETER_AWARD_DISTANCES is always {10, 30, 100, 300, 1000, 3000, 10000, 30000}.
-
-[additional settings TODO: related to random chances of various actions, like pogomen showing up in  a given room]
-
 
 Chapter Declare Global Variables
 
@@ -1718,12 +1715,26 @@ Instead of waving hands, say "You wave your cell phone around in the air, dissip
 	
 Section 8 - Levelling
 
-CheckLevel is an action out of world.
+[ For reference:
+	
+50	1
+200	2
+450	3
+800	4
+1250	5
+1800	6
+2450	7
+3200	8
+4050	9
+5000	10
+
+]
+
 To CheckLevel:
 	let F be pogoLevel of the player;
-	let goalXP be 100 * (pogoLevel of the player + 1);
+	let goalXP be 50 * (F + 1) * (F + 1);
 	if XP of the player > goalXP:
-		now pogoLevel of the player is (XP of the player / 100);  [TODO make this an exponential table]
+		now pogoLevel of the player is square root of (xp of the player / 50);
 		say "You glow with power as your PogoLevel rises to [pogoLevel of the player].[paragraph break]";
 		if F is less than GYM_ENTRY_LEVEL_REQUIREMENT and pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT:
 			pickGym.
