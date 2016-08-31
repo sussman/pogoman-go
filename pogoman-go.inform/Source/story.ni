@@ -515,7 +515,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the third time:
 	sort the Table of Inventory in wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen. How embarassing.";
+		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen. How embarassing.[paragraph break]";
 		bestow "Friendless";
 		stop the action;
 	otherwise:
@@ -834,7 +834,7 @@ Instead of throwing a pogoball at something (called the target):
 			let TXT be entry N of BALLLIST;
 			replace the word "xxx" in TXT with "[type of target]";
 			say "[TXT].[paragraph break]";
-			say "You[apostrophe]ve captured ";[todo expand]
+			say "You[apostrophe]ve captured ";
 			if Around The Town is happening or Exploring The Tower is Happening:
 				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]. ";
 				awardXP 30; 
@@ -855,7 +855,6 @@ Instead of throwing a pogoball at something (called the target):
 			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].";
 	otherwise:
 		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.";
-	say line break;
 	decrement pogoball count.
 	
 
@@ -1775,32 +1774,33 @@ Report rebooting:
 	say "You reboot the phone."	
 
 After rebooting:	
-	say "[one of][postHang1][or][postHang2][or][postHang3][or][PostHang4][or][postHang5][or][postHang6][stopping]".
-	
-To say postHang1:
-	say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.[paragraph break]";
-	bestow "Successfully rebooted your phone”.
-	
-To say postHang2:
-	say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn’t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
-	freeze the phone.
-	
-To say postHang3:
-	say "The phone rolls its figurative eyes and reboots.[paragraph break]".
-	
-To say postHang4:
-	say "The phone starts to reboot, but strangely stops mid-way through and clears the screen. The following text appears:[paragraph break]WOULD YOU RATHER PLAY A NICE GAME OF GLOBAL THERMONUCLEAR WAR?_";
-	if the player consents:
-		say "[line break]Your phone replies, [quotation mark]Great! Maybe later. Let[apostrophe]s see how the rest of the day goes[run paragraph on]";
-	otherwise:
-		say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman GO! it is, then[run paragraph on]";
-	say ",[quotation mark] and finishes rebooting."	
-	
-To say postHang5:
-	say "After the usual reboot sequence, the phone begins installing an app update and displays a notification from Nyantech:[paragraph break][quotation mark]Although there is nothing at all wrong with our software -- [italic type]and never was[roman type] -- we are nonetheless providing a software update that should mostly fix it.[quotation mark][paragraph break]The update finishes, and you are back in the game."
-		
-To say postHang6:
-	say "The phone reboots."
+	increase the times rebooted of the phone by one;
+	if the times rebooted of the phone is:
+		-- 1: 
+			say "The phone reboots. When it again has its wits, the phone draws your attention to the fact that if this ever happens again, which the phone points out is a vanishingly small possibility, but nevertheless, if the phone needs to be rebooted at some point in the future, you can avail yourself of the short-cut [quotation mark]r[quotation mark] to reboot.[paragraph break]The phone goes on for some time about how odd it is that a short-cut was developed for something that happens so infrequently and how it thinks developers should have better things to do than create such useless short-cuts.[paragraph break]";
+			bestow "Successfully rebooted your phone”;
+			try looking;
+		-- 2:
+			say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn’t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
+			freeze the phone;
+		-- 3:
+			say "The phone rolls its figurative eyes and reboots.[paragraph break]";
+			try looking;
+		-- 4:
+			say "The phone starts to reboot, but strangely stops mid-way through and clears the screen. The following text appears:[paragraph break]WOULD YOU RATHER PLAY A NICE GAME OF GLOBAL THERMONUCLEAR WAR?_";
+			if the player consents:
+				say "[line break]Your phone replies, [quotation mark]Great! Maybe later. Let[apostrophe]s see how the rest of the day goes[run paragraph on]";
+			otherwise:
+				say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman GO! it is, then[run paragraph on]";
+				say ",[quotation mark] and finishes rebooting.";
+				try looking;
+		-- 5:
+			say "After the usual reboot sequence, the phone begins installing an app update and displays a notification from Nyantech:[paragraph break][quotation mark]Although there is nothing at all wrong with our software -- [italic type]and never was[roman type] -- we are nonetheless providing a software update that should mostly fix it.[quotation mark][paragraph break]The update finishes, and you are back in the game.";
+			try looking;
+		-- otherwise:
+			say "The phone reboots.";
+			try looking.
+			
 
 Instead of doing something when the phone is hung for the first time:
 	if the current action is phoneBooting or rebooting:
@@ -2949,6 +2949,8 @@ Section 13 - Spit n' Solder
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark].". Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
 
+The display is scenery in Spit n' Solder. The description of the window is "In addition to testing vacuum tubes, the store advertises that it also services BlackBerry phones for the real Luddites." Understand "windows" or "window" as the display.
+
 Section 14 - Rotary Clock Tower
 
 The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours." Rotary Clock Tower is an improper-named artifact. The printed name of Rotary Clock Tower is "rotary clock tower".
@@ -3013,11 +3015,14 @@ Section 22 - Gardens of Zarf
 
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
-The sign is scenery in The Gardens of Zarf. The description of the sign is "[zarfSign]". 
+The sign is scenery in The Gardens of Zarf. The description of the sign is "[zarfSign]".
+
+After examining the sign for the first time:
+	bestow "Eye For Detail".
 
 To say zarfSign:
-	say "The fine print on the sign reads: [quotation mark]Warning: Rated Relatively Cruel[quotation mark][paragraph break]";
-	bestow "Eye for Detail".
+	say "The fine print on the sign reads: [quotation mark]Warning: Rated Relatively Cruel.[quotation mark]";
+
 
 Instead of entering The Gardens of Zarf :
 	say "Weeds grab at your feet and a sunflower nearly slices your head off. While struggling free, the azalias grab your wrist and shake the phone free. It falls into a horde of marigolds that rip it to pieces.";
@@ -3250,71 +3255,59 @@ Section 52 - Perilous Passageway
 
 The description of Perilous Passageway is "A disgusting passageway."
 
-Perilous Passageway is an improper-named place. Understand "dirty" or "alley" or "perilous" or "passage" or "passageway" as Perilous Passageway.  The printed name of proxy-PerilousPassageway is "dirty alley". The title of Perilous Passageway is "Perilous Passageway".
+Perilous Passageway is an improper-named place. Understand "dirty" or "alley" or "perilous" or "passage" or "passageway" as Perilous Passageway.  The printed name of proxy-PerilousPassageway is "dirty alley". The title of Perilous Passageway is "Perilous Passageway". The perilous passageway has a number called passaged. The passaged of the perilous passageway is 0.
 
 Instead of going a direction to the perilous passageway:
-	say "[one of][passage1][or][passage2][or][passage3][or][passage4][or][passage5][or][passage6][or][passage7][or][passage8][or][passage9][or][passage10][or][passage11][or][passage12][stopping]";			
-	
-To say passage1:
-	say the headline of the location of the player;
-	say "You are torn. Clearly, there is an artifact of immense power down the dark winding passageway you are standing in front of  -- and having it would certainly help you win gym battles and who knows what else. On the other hand, it’s narrow, poorly lit and in all the years you have lived in this town, you’ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
-	bestow "At Least Briefly Listened To Your Inner Voice".
-	
-To say passage2:
-	say the headline of the Perilous Passageway;
-	say "As you round a pile of boxes behind a garbage bin searching eagerly for the artifact, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
-	phoneDeath.
-	
-To say passage3:
-	say the headline of the location of the player;
-	say "You recall that last time, walking into this foreboding passageway didn’t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, [quotation mark]off the scale[quotation mark] is one of the items on the scale. In any event, it looks pretty powerful.[paragraph break]Decisions, decisions."
-	
-To say passage4:
-	say the headline of the Perilous Passageway;
-	say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
+	increase the passaged of the perilous passageway by one;
+	if the passaged of the perilous passageway is:
+		-- 1:			
+			say the headline of the location of the player;
+			say "You are torn. Clearly, there is an artifact of immense power down the dark winding passageway you are standing in front of  -- and having it would certainly help you win gym battles and who knows what else. On the other hand, it’s narrow, poorly lit and in all the years you have lived in this town, you’ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
+			bestow "At Least Briefly Listened To Your Inner Voice";
+		-- 2:
+			say the headline of the Perilous Passageway;
+			say "As you round a pile of boxes behind a garbage bin searching eagerly for the artifact, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
+			phoneDeath;
+		-- 3:
+			say the headline of the location of the player;
+			say "You recall that last time, walking into this foreboding passageway didn’t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, [quotation mark]off the scale[quotation mark] is one of the items on the scale. In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
+		-- 4:
+			say the headline of the Perilous Passageway;
+			say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
 [quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That’s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I’m just saying it’s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
-	phoneDeath.
-	
-To say passage5:
-	say the headline of the location of the player;
-	say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it. On the other hand, you want that artifact... [paragraph break]";
-	bestow "Slow Learner".
-	
-To say passage6:
-	say the headline of the Perilous Passageway;
-	say "A familiar scene unfolds. Two thugs jump out from behind boxes and squint at you in the dim light.[paragraph break][quotation mark]Hey Eddy?[quotation mark][paragraph break][quotation mark]Yeah, Frankie?[quotation mark][paragraph break][quotation mark]Is that the bozo who keeps coming back?[quotation mark][paragraph break][quotation mark]The improbable ninja dude?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break][quotation mark]Yeah, I think so. Or, at least someone so similar as to be indistinguishable.[quotation mark][paragraph break][quotation mark]So, for all practical purposes, it is?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break]Eddy lifts a garbage can lid to protect himself from your ninjitsu, while Frankie winds up with two ten-pound cured salamis and claps them together around your head. Since you were desperately sweeping the alley with your eyes trying to find the artifact, the impact of the luncheon meat takes you by surprise. The phone flies from your grip, ricochets off the dumpster and the screen shatters, showering Frankie with razor-sharp shards of trademarked Corning Gorilla Glass.[paragraph break]You go down like a sack of bricks.";
-	phoneDeath.
-	
-To say passage7:
-	say the headline of the location of the player;
-	say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph break]Well, maybe. You daydream winning the adoration of hoardes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passsageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
-	bestow "Better Part Of Valor".
-	
-To say passage8:
-	say the headline of the location of the player;
-	say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]But what are these minor inconveniences next to the what you could achieve? If you did recover a rare artifact from the alley, it would no doubt propel you to the top ranks of the pogoman player hierarchy and elicit the jealosy of every other player.[paragraph break]";
-	bestow "Pain Is The Best Teacher".
-	
-To say passage9:
-	say the headline of the Perilous Passageway;
-	say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don’t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We’re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.[paragraph break]As you search in the alley, the artifact detector on your phone goes wild and burns out, overwhelmed by the power of a nearby object.";
-	teleport the player to the perilous passageway.
-	[TODO: A rare pogoman appears]
-	
-To say passage10:
-	say "With lingering trepidation, you enter the perilous passageway.";
-	now the title of the perilous passageway is "until recently perilous passageway";
-	now the description of the perilous passageway is "A passageway that is less disgusting than the last time you were here.";
-	teleport the player to the perilous passageway.
-	
-To say passage11:
-	now the title of the perilous passageway is "Entirely Safe Passageway";
-	say "You walk with confidence into the formerly perilous passageway.";
-	now the description of the perilous passageway is "A well-lit passageway between buildings.";
-	teleport the player to the perilous passageway.
-	
-To say passage12:
-	teleport the player to the perilous passageway.
+			phoneDeath;
+		-- 5:
+			say the headline of the location of the player;
+			say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it. On the other hand, you want that artifact... [paragraph break]";
+			bestow "Slow Learner";
+		-- 6:
+			say the headline of the Perilous Passageway;
+			say "A familiar scene unfolds. Two thugs jump out from behind boxes and squint at you in the dim light.[paragraph break][quotation mark]Hey Eddy?[quotation mark][paragraph break][quotation mark]Yeah, Frankie?[quotation mark][paragraph break][quotation mark]Is that the bozo who keeps coming back?[quotation mark][paragraph break][quotation mark]The improbable ninja dude?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break][quotation mark]Yeah, I think so. Or, at least someone so similar as to be indistinguishable.[quotation mark][paragraph break][quotation mark]So, for all practical purposes, it is?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break]Eddy lifts a garbage can lid to protect himself from your ninjitsu, while Frankie winds up with two ten-pound cured salamis and claps them together around your head. Since you were desperately sweeping the alley with your eyes trying to find the artifact, the impact of the luncheon meat takes you by surprise. The phone flies from your grip, ricochets off the dumpster and the screen shatters, showering Frankie with razor-sharp shards of trademarked Corning Gorilla Glass.[paragraph break]You go down like a sack of bricks.";
+			phoneDeath;
+		-- 7:
+			say the headline of the location of the player;
+			say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph break]Well, maybe. You daydream winning the adoration of hoardes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passsageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
+			bestow "Better Part Of Valor";
+		-- 8:
+			say the headline of the location of the player;
+			say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]But what are these minor inconveniences next to the what you could achieve? If you did recover a rare artifact from the alley, it would no doubt propel you to the top ranks of the pogoman player hierarchy and elicit the jealosy of every other player.[paragraph break]";
+			bestow "Pain Is The Best Teacher";
+		-- 9:
+			say the headline of the Perilous Passageway;
+			say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don’t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We’re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.[paragraph break]As you search in the alley, the artifact detector on your phone goes wild and burns out, overwhelmed by the power of a nearby object.";
+			teleport the player to the perilous passageway;
+		-- 10:
+			say "With lingering trepidation, you enter the perilous passageway.";
+			now the title of the perilous passageway is "until recently perilous passageway";
+			now the description of the perilous passageway is "A passageway that is less disgusting than the last time you were here.";
+			teleport the player to the perilous passageway;
+		-- 11:
+			now the title of the perilous passageway is "Entirely Safe Passageway";
+			say "You walk with confidence into the formerly perilous passageway.";
+			now the description of the perilous passageway is "A well-lit passageway between buildings.";
+			teleport the player to the perilous passageway;
+		-- otherwise:
+			teleport the player to the perilous passageway.
 	
 The garbage bin is a closed openable fixed in place container. The garbage bin is in perilous passageway. The description of the garbage bin is "An filthy metal trash bin." Understand "bin" or "skip" or "waste" or "dust" as the garbage bin.
 
@@ -3326,7 +3319,7 @@ After opening the garbage bin for the first time:
 	let D be a direction;
 	let N be a random number from 1 to 4;
 	let D be entry N of {north, south, east, west};
-	say "The refuse in this bin has been waiting millenia for a hero like you to come by and set it free. The olfactory shockwave ripples out, throwing you from the passageway.[paragraph break]";
+	say "The refuse in this bin has been waiting millenia for a hero like you to come by and set it free. The olfactory shockwave ripples out, throwing you [D]ward from the passageway.[paragraph break]";
 	bestow "Unleashed Untold Power";
 	move the disgusting refuse to the garbage bin;
 	teleport the player to the room D from the perilous passageway.
@@ -6999,7 +6992,7 @@ Before wearing clothes:
 
 Chapter Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. 
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0.
 
 To freeze the phone:
 	now the phone is hung;
