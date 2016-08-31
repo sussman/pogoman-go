@@ -1964,7 +1964,81 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 								
 To say first time is free:
 	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
-	bestow "Enabler".				
+	bestow "Enabler".			
+	
+	
+	
+The phantom is a privately-named scenery. The description of the phantom is "A point source of energy." The phantom is in the void.
+
+To say bar:
+	repeat with N running from 1 to 21:
+		say "-";
+		
+To say the map symbol of (QTH - a room):
+	if the player is in the QTH:
+		say "X";
+	else if there is a guardian corresponding to the pogolandQTH of the QTH in the Table of Defenders:
+		say "D";[defenders need to be above the rest of list to avoid being masked]
+	else if the QTH is listed in POGOSTOPLIST:
+		say "P";
+	else if the QTH is listed in GYMLIST:
+		say "G";
+	else if the QTH is Nyantech Entrance:
+		say "N";
+	else:
+		say "-".
+		
+
+Section 16 - Scanning
+	
+Scanning is an action applying to nothing. Understand "scan" as scanning.
+
+Check scanning:
+	if the player is in the Village or the player is in Pogoland:
+		continue the action;
+	otherwise:
+		say "The scanner does not appear to function in this location. [bracket][fixed letter spacing]Network Error: [a random number between 100 and 500][roman type][close bracket][paragraph break]";
+		the rule fails.
+
+Report scanning:
+	say fixed letter spacing;
+	say line break;
+	if the player is in the Village:
+		let HOME be the Dung Beetle Mural;
+		move the phantom to HOME;
+		repeat with Y running from 1 to 7:
+			say "|";
+			say the map symbol of the location of the phantom;
+			say "|";
+			repeat with X running from 1 to 6:
+				move the phantom to the room east from the location of the phantom;
+				say the map symbol of the location of the phantom;
+				say "|";
+			say "[line break]";
+			move the phantom to HOME;
+			repeat with N running from 1 to Y:
+				move the phantom to the room south from the location of the phantom;		
+		say "[one of][line break][fixed letter spacing]X: Your location[line break]G: A pogoman gym[line break]P: A pogostop[line break]N: Nyantech Headquarters[roman type][line break][or][stopping]";
+	otherwise:[i.e., in pogoland]
+		let HOME be Palace;
+		move the phantom to HOME;
+		repeat with Y running from 1 to 5:
+			say "|";
+			say the map symbol of the location of the phantom;
+			say "|";
+			repeat with X running from 1 to 4:
+				move the phantom to the room east from the location of the phantom;
+				say the map symbol of the location of the phantom;
+				say "|";
+			say "[line break]";
+			move the phantom to HOME;
+			repeat with N running from 1 to Y:
+				move the phantom to the room south from the location of the phantom;
+		say "[one of][line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break][or][stopping]";
+	say roman type;
+	move the phantom to the void.
+
+
 
 Chapter Medals & Trophies
 
@@ -2187,77 +2261,7 @@ Carry out hanging: [if hangin' ain't too good fer folks like them]
 Report hanging:
 	say "The phone is now well hung."
 	
-Section 8 - Scan
-
-The phantom is a privately-named scenery. The description of the phantom is "A point source of energy." The phantom is in the void.
-
-To say bar:
-	repeat with N running from 1 to 21:
-		say "-";
-		
-To say the map symbol of (QTH - a room):
-	if the player is in the QTH:
-		say "X";
-	else if there is a guardian corresponding to the pogolandQTH of the QTH in the Table of Defenders:
-		say "D";[defenders need to be above the rest of list to avoid being masked]
-	else if the QTH is listed in POGOSTOPLIST:
-		say "P";
-	else if the QTH is listed in GYMLIST:
-		say "G";
-	else if the QTH is Nyantech Entrance:
-		say "N";
-	else:
-		say "-".
-	
-Scanning is an action applying to nothing. Understand "scan" as scanning.
-
-Check scanning:
-	if the player is in the Village or the player is in Pogoland:
-		continue the action;
-	otherwise:
-		say "The scanner does not appear to function in this location. [bracket][fixed letter spacing]Network Error: [a random number between 100 and 500][roman type][close bracket][paragraph break]";
-		the rule fails.
-
-Report scanning:
-	say fixed letter spacing;
-	say line break;
-	if the player is in the Village:
-		let HOME be the Dung Beetle Mural;
-		move the phantom to HOME;
-		repeat with Y running from 1 to 7:
-			say "|";
-			say the map symbol of the location of the phantom;
-			say "|";
-			repeat with X running from 1 to 6:
-				move the phantom to the room east from the location of the phantom;
-				say the map symbol of the location of the phantom;
-				say "|";
-			say "[line break]";
-			move the phantom to HOME;
-			repeat with N running from 1 to Y:
-				move the phantom to the room south from the location of the phantom;		
-		say "[one of][line break][fixed letter spacing]X: Your location[line break]G: A pogoman gym[line break]P: A pogostop[line break]N: Nyantech Headquarters[roman type][line break][or][stopping]";
-	otherwise:[i.e., in pogoland]
-		let HOME be Palace;
-		move the phantom to HOME;
-		repeat with Y running from 1 to 5:
-			say "|";
-			say the map symbol of the location of the phantom;
-			say "|";
-			repeat with X running from 1 to 4:
-				move the phantom to the room east from the location of the phantom;
-				say the map symbol of the location of the phantom;
-				say "|";
-			say "[line break]";
-			move the phantom to HOME;
-			repeat with N running from 1 to Y:
-				move the phantom to the room south from the location of the phantom;
-		say "[one of][line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break][or][stopping]";
-	say roman type;
-	move the phantom to the void.
-	
-	
-Section 9 - Spawn Pogomen
+Section 8 - Spawn Pogomen
 
 Spawning is an action applying to nothing. Understand "spawn" as spawning.
 	
@@ -2277,7 +2281,7 @@ Carry out spawning:
 Report spawning:
 	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][type of attackerPogoman] appears!"
 	
-Section 10 - Sudo
+Section 9 - Sudo
 
 Sudoing is an action applying to nothing. Understand "sudo" as sudoing.
 
