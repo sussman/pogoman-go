@@ -496,7 +496,9 @@ Instead of examining a gym for the first time:
 	bestow "Noticed A Gym".
 	
 Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT for the first time:
-	say "You can[apostrophe]t fight in a gym until you reach level [GYM_ENTRY_LEVEL_REQUIREMENT in words]. It has something to do with your creditworthiness.[paragraph break]";
+	let L be the goalXP after level (GYM_ENTRY_LEVEL_REQUIREMENT - 1);
+	let D be L minus the xp of the player;
+	say "You can[apostrophe]t fight in a gym until you reach level [GYM_ENTRY_LEVEL_REQUIREMENT in words]. It has something to do with your creditworthines[one of]. It looks like you are about [D] XP short of level [GYM_ENTRY_LEVEL_REQUIREMENT][or][stopping].[paragraph break]";
 	bestow "Dealt With A Minor Rebuke".
 	
 Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT:
@@ -727,11 +729,6 @@ To say attackStyle:
 			
 To say nearMiss:
 	say ", but you[one of]r attack goes wide[or] miss[or]r opponent is too quick for you[in random order]"
-
-
-[BEN: Problem:  if the player carries 3 different virtual pogomen, and then says 'examine emaks' to look at one of them, how do we know which description to return?  What if the player tries to do anything with Emaks?  (drop, eat, 
-
-JACK: The number of things we do with pogomen in inventory is very limited: drop/throw/choose, transfer, give pogometh/heal. To cover those possibilities,  define new commands that work on a *topic*  that can be read from the inventory list. That eliminates the issue of having to have a proxy object in scope. This even makes sense in terms of the game paradigm - the pogomen in inventory are in their respective pogoballs, and the user can't interact with them. They aren't available until they are released/transferred.]
 
 To say pogoDex data for (creature - a pogotype):
 	let CAT be text;
@@ -1735,13 +1732,15 @@ Section 8 - Levelling
 
 ]
 
+To decide which number is the goalXP after level (N - a number):
+	decide on 50 * (N + 1) * (N + 1);
+
 To CheckLevel:
-	let F be pogoLevel of the player;
-	let goalXP be 50 * (F + 1) * (F + 1);
-	if XP of the player > goalXP:
+	let L be the pogoLevel of the player;
+	if XP of the player > the goalXP after level L:
 		now pogoLevel of the player is square root of (xp of the player / 50);
 		say "You glow with power as your PogoLevel rises to [pogoLevel of the player].[paragraph break]";
-		if F is less than GYM_ENTRY_LEVEL_REQUIREMENT and pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT:
+		if L is less than GYM_ENTRY_LEVEL_REQUIREMENT and pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT:
 			pickGym.
 		
 		
@@ -3004,7 +3003,7 @@ The customers are scenery in Yummi Tummi Softserve. The description of the custo
 Instead of doing something other than examining with the customers:
 	say "They are too intent on their creamy desserts to take any notice of you."
 
-The ice cream is scenery in Yummi Tummi Softserve. The description of the ice cream is "Every sort of ice cream is available here. Certainly, such favorites as banana-splits, fudge sundaes, and black-and-white sodas, but also YTS signature dishes such as the [one of]guacamole frappe[or]teriyaki twirl[or]habañero double firehouse squirt[or]the triple-scoop live fire-ant combo[or]toothpaste gelato with oreo bowl[or]Rocky Mountain Spotted cone[in random order] and their [one of]scorpion pops[or]razor ices[or]petroleum floats[or]whipped cream and industrial suprise platters[or]old fashioined typhoid cakes[in random order]." Understand "float" or "floats" or "soda" or "sodas" or "creams" or "cone" or "cones" or "sundae" or "sundaes" or "bowl" or "bowls" as the ice cream.
+The ice cream is scenery in Yummi Tummi Softserve. The description of the ice cream is "Every sort of ice cream is available here. Certainly, such favorites as banana-splits, fudge sundaes, and black-and-white sodas, but also YTS signature dishes such as the [one of]guacamole frappe[or]teriyaki twirl[or]habañero double firehouse squirt[or]the triple-scoop live fire-ant combo[or]toothpaste gelato with oreo bowl[or]Rocky Mountain Spotted cone[in random order] and their [one of]scorpion pops[or]razor ices[or]petroleum floats[or]whipped cream and industrial suprise platters[or]old fashioined typhoid squid cakes[in random order]." Understand "float" or "floats" or "soda" or "sodas" or "creams" or "cone" or "cones" or "sundae" or "sundaes" or "bowl" or "bowls" as the ice cream.
 
 Section 21 - Service Dog Memorial
 
@@ -3073,9 +3072,11 @@ Flagging is an action applying to one thing. Understand "raise [something]" or "
 
 Check Flagging:
 	if the noun is the flagProxy:
-		say "There are no ropes to raise or lower the flag. The flag pole was installed by an expensive contractor more than two decades ago, but the plans provided did not call for any mechanism to raise or lower the flag. The best the town has managed is to put lights all around it. When that flag wears out, they'll just have to replace the entire thing.";
+		say "There are no ropes to raise or lower the flag. The flag pole was installed by an expensive contractor more than two decades ago, but the plans provided by the village landmarks office did not call for any mechanism to raise or lower the flag. The best the town has managed is to put lights all around it. When that flag wears out, they'll just have to replace the entire thing.";
 	otherwise:
 		say "You don't see how that would help the situation."
+		
+The floodlights are scenery in Flag Pole. The description of the floodlights is "Large floodlights ring the pole and are tilted up to illuminate the flag." Understand "light" or "lights" or "floodlight" as the floodlights.
 
 Section 28 - Krusty Kronuts
 
