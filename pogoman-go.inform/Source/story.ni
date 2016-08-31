@@ -2985,6 +2985,8 @@ Section 17 - Welbourn Travel
 
 The description of Welbourn Travel is "Maps of various adventures fill the windows of this travel agency." Welbourn Travel is an improper-named structure. The printed name of Welbourn Travel is "Welbourn Travel Agency". Understand "agency" as Welbourn Travel. Understand "building" or "store" as Welbourn Travel when the location is Welbourn Travel. The printed name of Welbourn Travel is "Welbourn Travel Agency". The title of Welbourn Travel is "Welbourn Travel". 
 
+The maps are scenery in Welbourn Travel. The description of the maps is "Colorful maps that detail twisty and not-so-twisty passages through the town and abroad." Understand "map" or "window" or "windows" as the maps.
+
 Section 18 - Hook & Ladder
 
 The description of Hook & Ladder is "The home of Fire Bridage Number 12." Hook & Ladder is an improper-named structure. Understand "hook and ladder" or "firehouse" as Hook & Ladder. Understand "building" as Hook & Ladder when the location is Hook & Ladder. The title of Hook & Ladder is "Hook & Ladder". The printed name of Hook & Ladder is "firehouse".
