@@ -269,64 +269,6 @@ To decrement (item - a pogothing) count:
 			say  N in words;
 			say " [printed plural name of the item] left."
 
-
-Understand "feed [a pogothing]" as giving it to.
-
-Healing is an action applying to one thing. Understand "heal [a pogoentity]" as healing.
-
-Carry out healing:
-	try giving pogometh to the noun instead.		
-	
-Instead of giving a pogothing (called the pogoitem) to someone (called the pogorecipient):
-	if the pogorecipient is not a pogoentity:
-		say "That earns you a strange look.";
-	otherwise:
-		if the pogoitem is:
-			-- pogochum:
-				say "[The pogorecipient] wolfs down the pogochum ";
-				if the pogorecipient is the attackerPogoman:
-					if Around the Town is happening:
-						say "hungrily and appears more friendly.";
-					else:
-						say "fiercely.";
-				else:
-					say "docilely.";
-				say "[one of][line break]You gain [CHUMMING_XP_VALUE] XP![or][stopping]";
-				awardXP CHUMMING_XP_VALUE;
-				say line break;
-				decrement pogochum count;
-		-- pogoIncense:
-				if the pogorecipient is the attackerPogoman:
-					if Around the Town is happening:
-						say "[The pogorecipient] sniffs at it with desire";
-					else:
-						say "[The pogorecipient] snorts at it viciously";
-				otherwise:
-					say "[The pogorecipient] looks at it longingly";
-				say " but does not seem inclined to take it.";
-		-- pogoball:
-				if the pogorecipient is the attackerPogoman:
-					say "[The pogorecipient] looks on the ball with some trepidation and keeps its distance.";
-				else:
-					say "Your loyal [team color of the player] [pogorecipient] is eager to return to the cozy ball[one of]. You can recapture your own pogomen by throwing the ball at them[or][stopping].";
-		-- pogoEgg:
-				say "[The pogorecipient] does not seem interested in the egg.";
-		-- pogometh:
-				say "[The pogorecipient] snorts the pogometh greedily and afterwards glows warmly";
-				if the pogorecipient is injured:
-					say ". It seems restored to full health.[one of][first time is free][or][stopping]";
-					now the pogorecipient is not injured;
-				else:
-					say ".";
-				say line break;
-				decrement pogometh count.
-				
-[parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
-								
-To say first time is free:
-	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
-	bestow "Enabler".				
-
 Instead of dropping a pogothing (called the item):
 	If the item is:
 		-- pogoball:
@@ -1068,6 +1010,8 @@ Understand "drop [pogotype]" as inventoryDropping.
 Understand "drop teal [pogotype]'" as inventoryDropping when the team color of the player is teal.
 Understand "drop chartreuse [pogotype]" as inventoryDropping when the team color of the player is chartreuse.
 Understand "drop alizarin crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
+Understand "drop alizarin [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
+Understand "drop crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
 Understand "drop viridian [pogotype]" as inventoryDropping when the team color of the player is viridian.
 Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color of the player is papayawhip.
 Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
@@ -1131,6 +1075,8 @@ Understand "transfer [pogotype]" or "transfer [pogotype] to/-- professor" as inv
 Understand "transfer teal [pogotype]" or "transfer teal [pogotype] to/-- professor" as inventorytransferring when the team color of the player is teal.
 Understand "transfer chartreuse [pogotype]" or "transfer chartreuse [pogotype] to/-- professor" as inventorytransferring when the team color of the player is chartreuse.
 Understand "transfer alizarin crimson [pogotype]" or "transfer alizarin crimson [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
+Understand "transfer crimson [pogotype]" or "transfer crimson [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
+Understand "transfer alizarin [pogotype]" or "transfer alizarin [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
 Understand "transfer viridian [pogotype]" or "transfer viridian [pogotype] to/-- professor" as inventorytransferring when the team color of the player is viridian.
 Understand "transfer papayawhip [pogotype]" or "transfer papayawhip [pogotype] to/-- professor" as inventorytransferring when the team color of the player is papayawhip.
 Understand "transfer unbleached titanium [pogotype]" or "transfer unbleached titanium [pogotype] to/-- professor"  as inventorytransferring when the team color of the player is unbleached titanium.
@@ -1176,6 +1122,8 @@ Understand "evolve [pogotype]" as inventoryEvolving.
 Understand "evolve teal [pogotype]" as inventoryEvolving when the team color of the player is teal.
 Understand "evolve chartreuse [pogotype]" as inventoryEvolving when the team color of the player is chartreuse.
 Understand "evolve alizarin crimson [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
+Understand "evolve alizarin [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
+Understand "evolve crimson [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
 Understand "evolve viridian [pogotype]" as inventoryEvolving when the team color of the player is viridian.
 Understand "evolve papayawhip [pogotype]" as inventoryEvolving when the team color of the player is papayawhip.
 Understand "evolve unbleached titanium [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
@@ -1234,6 +1182,8 @@ Understand "x [pogotype]" or "examine [pogotype]" as inventoryExamining.
 Understand "x teal [pogotype]"  or "examine teal [pogotype]" as inventoryExamining when the team color of the player is teal.
 Understand "x chartreuse [pogotype]" or "examine chartreuse [pogotype]"  as inventoryExamining when the team color of the player is chartreuse.
 Understand "x alizarin crimson [pogotype]" or "examine alizarin crimson [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
+Understand "x alizarin [pogotype]" or "examine alizarin [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
+Understand "x crimson [pogotype]" or "examine crimson [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
 Understand "x viridian [pogotype]" or "examine viridian [pogotype]" as inventoryExamining when the team color of the player is viridian.
 Understand "x papayawhip [pogotype]" or "examine papayawhip [pogotype]" as inventoryExamining when the team color of the player is papayawhip.
 Understand "x unbleached titanium [pogotype]" or "examine unbleached titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
@@ -1248,12 +1198,12 @@ Check inventoryExamining:
 	else if the defenderPogoman is in the location of the player and the type of defenderPogoman is the pogotype understood:
 		let OUTSIDER be 2;
 	sort Table of Inventory in reverse wounded order;
-	if there is no pogoName in row 1 of the Table of Inventory:
+	if there is no pogoName in row 1 of the Table of Inventory:[check stock first]
 		if OUTSIDER is:
 			-- 0:
 				say "You have no pogomen in stock to examine!";
 			-- 1:
-				try examining the attackerPogoman;
+				try examining the attackerPogoman;[if nothing in stock, look outside]
 			-- 2:
 				try examining the defenderPogoman;
 		stop the action;
@@ -1267,10 +1217,10 @@ Check inventoryExamining:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			if OUTSIDER is:
+			if OUTSIDER is: [if there is stock, is there a match?]
 				-- 0:
 					say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
-				-- 1:
+				-- 1:[if nothing in stock matches, look outside]
 					try examining the attackerPogoman;
 				-- 2:
 					try examining the defenderPogoman;
@@ -1306,6 +1256,61 @@ Carry out inventoryExamining:
 			say "healthy";
 		say ".[paragraph break]Note, that only certain commands are available for pogoman in your stock, these include [italic type]drop, transfer, and evolve[roman type]."
 			
+Section 5 - InventoryHealing
+
+inventoryHealing is an action applying to one pogotype.
+
+Understand "heal [pogotype]" as inventoryHealing.
+Understand "heal teal [pogotype]" as inventoryHealing when the team color of the player is teal.
+Understand "heal chartreuse [pogotype]"  as inventoryHealing when the team color of the player is chartreuse.
+Understand  "heal alizarin crimson [pogotype]" as inventoryHealing when the team color of the player is alizarin crimson.
+Understand  "heal crimson [pogotype]" as inventoryHealing when the team color of the player is alizarin crimson.
+Understand  "heal alizarin [pogotype]" as inventoryHealing when the team color of the player is alizarin crimson.
+Understand "heal viridian [pogotype]" as inventoryHealing when the team color of the player is viridian.
+Understand  "heal papayawhip [pogotype]" as inventoryHealing when the team color of the player is papayawhip.
+Understand "heal unbleached titanium [pogotype]" as inventoryHealing when the team color of the player is unbleached titanium.
+Understand "heal unbleached [pogotype]" as inventoryHealing when the team color of the player is unbleached titanium.
+Understand "heal titanium [pogotype]" as inventoryHealing when the team color of the player is unbleached titanium.
+Understand "heal loyal [pogotype]" as inventoryHealing.
+
+Check inventoryHealing:
+	sort Table of Inventory in reverse wounded order;
+	if the pogoMethsCarried of the player is less than 1:
+		say "You are out of pogometh[one of]. Can[apostrophe]t heal anything with out some pogometh[or][stopping].";
+		stop the action;
+	else if the defenderPogoman is in the location of the player and the type of defenderPogoman is the pogotype understood:
+		try healing the defenderPogoman;[a present defender has priority over stock]
+		stop the action;
+	else if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to examine!";
+		stop the action;
+	else:
+		let PRESENT be false;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			if the pogoName entry is the pogotype understood:
+				let PRESENT be true;
+				break;
+		if PRESENT is false:
+			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			stop the action.
+			
+Carry out InventoryHealing:
+	repeat with N running from 1 to the number of rows in Table of Inventory:
+		choose row N in the Table of Inventory;
+		if the pogoName entry is the pogotype understood:
+			if the wounded entry is false:
+				say "You hold the pogometh near one of the pogoballs in your stock, and even though it isn[apostrophe]t injured, a paw reaches out, grabs the offered pogometh, and retreats again back into the ball.";
+				break;
+			else:
+				now the wounded entry is false;
+				say "You drop a bit of pogometh into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.";
+				decrement pogometh count;
+				break.	
+	
+
 
 
 Chapter Rules Modifications
@@ -1901,6 +1906,66 @@ Carry out special attacking:
 	
 After special attacking the attackerPogoman for the first time:
 	bestow "Extra Crispy".
+	
+
+Section 15 - Healing
+
+Understand "feed [a pogothing]" as giving it to.
+
+Healing is an action applying to one thing. Understand "heal [a pogoentity]" as healing.
+
+Carry out healing:
+	try giving pogometh to the noun instead.		
+	
+Instead of giving a pogothing (called the pogoitem) to someone (called the pogorecipient):
+	if the pogorecipient is not a pogoentity:
+		say "That earns you a strange look.";
+	otherwise:
+		if the pogoitem is:
+			-- pogochum:
+				say "[The pogorecipient] wolfs down the pogochum ";
+				if the pogorecipient is the attackerPogoman:
+					if Around the Town is happening:
+						say "hungrily and appears more friendly.";
+					else:
+						say "fiercely.";
+				else:
+					say "docilely.";
+				say "[one of][line break]You gain [CHUMMING_XP_VALUE] XP![or][stopping]";
+				awardXP CHUMMING_XP_VALUE;
+				say line break;
+				decrement pogochum count;
+		-- pogoIncense:
+				if the pogorecipient is the attackerPogoman:
+					if Around the Town is happening:
+						say "[The pogorecipient] sniffs at it with desire";
+					else:
+						say "[The pogorecipient] snorts at it viciously";
+				otherwise:
+					say "[The pogorecipient] looks at it longingly";
+				say " but does not seem inclined to take it.";
+		-- pogoball:
+				if the pogorecipient is the attackerPogoman:
+					say "[The pogorecipient] looks on the ball with some trepidation and keeps its distance.";
+				else:
+					say "Your loyal [team color of the player] [pogorecipient] is eager to return to the cozy ball[one of]. You can recapture your own pogomen by throwing the ball at them[or][stopping].";
+		-- pogoEgg:
+				say "[The pogorecipient] does not seem interested in the egg.";
+		-- pogometh:
+				say "[The pogorecipient] snorts the pogometh greedily and afterwards glows warmly";
+				if the pogorecipient is injured:
+					say ". It seems restored to full health.[one of][first time is free][or][stopping]";
+					now the pogorecipient is not injured;
+				else:
+					say ".";
+				say line break;
+				decrement pogometh count.
+				
+[parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
+								
+To say first time is free:
+	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
+	bestow "Enabler".				
 
 Chapter Medals & Trophies
 
