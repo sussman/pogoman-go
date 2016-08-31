@@ -3133,10 +3133,18 @@ The description of MarkerSeven is "Demonstrating the importance of relativity, t
 
 Section 39 - Unfathomable Orb
 
-The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
+The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
 
 Unfathomable Orb is an improper-named artifact. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as Unfathomable Orb when the location is Unfathomable Orb. The title of Unfathomable Orb is "Unfathomable Orb". The printed name of the Unfathomable Orb is "orb".
 
+Instead of taking the orb:
+	say "The orb is something which no one really gets, and which few people can take for more than a few moments."
+	
+Instead of touching the orb:
+	say "Briefly, you have the sensation of leaving your body and floating weightlessly somewhere above the town. In the distance below, you see [heightDescription]. When you recoil, the vision stops."
+	
+	
+	
 Section 40 - Rottweiler Art
 
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
@@ -4776,6 +4784,17 @@ To say heightDescription:
 	let M be a list of text;
 	let T be text;
 	if the location is:
+		-- Unfathomable Orb:
+			let N be a random number from 1 to 4;
+			if N is:
+				-- 1:
+					let L be the list of nord quadrooms;
+				-- 2:
+					let L be the list of sud quadrooms;
+				-- 3:
+					let L be the list of est quadrooms;
+				-- 4:
+					let L be the list of ouest quadrooms;
 		-- deckN:
 			let L be the list of nord quadrooms;
 		-- deckS:
