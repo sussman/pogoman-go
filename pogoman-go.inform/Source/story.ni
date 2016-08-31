@@ -1,4 +1,4 @@
-"Pogoman Go!" by Jack Welch and Ben Collins-Sussman
+"Pogoman GO!" by Jack Welch and Ben Collins-Sussman
 
 
 The story headline is "An interactive satire".
@@ -8,8 +8,8 @@ The story description is "The world is full of Pogomen, and now that you don’t
 
 Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
-[Use MAX_OBJECTS of 700.
-Use Max_DICT_ENTRIES of 1500.]
+Use Max_DICT_ENTRIES of 1400.
+[Use MAX_OBJECTS of 700.]
 
 Use full-length room descriptions, american dialect and the serial comma.
 
@@ -909,7 +909,7 @@ Instead of throwing a pogoball at something (called the target):
 				say ".";
 			if FIRSTTHROW is true:
 				say line break;
-				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory.[paragraph break]";
+				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
@@ -1657,7 +1657,7 @@ Carry out spinning:
 			add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 			increase pogoEggsCarried of the player by E;
 			move the pogoEgg to the player;
-		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up. ";
+		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up[one of]. Your pogostop booty shows up immediately in your inventory and is ready for use[or][stopping]. ";
 		awardXP POGOSTOP_XP_VALUE;
 		now the time stamp of the location of the player is the TURNCOUNTER.
 
@@ -1688,7 +1688,7 @@ Section 4 - About
 Abouting is an action applying to nothing. Understand "about" as abouting.
 
 Report abouting:
-	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman Go![paragraph break]";
+	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO![paragraph break]";
 	bestow "Typed a Meta-Command” .
 
 Section 5 - Credits
@@ -1789,7 +1789,7 @@ To say postHang4:
 	if the player consents:
 		say "[line break]Your phone replies, [quotation mark]Great! Maybe later. Let[apostrophe]s see how the rest of the day goes[run paragraph on]";
 	otherwise:
-		say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman Go! it is, then[run paragraph on]";
+		say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman GO! it is, then[run paragraph on]";
 	say ",[quotation mark] and finishes rebooting."	
 	
 To say postHang5:
@@ -2903,7 +2903,13 @@ Section 16 - Giant Chicken
 
 The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks." Giant Chicken is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Giant Chicken when the location is Giant Chicken. The title of Giant Chicken is "Giant Chicken". The printed name of Giant Chicken is "giant chicken sculpture".
 
-The swizzle sticks are scenery in Giant Chicken. The description of the swizzle-sticks is "How many drinks must have been stirred in this effort?"
+The swizzle sticks are scenery. The swizzle sticks are in Giant Chicken. The description of the swizzle sticks is "How many drinks must have been stirred in this effort?"
+
+Instead of climbing the Giant Chicken:
+	say tefloned.
+	
+Instead of attacking the Giant Chicken:
+	say "Squaaawwwwwwkk!"
 
 Section 17 - Welbourn Travel
 
@@ -2919,9 +2925,21 @@ The description of Prissy's Little Sausages is "Ninety varieties of miniature sa
 
 Section 20 - Yummi Tummi Softserve
 
-The description of Yummi Tummi Softserve is "Pink robotic pigs rollerskate between tables serving up sundaes, cones, and floats." Yummi Tummi Softserve is an improper-named artifact. Understand "ice" or "cream" or "soft" or "serve" or "parlor" as Yummi Tummi Softserve. Understand "building" or "restaurant" as Yummi Tummi Softserve when the location is Yummi Tummi Softserve. The printed name of Yummi Tummi Softserve is "ice cream parlor". The title of Yummi Tummi Softserve is "Yummi Tummi Softserve".
+The description of Yummi Tummi Softserve is "Pink robotic pigs rollerskate between tables serving up sundaes, cones, and floats." Yummi Tummi Softserve is an improper-named artifact. Understand "ice" or "cream" or "soft" or "serve" or "parlor" as Yummi Tummi Softserve. Understand "building" or "restaurant" as Yummi Tummi Softserve when the location is Yummi Tummi Softserve. The printed name of Yummi Tummi Softserve is "ice cream parlor". The title of Yummi Tummi Softserve is "Yummi Tummi Softserve". Understand "YTS" as Yummi Tummi Softserve.
 
-[TODO: implement robots, tables, ice cream?]
+The robotic pigs are scenery in Yummi Tummi Softserve. The description of the robotic pigs is "The portly prosthetic porcines glide back and forth between the restaurant the its clients. They are dressed in red and white pogodotted uniforms and are not the least bit inconvenienced by darting about with trays full of frosty treats at breakneck speeds on their inline skates." Understand "pig" or "robot" or "robots" or "porcine" or "porcines" or "droid" or "droids" or  "skate" or "skates" or "inline" or "tray" or "trays" or "uniform" or "uniforms" as the robotic pigs. 
+
+Instead of doing something other than examining with the robotic pigs:
+	say "You are reluctant to disturb them; they are moving so quickly and carrying such heavy loads that you are afraid they would run you down."
+	
+The tables are scenery in Yummi Tummi Softserve. The description of the tables is "Picnic tables full of satisfied customers are clustered on every side of the restaurant." Understand "table" or "picnic" as the tables.
+
+The customers are scenery in Yummi Tummi Softserve. The description of the customers is "Satisfied -- nay, euphoric -- customers line picnic tables enjoying the ice cream-like products served by YTS." Understand "client" or "clients" or "customer" as the customers. 
+
+Instead of doing something other than examining with the customers:
+	say "They are too intent on their creamy desserts to take any notice of you."
+
+The ice cream is scenery in Yummi Tummi Softserve. The description of the ice cream is "Every sort of ice cream is available here. Certainly, such favorites as banana-splits, fudge sundaes, and black-and-white sodas, but also YTS signature dishes such as the [one of]guacamole frappe[or]teriyaki twirl[or]habañero double firehouse squirt[or]the triple-scoop live fire-ant combo[or]toothpaste gelato with oreo bowl[or]Rocky Mountain Spotted cone[in random order] and their [one of]scorpion pops[or]razor ices[or]petroleum floats[or]whipped cream and industrial suprise platters[or]old fashioined typhoid cakes[in random order]." Understand "float" or "floats" or "soda" or "sodas" or "creams" or "cone" or "cones" or "sundae" or "sundaes" or "bowl" or "bowls" as the ice cream.
 
 Section 21 - Service Dog Memorial
 
@@ -2952,6 +2970,12 @@ Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and 
 Section 24 - General Nelson
 	
 The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson." General Nelson is an improper-named artifact. Understand "sculpture" or "art"  or "statue" as General Nelson when the location is General Nelson. The printed name of General Nelson is "statue of General Nelson". The title of General Nelson is "General Nelson".
+
+Instead of climbing General Nelson:
+	say tefloned.
+	
+To say tefloned:
+	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with teflon to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litiginous statue-climbing buffoons[or][stopping]."
 
 Section 25 - Church of the Orthogonal Sticks
 
@@ -3112,12 +3136,29 @@ Instead of searching the Found Art:
 	
 Section 49 - Crystal Skull
 
-The description of Crystal Skull is "There isn’t much left of the Salt Skull exhibit. Occasionally, deer walk through town just to lick it."
+The description of Crystal Skull is "There isn’t much left of the salty skull exhibit. Occasionally, deer walk through town just to lick it."
 
 Crystal Skull is an improper-named artifact. Understand "exhibit" as Crystal Skull. Understand "sculpture" or "statue" or "art" as Crystal Skull when the location is Crystal Skull. The printed name of Crystal Skull is "crystal skull".
 
 Instead of tasting Crystal Skull:
 	say "It tastes like deer spittle."
+	
+Licking is an action applying to one thing. Understand "lick [something]" or "tongue [something]" as licking.
+
+Carry out licking:
+	do nothing.
+	
+Report licking:
+	say "You lick the [noun]."
+
+Instead of licking:
+	say "You are hardpressed to think of any situation where, when playing Pogoman GO!, it would be prudent to stick your tongue anywhere but in your mouth."
+	
+Instead of licking the Crystal Skull:
+	try tasting the Crystal Skull.
+	
+Instead of taking the Crystal Skull:
+	say "It[apostrophe]s not something you can take[one of]. Also: it is cursed, or at least rumored to be. It certainly was for Harrison Ford[or][stopping]."
 
 Section 50 - Vuvuzelas For Freedom
 
@@ -3368,7 +3409,7 @@ Instead of going a bad idea direction (called the way):
 					say "The sound of busy railroad just to the east halts you in your, um, tracks.";
 				-- 1:
 					say the headline of the location of the player;
-					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
+					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all.[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
 					bestow "Refined Sense of Priorities";
 				-- 2:
 					say the headline of R;
@@ -3448,7 +3489,7 @@ Talking to is an action applying to one thing. Understand "talk to/at/with [some
 
 Check talking to:
 	if the noun is not a person:
-		say "Talking to inanimate objects is odd, but not socially unacceptable for a Pogoman Go! player." instead.
+		say "Talking to inanimate objects is odd, but not socially unacceptable for a Pogoman GO! player." instead.
 			
 Carry out talking to:
 	say "You chat with [the noun]."
@@ -6888,7 +6929,7 @@ Instead of attacking the phone:
 	try dropping the phone.
 	
 Instead of dropping the phone:
-	say "You could never bring yourself to do that -- you need it to play Pogoman Go!"
+	say "You could never bring yourself to do that -- you need it to play Pogoman GO!"
 	
 Before doing something with the phone:
 	if the phone is hung:
@@ -6904,7 +6945,7 @@ Before doing something with the phone:
 		if the current action is giving to:
 			continue the action;
 		otherwise:
-			say "The phone has been optimized for playing Pogoman Go! All other features that might consume energy have been disabled.[paragraph break]";
+			say "The phone has been optimized for playing Pogoman GO! All other features that might consume energy have been disabled.[paragraph break]";
 			if the phone is not pokedat:
 				bestow "My Phone Doesn't Play That";
 				now the phone is pokedat;			
@@ -6940,7 +6981,7 @@ To phoneDeath:
 		say "Some nebulous time later, you regain consciousness not too far from the passageway, where you were so ignominiously assaulted. For the rest of the day you[run paragraph on]";
 	otherwise:
 		say "A day goes by while you[run paragraph on]";
-	say " [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman Go players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]Worn out by so much activity not involving actual playing of Pogoman GO! you collapse of exhaustion.";
+	say " [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman GO! players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]Worn out by so much activity not involving actual playing of Pogoman GO! you collapse of exhaustion.";
 	openGame;
 	try looking.
 
