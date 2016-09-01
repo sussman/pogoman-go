@@ -2181,7 +2181,7 @@ Topic	Provider
 "fries"	Hank's Tavern
 "frites"	Hank's Tavern
 "beer"	Hank's Tavern
-"wine"	Hank's Tavern
+"wine"	Ashwell-Lott Estate
 "nut"	Hank's Tavern
 "nuts"	Hank's Tavern
 "cheese"	Hank's Tavern
@@ -2207,6 +2207,7 @@ Topic	Provider
 Chapter Medals & Trophies
 
 Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals.
+
 Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy".
 
 Before doing something other than examining with the medals when Around The Town is happening for the first time:
@@ -2265,8 +2266,9 @@ To Bestow (medallion - some text):
 	now L is medallion;
 	add L to MEDALLIST;
 	if SUPPRESSMEDALS is false:
-		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal! ";	
-	say "[one of]To see a list of your medals at any time, use the command [italic type]examine medals[roman type]. [or][stopping]";
+		say "Congratulations! You have earned the [quotation mark][medallion][quotation mark] medal![paragraph break]";	
+	if the number of entries in MEDALLIST is 1:
+		say "To see a list of your medals at any time, use the command [italic type]examine medals[roman type].[paragraph break]";
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
 		-- 3: 
@@ -3276,14 +3278,21 @@ The description of Cyclorama is "The indoor bicycle track yields important radio
 
 Section 30 - Biocontainment Facility
 
-The description of Biocontainment Facility is "[bioConDescription]". Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
+The description of Biocontainment Facility is "[if the biocontainment facility is unvisited]You are vaguely aware that something isn’t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There’s something wrong with them, but you can’t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break][end if]The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don’t seem to notice folks playing pogoman.". 
 
-To say bioConDescription:
-	if the Biocontainment Facility is unvisited, say "You are vaguely aware that something isn’t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There’s something wrong with them, but you can’t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break]";
-	say "The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don’t seem to notice folks playing pogoman.";
-	if the Biocontainment Facility is unvisited:
-		say line break;
-		bestow "Just One of the Boys".
+Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
+
+The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seems strangely unattracted to the brains of gamers."
+
+Instead of doing something other than examining with the zombie horde:
+	say "You feel like you have reached a tacit détente with the zombie masses -- live and let unlive, as it were. You don[apostrophe]t want to rile them up, so you keep your distance. On the whole, they are no worse than many roommates you have had."
+	
+		
+Before printing the locale description of the biocontainment facility:
+	if the biocontainment facility is unvisited:
+		bestow "Just One of the Boys";
+	otherwise:
+		continue the action.
 
 Section 31 - Battle of Margot's Pantry
 
@@ -3346,8 +3355,6 @@ Instead of taking the orb:
 Instead of touching the orb:
 	say "Briefly, you have the sensation of leaving your body and floating weightlessly somewhere above the town. In the distance below, you see [heightDescription]. When you recoil, the vision stops."
 	
-	
-	
 Section 40 - Rottweiler Art
 
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
@@ -3370,7 +3377,7 @@ Section 43 - Eagle's Sojourn
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
-Eagle's Sojourn is an improper-named artifact. Understand "eagle" or "eagles" or "carving" or "moon" or "cowboy" as Eagle's Sojourn. Understand "sculpture" or "statue" or "art" as Eagle's Sojourn when the location is Eagle's Sojourn. The title of Eagle's Sojourn is "Eagle[apostrophe]s Sojourn". The printed name of Eagle's Sojourn is "carving".
+Eagle's Sojourn is an improper-named artifact. Understand "eagle" or "eagles" or "carving" or "moon" or "cowboy" or "dwight" or "eisenhower" as Eagle's Sojourn. Understand "sculpture" or "statue" or "art" as Eagle's Sojourn when the location is Eagle's Sojourn. The title of Eagle's Sojourn is "Eagle[apostrophe]s Sojourn". The printed name of Eagle's Sojourn is "carving".
 
 Section 44 - Nymph With Telescope
 
@@ -3383,6 +3390,8 @@ Section 45 - Fire Is Our Friend
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
 
 Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
+
+
 
 Section 46 - Unearthly Geometry
 
