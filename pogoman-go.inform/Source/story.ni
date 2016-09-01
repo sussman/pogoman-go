@@ -7219,8 +7219,11 @@ Instead of throwing the phone at:
 Instead of attacking the phone:
 	try dropping the phone.
 	
+Instead of inserting the phone into:
+	try dropping the phone.
+	
 Instead of dropping the phone:
-	say "You could never bring yourself to do that -- you need it to play Pogoman GO!"
+	say "You could never bring yourself to part with the phone -- you need it to play Pogoman GO!"
 	
 Before doing something with the phone:
 	if the phone is hung:
@@ -7229,7 +7232,7 @@ Before doing something with the phone:
 		otherwise:
 			stop the action;
 	otherwise:
-		if the current action is rebooting, charging, eating, examining, dropping, attacking, or throwing at:
+		if the current action is rebooting, charging, eating, examining, dropping, attacking, inserting into, or throwing at:
 			continue the action;
 		if the current action is showing to:
 			continue the action;
