@@ -3116,7 +3116,16 @@ Instead of searching the lawn:
 	
 Section 11 - Parking Lot Award
 
-The description of Parking Lot Award is "A tarnished brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason." Parking Lot Award is an improper-named place. Understand "plaque" or "brass" as Parking Lot Award when the location is Parking Lot Award. The printed name of Parking Lot Award is "award for best parking lot design". The title of Parking Lot Award is "Parking Lot Award".
+The description of Parking Lot Award is "A[if buffed of the Parking Lot Award is true]n almost painfully shiny[otherwise] tarnished[end if] brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason." Parking Lot Award is an improper-named place. Understand "plaque" or "brass" as Parking Lot Award when the location is Parking Lot Award. The printed name of Parking Lot Award is "award for best parking lot design". The title of Parking Lot Award is "Parking Lot Award". The Parking Lot Award has a truth state called buffed. The buffed of the Parking Lot Award is false.
+
+Instead of rubbing the the Parking Lot Award:
+	say "You buff the plaque";
+	if the buffed of the Parking Lot Award is true:
+		say " some more.";
+	otherwise:
+		say ".[paragraph break]";
+		now buffed of the Parking Lot Award is true;
+	bestow "Parking Lot Award Award".
 
 Section 12 - Old Town Hall
 
@@ -3389,9 +3398,16 @@ Section 45 - Fire Is Our Friend
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
 
-Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "flame" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
+Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
 
+The flame is scenery in Fire is Our Friend. The description of the flame is "A constant, bright flame above the brazier."
 
+Instead of touching the flame for the first time:
+	say "Yes, the flame is real. Ow.[paragraph break]";
+	bestow "Like A Moth".
+	
+Instead of touching the flame:
+	say "You have already ascertained that the flame is too hot to touch. Third degree burns are not going to help you catch any pogomen, so you desist."
 
 Section 46 - Unearthly Geometry
 
@@ -3474,8 +3490,6 @@ Instead of doing anything other than examining with the small sign:
 	say "You are not keen to plow through the field of poison ivy."
 	
 	
-
-
 Section 52 - Perilous Passageway
 
 The description of Perilous Passageway is "A disgusting passageway."
