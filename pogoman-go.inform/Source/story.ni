@@ -4779,21 +4779,16 @@ DeckS is southeast of DeckW. The printed name of DeckS is "Observation Deck, Sou
 DeckE is northeast of DeckS and southeast of DeckN. The printed name of DeckE is "Observation Deck, Eastern View".
 
 To say heightDescription:
+	let P be a room;
 	let L be a list of quadrooms;
 	let M be a list of text;
 	let T be text;
-	if the location is:
-		-- Unfathomable Orb:
-			let N be a random number from 1 to 4;
-			if N is:
-				-- 1:
-					let L be the list of nord quadrooms;
-				-- 2:
-					let L be the list of sud quadrooms;
-				-- 3:
-					let L be the list of est quadrooms;
-				-- 4:
-					let L be the list of ouest quadrooms;
+	if the location is Unfathomable Orb:
+		let N be a random number from 1 to 4;		
+		let P be entry N of {deckN, deckS, deckE, deckW};
+	otherwise:
+		let P be the location of the player;			
+	if P is:
 		-- deckN:
 			let L be the list of nord quadrooms;
 		-- deckS:
