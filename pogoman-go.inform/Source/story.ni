@@ -363,9 +363,13 @@ Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first
 	pogoMethEffect;
 	bestow "Iatrogenically Induced Synesthesia".
 	
-Instead of eating PogoMeth when Not in Kansas Anymore is happening:
-	say "You munch down a pogometh[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].";
-	pogoMethEffect.
+Instead of eating PogoMeth:
+	if Exploring the Tower has not happened:
+		say "If only pogometh were real[one of]. Alas, it is only part of a game, and only useful for healing pogomen[or][stopping]!";
+	otherwise:
+		say "You munch down a pogometh[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].";
+		pogoMethEffect.
+
 	
 Instead of taking pogometh when Not in Kansas Anymore is happening for the first time:
 	say "You take one standard adult (which is questionable) dose.[paragraph break]";
@@ -1303,11 +1307,31 @@ Carry out InventoryHealing:
 				break;
 			else:
 				now the wounded entry is false;
-				say "You drop a bit of pogometh into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.";
+				say "You drop a bit of pogometh into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.[paragraph break]";
 				decrement pogometh count;
 				break.	
-	
 
+[without this rule, using heal on anything would result in an error that the object can't be seen, which shoots any semblance of mimesis right in the head
+]	
+nonPogoHealing is an action applying to one thing. Understand "heal [something]" as nonPogoHealing.
+
+Check nonPogoHealing:
+	if Exploring the Tower has not happened:
+		say "Your super-powers are limited to things you can do in Pogoman GO!  Reality is a thin line that you are not quite ready to cross.";
+		stop the action;
+	otherwise:
+		if the noun is not a person:
+			say "You can only heal living creatures.";
+			stop the action;
+		else if the noun is not the player:
+			say "The [noun] is not injured, and besides that, questions your credentials to practice medicine.";
+			stop the action;
+		else:
+			if the pogoMethsCarried of the player is greater than 0:
+				try eating pogometh;
+			otherwise:
+				say "You are out of pogometh!".
+		
 
 
 Chapter Rules Modifications
@@ -1567,7 +1591,8 @@ Section AwardXP
 
 To AwardXP (award - a number):
 	increase the XP of the player by award;
-	say "(You receive [award] XP!)[paragraph break]".
+	say "(You receive [award] XP!)[run paragraph on]";
+	say paragraph break.
 	
 
 Chapter Actions
@@ -1969,8 +1994,6 @@ To say first time is free:
 	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
 	bestow "Enabler".			
 	
-	
-	
 The phantom is a privately-named scenery. The description of the phantom is "A point source of energy." The phantom is in the void.
 
 To say bar:
@@ -2041,7 +2064,114 @@ Report scanning:
 	say roman type;
 	move the phantom to the void.
 
+Section 17 - Ordering
 
+Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering.
+
+Check Ordering:
+	if the Around the Town is happening:
+		continue the action;
+	else if Exploring The Tower is happening:
+		say "No sense in ordering out, when the cafeteria has everything you could possibly want to eat or drink.";
+		stop the action;
+	else if Not In Kansas Anymore is happening:
+		say "Nothing seems to be open here. You will have to wait until you (somehow) get back to civiization.";
+		stop the action;
+	else:
+		say "No time for that now!";
+		stop the action.
+		
+Carry out ordering:
+	say "You have no clue about where to get that.";
+
+Instead of ordering a topic listed in the Table of Ordering Out:
+	let the BESTPLACE be the Provider entry;
+	if the BESTPLACE is the location of the player:
+		say "Your mouth waters at the prospect, and you can see people having talking, and laughing and having a good type right here, but you must be strong! No time for such weaknesses as food, drink, sleep, or other bodily functions. A true pogomaster must make sacrifices! (although your stomach is kind of grumbly).";
+	else:
+		say "This isn[apostrophe]t the best place for that, and unfortunately, the [BESTPLACE] does not deliver."
+
+Table of Ordering Out
+Topic	Provider
+"kroughnut"	Krusty Kronuts
+"kronut"	Krusty Kronuts
+"kroughnuts"	Krusty Kronuts
+"kronuts"	Krusty Kronuts
+"donut"	Krusty Kronuts
+"donuts"	Krusty Kronuts
+"doughnut"	Krusty Kronuts
+"doughnuts"	Krusty Kronuts
+"toroiducken"	Krusty Kronuts
+"caramel-glazed toroiducken"	Krusty Kronuts
+"caramel-glazed "	Krusty Kronuts
+"sausage"	Prissy's Little Sausages
+"sausages"	Prissy's Little Sausages
+"hot dog"	Prissy's Little Sausages
+"hotdog"	Prissy's Little Sausages
+"hot dogs"	Prissy's Little Sausages
+"hotdogs"	Prissy's Little Sausages
+"wiener"	Prissy's Little Sausages
+"wieners"	Prissy's Little Sausages
+"kielbasa"	Prissy's Little Sausages
+"kielbasas"	Prissy's Little Sausages
+"kielbasi"	Prissy's Little Sausages
+"wurst"	Prissy's Little Sausages
+"wursts"	Prissy's Little Sausages
+"bratwurst"	Prissy's Little Sausages
+"bratwursts"	Prissy's Little Sausages
+"pepperoni"	Prissy's Little Sausages
+"pepperonis"	Prissy's Little Sausages
+"redhot"	Prissy's Little Sausages
+"red hot"	Prissy's Little Sausages
+"redhots"	Prissy's Little Sausages
+"red hots"	Prissy's Little Sausages
+"salami"	Prissy's Little Sausages
+"salamis"	Prissy's Little Sausages
+"ice cream"	Yummi Tummi Softserve
+"ice"	Yummi Tummi Softserve
+"cream"	Yummi Tummi Softserve
+"soda"	Yummi Tummi Softserve
+"cone"	Yummi Tummi Softserve
+"bowl"	Yummi Tummi Softserve
+"sundae"	Yummi Tummi Softserve
+"fudge"	Yummi Tummi Softserve
+"caramel"	Yummi Tummi Softserve
+"dessert"	Yummi Tummi Softserve
+"flan"	Flan Emporium
+"flans"	Flan Emporium
+"pizza"	Margot's Pantry
+"pizzas" 	Margot's Pantry
+"calzone"	Margot's Pantry
+"calzones" 	Margot's Pantry
+"pasta"	Margot's Pantry
+"pastas"	Margot's Pantry
+"onion rings"	Hank's Tavern
+"french fries"	Hank's Tavern
+"fries"	Hank's Tavern
+"frites"	Hank's Tavern
+"beer"	Hank's Tavern
+"wine"	Hank's Tavern
+"nut"	Hank's Tavern
+"nuts"	Hank's Tavern
+"cheese"	Hank's Tavern
+"cheeses"	Hank's Tavern
+"peanut"	Hank's Tavern
+"peanuts"	Hank's Tavern
+"pretzel"	Hank's Tavern
+"pretzels"	Hank's Tavern
+"nachos"	Hank's Tavern
+"wings"	Hank's Tavern
+"chicken wings"	Hank's Tavern
+"chicken"	Hank's Tavern
+"fried"	Hank's Tavern
+"calamari"	Hank's Tavern
+"appetizer"	Hank's Tavern
+"appetizers"	Hank's Tavern
+"hors d'ouevres"	Hank's Tavern
+"charcuterie"	Hank's Tavern
+"food"	Hank's Tavern
+"snack"	Hank's Tavern
+"snacks"	Hank's Tavern
 
 Chapter Medals & Trophies
 
@@ -2798,11 +2928,18 @@ The description of Nyantech Entrance is "A towering edifice hewn from solid obsi
 
 The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
 
-The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" as the unicorn.
+The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" or "harris" or "polanski" as the unicorn.
+
+The horn is part of the unicorn. The description of the horn is "A long, twisted horn that ends in a very business-like point; obviously, it is not just ornamentation."
 
 The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
-The proxyEntrance is a privately-named scenery in the Nyantech Entrance. The printed name of proxyEntrance is "building".  The description of proxyEntrance is "An imposing fifty story building of black glass and home to the creators of your favorite game, Pogoman GO!" Understand "entrance" or "building" or "office" or "tower" or "obsidian" or "glass" or "HQ" or "headquarters" or "offices" as the proxyEntrance. 
+The proxyEntrance is a privately-named scenery in the Nyantech Entrance. The printed name of proxyEntrance is "building".  The description of proxyEntrance is "An imposing fifty story building of black glass and home to the creators of your favorite game, Pogoman GO!" Understand "entrance" or "building" or "office" or "tower" or "obsidian" or "glass" or "wall" or "walls" or "HQ" or "headquarters" or "offices" as the proxyEntrance. 
+
+The lowCat is a privately-named scenery. The lowCat is in Nyantech Entrance. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "The corporate mascot of Nyantech, a giant version of the cat has been incorporated into the building itsef. Up at least fifty stories, the cat revolves the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" as the lowCat.
+
+Instead of doing something other than examining with the lowCat:
+	say "The Nyantech Cat is way too far above you."
 
 Instead of doing something with the revolvingDoorProxy:
 	if the current action is examining:
@@ -2962,14 +3099,20 @@ Section 14 - Rotary Clock Tower
 
 The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours." Rotary Clock Tower is an improper-named artifact. The printed name of Rotary Clock Tower is "rotary clock tower".
 
+Instead of climbing the Rotary Clock Tower:
+	say "You gleefully hop on the tower and hang on as it spins madly. In the first hour, it spins almost eight degrees. Eventually, you grow bored and drop off."
+
 Section 15 - Floyd Memorial Bench
 
-The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate." Floyd Memorial Bench is an improper-named place. The printed name of Floyd Memorial Bench is "bench". The title of Floyd Memorial Bench is "Floyd Memorial Bench".
+The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate." Floyd Memorial Bench is an improper-named place. The printed name of Floyd Memorial Bench is "bench". The title of Floyd Memorial Bench is "Floyd Memorial Bench". 
 
 Before entering the Floyd Memorial Bench:
 	say "No time to dally. Pogomen abound!" instead.
 	
-The nameplate is scenery in Floyd Memorial Bench. The description of the nameplate is "[quotation mark]In Read-Only-Memoriam of Floyd.[quotation mark][line break]".
+The nameplate is scenery in Floyd Memorial Bench. The description of the nameplate is "[quotation mark]In Read-Only-Memoriam of Floyd.[quotation mark][line break]". Understand "plate" as the nameplate. 
+
+Instead of doing something other than examining with the nameplate:
+	say "Leave the nameplate alone, you hooligan!".
 
 
 Section 16 - Giant Chicken
@@ -2996,7 +3139,7 @@ The description of Hook & Ladder is "The home of Fire Bridage Number 12." Hook &
 
 Section 19 - Prissy's Little Sausages
 
-The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. Understand "building" or "store" or "restaurant" as Prissy's Little Sausages when the location is Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant".
+The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
 
 Section 20 - Yummi Tummi Softserve
 
@@ -3125,7 +3268,7 @@ The description of Dung Beetle Mural is "Dark earth tones and impasto technique;
 
 Section 34 - Hank's Tavern
 
-The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "the pub".
+The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "pub".
 
 Section 35 - Olde Train Station
 
@@ -3134,7 +3277,8 @@ The description of the Olde Train Station is "Still a functioning passenger trai
 The railroad tracks are scenery in the Olde Train Station. The description of the railroad tracks is "They are below the level of the platform; you would have to go just a bit more to the east to get a good look at them." Understand "track" or "platform" or "platforms" as the railroad tracks.
 
 Instead of doing something other than examining with the railroad tracks:
-	say the description of the railroad tracks.
+	say  description of the railroad tracks;
+	say paragraph break.
 	
 
 Section 36 - Dog Exercise Area
@@ -3600,7 +3744,7 @@ Instead of talking to something (called the auditor):
 		-- Elon Musk:
 			say "Elon [one of]dismisses your comment[or]seems to ignore what you just said[or]seems oblivious to anything you say[or]is in his own little world, and your words fall on deaf ears[or]looks away distractedly for a moment[or]waves aside your remark[in random order].";
 		-- otherwise:
-			say "[The auditor] nods briefly, but this leads to a long conversation about [chitChat].";
+			say "[The auditor] nods briefly and this leads to a long conversation about [chitChat].";
 			
 To say employeeRant:
 	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][employeeRant2][stopping].[quotation mark][paragraph break]".
@@ -7345,3 +7489,4 @@ Instead of examining or touching the computer screen:
 	
 Book 9 - Hints
 
+	
