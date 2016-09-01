@@ -114,6 +114,7 @@ The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 The player has a health state called healthiness. The healthiness of the player is healthy.
 The player has a truth state called superuser. The superuser of the player is false.
 The player is lit. [light emiting, not hammered - to make sure that the player can see when in containers]
+The player has a number called topLevel. The topLevel of the player is 0.
 
 Section 7 - BackDrops
 
@@ -1554,7 +1555,9 @@ Section ShowStatus
 
 To ShowStatus:
 	let C be "[securitycolor of the badge]";
-	now the left hand status line is "PogoLevel: [pogoLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player carries the badge]  |  Badge: [C in title case]";
+	if pogoLevel of the player is greater than topLevel of the player:
+		now topLevel of the player is pogoLevel of the player; [decouple level from XP after NIKA]
+	now the left hand status line is "PogoLevel: [topLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player carries the badge]  |  Badge: [C in title case]";
 	now the right hand status line is "XP: [XP of the player]".
 	
 
@@ -3128,11 +3131,19 @@ Section 35 - Olde Train Station
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers." Olde Train Station is an improper-named structure. Understand "old" as Olde Train Station. Understand "building" as Olde Train Station when the location is Olde Train Station. The printed name of Olde Train Station is "station". The title of Olde Train Station is "Olde Train Station".
 
+The railroad tracks are scenery in the Olde Train Station. The description of the railroad tracks is "They are below the level of the platform; you would have to go just a bit more to the east to get a good look at them." Understand "track" or "platform" or "platforms" as the railroad tracks.
+
+Instead of doing something other than examining with the railroad tracks:
+	say the description of the railroad tracks.
+	
+
 Section 36 - Dog Exercise Area
 
 The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like like dogs, check out our canine-centric sci fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
 
 Dog Exercise Area is an improper-named place. Understand "field" or "run" as Dog Exercise Area. Understand "park" as Dog Exercise Area when the location is Dog Exercise Area. The title of Dog Exercise Area is "Dog Exercise Area". The printed name of Dog Exercise Area is "dog run".
+
+The dogs are scenery in the dog exercise area. The description of dogs is "Floppy eared beagles, bristly schnauzers, and skinny greyhounds romp about, glad to be out and about with their owners[one of]. You puzzle how so many people could spent so much time out of their mothers[apostrophe] basements without a cell phone in hand. It is truly enigmatic[or][stopping]." Understand "dog" or "canine" or "owner" or "owners" or "snauzer" or "schnauzers" or "beagle" or "beagles" or "greyhound" or "greyhounds" as the dogs.
 
 Section 37 - Bottle Cap Wall
 
@@ -4708,12 +4719,14 @@ Before pushing the call button when the denouement is happening:
 Before touching the call button when the denouement is happening:
 	try pushing the call button.
 	
+
+	
 Instead of pushing a lift button (called the poked item) when the plusQueDenouement is happening:
 	if the poked item is the processingButton:
 		say "The button does not light.";
 		stop the action;
 	otherwise:
-		say "The [poked item] lights up.";
+		say "The [poked item] lights up, the elevator doors close, and the elevator changes floors more quickly that you would have believed possible.";
 	if the poked item is:
 		-- cafeteriaButton:
 			catsInSpace;
@@ -4730,7 +4743,7 @@ Instead of pushing a lift button (called the poked item) when the plusQueDenouem
 		-- lobbyButton:
 			say "TODO: lobby exit ending";
 		-- legalButton:
-			say "TODO: legal office, ending in either feline Dystopia or liberations of Society."
+			now the selected of legalEnding is true.
 		
 Section 35 - Packaging
 
@@ -5625,7 +5638,7 @@ At the time when the lift arrives:
 		now the floor level of the elevator is the requestor of the call button;	
 		now the requestor of the call button is the void;
 		do lift arrival;
-		if denouement is not happening:
+		if plusQueDenouement is not happening:
 			the lift departs in 1 turn from now.
 	
 [The player always walks into an empty elevator. For floors where the player can all the elevator, it either arrives empty (green, purple) or everyone walks out (white)]
@@ -7190,6 +7203,10 @@ to liberateSociety:
 	say "The crowd cheers as you are pulled from the rubble of the Nyantech building and hoisted up on the shoulders of Fire Company 12 as a hero.[paragraph break]Word of your key role in bringing down Nyantech has already spread widely, and you are hailed as the liberator of a generation that had been lost to mobile gaming. Mothers separated from their children, husbands from wives, and even pets from their owners, all celebrate your role in bringing them back together and creating a world not seen through the rear-facing camera of a mobile phone.[paragraph break]";
 	end the story finally saying "LIBERATOR OF SOCIETY!".
 	
+to buildingCollapse:
+	say "Explosions far above you shake the building, followed by a thump, thump, thump, which you realize is the floors of the building pancaking down on top of you. The elevator crashes down the shaft next to this room, the emergency lights flicker, and the walls collapse in.[paragraph break]You scrunch up under the desk as the building comes down around you, miraculously alive, or at least alive while the air lasts.[paragraph break]But it doesn[apostrophe]t matter. Despite the phone[apostrophe]s seemingly infinite battery, the servers are down. There is no signal. No one will ever play Pogoman GO! again. It is all over, and you have only yourself to blame.[paragraph break]If only you could do it all over, you are sure you would find a better way.[paragraph break]The phone freezes and you don[apostrophe]t bother to reboot it.";
+	end the story finally saying "DIED OF CRUSHING ENNUI".
+		
 Rule for amusing a victorious player: 
 	say "[AmusingText]"
 
@@ -7199,7 +7216,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved [pogoLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. You managed to catch a total of TODO: XX pogomen. You and your pogomen defeated TODO: XX wild pogomen in combat.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. You managed to catch a total of TODO: XX pogomen. You and your pogomen defeated TODO: XX wild pogomen in combat.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
@@ -7224,7 +7241,8 @@ Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. Denoue
 When denouement begins:
 	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
 	now the healthiness of the player is healthy;
-	move Elon Musk to Processing.
+	move Elon Musk to Processing;
+	now the topLevel of the player is the pogoLevel of the player.
 	
 Every turn during denouement:
 	if the defenderPogoman is in Processing:
@@ -7265,12 +7283,65 @@ Every turn during denouement:
 			otherwise:
 				say "Elon Musk slashes at you with is clipboard, but misses."
 					
-Plusquedenouement is a scene. Plusquedenouement begins when denouement ends. 
+Plusquedenouement is a scene. Plusquedenouement begins when denouement ends. PlusQueDenouement ends when LegalEnding begins.
 
 When plusquedenouement begins:
 	transform the processing area.
+	
+LegalEnding is a scene. LegalEnding begins when the selected of the legalEnding is true. LegalEnding has a truth state called selected. The selected of LegalEnding is false. LegalEnding has a number called doomsday counter. The doomsday counter of legalEnding is 10.
 
-
-
+When legalEnding begins:
+	teleport the player to the Legal Department;
+	say "You step off the elevator into the familiar, comfortable legal office, where you signed the beta-testing agreement. However, the room is bathed in flashing red light coming from the computer screen.[paragraph break]The doors slam shut behind you, with the sort of mechanical clickiness that suggests they are not likely to open again and you become aware of a soothing voice counting backwards slowly, [quotation mark]12... 11... 10... [quotation mark][paragraph break]".
+	
+Instead of going north from the Legal Department during legalEnding:
+	say "The stairway door is locked."
+	
+Instead of going south from the Legal Department during legalEnding:
+	say "The door towards the beta-testing celebration and Cousteau rooms is locked."
+	
+Instead of pushing the call button during legalEnding:
+	say "The button stays dark and is inert."
+	
+Instead of touching the computer screen during legalEnding:
+	try examining the computer screen. 
+	
+Every turn during legalEnding:
+	decrease the doomsday counter of legalEnding by 1;
+	say "From overhead, you hear a ";
+	if doomsday counter of legalEnding is:
+		-- 0:
+			say "resigned";
+		-- 1:
+			say "hysterical";
+		-- 2:
+			say "panicked";
+		-- 3:
+			say "quivering";
+		-- 4:
+			say "agitated";
+		-- 5: 
+			say "nervous";
+		-- 6:
+			say "somewhat anxious";
+		-- 7:
+			say "slightly anxious";
+		-- 8:
+			say "reassuring";
+		-- 9:
+			say "calm";
+	say " voice say [quotation mark]Building self-destruct in [doomsday counter of the legalEnding] seconds.[quotation mark][paragraph break]";
+	if the doomsday counter of the legalEnding is zero:
+		buildingCollapse.
+	
+Instead of examining or touching the computer screen:
+	say "[fixed letter spacing]DEADMAN SWITCH ACTIVATED[line break]  NYANTECH DESTRUCT IN[paragraph break][entry doomsday counter of legalEnding of ASCII_ART_NUMBERS][paragraph break]EXECUTIVE OVERRIDE? Y / N_[roman type]";
+	if the player consents:
+		say paragraph break;
+		felineDystopia;
+	otherwise:
+		say paragraph break;
+		liberateSociety.
+	
 Book 9 - Hints
 
