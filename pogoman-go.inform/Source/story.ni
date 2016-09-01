@@ -318,16 +318,27 @@ Instead of dropping a pogothing (called the item):
 			
 			
 Instead of putting a pogothing (called the item) on something:
-	try dropping the item;
+	if Exploring The Tower has happened:
+		try dropping the item;
+	Otherwise:
+		say notReal.
 	
-Instead of throwing a pogothing (called the item) at something:
+[may need to disable the futile to throw things at inanimate objects rule]
+
+Instead of throwing a pogothing (called the item) at:
 	if the item is the pogoball:
 		continue the action;
 	otherwise:
-		try dropping the item.
+		if Exploring The Tower has happened:
+			try dropping the item;
+		otherwise:
+			say notReal.
 		
 Instead of inserting a pogothing (called the item) into something:
-	try dropping the item.
+	if Exploring The Tower has happened:
+		try dropping the item;
+	otherwise:
+		say notReal.
 	
 Instead of touching a pogothing when Around the Town is happening for the first time:
 	say "[notReal][paragraph break]";
@@ -479,7 +490,17 @@ Instead of taking a pogostop:
 	
 Section 5 - Gyms
 
-A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings."
+A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. 
+Understand "teal" as the gym when the color of the location is teal.
+Understand "chartreuse" as the gym when the color of the location is chartreuse.
+Understand "alizarin crimson" as the gym when the color of the location is alizarin crimson.
+Understand "alizarin" as the gym when the color of the location is alizarin crimson.
+Understand "crimson" as the gym when the color of the location is alizarin crimson.
+Understand "viridian" as the gym when the color of the location is viridian.
+Understand "papayawhip" as the gym when the color of the location is papayawhip.
+Understand "unbleached titanium" as the gym when the color of the location is unbleached titanium.
+Understand "unbleached" as the gym when the color of the location is unbleached titanium.
+Understand "titanium" as the gym when the color of the location is unbleached titanium.
 
 Definition: A quadroom is an okayGymLocation if it is an okayInitialPogostopLocation and it is not listed in GYMLIST.
 
@@ -859,7 +880,7 @@ Instead of throwing a pogoball at something (called the target):
 		otherwise:[target missed]
 			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].";
 	otherwise:
-		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.";
+		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.[paragraph break]";
 	decrement pogoball count.
 	
 
@@ -1572,6 +1593,10 @@ Before printing the locale description of a room:
 Rule for writing a paragraph about the defenderPogoman:
 	say "Your[if the defenderPogoman is injured] heroically[end if] [defenderPogoman] is on guard here."
 	
+Section 9 - Allow Throwing At Inanimate Objects
+
+The futile to throw things at inanimate objects rule is not listed in the check throwing it at rules.
+The block throwing at rule is not listed in the check throwing it at rules.
 	
 Chapter Activities
 
@@ -1627,7 +1652,12 @@ Spinning is an action applying to a thing. Understand "spin [thing]" as spinning
 
 Check spinning:
 	if the noun is not a pogostop:
-		say "That's probably not something you should spin.[paragraph break]";
+		say "That[apostrophe]s probably not some";
+		if the noun is a person:
+			say "one";
+		otherwise:
+			say "thing";
+		say " you should spin.[paragraph break]";
 		stop the action;
 	otherwise:
 		if the TURNCOUNTER minus the time stamp of the location of the player is less than the POGOSTOP_LOCKOUT_DURATION and the superuser of the player is false:
@@ -1635,8 +1665,6 @@ Check spinning:
 			stop the action;
 		otherwise:
 			continue the action;
-
-		
 
 Carry out spinning:
 	let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
@@ -2127,6 +2155,9 @@ Topic	Provider
 "red hots"	Prissy's Little Sausages
 "salami"	Prissy's Little Sausages
 "salamis"	Prissy's Little Sausages
+"sauce"	Prissy's Little Sausages
+"miniature sausage"	Prissy's Little Sausages
+"miniature"	Prissy's Little Sausages
 "ice cream"	Yummi Tummi Softserve
 "ice"	Yummi Tummi Softserve
 "cream"	Yummi Tummi Softserve
@@ -3167,9 +3198,9 @@ Section 22 - Gardens of Zarf
 
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
-The sign is scenery in The Gardens of Zarf. The description of the sign is "[zarfSign]".
+The garden sign is scenery in The Gardens of Zarf. The description of the garden sign is "[zarfSign]".
 
-After examining the sign for the first time:
+After examining the garden sign for the first time:
 	bestow "Eye For Detail".
 
 To say zarfSign:
@@ -3256,7 +3287,7 @@ To say bioConDescription:
 
 Section 31 - Battle of Margot's Pantry
 
-The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
+The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "dinos" or "dino's" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
 
 Section 32 - Gas Station Gazebo
 
@@ -3291,7 +3322,13 @@ The dogs are scenery in the dog exercise area. The description of dogs is "Flopp
 
 Section 37 - Bottle Cap Wall
 
-The description of Bottle Cap Wall is "A wall made entirely of bottle caps." Bottle Cap Wall is an improper-named artifact. Understand "mural" as Bottle Cap Wall. Understand "sculpture" or "statue" or [even, liberally] "art" as Bottle Cap Wall when the location is Bottle Cap Wall. The printed name of the Bottle Cap Wall is "wall made entirely of bottle caps". The title of Bottle Cap Wall is "Bottle Cap Wall".
+The description of Bottle Cap Wall is "A wall made entirely of bottle caps." Bottle Cap Wall is an improper-named artifact. Understand "mural" as Bottle Cap Wall. Understand "sculpture" or "statue" or [even, liberally] "art" as Bottle Cap Wall when the location is Bottle Cap Wall. The printed name of the Bottle Cap Wall is "wall made entirely of bottle caps". The title of Bottle Cap Wall is "Bottle Cap Wall". Understand "caps" as the Bottle Cap Wall.
+
+Instead of Climbing The Bottle Cap Wall:
+	say "The edges of the bottle caps are too sharp to get a good handhold."
+	
+Instead of opening the Bottle Cap Wall:
+	say "These bottle caps were long ago opened."
 
 Section 38 - Mile Marker 0.7
 
@@ -3355,7 +3392,7 @@ Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "out
 
 Section 47 - Cranberry Bog
 
-The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog."
+The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog." Understand "cranberries" or "berries" or "berry" as the bog.
 
 Cranberry Bog is an improper-named place. Understand "pond" as Cranberry Bog. The printed name of Cranberry Bog is "cranberry bog".
 
@@ -3364,6 +3401,9 @@ Instead of searching the Cranberry Bog:
 	
 Instead of entering the Cranberry Bog:
 	say "You don[apostrophe]t want to become it[apostrophe]s next victim!"
+	
+Instead of swimming in the Bog:
+	say "Too many plants."
 
 Section 48 - Found Art
 
@@ -3410,7 +3450,22 @@ Section 51 - Poison Ivy
 
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]"
 
-Toxicodendron radicans is an improper-named artifact. Understand "poison" or "ivy" or "poison ivy" or "sign" as Toxicodendron radicans. Understand "field" as Toxicodendron radicans when the location is Toxicodendron radicans. The printed name of Toxicodendron radicans is "field of poison ivy". The title of Toxicodendron radicans is "Toxicodendron radicans".
+Toxicodendron radicans is an improper-named artifact. Understand "poison" or "ivy" or "poison ivy" as Toxicodendron radicans. Understand "field" as Toxicodendron radicans when the location is Toxicodendron radicans. The printed name of Toxicodendron radicans is "field of poison ivy". The title of Toxicodendron radicans is "Toxicodendron radicans".
+
+The small sign is scenery in Toxicodendron radicans. The description of the sign is "A tiny sign spiked into the undergrowth. It warns people away from the poison ivy here."
+
+Instead of touching the Toxicodendron radicans for the first time:
+	say "Even though you are itching to do so, you hold back.";
+	bestow "Pruritic Prudence".
+	
+Instead of touching the Toxicodendron radicans:
+	say "Being literate, you heed the sign."
+	
+Instead of doing anything other than examining with the small sign:
+	say "You are not keen to plow through the field of poison ivy."
+	
+	
+
 
 Section 52 - Perilous Passageway
 
