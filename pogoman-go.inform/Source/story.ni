@@ -1742,7 +1742,7 @@ Instead of helping for the fourth time:
 		
 Section 4 - About
 
-Abouting is an action applying to nothing. Understand "about" as abouting.
+Abouting is an action applying to nothing. Understand "about" or "info" or "information" or "ls" as abouting.
 
 Report abouting:
 	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO![paragraph break]";
@@ -1750,7 +1750,7 @@ Report abouting:
 
 Section 5 - Credits
 
-Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" as crediting.
+Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting.
 	
 Report crediting:
 	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? We hear that term is out of favor these days. Story? Yeah, we could go with that. But maybe something that sounds more grand. How about  Œuvre. Yes, that sounds very fancy and even forces interpreters to implement ligatures, so we[apostrophe]ll go with that. Enough about us, onto our honored contributors:[paragraph break]Early Concept Review:[line break]Jacqueline Lott[line break]Sam Kabo Ashwell[paragraph break]First pass editorial review:[line break]TBD[paragraph break]Beta-testers:[line break]TBD[paragraph break]Cover Art:[line break]TBD[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
