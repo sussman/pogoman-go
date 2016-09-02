@@ -8,7 +8,8 @@ The story description is "The world is full of Pogomen, and now that you don’t
 
 Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
-Use Max_DICT_ENTRIES of 1400.
+Use Max_DICT_ENTRIES of 1500.
+
 [Use MAX_OBJECTS of 700.]
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -338,14 +339,14 @@ Instead of inserting a pogothing (called the item) into something:
 	if Exploring The Tower has happened:
 		try dropping the item;
 	otherwise:
-		say notReal.
+		say "[notReal]."
 	
 Instead of touching a pogothing when Around the Town is happening for the first time:
-	say "[notReal][paragraph break]";
+	say "[notReal].[paragraph break]";
 	bestow "Harsh Reality".
 		
 To say notReal:
-	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence."
+	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence"
 	
 Instead of touching a pogothing when Around the Town is happening:
 	say notReal.
@@ -366,6 +367,9 @@ Instead of eating pogochum when Not In Kansas Anymore is happening for the first
 	
 Instead of eating the pogoball:
 	say "While red and round, they are not apples[one of]. This oral fixation is only going to get you in trouble[or][stopping]."
+	
+Instead of eating a pogoEgg:
+	say "It[apostrophe]s not that kind of egg."
 		
 Section 2 - The Wonderful World of Pogometh
 
@@ -862,7 +866,7 @@ Instead of throwing a pogoball at something (called the target):
 			say "[TXT].[paragraph break]";
 			say "You[apostrophe]ve captured ";
 			if Around The Town is happening or Exploring The Tower is Happening:
-				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target]. ";
+				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target].[paragraph break]";
 				awardXP 30; 
 			otherwise:
 				if the target is the defenderPogoman:
@@ -873,7 +877,6 @@ Instead of throwing a pogoball at something (called the target):
 					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping]";
 				say ".";
 			if FIRSTTHROW is true:
-				say line break;
 				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
@@ -1276,7 +1279,7 @@ Carry out inventoryExamining:
 				say "wounded";
 		else:
 			say "healthy";
-		say ".[paragraph break]Note, that only certain commands are available for pogoman in your stock, these include [italic type]drop, transfer, and evolve[roman type]."
+		say ".[paragraph break]Note that only certain commands are available for pogomen in your stock, these include [italic type]drop, evolve, heal, and transfer[roman type]."
 			
 Section 5 - InventoryHealing
 
@@ -1744,9 +1747,12 @@ Section 4 - About
 
 Abouting is an action applying to nothing. Understand "about" or "info" or "information" or "ls" as abouting.
 
-Report abouting:
-	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO![paragraph break]";
+Carry out abouting:
+	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO!"
+	
+After abouting for the first time:
 	bestow "Typed a Meta-Command” .
+
 
 Section 5 - Credits
 
@@ -2961,9 +2967,26 @@ The description of Nyantech Entrance is "A towering edifice hewn from solid obsi
 
 The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
 
-The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" or "harris" or "polanski" as the unicorn.
+The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as badge #794: Officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" or "harris" or "polanski" or "badge" or "hoof" or "hoofs" or "costume" or "794" or "#794" as the unicorn. The unicorn has a number called timesDenied. The timesDenied of the unicorn is 0.
 
 The horn is part of the unicorn. The description of the horn is "A long, twisted horn that ends in a very business-like point; obviously, it is not just ornamentation."
+
+Instead of touching the horn:
+	say "The unicorn turns its heads to the side; touching the horn is considered poor etiquette."
+
+The hat is worn by the unicorn. The description of the hat is "A official narrow-brimmed blue hat that coordinates well with the unicorn[apostrophe]s uniform."
+
+Instead of touching the hat:
+	say "The unicorn shimmies and backs away. It does not like it when people poke it in the head."
+
+The uniform is part of the unicorn. The description of the uniform is "The blue uniform fits pretty well considering the extensive tailoring required for unicorns."
+
+Instead of taking the unicorn:
+	say "I don't suppose the unicorn would care for that.[paragraph break]The unicorn agrees with the parser, [quotation mark]In fact, I wouldn[apostrophe]t.[quotation mark][paragraph break]";
+	bestow "Fourth Wall Broken".
+
+Instead of doing something other than examining with the uniform:
+	say "The unicorn is proud of its uniform, and would prefer that you not mess with it."
 
 The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
@@ -3030,16 +3053,7 @@ To say unicorn4:
 	
 Instead of showing something (called the item) to the unicorn:
 	try giving the item to the unicorn.
-
-Instead of giving something  (called the item) to the unicorn:
-	if the item is not the phone:
-		say "The phone -- I could care about. That? Not so much.";
-	otherwise:
-		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the number of entries in TROPHYLIST is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
-			say "[goOnin]";
-		otherwise:
-			say "[denyPlayerEntry]"
-			
+	
 [to require both level and xp caps implies that we're looking for an XP value above that needed to achieve the player's current level]
 
 To say requirement:
@@ -3057,32 +3071,39 @@ To say requirement:
 				otherwise:
 					say "ERROR: unknown problem with entry requirements".
 					
-To say denyPlayerEntry:
-	say "[one of][deny1][or][deny2][or][deny3][or][deny4][or][deny4][or][deny4][or][deny5][or][deny4][stopping]".
-	
 To say arbitraryNoticeDescription:
 	say "[apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe]".
 	
-To say deny1:
-	say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You still can[apostrophe]t accept this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
-	bestow "Subjected to arbitrary requirements”.
-	
-To say deny2:
-	say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogomon player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
-	bestow "That puts things in perspective”.
-
-To say deny3:
-	say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I’m telling you.[quotation mark][paragraph break]";
-	bestow “But I am a special snowflake”.
-	
+Instead of giving something  (called the item) to the unicorn:
+	if the item is not the phone:
+		say "The phone -- I could care about. That? Not so much.";
+	otherwise:
+		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the number of entries in TROPHYLIST is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
+			say "[goOnin]";
+		otherwise:
+			increase the timesDenied of the unicorn by 1;
+			if the timesDenied of the unicorn is:
+				-- 1:
+					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
+					bestow "Subjected to arbitrary requirements”;
+				-- 2:
+					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogomon player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
+					bestow "That puts things in perspective”;
+				-- 3:
+					say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I’m telling you.[quotation mark][paragraph break]";
+					bestow “But I am a special snowflake”;
+				-- 4:
+					say "[deny4]";
+				-- 5:
+					say "[deny4]";
+					say "The unicorn rolls his eyes and under his breath mutters, [quotation mark]We got a bright one here, eh, Polanski?[quotation mark][paragraph break]From the rear of the unicorn, there is a wry reply, [quotation mark]I know, right?[quotation mark][paragraph break]";
+					bestow "Exceeded The Patience Of A Unicorn";
+				-- otherwise:
+					say "[deny4]".
+					
 To say deny4:
 	say "The unicorn stops you and uses his horn to point out the words on the door [apostrophe]Experienced Players Only. No exceptions -- The management.[apostrophe][paragraph break][quotation mark]Come back when you have at least [requirement].[quotation mark][paragraph break]”
 	
-To say deny5:
-	say deny4;
-	say "The unicorn rolls his eyes and under his breath mutters, [quotation mark]We got a bright one here, eh, Polanski?[quotation mark][paragraph break]From the rear of the unicorn, there is a wry reply, [quotation mark]I know, right?[quotation mark][paragraph break]";
-	bestow "Exceeded The Patience Of A Unicorn".
-		
 To say chitChat:
 	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how J.J. Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[or]how georeferenced gaming has altered the traffic patterns[or]technical innovations in portable and wearable computing[or]blue-sky research that will one day save the whales[or]whether Moore[apostrophe]s law will continue to apply as silicon dies reach atomic resolution[or]the strategic importance of the Bosphorus Straits in limiting Russian access to the Mediterranean for trade and military purposes[or]the organizational structure of ant colonies[or]how rare it is to find dial phones these days[in random order]"
 	
