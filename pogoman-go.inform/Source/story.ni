@@ -497,16 +497,16 @@ Instead of taking a pogostop:
 Section 5 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. 
-Understand "teal" as the gym when the color of the location is teal.
-Understand "chartreuse" as the gym when the color of the location is chartreuse.
-Understand "alizarin crimson" as the gym when the color of the location is alizarin crimson.
-Understand "alizarin" as the gym when the color of the location is alizarin crimson.
-Understand "crimson" as the gym when the color of the location is alizarin crimson.
-Understand "viridian" as the gym when the color of the location is viridian.
-Understand "papayawhip" as the gym when the color of the location is papayawhip.
-Understand "unbleached titanium" as the gym when the color of the location is unbleached titanium.
-Understand "unbleached" as the gym when the color of the location is unbleached titanium.
-Understand "titanium" as the gym when the color of the location is unbleached titanium.
+Understand "teal" as the gym when the player is in a quadroom and the color of the location is teal.
+Understand "chartreuse" as the gym when the player is in a quadroom and  the color of the location is chartreuse.
+Understand "alizarin crimson" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
+Understand "alizarin" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
+Understand "crimson" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
+Understand "viridian" as the gym when the player is in a quadroom and  the color of the location is viridian.
+Understand "papayawhip" as the gym when the player is in a quadroom and  the color of the location is papayawhip.
+Understand "unbleached titanium" as the gym when the player is in a quadroom and  the color of the location is unbleached titanium.
+Understand "unbleached" as the gym when the player is in a quadroom and  the color of the location is unbleached titanium.
+Understand "titanium" as the gym when the player is in a quadroom and  the color of the location is unbleached titanium.
 
 Definition: A quadroom is an okayGymLocation if it is an okayInitialPogostopLocation and it is not listed in GYMLIST.
 
