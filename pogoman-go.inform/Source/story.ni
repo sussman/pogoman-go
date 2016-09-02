@@ -1045,12 +1045,12 @@ Section 2 - InventoryDropping
 InventoryDropping is an action applying to one pogotype.
 
 Understand "drop [pogotype]" as inventoryDropping.
-Understand "drop [tealToken] [pogotype]'" as inventoryDropping when the team color of the player is teal.
-Understand "drop [chartreuseToken] [pogotype]" as inventoryDropping when the team color of the player is chartreuse.
-Understand "drop [alizarinCrimsonToken] [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
-Understand "drop [viridianToken] [pogotype]" as inventoryDropping when the team color of the player is viridian.
-Understand "drop [papayawhipToken] [pogotype]" as inventoryDropping when the team color of the player is papayawhip.
-Understand "drop [unbleachedTitaniumToken] [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
+Understand "drop [tealToken] [pogotype]'" as inventoryDropping.
+Understand "drop [chartreuseToken] [pogotype]" as inventoryDropping.
+Understand "drop [alizarinCrimsonToken] [pogotype]" as inventoryDropping.
+Understand "drop [viridianToken] [pogotype]" as inventoryDropping.
+Understand "drop [papayawhipToken] [pogotype]" as inventoryDropping.
+Understand "drop [unbleachedTitaniumToken] [pogotype]" as inventoryDropping.
 Understand "drop loyal [pogotype]" as InventoryDropping.
 
 Check inventoryDropping:
@@ -1108,16 +1108,12 @@ Section 3 - Transferring
 inventoryTransferring is an action applying to one pogotype. 
 
 Understand "transfer [pogotype]" or "transfer [pogotype] to/-- professor" as inventorytransferring.
-Understand "transfer teal [pogotype]" or "transfer teal [pogotype] to/-- professor" as inventorytransferring when the team color of the player is teal.
-Understand "transfer chartreuse [pogotype]" or "transfer chartreuse [pogotype] to/-- professor" as inventorytransferring when the team color of the player is chartreuse.
-Understand "transfer alizarin crimson [pogotype]" or "transfer alizarin crimson [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
-Understand "transfer crimson [pogotype]" or "transfer crimson [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
-Understand "transfer alizarin [pogotype]" or "transfer alizarin [pogotype] to/-- professor" as inventorytransferring when the team color of the player is alizarin crimson.
-Understand "transfer viridian [pogotype]" or "transfer viridian [pogotype] to/-- professor" as inventorytransferring when the team color of the player is viridian.
-Understand "transfer papayawhip [pogotype]" or "transfer papayawhip [pogotype] to/-- professor" as inventorytransferring when the team color of the player is papayawhip.
-Understand "transfer unbleached titanium [pogotype]" or "transfer unbleached titanium [pogotype] to/-- professor"  as inventorytransferring when the team color of the player is unbleached titanium.
-Understand "transfer unbleached [pogotype]" or  "transfer unbleached titanium [pogotype] to/-- professor" as inventorytransferring when the team color of the player is unbleached titanium.
-Understand "transfer titanium [pogotype]" or "transfer titanium [pogotype] to/-- professor" as inventorytransferring when the team color of the player is unbleached titanium.
+Understand "transfer [tealToken] [pogotype]" or "transfer [tealToken] [pogotype] to/-- professor" as inventorytransferring.
+Understand "transfer [chartreuseToken] [pogotype]" or "transfer [chartreuseToken] [pogotype] to/-- professor" as inventorytransferring.
+Understand "transfer [alizarinCrimsonToken] [pogotype]" or "transfer [alizarinCrimsonToken] [pogotype] to/-- professor" as inventorytransferring.
+Understand "transfer [viridianToken] [pogotype]" or "transfer [viridianToken] [pogotype] to/-- professor" as inventorytransferring.
+Understand "transfer [papayawhipToken] [pogotype]" or "transfer [papayawhipToken] [pogotype] to/-- professor" as inventorytransferring.
+Understand "transfer [unbleachedTitaniumToken] [pogotype]" or "transfer [unbleachedTitaniumToken] [pogotype] to/-- professor"  as inventorytransferring.
 Understand "transfer loyal [pogotype]" or "transfer loyal [pogotype] to/-- professor" as inventorytransferring.
 
 Check inventoryTransferring:
@@ -1155,16 +1151,12 @@ Section 4 - Evolving
 inventoryEvolving is an action applying to one pogotype. 
 
 Understand "evolve [pogotype]" as inventoryEvolving.
-Understand "evolve teal [pogotype]" as inventoryEvolving when the team color of the player is teal.
-Understand "evolve chartreuse [pogotype]" as inventoryEvolving when the team color of the player is chartreuse.
-Understand "evolve alizarin crimson [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
-Understand "evolve alizarin [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
-Understand "evolve crimson [pogotype]" as inventoryEvolving when the team color of the player is alizarin crimson.
-Understand "evolve viridian [pogotype]" as inventoryEvolving when the team color of the player is viridian.
-Understand "evolve papayawhip [pogotype]" as inventoryEvolving when the team color of the player is papayawhip.
-Understand "evolve unbleached titanium [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
-Understand "evolve unbleached [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
-Understand "evolve titanium [pogotype]" as inventoryEvolving when the team color of the player is unbleached titanium.
+Understand "evolve [tealToken] [pogotype]" as inventoryEvolving.
+Understand "evolve [chartreuseToken] [pogotype]" as inventoryEvolving.
+Understand "evolve [alizarinCrimsonToken] [pogotype]" as inventoryEvolving.
+Understand "evolve [viridianToken] [pogotype]" as inventoryEvolving.
+Understand "evolve [papayawhipToken] [pogotype]" as inventoryEvolving.
+Understand "evolve [unbleachedTitaniumToken] [pogotype]" as inventoryEvolving.
 Understand "evolve loyal [pogotype]" as inventoryEvolving.
 
 Check inventoryEvolving:
@@ -1215,16 +1207,12 @@ Section 5 - InventoryExamining
 inventoryExamining is an action applying to one pogotype.
 
 Understand "x [pogotype]" or "examine [pogotype]" as inventoryExamining.
-Understand "x teal [pogotype]"  or "examine teal [pogotype]" as inventoryExamining when the team color of the player is teal.
-Understand "x chartreuse [pogotype]" or "examine chartreuse [pogotype]"  as inventoryExamining when the team color of the player is chartreuse.
-Understand "x alizarin crimson [pogotype]" or "examine alizarin crimson [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
-Understand "x alizarin [pogotype]" or "examine alizarin [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
-Understand "x crimson [pogotype]" or "examine crimson [pogotype]" as inventoryExamining when the team color of the player is alizarin crimson.
-Understand "x viridian [pogotype]" or "examine viridian [pogotype]" as inventoryExamining when the team color of the player is viridian.
-Understand "x papayawhip [pogotype]" or "examine papayawhip [pogotype]" as inventoryExamining when the team color of the player is papayawhip.
-Understand "x unbleached titanium [pogotype]" or "examine unbleached titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
-Understand "x unbleached [pogotype]" or "examine unbleached [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
-Understand "x titanium [pogotype]" or "examine titanium [pogotype]" as inventoryExamining when the team color of the player is unbleached titanium.
+Understand "x [tealtoken] [pogotype]"  or "examine [tealToken] [pogotype]" as inventoryExamining.
+Understand "x [chartreuseToken] [pogotype]" or "examine [chartreuseToken] [pogotype]"  as inventoryExamining.
+Understand "x [alizarinCrimsonToken] [pogotype]" or "examine [alizarinCrimsonToken] [pogotype]" as inventoryExamining.
+Understand "x [viridianToken] [pogotype]" or "examine [viridianToken] [pogotype]" as inventoryExamining.
+Understand "x [papayawhipToken] [pogotype]" or "examine [papayawhipToken] [pogotype]" as inventoryExamining.
+Understand "x [unbleachedTitaniumToken] [pogotype]" or "examine [unbleachedTitaniumToken] [pogotype]" as inventoryExamining.
 Understand "x loyal [pogotype]" or "examine [pogotype]" as InventoryExamining.
 
 Check inventoryExamining:
@@ -1297,16 +1285,12 @@ Section 6 - InventoryHealing
 inventoryHealing is an action applying to one pogotype.
 
 Understand "heal [pogotype]" as inventoryHealing.
-Understand "heal teal [pogotype]" as inventoryHealing when the team color of the player is teal.
-Understand "heal chartreuse [pogotype]"  as inventoryHealing when the team color of the player is chartreuse.
-Understand  "heal alizarin crimson [pogotype]" as inventoryHealing when the team color of the player is alizarin crimson.
-Understand  "heal crimson [pogotype]" as inventoryHealing when the team color of the player is alizarin crimson.
-Understand  "heal alizarin [pogotype]" as inventoryHealing when the team color of the player is alizarin crimson.
-Understand "heal viridian [pogotype]" as inventoryHealing when the team color of the player is viridian.
-Understand  "heal papayawhip [pogotype]" as inventoryHealing when the team color of the player is papayawhip.
-Understand "heal unbleached titanium [pogotype]" as inventoryHealing when the team color of the player is unbleached titanium.
-Understand "heal unbleached [pogotype]" as inventoryHealing when the team color of the player is unbleached titanium.
-Understand "heal titanium [pogotype]" as inventoryHealing when the team color of the player is unbleached titanium.
+Understand "heal [tealToken] [pogotype]" as inventoryHealing.
+Understand "heal [chartreuseToken] [pogotype]"  as inventoryHealing.
+Understand  "heal [alizarinCrimsonToken] [pogotype]" as inventoryHealing.
+Understand "heal [viridianToken] [pogotype]" as inventoryHealing.
+Understand  "heal [papayawhipToken] [pogotype]" as inventoryHealing.
+Understand "heal [unbleachedTitaniumToken] [pogotype]" as inventoryHealing.
 Understand "heal loyal [pogotype]" as inventoryHealing.
 
 Check inventoryHealing:
@@ -6479,7 +6463,7 @@ Instead of switching on the sound system for the first time:
 Instead of switching on the sound system:
 	say "You no longer trust Elon Musk[apostrophe]s musical taste."
 
-The headsUpDisplay is privately-named scenery in the MuskPodRoom. The printed name of the headsUpDisplay is "heads-up display". The headsUpDisplay is not lit. The description of the headsUpDisplay is "[HUDdescription]." Understand "display" or "heads-up" or "holograph" or "holographic" or "projection" or "HUD" as the headsUpDisplay. Understand "launch" as the headsUpDisplay when the headsUpDisplay is not lit. Understand "status" as the headsUpDisplay when the headsUpDisplay is lit. Understand "eject" as the headsUpDisplay when the muskPod is in Pogoland Terminal.
+The headsUpDisplay is privately-named scenery in the MuskPodRoom. The printed name of the headsUpDisplay is "heads-up display". The headsUpDisplay is not lit. The description of the headsUpDisplay is "[HUDdescription]." Understand "display" or "heads-up" or "holograph" or "hologram" or "holographic" or "projection" or "HUD" as the headsUpDisplay. Understand "launch" as the headsUpDisplay when the headsUpDisplay is not lit. Understand "status" as the headsUpDisplay when the headsUpDisplay is lit. Understand "eject" as the headsUpDisplay when the muskPod is in Pogoland Terminal.
 
 To say HUDdescription:
 	say "Currently, the HUD displays the words  [quotation mark]";
