@@ -675,7 +675,7 @@ A pogoentity is a kind of neuter animal.
 	  
 Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild. 
 
-The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDex data for type of defenderPogoman][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured.
+The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDex data for type of defenderPogoman][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured. The defenderPogoman has a number called timesEvolved. The timesEvolved of the defenderPogoman is 0.
 
 To say defendingPogomanName:
 	if the defenderPogoman is injured:
@@ -1187,15 +1187,16 @@ Carry out inventoryEvolving:
 				else:
 					let E be the Ev2 corresponding to the original of the pogotype understood in the Table of Evolution;
 				now the pogoName entry is E;[wounded status carries over]
-				say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into a freshly-minted [E]! ";
+				say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into a freshly-minted [E]![paragraph break]";
 				awardXP EVOLUTION_XP_VALUE;
+				increase timesEvolved of the defenderPogoman by 1;
+				if timesEvolved of the defenderPogoman is:
+					-- 1:
+						bestow "Turned something into something else!";
+					-- 2:
+						bestow "Did something before and it worked, so I did it again";
 				break.
-					
-After inventoryEvolving for the first time:
-	bestow "Turned something into something else!".
-	
-After inventoryEvolving for the second time:
-	bestow "Did something before and it worked, so I did it again". 
+		
 	
 Section 5 - InventoryExamining
 
