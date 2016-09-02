@@ -981,7 +981,7 @@ This is the pogo-inventory rule:
 	sort Table of Inventory in wounded order;
 	sort Table of Inventory in pogoName order;	
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "Alas, you have no pogomen!";
+		say "Alas, you have no pogomen![paragraph break]";
 	otherwise:
 		say "Pogomen Stock:[line break]";
 		let LASTPOGO be the pogoName in row 1 of Table of Inventory;
@@ -3099,20 +3099,49 @@ The description of Ashwell-Lott Estate is "A 19th Century manor house, now a win
 
 Section 10 - Garden Gnome
 
-The description of Garden Gnome Without Head is "A decapitated garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Garden Gnome Without Head is an improper-named artifact. Understand "decapitated" as Garden Gnome Without Head. Understand "sculpture" or "art" as Garden Gnome Without Head when the location is Garden Gnome Without Head. The printed name of Garden Gnome Without Head is "decapitated garden gnome statue". The title of Garden Gnome Without Head is "Garden Gnome Without Head".
+The description of Garden Gnome Without Head is "A[if the beheaded of the Garden Gnome is false]n absurdly happy[otherwise] decapitated[end if] garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Garden Gnome Without Head is an improper-named artifact. Understand "decapitated" or "headless" as Garden Gnome Without Head when the beheaded of the Garden Gnome Without Head is true. Understand "sculpture" or "art" or "figurine" or "statue" as Garden Gnome Without Head when the location is Garden Gnome Without Head. The printed name of Garden Gnome Without Head is "[if the beheaded of the Garden Gnome Without Head is true]decapitated[otherwise]absurdly happy[end if] garden gnome statue". The title of Garden Gnome Without Head is "[if the beheaded of the Garden Gnome Without Head is true]Garden Gnome Without Head[otherwise]Formerly Headless Garden Gnome[end if]". The Garden Gnome Without Head has a truth state called beheaded. The beheaded of the Garden Gnome Without Head is true. Understand "formerly" or "happy" or "absurdly" as the Garden Gnome Without Head when the beheaded of the Garden Gnome Without Head is false.
 
 Instead of attacking the Garden Gnome Without Head, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
 
 The lawn is a scenery in the Garden Gnome Without Head. The description of the lawn is "A real disgrace for the neighborhood, it is overgrown with high weeds." Understand "weed" or "weeds" or "grass" as the lawn. 
 
+Instead of cutting the lawn for the first time:
+	say "Aside from not having a lawn mower, it would be best to first nuke it from high orbit. Who knows what is living in there.[paragraph break]";
+	bestow "Just To Be Sure".
+	
+Instead of cutting the lawn:
+	say "You do not have the tools, time, or inclination to do something so useful. You[apostrophe]ve already wasted enough time just thinking about it rather than playing Pogoman GO! <shudder!>[paragraph break]".
+
 Instead of entering the lawn, say "No thanks. Ticks!"
 
 The severed head is a prop. It is in the void. The description of the severed head is "An absurdly happy little face with a saccharine smile -- everytime you see, you are filled with rage. No wonder someone knocked it off."
 
-Instead of searching the lawn:
-	say "You poke carefully through the weeds.[paragraph break]What's this?[paragraph break]Ah! You've found the gnome's head! It must have been laying there for years.";
+Instead of searching the lawn for the first time:
+	say "You poke carefully through the weeds.[paragraph break]What's this?[paragraph break]Ah! You've found the gnome's head! It must have been laying there for years.[paragraph break]";
 	move the severed head to the player;
 	bestow "Found A Garden Gnome's Severed Head".
+	
+Instead of taking the lawn for the first time:
+	say "An elderly man next door yells at you for messing with the lawn.[paragraph break]";
+	bestow "Get Off My Lawn!".
+
+Instead of taking the lawn:
+	say "Dude. Lay off the grass. There is enough pogometh for everyone."
+	
+Instead of taking the Garden Gnome Without Head for the first time:
+	say "You would never live it down if caught trying to make off with the headless figurine.[paragraph break]";
+	bestow "Gnomish Ignominy".
+	
+Instead of taking the Garden Gnome Without Head:
+	say "It would not go with any of your other furniture."
+	
+Instead of putting the severed head on the Garden Gnome Without Head:
+	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Not a moment later, the gnome shurgs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
+	bestow "Party Time! Rock On!";
+	move the severed head to the void;
+	now the beheaded of the Garden Gnome is false.
+	
+
 	
 Section 11 - Parking Lot Award
 
@@ -3311,14 +3340,25 @@ Section 32 - Gas Station Gazebo
 
 The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] What is it with gas stations and gazebos?[or][stopping]".  Gas Station Gazebo is an improper-named artifact. Understand "building"  as Gas Station Gazebo when the location is Gas Station Gazebo. The title of Gas Station Gazebo is "Gas Station Gazebo". The printed name of Gas Station Gazebo is "gazebo".
 
+Instead of entering the Gas Station Gazebo for the first time:
+	say "Whatever for? There is never, ever, any justification for entering a Gas Station Gazebo.[paragraph break]";
+	bestow "Senseless Revulsion".
+	
+Instead of entering the Gas Station Gazebo when the player is in Gas Station Gazebo:
+	say "Your irrational fear of Gas Station Gazebos prevents you from taking even one step closer to the macabre structure."
+
 Section 33 - Dung Beetle Mural
 
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium." Dung Beetle Mural is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Dung Beetle Mural when the location is Dung Beetle Mural. The printed name of Dung Beetle Mural is "mural". The title of Dung Beetle Mural is "Dung Beetle Mural".
 
 Section 34 - Hank's Tavern
 
-The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "pub".
+The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night (in addition to a good selection of pub food and drinks)." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "pub".
 
+Instead of listening when the player is in Hank's Tavern:
+	say "From the tavern you hear people socializing and the occassional [one of]muffled explosion[or]shattering of porcelain[or]whine of an angle grinder cutting through plate iron[or]whirring of servos[or]sizzle of an industrial laser[or]splatter of plasma-scintered alloy[or]whistling of welding gas[in random order]."
+	
+	
 Section 35 - Olde Train Station
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers." Olde Train Station is an improper-named structure. Understand "old" as Olde Train Station. Understand "building" as Olde Train Station when the location is Olde Train Station. The printed name of Olde Train Station is "station". The title of Olde Train Station is "Olde Train Station".
@@ -3352,6 +3392,18 @@ Section 38 - Mile Marker 0.7
 
 The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what." MarkerSeven is privately-named. MarkerSeven is a proper-named artifact. Understand "seven" or "zero" or "naught" or "point" or "decimal" or "mile" or "marker" or "post" as MarkerSeven.  The printed name of MarkerSeven is "mile marker 0.7". 
 
+Instead of touching MarkerSeven for the first time:
+	say "[oriented].";
+	bestow "You Are Here".
+	
+Instead of touching MarkerSeven:
+	say "[oriented]."
+
+To say oriented:
+	say "You are seized with the absolute conviction that you are less than one mile from [italic type]something[roman type]."
+	
+
+
 Section 39 - Unfathomable Orb
 
 The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
@@ -3369,6 +3421,10 @@ Section 40 - Rottweiler Art
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
 
 Rottweiler Art is an improper-named artifact. Understand "doggy" as Rottweiler Art. Understand "sculpture" or "statue" or "art" as Rottweiler Art when the location is Rottweiler Art. The title of Rottweiler Art is "Rottweiler Art". The printed name of Rottweiler Art is "doggy art".
+
+Instead of smelling the rottweiler art for the first time:
+	say "Smells like some other dogs have already expressed their opinion on this work of art.[paragraph break]";
+	bestow "Everyone Is A Critic".
 
 Section 41 - Sister City Friendship Altar
 
@@ -3415,6 +3471,9 @@ The description of Unearthly Geometry is "You can only stomach a momentary, side
 
 Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outre" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horro" or "grotesque" or "vision" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
 
+Instead of touching the Unearthly Geometry:
+	say "You are momentarily reduced to a state of gibbering idiocy. It lasts only a moment before you fix your eyes back on the cell phone screen and start walking around again. The contrast is unstark."
+
 Section 47 - Cranberry Bog
 
 The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog." Understand "cranberries" or "berries" or "berry" as the bog.
@@ -3434,10 +3493,20 @@ Section 48 - Found Art
 
 The description of Found Art is "A single screw attached to a surfboard.[one of] This is what counts as art these days. Jeesh.[or][stopping]".
 
-Found Art is an improper-named artifact. Understand "surfboard" or "screw" as Found Art. Understand "sculpture" or "statue" or "art" as Found Art when the location is Found Art. The title of Found Art is "Found Art". The printed name of Found Art is "art".
+Found Art is an improper-named artifact. Understand "surfboard" or "board" as Found Art. Understand "sculpture" or "statue" or "art" as Found Art when the location is Found Art. The title of Found Art is "Found Art". The printed name of Found Art is "art".
+
+The screw is a scenery in Found Art. The description of the screw is "An aluminum sheet metal screw that requires a seven-and-a-half triple torx screwdriver."
 
 Instead of searching the Found Art:
 	say "It is right in front of you."
+	
+Instead of turning the screw for the first time:
+	say "You can[apostrophe]t: you don[apostrophe]t have a seven-and-a-half triple torx screwdriver.[paragraph break]";
+	bestow "Torxed".
+	
+Instead of turning or taking the screw:
+	say "It is firmly screwed into the surfboard. This is, after all, a permanent exhibit."
+	
 	
 Section 49 - Crystal Skull
 
