@@ -10,8 +10,6 @@ Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
 Use Max_DICT_ENTRIES of 1500.
 
-[Use MAX_OBJECTS of 700.]
-
 Use full-length room descriptions, american dialect and the serial comma.
 
 [TODO:  Release along with cover art.]
@@ -1100,8 +1098,6 @@ Carry out inventoryDropping:
 			otherwise:
 				say "As soon as the [P] is free, it zips away immediately.";
 			break.		
-			
-
 						
 Section 3 - Transferring
 
@@ -1329,6 +1325,48 @@ Carry out InventoryHealing:
 				say "You drop a bit of pogometh into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.[paragraph break]";
 				decrement pogometh count;
 				break.	
+				
+Section 7 - inventoryGiving
+
+[covers both giving pogometh and pogochum to pogomen in stock]
+
+inventoryGiving is an action applying to one thing and one pogotype. 
+
+Understand "give [pogothing] to [pogotype]" as inventoryGiving.
+
+To say (item - a pogothing) are far too valuable:
+	let P be the printed plural name of the item in title case;
+	say "[P] are too valuable to give away."
+
+Check inventoryGiving:
+	if the noun is:
+		-- pogoBall:	
+			say pogoBall are far too Valuable;
+			stop the action;
+		-- pogoIncense:
+			say pogoIncense are far too Valuable;
+			stop the action;
+		-- pogoEgg:
+			say pogoEgg are far too Valuable;
+			stop the action;
+		-- pogoMeth:
+			try inventoryHealing the pogotype understood;
+			stop the action;
+		-- pogoChum:
+			try inventoryFeeding the pogotype understood;
+			stop the action.
+		
+Carry Out inventoryGiving:
+	do nothing.
+	
+Section 8 - inventoryFeeding
+
+inventoryFeeding is an action applying to one pogotype.
+
+Carry out inventoryFeeding:
+	say "Inventory Fed!".
+
+Section 9 - nonPogoHealing
 
 [without this rule, using heal on anything would result in an error that the object can't be seen, which shoots any semblance of mimesis right in the head
 ]	
