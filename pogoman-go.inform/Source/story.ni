@@ -466,7 +466,7 @@ Instead of switching on pogoincense:
 
 Section 4 - Pogostops
 
-The pogostop is a backdrop. Understand "stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
+The pogostop is a backdrop. Understand "stop" or "signpost" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
@@ -1695,8 +1695,9 @@ Section AwardXP
 
 To AwardXP (award - a number):
 	increase the XP of the player by award;
-	say "(You receive [award] XP!)[run paragraph on]";
-	say paragraph break.
+	if SUPPRESSMEDALS is false:
+		say "(You receive [award] XP!)[run paragraph on]";
+		say paragraph break.
 	
 
 Chapter Actions
@@ -2354,7 +2355,7 @@ To Bestow (medallion - some text):
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
 		-- 3: 
-			say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about them. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
+			say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about medals and XP. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
 			bestow "Now Your Phone Is Talking To You";
 		-- 5:
 			bestow "You Just Collected Five Medals";
@@ -2378,7 +2379,8 @@ Carry out muting:
 	if SUPPRESSMEDALS is false:
 		now SUPPRESSMEDALS is true;
 		if SUPPRESSMEDALS is true for the first time:
-			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on.";
+			say "You phone gushes, [quotation mark]Congratulations! You have earned the [apostrophe]Muted further notifications about medals[apostrophe] medal, which will kick in after this notification. When your ego cries out again for constant affirmation, you can again use the [quotation mark]mute[quotation mark] command to turn it back on.[paragraph break]";
+			add "Muted Further Notifications About Medals" to MEDALLIST;
 			awardXP 10;
 		otherwise:
 			say "Medals muted!";
