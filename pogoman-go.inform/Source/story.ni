@@ -52,7 +52,7 @@ The possible exits of an externalRoom are "[externalRoomExits]."
 
 Deck rooms are a kind of room. The description of deck rooms is "[deckDescription]." The possible exits of deck rooms is "[deckExits]."
 
-Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]."
+Staircase rooms are a kind of room. The description of staircase rooms is "[stairwellDescription]." 
 
 To say externalRoomExits:
 	let D be a list of directions;
@@ -688,7 +688,7 @@ To say defendingPogomanName:
 The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDex data for type of attackerPogoman][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
 
 To say attackingPogomanName:
-	say "[if the attackerPogoman is injured]wounded [end if][if exploring the tower has happened]attacking[otherwise]wild[end if] [type of attackerPogoman]".
+	say "[if the attackerPogoman is injured]wounded [end if][if Not in Kansas Anymore is happening]attacking[otherwise]wild[end if] [type of attackerPogoman]".
 
 Instead of taking a pogoentity:
 	say "You'll have to throw a Pogoball at it to capture it!".
@@ -1135,7 +1135,7 @@ Carry out inventoryTransferring:
 		choose row N in the Table of Inventory;
 		if the pogoName entry is the pogotype understood:
 			blank out the whole row;
-			say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]! ";
+			say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]![paragraph break]";
 			awardXP TRANSFER_XP_VALUE;
 			break.		
 	
@@ -4400,11 +4400,14 @@ After examining the stamp for the first time:
 	bestow "Sense of Belonging".
 	
 Instead of rubbing the stamp for the first time:
-	say "[rubPhrase][paragraph break]";
+	say "[rubPhrase].[paragraph break]";
 	bestow "Don[apostrophe]t Label Me".
 	
+Instead of rubbing the stamp:
+	say "[rubPhrase]."
+	
 To say rubPhrase:
-	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected."
+	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected"
 
 After going inside from the revolvingDoor for the first time:
 	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts them in a bag.[paragraph break][quotation mark]You’ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
@@ -4548,7 +4551,7 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of red CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control. The CAT Control has a number called PEC. The PEC of the CAT control is 0. The CAT Control has a number called MegaCats. The MegaCats of the CAT Control is 0. The CAT Control has a truth state called the onHoldFlag. The onHoldFlag of the CAT Control is true.
+The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control. The CAT Control has a number called PEC. The PEC of the CAT control is 0. The CAT Control has a number called MegaCats. The MegaCats of the CAT Control is 0. The CAT Control has a truth state called the onHoldFlag. The onHoldFlag of the CAT Control is false.
 
 
 The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" as the numerical counter.
@@ -4944,11 +4947,14 @@ To say stairwellDescription:
 
 The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are staircase rooms in the Stairwell. The Stairwell is in HQ.	
 
+The concrete is a backdrop in the Stairwell. The description of the concrete is "Monotonous light grey concrete." Understand "wall" or "walls" or "floor" or "floors" or "ceiling" as the concrete.
+
 Section 23 - Stairs -Ground
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
 After going north from the lobby for the first time:
+	say the headline of the location;
 	bestow "Snooping Around".
 
 The printed name of the StairsGround is "Emergency Stairs: Ground Level". The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
@@ -4977,7 +4983,7 @@ To say printedSubBasementDoor:
 		otherwise:
 			say "blue corridor"
 	
-The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The possible exits of StairsSSB is "To the south there is a red door with no label."
+The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The possible exits of StairsSSB is "To the south there is a red door with no label." 
 
 The subSubBasementDoor is a red door. It is north of the Make Over Suite and south of the StairsSSB.
 
@@ -4985,7 +4991,7 @@ The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the loca
 
 Section 27 - Stairs - Interns
 
-The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor.
+The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor. The internsDoor is north of Interns. The internsDoor is south of StairsInterns.
 
 The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The possible exits of StairsInterns is "To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
 
@@ -5230,7 +5236,7 @@ To say deckExits:
 	say "[the O]";
 	if the location is:
 		-- deckN:
-			say ". The door to the emergency stairs is to the south";
+			say ". The door to the emergency stairs is to the north";
 		-- deckS: 
 			say ". The roof-top restaurant is to the north".
 
@@ -5367,7 +5373,7 @@ Section 42 - Cat Overhead Proxies
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
 To decide whether the cat is visible from overhead:
-	if onHoldFlag of the CAT Control is false, yes;
+	if onHoldFlag of the CAT Control is true, yes;
 	if the player is in DeckS and entry 1 in HEADING is listed in {"SE", "S", "SW"}, yes;
 	if the player is in DeckN and entry 1 in HEADING is listed in {"NW", "N", "NE"}, yes;
 	if the player is in DeckW and entry 1 in HEADING is listed in {"SW", "W", "NW"}, yes;
@@ -5375,22 +5381,22 @@ To decide whether the cat is visible from overhead:
 	decide no.
 	
 To say invisibleOverhead:
-	say "You can[apostrophe]t get a good look at the cat from your current position -- one of you has got to move."
+	say "You can[apostrophe]t get a good look at the cat from your current position due to its rotation around the building"
 	
 To visualize (overheadDescription - some text):
 	if player is in the Deck Area:
 		if the cat is visible from overhead:
-			say "[overheadDescription]";
+			say "[overheadDescription].";
 		otherwise: 
-			say "[invisibleOverhead]";
+			say "[invisibleOverhead].";
 	otherwise:
-		say "[overheadDescription]".
+		say "[overheadDescription].".
 	
 [in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
 The catProxyOverhead is a catTopDrop. The catProxyOverhead is in Cat's Beret, Maintenance Hatch, CatWalk, Poop Deck, and Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or  "vessel" as the catProxyOverhead. The description of the catProxyOverhead is "[describeCatPO]".
 
 To say describeCatPO:
-	visualize "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail."
+	visualize "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the crossmember of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail"
 	
 Instead of examining the catProxyOverhead when the player is in a cat-top room:
 	say "You are standing on top of it."
@@ -5398,12 +5404,12 @@ Instead of examining the catProxyOverhead when the player is in a cat-top room:
 The eyesProxyOverhead is a catTopDrop. The eyesProxyOverhead is in the Deck Area. The printed name of the eyesProxyOverhead is "eyes". Understand "red" or "glowing" or "eye" or "eyes" as the eyesProxyOverhead. The description of the eyesProxyOverhead is "[describeEyesPO]".
 
 To say describeEyesPO:
-	visualize "The cat's deep red eyes seem to glow as they search the landscape."
+	visualize "The cat's deep red eyes seem to glow as they search the landscape"
 
 The beretProxyOverhead is a catTopDrop. The beretProxyOverhead is in the Maintenance Hatch, Catwalk, Poop Deck and Deck Area. The printed name of the beretProxyOverhead is "beret". Understand "red" or "beret" or "hat" or "chapeau" or "hut" or "sombrero" or "bunka-kwunk" or "shapka" or "shlyapa" or "hoed" or "bean" or "bag" or "cushion" as the beretProxyOverhead. The description of the beretProxyOverhead is "[describeBeretPO]".
 
 To say describeBeretPO:
-	visualize "[beretText]."
+	visualize "[beretText]"
 	
 To say beretText:
 	say "From the ground, the fabric in the cat's beret looks like a felt, but from up here it looks more like heavy canvas. It bellows slightly in the wind and looks like it is filled with something soft like foam rubber"
@@ -5411,7 +5417,7 @@ To say beretText:
 The hatchProxyOverhead is a catTopDrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" or "hatchway" or "bulkhead" or "maintenance" or "neck" as the hatchProxyOverhead. The description of the hatchProxyOverhead is "[describeHatchPO]".
 
 To say describeHatchPO:
-	visualize "[hatchText]."
+	visualize "[hatchText]"
 	
 To say hatchText:
 	say  "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]"
@@ -5419,7 +5425,7 @@ To say hatchText:
 The catWalkProxyOverhead is a catTopDrop. The catWalkProxyOverhead is in Cat's Beret, Maintenance Hatch, and Poop Deck. The catWalkProxyOverhead is in the Deck Area. The printed name of catWalkProxyOverhead is "scaffold". Understand "scaffold" or "catwalk" or "poptart" as the catWalkProxyOverhead. The description of the catWalkProxyOverhead is "[describeCatwalkPO]".
 
 To say describeCatwalkPO:
-	visualize "[catWalkText]."
+	visualize "[catWalkText]"
 	
 To say catWalkText:
 	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. Quite a bit below the scaffold on the side of the cat facing the building, a lattice-work boom extends from the building to support the cat about fifty stories above the ground"
@@ -5427,12 +5433,12 @@ To say catWalkText:
 The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" or "grue" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
 
 To say describeBoomPO:
-	visualize "A heavy metal boom extends from the building to the cat and supports its as the cat rotates around the building. The boom is rectangular in cross-section, with side walls composed of metal tubing. The center of the boom is hollow the bottom is solid, so it looks like the boom may serve as maintenance access to the cat."
+	visualize "A heavy metal boom extends from the building to the cat and supports its as the cat rotates around the building. The boom is rectangular in cross-section, with side walls composed of metal tubing. The center of the boom is hollow the bottom is solid, so it looks like the boom may serve as maintenance access to the cat"
 
 The poopProxyOverhead is a catTopDrop. The poopProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, and Deck Area. The printed name of poopProxyOverhead is "rear end of the cat". Understand "butt" or "rear" or "end" or "pipe" or "tail" or "exhaust" or "output" or "port" or "poop" or "tube" or "glitter" or "sparkles" as poopProxyOverhead. The description of the poopProxyOverhead is "[describePoopPO]".
 
 To say describePoopPO:
-	visualize "[poopText]."
+	visualize "[poopText]"
 	
 To say poopText:
 	say "It is hard to see the town through the spewing spray of sparks out of a tin pipe at the rear of the cat"
@@ -7324,34 +7330,44 @@ Instead of dropping the badge, say "No. They'll have to peel it from your cold, 
 Definition: a door (called the portal) is interdicted if the securityColor of the portal is greater than the securityColor of the badge.
 
 Instead of opening an interdicted door for the first time:
+	say the headline of the location;
 	say "Your arm immediately goes numb and drops to your side when you touch the stairway door. After a moment, you swing your arm clumsily from the shoulder and sensation slowly returns. When the pins and needles abate, you seem undamaged. Well, no harm, no foul.[paragraph break]";
 	bestow "Misplaced Optimism".
 	
 Instead of opening an interdicted door for the second time:
+	say the headline of the location;
 	say "When you touch the door, your knees feel wobbly and buckle beneath you. You catch yourself against the wall and manage a controlled descent to the concrete floor, where you sit for a moment. The feeling wears off as quickly as it onset and you are back on your feet in no time. You reason that you shouldn’t have skipped breakfast, the most important meal of the day.[paragraph break]";
 	bestow "Specious Reasoning".
 	
 Instead of opening an interdicted door for the third time:
+	say the headline of the location;
 	say "The last thing you remember was trying to open the stairway door. You aren’t sure how long you’ve been passed out, but you are glad that there isn’t a lot of traffic on the stairs and that no one saw you. Perhaps you are dehydrated from all the walking you’ve been doing while playing the game.[paragraph break]";
 	bestow "Poor Understanding of Physiology".
 	
+To say bright flash:
+	say "There is a bright flash as you touch the door...[paragraph break]".
+	
 Instead of opening an interdicted door for the fourth time:
+	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 	
 Instead of opening an interdicted door for the fifth time:
+	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 
 Instead of opening an interdicted door for the sixth time:
+	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
 	hospital discharge.
 	
 Instead of opening an interdicted door:
+	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
 	hospital discharge.
