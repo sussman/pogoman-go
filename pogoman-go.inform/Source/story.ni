@@ -1029,21 +1029,28 @@ Chapter Commands Operating On Pogoman Inventory
 
 [these commands operate on the text value in the topicLookup column of the inventory table. That column is created based on the pogotype value of the pogoman at the time it is added to the inventory]
 
-section 1 - InventoryDropping
+
+
+Section 1 - Inventory Grammar Tokens
+
+Understand "teal" as "[tealToken]" when the team color of the player is teal.
+Understand "chartreuse" as "[chartreuseToken]" when the team color of the player is chartreuse.
+Understand "alizarin crimson" or "alizarin" or "crimson" as  "[alizarinCrimsonToken]" when the team color of the player is alizarin crimson.
+Understand "viridian" as "[viridianToken]" when the team color of the player is viridian.
+Understand "papayawhip" as "[papayaWhipToken]" when the team color of the player is papayawhip.
+Understand "unbleached titanium" or "unbleached" or "titanium" as "[unbleachedTitaniumToken]" when the team color of the player is unbleached titanium.
+
+Section 2 - InventoryDropping
 
 InventoryDropping is an action applying to one pogotype.
 
 Understand "drop [pogotype]" as inventoryDropping.
-Understand "drop teal [pogotype]'" as inventoryDropping when the team color of the player is teal.
-Understand "drop chartreuse [pogotype]" as inventoryDropping when the team color of the player is chartreuse.
-Understand "drop alizarin crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
-Understand "drop alizarin [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
-Understand "drop crimson [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
-Understand "drop viridian [pogotype]" as inventoryDropping when the team color of the player is viridian.
-Understand "drop papayawhip [pogotype]" as inventoryDropping when the team color of the player is papayawhip.
-Understand "drop unbleached titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
-Understand "drop unbleached [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
-Understand "drop titanium [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
+Understand "drop [tealToken] [pogotype]'" as inventoryDropping when the team color of the player is teal.
+Understand "drop [chartreuseToken] [pogotype]" as inventoryDropping when the team color of the player is chartreuse.
+Understand "drop [alizarinCrimsonToken] [pogotype]" as inventoryDropping when the team color of the player is alizarin crimson.
+Understand "drop [viridianToken] [pogotype]" as inventoryDropping when the team color of the player is viridian.
+Understand "drop [papayawhipToken] [pogotype]" as inventoryDropping when the team color of the player is papayawhip.
+Understand "drop [unbleachedTitaniumToken] [pogotype]" as inventoryDropping when the team color of the player is unbleached titanium.
 Understand "drop loyal [pogotype]" as InventoryDropping.
 
 Check inventoryDropping:
@@ -1093,8 +1100,10 @@ Carry out inventoryDropping:
 			otherwise:
 				say "As soon as the [P] is free, it zips away immediately.";
 			break.		
+			
+
 						
-Section 2 - Transferring
+Section 3 - Transferring
 
 inventoryTransferring is an action applying to one pogotype. 
 
@@ -1141,7 +1150,7 @@ Carry out inventoryTransferring:
 After inventoryTransferring for the first time:
 	bestow "Practicality in managing resources".
 
-Section 3 - Evolving
+Section 4 - Evolving
 
 inventoryEvolving is an action applying to one pogotype. 
 
@@ -1200,7 +1209,7 @@ After inventoryEvolving for the first time:
 After inventoryEvolving for the second time:
 	bestow "Did something before and it worked, so I did it again". 
 	
-Section 4 - InventoryExamining
+Section 5 - InventoryExamining
 
 
 inventoryExamining is an action applying to one pogotype.
@@ -1283,7 +1292,7 @@ Carry out inventoryExamining:
 			say "healthy";
 		say ".[paragraph break]Note that only certain commands are available for pogomen in your stock, these include [italic type]drop, evolve, heal, and transfer[roman type]."
 			
-Section 5 - InventoryHealing
+Section 6 - InventoryHealing
 
 inventoryHealing is an action applying to one pogotype.
 
