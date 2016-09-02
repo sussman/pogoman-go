@@ -234,7 +234,7 @@ A pogothing is a kind of thing.
 
 A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoballs at them[or][stopping].".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
 
-A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
+A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
 A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogomen feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
@@ -309,11 +309,10 @@ Instead of dropping a pogothing (called the item):
 				otherwise:												
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
-						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transfered to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if]. ";
+						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transferred to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if].[paragraph break]";
 						now pogoName entry is P;
 						now wounded entry is false;						
 						AwardXP EGG_HATCH_XP_VALUE;
-						say line break;
 						decrement pogoEgg count;
 						break.
 			
@@ -328,7 +327,10 @@ Instead of putting a pogothing (called the item) on something:
 
 Instead of throwing a pogothing (called the item) at:
 	if the item is the pogoball:
-		continue the action;
+		if the second noun is a room:
+			try dropping the pogoball;
+		otherwise:
+			continue the action;
 	otherwise:
 		if Exploring The Tower has happened:
 			try dropping the item;
@@ -803,7 +805,7 @@ To generate a pogoman:
 
 Section 8 - Capture Pogomen
 
-Capturing is an action applying to a thing. Understand "capture [thing]" as capturing.
+Capturing is an action applying to a thing. Understand "capture [thing]" or "catch [thing]" as capturing.
 
 Check capturing:
 	if the noun is a person:
@@ -881,7 +883,7 @@ Instead of throwing a pogoball at something (called the target):
 				now FIRSTTHROW is false;
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
-			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].";
+			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
 	otherwise:
 		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.[paragraph break]";
 	decrement pogoball count.
@@ -1476,7 +1478,7 @@ To say picked a nice color:
 	while C is the team color of the player:
 		let R be a random number from 1 to the number of entries in CORE_TEAM_COLORS;
 		let C be entry R in CORE_TEAM_COLORS;
-	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first :-([paragraph break]";
+	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first [unicode 9785][unicode 9785][unicode 9785][paragraph break]";
 	now the teamColorPrompt of the player is 0.
 
 Section 2 - Room Headers and Headlines
@@ -1600,6 +1602,10 @@ Section 9 - Allow Throwing At Inanimate Objects
 
 The futile to throw things at inanimate objects rule is not listed in the check throwing it at rules.
 The block throwing at rule is not listed in the check throwing it at rules.
+
+Instead of throwing something (called the projectile) at a room:
+	try dropping the projectile.
+
 	
 Chapter Activities
 
@@ -1717,7 +1723,7 @@ Carry out spinning:
 			add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 			increase pogoEggsCarried of the player by E;
 			move the pogoEgg to the player;
-		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up[one of]. Your pogostop booty shows up immediately in your inventory and is ready for use[or][stopping]. ";
+		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up[one of]. Your pogostop booty shows up immediately in your inventory and is ready for use[or][stopping].[paragraph break]";
 		awardXP POGOSTOP_XP_VALUE;
 		now the time stamp of the location of the player is the TURNCOUNTER.
 
@@ -2217,7 +2223,7 @@ Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals.
 Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy".
 
 Before doing something other than examining with the medals when Around The Town is happening for the first time:
-	say "The medals aren[apostrophe]t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[conditional paragraph break]";
+	say "The medals aren[apostrophe]t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[paragraph break]";
 	add "Medal Self-Reference" to MEDALLIST;
 	say awardParadox;
 	stop the action.
@@ -2229,7 +2235,7 @@ Before doing something other than examining with the bronzes when Around The Tow
 	stop the action.
 	
 To say awardParadox:
-	say "Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone[apostrophe]s resources and locks it up. Sorry.[paragraph break]";
+	say "Earning that medal, however, creates some sort of recursive loop, which immediately depletes your phone[apostrophe]s resources and locks it up.[paragraph break]Sorry.[paragraph break]";
 	freeze the phone;
 	stop the action.
 	
@@ -2796,9 +2802,9 @@ Nyantech Entrance is a quadroom.
 
 Old Jail, Dung Beetle Mural, Witch Pillory, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Johnson's Rock, City Park, and Hook & Ladder are nord quadrooms. 
 
-Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
+Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Headless Garden Gnome, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, and Found Art are sud quadrooms.
 
-Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
+Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Headless Garden Gnome, Bottle Cap Wall, Krusty Kronuts, and Prissy's Little Sausages are ouest quadrooms.
 
 General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, Gas Station Gazebo, Old Town Hall, Ashwell-Lott Estate, Found Art, Rotary Clock Tower, Floyd Memorial Bench, and The Olde Train Station are est quadrooms. 
 
@@ -2810,7 +2816,7 @@ The Superhighway is a ouest quadroom. The Superhighway is west from Dung Beetle 
 
 The description of Superhighway is "A busy highway to the west of town." Understand "road" or "highway" or "thruway" or "parkway" or "motorway" or "superhighway" as the Superhighway.  The superhighway is improper-named. The printed name of superhighway is "superhighway". The title of superhighway is "Superhighway 17".
 
-The Tarpit is a sud quadroom. The Tarpit is south from Unearthly Geometry. The Tarpit is south from MarkerSeven. The Tarpit is south from Garden Gnome Without Head. The Tarpit is south from  Found Art. The Tarpit is south from Rottweiler Art. The Tarpit is south from Hank's Tavern. The Tarpit is south from Gas Station Gazebo. 
+The Tarpit is a sud quadroom. The Tarpit is south from Unearthly Geometry. The Tarpit is south from MarkerSeven. The Tarpit is south from Headless Garden Gnome. The Tarpit is south from  Found Art. The Tarpit is south from Rottweiler Art. The Tarpit is south from Hank's Tavern. The Tarpit is south from Gas Station Gazebo. 
 
 The description of Tarpit is "Petroleum-belching tar fields to the south of town."  Understand "field" or "fields" or "pit" or "tarpit" or "tar" as the Tarpit. The printed name of Tarpit is "tarpit". The title of Tarpit is "The Tarpit". Understand "tarpits" or "infamous" as the tarpit.
 
@@ -2896,7 +2902,7 @@ Eagle's Sojourn is north of Flan Emporium.
 Year1893 is west of Flan Emporium and north of Hank's Tavern.
 Fire Is Our Friend is west of Year1893 and north of Rottweiler Art.
 Ashwell-Lott Estate is west of Fire Is Our Friend and north of Found Art.
-Parking Lot Award is west of Ashwell-Lott Estate and north of Garden Gnome Without Head.
+Parking Lot Award is west of Ashwell-Lott Estate and north of Headless Garden Gnome.
 Biocontainment Facility is west of Parking Lot Award and north of MarkerSeven. 
 Vuvuzelas for Freedom is west of Biocontainment Facility and north of Unearthly Geometry.
 Flan Emporium is north of Gas Station Gazebo.
@@ -2904,11 +2910,11 @@ Flan Emporium is north of Gas Station Gazebo.
 Hank's Tavern is west of Gas Station Gazebo.
 Rottweiler Art is west of Hank's Tavern.
 Found Art is west of Rottweiler Art.
-Garden Gnome Without Head is west of Found Art.
-MarkerSeven is west of Garden Gnome Without Head.
+Headless Garden Gnome is west of Found Art.
+MarkerSeven is west of Headless Garden Gnome.
 Unearthly Geometry is west of MarkerSeven.
 
-The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Garden Gnome Without Head, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
+The Village is a region. Dung Beetle Mural, Witch Pillory, Old Jail, Cyclorama, Flag Pole, Old Courthouse, Unfathomable Orb, Service Dog Memorial, Spit n' Solder, General Nelson, Church of the Orthogonal Sticks, Crystal Skull, Yummi Tummi Softserve, Giant Chicken, Telescope Nymph, The Gardens of Zarf, Welbourn Travel, Dog Exercise Area, Johnson's Rock, City Park, Hook & Ladder, Nyantech Entrance, Bottle Cap Wall, Krusty Kronuts, Prissy's Little Sausages, Rotary Clock Tower, Floyd Memorial Bench, The Olde Train Station, Old Town Hall, Ashwell-Lott Estate, Found Art, Toxicodendron radicans, Battle of Margot's Pantry, Cranberry Bog, Vuvuzelas For Freedom, Biocontainment Facility, Parking Lot Award, Unearthly Geometry, MarkerSeven, Headless Garden Gnome, Sister City Friendship Altar, Perilous Passageway, Eagle's Sojourn, Fire Is Our Friend, Year1893, Flan Emporium, Rottweiler Art, Hank's Tavern, and Gas Station Gazebo are in The Village.
 
 Section 2 - Location-specific elements in The Village
 
@@ -3120,11 +3126,11 @@ The description of Ashwell-Lott Estate is "A 19th Century manor house, now a win
 
 Section 10 - Garden Gnome
 
-The description of Garden Gnome Without Head is "A[if the beheaded of the Garden Gnome is false]n absurdly happy[otherwise] decapitated[end if] garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Garden Gnome Without Head is an improper-named artifact. Understand "decapitated" or "headless" as Garden Gnome Without Head when the beheaded of the Garden Gnome Without Head is true. Understand "sculpture" or "art" or "figurine" or "statue" as Garden Gnome Without Head when the location is Garden Gnome Without Head. The printed name of Garden Gnome Without Head is "[if the beheaded of the Garden Gnome Without Head is true]decapitated[otherwise]absurdly happy[end if] garden gnome statue". The title of Garden Gnome Without Head is "[if the beheaded of the Garden Gnome Without Head is true]Garden Gnome Without Head[otherwise]Formerly Headless Garden Gnome[end if]". The Garden Gnome Without Head has a truth state called beheaded. The beheaded of the Garden Gnome Without Head is true. Understand "formerly" or "happy" or "absurdly" as the Garden Gnome Without Head when the beheaded of the Garden Gnome Without Head is false.
+The description of Headless Garden Gnome is "A[if the beheaded of the Garden Gnome is false]n absurdly happy[otherwise] decapitated[end if] garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Headless Garden Gnome is an improper-named artifact. Understand "decapitated" or "headless" as Headless Garden Gnome when the beheaded of the Headless Garden Gnome is true. Understand "sculpture" or "art" or "figurine" or "statue" as Headless Garden Gnome when the location is Headless Garden Gnome. The printed name of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]decapitated[otherwise]absurdly happy[end if] garden gnome statue". The title of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]Headless Garden Gnome[otherwise]Formerly Headless Garden Gnome[end if]". The Headless Garden Gnome has a truth state called beheaded. The beheaded of the Headless Garden Gnome is true. Understand "formerly" or "happy" or "absurdly" as the Headless Garden Gnome when the beheaded of the Headless Garden Gnome is false.
 
-Instead of attacking the Garden Gnome Without Head, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
+Instead of attacking the Headless Garden Gnome, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
 
-The lawn is a scenery in the Garden Gnome Without Head. The description of the lawn is "A real disgrace for the neighborhood, it is overgrown with high weeds." Understand "weed" or "weeds" or "grass" as the lawn. 
+The lawn is a scenery in the Headless Garden Gnome. The description of the lawn is "A real disgrace for the neighborhood, it is overgrown with high weeds." Understand "weed" or "weeds" or "grass" as the lawn. 
 
 Instead of cutting the lawn for the first time:
 	say "Aside from not having a lawn mower, it would be best to first nuke it from high orbit. Who knows what is living in there.[paragraph break]";
@@ -3149,14 +3155,14 @@ Instead of taking the lawn for the first time:
 Instead of taking the lawn:
 	say "Dude. Lay off the grass. There is enough pogometh for everyone."
 	
-Instead of taking the Garden Gnome Without Head for the first time:
+Instead of taking the Headless Garden Gnome for the first time:
 	say "You would never live it down if caught trying to make off with the headless figurine.[paragraph break]";
 	bestow "Gnomish Ignominy".
 	
-Instead of taking the Garden Gnome Without Head:
+Instead of taking the Headless Garden Gnome:
 	say "It would not go with any of your other furniture."
 	
-Instead of putting the severed head on the Garden Gnome Without Head:
+Instead of putting the severed head on the Headless Garden Gnome:
 	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Not a moment later, the gnome shurgs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
 	bestow "Party Time! Rock On!";
 	move the severed head to the void;
@@ -3473,7 +3479,7 @@ Telescope Nymph is an improper-named artifact. Understand "with" as Telescope Ny
 
 Section 45 - Fire Is Our Friend
 
-The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Bridge 11."
+The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Brigade 11."
 
 Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
 
@@ -3770,10 +3776,10 @@ Instead of going a bad idea direction (called the way):
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 				say the headline of the location of the player;
-				say "Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
+				say "Are you sure you want to go that way?[paragraph break]Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
 				-- 1:
 					say the headline of the location of the player;
-					say "From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
+					say "You are just a bit hesistant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
 					bestow "One Jersey Barrier From Certain Death";
 				-- 2:
 					say the headline of R;
@@ -3786,10 +3792,10 @@ Instead of going a bad idea direction (called the way):
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 					say the headline of the location of the player;
-					say "You can smell the sulfourous tarpits just to the south of town.";
+					say "You can smell the sulfourous tarpits just to the south of town. Are you sure you want to go that way?";
 				-- 1:
 					say the headline of the location of the player;
-					say "No, you’d rather not go that way: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
+					say "You are reluctant to head south: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
 					bestow "Smarter (probably) Than A Prehistoric Sloth";
 				-- 2:
 					say the headline of R;
@@ -7324,7 +7330,7 @@ To freeze the phone:
 	now the phone is hung;
 	now BLOCKPOGOMANFLAG is true.
 
-The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening."
+The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening." Understand "TEM" as the Teslatronic Energy Module.
 
 Instead of throwing the phone at:
 	try dropping the phone.
