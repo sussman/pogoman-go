@@ -1368,14 +1368,42 @@ Carry Out inventoryGiving:
 	
 Section 8 - inventoryFeeding
 
-inventoryFeeding is an action applying to one pogotype.
+inventoryFeeding is an action applying to one pogotype.  
+
+Understand "feed [pogotype]" as inventoryFeeding.
+Understand "feed [tealToken] [pogotype]" as inventoryFeeding.
+Understand "feed [chartreuseToken] [pogotype]"  as inventoryFeeding.
+Understand  "feed [alizarinCrimsonToken] [pogotype]" as inventoryFeeding.
+Understand "feed [viridianToken] [pogotype]" as inventoryFeeding.
+Understand  "feed [papayawhipToken] [pogotype]" as inventoryFeeding.
+Understand "feed [unbleachedTitaniumToken] [pogotype]" as inventoryFeeding.
+Understand "feed loyal [pogotype]" as inventoryFeeding.
 
 Check inventoryFeeding:
-	say "UNFED YET.";
-	stop the action.
-
+	if the pogoChumsCarried of the player is less than 1:
+		say "You are out of PogoChum[one of]! You need PogoChum to feed your pogomen[or][stopping]!";
+		stop the action;
+	sort Table of Inventory in wounded order;
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "You have no pogomen in stock to feed!";
+		stop the action;
+	otherwise:
+		let PRESENT be false;
+		repeat with N running from 1 to the number of rows in Table of Inventory:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			if the pogoName entry is the pogotype understood:
+				let PRESENT be true;
+				break;
+		if PRESENT is false:
+			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			stop the action.
+			
 Carry out inventoryFeeding:
-	say "Inventory Fed!".
+	say "A pogoball cracks open, a miniature arm reaches out, and the PogoChum disappears into the ball. Shortly after, you hear satisfied chewing sounds.[paragraph break]";
+	awardXP CHUMMING_XP_VALUE;
+	decrement pogochum count.
 
 Section 9 - nonPogoHealing
 
