@@ -1333,6 +1333,13 @@ Section 7 - inventoryGiving
 inventoryGiving is an action applying to one thing and one pogotype. 
 
 Understand "give [pogothing] to [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to [tealToken] [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to [chartreuseToken] [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to [alizarinCrimsonToken] [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to [viridianToken] [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to [papayawhipToken] [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to [unbleachedTitaniumToken] [pogotype]" as inventoryGiving.
+Understand "give [pogothing] to loyal [pogotype]" as inventoryGiving.
 
 To say (item - a pogothing) are far too valuable:
 	let P be the printed plural name of the item in title case;
@@ -1362,6 +1369,10 @@ Carry Out inventoryGiving:
 Section 8 - inventoryFeeding
 
 inventoryFeeding is an action applying to one pogotype.
+
+Check inventoryFeeding:
+	say "UNFED YET.";
+	stop the action.
 
 Carry out inventoryFeeding:
 	say "Inventory Fed!".
