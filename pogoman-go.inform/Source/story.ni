@@ -1615,6 +1615,8 @@ Rule for printing inventory details of a pogoegg-kind:
 	
 Rule for printing inventory details of a pogoincense-kind:
 	say " ([pogoIncenseCarried of the player] total)[run paragraph on]"
+	
+
 
 
 Section 6 - Rotational text lists
@@ -5021,7 +5023,7 @@ BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In 
 
 Section 20 - Ball Pit Deep
 
-BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit". The description of BallPitDeep is "Far enough down in the ball pit that only dim rainbow-colored light filters down."
+BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit". The description of BallPitDeep is "At this depth, only dim rainbow-colored light filters down."
 
 Section 21 - Ball Pit Bottom
 
@@ -5049,7 +5051,7 @@ Before going down from the ball pit:
 		stop the action.
 		
 Instead of going down from the Ball Pit for the first time:
-	say "[if the player wears the wetsuit]You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface.[end if] As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
+	say "[if the player wears the wetsuit]You adjust your mask, put the regulator in your mouth, and flip forward. Your flippers hang in the air above you for a moment and then slip under the surface. [end if]As you dive deeper, you hear something in the distance, far below you.[paragraph break]";
 	bestow "Got that sinking feeling";
 	teleport the player to the room down from the location.
 	
@@ -5129,9 +5131,7 @@ Section 25 - Stairs - Sub-Basement
 
 The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The possible exits of StairsSB is "To the south there is a blue door with no label."
 
-Section 26 - Stairs - Sub-Sub-Basement
-
-The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the basementDoor.
+The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the subBasementDoor.
 
 To say printedSubBasementDoor:
 	say "blue [shortDoorToThe] ";
@@ -5142,6 +5142,10 @@ To say printedSubBasementDoor:
 			say "Rick Astley Shrine";
 		otherwise:
 			say "blue corridor"
+			
+
+Section 26 - Stairs - Sub-Sub-Basement
+
 	
 The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The possible exits of StairsSSB is "To the south there is a red door with no label." 
 
@@ -7540,7 +7544,7 @@ The game counter is a thing. The game counter is in the void. The game counter c
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]."
+The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge][if the securityColor of the badge is not white] with a white stripe[end if]".
 
 Instead of examining the badge for the first time:
 	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
@@ -7734,19 +7738,24 @@ This is the clue bat rule: [fired from every turn during Exploring the Tower]
 					bestow "No Mere Janitor!";
 					move the scrap of paper to the location of the player;
 					now the clue bat of Oswaldo is 0;
+				else if the scrap of paper is in the void: 
+					increase the clue bat of Oswaldo by 1;
 			-- green:
-				if the clue bat of Oswaldo is greater than BLUE_CLUEBAT_TURNS:
+				if the clue bat of Oswaldo is greater than BLUE_CLUEBAT_TURNS and the gum wrapper is in the void:
 					say "[blueClueBat]";
 					bestow "Kids These Days!";
 					now the player carries the gum wrapper;
 					now the clue bat of Oswaldo is 0;
+				else if the gum wrapper is in the void:
+					increase the clue bat of Oswaldo by 1;
 			-- blue:
-				if the clue bat of Oswaldo is greater than RED_CLUEBAT_TURNS:
+				if the clue bat of Oswaldo is greater than RED_CLUEBAT_TURNS and the keychain is in the void:
 					say "[redClueBat]";
 					bestow "Oswaldo Works In Mysterious Ways";
 					move the keychain to the location of the player;
 					now the clue bat of Oswaldo is 0;
-	increase the clue bat of Oswaldo by 1.
+				else if the keychain is in the void:
+					increase the clue bat of Oswaldo by 1.
 	
 After examining the gum wrapper for the first time:
 	bestow "Now It Is All Clear".
