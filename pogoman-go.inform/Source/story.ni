@@ -792,14 +792,22 @@ To say pogoDex data for (creature - a pogotype):
 	else:
 		say "is the final evolution of [E2], which itself is the mid-way evolved form of [E1]"
 
-Section 7 - Generate Pogomen
+Section 7 - Giving to Pogomen
+
+Instead of giving something (called the item) to a pogoentity (called the recipient):
+	if the item is a pogothing:
+		continue the action;
+	otherwise:
+		say "Pogomen only seem interested in two things: pogoChum and pogoMeth."
+
+Section 8 - Generate Pogomen
 
 To generate a pogoman:
 	now the type of attackerPogoman is a random pogotype;
 	now the attackerPogoman is not injured;
 	move attackerPogoman to the location of the player.
 
-Section 8 - Capture Pogomen
+Section 9 - Capture Pogomen
 
 Capturing is an action applying to a thing. Understand "capture [thing]" or "catch [thing]" as capturing.
 
@@ -973,7 +981,7 @@ The list of text called BALLLIST is always {
 }
 
 		
-section 9 - PogoInventory
+section 10 - PogoInventory
 	
 After taking inventory:
 	follow the pogo-inventory rule.
@@ -1017,7 +1025,7 @@ This is the pogo-inventory rule:
 			say "[T]" in lower case;
 			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scan[quotation mark] command for a display of deployed pogomen."
 
-section 10 - Spawning
+section 11 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
@@ -4013,7 +4021,7 @@ To say employeeRant2:
 	say "Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social interactions";
 	
 To say visitorRebuff:
-	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping]."
+	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
 	
 Section 3 - Snacks
 
@@ -4072,9 +4080,8 @@ After eating a pop-tart for the third time:
 After eating a pop-tart for the fourth time:
 	teleport the player to the infirmary;
 	say "You wake up with a pounding headache as a nurse withdraws a hypodermic syringe from your flank.[paragraph break][quotation mark]That should do it,[quotation mark] she says as she clips off the needle and throws the syringe and a few used bottles of insulin into a bag marked biomedical waste.[paragraph break]You are still rubbing the sore spot on your side as she signs off on the paperwork and stuffs you into an elevator.[paragraph break]";
-	now the floor level of the elevator is Infirmary;
-	teleport the player to the elevator;
 	bestow "Pancreatic Endocrine Capacity Exceeded";
+	hospital discharge;
 	newPopTart.
 	
 After eating a pop-tart:
@@ -4100,7 +4107,7 @@ The lemonade is pop in Beverages. The description of lemonade is "A balance betw
 
 The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
 
-The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of kool-aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "chalice" as Kool-Aid. Understand "koolaid" as kool-aid.
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of kool-aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" as Kool-Aid. Understand "koolaid" as kool-aid.
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
@@ -4330,6 +4337,12 @@ Instead of opening the barrel when penlight is switched on:
 Section 11 - Lobby
 
 The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]." The lobby has a list of text called stage business.
+
+The conversation is a backdrop. The conversation is in the Lobby and Cafeteria. The description of the conversation is "If you listen closely, you can sometimes pick up a word or two from the constant chatter here."
+
+Instead of doing something other than examining or listening to the conversation:
+	say "You are surrounded by the noise.";
+	try examining the conversation.
 
 Instead of listening when the player is in the lobby:		
 	say lobby stage business.
@@ -5219,7 +5232,7 @@ Section 39 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
-The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck, preventing accidental falls."
+The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if]."
 
 The decking is a backdrop in the Deck Area. The description of the decking is "A webbed metal platform around the top floor of the Nyantech Tower, up about fifty stories. The deck has an impressive view of the town." Understand "deck" as the decking.
 
@@ -5264,6 +5277,9 @@ Instead of climbing the cafeteria windows:
 	say "They are too slick."
 
 The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
+
+Instead of going south when the player is in DeckS:
+	try jumping.
 
 The printed name of DeckN is "Observation Deck, Northern View".  
 
@@ -5407,6 +5423,7 @@ Instead of jumping when the player is in the Deck Area:
 			if onHoldFlag of the CAT Control is false:
 				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
 				now the chain is clipped;
+				say the headline of the location;
 			otherwise:
 				say "The things you do for this game… You hold on tightly to your phone and step over the edge.[paragraph break]Arms and legs flailing, you fall without the slightest hint of dignity. Your screams are carried away by the stiff breeze.  Despite any skill whatsoever at jumping off buildings, you land squarely in the center of the cat[apostrophe]s red beret, which is just as warm and fluffy as it looks.";
 				teleport the player to the Cat's Beret;
