@@ -1695,7 +1695,7 @@ To ShowStatus:
 	let C be "[securitycolor of the badge]";
 	if pogoLevel of the player is greater than topLevel of the player:
 		now topLevel of the player is pogoLevel of the player; [decouple level from XP after NIKA]
-	now the left hand status line is "PogoLevel: [topLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player carries the badge]  |  Badge: [C in title case]";
+	now the left hand status line is "PogoLevel: [topLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player wears the badge]  |  Badge: [C in title case]";
 	now the right hand status line is "XP: [XP of the player]".
 	
 
@@ -4178,6 +4178,8 @@ Section 4 - Beverages
 
 Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with coke, sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
 
+Does the player mean examining or drinking the Kool-Aid: it is likely.
+
 The soda fountain is scenery in Beverages. The description of soda fountain is "The soda fountain can dispense coke, sprite, or root beer."
 
 The dispenser is scenery in Beverages. The description of dispenser is "The dispenser is filled with icy lemonade on one side, and iced tea on the other."
@@ -4475,7 +4477,7 @@ The lobbyEmployees are privately-named plural-named scenery persons. The lobbyEm
 
 The lobbyPlayers are privately-named plural-named scenery persons. The lobbyPlayers are in the lobby. The printed name of the lobbyPlayers is "visitors". The description of the lobbyPlayers is "Players mull about the lobby in awe." Understand "visitor" or "visitors" or "gamer" or "player" or "gamers" or "players" as the lobbyPlayers. 
 
-The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" as the high-tech conveyances.
+The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" or "contrivance" or "contrivances" or "motorized" as the high-tech conveyances.
 
 
 Instead of doing something other than examining with high-tech conveyances:
@@ -7520,17 +7522,17 @@ Instead of dropping the badge, say "No. They'll have to peel it from your cold, 
 
 Definition: a door (called the portal) is interdicted if the securityColor of the portal is greater than the securityColor of the badge.
 
-Instead of opening an interdicted door for the first time:
+Instead of opening or touching an interdicted door for the first time:
 	say the headline of the location;
 	say "Your arm immediately goes numb and drops to your side when you touch the stairway door. After a moment, you swing your arm clumsily from the shoulder and sensation slowly returns. When the pins and needles abate, you seem undamaged. Well, no harm, no foul.[paragraph break]";
 	bestow "Misplaced Optimism".
 	
-Instead of opening an interdicted door for the second time:
+Instead of opening or touching an interdicted door for the second time:
 	say the headline of the location;
 	say "When you touch the door, your knees feel wobbly and buckle beneath you. You catch yourself against the wall and manage a controlled descent to the concrete floor, where you sit for a moment. The feeling wears off as quickly as it onset and you are back on your feet in no time. You reason that you shouldn’t have skipped breakfast, the most important meal of the day.[paragraph break]";
 	bestow "Specious Reasoning".
 	
-Instead of opening an interdicted door for the third time:
+Instead of opening or touching an interdicted door for the third time:
 	say the headline of the location;
 	say "The last thing you remember was trying to open the stairway door. You aren’t sure how long you’ve been passed out, but you are glad that there isn’t a lot of traffic on the stairs and that no one saw you. Perhaps you are dehydrated from all the walking you’ve been doing while playing the game.[paragraph break]";
 	bestow "Poor Understanding of Physiology".
@@ -7538,26 +7540,26 @@ Instead of opening an interdicted door for the third time:
 To say bright flash:
 	say "There is a bright flash as you touch the door...[paragraph break]".
 	
-Instead of opening an interdicted door for the fourth time:
+Instead of opening or touching an interdicted door for the fourth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 	
-Instead of opening an interdicted door for the fifth time:
+Instead of opening or touching an interdicted door for the fifth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 
-Instead of opening an interdicted door for the sixth time:
+Instead of opening or touching an interdicted door for the sixth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
 	hospital discharge.
 	
-Instead of opening an interdicted door:
+Instead of opening or touching an interdicted door:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
@@ -7696,32 +7698,38 @@ This is the clue bat rule: [fired from every turn during Exploring the Tower]
 		if the securityColor of the badge is:
 			-- white:
 				if the clue bat of Oswaldo is greater than GREEN_CLUEBAT_TURNS:
-					say "[greenClueBat].";
+					say "[greenClueBat]";
 					bestow "No Mere Janitor!";
 					move the scrap of paper to the location of the player;
 					now the clue bat of Oswaldo is 0;
 			-- green:
 				if the clue bat of Oswaldo is greater than BLUE_CLUEBAT_TURNS:
-					say "[blueClueBat].";
+					say "[blueClueBat]";
 					bestow "Kids These Days!";
 					now the player carries the gum wrapper;
 					now the clue bat of Oswaldo is 0;
 			-- blue:
 				if the clue bat of Oswaldo is greater than RED_CLUEBAT_TURNS:
-					say "[redClueBat].";
+					say "[redClueBat]";
 					bestow "Oswaldo Works In Mysterious Ways";
 					move the keychain to the location of the player;
 					now the clue bat of Oswaldo is 0;
 	increase the clue bat of Oswaldo by 1.
 	
 To say greenClueBat:
-	say "A clumsy but spry janitor who bears a striking resemblance to Oswaldo, the local conspiracy theorist, rumbles by quickly pushing an overloaded garbage barrel. He turns the corner rapidly spilling some of the junk"
+	say "A clumsy but spry janitor who bears a striking resemblance to Oswaldo, the local conspiracy theorist, rumbles by quickly pushing an overloaded garbage barrel. He turns the corner rapidly spilling some of the junk.[paragraph break]".
 	
 To say blueClueBat:
 	say "Some one pegs you in the head with a little bit of shiny paper. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging you in the head with a bit of discarded gum wrapper. The nerve.[paragraph break]".
 	
 To say redClueBat:
-	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comic. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground[paragraph break]";
+	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comic. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
+	
+Instead of examining the scrap of paper:
+	if the player does not carry the scrap of paper:
+		say "(picking up the scrap of paper to read it)[command clarification break]";
+		now the player carries the scrap of paper;
+	continue the action.
 	
 	
 		
