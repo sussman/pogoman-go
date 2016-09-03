@@ -4778,7 +4778,7 @@ Instead of listening to the clock:
 After putting the clock on the wall:
 	say "You place the clock back on the wall."
 
-The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries."
+The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries." Understand "battery" as the fresh batteries.
 
 After taking the fresh batteries for the first time:
 	say "You pluck some AA batteries out of the clock."
@@ -4982,15 +4982,26 @@ Section 17 - Rick Astley Shrine
 
 The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
 
-The rickity table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickity table is "A cheap plastic table."
+The rickety table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickety table is "A cheap plastic table."
 
-After putting anything on the rickity table, say "The table sags and creaks under the slightest load."
+After putting anything on the rickety table:
+	if the number of things on the rickety table is:
+		-- 1:
+			say "The table sags and creaks under the slightest load.";
+		-- 2:
+			say "The table bows downward and the ancient plastic cracks concerningly.";
+		-- 3:
+			say "The vintage 1980s plastic table collapses to dust.[paragraph break]";
+			bestow "No Great Loss";
+			repeat with N running through the things on the rickety table:
+				move N to the Rick Astley Shrine;
+			move the rickety table to the void.
 
-Instead of entering the the rickity table, say "Surely, that would be the end of the rickity table."
+Instead of entering the the rickety table, say "Surely, that would be the end of the rickety table."
 
 Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
 
-The walkman is a wearable prop on the rickity table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" as the walkman.
+The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" as the walkman.
 
 After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
@@ -5013,6 +5024,9 @@ After wearing the walkman:
 	
 To say A Ghastly Astley Lyric:
 	say "[one of]We[apostrophe]re no strangers to love[or]You know the rules and so do I[or]A full commitment[apostrophe]s what I[apostrophe]m thinking of[or]You wouldn[apostrophe]t get this from any other guy[or]I just wanna tell you how I[apostrophe]m feeling[or]Gotta make you understand[or]Never gonna give you up[or]Never gonna let you down[or]Never gonna run around and desert you[or]Never gonna make you cry[or]Never gonna say goodbye[or]Never gonna tell a lie and hurt you[or]We[apostrophe]ve known each other for so long[or]Your heart[apostrophe]s been aching, but[or]You[apostrophe]re too shy to say it[or]Inside, we both know what[apostrophe]s been going on[or]We know the game and we[apostrophe]re gonna play it[or]And if you ask me how I[apostrophe]m feeling[or]Don[apostrophe]t tell me you[apostrophe]re too blind to see[or](Ooh, give you up)[or]Never gonna give, never gonna give[or](Give you up)[in random order]".
+	
+Instead of listening when the player is in the Rick Astley Shrine and the player does not wear the walkman:
+	say "It is quiet in here. Too quiet.";
 
 Section 18 - Ball Pit
 
