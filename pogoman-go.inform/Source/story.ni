@@ -4756,7 +4756,7 @@ Instead of touching the agreeProxy:
 	move the termsProxy to the void;
 	bestow "Provisional Beta-Tester".
 
-The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a panel[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock.
+The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a panel[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock. Understand "dome" or "hour" or "minute" or "second" as the plastic clock when the plastic clock is not on the office wall.
 
 After taking the plastic clock:
 	if the plastic clock was on the office wall:
@@ -4834,6 +4834,8 @@ Instead of inserting fresh batteries into the closed battery compartment:
 	
 The back panel is an closed openable container. The back panel is part of the clock. The description of the back panel is "[if the back panel is open]An open[otherwise]A latched[end if] panel on the back of the clock[if the back panel is open]. Inside, there is a battery holder[end if]." Understand "latch" as the back panel.
 
+Understand "unlatch [something]" as opening.
+
 The battery holder is an open fixed in place container in the back panel. The description of the battery holder is "A space on the back of the clock to insert AA batteries[if fresh batteries are not in the battery holder], which is currently empty[end if]."
 
 Instead of inserting something (called the item) into the battery holder:
@@ -4888,7 +4890,7 @@ Instead of pushing the remote:
 Instead of opening or closing the Cousteau Door:
 	say "There are no handles on the door, and it appears that the door is not designed to be operated manually."
 
-The LED is a thing. The LED is part of the remote. The description of the LED is "A rectangular red indicator light, which is not illuminated." Understand "indicator" or "light" as the LED.
+The LED is a thing. The LED is part of the remote. The description of the LED is "A rectangular red indicator light on the remote. It is not illuminated." Understand "indicator" or "light" as the LED.
 
 The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position." 
 
@@ -4914,7 +4916,7 @@ Section 16 - Cousteau Room
 	
 Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
 
-The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit.
+The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
 
 The flippers are part of the wetsuit. The description of the flippers is "Bright orange rubber flippers, which meet seamlessly with the lower part of the wetsuit legging." Understand "legging" as the flippers.
 
@@ -4950,11 +4952,23 @@ Instead of going a direction (called the way) when the player wears the wetsuit:
 		continue the action;
 	otherwise:
 		say the headline of the location of the player;
-		say "[one of]You waddle around in your flippers and fall flat on your face. Luckily, the face mask doesn’t break[or]You struggle and flail, but are not able to walk around wearing the whole undersea get-up[or]The wetsuit is just not made for walking around on land[stopping]."
+		increase the timesFlopped of the wetsuit by 1;
+		if the timesFlopped of the wetsuit is:
+			-- 1:
+				say "You waddle around in your flippers and fall flat on your face. Luckily, the face mask doesn’t break.[paragraph break]";
+				bestow "At Least You Saved Face";
+			-- 2:
+				say "You struggle and flail, but are not able to walk around wearing the whole undersea get-up.[paragraph break]";
+				bestow "Fish Out Of Water";
+			-- otherwise:
+				say "The wetsuit is just not made for walking around on land."
 		
 Instead of taking off the wetsuit:
 	say "You perform a small dance and manage to take off the suit and are now carrying it[if the player wears the party hat]. As for the stylish party hat, you consciensiouly replace it atop your head[end if].";
 	now the player carries the wetsuit.
+	
+Instead of listening when the player is in the Cousteau Room:
+	say "You hear sounds from some remote sea shore."
 	
 Section 17 - Rick Astley Shrine
 
