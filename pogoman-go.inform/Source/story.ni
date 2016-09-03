@@ -117,9 +117,7 @@ The player has a number called topLevel. The topLevel of the player is 0.
 Section 7 - BackDrops
 
 A catTopDrop is a kind of backdrop. catTopDrops are privately-named. 
-
 An Awarddrop is a kind of backdrop.
-
 
 Chapter Declare Constants
 
@@ -183,6 +181,11 @@ HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and co
 INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 POGOSTOP_LOCKOUT_DURATION is always 10.
+
+[Oswaldo Clue Bats]
+GREEN_CLUEBAT_TURNS is always 50.
+BLUE_CLUEBAT_TURNS is always 40.
+RED_CLUEBAT_TURNS is always 40.
 
 [Inventory]
 POGOMEN_INVENTORY_LIMIT is always 100.
@@ -2680,6 +2683,8 @@ This is the default stage business rule:
 
 Chapter Every Turn 
 
+Section 1 - General
+
 Every turn:	
 	follow the pogoman apparition rule;
 	CheckLevel; [possibly level-up the player]
@@ -2693,23 +2698,6 @@ Every turn:
 	Now the BLOCKSTAGEBUSINESSFLAG is false;
 	increase the TURNCOUNTER by one.
 	
-Every turn when Exploring the Tower is happening:
-	[the walkman is confiscated prior to Not In Kansas Anymore]
-	if the walkman is worn by the player:
-		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
-		now the BLOCKSTAGEBUSINESSFLAG is true;
-	if PEC of the CAT Control is greater than 0:
-		if onHoldFlag of the CAT Control is false:
-			increase PEC of the CAT Control by a random number between 120 and 130;
-		otherwise:
-			increase PEC of the CAT Control by a random number between 18 and 23;
-	if onHoldFlag of the CAT Control is false:
-		rotate HEADING backwards;
-	if PEC of the CAT Control is greater than megaCats of the CAT Control:
-		if the numerical counter is handled:
-			bestow "You sick puppy: [megaCats of the CAT Control] Cat Rotations!";
-		increase megaCats of the CAT Control by 4000000.
-
 Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium or it is the Elevator.
 
 This is the pogoman apparition rule:
@@ -2810,6 +2798,101 @@ This is the hunter is the hunted rule:
 	move the giant ball to the location of the player;
 	now the player is in the giant ball.
 	
+Section 2 - During Exploring The Tower
+	
+Every turn when Exploring the Tower is happening:
+	follow the clue bat rule;
+	[the walkman is confiscated prior to Not In Kansas Anymore]
+	if the walkman is worn by the player:
+		say "[italic type][A Ghastly Astley Lyric][roman type][paragraph break]";
+		now the BLOCKSTAGEBUSINESSFLAG is true;
+	if PEC of the CAT Control is greater than 0:
+		if onHoldFlag of the CAT Control is false:
+			increase PEC of the CAT Control by a random number between 120 and 130;
+		otherwise:
+			increase PEC of the CAT Control by a random number between 18 and 23;
+	if onHoldFlag of the CAT Control is false:
+		rotate HEADING backwards;
+	if PEC of the CAT Control is greater than megaCats of the CAT Control:
+		if the numerical counter is handled:
+			bestow "You sick puppy: [megaCats of the CAT Control] Cat Rotations!";
+		increase megaCats of the CAT Control by 4000000.
+		
+Section 3 - During Not In Kansas Anymore
+
+Section 4 - During Denouement
+
+Every turn during denouement:
+	if the defenderPogoman is in Processing:
+		say "Your [type of defenderPogoman] attacks ";
+		let GUARD-DEF be 0;
+		if the the type of the defenderPogoman is first level:
+			let GUARD-DEF be OFFENSIVE_RATING_EVO1;
+		else if the the type of the defenderPogoman is second level:
+			let GUARD-DEF be OFFENSIVE_RATING_EVO2;
+		else:
+			let GUARD-DEF be OFFENSIVE_RATING_EVO3;
+		if the player wears the Baseball Cap of Pogomastery:
+			let GUARD-DEF be GUARD-DEF plus HAT_EFFECT;
+		let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;	
+		if the defenderPogoman is injured:
+			let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;	
+		if GUARD-DEF is greater than MUSK_DEF:
+			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
+			if the vitality of Elon Musk is dead:
+				say "and deals a lethal blow to";
+			otherwise:
+				say "and lands a solid hit against";
+		otherwise:
+			say "but does not land a hit on";
+		say " the mad billionaire.[paragraph break]";
+		if the vitality of Elon Musk is less than dead:
+			say "Musk ";
+			if the defenderPogoman is in Processing:
+				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";
+			say "slashes left and right towards you with his strangely effective clipboard.[paragraph break]";
+			if a random chance of 1 in 2 succeeds:
+				now the healthiness of the player is the health state after the healthiness of the player;
+				if the healthiness of the player is dead:
+					say "Elon Musk slices your head clean off with his razor-sharp clipboard, ending the battle.";
+					muskEnding;
+				otherwise:
+					say "Musk comes at you with his twirling razor-edged clipboard and cuts you. You are [healthiness of the player].";
+			otherwise:
+				say "Elon Musk slashes at you with is clipboard, but misses."
+
+Section 5 - During Legal Ending
+
+Every turn during legalEnding:
+	decrease the doomsday counter of legalEnding by 1;
+	say "From overhead, you hear a ";
+	if doomsday counter of legalEnding is:
+		-- 0:
+			say "resigned";
+		-- 1:
+			say "hysterical";
+		-- 2:
+			say "panicked";
+		-- 3:
+			say "quivering";
+		-- 4:
+			say "agitated";
+		-- 5: 
+			say "nervous";
+		-- 6:
+			say "somewhat anxious";
+		-- 7:
+			say "slightly anxious";
+		-- 8:
+			say "reassuring";
+		-- 9:
+			say "calm";
+	say " voice say [quotation mark]Building self-destruct in [doomsday counter of the legalEnding] seconds.[quotation mark][paragraph break]";
+	if the doomsday counter of the legalEnding is zero:
+		buildingCollapse.
+
+Section 6 - When In The Giant Ball
+
 Every turn when the player is in the giant ball:
 	increase the rounds imprisoned of the giant ball by one;
 	say "*** DEBUG *** rounds imprisoned: [rounds imprisoned of giant ball][paragraph break]";
@@ -2839,6 +2922,8 @@ Every turn when the player is in the giant ball:
 			otherwise:
 				say "The ball seals shut around you and you are bounced around some time as your captor goes around collecting any other holdouts that have hidden away in Pogoland.[paragraph break]Later that evening, the [type of attackerPogoman] gets in a car and while waiting for a soda and burrito, you hear it mutter something about transferring you to the professor.";
 				move the player to Processing.
+				
+Section 7 - When In The Gymnasium
 			
 Every turn when the player is in the gymnasium:
 	say "[one of]From far off, you hear another voice, [quotation mark]Vermonux, I choose... You![quotation mark][paragraph break][or][verminate]And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you.[or][stopping]".
@@ -7504,7 +7589,7 @@ Instead of eating the Salmon of Turpitude,
 
 Book 3 - Characters
 
-Chapter - The Player
+Chapter - 1- The Player
 
 The description of the player is "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]You wonder if the constant need to look at yourself reflects some budding narcissism[or]No more rundown than your average Pogoman player[stopping].";
 
@@ -7517,7 +7602,7 @@ Before wearing clothes:
 	say "You are already wearing your clothes.";
 	the rule succeeds.
 
-Chapter Phone
+Chapter - 2- Phone
 
 The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0.
 
@@ -7592,6 +7677,56 @@ To phoneDeath:
 	say " [one of]argue with your mobile phone provider about the terms of your phone plan[or]try to find another T8000 phone -- looks like other Pogoman GO! players have been buying them up. Finally, you find one[or]try to recover data off what is left of your SIM card[or]scrape together funds to buy yet another phone[or]max out your last credit card to buy a second-hand T8000 from Craig's List[or]solder together bits of discarded cell phones to make one that works[or]panhandle a used cell phone from strangers[stopping].[paragraph break]Worn out by so much activity not involving actual playing of Pogoman GO! you collapse of exhaustion.";
 	openGame;
 	try looking.
+	
+Chapter - 3 - Oswaldo
+
+[Poor Oswaldo never really sets foot in the action, he's just mentioned a few times and has a smaller role than envisioned. He is primarily around as a clue bat. He has found that he can just phone it all in from the void rather than live in the town.]
+
+Oswaldo is a person. Oswaldo is in the void.
+Oswaldo has a number called clue bat. The clue bat of Oswaldo is 0.
+
+The scrap of paper is in the void. The description of the scrap of paper is "A scrunched up piece of paper with a picture of a golden chalice with bolts of green lightning zig-zagging upwards from it." Understand "golden" or "gold" or "chalice" or "lightning" or "green" as the scrap of paper.
+
+The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a blue whale surrounded by colored circles." Understand "blue" or "whale" as the gum wrapper.
+
+The keychain is in the void. The description of the keychain is "A souvenir keychain of the Nyantech corporate mascot, the NyanCat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyancat" or "mascot" or "souvenir" as the keychain.
+
+This is the clue bat rule: [fired from every turn during Exploring the Tower]
+	if the player is in HQ or the player is in Stairwell:
+		if the securityColor of the badge is:
+			-- white:
+				if the clue bat of Oswaldo is greater than GREEN_CLUEBAT_TURNS:
+					say "[greenClueBat].";
+					bestow "No Mere Janitor!";
+					move the scrap of paper to the location of the player;
+					now the clue bat of Oswaldo is 0;
+			-- green:
+				if the clue bat of Oswaldo is greater than BLUE_CLUEBAT_TURNS:
+					say "[blueClueBat].";
+					bestow "Kids These Days!";
+					now the player carries the gum wrapper;
+					now the clue bat of Oswaldo is 0;
+			-- blue:
+				if the clue bat of Oswaldo is greater than RED_CLUEBAT_TURNS:
+					say "[redClueBat].";
+					bestow "Oswaldo Works In Mysterious Ways";
+					move the keychain to the location of the player;
+					now the clue bat of Oswaldo is 0;
+	increase the clue bat of Oswaldo by 1.
+	
+To say greenClueBat:
+	say "A clumsy but spry janitor who bears a striking resemblance to Oswaldo, the local conspiracy theorist, rumbles by quickly pushing an overloaded garbage barrel. He turns the corner rapidly spilling some of the junk"
+	
+To say blueClueBat:
+	say "Some one pegs you in the head with a little bit of shiny paper. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging you in the head with a bit of discarded gum wrapper. The nerve.[paragraph break]".
+	
+To say redClueBat:
+	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comic. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground[paragraph break]";
+	
+	
+		
+To say redClueBat:
+	say "bob".
 
 Book 4 - Stuff
 
@@ -7732,21 +7867,27 @@ To say amusingText:
 
 Book 8 - Scenes
 
+Chapter 1 - Around the Town
+
 Around the Town is a scene. Around the Town begins when play begins. Around the town ends when the location is the RevolvingDoor.
+
+Chapter 2 - Exploring The Tower
 
 Exploring the Tower is scene. Exploring the Tower begins when Around the Town ends. Exploring the Tower ends when the location of the player is Pogoland Terminal.
 
+Chapter 3 - Not In Kansas Any More
+
 Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring The Tower ends. Not in Kansas Anymore ends when the location is Processing.
 
-When Not In Kansas Anymore begins:
-	distributePogolandPogostops.
-
 When Not in Kansas Anymore begins:
+	distributePogolandPogostops;
 	Desolation strikes in ten turns from now;
 	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
 		
 At the time when desolation strikes:
 	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
+	
+Chapter 4 - Denouement
 
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. Denouement ends when vitality of Elon Musk is dead.
 
@@ -7756,49 +7897,15 @@ When denouement begins:
 	move Elon Musk to Processing;
 	now the topLevel of the player is the pogoLevel of the player.
 	
-Every turn during denouement:
-	if the defenderPogoman is in Processing:
-		say "Your [type of defenderPogoman] attacks ";
-		let GUARD-DEF be 0;
-		if the the type of the defenderPogoman is first level:
-			let GUARD-DEF be OFFENSIVE_RATING_EVO1;
-		else if the the type of the defenderPogoman is second level:
-			let GUARD-DEF be OFFENSIVE_RATING_EVO2;
-		else:
-			let GUARD-DEF be OFFENSIVE_RATING_EVO3;
-		if the player wears the Baseball Cap of Pogomastery:
-			let GUARD-DEF be GUARD-DEF plus HAT_EFFECT;
-		let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;	
-		if the defenderPogoman is injured:
-			let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;	
-		if GUARD-DEF is greater than MUSK_DEF:
-			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
-			if the vitality of Elon Musk is dead:
-				say "and deals a lethal blow to";
-			otherwise:
-				say "and lands a solid hit against";
-		otherwise:
-			say "but does not land a hit on";
-		say " the mad billionaire.[paragraph break]";
-		if the vitality of Elon Musk is less than dead:
-			say "Musk ";
-			if the defenderPogoman is in Processing:
-				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";
-			say "slashes left and right towards you with his strangely effective clipboard.[paragraph break]";
-			if a random chance of 1 in 2 succeeds:
-				now the healthiness of the player is the health state after the healthiness of the player;
-				if the healthiness of the player is dead:
-					say "Elon Musk slices your head clean off with his razor-sharp clipboard, ending the battle.";
-					muskEnding;
-				otherwise:
-					say "Musk comes at you with his twirling razor-edged clipboard and cuts you. You are [healthiness of the player].";
-			otherwise:
-				say "Elon Musk slashes at you with is clipboard, but misses."
+				
+Chapter 5 - PlusQueDenouement
 					
 Plusquedenouement is a scene. Plusquedenouement begins when denouement ends. PlusQueDenouement ends when LegalEnding begins.
 
 When plusquedenouement begins:
 	transform the processing area.
+	
+Chapter 6 - Legal Ending
 	
 LegalEnding is a scene. LegalEnding begins when the selected of the legalEnding is true. LegalEnding has a truth state called selected. The selected of LegalEnding is false. LegalEnding has a number called doomsday counter. The doomsday counter of legalEnding is 10.
 
@@ -7818,33 +7925,6 @@ Instead of pushing the call button during legalEnding:
 Instead of touching the computer screen during legalEnding:
 	try examining the computer screen. 
 	
-Every turn during legalEnding:
-	decrease the doomsday counter of legalEnding by 1;
-	say "From overhead, you hear a ";
-	if doomsday counter of legalEnding is:
-		-- 0:
-			say "resigned";
-		-- 1:
-			say "hysterical";
-		-- 2:
-			say "panicked";
-		-- 3:
-			say "quivering";
-		-- 4:
-			say "agitated";
-		-- 5: 
-			say "nervous";
-		-- 6:
-			say "somewhat anxious";
-		-- 7:
-			say "slightly anxious";
-		-- 8:
-			say "reassuring";
-		-- 9:
-			say "calm";
-	say " voice say [quotation mark]Building self-destruct in [doomsday counter of the legalEnding] seconds.[quotation mark][paragraph break]";
-	if the doomsday counter of the legalEnding is zero:
-		buildingCollapse.
 	
 Instead of examining or touching the computer screen:
 	say "[fixed letter spacing]DEADMAN SWITCH ACTIVATED[line break]  NYANTECH DESTRUCT IN[paragraph break][entry doomsday counter of legalEnding of ASCII_ART_NUMBERS][paragraph break]EXECUTIVE OVERRIDE? Y / N_[roman type]";
