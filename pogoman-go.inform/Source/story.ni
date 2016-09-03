@@ -1958,7 +1958,7 @@ Check swimming:
 		
 Report swimming:
 	if the player is in the Ball Pit:
-		say "You swim around in the sea of rubber balls. You [one of ]are getting quite good at it, in fact[or]seem to be a natural[or]find it relaxing[or]consider having one of these installed in your own house[or]take a few laps around the pit[in random order].";
+		say "You swim around in the sea of rubber balls. You [one of ]consider having one of these installed in your own house (although that would take income, which would mean a job, so... nah)[or]are getting quite good at it, in fact[or]seem to be a natural[or]find it relaxing[or]take a few laps around the pit[stopping].";
 	otherwise:
 		say "You swim through a mass of rubber balls."
 		
@@ -2706,7 +2706,7 @@ Every turn when Exploring the Tower is happening:
 			bestow "You sick puppy: [megaCats of the CAT Control] Cat Rotations!";
 		increase megaCats of the CAT Control by 4000000.
 
-Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium.
+Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium or it is the Elevator.
 
 This is the pogoman apparition rule:
 	if the BLOCKPOGOMANFLAG is true:
@@ -3978,7 +3978,19 @@ Instead of telling someone (called the auditor) about some topic:
 	try talking to the auditor instead.
 
 Instead of showing something (called the item) to someone (called the auditor):
-	say "[The auditor] [ignore] you. TODO: exceptions such as showing the phone to the unicorn. Also, need to cover Giving To."
+	say "[The auditor] [ignore] you";
+	if the auditor is:
+		-- visitors:
+			say ". They are either stuffing food into their mouths or busy running after pogomen. Anything you have to show them pales in comparison.";
+		-- employees:
+			say ". They are either absorbed in whatever datastream is playing in their monocles or seem frozen, staring outward over the town as if they own it.";
+		-- lobbyPlayers:
+			say ". They are rushing about  with their phones too frantically to focus on anything.";
+		-- lobbyEmployees:
+			say ". They look right through both [the item] and you, as if you are merely a shadowy overlay projected on their reality.";
+		-- otherwise:
+			say ".".		
+	
 	
 Instead of talking to something (called the auditor):
 	if the auditor is:		
@@ -3990,6 +4002,10 @@ Instead of talking to something (called the auditor):
 			say "[one of]You mumble to yourself[or]That[apostrophe]s mildly worrisome[or]Every pogoman player starts doing it at some point; no reason to feel self-conscious[or]Receiving no answer, you desist[or]You ignore yourself[stopping]." instead;
 		-- Elon Musk:
 			say "Elon [one of]dismisses your comment[or]seems to ignore what you just said[or]seems oblivious to anything you say[or]is in his own little world, and your words fall on deaf ears[or]looks away distractedly for a moment[or]waves aside your remark[in random order].";
+		-- lobbyEmployees:
+			say "The employees are hustling and bustling around; no time for chit-chat with a mere gamer.";
+		-- lobbyPlayers:
+			say "Your fellow Pogoman enthusiasts are beside themselves with excitement to be at the center of the Pogoman universe; they are far too absorbed in the game and in searching out the rumored secrets of Nyantech[apostrophe]s headquarters to spare a moment for discourse with a human.";
 		-- otherwise:
 			say "[The auditor] nods briefly and this leads to a long conversation about [chitChat].";
 			
@@ -4000,7 +4016,7 @@ To say employeeRant1:
 	say "Hello, $identity[bracket]player[bracket][team color of the player][close bracket][bracket][pogoLevel of the player][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)";
 	
 To say employeeRant2:
-	say "Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social discourse";
+	say "Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social interactions";
 	
 To say visitorRebuff:
 	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping]."
@@ -4188,11 +4204,13 @@ After going south from the Gearing Assembly:
 	say "[One of]Once more into the cat, go you[or]Back to the cat[stopping]."
 
 After going down from the Gearing Assembly:
+	say the headline of the location;
 	say "You [one of]climb slowly and carefully down the ladder, which descends through shaft just wide enough to accommodate one person[or]descend the ladder[stopping]."
 
 The Top Of The Ladder is above Somewhere Along the Ladder. The description of Top Of The Ladder is "You can see light coming from above, the Gearing Assembly area."
 
 After going down from the Top Of The Ladder:
+	say the headline of the location;
 	say "You descend further into the dark shaft."
 
 Section 8 - Somewhere Along The Ladder
@@ -4200,6 +4218,7 @@ Section 8 - Somewhere Along The Ladder
 Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a lightsource], although there really isn[apostrophe]t all that much to see here, many stories below the top of the shaft."
 
 After going down from Somewhere Along The Ladder for the first time:
+	say the headline of the location;
 	say "There’s good news and bad news.[paragraph break]The good news: you have reached the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
 
 Section 9 - Bottom Rung
@@ -4360,7 +4379,7 @@ The stage business of the lobby is {
 "in some way to the events of 1893 -- but the record is vague. I think"
 }
 
-The lobbyEmployees are privately-named plural-named scenery persons. The lobbyEmployees are in the lobby. The printed name of the lobbyEmployees is "employees". The description of the lobbyEmployees is "Employees hustle and bustle around the lobby on their motorized contrivances." Understand "workers" or "worker" or "employee" as the lobbyEmployees. 
+The lobbyEmployees are privately-named plural-named scenery persons. The lobbyEmployees are in the lobby. The printed name of the lobbyEmployees is "employees". The description of the lobbyEmployees is "Employees hustle and bustle around the lobby on their motorized contrivances." Understand "workers" or "worker" or "employee" or "employees" as the lobbyEmployees. 
 
 The lobbyPlayers are privately-named plural-named scenery persons. The lobbyPlayers are in the lobby. The printed name of the lobbyPlayers is "visitors". The description of the lobbyPlayers is "Players mull about the lobby in awe." Understand "visitor" or "visitors" or "gamer" or "player" or "gamers" or "players" as the lobbyPlayers. 
 
@@ -4806,6 +4825,8 @@ Instead of going a direction (called the way) when the player wears the wetsuit:
 		say "You dive into the ball pit and swim around the surface effortlessly, propelled by your flippers.";
 		teleport the player to the Ball Pit;
 		the rule succeeds;
+	if the player is in the Ball Pit and the way is west:
+		continue the action;
 	if the player is in the BallPit Area:
 		say the headline of the location of the player;
 		continue the action;
@@ -4835,7 +4856,6 @@ After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
 	bestow "Curiousity Killed The Cat".
 
-
 Instead of listening to the walkman when the walkman is not worn:
 	say "(first putting on the earphones)[command clarification break]";
 	try wearing the walkman.
@@ -4859,6 +4879,9 @@ Section 18 - Ball Pit
 The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
 	
 Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to keep your head above sea of colorful rubber balls."  The possible exits of Ball Pit are "The cafeteria is back to the west."
+
+Instead of exiting when the player is in the Ball Pit:
+	try going west.
 
 Section 19 - Ball Pit Shallow
 
@@ -4949,6 +4972,11 @@ The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, St
 
 The concrete is a backdrop in the Stairwell. The description of the concrete is "Monotonous light grey concrete." Understand "wall" or "walls" or "floor" or "floors" or "ceiling" as the concrete.
 
+The stairs is a backdrop in the Stairwell. The description of the stairs is "Broad flights of stairs run vertically through the entire building." Understand "stair" as the stairs. 
+
+Instead of putting something (called the item) on the stairs:
+	try dropping the item.
+
 Section 23 - Stairs -Ground
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
@@ -5027,25 +5055,31 @@ After going up from the StairsProcessing:
 	say "You climb [shortTwentyFlights] [shortNoExits]";
 	if the walkman is not worn:
 		say " and [one of]notice a heavy, grinding noise punctuated by sounds of liquids sloshing and slurping[or]from the walls you hear the sound of industrial machinery -- maybe a tree mulcher[or]you hear maniacal laughter coming from deep within the building. Or maybe it just the plumbing[or]you notice the vibration of heavy machinery[stopping]";
-	say ".";
+		say ".";
+	say the headline of the location.
+
 	
 After going up from the StairsPackaging:
 	say "You climb [shortTwentyFlights] to the roof level";
 	if the walkman is not worn:
 		say ". [one of]A droning sound fills the air, like the throat-singing of Tibetan monks[or]It sounds like something is scraping against the inner wall[or]You footfalls echo in the empty stairwell[stopping]";
-	say "."
+		say ".";
+	say the headline of the location.
+
 		
 After going down from the StairsRoof:
 	 say "You descend [shortTwentyFlights] [shortNoExits] and you";
 	if the walkman is not worn:
-		say "[one of]hear the rumble of heavy motors straining against a load[or]think for a moment that you hear someone yelling for help -- but then it is gone[or]notice a repetitive thumping sound coming from the walls[stopping]";
-	say "."
+		say "[one of]hear the rumble of heavy motors straining against a load[or]think for a moment that you hear someone yelling for help -- but then it is gone[or]notice a repetitive thumping sound coming from the walls[or]think you might have heard something beyond the walls, but maybe not[stopping]";
+		say ".";
+	say the headline of the location.
 	
 After going down from the StairsPackaging:
 	say "You descend [shortTwentyFlights] to the infirmary level";
 	if the walkman is not worn:
-		say ". [one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewher in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
-	say "."
+		say ".[paragraph break][one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewher in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
+		say ".";
+	say the headline of the location.
 	
 Section 32 - Stairs -  Packaging
 	
@@ -5061,7 +5095,7 @@ section 33 - Stairs - Roof
 
 The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The possible exits of StairsRoof is "To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
-The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "access" or "observation" or "deck" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor
+The roofDoor is a white door. It is south of StairsRoof and north of DeckN. The printed name of roofDoor is "[printedRoofDoor]". Understand "white" or "door" or "roof" or "access" or "observation" or "cafeteria" or "cafe" or "emergency" or "stairs" as the roofDoor.
 
 To say printedRoofDoor:
 	say "white [shortDoorToThe] ";
@@ -5074,6 +5108,7 @@ To say printedRoofDoor:
 			say "roof"
 			
 After going south from the stairsRoof for the first time:
+	say the headline of the location;
 	bestow "Made it to the top".          
 	
 Section 34 - Processing
@@ -5178,6 +5213,48 @@ The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the 
 
 The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck, preventing accidental falls."
 
+The decking is a backdrop in the Deck Area. The description of the decking is "A webbed metal platform around the top floor of the Nyantech Tower, up about fifty stories. The deck has an impressive view of the town." Understand "deck" as the decking.
+
+The view is a backdrop in the Deck Area. The description of the view is "From up here, you enjoy a panoramic vista encompassing the entire town." Understand "town" or "village" or "city" or "below" or "people" or "street" or "streets" as the view.
+
+Instead of doing something other than examining with the view:
+	say "Everything in view beyond the deck itself is too far off."
+
+Instead of putting something (called the item) on the decking:
+	try dropping the item.
+	
+The cafeteria windows are a backdrop in the Deck Area. The description of the cafeteria windows is "Through the tinted windows of the top floor of the Nyantech tower, you can see both visitors and employees eating in the cafeteria." Understand "window" as the cafeteria windows.
+
+Instead of searching the cafeteria windows:
+	try examining the cafeteria windows.
+	
+Does the player mean examining the cafeteria windows:
+	it is likely.
+	
+Instead of entering the cafeteria windows for the first time:
+	say "They are hermetically sealed.[paragraph break]";	
+	bestow "Those Hermits Know Their Business".
+	
+Instead of entering the cafeteria windows:
+	say "They are sealed against the weather."
+	
+Instead of attacking the cafeteria windows for the first time:
+	say "You tap on the windows, but no one seems to notice you.[paragraph break]";
+	bestow "Probably Just A Bird".
+	
+Instead of attacking the cafeteria windows:
+	say "The windows are made of the same impregnable glass as the cell phones themselves; they are unaffected."
+	
+Instead of rubbing the cafeteria windows for the first time:
+	say "They have people for that.[paragraph break]Union people.[paragraph break]People who get upset if other people start doing their job.[paragraph break]If you know what I mean.[paragraph break]";
+	bestow "Union Scab".
+	
+Instead of rubbing the cafeteria windows:
+	say "They looks somewhat worse after your efforts."
+	
+Instead of climbing the cafeteria windows:
+	say "They are too slick."
+
 The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
 
 The printed name of DeckN is "Observation Deck, Northern View".  
@@ -5240,15 +5317,19 @@ To say deckExits:
 		-- deckS: 
 			say ". The roof-top restaurant is to the north".
 
-[When the player is at height, these remote locations -- and everything in them -- are in scope, so if the player sees the a room title or just knows that something is located there, the player can try to see it. Most actions at that distance are blocked.]
+[When the player is at height, these remote locations -- and everything in them (unless associatedd grammar is location-specific) -- are in scope, so if the player sees the a room title or just knows that something is located there, the player can try to see it. Most actions at that distance are blocked.]
 
 After deciding the scope of a player while the player is in the Deck Area:
 	let L be a list of quadrooms;
 	if the location of the player is:
-		-- DeckN: let L be the list of nord quadrooms;
-		-- DeckS: let L be the list of sud quadrooms;
-		-- DeckE: let L be the list of est quadrooms;
-		-- DeckW: let L be the list of ouest quadrooms;
+		-- DeckN: 
+			let L be the list of nord quadrooms;
+		-- DeckS: 
+			let L be the list of sud quadrooms;
+		-- DeckE: 
+			let L be the list of est quadrooms;
+		-- DeckW: 
+			let L be the list of ouest quadrooms;
 	repeat with R running through L:
 		place R in scope.
 	
@@ -5380,20 +5461,17 @@ To decide whether the cat is visible from overhead:
 	if the player is in DeckE and entry 1 in HEADING is listed in {"NE", "E", "SE"}, yes;
 	decide no.
 	
-To say invisibleOverhead:
-	say "You can[apostrophe]t get a good look at the cat from your current position due to its rotation around the building"
-	
 To visualize (overheadDescription - some text):
 	if player is in the Deck Area:
 		if the cat is visible from overhead:
-			say "[overheadDescription].";
+			say "[overheadDescription]";
 		otherwise: 
-			say "[invisibleOverhead].";
+			say "You can[apostrophe]t get a good look at the cat from your current position due to its rotation around the building";
 	otherwise:
-		say "[overheadDescription].".
+		say "[overheadDescription]".
 	
 [in deference to the Cat in the Hat song, despite its mangling of the Russian. I can't vouch for the authenticity of the Eskimo] 
-The catProxyOverhead is a catTopDrop. The catProxyOverhead is in Cat's Beret, Maintenance Hatch, CatWalk, Poop Deck, and Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or  "vessel" as the catProxyOverhead. The description of the catProxyOverhead is "[describeCatPO]".
+The catProxyOverhead is a catTopDrop. The catProxyOverhead is in Cat's Beret, Maintenance Hatch, CatWalk, Poop Deck, and Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or  "vessel" as the catProxyOverhead. The description of the catProxyOverhead is "[describeCatPO].".
 
 To say describeCatPO:
 	visualize "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the crossmember of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail"
@@ -5864,6 +5942,7 @@ Instead of going up from MuskTube Station:
 		say "There is no way to return to the Throne Room: the stair case retracted upward when Musk departed."
 		
 After going down from the Throne Room when MuskTube Station is visited:
+	say the headline of the location;
 	say "[One of]Musk continues without a hitch[or]Musk barely acknowledges your coming and goings[or]It looks like Musk has been diatribing non-stop, whether you can hear him or not[or]Musk takes a deep breath and continues[or]Musk waves his hands in the air as his ranting grows more intense[or]Musk is red in the face, but presses on[or]It looks like there is no end to the dialogue spewing out of Musk[apostrophe] mouth[or]Musk looks increasingly agitated[or]Musk continues[stopping]."
 	
 After entering the MuskPod:
@@ -5942,7 +6021,7 @@ The elevatorExterior is a privately-named backdrop. The printed name of elevator
 To say elevatorDoorDesc:
 	say "elevator doors here are [if the player is in the floor level of the elevator]open[otherwise]closed[end if]".
 
-The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding white [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void.
+The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding white [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" or "ring" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void.
 
 Instead of going west when the elevatorExterior is in the location of the player:
 	try entering the elevatorExterior.
@@ -7087,9 +7166,11 @@ To say motorPosition:
 	say "is currently tilted [if the motor is uptilted]up, out of the[otherwise]down, in the[end if] water"
 
 After going down from the Wharf:
+	say the headline of the location;
 	say "You carefully descend the splintery ladder and jump into a beat-up fiberglass fishing boat."
 	
 After going up from the fishing boat:
+	say the headline of the location;	
 	say "You scale the shaky ladder on the wharf. [one of]A rung breaks off[or]A few nails pop out[or]One side of the ladder gives way[or]A few more nails pop out[or]The [quotation mark]good[quotation mark] side of the ladder seems to be developing a lengthwise crack[or]Bits of dust fly from the ladder[or]Termites flee from the crumbling ladder[or]the ladder shudders ominously[stopping]."
 	
 The gas cap is part of the engine. The description of the gas cap is "A screw-on plastic cap. The cap is [if the gas cap is screwed tight]screwed on tight[otherwise]unscrewed, but retained by an internal chain[end if]." The gas cap can be screwed tight. The gas cap is screwed tight. Understand "chain" as the gas cap when the gas cap is not screwed tight.
