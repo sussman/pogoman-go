@@ -4758,12 +4758,21 @@ Instead of touching the agreeProxy:
 
 The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a panel[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock.
 
-After taking the clock:
-	if the clock was on the office wall:
-		say "You remove the clock from the wall.";
+After taking the plastic clock:
+	if the plastic clock was on the office wall:
+		say "(first taking the plastic clock)[command clarification break]";
+		now the player carries the plastic clock;
 	otherwise:
 		continue the action.
 	
+Instead of listening to the clock:
+	if the player does not carry the clock:
+		try taking the clock;
+	if the clock encloses the fresh batteries:
+		say "Tick. Tick.";
+	otherwise:
+		say "You don[apostrophe]t hear any noise coming from the clock."
+
 After putting the clock on the wall:
 	say "You place the clock back on the wall."
 
@@ -4866,6 +4875,12 @@ After pushing the button:
 	otherwise:
 		say "Nothing seems to happen";
 	say "."
+	
+Instead of attacking the Cousteau Door:
+	if the Cousteau Door is open:
+		say "You tap on the bottom of the door. It sounds solid enough.";
+	otherwise:
+		say "It rattles loudly."
 	
 Instead of pushing the remote:
 	try pushing the button.
@@ -7718,6 +7733,12 @@ This is the clue bat rule: [fired from every turn during Exploring the Tower]
 					move the keychain to the location of the player;
 					now the clue bat of Oswaldo is 0;
 	increase the clue bat of Oswaldo by 1.
+	
+After examining the gum wrapper for the first time:
+	bestow "Now It Is All Clear".
+	
+After examining the scrap of paper for the first time:
+	bestow "Wanted: One Grail".
 	
 To say greenClueBat:
 	say "A clumsy but spry janitor who bears a striking resemblance to Oswaldo, the local conspiracy theorist, rumbles by quickly pushing an overloaded garbage barrel. He turns the corner rapidly spilling some of the junk.[paragraph break]".
