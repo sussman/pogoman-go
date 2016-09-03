@@ -98,7 +98,6 @@ A gamer is a kind of  privately-named person. The description of the gamer is "N
 
 Section 6 - Player properties
 
-[TODO randomize initial items carried by player]
 The player has a number called pogoLevel.
 The player has a number called XP.
 The player has a number called distance walked. Distance walked is 0.
@@ -155,8 +154,8 @@ STREETFIGHT_XP_VALUE is always 100.
 
 [likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
 INCENSE_EFFECT_VALUE is always 10.
-PREPOGO_ENCOUNTER_VALUE is always 10.
-POGO_ENCOUNTER_VALUE is always 10.
+PREPOGO_ENCOUNTER_VALUE is always 10.[before pogoland]
+POGO_ENCOUNTER_VALUE is always 10.[pogoland]
 
 [Difficulty for capturing items with pogoball, always out of 100]
 CAPTURE_EVOL1_DIFFICULTY is always 80.
@@ -176,14 +175,13 @@ MUSK_DEF is always 80.
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
 CAPTURE_RANDOMNESS is always 50.
 CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman decides to try a capture]
-[Baseball Cap of Pogomastery affects both capture and combat]
 
 [Magical Items]
-HAT_EFFECT is always 15.
+HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and combat]
 
 [TIMING]
 INCENSE_DURATION is always 10.
-POGOMAN_LOCKOUT_DURATION is always 5.
+POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 POGOSTOP_LOCKOUT_DURATION is always 10.
 
 [Inventory]
@@ -316,7 +314,7 @@ Instead of dropping a pogothing (called the item):
 			
 			
 Instead of putting a pogothing (called the item) on something:
-	if Exploring The Tower has happened:
+	if Exploring The Tower has ended:
 		try dropping the item;
 	Otherwise:
 		say notReal.
@@ -330,13 +328,13 @@ Instead of throwing a pogothing (called the item) at:
 		otherwise:
 			continue the action;
 	otherwise:
-		if Exploring The Tower has happened:
+		if Exploring The Tower has ended:
 			try dropping the item;
 		otherwise:
 			say notReal.
 		
 Instead of inserting a pogothing (called the item) into something:
-	if Exploring The Tower has happened:
+	if Exploring The Tower has ended:
 		try dropping the item;
 	otherwise:
 		say "[notReal]."
@@ -722,7 +720,7 @@ Understand "healthy" as the defenderPogoman when the defenderPogoman is not inju
 Instead of attacking a pogoentity (called the opponent):
 	if the opponent is:
 		-- the attackerPogoman:
-			if Exploring The Tower has happened:
+			if Exploring The Tower has ended:
 				say "[attackStyle] the [type of attackerPogoman]";
 				if the attackerPogoman is injured:
 					if the player is in the gymnasium and a random chance of 50 in 100 succeeds:
@@ -1068,7 +1066,7 @@ Check inventoryDropping:
 		if PRESENT is false:
 			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
 			stop the action;
-	if Exploring The Tower has happened:
+	if Exploring The Tower has ended:
 		if the defenderPogoman is in the location of the player:
 			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
 			stop the action;
@@ -1085,7 +1083,7 @@ Carry out inventoryDropping:
 			let W be the wounded entry;
 			let P be the pogoName entry;
 			blank out the whole row;
-			if Exploring The Tower has happened:					
+			if Exploring The Tower has ended:					
 				move the defenderPogoman to the location of the player;
 				now the type of defenderPogoman is P;
 				if W is true:
@@ -1987,7 +1985,7 @@ Report tapeFailing:
 		
 Section 14 - Special Attack
 
-Special attacking is an action applying to one thing. Understand "special attack [a thing]" as special attacking when Exploring The Tower has happened.
+Special attacking is an action applying to one thing. Understand "special attack [a thing]" as special attacking when Exploring The Tower has ended.
 
 Check special attacking:
 	if the noun is not a person:
@@ -2005,7 +2003,6 @@ Check special attacking:
 	else:
 		continue the action.
 		
-[TODO: refactor the special cases of the action definition and into one or more "instead". ]
 Carry out special attacking:
 	if the location of the player is in Pogoland:
 		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
@@ -2184,7 +2181,7 @@ Check Ordering:
 	if the Around the Town is happening:
 		continue the action;
 	else if Exploring The Tower is happening:
-		say "No sense in ordering out, when the cafeteria has everything you could possibly want to eat or drink.";
+		say "Don[apostrophe]t see that here. Would they have that in the cafeteria?";
 		stop the action;
 	else if Not In Kansas Anymore is happening:
 		say "Nothing seems to be open here. You will have to wait until you (somehow) get back to civiization.";
@@ -2583,7 +2580,6 @@ To openGame:
 	otherwise:
 		say "noon";
 	say ". You must have drifted off for a bit, but no bother[one of]. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it[or][stopping]!";
-	[TODO - uncomment for production - now disabled to allow replays -- >wait for any key]
 	
 After printing the banner text:
 	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]";
@@ -3968,8 +3964,6 @@ Check talking to:
 			
 Carry out talking to:
 	say "You chat with [the noun]."
-	
-[TODO: override talking with customized response for each person]
 
 Instead of asking someone (called the auditor) about some topic:
 	try talking to the auditor instead.
@@ -4008,7 +4002,7 @@ Instead of talking to something (called the auditor):
 			say "Your fellow Pogoman enthusiasts are beside themselves with excitement to be at the center of the Pogoman universe; they are far too absorbed in the game and in searching out the rumored secrets of Nyantech[apostrophe]s headquarters to spare a moment for discourse with a human.";
 		-- otherwise:
 			say "[The auditor] nods briefly and this leads to a long conversation about [chitChat].";
-			
+
 To say employeeRant:
 	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][employeeRant2][stopping].[quotation mark][paragraph break]".
 	
@@ -4453,6 +4447,12 @@ Instead of going south from the Lobby:
 Section 13 - LAN Closet
 
 The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The [if the LAN Closet Door is open]open[otherwise]shut[end if] white door to the LAN closet[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
+
+Instead of touching or opening the LAN Closet Door when the player is in the Lobby:
+	if the player does not wear the walkman:
+		try going east;
+	otherwise:
+		continue the action.
 
 The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
@@ -5111,6 +5111,15 @@ After going south from the stairsRoof for the first time:
 	say the headline of the location;
 	bestow "Made it to the top".          
 	
+Instead of going up when the player is in stairsRoof for the first time:
+	say "You are at the top of the building; the stairs don[apostrophe]t go up any further.[paragraph break]";
+	say the headline of the location;
+	bestow "Everything Is Downhill From Here Out".
+	
+Instead of going up when the player is in stairsRoof:
+	say "You are at the top of the building.";
+	say the headline of the location.
+	
 Section 34 - Processing
 
 Processing is a room. The description of Processing is "A vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling. The [elevatorDoorDesc]. "
@@ -5188,7 +5197,6 @@ Interns is a room.
 To say fromElevator:
 	say "Looking out from the elevator, you can see ".
 
-[TODO Example floor description for the three employee levels]
 internsProxy are a workerProxy. internsProxy are in the void. The description of a internsProxy is "[fromElevator][entry 1 of the WPLIST of internsProxy]." Understand "intern" or "interns" or "employee" or "employees" or "worker" or "workers" as the internsProxy. The WPLIST of internsProxy is {"a roiling mass of interns playing three-dimensional twister to the accompaniment of a driving disco beat", "interns running around in leotards and dancing in a stream of bubbles"}. The printed name of the internsProxy is "interns".
 
 Section 37 - Engineers
@@ -7638,10 +7646,6 @@ Processing
 
 
 Chapter ASCII ART
-
-[DEBUG TODO for testing]
-before waving hands:
-	say 3 in ASCIIART.
 
 to say (numero - a number) in ASCIIART:
 	say "[fixed letter spacing][entry numero in ASCII_ART_NUMBERS][roman type]".
