@@ -1011,9 +1011,9 @@ This is the pogo-inventory rule:
 				let LASTWOUNDED be the wounded entry;
 			otherwise:
 				increase LASTCOUNT by one;
-		say line break;
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:
+		say line break;
 		let D be 0;
 		repeat with N running from 1 to the number of rows in Table of Defenders:
 			choose row N in the Table of Defenders;
@@ -2698,7 +2698,7 @@ Every turn:
 	Now the BLOCKSTAGEBUSINESSFLAG is false;
 	increase the TURNCOUNTER by one.
 	
-Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium or it is the Elevator.
+Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium or it is the Elevator or it is Legal Department.
 
 This is the pogoman apparition rule:
 	if the BLOCKPOGOMANFLAG is true:
@@ -4722,7 +4722,7 @@ After opening the drawer:
 	list the contents of the drawer, as a sentence;
 	say "."
 
-The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the Beta Testing Door is locked][fixed letter spacing]             Nyantech, Inc.[line break]             Legal Division[paragraph break]         Beta-Tester Agreement[paragraph break]  By touching [quotation mark]agree[quotation mark], the user agrees[line break]        to be held bound by all[line break]      provisions of this agreement[paragraph break]       TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[roman type][otherwise][welcomeTester][end if]". Understand "display" as the computer screen.
+The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the Beta Testing Door is locked][fixed letter spacing]            Nyantech, Inc.[line break]            Legal Division[paragraph break]        Beta-Tester Agreement[paragraph break]  By touching [quotation mark]agree[quotation mark], the user agrees[line break]        to be held bound by all[line break]      provisions of this agreement[paragraph break]       TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[roman type][otherwise][welcomeTester][end if]". Understand "display" as the computer screen.
 
 agreeProxy is a privately-named scenery in Legal Department. The printed name of the agreeProxy is "AGREE". The description of the agreeProxy is "The word AGREE glows intensely on the screen." Understand "agree" as the agreeProxy.
 
@@ -4738,7 +4738,7 @@ Instead of doing something other than examining or touching with the termsProxy:
 	say "[noScreenResponse]".
 	
 Instead of touching termsProxy:
-	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2][quotation mark][paragraph break]"
+	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2].[quotation mark][paragraph break]".
 	
 To say terms1:
 	say "[one of]waiver of liability[or]agreement to hold harmless[or]notwithstanding previous claims to the so-called inalienable rights of man[or]lack of human subject protections[or]no warrantee of fitness of purpose[or]threats to personal safety and sanity[or]or however unpleasant they may be[or]unthinkable consequences[or]mere mortality[or]enslavement or imprisonment[or]organ atrophy or dysfunction[or]implosion or inversion[or]voids all provisions of the Declaration of Helsinki[or]hideous side-effects[or]unpredictable losses[or]whether self-inflicted or intentional[or]safe delivery of neither body or soul[or]hunting or being hunted[or]including but not limited to mutilation[or]nocturnal, tentacled, bat-winged monster dwelling[or]indemnity against corporal mental compulsion or control[or]all forms of torture both physical and mental[or]including supernatural events[or]no guarantee of restitution or redress[or]science must supercede those of the individual[or]perfidious propensity towards debasement and ruin[in random order]".
@@ -4793,7 +4793,7 @@ Instead of spinning the chair:
 	otherwise:
 		say "You give the chair a good spin. Nothing beats cheap entertainment. Well, except playing Pogoman."
 
-The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment[if the battery compartment is open], which is open[end if]." Understand "garage" or "opener" as the remote.
+The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment[if the battery compartment is open], which is open[end if]." Understand "garage" or "opener" or "box" or "brown" as the remote.
 
 The battery compartment is an closed openable container. The battery compartment is part of the remote. The description of the battery compartment is "[batteryCompartmentDescription]."  
 
@@ -4849,6 +4849,9 @@ Instead of inserting something (called the item) into the clock:
 
 The button is part of the remote. The description of the button is "A white plastic button." Understand "white" or "plastic" as the button.
 
+Does the player mean examining or pushing the button: 
+	it is likely.
+
 After pushing the button:
 	if fresh batteries are in the battery compartment:
 		say "The LED on the remote flickers briefly";
@@ -4885,12 +4888,12 @@ The posters are a plural-named scenery in Welcome to Beta Testing. The descripti
 Instead of examining the player when the player wears the hat:
 	say "The hat adds a certain gravitas."
 
-After wearing the hat for the first time:
+After wearing the party hat for the first time:
 	say "Wearing the hat, you feel instantly jovial and can[apostrophe]t help but break into a little spontaneous [if the player is wearing the wetsuit], but awkward,[end if] beta-testing dance.[paragraph break]";
 	bestow "Team Spirit".
 	
-After wearing the hat:
-	say "You pop the hat onto your head at what you think is a rakish angle."
+After wearing the party hat:
+	say "You pop the hat onto your head at what you think is a rakish angle[one of]. But consider for just a moment, a three by two cell table: how my friends see me; how my family sees me; how I see myself; how society sees me; how others gamers see me; how I really look. Now, notice that the hat only looks rakish in one of the six cells?[paragraph break]Just saying[or][stopping]."
 	
 Section 16 - Cousteau Room
 	
@@ -7689,7 +7692,7 @@ Oswaldo has a number called clue bat. The clue bat of Oswaldo is 0.
 
 The scrap of paper is in the void. The description of the scrap of paper is "A scrunched up piece of paper with a picture of a golden chalice with bolts of green lightning zig-zagging upwards from it." Understand "golden" or "gold" or "chalice" or "lightning" or "green" as the scrap of paper.
 
-The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a blue whale surrounded by colored circles." Understand "blue" or "whale" as the gum wrapper.
+The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" as the gum wrapper.
 
 The keychain is in the void. The description of the keychain is "A souvenir keychain of the Nyantech corporate mascot, the NyanCat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyancat" or "mascot" or "souvenir" as the keychain.
 
@@ -7720,7 +7723,7 @@ To say greenClueBat:
 	say "A clumsy but spry janitor who bears a striking resemblance to Oswaldo, the local conspiracy theorist, rumbles by quickly pushing an overloaded garbage barrel. He turns the corner rapidly spilling some of the junk.[paragraph break]".
 	
 To say blueClueBat:
-	say "Some one pegs you in the head with a little bit of shiny paper. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging you in the head with a bit of discarded gum wrapper. The nerve.[paragraph break]".
+	say "Someone pegs you in the head with a little bit of shiny paper. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging a bit of discarded gum wrapper at you from behind your back. The nerve.[paragraph break]".
 	
 To say redClueBat:
 	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comic. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
@@ -7730,8 +7733,6 @@ Instead of examining the scrap of paper:
 		say "(picking up the scrap of paper to read it)[command clarification break]";
 		now the player carries the scrap of paper;
 	continue the action.
-	
-	
 		
 To say redClueBat:
 	say "bob".
@@ -7933,8 +7934,7 @@ Instead of pushing the call button during legalEnding:
 Instead of touching the computer screen during legalEnding:
 	try examining the computer screen. 
 	
-	
-Instead of examining or touching the computer screen:
+Instead of examining or touching the computer screen during legalEnding:
 	say "[fixed letter spacing]DEADMAN SWITCH ACTIVATED[line break]  NYANTECH DESTRUCT IN[paragraph break][entry doomsday counter of legalEnding of ASCII_ART_NUMBERS][paragraph break]EXECUTIVE OVERRIDE? Y / N_[roman type]";
 	if the player consents:
 		say paragraph break;
