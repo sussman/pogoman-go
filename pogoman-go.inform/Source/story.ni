@@ -4330,6 +4330,9 @@ To say crawlspaceDescription:
 		if the Gearing Assembly is visited:
 			say "ruined ceiling of the ";
 		say "LAN Closet".
+		
+Instead of going up when the player is in the Crawl Space:
+	say "The bottom of the ladder is a good ten feet or more above you; you can[apostrophe]t reach it."
 
 The acoustic tiles are scenery in the Crawl Space. The description of the acoustic tiles is "Sound-absorbing tiles are all that separate this crawl space from the LAN Closet below." Understand "dust" or "tile" as the acoustic tiles when the player is in the Crawl Space.
 
@@ -4365,11 +4368,8 @@ Instead of going down when the player is in the Bottom Rung:
 The penlight is a lightsource in the Crawl Space. The description of the penlight is "A black flashlight with a metal barrrel and protective rubber cover on the rear end[if the barrel is open], which hangs open[end if]." Understand "flashlight" or "torch" or "light" as the penlight. 
 
 The rubber cover is part of the penlight. The description of the rubber cover is "The cover on the rear end of the penlight is [if the barrel is open]open, permitting a view into the hollow barrel[otherwise]closed[end if]." Understand "cap" as the rubber cover.
-
-To say barrelDescription:
-	say "The central part of the flashlight, which holds the batteries.";
 	
-The barrel is an closed openable container. The barrel is part of the penlight. The description of the barrel is "[barrelDescription]"
+The barrel is an closed openable container. The barrel is part of the penlight. The description of the barrel is "The central part of the flashlight, which holds the batteries."
 
 Instead of opening the rubber cover:
 	try opening the barrel.
@@ -4407,17 +4407,14 @@ Instead of inserting something (called the item) into the barrel:
 	otherwise:
 		say "That doesn't fit."
 	
-Instead of switching on the penlight:
+Before switching on the penlight:
 	if the barrel is open:
 		say "Nothing happens. Perhaps you need to close the cap?";
+		stop the action;
 	otherwise:
 		if the batteries are not in the barrel:
-			say "Nothing happens. You notice that the flashlight feel too light.";
-		otherwise:
-			continue the action.
-			
-After switching on the penlight for the first time:
-	bestow "Et lux facta est".
+			say "Nothing happens. You notice that the flashlight feels too light.";
+			stop the action.
 
 Instead of opening the barrel when penlight is switched on:
 	say "As soon as you open the end cap, the light winks off.";
@@ -4425,7 +4422,7 @@ Instead of opening the barrel when penlight is switched on:
 
 Section 11 - Lobby
 
-The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and a metallic door to the east labeled [quotation mark]LAN Closet[quotation mark]." The lobby has a list of text called stage business.
+The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and [if the wasNoticed of the LAN Closet Door is true]the metallic door to the LAN Closet[otherwise]a metallic door[end if] to the east." The lobby has a list of text called stage business.
 
 The conversation is a backdrop. The conversation is in the Lobby and Cafeteria. The description of the conversation is "If you listen closely, you can sometimes pick up a word or two from the constant chatter here."
 
@@ -4548,7 +4545,10 @@ Instead of going south from the Lobby:
 	 
 Section 13 - LAN Closet
 
-The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "The [if the LAN Closet Door is open]open[otherwise]shut[end if] white door to the LAN closet[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[end if]." 
+The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "A[if the LAN Closet Door is open]n open[otherwise] shut[end if] metallic door in the Lobby[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[otherwise]. The door is marked [quotation mark]LAN Closet[quotation mark], and below that in smaller letters, [quotation mark]and CAT control[quotation mark][end if]." Understand "metallic" as the LAN closet door. The LAN Closet Door has a truth state called wasNoticed. The wasNoticed of the LAN Closet Door is false.
+
+After examining the LAN Closet Door for the first time:
+	now the wasNoticed of the LAN Closet Door is true.
 
 Instead of touching or opening the LAN Closet Door when the player is in the Lobby:
 	if the player does not wear the walkman:
@@ -4556,7 +4556,7 @@ Instead of touching or opening the LAN Closet Door when the player is in the Lob
 	otherwise:
 		continue the action.
 
-The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked[end if] ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
+The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
 Definition: The speaker is active if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true and the record is on the phonograph.
 
@@ -4612,7 +4612,7 @@ Instead of attacking the walkman:
 	say walkmanTooValuable.
 		
 Instead of attacking the record:
-	say "You smash the offending vinyl disc into a million pieces and brush them away to hide the evidence[if the speaker is active] and feel immediately relief as the subsonic vibrations suddenly cease[end if].";
+	say "You smash the offending vinyl disc into a million pieces and brush them away to hide the evidence[if the speaker is active]. You feel immediate relief as the subsonic vibrations suddenly cease[end if].";
 	move the record to the void.
 	
 Instead of attacking the phonograph:
@@ -4635,6 +4635,7 @@ Instead of putting something (called the item) on the phonograph:
 		say "You realize that putting [the item] on the phonograph wouldn[apostrophe]t make a lot of sense.";
 	otherwise:
 		if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true:
+			say "You carefully place the record back on the phonograph.";
 			now the record is on the phonograph;
 			follow the run from sound rule;
 		otherwise:
@@ -4646,7 +4647,7 @@ Instead of switching off the record:
 Instead of switching on the record:
 	try switching on the phonograph.
 
-The speaker is part of the LAN Closet Door. The description of the speaker is "A heavy duty speaker, like the kind used on stage for rock concerts, with an oversized woofer. It is bolted directly to the door."
+The speaker is part of the LAN Closet Door. The description of the speaker is "A heavy duty speaker, like the kind used on stage for rock concerts, with an oversized woofer. It is bolted directly to the door." Understand "woofer" as the speaker.
 
 Instead of attacking the speaker:
 	say "The speaker is built like a tank. You are likely to break before it does."
@@ -4672,8 +4673,10 @@ Instead of going up from the LAN Closet for the first time:
 	say "You scamper up the racks and hang onto the bundles of red CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
 	continue the action.
 	
-The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" as the CAT Control. The CAT Control has a number called PEC. The PEC of the CAT control is 0. The CAT Control has a number called MegaCats. The MegaCats of the CAT Control is 0. The CAT Control has a truth state called the onHoldFlag. The onHoldFlag of the CAT Control is false.
+The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit, but the LEDs light up and wink out in progression traveling clockwise. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" or "LED" or "LEDS" as the CAT Control. The CAT Control has a number called PEC. The PEC of the CAT control is 0. The CAT Control has a number called MegaCats. The MegaCats of the CAT Control is 0. The CAT Control has a truth state called the onHoldFlag. The onHoldFlag of the CAT Control is false.
 
+Does the player mean examining the CAT Control:
+	it is likely.
 
 The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" as the numerical counter.
 
@@ -4685,7 +4688,7 @@ Instead of examining the numerical counter for the first time:
 	now the PEC of the CAT Control is 69105;
 	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC of the CAT Control]."
 	
-The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position[one of], but could be pulled out to put whatever it controls on hold[or][stopping]." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
 
 Instead of pulling the plunger:
 	if onHoldFlag of the CAT Control is true:
@@ -4980,7 +4983,7 @@ Instead of listening when the player is in the Cousteau Room:
 	
 Section 17 - Rick Astley Shrine
 
-The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "Thankfully, the exit is to the north."
+The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "[one of]Thankfully, t[or]T[stopping]he exit back to the emergency stairs is to the north."
 
 The rickety table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickety table is "A cheap plastic table."
 
@@ -5149,7 +5152,7 @@ The StairsBasement is below StairsGround. The printed name of StairsBasement is 
 
 Section 25 - Stairs - Sub-Basement
 
-The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The possible exits of StairsSB is "To the south there is a blue door with no label."
+The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The possible exits of StairsSB is "To the south there is a [subBasementDoor]."
 
 The subBasementDoor is a blue door. It is north of the Rick Astley Shrine and south of the StairsSB.  The printed name of the subBasementDoor is "[printedSubBasementDoor]". Understand "blue" or "door" or "rick" or "astley" or "shrine" or "emergency" or "stairs" or "subbasement" as the subBasementDoor.
 
@@ -5161,7 +5164,7 @@ To say printedSubBasementDoor:
 		if the Rick Astley Shrine is visited:
 			say "Rick Astley Shrine";
 		otherwise:
-			say "blue corridor"
+			say "blue area"
 			
 
 Section 26 - Stairs - Sub-Sub-Basement
@@ -5824,7 +5827,7 @@ Instead of entering the desk:
 
 The writing quill is a prop on the driftwood desk. The description of the writing quill is "Looks like a tail feather from a vulture, but it is a modern ballpoint pen."
 
-The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]NyanCat Captain’s Log[quotation mark] and is full of entries."
+The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain’s Log[quotation mark] and is full of entries."
 
 The entries are part of the logbook. The description of the entries is "You flip through the logbook and read an entry at random:  TODO entries".
 
@@ -7507,7 +7510,7 @@ Instead of climbing the rope:
 	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.";
 	teleport the player to the Dojo.
 	
-Instead of going up in the gymnasium:
+Instead of going up when the player is in the gymnasium:
 	try climbing the rope.
 	
 
@@ -7747,7 +7750,7 @@ The scrap of paper is in the void. The description of the scrap of paper is "A s
 
 The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" as the gum wrapper.
 
-The keychain is in the void. The description of the keychain is "A souvenir keychain of the Nyantech corporate mascot, the NyanCat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyancat" or "mascot" or "souvenir" as the keychain.
+The keychain is in the void. The description of the keychain is "A high-tech souvenir keychain of the Nyantech corporate mascot, the Nyantech Cat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyantech cat" or "mascot" or "souvenir" as the keychain.
 
 This is the clue bat rule: [fired from every turn during Exploring the Tower]
 	if the player is in HQ or the player is in Stairwell:
@@ -7797,9 +7800,7 @@ Instead of examining the scrap of paper:
 		say "(picking up the scrap of paper to read it)[command clarification break]";
 		now the player carries the scrap of paper;
 	continue the action.
-		
-To say redClueBat:
-	say "bob".
+
 
 Book 4 - Stuff
 
