@@ -4196,7 +4196,7 @@ The lemonade is pop in Beverages. The description of lemonade is "A balance betw
 
 The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
 
-The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of kool-aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" as Kool-Aid. Understand "koolaid" as kool-aid.
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of kool-aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" as kool-aid.
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
@@ -4760,10 +4760,10 @@ Instead of touching the agreeProxy:
 
 The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a panel[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock. Understand "dome" or "hour" or "minute" or "second" as the plastic clock when the plastic clock is not on the office wall.
 
-After taking the plastic clock:
+Instead of taking the plastic clock:
 	if the plastic clock was on the office wall:
-		say "(first taking the plastic clock)[command clarification break]";
-		now the player carries the plastic clock;
+		say "(first taking the plastic clock off the wall)[command clarification break]";
+		continue the action;
 	otherwise:
 		continue the action.
 	
@@ -4860,7 +4860,7 @@ Instead of inserting something (called the item) into the clock:
 		try opening the back panel;
 	try inserting the item into the battery holder.
 
-The button is part of the remote. The description of the button is "A white plastic button." Understand "white" or "plastic" as the button.
+The button is part of the remote. The description of the button is "A white plastic button." Understand "white" or "plastic" or "remote button" or "button on remote" as the button.
 
 Does the player mean examining or pushing the button: 
 	it is likely.
@@ -4888,6 +4888,12 @@ Instead of attacking the Cousteau Door:
 	
 Instead of pushing the remote:
 	try pushing the button.
+	
+Instead of opening the remote:
+	try opening the battery compartment.
+	
+Instead of closing the remote:
+	try closing the battery compartment.
 	
 Instead of opening or closing the Cousteau Door:
 	say "There are no handles on the door, and it appears that the door is not designed to be operated manually."
@@ -7544,7 +7550,7 @@ The game counter is a thing. The game counter is in the void. The game counter c
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge][if the securityColor of the badge is not white] with a white stripe[end if]".
+The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge] badge[if the securityColor of the badge is not white] with a white stripe[end if]".
 
 Instead of examining the badge for the first time:
 	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
