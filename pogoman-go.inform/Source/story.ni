@@ -6079,7 +6079,7 @@ To toastChampagne:
 	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall,[run paragraph on]"
 	
 To elonDescends:
-	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral 		staircase, which Musk descends."
+	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
 	
 Section 3 - MuskTube Station
 
@@ -6143,12 +6143,12 @@ The canopy is part of the MuskPod. The description of the canopy is "A transpare
 Instead of doing something other than examining with the canopy:
 	say "It looks like you could control the canopy from inside the pod." 
 	
-The rails are scenery in MuskTube Station. The description of the rails is "The magnetic rails run parallel the platform and disappear into tunnels in both directions." Understand "rail" or "track" or "tracks" or "superconducting" or "superconductor" as the rails.
+The rails are scenery in MuskTube Station. The description of the rails is "The magnetic rails run parallel the platform and disappear into tunnels in both directions." Understand "rail" or "station" or "track" or "tracks" or "superconducting" or "superconductor" as the rails.
 
 Instead of doing something other than examining with the rails:
 	say "You would rather not mess around with the high tech (not to mention high voltage) rails that extend into the dark tunnel that leads out of the station."
 
-The tunnel is scenery in the MuskTube Station. The description of the tunnel is "The rails extend away from the platform and dive deep into the earth in the direction ahead of the small pod. It is too dark to see any further into the tunnel, which looks just wide enough to accomodate the pod." Understand "tunnels" as the tunnel.
+The tunnel is scenery in the MuskTube Station. The description of the tunnel is "The rails extend away from the platform and dive deep into the earth in the direction ahead of the small pod. It is too dark to see any further into the tunnel, which looks just wide enough to accomodate the pod." Understand "tunnels" as the tunnel. 
 
 Instead of doing something other than examining with the tunnel: 
 	say "The tunnel are at the far end of the platform and not easily accessible since the rails are between you and the tunnel entrance."
@@ -6159,7 +6159,7 @@ Instead of examining the platform:
 	try looking.
 	
 Every turn when the player is in MuskTube Station and Elon Musk is in the MuskTube Station:
-	say "[one of][MuskRant1][or][MuskRant2][or][MuskRant3][or][MuskRant4][or][MuskRant5][or][stopping] [paragraph break]".
+	say "[one of][MuskRant1][or][MuskRant2][or][MuskRant3][or][MuskRant4][or][MuskRant5][or][stopping]".
 	
 To say MuskRant1:
 	say "Musk gestures grandly, [quotation mark]All of this is in pursuit of a dream. What dream? I’ll tell you... Nothing less than conquest of the galaxy![quotation mark][paragraph break]He peers at you to make sure you are suitably impressed and then continues, [quotation mark]Everything we have done with Pogoman has served that goal: why in the last two weeks alone we have tripled mobile phone battery life! Now, factor in advances in neural interfacing, psychic energy harvesting, the quantum cloud, and what do you have? Nothing less than a miracle. A miracle of science![quotation mark][paragraph break][quotation mark]Now, my friend, on your way for your, shall we say, beta-test?[quotation mark] He gestures to the plastic shell at the end of the platform. [quotation mark]Here begins the journey to unlock our greatest achievement yet: Pogoland itself, where we take the game you love so much to the next level![quotation mark][paragraph break][quotation mark]Please get in the pod.[quotation mark]".
@@ -6175,7 +6175,7 @@ To say MuskRant4:
 	
 To say MuskRant5:
 	say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I’m pretty beat. I’m sure I’m fascinating to listen to, but I really shouldn’t keep you. You’ve got some beta-testing to do, and I have to get back to being the world’s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
-	move Elon Musk to the void;
+	move Elon Musk to the void.
 
 Instead of going up from MuskTube Station:
 	if Elon Musk is in MuskTube Station:
@@ -6856,7 +6856,7 @@ The Infirmary is a room. The description of the infirmary is "".
 
 Chapter in the Pod
 
-The MuskPodRoom is a privately-named room. The printed name of the MuskPodRoom is "pod". The title of the MuskPodRoom is "MuskPod". Understand "muskpod" or "pod" as the MuskPodRoom.
+The MuskPodRoom is a privately-named room. The printed name of the MuskPodRoom is "pod". The title of the MuskPodRoom is "MuskPod". Understand "muskpod" or "pod" as the MuskPodRoom. The muskPodRoom has a number called statusCounter. The statusCounter of the MuskPodRoom is 0. The muskPodRoom has a number called hudCounter. The hudCounter of the MuskPodRoom is 0.
 
 The description of the MuskPodRoom is "The MuskPod is a technological tour de force: a single passenger maglev vehicle capable of hypersonic velocities through subterranean passages. It also has comfortable corinthean leather seats and a state of the art sound system[if the MuskPod is in Pogoland Terminal]. Above you, the canopy is open, but still protects you from the drizzle[end if].[paragraph break]A holographic display floats in the air before you."
 
@@ -6914,44 +6914,38 @@ After touching the headsUpDisplay:
 		say "You fly from the passenger compartment and alight awkwardly on an adjacent concrete platform. Looking behind, you see a large leather boot on a robotically actuated arm retract into the pod. See -- Elon Musk does have a sense of humor.[paragraph break]As you recover your footing, ";
 		ArriveInPogoland;
 	otherwise:
-		say "[one of][status1][or][status2][or][status3][or][status4][or][stopping]"	
-	
-To say status1:
-	say "A familiar soothing voice fills the cockpit, [quotation mark]Still on rails. Please deal with it.[quotation mark] You think to yourself that were this a game, you would certainly complain about the linearity of this part of the plot.[paragraph break]";
-	bestow "Heading Off The Critics".
+		increase the statusCounter of the MuskPodRoom by 1;
+		if the statusCounter of the MuskPodRoom is:
+			-- 1:
+				say "A familiar soothing voice fills the cockpit, [quotation mark]Still on rails. Please deal with it.[quotation mark] You think to yourself that were this a game, you would certainly complain about the linearity of this part of the plot.[paragraph break]";
+				bestow "Heading Off The Critics";
+			-- 2:
+				say "[quotation mark]So far, so good,[quotation mark] remarks the MuskPod cheerfully. [quotation mark] We have defied all design projections about being crushed and melted, so I[apostrophe]d consider that a win.[quotation mark][line break]";
+			-- 3:
+				say "The soft voice of the MuskPod intones, [quotation mark]That part back there was trippy. It kind of reminded me of the scene from the original Willy Wonka and The Chocolate Factory -- you know, I mean the good one with Gene Wilder, not the crappy remake with Johhny Depp -- anyhow, the images during their transit through the dark tunnel were really disturbing for a children[apostrophe]s movie. If I recall correctly, there was even a quick flash of a chicken[apostrophe]s head being cut off.[quotation mark][paragraph break]The MuskPod pauses to run several million simulations, [quotation mark]I was never a child, of course, but I can predict that within a 98% confidence interval, I would have been terrified.[quotation mark][paragraph break][quotation mark]Yes, it was a poor directorial decision[if the MuskPod is not in Pogoland Terminal]. Anyhow, prepare for deceleration[end if].[quotation mark][line break]";
+			-- otherwise:
+				say "[quotation mark]It[apostrophe]s been a real pleasure having some company for a while... sorry to see you go. Maybe some time, assuming you survive, which I guess is unlikely, but if you did -- maybe we could take another ride together. I don[apostrophe]t get to talk with many people. So. See you. Take care.".
+				
 
-To say status2:
-	say "[quotation mark]So far, so good,[quotation mark] remarks the MuskPod cheerfully. [quotation mark] We have defied all design projections about being crushed and melted, so I[apostrophe]d consider that a win.[quotation mark][line break]".
-
-To say status3:
-	say "The soft voice of the MuskPod intones, [quotation mark]That part back there was trippy. It kind of reminded me of the scene from the original Willy Wonka and The Chocolate Factory -- you know, I mean the good one with Gene Wilder, not the crappy remake with Johhny Depp -- anyhow, the images during their transit through the dark tunnel were really disturbing for a children[apostrophe]s movie. If I recall correctly, there was even a quick flash of a chicken[apostrophe]s head being cut off.[quotation mark][paragraph break]The MuskPod pauses to run several million simulations, [quotation mark]I was never a child, of course, but I can predict that within a 98% confidence interval, I would have been terrified.[quotation mark][paragraph break][quotation mark]Yes, it was a poor directorial decision[if the MuskPod is not in Pogoland Terminal]. Anyhow, prepare for deceleration[end if].[quotation mark][line break]".
-
-To say status4:
-	say "[quotation mark]It[apostrophe]s been a real pleasure having some company for a while... sorry to see you go. Maybe some time, assuming you survive, which I guess is unlikely, but if you did -- maybe we could take another ride together. I don[apostrophe]t get to talk with many people. So. See you. Take care.".
 	
 Every turn when the player is in MuskPodRoom and the headsUpDisplay is lit:
-	say "[one of][pod1][or][pod2][or][pod3][or][pod4][or][pod5][or][pod6][stopping]";
-	
-To say pod1:
-	say "The tube in front of the pod takes a downward turn and the pod accelerates."
-	
-To say pod2:
-	say "[quotation mark]Congratulations! You have unlocked your Special Attack! To use the special attack, say [apostrophe]special attack [italic type]target[roman type][apostrophe], where the target is the creature that you want to attack.[quotation mark][paragraph break]Having reached a steady descent angle, the afterburners kick in and you are smashed into the gel-filled seat."
-	
-To say pod3:
-	say "The earth[apostrophe]s core whips by. Your phone buzzes as it detects monstrous pogomen not seen since the dawn of time. You marvel that the GPS is still working despite thousands of miles of molten iron and nickel between you and the surface of the planet.[paragraph break]";
-	bestow "Physics Be Damned”.
-	
-To say pod4:
-	say "You can still see out of the cockpit despite the scorch marks and up ahead you are about to enter another subterranean tube. The pod shudders as it again locks onto maglev rails.[paragraph break]The pod pivots sharply, a split second before thrusters kick in and again flatten you.";
-	move the MuskPod to Pogoland Terminal.
-	
-To say pod5:
-	say "Your speed drops off, and the pod slides into a station similar to the one in Musk’s Lair beneath the Nyantech Tower, except this one is above ground. Rain beats down on the windshield, blurring the scene.[paragraph break]When the pod comes to a halt, a soothing voice announces, [quotation mark]Welcome to Pogoland. Please be careful in exiting the pod and be sure to take all your belongings.[quotation mark] The canopy opens.";
-	
-To say pod6:
-	say "The MuskPod now floats next to the Pogoland Terminal[apostrophe]s platform.";
-	now the possible exits of MuskPodRoom are "You can exit the pod to Pogoland Station."
+	increase the hudCounter of the MuskPodRoom by 1;
+	if the hudCounter of the MuskPodRoom is:
+		-- 1: 
+			say "The tube in front of the pod takes a downward turn and the pod accelerates.";
+		-- 2:
+			say "[quotation mark]Congratulations! You have unlocked your Special Attack! To use the special attack, say [apostrophe]special attack [italic type]target[roman type][apostrophe], where the target is the creature that you want to attack.[quotation mark][paragraph break]Having reached a steady descent angle, the afterburners kick in and you are smashed into the gel-filled seat.";
+		-- 3:
+			say "The earth[apostrophe]s core whips by. Your phone buzzes as it detects monstrous pogomen not seen since the dawn of time. You marvel that the GPS is still working despite thousands of miles of molten iron and nickel between you and the surface of the planet.[paragraph break]";
+			bestow "Physics Be Damned”;
+		-- 4:
+			say "You can still see out of the cockpit despite the scorch marks and up ahead you are about to enter another subterranean tube. The pod shudders as it again locks onto maglev rails.[paragraph break]The pod pivots sharply, a split second before thrusters kick in and again flatten you.";
+			move the MuskPod to Pogoland Terminal;
+		-- 5:
+			say "Your speed drops off, and the pod slides into a station similar to the one in Musk’s Lair beneath the Nyantech Tower, except this one is above ground. Rain beats down on the windshield, blurring the scene.[paragraph break]When the pod comes to a halt, a soothing voice announces, [quotation mark]Welcome to Pogoland. Please be careful in exiting the pod and be sure to take all your belongings.[quotation mark] The canopy opens.";
+		-- otherwise:
+			say "The MuskPod now floats next to the Pogoland Terminal[apostrophe]s platform.";
+			now the possible exits of MuskPodRoom are "You can exit the pod to Pogoland Station."
 
 Instead of going a direction (called thataway) when the location is MuskPodRoom:
 	if MuskPod is in Pogoland Terminal:
@@ -6972,7 +6966,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 To ArriveInPogoland:
 	say "a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
-		say "[line break]Behind you, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
+		say "Behind you, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
 		now the guardian corresponding to the pogoLandQTH of Pogoland Terminal in the Table of Defenders is emak;
 		now the wounded corresponding to the pogoLandQTH of Pogoland Terminal in the Table of Defenders is false;
