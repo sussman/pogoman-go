@@ -4277,6 +4277,11 @@ Instead of doing something with the ladderProxy when the player is in the Gearin
 		try going down;
 	otherwise:
 		say "The ladder is just below this room. You would have to go down."
+		
+The grease is a scenery in the Gearing Assembly. The description of the grease is "Yucky, thick black grease."
+
+Instead of doing something other than examining with the grease: 
+	say "You don[apostrophe]t want anything to do with the grease. Once it gets on you, you[apostrophe]d track it all over an make a big mess."
 	
 Section 7 - Boom Arm
 
@@ -4370,6 +4375,11 @@ The penlight is a lightsource in the Crawl Space. The description of the penligh
 The rubber cover is part of the penlight. The description of the rubber cover is "The cover on the rear end of the penlight is [if the barrel is open]open, permitting a view into the hollow barrel[otherwise]closed[end if]." Understand "cap" as the rubber cover.
 	
 The barrel is an closed openable container. The barrel is part of the penlight. The description of the barrel is "The central part of the flashlight, which holds the batteries."
+
+Instead of examining the penlight:
+	say "(first taking the penlight for a better look)[command clarification break]";
+	now the player carries the penlight;
+	continue the action.
 
 Instead of opening the rubber cover:
 	try opening the barrel.
@@ -4654,7 +4664,13 @@ Instead of attacking the speaker:
 
 The racks are scenery Nyantechnology in the LAN Closet. The description of the racks is "Industry-standard 19-inch utility racks meant to support heavy equipment." Understand "rack" or "utility" as the racks.
 
-The wires are scenery Nyantechnology in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together." Understand "cat5" or "twisted pair" or "cable" or "cables" as the wires.
+The wires are scenery Nyantechnology in the LAN Closet. The description of the wires is "Thick bunches of twisted pair cable, trussed together." Understand "cat5" or "twisted pair" or "cable" or "cables" as the wires. 
+
+Instead of climbing the wires:
+	try going up.
+	
+Instead of cutting the wires:
+	try attacking the wires.
 
 The hardware is scenery  Nyantechnology in the LAN Closet. The description of the hardware is "Looks mostly like network switches. Indicator lights on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
 
@@ -4678,7 +4694,7 @@ The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The de
 Does the player mean examining the CAT Control:
 	it is likely.
 
-The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" as the numerical counter.
+The numerical counter is part of the CAT Control. The description of the numerical counter is "The mechanical counter reads [PEC of the CAT Control]." Understand "display" or "psychic" or "energy" or "collected" as the numerical counter.
 
 After examining the numerical counter:
 	now the numerical counter is handled.
@@ -5378,7 +5394,7 @@ Section 39 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
-The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if]."
+The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if][if the chain is not clipped]. Shockingly, the chain has been unclipped[end if]."
 
 The decking is a backdrop in the Deck Area. The description of the decking is "A webbed metal platform around the top floor of the Nyantech Tower, up about fifty stories. The deck has an impressive view of the town." Understand "deck" as the decking.
 
@@ -5603,7 +5619,7 @@ The port is a direction. The port has opposite starboard.
 
 The fore is a direction. The fore has opposite aft. Understand "f" or "forward" or "foreward" as fore when the location is in the Cat Area. 
 
-The aft is a direction. The aft has opposite fore. Understand "a" or "aftward" or "abaft" or "backwards" or "back" as aft when the location is in the Cat Area.
+The aft is a direction. The aft has opposite fore. Understand "a" or "aftward" or "abaft" or "backwards" or "back" or "rear" or "rearwards" as aft when the location is in the Cat Area.
 
 Does the player mean going a nautical direction when the location is in the Cat Area: it is very likely.
 
@@ -5645,7 +5661,7 @@ To visualize (overheadDescription - some text):
 The catProxyOverhead is a catTopDrop. The catProxyOverhead is in Cat's Beret, Maintenance Hatch, CatWalk, Poop Deck, and Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or  "vessel" as the catProxyOverhead. The description of the catProxyOverhead is "[describeCatPO].".
 
 To say describeCatPO:
-	visualize "As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the crossmember of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide.[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail"
+	visualize "[if the onHoldFlag of the CAT Control is true]The giant Nyantech cat is suspended from the building just below your position[otherwise]As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the crossmember of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide[end if].[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail"
 	
 Instead of examining the catProxyOverhead when the player is in a cat-top room:
 	say "You are standing on top of it."
@@ -5665,6 +5681,7 @@ To say beretText:
 	
 The hatchProxyOverhead is a catTopDrop. The hatchProxyOverhead is in the Cat's Beret, Poop Deck, Catwalk, and Deck Area. The printed name of the hatchProxyOverhead is "hatch". Understand "hatch" or "access" or "hatchway" or "bulkhead" or "maintenance" or "neck" as the hatchProxyOverhead. The description of the hatchProxyOverhead is "[describeHatchPO]".
 
+
 To say describeHatchPO:
 	visualize "[hatchText]"
 	
@@ -5677,7 +5694,7 @@ To say describeCatwalkPO:
 	visualize "[catWalkText]"
 	
 To say catWalkText:
-	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. Quite a bit below the scaffold on the side of the cat facing the building, a lattice-work boom extends from the building to support the cat about fifty stories above the ground"
+	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. You imagine that you are just about above the lattice-work boom that extends from the building to support the cat about fifty stories above the ground"
 	
 The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" or "grue" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
 
@@ -5708,20 +5725,32 @@ After deciding the scope of the player while the player is in a cat-top room:
 	repeat with R running through the list of sud quadrooms:
 		place R in scope.
 		
+Instead of jumping in the Cat Area:
+	if the location of the player is cat-top:
+		say "You are afraid of plummeting to your death.";
+	otherwise:
+		say "You bang your head in the tight quarters."
+		
 Section 44 - Cat's Beret
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
 
 The possible exits of the Cat's Beret are "The only way to go from here [one of](the only sane way to go, discounting a suicidal fall) [or][stopping]is towards the rear of the cat. The maintenance hatch is just aft of the beret, at the nape of the cat[apostrophe]s neck. Behind that, there is a narrow scaffold over the pop-tart section of the cat. The scaffold runs above the support boom that extends outward from the building. Finally, at the very rear of the cat, sparkles shoot from a short, metal exhaust tube."
 
-Instead of going up from the Cat's Beret:
-	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping]."
+Instead of going up when the location of the player is cat-top:
+	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping].";
+	say the headline of the location of the player.
+	
+Instead of going fore when the player is in the Cat's Beret:
+	say "Any more forward and you would fall off the front end of the Cat.";
+	say the headline of the location of the player.
+
 	
 Section 45 - Maintenance Hatch
 
 Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
-The hatchway is a door. It is down from the Maintenance Hatch. The description of the hatchway is "[hatchText]." The hatchway is closed. Understand "hatch" or "bulkhead" as the hatchway.
+The hatchway is a door. It is down from the Maintenance Hatch. The description of the hatchway is "[hatchText]." The hatchway is closed. Understand "hatch" or "bulkhead" or "handle" as the hatchway.
 
 To complain that (portal - a door) is already open:
 	say "[The portal] is already open."
@@ -5752,6 +5781,15 @@ Instead of pushing the hatchway:
 			complain that the hatchway is already closed;
 		otherwise:
 			try closing the hatchway.
+			
+Instead of searching the hatchway:
+	if hatchway is open:
+		if the location of the player is Maintenance Hatch:			
+			say "Below the hatch is a small, dimly lit room with a desk and hammock.";
+		otherwise:
+			say "Some light streams in from above the hatch, but otherwise you can[apostrophe]t see anything.";
+	otherwise:
+		say "The hatchway is closed."
 			
 Section 46 - Catwalk
 
@@ -5794,6 +5832,10 @@ Instead of taking the sparks for the first time:
 Instead of doing something other than examining with the sparks:
 	say "They are too hot to handle."
 	
+Instead of going aft when the player is in the Poop Deck:
+	say "Any further aft and you would join the sparkles in flying off the back end of the Cat and plunging earthward.";
+	say the headline of the location of the player.
+	
 Section 48 - Captain's Cabin
 	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
@@ -5822,14 +5864,16 @@ After entering the chair for the first time:
 	
 The driftwood desk is a supporter in the Captain's Cabin. The description of the driftwood desk is "A small but functional desk made of smooth driftwood."
 
+Instead of entering the desk for the first time:
+	say "That[apostrophe]s contrary to nautical tradition.[paragraph break]";
+	bestow "Landlubber".
+	
 Instead of entering the desk:
-	say "That[apostrophe]s contrary to nautical tradition."
+	say "You are not sure it is sturdy enough."
 
-The writing quill is a prop on the driftwood desk. The description of the writing quill is "Looks like a tail feather from a vulture, but it is a modern ballpoint pen."
+The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain’s Log[quotation mark] and is full of detailed handwritten entries."
 
-The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain’s Log[quotation mark] and is full of entries."
-
-The entries are part of the logbook. The description of the entries is "You flip through the logbook and read an entry at random:  TODO entries".
+The entries are part of the logbook. The description of the entries is "[one of]You kick back and relax for some light reading. The log starts off with some technical stuff and diagrams that you thumb through, then some description of various controls aboard the cat, sensors, gearing assemblies, autonomous thruster gimbals, and so on. The middle part of the log is filled with monotonous daily entries about rotation speed, oil pressure, and the like. Boring.[paragraph break]Ah, the last bit becomes more narrative. As you read along the precise block printing of an engineer breaks down into a flowing script and finally a fragmented shorthand and you realize that you are reading the ravings of a madman, or perhaps a visionary. Technological descriptions blend into diatribes about the potential of technology to augment or even steer evolution of individuals or human society taken large. The rantings interlace fantastic hope with dire predictions of a dystopian future.[paragraph break] As you snap the book shut, you aren[apostrophe]t sure what to make of it. While rambling and histrionic at points, you can[apostrophe]t find fault in any of the technical aspects of the logbook, and even the conclusions seem plausible or at least internally consistent, but only if you accept their outlandish premises.[or]A logbook full of both technical material and the ravings of a mad genius[stopping].".
 
 Instead of doing something other than examining with the entries:
 	say "Do you mean to do that with the logbook?";
@@ -5839,7 +5883,8 @@ Instead of doing something other than examining with the entries:
 The hurricane lantern is a lightsource on the desk. Understand "lamp" as the hurricane lantern. 
 
 After switching on the lantern for the first time:
-	say "The lantern lights immediately and shines brilliantly. Apparently, high efficiency LEDs have taken the place of the old wick mechanism."
+	say "The lantern lights immediately and shines brilliantly. Apparently, high efficiency LEDs have taken the place of the old wick mechanism.[paragraph break]";
+	bestow "Et Lux Facta Est".
 
 After taking the lantern for the first time:
 	bestow "Adventurer: First Class".
@@ -5850,7 +5895,7 @@ Understand "climb into [something]" as entering.
 
 Instead of entering the hammock for the first time:
 	say "You clamber into the hammock, which looked more comfortable than it actually is and stand up again before it gets too painful.[paragraph break]";
-	bestow "Gilligan Is Used To Disappointment".
+	bestow "Sympathy For Gilligan".
 	
 Instead of entering the hammock:
 	say "You flip around a few times and end up on the floor of the cabin."
@@ -5869,11 +5914,13 @@ Every turn when the player is in the Gantry Chamber:
 		say "[one of]The boom sways in the wind[or]The wind howls by[or]Groaning metal sounds come from the direction of the boom[or]The support assembly creaks[or]The sounds of the city drift up from far below you[in random order]."
 		
 After going outside from the Gantry Chamber for the first time:
-	say "You carefully crawl on all fours through the long boom, avoiding glances downward. Sure, it would be a great view of the city, but with the wind whipping through the metal webbing of the tube and the whole thing oscillating wildly, you move as quickly as you can to the other end. At last, you enter a room full of huge motors and gears.[paragraph break]";
+	say "You carefully crawl on all fours through the long boom, avoiding glances downward. Sure, it would be a great view of the city, but with the wind whipping through the metal webbing of the tube and the whole thing oscillating wildly, you move as quickly as you can to the other end. At last, you enter a room full of huge motors and gears.";
+	say the headline of the location;
 	bestow "Don[apostrophe]t Look Down!".
 	
 After going outside from the Gantry Chamber:
-	say "You make a beeline for the Gearing Assembly chamber at the other end."
+	say "You make a beeline for the Gearing Assembly chamber at the other end.";
+	say the headline of the location;
 	
 Section 50 - Cat's Head
 	
@@ -5881,26 +5928,30 @@ A door called the cockpit door is fore from the Captain's Cabin. The description
 
 CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat."
 
-After going fore from the Gantry Chamber for the first time:
+After going fore from the Captain's Cabin for the first time:
 	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you’re guessing that it’s actually white).";
 	now the securityColor of the badge is white;
 	bestow "Cat Power!"
 	
 The magnificent floating ruby is a prop in CatHead. The description of the magnificent floating ruby is "The blood-red stone is as large as your head, but you can barely look at it through the brilliant reflections off its many facets." Understand "facets" as the magnificent floating ruby. 
 
-Instead of taking the magnificent floating ruby  for the first time:
+After examining the magnificent ruby for the first time:
+	bestow "Sparkly!".
+
+Instead of taking or touching the magnificent floating ruby  for the first time:
 	say "As your hand approaches the jewel, it feels like ants are crawling over your hand and forearm. The air around your hand starts to scintillate and the smell of hamburger fills the room. Drawing still closer to the precious jewel, in the bright light you can see only the bones of your hand as if the skin has become transparent.[paragraph break]That’s enough for you to decide against messing with the ruby.[paragraph break]";
-	bestow "Holy Kryptonite, Batman!"
+	bestow "Holy Kryptonite, Batman!";
+	bestow "Mixed Metaphor".
 	
-Instead of taking the magnificent floating ruby  for the second time:
+Instead of taking or touching the magnificent floating ruby  for the second time:
 	say "No way are you going to try to grab that glowing nugget of plutonium or whatever the hell it is.[paragraph break]";
 	Bestow "Plutonium Adverse".
 	
-Instead of taking the magnificent floating ruby for the third time:
+Instead of taking or touching the magnificent floating ruby for the third time:
 	say "Not a chance. It[apostrophe]s surely worth a fortune. But will it help you catch pogomen? Nope.[paragraph break]On the other hand, you sure do seem to be racking up a bunch of points from messing around with it.[paragraph break]";
 	Bestow "Radiation Exposure Equals XP".
 	
-Instead of taking the magnificent floating ruby:
+Instead of taking or touching the magnificent floating ruby:
 	say "Not today."
 
 Chapter Musk Lair
@@ -7752,6 +7803,9 @@ The gum wrapper is in the void. The description of the gum wrapper is "A careful
 
 The keychain is in the void. The description of the keychain is "A high-tech souvenir keychain of the Nyantech corporate mascot, the Nyantech Cat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyantech cat" or "mascot" or "souvenir" as the keychain.
 
+Does the player mean examining the keychain:
+	it is unlikely.
+
 This is the clue bat rule: [fired from every turn during Exploring the Tower]
 	if the player is in HQ or the player is in Stairwell:
 		if the securityColor of the badge is:
@@ -7793,7 +7847,7 @@ To say blueClueBat:
 	say "Someone pegs you in the head with a little bit of shiny paper. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging a bit of discarded gum wrapper at you from behind your back. The nerve.[paragraph break]".
 	
 To say redClueBat:
-	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comic. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
+	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comical. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
 	
 Instead of examining the scrap of paper:
 	if the player does not carry the scrap of paper:
