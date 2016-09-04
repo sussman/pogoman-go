@@ -2921,14 +2921,16 @@ Every turn when the player is in the giant ball:
 Section 7 - When In The Gymnasium
 			
 Every turn when the player is in the gymnasium:
-	say "[one of]From far off, you hear another voice, [quotation mark]Vermonux, I choose... You![quotation mark][paragraph break][or][verminate]And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you.[or][stopping]".
-	
-To say verminate:
-	now the type of attackerPogoman is vermonux;
-	now the attackerPogoman is not injured;
-	teleport the player to the gymnasium;
-	move the attackerPogoman to the gymnasium.
-
+	increase the roundsElapsed of the gymnasium by 1;
+	if the roundsElapsed of the gymnasium is:
+		-- 1:
+			say "From far off, you hear another voice, [quotation mark]Vermonux, I choose... You![quotation mark][paragraph break]";
+		-- 2:
+			now the type of attackerPogoman is vermonux;
+			now the attackerPogoman is not injured;
+			now the previousRoom of the player is the void;
+			move the attackerPogoman to the gymnasium;
+			say "And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you."
 
 Book 2 - Places
 
@@ -7397,7 +7399,7 @@ Instead of cutting the wheat:
 	say "It isn[apostrophe]t ready for harvest yet."
 	
 Instead of searching the wheat:
-	say "You unexpectedly discovered the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to be in a difficult position, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
+	say "You unexpectedly discovered the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to have fallen on hard time, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[quotation mark][paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
 	
 
 Section 24 - Aquarium
@@ -7602,7 +7604,7 @@ Chapter Gym Fight
 
 Section 1 - Gym Interior
 
-The gymnasium is a room. The description of the gymnasium is "A typical pogogym, the light streaming in from high windows accentuates the griminess of the worm gym mats." The possible exits of the gymnasium are "You don[apostrophe]t see any doors leading out of the gym." Understand "gym" as gymnasium.
+The gymnasium is a room. The description of the gymnasium is "A typical pogogym, the light streaming in from high windows accentuates the griminess of the worm gym mats." The possible exits of the gymnasium are "You don[apostrophe]t see any doors leading out of the gym." Understand "gym" as gymnasium. The gymnasium has a number called roundsElapsed. The roundsElapsed of the gymnasium is 0.
 
 The rope is in the gymnasium. The description of the rope is "A thick natural fiber rope that hangs down from the ceiling off to one side of the gym."
 
@@ -7611,6 +7613,9 @@ The gymceiling is privately-named scenery. The gymceiling is in the gymnasium. T
 Instead of climbing the rope:
 	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.";
 	teleport the player to the Dojo.
+	
+Instead of cutting the rope:
+	say "[one of]With what? Are you going to chew through it? This rope is as thick as your wrist[or]Cutting the rope would be self-defeating[stopping]."
 	
 Instead of going up when the player is in the gymnasium:
 	try climbing the rope.
@@ -7639,7 +7644,7 @@ Instead of doing something other than searching or examining or attacking with t
 	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
 
 Instead of exiting when the player is in the giant ball for the first time:
-	say "You can[apostrophe]t squeeze out through the small crack that remains. You[apostrophe]ll need to beat your way out, if you can. If you have been waiting for violence to be the answer to something, this is it.";
+	say "You can[apostrophe]t squeeze out through the small crack that remains. You[apostrophe]ll need to beat your way out, if you can. If you have been waiting for violence to be the answer to something, this is it.[paragraph break]";
 	bestow "Violence Vindicated".
 	
 Instead of exiting when the player is in the giant ball:
