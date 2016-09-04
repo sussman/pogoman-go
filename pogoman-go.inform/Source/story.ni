@@ -6085,7 +6085,7 @@ Section 3 - MuskTube Station
 
 MuskTube Station is a room. The description of MuskTube Station is "You[apostrophe]re in a secret maglev railway station far under the Nyantech Tower. A sign on the wall reads [quotation mark]MuskTube Station[quotation mark], and indeed it appears to be a train station of sorts, with a platform and odd-looking train tracks. An egg-shaped container with racing stripes floats above the tracks." The title of MuskTube Station is "MuskTube Station". The possible exits of MuskTube Station are "The only way out of here [if Elon Musk is in MuskTube Station](on foot, at least) would be to go back up to the Throne Room[otherwise]would be to set off in the pod[end if]."
 
-Elon Musk is a person in MuskTube Station. Elon Musk has a health state called vitality. The vitality of Elon Musk is healthy. 
+Elon Musk is a person in MuskTube Station. Elon Musk has a health state called vitality. The vitality of Elon Musk is healthy. Elon Musk has a number called tubeRantCounter. The tubeRantCounter of Elon Musk is 0. 
 
 To say the description of Elon Musk:
 	if denouement is not happening:
@@ -6159,23 +6159,19 @@ Instead of examining the platform:
 	try looking.
 	
 Every turn when the player is in MuskTube Station and Elon Musk is in the MuskTube Station:
-	say "[one of][MuskRant1][or][MuskRant2][or][MuskRant3][or][MuskRant4][or][MuskRant5][or][stopping]".
-	
-To say MuskRant1:
-	say "Musk gestures grandly, [quotation mark]All of this is in pursuit of a dream. What dream? I’ll tell you... Nothing less than conquest of the galaxy![quotation mark][paragraph break]He peers at you to make sure you are suitably impressed and then continues, [quotation mark]Everything we have done with Pogoman has served that goal: why in the last two weeks alone we have tripled mobile phone battery life! Now, factor in advances in neural interfacing, psychic energy harvesting, the quantum cloud, and what do you have? Nothing less than a miracle. A miracle of science![quotation mark][paragraph break][quotation mark]Now, my friend, on your way for your, shall we say, beta-test?[quotation mark] He gestures to the plastic shell at the end of the platform. [quotation mark]Here begins the journey to unlock our greatest achievement yet: Pogoland itself, where we take the game you love so much to the next level![quotation mark][paragraph break][quotation mark]Please get in the pod.[quotation mark]".
-	
-To say MuskRant2:
-	say "Musk nods and continues his monologue, glad to have an audience. He continues, [quotation mark]PogoLand is the breakthrough towards which we have been working for decades. SpaceX, Tesla, the HAARP telepathy modulator -- all of that was mere preparation![quotation mark][paragraph break][quotation mark]Now then, hop in the pod, will you?[quotation mark]".
-	
-To say MuskRant3:
-	say "[quotation mark]Yes, yes.[quotation mark] He can barely contain his excitement and paces the platform, swinging his arms widely and spinning on his heel, [quotation mark]It is thrilling to stand here literally on the edge of the future and to lean over that edge -- or rather, I should say, to lean into it, no, to jump off the edge willingly, to take evolution into our own hands and instead of merely obeying the laws of physics, to bend them to our purpose![quotation mark][paragraph break][quotation mark]Any how, would you mind getting into the pod so we can get this show on the road?[quotation mark]".
-	
-To say MuskRant4:
-	say "[quotation mark]Everyone said that the things we want to do are impossible; well, some said impossible, some said improbable. Others -- the ones that can’t see beyond the ends of their noses -- said immoral or unethical. Hah! Just as they said that the horse and buggy would never travel more than 30 miles per hour. Let them hold to their prayer beads and voodoo dolls. Ours is the future![quotation mark][paragraph break][quotation mark]Now, into the pod. Daylight’s burning.[quotation mark]".
-	
-To say MuskRant5:
-	say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I’m pretty beat. I’m sure I’m fascinating to listen to, but I really shouldn’t keep you. You’ve got some beta-testing to do, and I have to get back to being the world’s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
-	move Elon Musk to the void.
+	increase the tubeRantCounter of Elon Musk by 1;
+	if the tubeRantCounter of Elon Musk is:
+		-- 1:
+			say "Musk gestures grandly, [quotation mark]All of this is in pursuit of a dream. What dream? I’ll tell you... Nothing less than conquest of the galaxy![quotation mark][paragraph break]He peers at you to make sure you are suitably impressed and then continues, [quotation mark]Everything we have done with Pogoman has served that goal: why in the last two weeks alone we have tripled mobile phone battery life! Now, factor in advances in neural interfacing, psychic energy harvesting, the quantum cloud, and what do you have? Nothing less than a miracle. A miracle of science![quotation mark][paragraph break][quotation mark]Now, my friend, on your way for your, shall we say, beta-test?[quotation mark] He gestures to the plastic shell at the end of the platform. [quotation mark]Here begins the journey to unlock our greatest achievement yet: Pogoland itself, where we take the game you love so much to the next level![quotation mark][paragraph break][quotation mark]Please get in the pod.[quotation mark][paragraph break]";
+		-- 2:
+			say "Musk nods and continues his monologue, glad to have an audience. He continues, [quotation mark]PogoLand is the breakthrough towards which we have been working for decades. SpaceX, Tesla, the HAARP telepathy modulator -- all of that was mere preparation![quotation mark][paragraph break][quotation mark]Now then, hop in the pod, will you?[quotation mark][paragraph break]";
+		-- 3:
+			say "[quotation mark]Yes, yes.[quotation mark] He can barely contain his excitement and paces the platform, swinging his arms widely and spinning on his heel, [quotation mark]It is thrilling to stand here literally on the edge of the future and to lean over that edge -- or rather, I should say, to lean into it, no, to jump off the edge willingly, to take evolution into our own hands and instead of merely obeying the laws of physics, to bend them to our purpose![quotation mark][paragraph break][quotation mark]Any how, would you mind getting into the pod so we can get this show on the road?[quotation mark][paragraph break]";
+		-- 4:
+			say "[quotation mark]Everyone said that the things we want to do are impossible; well, some said impossible, some said improbable. Others -- the ones that can’t see beyond the ends of their noses -- said immoral or unethical. Hah! Just as they said that the horse and buggy would never travel more than 30 miles per hour. Let them hold to their prayer beads and voodoo dolls. Ours is the future![quotation mark][paragraph break][quotation mark]Now, into the pod. Daylight’s burning.[quotation mark][paragraph break]";
+		-- otherwise:
+			say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I’m pretty beat. I’m sure I’m fascinating to listen to, but I really shouldn’t keep you. You’ve got some beta-testing to do, and I have to get back to being the world’s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
+			move Elon Musk to the void.
 
 Instead of going up from MuskTube Station:
 	if Elon Musk is in MuskTube Station:
