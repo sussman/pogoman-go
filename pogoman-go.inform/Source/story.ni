@@ -181,6 +181,7 @@ HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and co
 INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 POGOSTOP_LOCKOUT_DURATION is always 10.
+DAIS_DELAY_DURATION is always 15. [if player hasn't noticed dais by this time, it notices itself]
 
 [Oswaldo Clue Bats]
 GREEN_CLUEBAT_TURNS is always 50.
@@ -4252,6 +4253,12 @@ Instead of entering the hole:
 		try going down;
 	otherwise:
 		try going up.
+		
+Instead of searching the access hole:
+	if the player is in Gearing Assembly: 
+		say "You can see the top of a ladder just below the hole, but beyond that it is dark.";
+	otherwise:
+		say "You can see up into the Gearing Assembly area."
 
 The electric motor is scenery in the Gearing Assembly. The description of the motor is "A 8000 Horsepower three-phase electric motor. Through a complicated transmission system, it drives a gear assembly."  Understand "motors" or "equipment" as the electric motor.
 
@@ -4281,7 +4288,7 @@ Instead of doing something with the ladderProxy when the player is in the Gearin
 The grease is a scenery in the Gearing Assembly. The description of the grease is "Yucky, thick black grease."
 
 Instead of doing something other than examining with the grease: 
-	say "You don[apostrophe]t want anything to do with the grease. Once it gets on you, you[apostrophe]d track it all over an make a big mess."
+	say "You don[apostrophe]t want anything to do with the grease[one of]. Once it gets on you, you[apostrophe]d track it all over an make a big mess[or][stopping]."
 	
 Section 7 - Boom Arm
 
@@ -4292,7 +4299,8 @@ The gears are plural-named scenery in the Gearing Assembly. The description of t
 The track is scenery in the Gearing Assembly. The description of the track is "A bumpy metal track that rings the building. The upper part of the gearing assembly follows the track as it rotates the cat support boom around the building. The track is covered in grease and generally free of rust." Understand "tracks" as the track.
 
 After going south from the Gearing Assembly for the first time:
-	say "Earlier today, you managed to make the trip through wind-swept mechanical boom by promising yourself that you would never do it again. Well, guess that assumption was wrong.[paragraph break]";
+	say "Earlier today, you managed to make the trip through wind-swept mechanical boom by promising yourself that you would never do it again. Well, guess that assumption was wrong.";
+	say the headline of the location of the player;
 	bestow "Promises are made to be broken".
 	
 After going south from the Gearing Assembly:
@@ -4310,7 +4318,7 @@ After going down from the Top Of The Ladder:
 
 Section 8 - Somewhere Along The Ladder
 
-Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a lightsource], although there really isn[apostrophe]t all that much to see here, many stories below the top of the shaft."
+Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a switched on lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a switched on lightsource], although there really isn[apostrophe]t all that much to see here, many floors below the top of the shaft[end if]."
 
 After going down from Somewhere Along The Ladder for the first time:
 	say the headline of the location;
@@ -5930,7 +5938,7 @@ CatHead is fore from the cockpit door. CatHead is privately-named. The printed n
 
 After going fore from the Captain's Cabin for the first time:
 	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you’re guessing that it’s actually white).";
-	now the securityColor of the badge is white;
+	now the securityColor of the badge is red;
 	bestow "Cat Power!"
 	
 The magnificent floating ruby is a prop in CatHead. The description of the magnificent floating ruby is "The blood-red stone is as large as your head, but you can barely look at it through the brilliant reflections off its many facets." Understand "facets" as the magnificent floating ruby. 
@@ -5973,12 +5981,13 @@ After going south from the stairsSSB:
 	now the player carries the glass of champagne;
 	now the description of the player is "Well-coiffed and dressed to the nines[one of]. You clean up well[or][stopping].";
 	now the player wears the formal wear;
+	the dais reveals itself in DAIS_DELAY_DURATION turns from now;
 	teleport the player to Throne Room.
 	
 The description of the formal wear is "The finest tailored fashion[one of], more haute than the couture you could typically afford[or][stopping]." The indefinite article of the formal wear is "some".
 
 Instead of taking off the formal wear:
-	say "These are the best threads you[apostrophe]ve ever owned (and, you[apostrophe]re not entirely sure that robotic gadget made provisions for underwear -- it all kind of happened quickly. So, no)."
+	say "These are the best threads you[apostrophe]ve ever owned (and, you[apostrophe]re not entirely sure that robotic gadget made provisions for underwear -- it all kind of happened quickly). So, no."
 	
 The description of the Throne Room is "A marble room with black and white floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus[if the champagne glass is in the void]. A downward passage has opened and is ringed by burning torches[otherwise]. At the far end of the magnificent hall is a raised dais lit from above by spotlights[end if]."  The possible exits of the Throne Room are "There are no obvious exits." The title of the Throne Room is "Grand Hall".
 
@@ -6022,6 +6031,13 @@ Instead of doing something other than examining with the torches:
 	
 The dais is scenery in the Throne Room. 
 
+[failsafe for player not looking at the dais to move plot forward]
+At the time when the dais reveals itself:
+	if the dais is in the void:
+		do nothing;
+	otherwise:				
+		try examining the dais.
+
 Instead of examining the dais:
  	cueElon;
 	toastChampagne;
@@ -6030,13 +6046,18 @@ Instead of examining the dais:
 Instead of climbing the dais:
 	try examining the dais.
 	
-Instead of drinking the champagne:
+Instead of attacking the glass of champagne:
+	try drinking the glass of champagne.
+	
+Instead of drinking the glass of champagne:
+	say "You slug down the champagne like a shot, hoping it will calm your nerves. As the liquid burns it way down your throat, you hear movement towards the other end of the room.[paragraph break]";
 	try examining the dais.
 	
-Instead of throwing the champagne at something:
-	try dropping the champagne.
+Instead of throwing the glass of champagne at something:
+	try dropping the glass of champagne.
 	
-Instead of dropping the champagne:
+Instead of dropping the glass of champagne:
+	say "The glass shatters, but you also hear another sound towards the front of the room.[paragraph break]";
 	cueElon;
 	dumpChampagne;
 	elonDescends.
@@ -6058,7 +6079,7 @@ To toastChampagne:
 	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall,[run paragraph on]"
 	
 To elonDescends:
-	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
+	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral 		staircase, which Musk descends."
 	
 Section 3 - MuskTube Station
 
@@ -6170,6 +6191,9 @@ After going down from the Throne Room when MuskTube Station is visited:
 After entering the MuskPod:
 	say "The pod dips slightly and rocks as you step into it the sleek cockpit and then slide into a custom-molded seat. Moments later, the cowling pivots down and clicks shut. A single word appears on the cockpit display [quotation mark]LAUNCH[quotation mark].";
 	teleport the player to the MuskPodRoom.
+	
+Instead of attacking Elon Musk when the player is in MuskTube Station:
+	say "Your hand passes right through him and he flickers.[paragraph break]Noting the look of astonishment on your face, he clarifies, [quotation mark]Yes, a hologram. I can[apostrophe]t be everywhere, every minute of the day. Busy schedule. But I did think that you would benefit from a personal audience, albeit virtual."
 
 Chapter in the Elevator
 
