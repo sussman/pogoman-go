@@ -1010,15 +1010,15 @@ This is the pogo-inventory rule:
 				increase LASTCOUNT by one;
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:
-		say line break;
 		let D be 0;
 		repeat with N running from 1 to the number of rows in Table of Defenders:
 			choose row N in the Table of Defenders;
 			if there is a guardian entry:
 				increase D by one;
 		if D is 0:
-			say "No loyal pogomen are on guard in Pogoland.";
+			say "[line break]No loyal pogomen are on guard in Pogoland.";
 		otherwise:
+			say line break;
 			let DD be "[D in words]" in title case;
 			say "[DD] team ";
 			let T be the team color of the player;
@@ -2100,19 +2100,18 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 		-- pogometh:
 				say "[The pogorecipient] snorts the pogometh greedily and afterwards glows warmly";
 				if the pogorecipient is injured:
-					say ". It seems restored to full health.[one of][first time is free][or][stopping]";
+					say ". It seems restored to full health.";
+					if the hasHealed of PogoMeth is false:
+						say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
+						bestow "Enabler";
+						now the hasHealed of PogoMeth is true;
 					now the pogorecipient is not injured;
 				else:
 					say ".";
-				say line break;
 				decrement pogometh count.
 				
 [parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
-								
-To say first time is free:
-	say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
-	bestow "Enabler".			
-	
+					
 The phantom is a privately-named scenery. The description of the phantom is "A point source of energy." The phantom is in the void.
 
 To say bar:
@@ -2917,7 +2916,7 @@ Every turn when the player is in the giant ball:
 				say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoball like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat.";
 			otherwise:
 				say "The ball seals shut around you and you are bounced around some time as your captor goes around collecting any other holdouts that have hidden away in Pogoland.[paragraph break]Later that evening, the [type of attackerPogoman] gets in a car and while waiting for a soda and burrito, you hear it mutter something about transferring you to the professor.";
-				move the player to Processing.
+				move the player to Processing.[there by triggering the denouement scene]
 				
 Section 7 - When In The Gymnasium
 			
@@ -6594,7 +6593,7 @@ Song Name	Writer
 "Unchained Melody"	"Alex North, Hy Zaret"
 "Windy"	"Ruthann Friedman"
 "You Don't Bring Me Flowers"	"Neil Diamond, Alan Bergman, Marilyn Bergman"
-"You LIght Up My Life"	"Joe Brooks"
+"You Light Up My Life"	"Joe Brooks"
 
 The stage business of the elevator is {
 "It[apostrophe]s not unusual to be loved by anyone",
@@ -6953,7 +6952,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 		ArriveInPogoland.
 		
 To ArriveInPogoland:
-	say "a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you. Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
+	say "a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you.[paragraph break]Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
 		say "Behind you, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
@@ -7019,7 +7018,7 @@ Instead of listening when the player is in a pogoroom (called the place):
 				otherwise:
 					continue the action.
 		
-Pogoland is a region. The Palace, Mountain, Monastery, School House, LIghthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Fishing Boat, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland. The sky is in Pogoland.
+Pogoland is a region. The Palace, Mountain, Monastery, School House, Lighthouse, Desert, Blacksmith, Farm, Forest, Beach, Canyon, Stadium, Dark Alley, Post Office, Wharf, Fishing Boat, Pogoland Terminal, Valley, Baseball Diamond, Hospital, Aquarium, Cemetery, Service Station, Dojo, Botanical Garden, and Motel are pogorooms in Pogoland. The sky is in Pogoland.
 
 The Volcano is a room. The Volcano is north from Mountain. The Volcano is north from Palace. The Volcano is north from Monastery. The Volcano is north from School House. The Volcano is north from Lighthouse. The description of the Volcano is "A range of fiery mountains that constantly belches molten lava." Understand "mountains" or "range" or "lava" as the volcano.
 
@@ -7143,7 +7142,7 @@ To frontierDeath:
 
 Section 3 - Lighthouse
 
-The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds."
+The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds." 
 
 Section 4 - Palace
 
@@ -7155,7 +7154,7 @@ The description of Baseball Diamond is "A regulation baseball diamond, with fiel
 
 Section 6 - Mountain
 
-The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak."
+The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak." Mountain is a place.
 
 Instead of climbing in the mountain for the first time:
 	say "Why?[paragraph break]";
@@ -7163,40 +7162,40 @@ Instead of climbing in the mountain for the first time:
 
 Section 7 - Valley
 
-The description of Valley is "A lush valley with rolling, flower-covered hills."
+The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
 
 Section 8 - Desert
 
-The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here."
+The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here." Desert is a place.
 
 Section 9 - Canyon
 
-The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction."
+The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction." Canyon is a place.
 
 Section 10 - Forest
 
-The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well. "
+The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well." Forest is a place.
 
 The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "trees" as the tall trees.
 
 Instead of climbing the tall trees:
-	say "You climb around on the trees for a while, but they are so tightly spaced that you could not get much a view from the top."
+	say "You climb around on the trees for a while, but they are so tightly spaced that you you don[apostrophe]t get a good view of the area."
 	
-Instead of examining the trees for the first time:
+Instead of examining the tall trees for the first time:
 	say "You suddenly lose view of the forest, but can see the trees just fine.[paragraph break]";
 	bestow "Because Proverb".
 
 Section 11 - Wharf
 
-The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat."
+The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place.
 
 Section 12 - Dojo
 
-The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."
+The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof." 
 
 Section 13 - Cemetery
 
-The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay."
+The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay." Cemetery is a place.
 
 Instead of entering the cemetery for the first time:
 	say "Don[apostrophe]t worry, you[apostrophe]ll eventually end up here.[paragraph break]";
@@ -7205,7 +7204,7 @@ Instead of entering the cemetery for the first time:
 
 Section 14 - Beach
 
-The description of Beach is "Waves roll in gently, breaking upon the pristine white sands."
+The description of Beach is "Waves roll in gently, breaking upon the pristine white sands." Beach is a place.
 
 Section 15 - Stadium
 
@@ -7213,7 +7212,7 @@ The description of Stadium is "The large, concrete arena must accommodate crowds
 
 Section 16 - Service Station
 
-The description of Service Station is "A one-pump gas station." 
+The description of Service Station is "A one-pump gas station." Service Station is a place.
 
 The pump is scenery in the service station. The description of the pump is "A clunky pump with an advertisement that offers, [quotation mark]Fill [apostrophe]er up?[quotation mark]". Understand  "gas" or "gasoline" or "fuel" or "petrol" or "diesel" or "gasoil" or "kerosene" as the pump.
 
@@ -7270,12 +7269,12 @@ Instead of entering the School House for the first time:
 
 Section 18 - Monastery
 
-The description of Monastery is "A walled fortress surrounding a church and its fields."
+The description of Monastery is "A walled fortress surrounding a chapel and some fields."
 
 Instead of Entering the Monastery for the first time:
 	say "One of the things that fortifications are particularly good at is keeping people out."
 	
-The church is scenery in Monastery. The description of the church is "A church of one of the Oblique Orders, its roof is pitched at an acute angle. It stands near the middle of the monastery."
+The chapel is scenery in Monastery. The description of the chapel is "A chapel of one of the Oblique Orders, its roof is pitched at an acute angle. It stands near the middle of the monastery."
 
 The fields are scenery in the Monastery. The description of the fields is "Mostly hops."
 
@@ -7289,7 +7288,7 @@ The description of Motel is "A classic two-level drive-in motel with no-vacancy 
 
 Section 21 - Botanical Garden
 
-The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this flower garden." Understand "hedges" or "paths" as the botanical garden.
+The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this flower garden." Understand "hedges" or "paths" as the botanical garden. Botanical garden is a place.
 
 A watering can is an open container in the Botanical Garden. The description of the watering can is "An old school gardening can: sheet metal and at least two gallons capacity. Unfortunately, the end of the spout is broken off and it can only pour, not sprinkle." 
 
@@ -7398,7 +7397,7 @@ Instead of cutting the wheat:
 	say "It isn[apostrophe]t ready for harvest yet."
 	
 Instead of searching the wheat:
-	say "You discovered the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But the truth is, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to be in a difficult position, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. I spend years at a time in fields like this. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark], If that[apostrophe]s what you want.[paragraph break]The garden gnome nods his head in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village."
+	say "You unexpectedly discovered the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to be in a difficult position, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
 	
 
 Section 24 - Aquarium
@@ -7411,11 +7410,13 @@ The description of Post Office is "A modern building with advertisements in the 
 
 Section 26 - Dark Alley
 
-The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland."
+The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place.
 
-The description of Pogoland Terminal is "A concrete platform next to some maglev rails."
+Section 27 - Pogoland Terminal
 
-Section 27 - The Boat
+The description of Pogoland Terminal is "A concrete platform next to some maglev rails."  Pogoland Terminal is a place.
+
+Section 28 - The Boat
 
 The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]."
 
@@ -7569,7 +7570,7 @@ Instead of doing something with the gas tank when the gas tank is not open:
 	say "The tank is not open; you need to unscrew the gas cap to get a look inside."
 
 
-Section 28 - Dealing with Pogorooms
+Section 29 - Dealing with Pogorooms
 
 Instead of taking a pogoroom (called the QTH):
 	say "[The QTH] [are] not something you can take."
@@ -7591,7 +7592,7 @@ Before doing something with a pogoroom (called the QTH) when the player is in th
 	otherwise:
 		continue the action.
 
-Section 29 - Enforced Orthotopia
+Section 30 - Enforced Orthotopia
 
 Before going a blasphemous direction when the location is Pogoland:
 	say "[one of]The town seems to be laid out with avenues and streets running north-south and east-west. Going diagonally isn[apostrophe]t an option[or]You can[apostrophe]t go that way[stopping].";
@@ -7624,7 +7625,7 @@ section 1 - Plato's Cave
 The Void is a room.   
 The Void contains a Pogoball-kind called PogoBall.
 The Void contains a Pogochum-kind called PogoChum.
-The Void contains a Pogometh-kind called PogoMeth. PogoMeth is edible. PogoMeth can be trippy. PogoMeth is not trippy.
+The Void contains a Pogometh-kind called PogoMeth. PogoMeth is edible. PogoMeth can be trippy. PogoMeth is not trippy. PogoMeth has a truth state called hasHealed. The hasHealed of PogoMeth is false.
 The Void contains a Pogoegg-kind called PogoEgg.
 The Void contains a PogoIncense-kind called PogoIncense. PogoIncense can be ignited. PogoIncense is not ignited.
 
@@ -7653,8 +7654,9 @@ Instead of attacking the giant ball:
 	if escape attempts of the giant ball is:
 		-- 0:
 			say "You slam your shoulder against the curved walls of your plastic prison and the giant pogoball bursts apart, spilling you onto the ground.";
-			move the player to the location of the giant ball;
-			move the giant ball to the void;
+			let R be the location of the giant ball;
+			move the player to R;
+			move the giant ball to the void;			
 			increase the escape attempts of the ball by one;
 			now rounds imprisoned of the giant ball is 0;
 		-- 1:
