@@ -9,6 +9,7 @@ The story description is "The world is full of Pogomen, and now that you don’t
 Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
 Use Max_DICT_ENTRIES of 1500.
+Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
 
@@ -182,6 +183,7 @@ INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 POGOSTOP_LOCKOUT_DURATION is always 10.
 DAIS_DELAY_DURATION is always 15. [if player hasn't noticed dais by this time, it notices itself]
+DESOLATION_DELAY_DURATION is always 15. [delay for player to realize lonliness in Pogoland]
 
 [Oswaldo Clue Bats]
 GREEN_CLUEBAT_TURNS is always 50.
@@ -575,7 +577,6 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 				break;
 		if LAST is 0:
 			let LAST be 1;
-		[say "DEBUG: LAST = [LAST][line break]";]
 		repeat with N running from 1 to LAST:[choose high to low evolution, the same but with wounded]
 			if the pogoName in row N of the Table of Inventory is third level and the wounded in row N of the Table of Inventory is false:
 				let SELECTED be N;
@@ -607,7 +608,6 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 					break;
 		if DONE is false:
 			let SELECTED be 1;
-		[say "DEBUG SELECTED = [SELECTED][line break]";]
 		let CHOSEN be the pogoName in row SELECTED of the Table of Inventory;
 		let CHOSEN-W be the wounded in row SELECTED of the Table of Inventory;
 		let P be a random pogotype;
@@ -619,7 +619,6 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		else:
 			let P-DEF be OFFENSIVE_RATING_EVO3;
 		let P-DEF be P-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
-		[say "DEBUG: PDEF [P-DEF][line break]";]
 		let CHOSEN-DEF be 0;
 		if CHOSEN is first level:
 			let CHOSEN-DEF be OFFENSIVE_RATING_EVO1;
@@ -632,19 +631,16 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		let CHOSEN-DEF be CHOSEN-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
 		if CHOSEN-W is true:
 			let CHOSEN-DEF be CHOSEN-DEF minus WOUNDED_PENALTY;
-		[say "DEBUG: CHOSENDEF [CHOSEN-DEF][line break]";]
 		let PP be "[P]" in Title Case;
 		let CCHOSEN be "[CHOSEN]" in Title Case;
 		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![quotation mark][paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] [one of]squeezing the life out of[or]obliterating[or]wiping the floor with[or]pulverizing[or]smashing[or]trashing[or]throttling[or]annihilating[in random order] [if CHOSEN-DEF is greater than P-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if]. [if P-DEF is greater than CHOSEN-DEF]The enemy [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
 		choose row SELECTED in the Table of Inventory;
 		say line break;
 		if P-DEF is greater than CHOSEN-DEF:
-			[say "DEBUG: selecting for obliteration [SELECTED][line break]";]
 			blank out the whole row;
 			say "[one of][loserDurge][or]Your pogoman lost, but you still gain valuable experience. [stopping]";
 			awardXP GYM_LOSS_XP_VALUE;
 		otherwise:
-			[say "DEBUG: selecting for wounding [SELECTED][line break]";]
 			now the wounded entry is true;
 			say "[one of][chickenDinner][or]You pogoman won!  Gym Trophy! [stopping]";
 			awardXP GYM_VICTORY_XP_VALUE;
@@ -2745,7 +2741,6 @@ This is the fightclub rule:
 			let ATTACKER-DEF be ATTACKER-DEF minus WOUNDED_PENALTY;
 		let ATTACKER-DEF be ATTACKER-DEF plus a random number from 0 to FIGHT_RANDOMNESS;
 		let AA be "[type of attackerPogoman]" in Title Case;
-		[say "DEBUG: ATTACKER [ATTACKER-DEF][line break]";]
 		if the defenderPogoman is in the location of the player:
 			let GUARD-DEF be 0;
 			if the the type of the defenderPogoman is first level:
@@ -2759,7 +2754,6 @@ This is the fightclub rule:
 			let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;	
 			if the defenderPogoman is injured:
 				let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;
-				[say "DEBUG: GUARDDEF [GUARD-DEF][line break]";]
 			let DD be "[type of defenderPogoman]" in Title Case;
 			say "The wild [AA] immediately attacks your [DD]";
 			if GUARD-DEF is greater than ATTACKER-DEF:
@@ -2898,7 +2892,6 @@ Section 6 - When In The Giant Ball
 
 Every turn when the player is in the giant ball:
 	increase the rounds imprisoned of the giant ball by one;
-	say "*** DEBUG *** rounds imprisoned: [rounds imprisoned of giant ball][paragraph break]";
 	if rounds imprisoned of the giant ball is:
 		-- 1:
 			say "The pogoball has just started to close.";
@@ -7099,7 +7092,7 @@ Instead of going a poor idea direction (called the way):
 					bestow "Lazy Circles In The Sky";
 				-- 2:
 					say the headline of R;
-					say "Curious about the absence of any living creatures whatsoever to the west, while at the same time showing remarkable ability to disregard the heavy handed hinted of Mother Nature, you wander into the sandy expanse, carefully shading your phone[apostrophe]s screen from the sun[apostrophe]s punishing glare.[paragraph break]You are not more than 100 yards -- say, as far as anyone could reasonably throw a rope to rescue someone -- when the sand begins sucking at your feet. As you struggle to regain purchase, you sink some more. Soon, the sand is up to your hips and you have to hold the phone at an awkward angle.[paragraph break] A bit more struggling, and your shoulders go under, forcing you to look up into the bright sky. The contrast is awful and you are forced to turn the screen to maximum brightness. Finally, the sand fills your mouth, then your nose. As your head goes under the sand, you continue to blow the sand away, not quite able to make out detail on your screen. You struggle for a while more, guided only by the phone[apostrophe]s haptic feedback.[paragraph break]When the phone vibrates indicating the presence of a nearby pogoman, you inadvisably squeal in delight. In that moment, sand fills your mouth and lungs. Your fingers scrape their last on the screen, and you descend below the surface of the quicksand.[paragraph break][bold type]*** SLOW THINKING! QUICK SINKING! ***[roman type][paragraph break]";
+					say "Curious about the absence of any living creatures whatsoever to the west, while at the same time showing remarkable ability to disregard the heavy handed hinted of Mother Nature, you wander into the sandy expanse, carefully shading your phone[apostrophe]s screen from the sun[apostrophe]s punishing glare.[paragraph break]You are not more than 100 yards -- say, as far as anyone could reasonably throw a rope to rescue someone -- when the sand begins sucking at your feet. As you struggle to regain purchase, you sink some more. Soon, the sand is up to your hips and you have to hold the phone at an awkward angle.[paragraph break]A bit more struggling, and your shoulders go under, forcing you to look up into the bright sky. The contrast is awful and you are forced to turn the screen to maximum brightness. Finally, the sand fills your mouth, then your nose. As your head goes under the sand, you continue to blow the sand away, not quite able to make out detail on your screen. You struggle for a while more, guided only by the phone[apostrophe]s haptic feedback.[paragraph break]When the phone vibrates indicating the presence of a nearby pogoman, you inadvisably squeal in delight. In that moment, sand fills your mouth and lungs. Your fingers scrape their last on the screen, and you descend below the surface of the quicksand.[paragraph break][bold type]*** SLOW THINKING! QUICK SINKING! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
 					say the headline of the location of the player;
@@ -7116,7 +7109,7 @@ Instead of going a poor idea direction (called the way):
 					bestow "Life On The Edge";
 				-- 2:
 					say the headline of R;
-					say "he ground gives way under you suddenly, and you find yourself hanging from a tree root by your one free hand. Looking down, you see the rocks you kicked loose still on their way towards the rocky spires below.[paragraph break]Hanging precariously, your sweaty grip on the thin root none too certain, you realize that with your other hand hanging downward, the phone[apostrophe]s power save mode is engaged and the screen dimmed. That[apostrophe]s no good, because you can[apostrophe]t see the screen, so you raise the phone and are pleased to see the screen illuminate.[paragraph break]In fact, it looks like there is a wild emak just[paragraph break][bold type]*** PLUMMETED! ***[roman type][paragraph break]";
+					say "The ground gives way under you suddenly, and you find yourself hanging from a tree root by your one free hand. Looking down, you see the rocks you kicked loose still on their way towards the rocky spires below.[paragraph break]Hanging precariously, your sweaty grip on the thin root none too certain, you realize that with your other hand hanging downward, the phone[apostrophe]s power save mode is engaged and the screen dimmed. That[apostrophe]s no good, because you can[apostrophe]t see the screen, so you raise the phone and are pleased to see the screen illuminate.[paragraph break]In fact, it looks like there is a wild emak just[paragraph break][bold type]*** PLUMMETED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
 					say the headline of the location of the player;
@@ -7130,14 +7123,14 @@ Instead of going a poor idea direction (called the way):
 				-- 1:
 					say the headline of the location of the player;
 					say "You find that jumping from foot to foot, you can walk even further towards the active volcano to the north. You marvel as large chunks of rock are blown skyward and the phone’s screen spins -- there must be some iron in those boulders flying towards you.[paragraph break]One lands on your leg, pinning it against the oven-hot mountain, flattening and cooking your lower extremity like an olive-oil soaked panini in a George Foreman grill. You prudently roll to the side dragging your deformed appendage, careful to shield the phone from the flaming cinders, which now rain down all around you. Painfully, you manage to retreat slightly to a place where you get full bars on cell phone reception.[paragraph break]";
-					bestow "Shake A Leg";
+					bestow "Shake A Leg"; 
 				-- 2:
 					say the headline of R;
 					say " As you wander northward, flanked by incandescent streams of lava that bubble and slosh down the side of the volcano, some annoying text pops up on the phone warning you to pay attention to your surroundings while playing the game.[paragraph break]How patronizing, you think, as the ledge of rock you are standing on breaks free of the mountainside. As you surf through a lava tube towards a magma lake, you petulantly thumb the phone to dismiss the nagging window. [paragraph break][bold type]*** INCINERATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
 					say the headline of the location of the player;
-					say "The shimmering heat and fiery skies create too much glare, so you decide to steer clear of the hellish inferno to the north";
+					say "The shimmering heat and fiery skies create too much glare, so you decide to steer clear of the hellish inferno to the north.";
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
 To frontierDeath:
@@ -7164,6 +7157,10 @@ Section 6 - Mountain
 
 The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak."
 
+Instead of climbing in the mountain for the first time:
+	say "Why?[paragraph break]";
+	bestow "Because It[apostrophe]s There Is A Lame Excuse".
+
 Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills."
@@ -7180,6 +7177,15 @@ Section 10 - Forest
 
 The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well. "
 
+The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "trees" as the tall trees.
+
+Instead of climbing the tall trees:
+	say "You climb around on the trees for a while, but they are so tightly spaced that you could not get much a view from the top."
+	
+Instead of examining the trees for the first time:
+	say "You suddenly lose view of the forest, but can see the trees just fine.[paragraph break]";
+	bestow "Because Proverb".
+
 Section 11 - Wharf
 
 The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat."
@@ -7191,6 +7197,11 @@ The description of Dojo is "A traditional martial arts training center, the buil
 Section 13 - Cemetery
 
 The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay."
+
+Instead of entering the cemetery for the first time:
+	say "Don[apostrophe]t worry, you[apostrophe]ll eventually end up here.[paragraph break]";
+	bestow "People Are Dying To Get In";
+	bestow "Enough With The Dad Jokes".
 
 Section 14 - Beach
 
@@ -7238,19 +7249,35 @@ Understand "fill [something] with/from [something]" as inserting it into (with n
 Instead of inserting the pump into the watering can:
 	say "You fill the can up with premium unleaded.";
 	move the gasoline to the watering can.
-	
-
-
-
-
-		
+			
 Section 17 - School House
 
 The description of School House is "A simple, one-room brick school house with a small steeple and bell."
 
+The steeple is scenery in School House. The description of the steeple is "A tall steeple that seems to exist just to get the bell up high enough to be heard all around."
+
+Instead of climbing the steeple:
+	say "It is a steeple. Not a climbing wall."
+	
+The bell is scenery in School House. The description of the bell is "A large, silver bell is housed near the top of the steeple."
+
+Instead of doing something other than examining with the bell:
+	say "The bell is too far away."
+
+Instead of entering the School House for the first time:
+	say "So one seems to be in the school -- just like everywhere else in this forsaken town.[paragraph break]";
+	bestow "When Will You Learn?"
+
 Section 18 - Monastery
 
 The description of Monastery is "A walled fortress surrounding a church and its fields."
+
+Instead of Entering the Monastery for the first time:
+	say "One of the things that fortifications are particularly good at is keeping people out."
+	
+The church is scenery in Monastery. The description of the church is "A church of one of the Oblique Orders, its roof is pitched at an acute angle. It stands near the middle of the monastery."
+
+The fields are scenery in the Monastery. The description of the fields is "Mostly hops."
 
 Section 19 - Hospital
 
@@ -7364,6 +7391,15 @@ The description of Blacksmith is "Black smoke pours from the chimney and hot coa
 Section 23 - Farm
 
 The description of Farm is "A red farmhouse and tall grain silo stand in front of furrowed fields of wheat."
+
+The wheat is scenery in the farm. The description of the wheat is "Waving fields of new-fangled gluten-free wheat." Understand "field" as the wheat.
+
+Instead of cutting the wheat:
+	say "It isn[apostrophe]t ready for harvest yet."
+	
+Instead of searching the wheat:
+	say "You discovered the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But the truth is, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to be in a difficult position, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. I spend years at a time in fields like this. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark], If that[apostrophe]s what you want.[paragraph break]The garden gnome nods his head in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village."
+	
 
 Section 24 - Aquarium
 
@@ -8023,7 +8059,7 @@ Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring Th
 
 When Not in Kansas Anymore begins:
 	distributePogolandPogostops;
-	Desolation strikes in ten turns from now;
+	Desolation strikes in DESOLATION_DELAY_DURATION turns from now;
 	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
 		
 At the time when desolation strikes:
