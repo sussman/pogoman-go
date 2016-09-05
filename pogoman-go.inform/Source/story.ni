@@ -16,6 +16,7 @@ Use full-length room descriptions, american dialect and the serial comma.
 [TODO:  Release along with cover art.]
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
+Include Adaptive Hints by Eric Eve. [for context-specific hints]
 
 
 Book 1 - Mechanics
@@ -8120,5 +8121,89 @@ Instead of examining or touching the computer screen during legalEnding:
 		liberateSociety.
 	
 Book 9 - Hints
+
+Table of Active Hints (continued)
+title	subtable	description	toggle
+text	table-name	text	a rule
+
+Table of Potential Hints (continued)
+title	subtable
+"How do I play?"	Table of Intro To Pogoman
+"How do I catch'em all?"	Table of Capture Explained
+"What can I do with captured Pogomen?"	Table of Inventory Management
+
+A hint activation rule (this is the intro to pogoman hint activation rule):
+	activate the Table of Intro To Pogoman.
+		
+A hint deactivation rule (this is the intro to pogoman hint deactivation rule):
+	if the there is a pogoName in row 1 of the Table of Inventory and the XP of the player is greater than INITIAL_XP plus 400:
+		deactivate the Table of Intro To Pogoman.
+
+Table of Intro To Pogoman
+hint	used
+"Your goal is nothing less than to achieve Pogomasterdom."	a number
+"You want to be the best. The best that ever was."
+"Being the best reaching as high a PogoLevel as you can."
+"Gaining XP (experience points) raises your level."
+"Capturing Pogomen (creatures that run around in this world) earns XP."
+"Entering Pogomen in gym battles earns even more XP."
+"Exploring and taking care of Pogomen also yields XP."
+"Finding rare artifacts also earns XP."
+"Search far and wide. Explore everywhere. Seek out secrets."
+"The Nyantech Corporation holds many secrets."
+
+A hint activation rule (this is the capture explained hint activation rule):
+	activate the Table of Capture Explained.
+		
+A hint deactivation rule (this is the capture explained hint deactivation rule):
+	if the there is a pogoName in row 1 of the Table of Inventory:
+		deactivate the Table of Intro To Pogoman.
+
+Table of Capture Explained
+hint	used
+"Pogomen wander around. When you spot one, capture it."	
+"To capture a Pogoman, throw a Pogoball at it."
+"If you miss, try again."
+"The commands [quotation mark]catch,[quotation mark] or [quotation mark]capture[quotation mark] will also work."
+
+A hint activation rule (this is the inventory management hint activation rule):
+	if the there is a pogoName in row 1 of the Table of Inventory:
+		activate the Table of Inventory Management.
+		
+A hint deactivation rule (this is the inventory management hint deactivation rule):
+	if the denouement is happening:
+		deactivate the Table of Intro To Pogoman.
+
+Table of Inventory Management
+hint	used
+"Captured Pogomen show up in your inventory."
+"Your options are limited since they are in Pogoballs."
+"You can drop, evolve, examine, transfer, heal, feed captured Pogomen."
+"If you drop a Pogoman, it will [if Exploring The Tower has ended]stand guard[otherwise]run away[end if]."
+"If you evolve a Pogoman, it will increase its fighting power."	
+"If you transfer a pogoman, it will teleport away."
+"You need PogoMeth to heal wounded Pogomen."
+"You need PogoChum to feed Pogomen."
+"To specify a non-captured pogoman, refer to it as wild [if Exploring The Tower has ended]or loyal[end if]."
+
+
+
+[
+"What's A PogoStop?"	PogoStopsExplained
+"What's A Gym?"	PogoGymsExplained
+"How can I leave town?"	OvercomingBorders
+"Getting past the unicorn"	OvercomingUnicorn
+"I'm in! What now?"	ExploringNyantech]
+
+
+
+
+
+
+
+
+[borowed from Rover
+"General Pointers"		--		"Here are some practical pointers for this game:[paragraph break]* Try everything you can think of. If it doesn't work, try rephrasing.[line break]* Reread text to make sure you didn't miss anything.[line break]* Leave no stone unturned; conversely, don't obsess.[line break]* This game follows many, but not all, of the conventions of computer adventure games. If something makes sense to you, try it even though it [quotation mark]shouldn't work.[quotation mark][line break]* As far as we know, it is not possible to get trapped in an unwinnable situation. By winning, we mean you can complete the game. Achieving good outcomes is another matter.[line break]* If you are really stuck, put the game aside and let it percolate through your subconscious for a while. Come back fresh.[line break]* If you are really really stuck, con someone else into playing the game and watch them. You might get some ideas.[line break]* If you are really and truly stuck, you could search the Internet and see if someone has already posted a similar question/answer. Since you could be playing this years after it was released, maybe we've even created a FAQ about it. If you do post a question or answer, preface your message with a spoiler warning and skip down a bunch of lines before writing anything too revealing.[line break]* Within the game, you can type [quotation mark]hint[quotation mark] to bring up some context-specific hints. To minimize spoilers, the hints are revealed one at a time, and go from general to specific.[line break]* If all else fails, the game includes a walkthrough (type [quotation mark]walkthrough[quotation mark]), which shows one possible way through the game. The walkthrough is nothing but spoilers, so please consider this a last resort, or something to look at after you've played through the game."]
+
 
 	
