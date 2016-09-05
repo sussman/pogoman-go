@@ -651,9 +651,8 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 			
 			
 To say loserDurge:
-	say "You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain some experience! ";
+	say "You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain some experience![paragraph break]";
 	awardXP GYM_LOSS_XP_VALUE;
-	say paragraph break;
 	bestow "Their Pain; Your Gain".
 	
 To say chickenDinner:
@@ -5592,8 +5591,12 @@ Instead of jumping when the player is in the Deck Area:
 				now the chain is clipped;
 				say the headline of the location;
 			otherwise:
-				say "The things you do for this game… You hold on tightly to your phone and step over the edge.[paragraph break]Arms and legs flailing, you fall without the slightest hint of dignity. Your screams are carried away by the stiff breeze.  Despite any skill whatsoever at jumping off buildings, you land squarely in the center of the cat[apostrophe]s red beret, which is just as warm and fluffy as it looks.";
-				teleport the player to the Cat's Beret;
+				if entry 1 in HEADING is "S":
+					say "The things you do for this game… You hold on tightly to your phone and step over the edge.[paragraph break]Arms and legs flailing, you fall without the slightest hint of dignity. Your screams are carried away by the stiff breeze.  Despite any skill whatsoever at jumping off buildings, you land squarely in the center of the cat[apostrophe]s red beret, which is just as warm and fluffy as it looks.";
+					teleport the player to the Cat's Beret;
+				otherwise:
+					say "The Cat is no longer revolving around the building, but it is not parked right below you. When you factor certain death into your decision making process, it occurs to you that it would be better to make sure that the Cat is dead-center below the southern side of the deck (and therefore, directly beneath you) before hopping off.";
+					say the headline of the location;
 	otherwise:
 		say cantJump
 		
@@ -7859,7 +7862,7 @@ Oswaldo has a number called clue bat. The clue bat of Oswaldo is 0.
 
 The scrap of paper is in the void. The description of the scrap of paper is "A scrunched up piece of paper with a picture of a golden chalice with bolts of green lightning zig-zagging upwards from it." Understand "golden" or "gold" or "chalice" or "lightning" or "green" as the scrap of paper.
 
-The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" as the gum wrapper.
+The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" or "shiny" as the gum wrapper.
 
 The keychain is in the void. The description of the keychain is "A high-tech souvenir keychain of the Nyantech corporate mascot, the Nyantech Cat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyantech cat" or "mascot" or "souvenir" as the keychain.
 
@@ -7904,7 +7907,7 @@ To say greenClueBat:
 	say "A clumsy but spry janitor who bears a striking resemblance to Oswaldo, the local conspiracy theorist, rumbles by quickly pushing an overloaded garbage barrel. He turns the corner rapidly spilling some of the junk.[paragraph break]".
 	
 To say blueClueBat:
-	say "Someone pegs you in the head with a little bit of shiny paper. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging a bit of discarded gum wrapper at you from behind your back. The nerve.[paragraph break]".
+	say "Someone pegs you in the head with a little bit of something shiny. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging a bit of discarded gum wrapper at you from behind your back. The nerve.[paragraph break]".
 	
 To say redClueBat:
 	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comical. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
@@ -8139,12 +8142,16 @@ title	subtable
 "How to survive the Perilous Passageway"	Table of Overcoming Peril
 "Where's the artifact?"	Table of Artifact Elucidation
 "Getting past the unicorn"	Table of Overcoming Unicorn
-"I'm in! What now?"	Table of Exploring Nyantech
+"I got into Nyantech! What now?"	Table of Exploring Nyantech
 "Drank the Kool-Aid, now where?"	Table of Finding Legal
-"What to do in Legal?"	Table of Signing Up
+"What to do in the Legal Department?"	Table of Signing Up
 "What can a Beta-Tester do?"	Table of Beta Testing
 "Help! I'm totally stuck."	Table of Unstickiness
-
+"A wetsuit?"	Table of Aquatics
+"What to do, when I'm blue?"	Table of Blues
+"How can Rick Astley possible help?"	Table of Rick Assistance
+"So. Many. Blinky. LIghts."	Table of Blinkiness
+"In the belly of the beast"	Table of Ruby Seeking
 
 A hint activation rule (this is the intro to pogoman hint activation rule):
 	activate the Table of Intro To Pogoman.
@@ -8288,7 +8295,7 @@ A hint activation rule (this is the Artifact Eluciation hint activation rule):
 		activate the Table of Artifact Elucidation.
 		
 A hint deactivation rule (this is the Artifact Elucidation hint deactivation rule):
-	if the player carries the Baseball Cap of Pogomastery:
+	if the Baseball Cap of Pogomastery is not in the void:
 		deactivate the Table of Artifact Elucidation.
 
 Table of Artifact Elucidation
@@ -8339,7 +8346,7 @@ hint	used
 "Your badge does not allow you to access all areas."
 "To access some areas, you need to upgrade your badge."
 "You need to really absorb some of the Nyantech corporate culture to advance."
-"Imbibe the Nyantech zeitgeist!"
+"Imbibe the Nyantech Zeitgeist!"
 "Can you really swallow Nyantech's way of doing things?"
 
 A hint activation rule (this is the Finding Legal hint activation rule):
@@ -8347,7 +8354,7 @@ A hint activation rule (this is the Finding Legal hint activation rule):
 		activate the Table of Finding Legal.
 		
 A hint deactivation rule (this is the Finding Legal hint deactivation rule):
-	if the basementDoor has been open:
+	if Legal Department is visited:
 		deactivate the Table of Finding Legal.
 
 Table of Finding Legal
@@ -8359,7 +8366,6 @@ hint	used
 "Have you tried riding the elevator to the Legal Department?"
 "Is there something to explore in the Legal Department?"
 "Your badge gives you special access to the Legal Department."
-
 
 A hint activation rule (this is the Signing Up hint activation rule):
 	if the Legal Department is visited:
@@ -8374,7 +8380,7 @@ hint	used
 "It's almost like Nyantech [italic type]wanted[roman type] you to get into the Legal Department."
 "Is there anything here that gives you more information?"
 "How about the computer screen?"
-"Oh boy! It's your dream to be a Nyantech best-tester"
+"Oh boy! It's your dream to be a Nyantech best-tester!"
 "Surely,  you'd agree to almost any terms to become an official beta-tester."
 "Have you reviewed the terms of the beta-testing agreement?"
 "To review the terms, type [italic type]touch review[roman type]."
@@ -8399,7 +8405,7 @@ hint	used
 "Have you found a festive hat and celebrated appropriately?"
 "It doesn't matter. Just thought you might like to celebrate a bit with a funny hat."
 "Have you found another door you can't get through?"
-"You probably can't get through another colored door a green badge."
+"You can probably only get through green (or white) doors with a green badge."
 "There is a door in the Beta Testing Room that looks suspiciously like a garage door."
 "What do you suppose you need to open the Cousteau Room door?"
 "Have you searched far and wide within the Legal Department?"
@@ -8408,7 +8414,7 @@ hint	used
 "Did you look in the desk drawer?"
 "Have you tried pushing the button on the remote?"
 "Is there any reason the garage door remote wouldn't work?"
-"How about powering the garage remote?"
+"What powers the garage door remote control?"
 "Have you put fresh batteries into the garage remote?"
 "Are there any other batteries around to put into the remote?"
 "Can you find any other electrical device in the Legal Department?"
@@ -8419,6 +8425,130 @@ hint	used
 "Can you put the AA batteries from the clock in the remote?"
 "Does the remote work now?"
 "Maybe the remote has limited range."
+
+A hint activation rule (this is the Aquatics hint activation rule):
+	if the Cousteau Room is visited:
+		activate the Table of Aquatics.
+			
+A hint deactivation rule (this is the Aquatics hint deactivation rule):
+	if the securityColor of the badge is blue:
+		deactivate the Table of Aquatics.
+
+Table of Aquatics
+hint	used
+"What possible need could I have for a wetsuit in an office building?"
+"Is there any place in the building to swim?"
+"Pretty sure there is no pool in the building."
+"How about somewhere on the upper floor?"
+"Maybe you can swim in something other than water?"
+"Have you visited the ball pit? Everybody loves the ball pit."
+"Swimming around the surface of the ball pit is fun, isn't it?"
+"Wonder how far down that ball pit goes."
+"You can only hold your breath for so long."
+"The wetsuits incorporates air tanks."
+"You can dive deeper in the ball pit while wearing the wetsuit."
+"What is at the bottom of the ball pit?"
+
+A hint activation rule (this is the Blues hint activation rule):
+	if the securityColor of the badge is blue:
+		activate the Table of Blues.
+			
+A hint deactivation rule (this is the Blues hint deactivation rule):
+	if the Rick Astley Shrine is visited:
+		deactivate the Table of Blues.
+		
+Table of Blues
+hint	used
+"So, a blue badge. What color door do you think that opens?"
+"Have you searched the entire building?"
+"Some of the sub-basement levels are not accessible from the elevator."
+
+A hint activation rule (this is the Rick Assistance hint activation rule):
+	if the Rick Astley Shrine is visited:
+		activate the Table of Rick Assistance.
+			
+A hint deactivation rule (this is the Rick Assistance hint deactivation rule):
+	if the LAN Closet Door has been open:
+		deactivate the Table of Rick Assistance.
+		
+Table of Rick Assistance
+hint	used
+"What can I learn from finding a walkman?"	
+"Have you tried putting on the earphones?"	
+"Pretty loud and painful, right?"	
+"It would kind of drown out any other noise, wouldn't it?"	
+"Is there any place that you haven't been able to go?"
+"Any place you've been afraid to enter?"
+"Some people have a wierd sensation when exploring around the Lobby."
+"Have you approached the LAN closet?"
+"Most people get suddenly afraid near the closet."
+"The closet emits a strong sound that seems to affect people."
+"Can you now approach the closet?"
+"If you put on the earphones, is it loud enough to let you get near the closet?"
+
+A hint activation rule (this is the Blinkiness hint activation rule):
+	if the Lan Closet is visited:
+		activate the Table of Blinkiness.
+			
+A hint deactivation rule (this is the Blinkinesss hint deactivation rule):
+	if the onHoldFlag of the CAT Control is true and entry 1 in HEADING is "S":
+		deactivate the Table of Blinkiness.
+		
+Table of Blinkiness
+hint	used
+"Safety before fun: have you disabled the sound system?"
+"There are sooooooo many blinky lights in the LAN Closet. But which ones matter?"
+"Some of them are on networking equipment. Better not mess with those."
+"The LAN Closet has two functions, only one is related to the LAN."
+"The other function of the room is mentioned on the outside of the door."
+"What do you think the CAT controls affect?"
+"What do you know about Nyantech's mascot, a beret-wearing cat?"
+"Have you seen the cat from outside the building or the observation deck?"
+"Can you affect the rotation of the cat around the building?"
+"Why would you want to?"
+"Have you checked out the observation deck on the top level?"
+"Is it safe up there? After all, it's dangerously high."
+"How sturdy is that railing around the observation deck?"
+"Does the railing run all the way around the deck?"
+"Enough hints. At this point, you need to take a leap of faith."
+
+A hint activation rule (this is the Ruby Seeking hint activation rule):
+	if the player is in the Cat Area:
+		activate the Table of Ruby Seeking.
+	
+A hint deactivation rule (this is the Ruby Seeking hint deactivation rule):
+	if the securityColor of the badge is red:
+		deactivate the Table of Ruby Seeking.
+		
+Table of Ruby Seeking
+hint	used
+"Fine. You've made it to the cat. Keep on task."
+"Any guess about what color badge you need to advance?"
+"Is the cat associated with any prominent color, say, its eyes? Its beret?"
+"Take a look around, you'll know it when you find it."
+"The cat's eyes collect and focus psychic energy, best look around there."
+
+A hint activation rule (this is the Royal Reception hint activation rule):
+	if the securityColor of the badge is red:
+		activate the Table of Royal Reception.
+	
+A hint deactivation rule (this is the Royal Reception hint deactivation rule):
+	if the player is in the Throne Room:
+		deactivate the Table of Royal Reception.
+
+Table of Royal Reception
+hint	used
+"You have seen no one with a red badge. You have surpassed the other players."
+"What color door might a red badge open?"
+"Where would Nyantech bury its deepest secrets?"
+"The lower you go, the closer you get to revealing the truth about Nyantech."
+"How are you going to get out of the cat?"
+"Can you manage to get back up to the observation deck?"
+"No? How about some other way off the cat?"
+"Does the cat attach to the building somehow?"
+"How about the support beam?"
+"Can you find a way back into heart of the building?"
+"Watch that last step!"
 
 A hint activation rule (this is the Unstickiness hint activation rule):
 	activate the Table of Unstickiness.
