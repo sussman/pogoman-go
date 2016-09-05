@@ -8140,6 +8140,10 @@ title	subtable
 "Where's the artifact?"	Table of Artifact Elucidation
 "Getting past the unicorn"	Table of Overcoming Unicorn
 "I'm in! What now?"	Table of Exploring Nyantech
+"Drank the Kool-Aid, now where?"	Table of Finding Legal
+"What to do in Legal?"	Table of Signing Up
+"What can a Beta-Tester do?"	Table of Beta Testing
+"Help! I'm totally stuck."	Table of Unstickiness
 
 
 A hint activation rule (this is the intro to pogoman hint activation rule):
@@ -8320,11 +8324,12 @@ A hint activation rule (this is the Exploring Nyantech hint activation rule):
 		activate the Table of Exploring Nyantech.
 		
 A hint deactivation rule (this is the Exploring Nyantech hint deactivation rule):
-	if the Throne Room is visited:
+	if the securityColor of the badge is Green:
 		deactivate the Table of Exploring Nyantech.
 
 Table of Exploring Nyantech
 hint	used
+"Just getting into Nyantech is considered the Holy Grail for Pogomasters!"
 "Everyone knows that Nyantech keeps the best tech for itself."
 "Nyantech encourages players to visit and explore their headquarters."
 "If you snoop around a bit, you may get some inside info on the game."
@@ -8333,22 +8338,106 @@ hint	used
 "Access to different areas seems to depend on a color code scheme."
 "Your badge does not allow you to access all areas."
 "To access some areas, you need to upgrade your badge."
+"You need to really absorb some of the Nyantech corporate culture to advance."
+"Imbibe the Nyantech zeitgeist!"
+"Can you really swallow Nyantech's way of doing things?"
+
+A hint activation rule (this is the Finding Legal hint activation rule):
+	if the securityColor of the badge is Green:
+		activate the Table of Finding Legal.
+		
+A hint deactivation rule (this is the Finding Legal hint deactivation rule):
+	if the basementDoor has been open:
+		deactivate the Table of Finding Legal.
+
+Table of Finding Legal
+hint	used
+"Now that you have a green badge, can you go anywhere new?"
+"Is there a green area on another floor from you?"
+"Have you checked out the staircase or elevator for a green area?"
+"Have you seen the green door in the basement?"
+"Have you tried riding the elevator to the Legal Department?"
+"Is there something to explore in the Legal Department?"
+"Your badge gives you special access to the Legal Department."
 
 
+A hint activation rule (this is the Signing Up hint activation rule):
+	if the Legal Department is visited:
+		activate the Table of Signing Up.
+		
+A hint deactivation rule (this is the Signing Up hint deactivation rule):
+	if the Beta Testing Door has been unlocked :
+		deactivate the Table of Signing Up.
 
+Table of Signing Up
+hint	used
+"It's almost like Nyantech [italic type]wanted[roman type] you to get into the Legal Department."
+"Is there anything here that gives you more information?"
+"How about the computer screen?"
+"Oh boy! It's your dream to be a Nyantech best-tester"
+"Surely,  you'd agree to almost any terms to become an official beta-tester."
+"Have you reviewed the terms of the beta-testing agreement?"
+"To review the terms, type [italic type]touch review[roman type]."
+"It sure sounds reasonable-ish. Doesn't it?"
+"To reap all the benefits of being a beta-tester, you merely need to agree."
+"Follow the instructions on the screen to agree."
 
+A hint activation rule (this is the Beta Testing hint activation rule):
+	if the Beta Testing Door has been unlocked:
+		activate the Table of Beta Testing.
+		
+A hint deactivation rule (this is the Beta Testing hint deactivation rule):
+	if the Cousteau Door has been open:
+		deactivate the Table of Beta Testing.
+		
+Table of Beta Testing
+hint	used
+"First of all, congratulations. Not many players make it this far. Welcome to Beta!"
+"Has agreeing to be a beta-tester unlocked any doors for you?"
+"Any nearby doors, that is?"
+"How about the door to Beta Testing, just south of the Legal Department?"
+"Have you found a festive hat and celebrated appropriately?"
+"It doesn't matter. Just thought you might like to celebrate a bit with a funny hat."
+"Have you found another door you can't get through?"
+"You probably can't get through another colored door a green badge."
+"There is a door in the Beta Testing Room that looks suspiciously like a garage door."
+"What do you suppose you need to open the Cousteau Room door?"
+"Have you searched far and wide within the Legal Department?"
+"Is there anything in the Legal Department that might help open the Cousteau Room door?"
+"How about in the desk?"
+"Did you look in the desk drawer?"
+"Have you tried pushing the button on the remote?"
+"Is there any reason the garage door remote wouldn't work?"
+"How about powering the garage remote?"
+"Have you put fresh batteries into the garage remote?"
+"Are there any other batteries around to put into the remote?"
+"Can you find any other electrical device in the Legal Department?"
+"How about the clock?"
+"Have you examined the clock?"
+"Can you remove the batteries from the clock?"
+"Does the back of the clock open?"
+"Can you put the AA batteries from the clock in the remote?"
+"Does the remote work now?"
+"Maybe the remote has limited range."
 
+A hint activation rule (this is the Unstickiness hint activation rule):
+	activate the Table of Unstickiness.
+		
+A hint deactivation rule (this is the Unstickiness hint deactivation rule):
+	do nothing.
 
-
-
-
-
-
-
-
-
-[borowed from Rover
-"General Pointers"		--		"Here are some practical pointers for this game:[paragraph break]* Try everything you can think of. If it doesn't work, try rephrasing.[line break]* Reread text to make sure you didn't miss anything.[line break]* Leave no stone unturned; conversely, don't obsess.[line break]* This game follows many, but not all, of the conventions of computer adventure games. If something makes sense to you, try it even though it [quotation mark]shouldn't work.[quotation mark][line break]* As far as we know, it is not possible to get trapped in an unwinnable situation. By winning, we mean you can complete the game. Achieving good outcomes is another matter.[line break]* If you are really stuck, put the game aside and let it percolate through your subconscious for a while. Come back fresh.[line break]* If you are really really stuck, con someone else into playing the game and watch them. You might get some ideas.[line break]* If you are really and truly stuck, you could search the Internet and see if someone has already posted a similar question/answer. Since you could be playing this years after it was released, maybe we've even created a FAQ about it. If you do post a question or answer, preface your message with a spoiler warning and skip down a bunch of lines before writing anything too revealing.[line break]* Within the game, you can type [quotation mark]hint[quotation mark] to bring up some context-specific hints. To minimize spoilers, the hints are revealed one at a time, and go from general to specific.[line break]* If all else fails, the game includes a walkthrough (type [quotation mark]walkthrough[quotation mark]), which shows one possible way through the game. The walkthrough is nothing but spoilers, so please consider this a last resort, or something to look at after you've played through the game."]
-
+Table of Unstickiness
+hint	used
+"Through the ages, pogomasters have handed down some practical wisdom"
+"Try everything you can think of. If it doesn't work, try rephrasing."
+"Reread text to make sure you didn't miss anything."
+"Leave no stone unturned; conversely, don't obsess."
+"This game follows many, but not all, of the conventions of computer adventure games. If something makes sense to you, try it even though it [quotation mark]shouldn't work.[quotation mark]"
+"If you are really stuck, put the game aside and let it percolate through your subconscious for a while. Come back fresh."
+"If you are really really stuck, con someone else into playing the game and watch them. You might get some ideas."
+"If you are really and truly stuck, you could search the Internet and see if someone has already posted a similar question/answer. Also, check out the game's website (pogomango.templaro.com). If you do post a question or answer, preface your message with a spoiler warning and skip down a bunch of lines before writing anything too revealing."
+"If all else fails, the game includes a walkthrough (type [italic type]walkthrough[roman type]), which shows one possible way through the game. The walkthrough is nothing but spoilers, so please consider this a last resort, or something to look at after you've played through the game."
+"As far as we know, it is not possible to get trapped in an unwinnable situation. By winning, we mean you can complete the game. Achieving good outcomes is another matter."
+"Good Luck!"
 
 	
