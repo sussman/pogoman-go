@@ -115,6 +115,7 @@ The player has a health state called healthiness. The healthiness of the player 
 The player has a truth state called superuser. The superuser of the player is false.
 The player is lit. [light emiting, not hammered - to make sure that the player can see when in containers]
 The player has a number called topLevel. The topLevel of the player is 0.
+The player has a truth state called diedAtBorder. The diedAtBorder of the player is false.
 
 Section 7 - BackDrops
 
@@ -471,7 +472,7 @@ Instead of switching on pogoincense:
 
 Section 4 - Pogostops
 
-The pogostop is a backdrop. Understand "stop" or "signpost" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty.
+The pogostop is a backdrop. Understand "stop" or "signpost" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty. 
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
@@ -1817,7 +1818,7 @@ Report Helping:
 	
 Instead of helping for the first time:
 	say "That’s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it’s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
-	bestow "Here, let me google that for you".
+	bestow "Here, let me Google that for you".
 	
 Instead of helping for the second time:
 	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is hints, right?[paragraph break]";
@@ -3914,6 +3915,7 @@ Cliff	0
 Definition: a direction (called the way) is a bad idea if the room the way from the location is in the Borderlands.
 
 Instead of going a bad idea direction (called the way):	
+	now the diedAtBorder of the player is true;
 	let R be the room the way from the location;
 	if R is:
 		-- Reservoir:
@@ -8131,6 +8133,14 @@ title	subtable
 "How do I play?"	Table of Intro To Pogoman
 "How do I catch'em all?"	Table of Capture Explained
 "What can I do with captured Pogomen?"	Table of Inventory Management
+"What is A PogoStop?"	Table of PogoStops Explained
+"What is A Gym?"	Table of PogoGyms Explained
+"How can I leave town?"	Table of Overcoming Borders
+"How to survive the Perilous Passageway"	Table of Overcoming Peril
+"Where's the artifact?"	Table of Artifact Elucidation
+"Getting past the unicorn"	Table of Overcoming Unicorn
+"I'm in! What now?"	Table of Exploring Nyantech
+
 
 A hint activation rule (this is the intro to pogoman hint activation rule):
 	activate the Table of Intro To Pogoman.
@@ -8143,12 +8153,12 @@ Table of Intro To Pogoman
 hint	used
 "Your goal is nothing less than to achieve Pogomasterdom."	a number
 "You want to be the best. The best that ever was."
-"Being the best reaching as high a PogoLevel as you can."
+"Being the best means reaching as high a level as you can."
 "Gaining XP (experience points) raises your level."
 "Capturing Pogomen (creatures that run around in this world) earns XP."
 "Entering Pogomen in gym battles earns even more XP."
 "Exploring and taking care of Pogomen also yields XP."
-"Finding rare artifacts also earns XP."
+"Finding hard-to-find artifacts also earns XP."
 "Search far and wide. Explore everywhere. Seek out secrets."
 "The Nyantech Corporation holds many secrets."
 
@@ -8157,14 +8167,16 @@ A hint activation rule (this is the capture explained hint activation rule):
 		
 A hint deactivation rule (this is the capture explained hint deactivation rule):
 	if the there is a pogoName in row 1 of the Table of Inventory:
-		deactivate the Table of Intro To Pogoman.
+		deactivate the Table of Capture Explained.
 
 Table of Capture Explained
 hint	used
 "Pogomen wander around. When you spot one, capture it."	
 "To capture a Pogoman, throw a Pogoball at it."
 "If you miss, try again."
-"The commands [quotation mark]catch,[quotation mark] or [quotation mark]capture[quotation mark] will also work."
+"The commands [italic type]catch[roman type] or [italic type]capture[roman type] will also work."
+"If you run out of pogoBalls, get more at a PogoStop."
+"More evolved pogomen are harder to capture than lower pogomen."
 
 A hint activation rule (this is the inventory management hint activation rule):
 	if the there is a pogoName in row 1 of the Table of Inventory:
@@ -8178,22 +8190,155 @@ Table of Inventory Management
 hint	used
 "Captured Pogomen show up in your inventory."
 "Your options are limited since they are in Pogoballs."
-"You can drop, evolve, examine, transfer, heal, feed captured Pogomen."
-"If you drop a Pogoman, it will [if Exploring The Tower has ended]stand guard[otherwise]run away[end if]."
-"If you evolve a Pogoman, it will increase its fighting power."	
-"If you transfer a pogoman, it will teleport away."
-"You need PogoMeth to heal wounded Pogomen."
-"You need PogoChum to feed Pogomen."
-"To specify a non-captured pogoman, refer to it as wild [if Exploring The Tower has ended]or loyal[end if]."
+"You can [italic type]drop, evolve, examine, transfer, heal, [roman type]or [italic type]feed[roman type] captured Pogomen."
+"If you [italic type]drop[roman type] a Pogoman, it will [if Exploring The Tower has ended]stand guard[otherwise]run away[end if]."
+"If you [italic type]evolve[roman type] a Pogoman, it will increase its fighting power."	
+"If you [italic type]transfer[roman type] a pogoman, it will teleport away."
+"You need PogoMeth to [italic type]heal[roman type] wounded Pogomen."
+"You need PogoChum to [italic type]feed[roman type] Pogomen."
+"You can get PogoMeth, PogoChum, and other stuff from PogoStops."
+"To specify a non-captured pogoman, refer to it as wild[if Exploring The Tower has ended] or loyal[end if]."
+"You can have up to [POGOMEN_INVENTORY_LIMIT] in your stock at one time."
+"[italic type]Transfer[roman type] [if Exploring the Tower has not ended] or [italic type]Drop[roman type][end if] will get rid of wounded pogomen first."
+
+A hint activation rule (this is the pogostops explained hint activation rule):
+	if the Pogostop is in the location of the player:
+		activate the Table of PogoStops Explained.
+	
+A hint deactivation rule (this is the pogostops explained hint deactivation rule):
+	if the number of entries in the booty of the Pogostop is greater than 0:
+		deactivate the Table of PogoStops Explained.
+
+Table of PogoStops Explained
+hint	used
+"Did you try examining the pogostop?"	
+"You can get good stuff (like PogoBalls) by spinning the pogostop"	
+"You have to be at a pogostop to [italic type]spin[roman type] it."
+"Find pogostops in town by using your phone's scanner."
+"Type [italic type]scan[roman type] to activate your scanner."
+"On the scanner, [quotation mark]P[quotation mark] represents a pogostop"
+"On the scanner, [quotation mark]X[quotation mark] may mask the [quotation mark]P[quotation mark] if you stand on top of a pogostop."
+"After the pogostop is spun, you cannot immediately re-spin it." 
+"Pogostops can only be spun every [POGOSTOP_LOCKOUT_DURATION] turns."
+"You can only carry [POGOITEM_INVENTORY_LIMIT in words] game items at a time."
+"You can [italic type]drop[roman type] excess items to make room for more."
+"Dropping eggs is especially useful, since new pogomen will hatch."
+
+A hint activation rule (this is the pogoGyms Explained hint activation rule):
+	if the Gym is in the location of the player:
+		activate the Table of PogoGyms Explained.
+		
+A hint deactivation rule (this is the pogoGyms Explained hint deactivation rule):
+	if the number of entries in TROPHYLIST is greater than 0:
+		deactivate the Table of PogoGyms Explained.
+
+Table of PogoGyms Explained
+hint	used
+"You need to enter a gym to win Pogoman battles[if pogolevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT], but to enter, you need more experience[end if]."
+"You can earn XP and trophies by participating in Pogoman battles."
+"Pogomaster are persistent; if you have difficulty entering a gym, keep trying."
+"As a pogomaster, you will always (automatically) select your best champion for battle."
+"In battle, the more evolved pogoman usually has the advantage."
+"If you have unevolved pogomen in stock, use the [italic type]evolve[roman type] command to upgrade them."
+"[italic type]Heal[roman type] any wounded pogomen; they are at a disadvantage in gym battles."
+"Winning pogemen come out of the gym wounded; as for losers, best not dwell on that."
+"Some powerful artifacts can enhance your chances of winning at the gym."
+
+A hint activation rule (this is the Overcoming Borders hint activation rule):
+	if the diedAtBorder of the player is true:
+		activate the Table of Overcoming Borders.
+		
+A hint deactivation rule (this is the Overcoming Borders hint deactivation rule):
+	if the RevolvingDoor is visited:
+		deactivate the Table of Overcoming Borders.
+
+Table of Overcoming Borders
+hint	used
+"Walking out of town seems problematic."
+"You are welcome to keep trying."
+"One does not simply walk out of town."
+"Pogomasters do not seek outward enlightenment, but inward."
+"To make it to the big time, you need to get out of this penny ante backwater."
+"For pogomasters, the big time is synonymous with Nyantech, Inc."
+
+A hint activation rule (this is the Overcoming Peril hint activation rule):
+	if the passaged of the perilous passageway is greater than 0:
+		activate the Table of Overcoming Peril.
+		
+A hint deactivation rule (this is the Overcoming Peril hint deactivation rule):
+	if the passaged of the perilous passageway is greater than 8:
+		deactivate the Table of Overcoming Peril.
+
+Table of Overcoming Peril
+hint	used
+"Seems like there is something valuable in the dark passageway."
+"Some thugs are preying on Pogoman GO! players"
+"Getting beaten up hinders you playing, but doesn't kill you outright."
+"Through persistence, you may wear down the thugs."
+"A true Pogomaster would not let mere thuggery get in the way."
+"Whatever is in there must be worth the effort!"
+"Keep Calm and Pogoman On!"
+
+A hint activation rule (this is the Artifact Eluciation hint activation rule):
+	if the passaged of the perilous passageway is greater than 8:
+		activate the Table of Artifact Elucidation.
+		
+A hint deactivation rule (this is the Artifact Elucidation hint deactivation rule):
+	if the player carries the Baseball Cap of Pogomastery:
+		deactivate the Table of Artifact Elucidation.
+
+Table of Artifact Elucidation
+hint	used
+"Your scanner was going crazy - the artifact must be in the alley."
+"Is it possible that the artifact is not out in the open?"
+"Could the artifact be in something?"
+"Why has no one else found the artifact?"
+"Pogomastery is not always a clean business."
+"Hold your nose and do whatever it takes!"
+"It may be unpleasant, but have you looked in the garbage can?"
+"More specifically, have you searched the stuff in the can?"
+
+A hint activation rule (this is the Overcoming Unicorn hint activation rule):
+	if Nyantech Entrance is visited:
+		activate the Table of Overcoming Unicorn.
+		
+A hint deactivation rule (this is the Overcoming Unicorn hint deactivation rule):
+	if the RevolvingDoor is visited:
+		deactivate the Table of Overcoming Unicorn.
+		
+Table of Overcoming Unicorn
+hint	used
+"The unicorn seems like a jerk, but is just doing his job."
+"Actually, the unicorn is not so bad, even chatty at times."
+"The unicorn is a stickler for regulations."
+"The unicorn will always tell you what you need to do to get in."
+"Only players who have proven themselves can get into the building."
+"You can prove yourself by gaining levels and XP, medals, and gym trophies."
+
+A hint activation rule (this is the Exploring Nyantech hint activation rule):
+	if the Lobby is visited:
+		activate the Table of Exploring Nyantech.
+		
+A hint deactivation rule (this is the Exploring Nyantech hint deactivation rule):
+	if the Throne Room is visited:
+		deactivate the Table of Exploring Nyantech.
+
+Table of Exploring Nyantech
+hint	used
+"Everyone knows that Nyantech keeps the best tech for itself."
+"Nyantech encourages players to visit and explore their headquarters."
+"If you snoop around a bit, you may get some inside info on the game."
+"This is a chance to mingle with both Nyantech employees and other gamers."
+"Curious. Not every part of Nyantech is accessible to you. At least, not yet."
+"Access to different areas seems to depend on a color code scheme."
+"Your badge does not allow you to access all areas."
+"To access some areas, you need to upgrade your badge."
 
 
 
-[
-"What's A PogoStop?"	PogoStopsExplained
-"What's A Gym?"	PogoGymsExplained
-"How can I leave town?"	OvercomingBorders
-"Getting past the unicorn"	OvercomingUnicorn
-"I'm in! What now?"	ExploringNyantech]
+
+
+
 
 
 
