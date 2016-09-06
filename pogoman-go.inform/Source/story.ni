@@ -5403,7 +5403,7 @@ Instead of pushing a lift button (called the poked item) when the plusQueDenouem
 		-- internsButton:
 			ceoEnding;
 		-- lobbyButton:
-			say "TODO: lobby exit ending";
+			lobbyEnding;
 		-- legalButton:
 			now the selected of legalEnding is true.
 		
@@ -8089,6 +8089,10 @@ to liberateSociety:
 to buildingCollapse:
 	say "Explosions far above you shake the building, followed by a thump, thump, thump, which you realize is the floors of the building pancaking down on top of you. The elevator crashes down the shaft next to this room, the emergency lights flicker, and the walls collapse in.[paragraph break]You scrunch up under the desk as the building comes down around you, miraculously alive, or at least alive while the air lasts.[paragraph break]But it doesn[apostrophe]t matter. Despite the phone[apostrophe]s seemingly infinite battery, the servers are down. There is no signal. No one will ever play Pogoman GO! again. It is all over, and you have only yourself to blame.[paragraph break]If only you could do it all over, you are sure you would find a better way.[paragraph break]The phone freezes and you don[apostrophe]t bother to reboot it.";
 	end the story finally saying "DIED OF CRUSHING ENNUI".
+	
+to lobbyEnding:
+	say "You stumble out of the lobby, rip off the golden badge, and hand it to the unicorn. [quotation mark]There[apostrophe]s been an incident,[quotation mark] you tell him. [quotation mark]Up on the processing level. Very unfortunate.[quotation mark][paragraph break]As he can calls it in on his radio, you hustle around the block and duck into a dark alley. Traumatized by your experience with Pogoman GO!, you throw your phone [if the player wears the Baseball Cap of Pogomastery]and the Baseball Cap of Pogomastery[end if] into a garbage can and collapse on filthy mattress.[paragraph break]Later that evening, when unsuspecting player unwisely visit the dark alley you now call home, you use your special attack, relieving them of their phones and their cash.";
+	end the story finally saying "LIFE OF CRIME".
 		
 Rule for amusing a victorious player: 
 	say "[AmusingText]"
