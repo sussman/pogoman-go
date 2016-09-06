@@ -7468,7 +7468,7 @@ The description of Pogoland Terminal is "A concrete platform next to some maglev
 
 Section 28 - The Boat
 
-The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]."
+The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]." The possible exits of the fishing boat are "From here, you can go back up dilapidated ladder to the wharf."
 
 The engine is scenery in the fishing boat. The description of the engine is "[one of]Given the size of the boat, you won[apostrophe]t be setting any speed records, but the motor looks to be in reasonable repair. [or][stopping]On top of the engine, there is a gas cap. To the side, there is a valve marked choke. On the front, there is a speed control, which is in the [quotation mark]fast[quotation mark] position. [one of] In fact, it looks like it has been pushed a bit beyond the marking, and the handle is bent a bit in that direction.[paragraph break]It speaks of desperation.[paragraph break]Or poor manufacturing processes; hard to say. [paragraph break][or][stopping]Between the gas cap and the speed control a plastic handle that dangles by a bit of cord. The motor [motorPosition]."  The engine can be uptilted or downtilted. The engine is uptilted. Understand "motor" or "outboard" as the engine. 
 
@@ -8194,6 +8194,10 @@ title	subtable
 "How can Rick Astley possible help?"	Table of Rick Assistance
 "So. Many. Blinky. LIghts."	Table of Blinkiness
 "In the belly of the beast"	Table of Ruby Seeking
+"Champagne?"	Table of Caviar Dreams
+"How do I survive Pogoland?"	Table of Surviving Pogoland
+"A real gym fight"	Table of Gym Class
+"Taking to the high seas"	Table of Seamanship
 
 A hint activation rule (this is the intro to pogoman hint activation rule):
 	activate the Table of Intro To Pogoman.
@@ -8591,6 +8595,103 @@ hint	used
 "How about the support beam?"
 "Can you find a way back into heart of the building?"
 "Watch that last step!"
+
+A hint activation rule (this is the Caviar Dreams hint activation rule):
+	if the Throne Room is visited:
+		activate the Table of Caviar Dreams.
+	
+A hint deactivation rule (this is the Caviar Dreams hint deactivation rule):
+	If the MuskPodRoom is visited:
+		deactivate the Table of Caviar Dreams.
+		
+Table of Caviar Dreams
+hint	used
+"Are you a fan of champagne?"
+"Or do you detest it?"
+"If you have no strong feelings about champagne, try looking around."
+"Is any feature of the room highlighted?"
+"There is something funky about the dais."
+"As you've probably noticed, there is a way downward."
+"When you've had enough rant, the MuskPod awaits."
+"After entering the pod, check out the luxurious interior."
+"Have you tried the heads-up display?"
+"Enjoy the ride."
+
+A hint activation rule (this is the Surviving Pogoland hint activation rule):
+	if Pogoland Terminal is visited:
+		activate the Table of Surviving Pogoland.
+		
+A hint deactivation rule (this is the Surviving Pogoland hint deactivation rule):
+	if Not In Kansas Anymore has ended:
+		deactivate the Table of Surviving Pogoland.
+
+Table of Surviving Pogoland
+hint	used
+"Now that you've arrived in Pogoland, you might notice a wee paradigm shift."
+"Pogoman GO! plays a little differently here."
+"Did you notice what happened as you exited the MuskPod?"
+"When you drop pogomen from your stock they take up defensive positions."
+"Defensive... against whom?"
+"Have you met anyone else in Pogoland?"
+"Do wild pogomen seem to have more of an attitude here?"
+"The playing field is now level. You are as much hunted as hunter."
+"Is running away a viable strategy?"
+"Can you still capture a wild pogoman?"
+"What happens if a defending pogoman and wild pogoman meet?"
+"You're not much of a fighter, but how about attacking a wild pogoman?"
+"How about your special attack, or are you saving it for something?"
+"If you're injured, have you tried taking pogometh?"
+"Can you escape from Pogoland?"
+
+A hint activation rule (this is the Gym Class hint activation rule):
+	if the roundsElapsed of the gymnasium is greater than 0:
+		activate the Table of Gym Class.
+		
+A hint deactivation rule (this is the Gym Class hint deactivation rule):
+	if the player is not in the Gymnasium:
+		deactivate the Table of Gym Class.
+
+Table of Gym Class
+hint	used
+"This looks just like a Pogoman battle."
+"It doesn't look like there are any doors."
+"The opponent looks pretty tough."
+"Have you tried deploying a defender to help fight?"
+"Are your own attacks effective?"
+"Have you tried your special attack, or are you saving it for something?"
+"Are there options other than fighting?"
+"Where does that rope go?"
+"Can you get to the windows near the ceiling?"
+
+[This will enable after the player has left the boat for the first time, to give a 
+chance to first play around with the boat]
+
+A hint activation rule (this is the Seamanship hint activation rule):
+	if the Fishing Boat is visited:
+		activate the Table of Seamanship.
+		
+A hint deactivation rule (this is the Seamanship hint deactivation rule):
+	if Not In Kansas Anymore has ended:
+		deactivate the Table of Seamanship.
+		
+Table of Seamanship
+hint	used
+"Are you sure the boat is seaworthy?"
+"How far away do you think you can make it in that dinghy?"
+"Did you tilt the motor downward into the water?"
+"Could you get the motor started?"
+"Have you tried pulling the starter cord?"
+"Have you checked the gas tank?"
+"Where could you find more gas?"
+"Are there any convenient containers for gas around?"
+"Did you manage to fill up the tank?"
+"If so, can you start the motor now by pulling the cord?"
+"Some motors need to have the choke engaged to start."
+
+
+
+
+
 
 A hint activation rule (this is the Unstickiness hint activation rule):
 	activate the Table of Unstickiness.
