@@ -500,7 +500,8 @@ Instead of taking a pogostop:
 	
 Section 5 - Gyms
 
-A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. 
+A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false.
+
 Understand "teal" as the gym when the player is in a quadroom and the color of the location is teal.
 Understand "chartreuse" as the gym when the player is in a quadroom and  the color of the location is chartreuse.
 Understand "alizarin crimson" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
@@ -640,26 +641,25 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 		say line break;
 		if P-DEF is greater than CHOSEN-DEF:
 			blank out the whole row;
-			say "[one of][loserDurge][or]Your pogoman lost, but you still gain valuable experience. [stopping]";
-			awardXP GYM_LOSS_XP_VALUE;
+			if firstLossFlag of the gym is false:
+				say "You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain some experience![paragraph break]";
+				awardXP GYM_LOSS_XP_VALUE;
+				bestow "Their Pain; Your Gain";
+				now firstLossFlag of the gym is true;
+			otherwise:
+				say "Your pogoman lost, but you still gain valuable experience.[paragraph break]";
+				awardXP GYM_LOSS_XP_VALUE;
 		otherwise:
 			now the wounded entry is true;
-			say "[one of][chickenDinner][or]You pogoman won!  Gym Trophy! [stopping]";
+			if firstWinFlag of gym is false:
+				say "You win! Yes, your pogoman is mildly injured, but you gain a heap of experience, and more importantly, a coveted Gym Trophy![paragraph break]To see a list of your trophies, use the command [italic type]examine trophies[roman type].[paragraph break]";
+				now firstWinFlag of gym is true;
+			otherwise:			
+				say "Your pogoman won!  You receive a Gym Trophy![paragraph break]";
 			awardXP GYM_VICTORY_XP_VALUE;
 			let T be "Your [CCHOSEN] victorious over a [color of the location] [PP]";
 			add T to TROPHYLIST.
-			
-			
-To say loserDurge:
-	say "You lost (well, it was more traumatic for your pogoman, but transitively, at least, you lost). The good news is that you still gain some experience![paragraph break]";
-	awardXP GYM_LOSS_XP_VALUE;
-	bestow "Their Pain; Your Gain".
-	
-To say chickenDinner:
-	say "You win! Yes, your pogoman is mildly injured, but you gain a heap of experience, and more importantly, a coveted Gym Trophy![paragraph break]To see a list of your trophies, use the command [italic type]examine trophies[roman type]. ".
-			
-			
-	
+				
 Section 6 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
