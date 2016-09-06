@@ -266,14 +266,14 @@ To decrement (item - a pogothing) count:
 			let N be pogoEggsCarried of the player;
 	if N is:
 		-- 1:
-			say "You have only one [item] left!";
+			say "You have only one [item] left![paragraph break]";
 		-- 0:
 			move the item to the Void;
-			say "You have now run out of [printed plural name of the item]!";
+			say "You have now run out of [printed plural name of the item]![paragraph break]";
 		-- otherwise:
 			say "You now have ";
 			say  N in words;
-			say " [printed plural name of the item] left."
+			say " [printed plural name of the item] left.[paragraph break]"
 
 Instead of dropping a pogothing (called the item):
 	If the item is:
@@ -385,10 +385,10 @@ Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first
 	bestow "Iatrogenically Induced Synesthesia".
 	
 Instead of eating PogoMeth:
-	if Exploring the Tower has not happened:
+	if Exploring the Tower has not ended:
 		say "If only pogometh were real[one of]. Alas, it is only part of a game, and only useful for healing pogomen[or][stopping]!";
 	otherwise:
-		say "You munch down a pogometh[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].";
+		say "You munch down a pogometh[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].[paragraph break]Instantly, you feel much better.[paragraph break]";
 		pogoMethEffect.
 
 	
@@ -741,16 +741,19 @@ Instead of attacking a pogoentity (called the opponent):
 			say "The [type of defenderPogoman] reminds you that it is on your side.".
 			
 Instead of attacking Elon Musk:
-	say "[attackStyle] Elon Musk";
-	if a random chance of 1 in 2 succeeds:
-		now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
-		if the vitality of Elon Musk is dead:
-			say ", finishing";
-		otherwise:
-			say ", wounding";
-		say " him.";
+	if the vitality of Elon Musk is dead:
+		say "That seems like overkill.";
 	otherwise:
-		say "[nearMiss]."
+		say "[attackStyle] Elon Musk";
+		if a random chance of 1 in 2 succeeds:
+			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
+			if the vitality of Elon Musk is dead:
+				say ", finishing";
+			otherwise:
+				say ", wounding";
+			say " him.";
+		otherwise:
+			say "[nearMiss]."
 		
 			
 To say attackStyle:
@@ -1017,7 +1020,7 @@ This is the pogo-inventory rule:
 			if there is a guardian entry:
 				increase D by one;
 		if D is 0:
-			say "[line break]No loyal pogomen are on guard in Pogoland.";
+			say "[line break]No loyal pogomen are on guard in Pogoland.[paragraph break]";
 		otherwise:
 			say line break;
 			let DD be "[D in words]" in title case;
@@ -2040,15 +2043,15 @@ Carry out special attacking:
 			if the goldenBadge is worn by Elon Musk:
 				say ", leaving behind only a golden badge.[paragraph break]";
 				move the goldenBadge to Processing;
+				if the defenderPogoman is in Processing:
+					say "Spooked by the intensity of your attack, the [type of defenderPogoman] flees the crime scene.";
 			otherwise:
 				say ".[paragraph break]";
 			move Elon Musk to the void;
 			bestow "Kill It With Fire!";
-		else if a random chance of 90 in 100 succeeds:
+		else:
 			say "and slams into Musk, hurting him[if the vitality of Elon Musk is not dead]; he looks [vitality of Elon Musk][end if].";
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
-		otherwise:
-			say "but [one of]shoots right past him[or]Musk deflects the discharge, searing the hanging meat nearby[or]Musk evades the attack[or]Musk ducks[or]Musk dives out of the way[or]Musk takes only a grazing hit[or]Musk seems to weather the blast[or]Musk somehow bends the blast around him and it strikes the wall[or]Musk ducks behind a hanging piece of meat[or]Musk is too quick and evades[or]the blast is too high[or]the blast goes wide[in random order].";
 	now xp of the player is xp of the player minus SPECIAL_ATTACK_XP_COST;
 	
 After special attacking the attackerPogoman for the first time:
@@ -2706,7 +2709,7 @@ This is the pogoman apparition rule:
 		if Not In Kansas Anymore is happening:
 			follow the fightclub rule;[there's already an attacker here, so fight it]
 		the rule fails;[already one here, no need to generate a new one]
-	if Denouement is happening:
+	if Not in Kansas Anymore has ended:
 		the rule fails;
 	if the location of the player is pogoman interdicted:
 		the rule fails;
@@ -2846,17 +2849,20 @@ Every turn during denouement:
 		if the vitality of Elon Musk is less than dead:
 			say "Musk ";
 			if the defenderPogoman is in Processing:
-				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";
-			say "slashes left and right towards you with his strangely effective clipboard.[paragraph break]";
-			if a random chance of 1 in 2 succeeds:
-				now the healthiness of the player is the health state after the healthiness of the player;
-				if the healthiness of the player is dead:
-					say "Elon Musk slices your head clean off with his razor-sharp clipboard, ending the battle.";
-					muskEnding;
-				otherwise:
-					say "Musk comes at you with his twirling razor-edged clipboard and cuts you. You are [healthiness of the player].";
-			otherwise:
-				say "Elon Musk slashes at you with is clipboard, but misses."
+				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";	
+	otherwise:
+		if the vitality of Elon Musk is less than dead:
+			say "Elon Musk antagonizes you. He ";
+	if the vitality of Elon Musk is less than dead:
+		if a random chance of 1 in 2 succeeds	:
+			now the healthiness of the player is the health state after the healthiness of the player;
+			if the healthiness of the player is dead:
+				say "slices your head clean off with his razor-sharp clipboard, ending the battle.";	
+				muskEnding;	
+			otherwise:	
+				say "comes at you with his twirling razor-edged clipboard and cuts you. You are [healthiness of the player].";	
+		otherwise:	
+			say "slashes at you with his clipboard, but misses."
 
 Section 5 - During Legal Ending
 
@@ -5305,18 +5311,52 @@ Processing is a room. The description of Processing is "A vast, poorly lit space
 
 The weaponized clipboard is a prop. The description of the weaponized clipboard is "A sturdy electronic clipboard with exceptionally sharp edges. A checklist is displayed on the clipboard." The clipboard is carried by Elon Musk.
 
-The labcoat is worn by Elon Musk. The description of the labcoat is "A [if the vitality of Elon Musk is dead]bloodied and shredded[otherwise]starched and pressed white[end if] full length labcoat."
+The labcoat is worn by Elon Musk. The description of the labcoat is "A [if the vitality of Elon Musk is dead]bloodied and shredded[otherwise]starched and pressed white[end if] full length labcoat[if the goldenBadge is worn by Elon Musk]. A golden badge is clipped to the lapel[end if]."
 
-The checklist is part of the weaponized clipboard. The description of the checklist is "[quotation mark][fixed letter spacing]TTD:[line break]
+The checklist is part of the weaponized clipboard. The description of the checklist is "[line break][fixed letter spacing]TTD:[paragraph break]
 1. Develop perpetual battery for mobile phone - check[line break]
 2. Drill hole through earth, set up maglev train - check[line break]
 3. Invent way of melding real and virtual world - check[line break]
 4. Recruit human subjects to fuel project - check[line break]
-5. Take Over The World!!!![paragraph break]".
+5. Take Over The World!!!! - pending".
 
 The goldenBadge is a privately-named prop. The goldenBadge is worn by Elon Musk. The description of the goldenBadge is "It has the same overall design as your badge, but no photo or name. It just says [quotation mark]CEO[quotation mark]." The goldenBadge is worn by Elon Musk. The printed name of the goldenBadge is "golden badge". Understand "golden" or "badge" as the goldenBadge.
 
-Does the player mean the goldenBadge doing something with the goldenBadge: it is likely.
+Does the player mean the goldenBadge doing something with the goldenBadge:
+	it is likely.
+
+Instead of searching the labcoat:
+	if the goldenBadge is worn by Elon Musk and the vitality of Elon Musk is dead:
+		say "You notice the golden badge clipped to the labcoat's lapel and pluck it off the coat.";
+		now the player wears the goldenBadge;
+	otherwise:
+		continue the action.
+		
+Instead of taking the goldenBadge:
+	if the goldenBadge is worn by Elon Musk:
+		if the vitality of Elon Musk is not dead:
+			say "[quotation mark]Mine![quotation mark] he says and [one of]wheels out of the way[or]parries your attempt[or]dives to the side[or]deflects your attempt[or]turns to the side quickly[or]jumps out of range[in random order].";
+		otherwise:
+			say "You pluck the badge off the corpse without the slightest hesitation.[paragraph break]";
+			bestow "Hardened By Experience";
+			now the player wears the goldenBadge;
+	otherwise:
+		say "You take the badge and pin it on yourself in place of the old badge, which you discard.";
+		now the badge is in the void;
+		now the player wears the goldenBadge.
+		
+Instead of taking off the goldenBadge:
+	try dropping the goldenBadge.
+		
+Instead of dropping the goldenBadge for the first time:
+	say "[noDropGolden].[paragraph break]";
+	bestow "My Precious".
+	
+Instead of dropping the goldenBadge:
+	say "[noDropGolden]."
+	
+To say noDropGolden:
+	say "No, you have literally killed for it. You are now its rightful owner"
 	
 The meat hooks are scenery in Processing. The description of the meat hooks is "Heavy, jointed (and no doubt sharp) cast iron hooks that hang from a track along the ceiling." The meat hooks are plural-named. Understand "iron" or "hook" or "track" or "ceiling" as the meat hooks. 
 
@@ -5324,10 +5364,12 @@ Instead of doing something other than examining with the meat hooks:
 	say "They are too high up."
 	
 To transform the processing area:
-	say "[paragraph break]He[apostrophe]s clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloque, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You’re still going. There must be a bit more to this.[paragraph break]";
+	say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloque, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You’re still going. There must be a bit more to this.[paragraph break]";
 	bestow "Still ticking”;
-	if the defenderPogoman is in processing:
-		say "Your [type of the defenderPogoman] flees the crime scene.".
+	if the defenderPogoman is in Processing:
+		say "Your [type of the defenderPogoman] flees the crime scene.";
+	now the clipboard is in Processing;
+	now the defenderPogoman is in the void.
 		
 Before pushing the call button when the denouement is happening:
 	if the player wears the goldenBadge:
@@ -8014,7 +8056,7 @@ To lemurEnding:
 	end the story finally saying "ESCAPED TO LEMUR ISLAND!".
 	
 to muskEnding:
-	say "On the bright side, you continue to play an important role in the pogomon game for some time to come.[paragraph break]";
+	say "On the bright side, you continue to play an important role in the pogomon game for some time to come. As pogoChum.[paragraph break]";
 	end the story finally saying "KILLED BY ELON MUSK!".
 	
 to ceoEnding:
