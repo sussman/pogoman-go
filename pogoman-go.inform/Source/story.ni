@@ -6129,14 +6129,17 @@ MuskTube Station is a room. The description of MuskTube Station is "You[apostrop
 
 Elon Musk is a person in MuskTube Station. Elon Musk has a health state called vitality. The vitality of Elon Musk is healthy. Elon Musk has a number called tubeRantCounter. The tubeRantCounter of Elon Musk is 0. 
 
-To say the description of Elon Musk:
-	if denouement is not happening:
-		say "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority.";
-	otherwise:
-		if the vitality of Elon Musk is dead:
-			say "The remains of former Nyantech CEO, Elon Musk. His labcoat formerly pristine labcoat is a ruin[if elon musk carries the weaponized clipboard] and he hangs on tightly to his clipboard even in death[end if].";
+The description of Elon Musk is "[MuskDescription]."
+	
+To say MuskDescription:
+	if Elon Musk is in Processing:
+		if the vitality of Elon Musk is less than dead:
+			say "Musk appears somewhat less regal dressed in a labcoat and carrying his clipboard, but he still has an air of arrogance and authority";
 		otherwise:
-			say "Musk appears somewhat less regal dressed in a labcoat and carrying his clipboard, but he still has an air of arrogance and authority."
+			say "The remains of former Nyantech CEO, Elon Musk. His formerly pristine labcoat is a ruin";
+	otherwise:
+		say "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority".
+		
 			
 The printed name of Elon Musk is "[if the vitality of Elon Musk is dead]corpse of Elon Musk[otherwise]Elon Musk[end if]".
 
@@ -8198,6 +8201,8 @@ title	subtable
 "How do I survive Pogoland?"	Table of Surviving Pogoland
 "A real gym fight"	Table of Gym Class
 "Taking to the high seas"	Table of Seamanship
+"Taking on Musk"	Table of Boss Battle
+"Hi-ho Musk is Dead"	Table of Wicked Witch
 
 A hint activation rule (this is the intro to pogoman hint activation rule):
 	activate the Table of Intro To Pogoman.
@@ -8688,10 +8693,38 @@ hint	used
 "If so, can you start the motor now by pulling the cord?"
 "Some motors need to have the choke engaged to start."
 
+A hint activation rule (this is the Boss Battle hint activation rule):
+	if Elon Musk is in Processing:
+		activate the Table of Boss Battle.
+		
+A hint deactivation rule (this is the Boss Battle hint deactivation rule):
+	if Denouement has ended:
+		deactivate the Table of Boss Battle.
+		
+Table of Boss Battle
+hint	used
+"Is there any way out of here?"
+"What do you need to operate the elevator from this floor?"
+"What item does Musk have that you need?"
+"Can you find a way to distract Elon Musk?"
+"Do you have anything in stock that will help you?"
+"Pogomen?"
+"Pogometh?"
+"Musk is a great entrepreneur, but pretty lousy fighter. Can you punch him?"
+"Do you have enough XP to mount a special attack?"
 
+A hint activation rule (this is the Wicked Witch hint activation rule):
+	if the vitality of Elon Musk is dead:
+		activate the Table of Wicked Witch.
+		
+A hint deactivation rule (this is the Wicked Witch hint deactivation rule):
+	do nothing.
 
-
-
+Table of Wicked Witch
+hint	used
+"Good work! Do you need to relieve Mr. Musk of anything?"
+"How about that golden security card?"
+"You're on your own now!"
 
 A hint activation rule (this is the Unstickiness hint activation rule):
 	activate the Table of Unstickiness.
