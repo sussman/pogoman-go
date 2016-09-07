@@ -119,6 +119,7 @@ The player has a number called topLevel. The topLevel of the player is 0.
 The player has a truth state called diedAtBorder. The diedAtBorder of the player is false.
 The player has a number called pogomenCaptured. The pogomenCaptured of the player is 0.
 The player has a number called pogomenDefeated. The pogomenDefeated of the player is 0.
+The player has a truth state called deniedTemptationOnce. The deniedTemptationOnce of the player is true.
 
 Section 7 - BackDrops
 
@@ -1451,7 +1452,27 @@ Check nonPogoHealing:
 				try eating pogometh;
 			otherwise:
 				say "You are out of pogometh!".
-		
+				
+Section 10 - Walkthroughing
+
+Walkthroughing is an action out of world. Understand "walkthrough" as walkthroughing. 
+
+Carry out walkthroughing:
+	say "While the game has a built-in walkthrough, we would encourage you not to use it, but to try the hint system first (type [italic type]hint[roman type]). If you have already done that and prefer to look at the full walkthrough, please understand that it will necessarily be very spoilerish.[paragraph break]One other consideration: The game distribution should have included a nicely formated walkthrough in PDF format. That might be nicer to look at, and you could print it or open it next to the game rather than use this built-in version. The built-in version is retained just in case the game is played online or something else happens to the PDF version.[paragraph break]Before we go on, one last chance. Are you sure you want to see the walkthrough?";
+	if the player consents:
+		showWalkthrough;
+	otherwise:
+		say line break;
+		if deniedTemptationOnce of the player is true:
+			bestow "Denied Tempatation.";
+			now deniedTemptationOnce of the player is false;
+		otherwise:
+			say "That[apostrophe]s the spirit![paragraph break]".
+			
+To showWalkthrough:
+	say line break;
+	say "TODO: Walkthrough Text."			
+	
 
 
 Chapter Rules Modifications
@@ -8125,7 +8146,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert[roman type]. It[apostrophe]s your funeral.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* You used your phone[apostrophe] scanner, right? Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
