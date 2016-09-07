@@ -3815,6 +3815,13 @@ The garbage bin is a closed openable fixed in place container. The garbage bin i
 
 The Baseball Cap of Pogomastery is a wearable pogothing. The Baseball Cap of Pogomastery is in void. The description of the Baseball Cap of Pogomastery is "[one of]You immediately recognize the[or]The[stopping] legendary Baseball Cap of Pogomastery, a red and white hat with a broad brim." Understand "hat" or "brim" as the Baseball Cap of Pogomastery.
 
+Instead of Taking Off the Baseball Cap of Pogomastery for the first time:
+	say "It is well known that the Baseball Cap of Pogomastery, once worn, cannot be removed except at the cost of the Pogomaster[apostrophe]s very soul.[paragraph break]All things considered, you keep it on.[paragraph break]";
+	bestow "Uncorrupted".
+	
+Instead of Taking Off the Baseball Cap of Pogomastery:
+	say "It seems stuck to your head."
+
 The disgusting refuse is in the void. The description of the disgusting refuse is "Half-rotted tuna sandwiches, bits of plastic, and a collection of headless barbie dolls; the whole lot of it held together with some sort of sticky black ooze." Understand "garbage" or "trash" or "rubbish" as the disgusting refuse. The indefinite article of the disgusting refuse is "some". Understand "plastic" or "headless" or "barbie" or  "doll" or "barbies" or "dolls" or "black" or "ooze" or "tuna" or "sandwich" or "sandwiches" as the disgusting refuse.
 
 After opening the garbage bin for the first time:
