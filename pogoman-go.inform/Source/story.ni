@@ -175,8 +175,8 @@ MUSK_DEF is always 80.
 
 [Capturing the Player in the Giant Pogoball]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
-CAPTURE_RANDOMNESS is always 50.
-CAPTURE_THRESHOLD is always 120. [when desire + randomness > threshold, pogoman decides to try a capture]
+CAPTURE_RANDOMNESS is always 80.
+CAPTURE_THRESHOLD is always 150. [when desire + randomness > threshold, pogoman decides to try a capture]
 
 [Magical Items]
 HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and combat]
@@ -2110,7 +2110,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 				if the pogorecipient is injured:
 					say ". It seems restored to full health.[paragraph break]";
 					if the hasHealed of PogoMeth is false:
-						say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
+						say "At least physically. The mental scars may never heal.[paragraph break]";
 						bestow "Enabler";
 						now the hasHealed of PogoMeth is true;
 					now the pogorecipient is not injured;
@@ -2733,7 +2733,7 @@ This is the pogoman apparition rule:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
-			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [type of the attackerPogoman] appears!".
+			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [type of the attackerPogoman] appears![paragraph break]".
 			
 This is the fightclub rule:
 	if the attackerPogoman is in the location of the player:
