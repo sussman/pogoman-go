@@ -4954,11 +4954,11 @@ Instead of examining the player when the player wears the hat:
 	say "The hat adds a certain gravitas."
 
 After wearing the party hat for the first time:
-	say "Wearing the hat, you feel instantly jovial and can[apostrophe]t help but break into a little spontaneous [if the player is wearing the wetsuit], but awkward,[end if] beta-testing dance.[paragraph break]";
+	say "Wearing the hat[if the player wears the Baseball Cap of Pogomastery] (on top of the Baseball Cap of Pogomastery)[end if], you feel instantly jovial and can[apostrophe]t help but break into a little spontaneous [if the player is wearing the wetsuit], but awkward,[end if] beta-testing dance.[paragraph break]";
 	bestow "Team Spirit".
 	
 After wearing the party hat:
-	say "You pop the hat onto your head at what you think is a rakish angle[one of]. But consider for just a moment, a three by two cell table: how my friends see me; how my family sees me; how I see myself; how society sees me; how others gamers see me; how I really look. Now, notice that the hat only looks rakish in one of the six cells?[paragraph break]Just saying[or][stopping]."
+	say "You pop the hat onto your head [if the player wears the Baseball Cap of Pogomastery](on top of the Baseball Cap of Pogomastery) [end if]at what you think is a rakish angle[one of]. But consider for just a moment, a three by two cell table: how my friends see me; how my family sees me; how I see myself; how society sees me; how others gamers see me; how I really look. Now, notice that the hat only looks rakish in one of the six cells?[paragraph break]Just saying[or][stopping]."
 	
 Section 16 - Cousteau Room
 	
@@ -4973,7 +4973,7 @@ The mask is part of the wetsuit. The description of the mask is "A rubber face m
 The tanks are part of the wetsuit. The description of the tanks is "Two large airtanks built into the back of the wetsuit." Understand "strap" or "straps" as the tanks.
 
 After wearing the wetsuit: 
-	say "Despite the tight fit, the diving outfit pulls on snuggly over your clothing. You wriggle into the headpiece and adjust the mask. With a bit of twisting, you slip the flippers over your shoes, zip up the front of the suit, and adjust the air tank for comfort[if the player wears the party hat].[paragraph break]You had to take the party hat off to put the suit on, but you immediately put the strangely adherent hat back on and it bonds tightly with the neoprene headpiece[end if].";
+	say "Despite the tight fit, the diving outfit pulls on snuggly over your clothing [if the player wears the Baseball Cap of Pogomastery]including, of course, your Baseball Cap of Pogomastery[end if]. You wriggle into the headpiece and adjust the mask. With a bit of twisting, you slip the flippers over your shoes, zip up the front of the suit, and adjust the air tank for comfort[if the player wears the party hat].[paragraph break]You had to take the party hat off to put the suit on, but you immediately put the strangely adherent hat back on and it bonds tightly with the neoprene headpiece[end if].";
 	if the player had not worn the wetsuit:
 		say line break;
 		bestow "Aquanaut".
@@ -5012,7 +5012,7 @@ Instead of going a direction (called the way) when the player wears the wetsuit:
 				say "The wetsuit is just not made for walking around on land."
 		
 Instead of taking off the wetsuit:
-	say "You perform a small dance and manage to take off the suit and are now carrying it[if the player wears the party hat]. As for the stylish party hat, you consciensiouly replace it atop your head[end if].";
+	say "You perform a small dance and manage to take off the suit and are now carrying it[if the player wears the party hat]. As for the stylish party hat, you conscientiously replace it atop your head[end if].";
 	now the player carries the wetsuit.
 	
 Instead of listening when the player is in the Cousteau Room:
