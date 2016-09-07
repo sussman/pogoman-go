@@ -17,6 +17,7 @@ Use full-length room descriptions, american dialect and the serial comma.
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [for context-specific hints]
+Include Object Response Tests by Juhana Leinonen. [mildy hack for this project]
 
 
 Book 1 - Mechanics
