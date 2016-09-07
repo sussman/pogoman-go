@@ -117,6 +117,8 @@ The player has a truth state called superuser. The superuser of the player is fa
 The player is lit. [light emiting, not hammered - to make sure that the player can see when in containers]
 The player has a number called topLevel. The topLevel of the player is 0.
 The player has a truth state called diedAtBorder. The diedAtBorder of the player is false.
+The player has a number called pogomenCaptured. The pogomenCaptured of the player is 0.
+The player has a number called pogomenDefeated. The pogomenDefeated of the player is 0.
 
 Section 7 - BackDrops
 
@@ -155,7 +157,7 @@ EGG_HATCH_XP_VALUE is always 25.
 STREETFIGHT_XP_VALUE is always 100.
 
 [likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
-INCENSE_EFFECT_VALUE is always 10.
+INCENSE_EFFECT_VALUE is always 15.
 PREPOGO_ENCOUNTER_VALUE is always 10.[before pogoland]
 POGO_ENCOUNTER_VALUE is always 10.[pogoland]
 
@@ -659,6 +661,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 				say "Your pogoman won!  You receive a Gym Trophy![paragraph break]";
 			awardXP GYM_VICTORY_XP_VALUE;
 			let T be "Your [CCHOSEN] victorious over a [color of the location] [PP]";
+			increase the pogomenDefeated of the player by 1;
 			add T to TROPHYLIST.
 				
 Section 6 - Pogomen
@@ -727,6 +730,7 @@ Instead of attacking a pogoentity (called the opponent):
 				if the attackerPogoman is injured:
 					if the player is in the gymnasium and a random chance of 50 in 100 succeeds:
 						say ". Defeated, it vanishes. A moment later, you are sucked back into a pogoball.";
+						increase the pogomenDefeated of the player by 1;
 						teleport the player to Processing;
 					otherwise:
 						say "[nearMiss].";
@@ -749,7 +753,7 @@ Instead of attacking Elon Musk:
 		if a random chance of 1 in 2 succeeds:
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
 			if the vitality of Elon Musk is dead:
-				say ", finishing";
+				say ", all but finishing";
 			otherwise:
 				say ", wounding";
 			say " him.";
@@ -878,18 +882,23 @@ Instead of throwing a pogoball at something (called the target):
 			say "You[apostrophe]ve captured ";
 			if Around The Town is happening or Exploring The Tower is Happening:
 				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target].[paragraph break]";
+				increase the pogomenCaptured of the player by 1;
 				awardXP 30; 
 			otherwise:
 				if the target is the defenderPogoman:
-					say "a loyal [type of target]";
+					say "a loyal [type of target].[paragraph break]";
 					choose the row with a pogoLandQTH of the location of player in the Table of Defenders;
-					blank out the whole row;
+					blank out the guardian entry;
+					blank out the wounded entry;
 				otherwise:
-					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping]";
-				say ".[paragraph break]";
+					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping].[paragraph break]";
+					increase the pogomenCaptured of the player by 1;
+					awardXP 30; 
 			if FIRSTTHROW is true:
 				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
+				increase the pogomenCaptured of the player by 1;
+				awardXP 30; 
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
 			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
@@ -2765,6 +2774,7 @@ This is the fightclub rule:
 			say "The wild [AA] immediately attacks your [DD]";
 			if GUARD-DEF is greater than ATTACKER-DEF:
 				say " but is defeated after a brief combat. The [AA] disappears in a puff of smoke.[paragraph break]You gain [STREETFIGHT_XP_VALUE] XP![paragraph break]";
+				increase the pogomenDefeated of the player by 1;
 				move the attackerPogoman to the void;
 				now the defenderPogoman is injured;
 				now the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders is true;
@@ -2844,7 +2854,7 @@ Every turn during denouement:
 		if GUARD-DEF is greater than MUSK_DEF:
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
 			if the vitality of Elon Musk is dead:
-				say "and deals a lethal blow to";
+				say "and deals an almost lethal blow to";
 			otherwise:
 				say "and lands a solid hit against";
 		otherwise:
@@ -8115,7 +8125,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. You managed to catch a total of TODO: XX pogomen. You and your pogomen defeated TODO: XX wild pogomen in combat.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert[roman type]. It[apostrophe]s your funeral.[paragraph break]* Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
