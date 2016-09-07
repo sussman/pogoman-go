@@ -886,7 +886,7 @@ Instead of throwing a pogoball at something (called the target):
 					blank out the whole row;
 				otherwise:
 					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping]";
-				say ".";
+				say ".[paragraph break]";
 			if FIRSTTHROW is true:
 				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
@@ -1080,6 +1080,9 @@ Check inventoryDropping:
 			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
 			stop the action;
 	if Exploring The Tower has ended:
+		if the player is in the giant ball:
+			say "You can[apostrophe]t. You are trapped in a pogoball yourself!";
+			stop the action;
 		if the defenderPogoman is in the location of the player:
 			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
 			stop the action;
@@ -2105,7 +2108,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 		-- pogometh:
 				say "[The pogorecipient] snorts the pogometh greedily and afterwards glows warmly";
 				if the pogorecipient is injured:
-					say ". It seems restored to full health.";
+					say ". It seems restored to full health.[paragraph break]";
 					if the hasHealed of PogoMeth is false:
 						say "[line break]At least physically. The mental scars may never heal.[paragraph break]";
 						bestow "Enabler";
@@ -2761,7 +2764,7 @@ This is the fightclub rule:
 			let DD be "[type of defenderPogoman]" in Title Case;
 			say "The wild [AA] immediately attacks your [DD]";
 			if GUARD-DEF is greater than ATTACKER-DEF:
-				say " but is defeated after a brief combat. The [AA] disappears in a puff of smoke. You gain [STREETFIGHT_XP_VALUE] XP!";
+				say " but is defeated after a brief combat. The [AA] disappears in a puff of smoke.[paragraph break]You gain [STREETFIGHT_XP_VALUE] XP![paragraph break]";
 				move the attackerPogoman to the void;
 				now the defenderPogoman is injured;
 				now the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders is true;
@@ -7671,6 +7674,7 @@ The gymceiling is privately-named scenery. The gymceiling is in the gymnasium. T
 
 Instead of climbing the rope:
 	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.";
+	bestow "Acrobatic";
 	teleport the player to the Dojo.
 	
 Instead of cutting the rope:
