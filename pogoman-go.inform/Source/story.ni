@@ -3489,7 +3489,7 @@ The maps are scenery in Welbourn Travel. The description of the maps is "Colorfu
 
 Section 18 - Hook & Ladder
 
-The description of Hook & Ladder is "The home of Fire Bridage Number 12." Hook & Ladder is an improper-named structure. Understand "hook and ladder" or "firehouse" as Hook & Ladder. Understand "building" as Hook & Ladder when the location is Hook & Ladder. The title of Hook & Ladder is "Hook & Ladder". The printed name of Hook & Ladder is "firehouse".
+The description of Hook & Ladder is "The home of Fire Brigade Number 12." Hook & Ladder is an improper-named structure. Understand "hook and ladder" or "firehouse" as Hook & Ladder. Understand "building" as Hook & Ladder when the location is Hook & Ladder. The title of Hook & Ladder is "Hook & Ladder". The printed name of Hook & Ladder is "firehouse".
 
 Section 19 - Prissy's Little Sausages
 
