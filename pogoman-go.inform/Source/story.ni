@@ -5,7 +5,7 @@ The story headline is "An interactive satire".
 The story genre is "comedy".
 The release number is 2.
 The story creation year is 2016.
-The story description is "The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!"
+The story description is "The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it!"
 
 Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
@@ -16,11 +16,11 @@ Use full-length room descriptions, american dialect and the serial comma.
 
 [TODO: can add with... a website, the source text, the library card, the introductory postcard]
 
-Release along with cover art ("The Nyantech mascot cat ridinga giant pogoball"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
+Release along with cover art ("The Nyantech mascot cat riding a giant pogoball"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [for context-specific hints]
-Include Object Response Tests by Juhana Leinonen. [mildy hack for this project]
+Include Object Response Tests by Juhana Leinonen. [mildly hack for this project]
 Include Menus by Emily Short. [walkthrough menus]
 
 
@@ -99,9 +99,9 @@ A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list
 
 Section 5 - People
 
-A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of  workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
+A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
 
-A gamer is a kind of  privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
+A gamer is a kind of privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
 
 Section 6 - Player properties
 
@@ -118,7 +118,7 @@ The player has a room called previousRoom. previousRoom is the void.
 The player has a number called the TeamColorPrompt. The TeamColorPrompt is 0.
 The player has a health state called healthiness. The healthiness of the player is healthy.
 The player has a truth state called superuser. The superuser of the player is false.
-The player is lit. [light emiting, not hammered - to make sure that the player can see when in containers]
+The player is lit. [light emitting, not hammered - to make sure that the player can see when in containers]
 The player has a number called topLevel. The topLevel of the player is 0.
 The player has a truth state called diedAtBorder. The diedAtBorder of the player is false.
 The player has a number called pogomenCaptured. The pogomenCaptured of the player is 0.
@@ -193,7 +193,7 @@ INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 POGOSTOP_LOCKOUT_DURATION is always 10.
 DAIS_DELAY_DURATION is always 15. [if player hasn't noticed dais by this time, it notices itself]
-DESOLATION_DELAY_DURATION is always 15. [delay for player to realize lonliness in Pogoland]
+DESOLATION_DELAY_DURATION is always 15. [delay for player to realize loneliness in Pogoland]
 
 [Oswaldo Clue Bats]
 GREEN_CLUEBAT_TURNS is always 50.
@@ -246,9 +246,9 @@ A pogothing is a kind of thing.
 
 A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoballs at them[or][stopping].".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
 
-A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up…. something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
+A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of pogothing.  The description is "You’re not sure what’s in it, but it seems to make pogomen feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+A Pogometh-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
 A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg [one of](drop the egg to hatch it)[or][stopping]." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
@@ -297,7 +297,7 @@ Instead of dropping a pogothing (called the item):
 			if Around the Town is happening:
 				say "You throw away a piece of pogochum.";
 			otherwise:
-				say "The mouldy chunk of meat hits the ground with a wet smack and then melts[one of]. Creepy[or][stopping].";
+				say "The moldy chunk of meat hits the ground with a wet smack and then melts[one of]. Creepy[or][stopping].";
 			say line break;
 			decrement pogochum count;
 		-- pogometh:
@@ -433,7 +433,7 @@ After tasting when the PogoMeth is trippy:
 	say "[alteredTaste]."
 	
 To say alteredTaste:
-	say "Mmm. Tastes like [one of]chicken[or]turkish delight[or]marmelade[or]vegemite[or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzepam might have cooked up[in random order]";
+	say "Mmm. Tastes like [one of]chicken[or]Turkish Delight[or]marmalade[or]vegemite[or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzipan might have cooked up[in random order]";
 	
 Instead of listening when the PogoMeth is trippy for the first time:
 	say "You hear nothing but the rain.[paragraph break]";
@@ -462,7 +462,7 @@ Instead of burning incense:
 		now the pogoIncense is ignited;
 		Incense dissipates in INCENSE_DURATION turns from now;
 	else if Exploring The Tower is happening:
-		say "This is prohibited by Nyantech's strict smoke-free workplace policy.";
+		say "This is prohibited by Nyantech[apostrophe]s strict smoke-free workplace policy.";
 	else:
 		say "You light up some incense and are immediately engulfed in a thick cloud of sickeningly sweet smoke. With a bit of coughing, you wave it away, but the smell lingers for a while.";
 		say line break;
@@ -512,14 +512,14 @@ A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [co
 
 Understand "teal" as the gym when the player is in a quadroom and the color of the location is teal.
 Understand "chartreuse" as the gym when the player is in a quadroom and  the color of the location is chartreuse.
-Understand "alizarin crimson" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
-Understand "alizarin" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
-Understand "crimson" as the gym when the player is in a quadroom and  the color of the location is alizarin crimson.
-Understand "viridian" as the gym when the player is in a quadroom and  the color of the location is viridian.
-Understand "papayawhip" as the gym when the player is in a quadroom and  the color of the location is papayawhip.
-Understand "unbleached titanium" as the gym when the player is in a quadroom and  the color of the location is unbleached titanium.
-Understand "unbleached" as the gym when the player is in a quadroom and  the color of the location is unbleached titanium.
-Understand "titanium" as the gym when the player is in a quadroom and  the color of the location is unbleached titanium.
+Understand "alizarin crimson" as the gym when the player is in a quadroom and the color of the location is alizarin crimson.
+Understand "alizarin" as the gym when the player is in a quadroom and the color of the location is alizarin crimson.
+Understand "crimson" as the gym when the player is in a quadroom and the color of the location is alizarin crimson.
+Understand "viridian" as the gym when the player is in a quadroom and the color of the location is viridian.
+Understand "papayawhip" as the gym when the player is in a quadroom and the color of the location is papayawhip.
+Understand "unbleached titanium" as the gym when the player is in a quadroom and the color of the location is unbleached titanium.
+Understand "unbleached" as the gym when the player is in a quadroom and the color of the location is unbleached titanium.
+Understand "titanium" as the gym when the player is in a quadroom and the color of the location is unbleached titanium.
 
 Definition: A quadroom is an okayGymLocation if it is an okayInitialPogostopLocation and it is not listed in GYMLIST.
 
@@ -554,19 +554,19 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the second time:
-	say "The scene shifts fluidly to the interior of the gym. [if the color of the location is the team color of the player]Your team (Team [team color of the player])[otherwise]The [color of the location][end if] team has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There’s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It’s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It’s not going anywhere.[paragraph break]It’s stuck. Your phone has crashed.";
+	say "The scene shifts fluidly to the interior of the gym. [if the color of the location is the team color of the player]Your team (Team [team color of the player])[otherwise]The [color of the location][end if] team has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There[apostrophe]s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It[apostrophe]s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It[apostrophe]s not going anywhere.[paragraph break]It[apostrophe]s stuck. Your phone has crashed.";
 	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the third time:
 	sort the Table of Inventory in wounded order;
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen. How embarassing.[paragraph break]";
+		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen. How embarrassing.[paragraph break]";
 		bestow "Friendless";
 		stop the action;
 	otherwise:
 		let P be "[pogoName in row 1 of the Table of Inventory]";
 		let PP be P in Title Case;
-		say "The exterior of the gym dissolves and your [PP] faces off against an obviously inferior opponent: a low-level Tinkelwaif. The Tinklewaif looks like it has been through hell and back in this gym. Its fur is matted and tufts are missing. It stares ahead with wide, emotionless eyes, ready to endure yet another senseless beating for the honor of the gym. During the countdown it swigs deeply from a hip flask and shakes its scar-covered head to focus, showering the gym in tinkeldust. The countdown finishes, and your [PP] leaps across the arena, claws bared, fangs down, sure of an easy kill.[paragraph break]Turn after turn, your [PP] rips into the frail Tinkelwaif with highly effective attacks; its special move sends the hopelessly outclassed Tinkelwaif to the mat. Its life energy trickles away and you sense victory a mere moment away.[paragraph break]And then the HP counter holds at one.[paragraph break]Through a curtain of tears and blood, the Tinkelwaif smiles vindictively and climbs back to its feet, still hanging onto your [PP] for support. You [PP] hasn’t noticed. It is still flinging attack after attack, but doing no damage.[paragraph break]Now it is your [PP] who is flagging. Its attacks come slower and slower. It fights a futile battle. Frothy blood escapes its lips as it collapses to the ground and is kicked cruelly by the opponent -- it looks imploringly at you, unable to understand how the tables have turned. The victorious Tinkelwaif pushes your [PP] to the edge of the gym platform and slow claps for itself as the empty shell of a pogoman plunges to the ground.[paragraph break]You console yourself that at least the game didn’t freeze.[paragraph break]";
+		say "The exterior of the gym dissolves and your [PP] faces off against an obviously inferior opponent: a low-level Tinkelwaif. The Tinkelwaif looks like it has been through hell and back in this gym. Its fur is matted and tufts are missing. It stares ahead with wide, emotionless eyes, ready to endure yet another senseless beating for the honor of the gym. During the countdown it swigs deeply from a hip flask and shakes its scar-covered head to focus, showering the gym in tinkeldust. The countdown finishes, and your [PP] leaps across the arena, claws bared, fangs down, sure of an easy kill.[paragraph break]Turn after turn, your [PP] rips into the frail Tinkelwaif with highly effective attacks; its special move sends the hopelessly outclassed Tinkelwaif to the mat. Its life energy trickles away and you sense victory a mere moment away.[paragraph break]And then the HP counter holds at one.[paragraph break]Through a curtain of tears and blood, the Tinkelwaif smiles vindictively and climbs back to its feet, still hanging onto your [PP] for support. You [PP] hasn[apostrophe]t noticed. It is still flinging attack after attack, but doing no damage.[paragraph break]Now it is your [PP] who is flagging. Its attacks come slower and slower. It fights a futile battle. Frothy blood escapes its lips as it collapses to the ground and is kicked cruelly by the opponent -- it looks imploringly at you, unable to understand how the tables have turned. The victorious Tinkelwaif pushes your [PP] to the edge of the gym platform and slow claps for itself as the empty shell of a pogoman plunges to the ground.[paragraph break]You console yourself that at least the game didn[apostrophe]t freeze.[paragraph break]";
 	wait for any key;
 	say "And then the game freezes.";
 	freeze the phone.
