@@ -2608,7 +2608,7 @@ Section 7 - Spawn Pogomen
 Spawning is an action applying to nothing. Understand "spawn" as spawning.
 	
 Check spawning:
-	if the the attackerPogoman is in the location of the player:
+	if the attackerPogoman is in the location of the player:
 		say "There is already a wild pogoman here. Only one per location.";
 		stop the action.
 		
@@ -2640,13 +2640,25 @@ Carry out sudoing:
 	
 Report sudoing:
 	say "Privilege Elevated, Your Sudoship."	
+	
+Section 9 - The Default Stage Business Rule
+
+[
+
+[enable only for testing]
+The default stage business rule is listed last in the stage business rules.
+
+This is the default stage business rule:
+	say "*** DEFAULT STAGE BUSINESS FOR TESTING PURPOSES ONLY ***."
+	
+]
 
 Chapter Initialize
 
 When play begins:
 	now SUPPRESSMEDALS is false;
 	now BLOCKSTAGEBUSINESSFLAG is true;
-	[don't want stage buiness on first turn (otherwise enabled b/c previous player room is void)]
+	[don't want stage business on first turn (otherwise enabled b/c previous player room is void)]
 	now pogoLevel of the player is INITIAL_POGOLEVEL;
 	now the XP of the player is INITIAL_XP;
 	now the player carries the phone;
@@ -2673,7 +2685,7 @@ To openGame:
 		say "[T minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
-	say ". You must have drifted off for a bit, but no bother[one of]. Time’s a-wasting. The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it[or][stopping]!";
+	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it[or][stopping]!";
 	
 After printing the banner text:
 	say "[line break][italic type]Note: You may find the command [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]";
@@ -2753,17 +2765,6 @@ This is the public areas stage business rule:
 			say lobby stage business;
 			the rule succeeds.
 
-[
-
-[enable only for testing]
-The default stage business rule is listed last in the stage business rules.
-
-This is the default stage business rule:
-	say "*** DEFAULT STAGE BUSINESS FOR TESTING PURPOSES ONLY ***."
-
-
-]
-
 Chapter Every Turn 
 
 Section 1 - General
@@ -2827,9 +2828,9 @@ This is the fightclub rule:
 		let AA be "[type of attackerPogoman]" in Title Case;
 		if the defenderPogoman is in the location of the player:
 			let GUARD-DEF be 0;
-			if the the type of the defenderPogoman is first level:
+			if the type of the defenderPogoman is first level:
 				let GUARD-DEF be OFFENSIVE_RATING_EVO1;
-			else if the the type of the defenderPogoman is second level:
+			else if the type of the defenderPogoman is second level:
 				let GUARD-DEF be OFFENSIVE_RATING_EVO2;
 			else:
 				let GUARD-DEF be OFFENSIVE_RATING_EVO3;
@@ -2908,9 +2909,9 @@ Every turn during denouement:
 	if the defenderPogoman is in Processing:
 		say "Your [type of defenderPogoman] attacks ";
 		let GUARD-DEF be 0;
-		if the the type of the defenderPogoman is first level:
+		if the type of the defenderPogoman is first level:
 			let GUARD-DEF be OFFENSIVE_RATING_EVO1;
-		else if the the type of the defenderPogoman is second level:
+		else if the type of the defenderPogoman is second level:
 			let GUARD-DEF be OFFENSIVE_RATING_EVO2;
 		else:
 			let GUARD-DEF be OFFENSIVE_RATING_EVO3;
@@ -3422,7 +3423,7 @@ Section 11 - Parking Lot Award
 
 The description of Parking Lot Award is "A[if buffed of the Parking Lot Award is true]n almost painfully shiny[otherwise] tarnished[end if] brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason." Parking Lot Award is an improper-named place. Understand "plaque" or "brass" as Parking Lot Award when the location is Parking Lot Award. The printed name of Parking Lot Award is "award for best parking lot design". The title of Parking Lot Award is "Parking Lot Award". The Parking Lot Award has a truth state called buffed. The buffed of the Parking Lot Award is false.
 
-Instead of rubbing the the Parking Lot Award:
+Instead of rubbing the Parking Lot Award:
 	say "You buff the plaque";
 	if the buffed of the Parking Lot Award is true:
 		say " some more.";
@@ -3511,7 +3512,7 @@ The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battali
 
 Section 22 - Gardens of Zarf
 
-The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as the The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
+The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
 The garden sign is scenery in The Gardens of Zarf. The description of the garden sign is "[zarfSign]".
 
@@ -4337,7 +4338,7 @@ The Gearing Assembly is outside from Gantry Chamber. The Gantry Chamber is south
 
 The description of the Gearing Assembly is "The room itself appears to ride a circular track around the building. There are no controls or indicators here, but there is plenty of heavy equipment including motors and gears. A structural boom extends from the center of the room to support the Nyantech Cat. Near the outer edge of the room, there is a circular hole in the floor and through it, you can see the top of a narrow ladder, which leads downward into darkness."  The possible exits of the Gearing Assembly are "Obvious exits are the boom to the south or downwards using the ladder."
 
-The access hole is an open not openable door. The access hole is below the Gearing Assembly. The  access hole is above The Top of The Ladder. The description of the hole is "A smooth circular access hole cut in the floor of the the Gearing Assembly."
+The access hole is an open not openable door. The access hole is below the Gearing Assembly. The  access hole is above The Top of The Ladder. The description of the hole is "A smooth circular access hole cut in the floor of the Gearing Assembly."
 
 Instead of entering the hole:
 	if the player is in the Gearing Assembly:
@@ -5115,7 +5116,7 @@ After putting anything on the rickety table:
 				move N to the Rick Astley Shrine;
 			move the rickety table to the void.
 
-Instead of entering the the rickety table, say "Surely, that would be the end of the rickety table."
+Instead of entering the rickety table, say "Surely, that would be the end of the rickety table."
 
 Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
 
@@ -5529,7 +5530,7 @@ Section 39 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
-The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if][if the chain is not clipped]. Shockingly, the chain has been unclipped[end if]."
+The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if][if the chain is not clipped]. Shockingly, the chain has been unclipped[end if]."
 
 The decking is a backdrop in the Deck Area. The description of the decking is "A webbed metal platform around the top floor of the Nyantech Tower, up about fifty stories. The deck has an impressive view of the town." Understand "deck" as the decking.
 
@@ -8302,7 +8303,7 @@ A hint activation rule (this is the intro to pogoman hint activation rule):
 	activate the Table of Intro To Pogoman.
 		
 A hint deactivation rule (this is the intro to pogoman hint deactivation rule):
-	if the there is a pogoName in row 1 of the Table of Inventory and the XP of the player is greater than INITIAL_XP plus 400:
+	if there is a pogoName in row 1 of the Table of Inventory and the XP of the player is greater than INITIAL_XP plus 400:
 		deactivate the Table of Intro To Pogoman.
 
 Table of Intro To Pogoman
@@ -8322,7 +8323,7 @@ A hint activation rule (this is the capture explained hint activation rule):
 	activate the Table of Capture Explained.
 		
 A hint deactivation rule (this is the capture explained hint deactivation rule):
-	if the there is a pogoName in row 1 of the Table of Inventory:
+	if there is a pogoName in row 1 of the Table of Inventory:
 		deactivate the Table of Capture Explained.
 
 Table of Capture Explained
@@ -8335,7 +8336,7 @@ hint	used
 "More evolved pogomen are harder to capture than lower pogomen."
 
 A hint activation rule (this is the inventory management hint activation rule):
-	if the there is a pogoName in row 1 of the Table of Inventory:
+	if there is a pogoName in row 1 of the Table of Inventory:
 		activate the Table of Inventory Management.
 		
 A hint deactivation rule (this is the inventory management hint deactivation rule):
