@@ -2990,11 +2990,11 @@ Every turn when the player is in the giant ball:
 			say "The ball is almost entirely closed.";
 		-- 4:
 			if the gymnasium is unvisited:
-				say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogomon![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break]Some time goes by.[paragraph break]";
+				say "Despite your struggling, the rim of light around the center of the ball disappears and the ball glows with victory. You have to face the fact that you have been captured by a pogoman -- by a pogoman![paragraph break]For some time, you continue to yell and scratch at the walls, but your hands bloody and your voice raw, you eventually collapse in defeat.[paragraph break]Some time goes by.[paragraph break]";
 				wait for any key;
 				say "No, I mean a [italic type]lot[roman type] of time goes by.[paragraph break]";
 				wait for any key;
-				say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play pogomon. Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoball.[paragraph break]";
+				say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play Pogoman GO! Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoball.[paragraph break]";
 				wait for any key;
 				say "So, yeah, a really long time.[paragraph break]";
 				wait for any key;
@@ -3030,7 +3030,7 @@ Section 1 - Framework
 
 Quadroom is a kind of externalRoom. A quadroom has a color. The color of a quadroom is usually Teal.
 
-[Their orientation determines which can be seen from heights - the south face of the tower and the top of the cat. Four boolean properties are needed because a room can be both of these, e..g, north and west of the tower. In principle, the relationship could be calculated by figuring routes to each room, but that seems like too much work at run time.]
+[Their orientation determines which can be seen from heights - the south face of the tower and the top of the cat. Four boolean properties are needed because a room can be both of these, e.g.,, north and west of the tower. In principle, the relationship could be calculated by figuring routes to each room, but that seems like too much work at run time.]
 A quadroom can be nord.
 A quadroom can be sud.
 A quadroom can be est.
@@ -3180,7 +3180,7 @@ The sky is a backdrop. The sky is in The Village, DeckN, DeckS, DeckW, DeckE. Th
 Instead of searching the sky:
 	if the location is Telescope Nymph:
 		if the Salmon of Turpitude is in the Void:
-			say "Unexpectly, you spot the salmon and yank it out of the heavens.[paragraph break]";
+			say "Unexpectedly, you spot the salmon and yank it out of the heavens.[paragraph break]";
 			now the player carries the Salmon of Turpitude;
 			bestow "Found A Salmon";
 		otherwise:
@@ -3247,7 +3247,7 @@ The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance an
 
 The proxyEntrance is a privately-named scenery in the Nyantech Entrance. The printed name of proxyEntrance is "building".  The description of proxyEntrance is "An imposing fifty story building of black glass and home to the creators of your favorite game, Pogoman GO!" Understand "entrance" or "building" or "office" or "tower" or "obsidian" or "glass" or "wall" or "walls" or "HQ" or "headquarters" or "offices" as the proxyEntrance. 
 
-The lowCat is a privately-named scenery. The lowCat is in Nyantech Entrance. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "The corporate mascot of Nyantech, a giant version of the cat has been incorporated into the building itsef. Up at least fifty stories, the cat revolves the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" as the lowCat.
+The lowCat is a privately-named scenery. The lowCat is in Nyantech Entrance. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "The corporate mascot of Nyantech, a giant version of the cat has been incorporated into the building itself. Up at least fifty stories, the cat revolves the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" as the lowCat.
 
 Instead of doing something other than examining with the lowCat:
 	say "The Nyantech Cat is way too far above you."
@@ -3283,7 +3283,7 @@ Before entering proxyEntrance for the first time:
 	continue the action.
 
 Instead of climbing the proxyEntrance:
-	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, spidey.[quotation mark][paragraph break][or]The surface is too slippery.[stopping]"
+	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, Spidey.[quotation mark][paragraph break][or]The surface is too slippery.[stopping]"
 	
 Instead of attacking the proxyEntrance:
 	say "The unicorn parries the attack with his sharp horn."
@@ -3301,7 +3301,7 @@ To say unicorn2:
 	say "The unicorn taps it hoof. [quotation mark]Phone, please.[quotation mark]"
 	
 To say unicorn3:
-	say "[quotation mark]Let[apostrophe]s not make this difficult, buddy.[quotation mark] The unicorn leans towards you in a way that would be intimidating were it not a fairy creature. [quotation mark]I need to check your phone before you enter. It’s the rules.[quotation mark]"
+	say "[quotation mark]Let[apostrophe]s not make this difficult, buddy.[quotation mark] The unicorn leans towards you in a way that would be intimidating were it not a fairy creature. [quotation mark]I need to check your phone before you enter. It[apostrophe]s the rules.[quotation mark]"
 	
 To say unicorn4:
 	say "[quotation mark]I[apostrophe]ll give you credit for being persistent, but look, I[apostrophe]m just following company policy. Before you go in, I have to check out your game credentials. Nothing personal, it[apostrophe]s just the rules. So, let[apostrophe]s see the phone, okay?[quotation mark]".
@@ -3339,13 +3339,13 @@ Instead of giving something  (called the item) to the unicorn:
 			increase the timesDenied of the unicorn by 1;
 			if the timesDenied of the unicorn is:
 				-- 1:
-					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you’re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
+					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
 					bestow "Subjected to arbitrary requirements”;
 				-- 2:
-					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogomon player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
+					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogoman player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
 					bestow "That puts things in perspective”;
 				-- 3:
-					say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I’m telling you.[quotation mark][paragraph break]";
+					say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I[apostrophe]m telling you.[quotation mark][paragraph break]";
 					bestow “But I am a special snowflake”;
 				-- 4:
 					say "[deny4]";
@@ -3360,7 +3360,7 @@ To say deny4:
 	say "The unicorn stops you and uses his horn to point out the words on the door [apostrophe]Experienced Players Only. No exceptions -- The management.[apostrophe][paragraph break][quotation mark]Come back when you have at least [requirement].[quotation mark][paragraph break]”
 	
 To say chitChat:
-	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how J.J. Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don’t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet’s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[or]how georeferenced gaming has altered the traffic patterns[or]technical innovations in portable and wearable computing[or]blue-sky research that will one day save the whales[or]whether Moore[apostrophe]s law will continue to apply as silicon dies reach atomic resolution[or]the strategic importance of the Bosphorus Straits in limiting Russian access to the Mediterranean for trade and military purposes[or]the organizational structure of ant colonies[or]how rare it is to find dial phones these days[in random order]"
+	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how J.J. Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don[apostrophe]t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]Facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet[apostrophe]s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[or]how georeferenced gaming has altered the traffic patterns[or]technical innovations in portable and wearable computing[or]blue-sky research that will one day save the whales[or]whether Moore[apostrophe]s law will continue to apply as silicon dies reach atomic resolution[or]the strategic importance of the Bosphorus Straits in limiting Russian access to the Mediterranean for trade and military purposes[or]the organizational structure of ant colonies[or]how rare it is to find dial phones these days[in random order]"
 	
 To say goOnIn:
 	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter a the building[apostrophe]s revolving door.";
@@ -3390,7 +3390,7 @@ Instead of cutting the lawn:
 
 Instead of entering the lawn, say "No thanks. Ticks!"
 
-The severed head is a prop. It is in the void. The description of the severed head is "An absurdly happy little face with a saccharine smile -- everytime you see, you are filled with rage. No wonder someone knocked it off."
+The severed head is a prop. It is in the void. The description of the severed head is "An absurdly happy little face with a saccharine smile -- every time you see, you are filled with rage. No wonder someone knocked it off."
 
 Instead of searching the lawn for the first time:
 	say "You poke carefully through the weeds.[paragraph break]What's this?[paragraph break]Ah! You've found the gnome's head! It must have been laying there for years.[paragraph break]";
@@ -3412,7 +3412,7 @@ Instead of taking the Headless Garden Gnome:
 	say "It would not go with any of your other furniture."
 	
 Instead of putting the severed head on the Headless Garden Gnome:
-	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Not a moment later, the gnome shurgs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
+	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Not a moment later, the gnome shrugs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
 	bestow "Party Time! Rock On!";
 	move the severed head to the void;
 	now the beheaded of the Garden Gnome is false.
@@ -3430,7 +3430,7 @@ Instead of rubbing the Parking Lot Award:
 	otherwise:
 		say ".[paragraph break]";
 		now buffed of the Parking Lot Award is true;
-	bestow "Parking Lot Award Award".
+	bestow "Parking Lot Award Award". [sic]
 
 Section 12 - Old Town Hall
 
@@ -3486,11 +3486,11 @@ The description of Hook & Ladder is "The home of Fire Brigade Number 12." Hook &
 
 Section 19 - Prissy's Little Sausages
 
-The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy’s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
+The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy[apostrophe]s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
 
 Section 20 - Yummi Tummi Softserve
 
-The description of Yummi Tummi Softserve is "Pink robotic pigs rollerskate between tables serving up sundaes, cones, and floats." Yummi Tummi Softserve is an improper-named artifact. Understand "ice" or "cream" or "soft" or "serve" or "parlor" as Yummi Tummi Softserve. Understand "building" or "restaurant" as Yummi Tummi Softserve when the location is Yummi Tummi Softserve. The printed name of Yummi Tummi Softserve is "ice cream parlor". The title of Yummi Tummi Softserve is "Yummi Tummi Softserve". Understand "YTS" as Yummi Tummi Softserve.
+The description of Yummi Tummi Softserve is "Pink robotic pigs roller skate between tables serving up sundaes, cones, and floats." Yummi Tummi Softserve is an improper-named artifact. Understand "ice" or "cream" or "soft" or "serve" or "parlor" as Yummi Tummi Softserve. Understand "building" or "restaurant" as Yummi Tummi Softserve when the location is Yummi Tummi Softserve. The printed name of Yummi Tummi Softserve is "ice cream parlor". The title of Yummi Tummi Softserve is "Yummi Tummi Softserve". Understand "YTS" as Yummi Tummi Softserve.
 
 The robotic pigs are scenery in Yummi Tummi Softserve. The description of the robotic pigs is "The portly prosthetic porcines glide back and forth between the restaurant the its clients. They are dressed in red and white pogodotted uniforms and are not the least bit inconvenienced by darting about with trays full of frosty treats at breakneck speeds on their inline skates." Understand "pig" or "robot" or "robots" or "porcine" or "porcines" or "droid" or "droids" or  "skate" or "skates" or "inline" or "tray" or "trays" or "uniform" or "uniforms" as the robotic pigs. 
 
@@ -3504,7 +3504,7 @@ The customers are scenery in Yummi Tummi Softserve. The description of the custo
 Instead of doing something other than examining with the customers:
 	say "They are too intent on their creamy desserts to take any notice of you."
 
-The ice cream is scenery in Yummi Tummi Softserve. The description of the ice cream is "Every sort of ice cream is available here. Certainly, such favorites as banana-splits, fudge sundaes, and black-and-white sodas, but also YTS signature dishes such as the [one of]guacamole frappe[or]teriyaki twirl[or]habañero double firehouse squirt[or]the triple-scoop live fire-ant combo[or]toothpaste gelato with oreo bowl[or]Rocky Mountain Spotted cone[in random order] and their [one of]scorpion pops[or]razor ices[or]petroleum floats[or]whipped cream and industrial suprise platters[or]old fashioined typhoid squid cakes[in random order]." Understand "float" or "floats" or "soda" or "sodas" or "creams" or "cone" or "cones" or "sundae" or "sundaes" or "bowl" or "bowls" as the ice cream.
+The ice cream is scenery in Yummi Tummi Softserve. The description of the ice cream is "Every sort of ice cream is available here. Certainly, such favorites as banana-splits, fudge sundaes, and black-and-white sodas, but also YTS signature dishes such as the [one of]guacamole frappe[or]teriyaki twirl[or]habañero double firehouse squirt[or]the triple-scoop live fire-ant combo[or]toothpaste gelato with Oreo bowl[or]Rocky Mountain Spotted cone[in random order] and their [one of]scorpion pops[or]razor ices[or]petroleum floats[or]whipped cream and industrial surprise platters[or]old fashioned typhoid squid cakes[in random order]." Understand "float" or "floats" or "soda" or "sodas" or "creams" or "cone" or "cones" or "sundae" or "sundaes" or "bowl" or "bowls" as the ice cream.
 
 Section 21 - Service Dog Memorial
 
@@ -3524,7 +3524,7 @@ To say zarfSign:
 
 
 Instead of entering The Gardens of Zarf :
-	say "Weeds grab at your feet and a sunflower nearly slices your head off. While struggling free, the azalias grab your wrist and shake the phone free. It falls into a horde of marigolds that rip it to pieces.";
+	say "Weeds grab at your feet and a sunflower nearly slices your head off. While struggling free, the azaleas grab your wrist and shake the phone free. It falls into a horde of marigolds that rip it to pieces.";
 	phoneDeath.
 
 Section 23 - Flan Emporium
@@ -3543,7 +3543,7 @@ Instead of climbing General Nelson:
 	say tefloned.
 	
 To say tefloned:
-	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with teflon to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litiginous statue-climbing buffoons[or][stopping]."
+	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with teflon to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litigious statue-climbing buffoons[or][stopping]."
 
 Section 25 - Church of the Orthogonal Sticks
 
@@ -3592,7 +3592,7 @@ The description of Cyclorama is "The indoor bicycle track yields important radio
 
 Section 30 - Biocontainment Facility
 
-The description of Biocontainment Facility is "[if the biocontainment facility is unvisited]You are vaguely aware that something isn’t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There’s something wrong with them, but you can’t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break][end if]The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don’t seem to notice folks playing pogoman.". 
+The description of Biocontainment Facility is "[if the biocontainment facility is unvisited]You are vaguely aware that something isn[apostrophe]t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There[apostrophe]s something wrong with them, but you can[apostrophe]t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break][end if]The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don[apostrophe]t seem to notice folks playing Pogoman.". 
 
 Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
 
@@ -3629,10 +3629,10 @@ The description of Dung Beetle Mural is "Dark earth tones and impasto technique;
 
 Section 34 - Hank's Tavern
 
-The description of Hank's Tavern is "Now an artist’s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night (in addition to a good selection of pub food and drinks)." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "pub".
+The description of Hank's Tavern is "Now an artist[apostrophe]s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night (in addition to a good selection of pub food and drinks)." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "pub".
 
 Instead of listening when the player is in Hank's Tavern:
-	say "From the tavern you hear people socializing and the occassional [one of]muffled explosion[or]shattering of porcelain[or]whine of an angle grinder cutting through plate iron[or]whirring of servos[or]sizzle of an industrial laser[or]splatter of plasma-scintered alloy[or]whistling of welding gas[in random order]."
+	say "From the tavern you hear people socializing and the occasional [one of]muffled explosion[or]shattering of porcelain[or]whine of an angle grinder cutting through plate iron[or]whirring of servos[or]sizzle of an industrial laser[or]splatter of plasma-scintered alloy[or]whistling of welding gas[in random order]."
 	
 	
 Section 35 - Olde Train Station
@@ -3648,11 +3648,11 @@ Instead of doing something other than examining with the railroad tracks:
 
 Section 36 - Dog Exercise Area
 
-The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like like dogs, check out our canine-centric sci fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
+The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like dogs, check out our canine-centric sci-fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
 
 Dog Exercise Area is an improper-named place. Understand "field" or "run" as Dog Exercise Area. Understand "park" as Dog Exercise Area when the location is Dog Exercise Area. The title of Dog Exercise Area is "Dog Exercise Area". The printed name of Dog Exercise Area is "dog run".
 
-The dogs are scenery in the dog exercise area. The description of dogs is "Floppy eared beagles, bristly schnauzers, and skinny greyhounds romp about, glad to be out and about with their owners[one of]. You puzzle how so many people could spent so much time out of their mothers[apostrophe] basements without a cell phone in hand. It is truly enigmatic[or][stopping]." Understand "dog" or "canine" or "owner" or "owners" or "snauzer" or "schnauzers" or "beagle" or "beagles" or "greyhound" or "greyhounds" as the dogs.
+The dogs are scenery in the dog exercise area. The description of dogs is "Floppy eared beagles, bristly schnauzers, and skinny greyhounds romp about, glad to be out and about with their owners[one of]. You puzzle how so many people could spent so much time out of their mothers[apostrophe] basements without a cell phone in hand. It is truly enigmatic[or][stopping]." Understand "dog" or "canine" or "owner" or "owners" or "schnauzer" or "schnauzers" or "beagle" or "beagles" or "greyhound" or "greyhounds" as the dogs.
 
 Section 37 - Bottle Cap Wall
 
@@ -3666,7 +3666,7 @@ Instead of opening the Bottle Cap Wall:
 
 Section 38 - Mile Marker 0.7
 
-The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn’t say what." MarkerSeven is privately-named. MarkerSeven is a proper-named artifact. Understand "seven" or "zero" or "naught" or "point" or "decimal" or "mile" or "marker" or "post" as MarkerSeven.  The printed name of MarkerSeven is "mile marker 0.7". 
+The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn[apostrophe]t say what." MarkerSeven is privately-named. MarkerSeven is a proper-named artifact. Understand "seven" or "zero" or "naught" or "point" or "decimal" or "mile" or "marker" or "post" as MarkerSeven.  The printed name of MarkerSeven is "mile marker 0.7". 
 
 Instead of touching MarkerSeven for the first time:
 	say "[oriented].";
@@ -3682,7 +3682,7 @@ To say oriented:
 
 Section 39 - Unfathomable Orb
 
-The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemiologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
+The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
 
 Unfathomable Orb is an improper-named artifact. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as Unfathomable Orb when the location is Unfathomable Orb. The title of Unfathomable Orb is "Unfathomable Orb". The printed name of the Unfathomable Orb is "orb".
 
@@ -3722,7 +3722,7 @@ Eagle's Sojourn is an improper-named artifact. Understand "eagle" or "eagles" or
 
 Section 44 - Nymph With Telescope
 
-The description of Telescope Nymph is "Based on one of Shakespeare’s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
+The description of Telescope Nymph is "Based on one of Shakespeare[apostrophe]s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
 
 Telescope Nymph is an improper-named artifact. Understand "with" as Telescope Nymph. Understand "sculpture" or "statue" or "art" as Telescope Nymph when the location is Telescope Nymph. The printed name of Telescope Nymph is "nymph statue". The title of Telescope Nymph is "Nymph With Telescope".
 
@@ -3730,7 +3730,7 @@ Section 45 - Fire Is Our Friend
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Brigade 11."
 
-Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "brazier" or "horsemen" or "four horsemen of the apocalpyse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
+Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "brazier" or "horsemen" or "four horsemen of the apocalypse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
 
 The flame is scenery in Fire is Our Friend. The description of the flame is "A constant, bright flame above the brazier."
 
@@ -3745,14 +3745,14 @@ Section 46 - Unearthly Geometry
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
 
-Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outre" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horro" or "grotesque" or "vision" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
+Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outré" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horror" or "grotesque" or "vision" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
 
 Instead of touching the Unearthly Geometry:
 	say "You are momentarily reduced to a state of gibbering idiocy. It lasts only a moment before you fix your eyes back on the cell phone screen and start walking around again. The contrast is unstark."
 
 Section 47 - Cranberry Bog
 
-The description of Cranberry Bog is "The town’s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog." Understand "cranberries" or "berries" or "berry" as the bog.
+The description of Cranberry Bog is "The town[apostrophe]s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog." Understand "cranberries" or "berries" or "berry" as the bog.
 
 Cranberry Bog is an improper-named place. Understand "pond" as Cranberry Bog. The printed name of Cranberry Bog is "cranberry bog".
 
@@ -3786,7 +3786,7 @@ Instead of turning or taking the screw:
 	
 Section 49 - Crystal Skull
 
-The description of Crystal Skull is "There isn’t much left of the salty skull exhibit. Occasionally, deer walk through town just to lick it."
+The description of Crystal Skull is "There isn[apostrophe]t much left of the salty skull exhibit. Occasionally, deer walk through town just to lick it."
 
 Crystal Skull is an improper-named artifact. Understand "exhibit" as Crystal Skull. Understand "sculpture" or "statue" or "art" as Crystal Skull when the location is Crystal Skull. The printed name of Crystal Skull is "crystal skull".
 
@@ -3802,7 +3802,7 @@ Report licking:
 	say "You lick the [noun]."
 
 Instead of licking:
-	say "You are hardpressed to think of any situation where, when playing Pogoman GO!, it would be prudent to stick your tongue anywhere but in your mouth."
+	say "You are hard-pressed to think of any situation where, when playing Pogoman GO!, it would be prudent to stick your tongue anywhere but in your mouth."
 	
 Instead of licking the Crystal Skull:
 	try tasting the Crystal Skull.
@@ -4036,7 +4036,7 @@ Instead of going a bad idea direction (called the way):
 				say "Are you sure you want to go that way?[paragraph break]Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
 				-- 1:
 					say the headline of the location of the player;
-					say "You are just a bit hesistant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing pogomon rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
+					say "You are just a bit hesistant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing Pogoman GO! rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
 					bestow "One Jersey Barrier From Certain Death";
 				-- 2:
 					say the headline of R;
@@ -8150,7 +8150,7 @@ To lemurEnding:
 	end the story finally saying "ESCAPED TO LEMUR ISLAND!".
 	
 to muskEnding:
-	say "On the bright side, you continue to play an important role in the pogomon game for some time to come. As pogoChum.[paragraph break]";
+	say "On the bright side, you continue to play an important role in the Pogoman game for some time to come. As pogoChum.[paragraph break]";
 	end the story finally saying "KILLED BY ELON MUSK!".
 	
 to ceoEnding:
