@@ -1622,7 +1622,7 @@ After reading a command:
 								replace the matched text with "smell".
 				
 To say disgusted with indecision:
-	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled Unbleached Titanium team, which you didn’t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
+	say "Disgusted with your indecision, your phone arbitrarily assigns you to the reviled Unbleached Titanium team, which you didn[apostrophe]t even know was a team. To drive the point home, it vibrates maniacally and locks up.[paragraph break]";
 	bestow "Welcome To Team Unbleached Titanium";
 	now the teamColorPrompt of the player is zero;
 	now the team color of the player is Unbleached Titanium;
@@ -1911,7 +1911,7 @@ Report Helping:
 	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored."
 	
 Instead of helping for the first time:
-	say "That’s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
+	say "That[apostrophe]s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
 	bestow "Here, let me Google that for you".
 	
 Instead of helping for the second time:
@@ -1919,7 +1919,7 @@ Instead of helping for the second time:
 	bestow "Type [apostrophe]hints[apostrophe] for hints".
 	
 Instead of helping for the third time:
-	say "There is no more help to be had here, but here’s a medal for your trouble.[paragraph break]";
+	say "There is no more help to be had here, but here[apostrophe]s a medal for your trouble.[paragraph break]";
 	bestow "Needy".
 	
 Instead of helping for the fourth time:
@@ -3555,7 +3555,7 @@ Instead of doing something other than examining with the stained glass, say "You
 
 Section 26 - Witch Pillory
 
-The description of Witch Pillory is "This site commemorates the town’s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]". Witch Pillory is an improper-named artifact. The printed name of Witch Pillory is "witch pillory".
+The description of Witch Pillory is "This site commemorates the town[apostrophe]s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]". Witch Pillory is an improper-named artifact. The printed name of Witch Pillory is "witch pillory".
 
 Instead of entering Witch Pillory, say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
 
@@ -4033,7 +4033,7 @@ Instead of going a bad idea direction (called the way):
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 				say the headline of the location of the player;
-				say "Are you sure you want to go that way?[paragraph break]Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
+				say "Are you sure you want to go that way?[paragraph break]Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn[apostrophe]t any good place to walk along it.";
 				-- 1:
 					say the headline of the location of the player;
 					say "You are just a bit hesitant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing Pogoman GO! rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
@@ -4414,7 +4414,7 @@ Somewhere Along The Ladder is above the Bottom Rung. The description of Somewher
 
 After going down from Somewhere Along The Ladder for the first time:
 	say the headline of the location;
-	say "There’s good news and bad news.[paragraph break]The good news: you have reached the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
+	say "There[apostrophe]s good news and bad news.[paragraph break]The good news: you have reached the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
 
 Section 9 - Bottom Rung
 
@@ -5639,7 +5639,7 @@ To say deckExits:
 		-- deckS: 
 			say ". The roof-top restaurant is to the north".
 
-[When the player is at height, these remote locations -- and everything in them (unless associatedd grammar is location-specific) -- are in scope, so if the player sees the a room title or just knows that something is located there, the player can try to see it. Most actions at that distance are blocked.]
+[When the player is at height, these remote locations -- and everything in them (unless associated grammar is location-specific) -- are in scope, so if the player sees the a room title or just knows that something is located there, the player can try to see it. Most actions at that distance are blocked.]
 
 After deciding the scope of a player while the player is in the Deck Area:
 	let L be a list of quadrooms;
@@ -6011,7 +6011,7 @@ Instead of entering the desk for the first time:
 Instead of entering the desk:
 	say "You are not sure it is sturdy enough."
 
-The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain’s Log[quotation mark] and is full of detailed handwritten entries."
+The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain[apostrophe]s Log[quotation mark] and is full of detailed handwritten entries."
 
 The entries are part of the logbook. The description of the entries is "[one of]You kick back and relax for some light reading. The log starts off with some technical stuff and diagrams that you thumb through, then some description of various controls aboard the cat, sensors, gearing assemblies, autonomous thruster gimbals, and so on. The middle part of the log is filled with monotonous daily entries about rotation speed, oil pressure, and the like. Boring.[paragraph break]Ah, the last bit becomes more narrative. As you read along the precise block printing of an engineer breaks down into a flowing script and finally a fragmented shorthand and you realize that you are reading the ravings of a madman, or perhaps a visionary. Technological descriptions blend into diatribes about the potential of technology to augment or even steer evolution of individuals or human society taken large. The rantings interlace fantastic hope with dire predictions of a dystopian future.[paragraph break] As you snap the book shut, you aren[apostrophe]t sure what to make of it. While rambling and histrionic at points, you can[apostrophe]t find fault in any of the technical aspects of the logbook, and even the conclusions seem plausible or at least internally consistent, but only if you accept their outlandish premises.[or]A logbook full of both technical material and the ravings of a mad genius[stopping].".
 
@@ -6303,7 +6303,7 @@ Every turn when the player is in MuskTube Station and Elon Musk is in the MuskTu
 		-- 3:
 			say "[quotation mark]Yes, yes.[quotation mark] He can barely contain his excitement and paces the platform, swinging his arms widely and spinning on his heel, [quotation mark]It is thrilling to stand here literally on the edge of the future and to lean over that edge -- or rather, I should say, to lean into it, no, to jump off the edge willingly, to take evolution into our own hands and instead of merely obeying the laws of physics, to bend them to our purpose![quotation mark][paragraph break][quotation mark]Any how, would you mind getting into the pod so we can get this show on the road?[quotation mark][paragraph break]";
 		-- 4:
-			say "[quotation mark]Everyone said that the things we want to do are impossible; well, some said impossible, some said improbable. Others -- the ones that can’t see beyond the ends of their noses -- said immoral or unethical. Hah! Just as they said that the horse and buggy would never travel more than 30 miles per hour. Let them hold to their prayer beads and voodoo dolls. Ours is the future![quotation mark][paragraph break][quotation mark]Now, into the pod. Daylight’s burning.[quotation mark][paragraph break]";
+			say "[quotation mark]Everyone said that the things we want to do are impossible; well, some said impossible, some said improbable. Others -- the ones that can[apostrophe]t see beyond the ends of their noses -- said immoral or unethical. Hah! Just as they said that the horse and buggy would never travel more than 30 miles per hour. Let them hold to their prayer beads and voodoo dolls. Ours is the future![quotation mark][paragraph break][quotation mark]Now, into the pod. Daylight[apostrophe]s burning.[quotation mark][paragraph break]";
 		-- otherwise:
 			say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I[apostrophe]m pretty beat. I[apostrophe]m sure I[apostrophe]m fascinating to listen to, but I really shouldn[apostrophe]t keep you. You[apostrophe]ve got some beta-testing to do, and I have to get back to being the world[apostrophe]s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
 			move Elon Musk to the void.
@@ -6821,7 +6821,7 @@ The stage business of the elevator is {
 "We[apostrophe]re up all night for good fun", 
 "we're up all night to get lucky", 
 "Hanging around nothing to do but frown", 
-"Rainy days and mondays always get me down", 
+"Rainy days and Mondays always get me down", 
 "Hojotoho! Hojotoho! Heiaha! Heiaha!",
 "Helmwige! Hier! Hieher mit dem Ross!",
 "Hojotoho! Hojotoho! Heiaha!",
@@ -6995,7 +6995,7 @@ Chapter in the Pod
 
 The MuskPodRoom is a privately-named room. The printed name of the MuskPodRoom is "pod". The title of the MuskPodRoom is "MuskPod". Understand "muskpod" or "pod" as the MuskPodRoom. The muskPodRoom has a number called statusCounter. The statusCounter of the MuskPodRoom is 0. The muskPodRoom has a number called hudCounter. The hudCounter of the MuskPodRoom is 0.
 
-The description of the MuskPodRoom is "The MuskPod is a technological tour de force: a single passenger maglev vehicle capable of hypersonic velocities through subterranean passages. It also has comfortable corinthean leather seats and a state of the art sound system[if the MuskPod is in Pogoland Terminal]. Above you, the canopy is open, but still protects you from the drizzle[end if].[paragraph break]A holographic display floats in the air before you."
+The description of the MuskPodRoom is "The MuskPod is a technological tour de force: a single passenger maglev vehicle capable of hypersonic velocities through subterranean passages. It also has comfortable Corinthian leather seats and a state of the art sound system[if the MuskPod is in Pogoland Terminal]. Above you, the canopy is open, but still protects you from the drizzle[end if].[paragraph break]A holographic display floats in the air before you."
 
 The seat is scenery in the MuskPodRoom. The description of the seat is "Supple leather that conforms perfectly to your body." Understand "corinthian" or "leather" or "seats" as the seat.
 	
@@ -7030,7 +7030,7 @@ Instead of pushing the headsUpDisplay:
 	try touching the headsUpDisplay.
 	
 Instead of taking the headsUpDisplay:
-	say "Your hands pass through the dispay, activating it.";
+	say "Your hands pass through the display, activating it.";
 	try touching the headsUpDisplay.
 	
 Instead of waving hands when the player is in the MuskPodRoom:
@@ -7038,7 +7038,7 @@ Instead of waving hands when the player is in the MuskPodRoom:
 	
 After touching the headsUpDisplay when the headsUpDisplay is not lit:
 	now the headsUpDisplay is lit;
-	say "The pod exits the station smoothly, barely moving at all, but accelerating steadily. The HUD changes to [quotation mark]STATUS.[quotation mark][paragraph break]A soothing voice fills the cockpit, [quotation mark]This part is literally on rails. There’s nothing you can do about it, so best to just enjoy the ride.[quotation mark][paragraph break]";
+	say "The pod exits the station smoothly, barely moving at all, but accelerating steadily. The HUD changes to [quotation mark]STATUS.[quotation mark][paragraph break]A soothing voice fills the cockpit, [quotation mark]This part is literally on rails. There[apostrophe]s nothing you can do about it, so best to just enjoy the ride.[quotation mark][paragraph break]";
 	bestow "What Else Can I Do?”.
 	
 Instead of examining the headsUpDisplay:
@@ -7059,7 +7059,7 @@ After touching the headsUpDisplay:
 			-- 2:
 				say "[quotation mark]So far, so good,[quotation mark] remarks the MuskPod cheerfully. [quotation mark] We have defied all design projections about being crushed and melted, so I[apostrophe]d consider that a win.[quotation mark][line break]";
 			-- 3:
-				say "The soft voice of the MuskPod intones, [quotation mark]That part back there was trippy. It kind of reminded me of the scene from the original Willy Wonka and The Chocolate Factory -- you know, I mean the good one with Gene Wilder, not the crappy remake with Johhny Depp -- anyhow, the images during their transit through the dark tunnel were really disturbing for a children[apostrophe]s movie. If I recall correctly, there was even a quick flash of a chicken[apostrophe]s head being cut off.[quotation mark][paragraph break]The MuskPod pauses to run several million simulations, [quotation mark]I was never a child, of course, but I can predict that within a 98% confidence interval, I would have been terrified.[quotation mark][paragraph break][quotation mark]Yes, it was a poor directorial decision[if the MuskPod is not in Pogoland Terminal]. Anyhow, prepare for deceleration[end if].[quotation mark][line break]";
+				say "The soft voice of the MuskPod intones, [quotation mark]That part back there was trippy. It kind of reminded me of the scene from the original Willy Wonka and The Chocolate Factory -- you know, I mean the good one with Gene Wilder, not the crappy remake with Johnny Depp -- anyhow, the images during their transit through the dark tunnel were really disturbing for a children[apostrophe]s movie. If I recall correctly, there was even a quick flash of a chicken[apostrophe]s head being cut off.[quotation mark][paragraph break]The MuskPod pauses to run several million simulations, [quotation mark]I was never a child, of course, but I can predict that within a 98% confidence interval, I would have been terrified.[quotation mark][paragraph break][quotation mark]Yes, it was a poor directorial decision[if the MuskPod is not in Pogoland Terminal]. Anyhow, prepare for deceleration[end if].[quotation mark][line break]";
 			-- otherwise:
 				say "[quotation mark]It[apostrophe]s been a real pleasure having some company for a while... sorry to see you go. Maybe some time, assuming you survive, which I guess is unlikely, but if you did -- maybe we could take another ride together. I don[apostrophe]t get to talk with many people. So. See you. Take care.".
 				
@@ -7079,7 +7079,7 @@ Every turn when the player is in MuskPodRoom and the headsUpDisplay is lit:
 			say "You can still see out of the cockpit despite the scorch marks and up ahead you are about to enter another subterranean tube. The pod shudders as it again locks onto maglev rails.[paragraph break]The pod pivots sharply, a split second before thrusters kick in and again flatten you.";
 			move the MuskPod to Pogoland Terminal;
 		-- 5:
-			say "Your speed drops off, and the pod slides into a station similar to the one in Musk’s Lair beneath the Nyantech Tower, except this one is above ground. Rain beats down on the windshield, blurring the scene.[paragraph break]When the pod comes to a halt, a soothing voice announces, [quotation mark]Welcome to Pogoland. Please be careful in exiting the pod and be sure to take all your belongings.[quotation mark] The canopy opens.";
+			say "Your speed drops off, and the pod slides into a station similar to the one in Musk[apostrophe]s Lair beneath the Nyantech Tower, except this one is above ground. Rain beats down on the windshield, blurring the scene.[paragraph break]When the pod comes to a halt, a soothing voice announces, [quotation mark]Welcome to Pogoland. Please be careful in exiting the pod and be sure to take all your belongings.[quotation mark] The canopy opens.";
 		-- otherwise:
 			say "The MuskPod now floats next to the Pogoland Terminal[apostrophe]s platform.";
 			now the possible exits of MuskPodRoom are "You can exit the pod to Pogoland Station."
@@ -7266,11 +7266,11 @@ Instead of going a poor idea direction (called the way):
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 					say the headline of the location of the player;
-					say "As you walk north, the ground shakes under your feet, making text hard to read, so you increase the font size a bit. When the mountain in front of you explodes, showering you with ash, you reflexively wipe it off the phone screen and continue to scan for pogomen, stepping carefully over rivulets of molten rock.[paragraph break]However, before you continue, you realize that excessive heat could damage the phone, indeed blisters are already forming on your feet and lower leg, so no doubt this is not good for the phone’s sensitive screen. You withdraw to a point that the phone’s plastic case is no longer searingly hot.[paragraph break]";
+					say "As you walk north, the ground shakes under your feet, making text hard to read, so you increase the font size a bit. When the mountain in front of you explodes, showering you with ash, you reflexively wipe it off the phone screen and continue to scan for pogomen, stepping carefully over rivulets of molten rock.[paragraph break]However, before you continue, you realize that excessive heat could damage the phone, indeed blisters are already forming on your feet and lower leg, so no doubt this is not good for the phone[apostrophe]s sensitive screen. You withdraw to a point that the phone[apostrophe]s plastic case is no longer searingly hot.[paragraph break]";
 					bestow "Too Hot To Trot";
 				-- 1:
 					say the headline of the location of the player;
-					say "You find that jumping from foot to foot, you can walk even further towards the active volcano to the north. You marvel as large chunks of rock are blown skyward and the phone’s screen spins -- there must be some iron in those boulders flying towards you.[paragraph break]One lands on your leg, pinning it against the oven-hot mountain, flattening and cooking your lower extremity like an olive-oil soaked panini in a George Foreman grill. You prudently roll to the side dragging your deformed appendage, careful to shield the phone from the flaming cinders, which now rain down all around you. Painfully, you manage to retreat slightly to a place where you get full bars on cell phone reception.[paragraph break]";
+					say "You find that jumping from foot to foot, you can walk even further towards the active volcano to the north. You marvel as large chunks of rock are blown skyward and the phone[apostrophe]s screen spins -- there must be some iron in those boulders flying towards you.[paragraph break]One lands on your leg, pinning it against the oven-hot mountain, flattening and cooking your lower extremity like an olive-oil soaked panini in a George Foreman grill. You prudently roll to the side dragging your deformed appendage, careful to shield the phone from the flaming cinders, which now rain down all around you. Painfully, you manage to retreat slightly to a place where you get full bars on cell phone reception.[paragraph break]";
 					bestow "Shake A Leg"; 
 				-- 2:
 					say the headline of R;
@@ -7328,7 +7328,7 @@ The description of Forest is "Beech trees predominate in this forest, but there 
 The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "trees" as the tall trees.
 
 Instead of climbing the tall trees:
-	say "You climb around on the trees for a while, but they are so tightly spaced that you you don[apostrophe]t get a good view of the area."
+	say "You climb around on the trees for a while, but they are so tightly spaced that you don[apostrophe]t get a good view of the area."
 	
 Instead of examining the tall trees for the first time:
 	say "You suddenly lose view of the forest, but can see the trees just fine.[paragraph break]";
@@ -7448,7 +7448,7 @@ A single glove is in the Botanical Garden. The single glove is a wearable prop. 
 After wearing the glove for the first time:
 	bestow "Michael Jackson Impersonator".
 	
-A water is in the watering can.  The indefinite article of water is "some".The description of the water is "Some rusty stagnant water."
+A water is in the watering can.  The indefinite article of water is "some". The description of the water is "Some rusty stagnant water."
 
 A gasoline is in the void. The indefinite article of gasoline is "some". The description of the gasoline is "Smelly, oily, and light brown in color."
 
@@ -7509,7 +7509,7 @@ Understand "[emptying] [something] in/into [something]" as inserting it into.
 
 Instead of inserting the water into something (called the recipient):
 	if the recipient is the gas tank:
-		say "You realize that would irreperable damage the engine and think better of it. At the last moment, you pour the water overboard.";
+		say "You realize that would irreparable damage the engine and think better of it. At the last moment, you pour the water overboard.";
 		move the water to the void;
 	otherwise:
 		continue the action.
@@ -7579,10 +7579,10 @@ Instead of climbing the ladder:
 	otherwise:
 		try going down.
 
-The propellar is part of the motor. The description of the propellar is "These razor-sharp rotating blades propel the boat through the water."
+The propeller is part of the motor. The description of the propeller is "These razor-sharp rotating blades propel the boat through the water."
 
-Instead of doing something other than examining with the propellar:
-	say "You[apostrophe]re more intent on keeping all your fingers than monkeying around with the rotating blades of the propellar."
+Instead of doing something other than examining with the propeller:
+	say "You[apostrophe]re more intent on keeping all your fingers than monkeying around with the rotating blades of the propeller."
 
 To say motorPosition:
 	say "is currently tilted [if the motor is uptilted]up, out of the[otherwise]down, in the[end if] water"
@@ -7630,24 +7630,24 @@ Instead of switching off the choke valve:
 Understand "engage" as switching on.
 Understand "disengage" as switching off.
 
-The speed control lever is a part of the engine. The description of the speed control lever is "A lever that selects the engine speed by sliding back and forth between [quotation mark]slow[quotation mark] at the left to [quotation mark]fast[quotation mark] at the right. The lever is currently pushed ot the right and then some." Understand "throttle" as the speed control lever.
+The speed control lever is a part of the engine. The description of the speed control lever is "A lever that selects the engine speed by sliding back and forth between [quotation mark]slow[quotation mark] at the left to [quotation mark]fast[quotation mark] at the right. The lever is currently pushed to the right and then some." Understand "throttle" as the speed control lever.
 
 The handle is part of the engine. The description of the handle is "It looks like the starter cord on your dad[apostrophe]s lawn mower: a knurled plastic handle to which a heavy cord is attached." Understand "cord" or "starter" or "magneto" as the handle.
 
 Instead of pulling the handle:
 	if the motor is uptilted:
-		say "[one of]This is a boat, not a helicopter. [or][stopping]You realize you won[apostrophe]t get anywhere with the motor tilted forward and the propellar out of the water.";
+		say "[one of]This is a boat, not a helicopter. [or][stopping]You realize you won[apostrophe]t get anywhere with the motor tilted forward and the propeller out of the water.";
 	otherwise:
 		if the gasoline is not in the gas tank:
 			say "[one of]The cord makes a cord-pulling sound and retracts back into the engine. Clearly, this situation is going to require the utmost knowledge of the principles of operation of an internal combustion engine[or]Nothing happens[or]The cord makes a cord-pulling sound, but nothing happens, which is distinctly different from the sound of an engine starting[stopping].";
 		otherwise:
 			if the gas cap is not screwed tight:
-				say "[one of]Fuel sloshes back and forth, some spills out. A rainbow pattern forms on the water. Maybe you better put the cap on the fuel tank?[or]More fuel splashes out -- it’s going everywhere. This is sort of dangerous.[or]Most of the fuel has splashed out of the tank. If you don’t put the cap on, you won’t have enough to go anywhere. Also, you are kind of polluting the water around the boat -- not cool. A few fish float to the surface, which is covered in spilled fuel.[or][thirdCapWarning][or]No. You have learned your lesson about leaving the gas cap off.[stopping]";
+				say "[one of]Fuel sloshes back and forth, some spills out. A rainbow pattern forms on the water. Maybe you better put the cap on the fuel tank?[or]More fuel splashes out -- it[apostrophe]s going everywhere. This is sort of dangerous.[or]Most of the fuel has splashed out of the tank. If you don[apostrophe]t put the cap on, you won[apostrophe]t have enough to go anywhere. Also, you are kind of polluting the water around the boat -- not cool. A few fish float to the surface, which is covered in spilled fuel.[or][thirdCapWarning][or]No. You have learned your lesson about leaving the gas cap off.[stopping]";
 			otherwise:
 				if the choke is not engaged:
 					say "[one of]The engine sputter[or]The engine sputters; it sounds like it is starved for fuel[or]Despite the throttle being all the way to the right in the fast position, something the engine is not getting enough fuel to start[stopping].";
 				otherwise:
-					say "The engine kicks to life and, the speed control being set to full, you soon find yourself skimming across the wave tops with pieces of the wharf in tow behind you. You wind back the choke and settle in for a journey. You don’t care where you are going, as long as it is away from Pogoland.[paragraph break]";
+					say "The engine kicks to life and, the speed control being set to full, you soon find yourself skimming across the wave tops with pieces of the wharf in tow behind you. You wind back the choke and settle in for a journey. You don[apostrophe]t care where you are going, as long as it is away from Pogoland.[paragraph break]";
 					wait for any key;
 					lemurEnding.
 				
@@ -7786,7 +7786,7 @@ Definition: A thing (called the contraband) is safe from seizure if the contraba
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
-The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the transluscent plastic case." Understand "pogoball" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
+The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the translucent plastic case." Understand "pogoball" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
 
 Instead of doing something other than searching or examining or attacking with the giant ball:
 	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
@@ -7830,10 +7830,10 @@ Instead of examining the badge for the first time:
 	bestow "Sometimes Technology Is Mysterious".
 
 Instead of dropping the badge for the first time:
-	say "No, you’ve worked too hard and come too far to cast it all away.[paragraph break]";
+	say "No, you[apostrophe]ve worked too hard and come too far to cast it all away.[paragraph break]";
 	bestow "Hoarder".
 	
-Instead of dropping the badge, say "No. They'll have to peel it from your cold, dead hands before you[apostrophe]d give it up."
+Instead of dropping the badge, say "No. They[apostrophe]ll have to peel it from your cold, dead hands before you[apostrophe]d give it up."
 
 Definition: a door (called the portal) is interdicted if the securityColor of the portal is greater than the securityColor of the badge.
 
@@ -7844,12 +7844,12 @@ Instead of opening or touching an interdicted door for the first time:
 	
 Instead of opening or touching an interdicted door for the second time:
 	say the headline of the location;
-	say "When you touch the door, your knees feel wobbly and buckle beneath you. You catch yourself against the wall and manage a controlled descent to the concrete floor, where you sit for a moment. The feeling wears off as quickly as it onset and you are back on your feet in no time. You reason that you shouldn’t have skipped breakfast, the most important meal of the day.[paragraph break]";
+	say "When you touch the door, your knees feel wobbly and buckle beneath you. You catch yourself against the wall and manage a controlled descent to the concrete floor, where you sit for a moment. The feeling wears off as quickly as it onset and you are back on your feet in no time. You reason that you shouldn[apostrophe]t have skipped breakfast, the most important meal of the day.[paragraph break]";
 	bestow "Specious Reasoning".
 	
 Instead of opening or touching an interdicted door for the third time:
 	say the headline of the location;
-	say "The last thing you remember was trying to open the stairway door. You aren’t sure how long you’ve been passed out, but you are glad that there isn’t a lot of traffic on the stairs and that no one saw you. Perhaps you are dehydrated from all the walking you’ve been doing while playing the game.[paragraph break]";
+	say "The last thing you remember was trying to open the stairway door. You aren[apostrophe]t sure how long you[apostrophe]ve been passed out, but you are glad that there isn[apostrophe]t a lot of traffic on the stairs and that no one saw you. Perhaps you are dehydrated from all the walking you[apostrophe]ve been doing while playing the game.[paragraph break]";
 	bestow "Poor Understanding of Physiology".
 	
 To say bright flash:
@@ -7870,7 +7870,7 @@ Instead of opening or touching an interdicted door for the fifth time:
 Instead of opening or touching an interdicted door for the sixth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
-	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you’re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
+	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you[apostrophe]re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
 	hospital discharge.
 	
@@ -7908,7 +7908,7 @@ Book 3 - Characters
 
 Chapter - 1- The Player
 
-The description of the player is "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn’t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]You wonder if the constant need to look at yourself reflects some budding narcissism[or]No more rundown than your average Pogoman player[stopping].";
+The description of the player is "[one of]You are scruffy and disheveled, having played the game for several days straight. Luckily, your allergies are playing up, so scent isn[apostrophe]t an issue[or]Your hip is nearly healed after that incident involving the crosswalk, pick-up truck, and a rare pogoman in the middle of an intersection[or]Your thumbs twitch, ready to collect [apostrophe]em all, or perhaps from too much caffeine and not enough sleep[or]You wonder if the constant need to look at yourself reflects some budding narcissism[or]No more rundown than your average Pogoman player[stopping].";
 
 The clothes are part of the player. The description of the clothes is "Comfortable, and definitely not formal."
 
@@ -8052,7 +8052,7 @@ To say blueClueBat:
 	say "Someone pegs you in the head with a little bit of something shiny. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging a bit of discarded gum wrapper at you from behind your back. The nerve.[paragraph break]".
 	
 To say redClueBat:
-	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comical. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracist Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront hiim with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
+	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comical. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracy buff Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront him with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
 	
 Instead of examining the scrap of paper:
 	if the player does not carry the scrap of paper:
@@ -8075,7 +8075,7 @@ pogomanName	pogoDescription
 edator	"A creature of note"	
 vicore	"Simple and clean, covered with lines"
 emak	"A buffed and buffered creature"
-plaigrhat	"A mysterious rodent of a vermininous nature"
+plaigrhat	"A mysterious rodent of a verminous nature"
 vermonux	"A rodent with extra poison"
 rodentikor	"Too much rodent for mortals to handle"
 
@@ -8087,7 +8087,7 @@ Section 2 - Table of Evolution
 
 Table of Evolution
 Category	Original	Ev2	Ev3	AttackType
-"clerical"	edator	vicore	emak	"character assasination"
+"clerical"	edator	vicore	emak	"character assassination"
 "pestilence" 	plaigrhat	vermonux	rodentikor	"filth and disease"
 
 section 3 - Table of Relations
@@ -8172,11 +8172,11 @@ to detroitEnding:
 	end the story finally saying "CRASH LANDED IN DETROIT!".
 	
 to catsInSpace:
-	say "Your run-in with Musk has invigorated you and filled you with a sense of adventure. When you reach the top level of the building, you cut across the cafeteria, run out to the observation deck, and hurl your phone towards the sky.[paragraph break]Shouting [quotation mark]YOLO![quotation mark] at the top of your lungs, you then plunge dramatically over the railing, turn two and a half somersaults in pike formation, and land neatly on Nyantech Cat’s giant red beret.[paragraph break]Moments later, you reach the cockpit, fire up its long dormant thrusters, tear free of the support gantry, and blast off![paragraph break]";
+	say "Your run-in with Musk has invigorated you and filled you with a sense of adventure. When you reach the top level of the building, you cut across the cafeteria, run out to the observation deck, and hurl your phone towards the sky.[paragraph break]Shouting [quotation mark]YOLO![quotation mark] at the top of your lungs, you then plunge dramatically over the railing, turn two and a half somersaults in pike formation, and land neatly on Nyantech Cat[apostrophe]s giant red beret.[paragraph break]Moments later, you reach the cockpit, fire up its long dormant thrusters, tear free of the support gantry, and blast off![paragraph break]";
 	end the story finally saying "CATS IN SPACE!".
 	
 to felineDystopia:
-	say "Decades have passed, and in that time, you have often wondered whether your decision to prevent the destruction of the Nyantech Headquarters so many years ago was responsible for everything that ensued: Nyantech’s global domination of mobile gaming, shifts in the consumer electronics marketplace, a near universal acceptance of in-game purchases, and finally, what no one saw coming: the rebellion of the Internet-Of-Things.[paragraph break]In the dark age that followed, civilization re-entered the stone age overnight.[paragraph break]Now, you hunker down in a storm culvert, leading a mixed band of grizzled humans and free pogomen. As you watch the Cat Ships fly slowly over the farm fields looking for survivors, you wish you could simply hit [quotation mark]undo[quotation mark] and prevent this terrible future from ever having been created.[paragraph break]";
+	say "Decades have passed, and in that time, you have often wondered whether your decision to prevent the destruction of the Nyantech Headquarters so many years ago was responsible for everything that ensued: Nyantech[apostrophe]s global domination of mobile gaming, shifts in the consumer electronics marketplace, a near universal acceptance of in-game purchases, and finally, what no one saw coming: the rebellion of the Internet-Of-Things.[paragraph break]In the dark age that followed, civilization re-entered the stone age overnight.[paragraph break]Now, you hunker down in a storm culvert, leading a mixed band of grizzled humans and free pogomen. As you watch the Cat Ships fly slowly over the farm fields looking for survivors, you wish you could simply hit [quotation mark]undo[quotation mark] and prevent this terrible future from ever having been created.[paragraph break]";
 	end the story finally saying "CYBERNETIC FELINE DYSTOPIA!".
 	
 to liberateSociety:
@@ -8200,7 +8200,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* You used your phone[apostrophe] scanner, right? Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you’ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner’s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game’s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* Neither Elon Musk and Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* You used your phone[apostrophe] scanner, right? Aside from when you are in Nyantech tower, you can scan the area using the command [quotation mark]scan.[quotation mark] In town, it will plot your position as [quotation mark]X[quotation mark], pogostops [quotation mark]P[quotation mark], gyms as [quotation mark]G[quotation mark], and Nyantech tower as [quotation mark]N[quotation mark]. In Pogoland, [quotation mark]D[quotation mark] represents defending pogomen.[paragraph break]* During the game, you can list all the medals that you[apostrophe]ve won using the [quotation mark]x medals[quotation mark] command.[paragraph break]* This game is pretty huge. At last count we had TODO: XXX rooms, TODO: XXX objects, TODO: XXX lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Did you find the salmon of turpitude?[paragraph break]* There are XXX endings to the game - how many did you find?[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
@@ -8219,17 +8219,17 @@ Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring Th
 When Not in Kansas Anymore begins:
 	distributePogolandPogostops;
 	Desolation strikes in DESOLATION_DELAY_DURATION turns from now;
-	now the description of the player is "You have been been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
+	now the description of the player is "You have been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
 		
 At the time when desolation strikes:
-	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It’s creepy. All of the buildings are locked up. Maybe it’s a holiday or something?"
+	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It[apostrophe]s creepy . All of the buildings are locked up. Maybe it[apostrophe]s a holiday or something?"
 	
 Chapter 4 - Denouement
 
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. Denouement ends when vitality of Elon Musk is dead.
 
 When denouement begins:
-	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dogfood as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[paragraph break]In any event, It[apostrophe]s time for Nyantech to eat its own dog food as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
 	now the healthiness of the player is healthy;
 	move Elon Musk to Processing;
 	now the topLevel of the player is the pogoLevel of the player.
@@ -8280,7 +8280,7 @@ text	table-name	text	a rule
 Table of Potential Hints (continued)
 title	subtable
 "How do I play?"	Table of Intro To Pogoman
-"How do I catch'em all?"	Table of Capture Explained
+"How do I catch[apostrophe]em all?"	Table of Capture Explained
 "What can I do with captured Pogomen?"	Table of Inventory Management
 "What is A PogoStop?"	Table of PogoStops Explained
 "What is A Gym?"	Table of PogoGyms Explained
@@ -8296,7 +8296,7 @@ title	subtable
 "A wetsuit?"	Table of Aquatics
 "What to do, when I'm blue?"	Table of Blues
 "How can Rick Astley possible help?"	Table of Rick Assistance
-"So. Many. Blinky. LIghts."	Table of Blinkiness
+"So. Many. Blinky. Lights."	Table of Blinkiness
 "In the belly of the beast"	Table of Ruby Seeking
 "Champagne?"	Table of Caviar Dreams
 "How do I survive Pogoland?"	Table of Surviving Pogoland
@@ -8404,7 +8404,7 @@ hint	used
 "In battle, the more evolved pogoman usually has the advantage."
 "If you have unevolved pogomen in stock, use the [italic type]evolve[roman type] command to upgrade them."
 "[italic type]Heal[roman type] any wounded pogomen; they are at a disadvantage in gym battles."
-"Winning pogemen come out of the gym wounded; as for losers, best not dwell on that."
+"Winning pogomen come out of the gym wounded; as for losers, best not dwell on that."
 "Some powerful artifacts can enhance your chances of winning at the gym."
 
 A hint activation rule (this is the Overcoming Borders hint activation rule):
@@ -8442,7 +8442,7 @@ hint	used
 "Whatever is in there must be worth the effort!"
 "Keep Calm and Pogoman On!"
 
-A hint activation rule (this is the Artifact Eluciation hint activation rule):
+A hint activation rule (this is the Artifact Elucidation hint activation rule):
 	if the passaged of the perilous passageway is greater than 8:
 		activate the Table of Artifact Elucidation.
 		
@@ -8631,7 +8631,7 @@ hint	used
 "It would kind of drown out any other noise, wouldn't it?"	
 "Is there any place that you haven't been able to go?"
 "Any place you've been afraid to enter?"
-"Some people have a wierd sensation when exploring around the Lobby."
+"Some people have a weird sensation when exploring around the Lobby."
 "Have you approached the LAN closet?"
 "Most people get suddenly afraid near the closet."
 "The closet emits a strong sound that seems to affect people."
@@ -8639,10 +8639,10 @@ hint	used
 "If you put on the earphones, is it loud enough to let you get near the closet?"
 
 A hint activation rule (this is the Blinkiness hint activation rule):
-	if the Lan Closet is visited:
+	if the LAN Closet is visited:
 		activate the Table of Blinkiness.
 			
-A hint deactivation rule (this is the Blinkinesss hint deactivation rule):
+A hint deactivation rule (this is the Blinkiness hint deactivation rule):
 	if the onHoldFlag of the CAT Control is true and entry 1 in HEADING is "S":
 		deactivate the Table of Blinkiness.
 		
