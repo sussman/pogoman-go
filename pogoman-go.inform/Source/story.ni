@@ -693,7 +693,7 @@ To say defendingPogomanName:
 	say " ";
 	say the type of defenderPogoman.
 
-The attackerPogoman is a privately-named pogoentity.The description of attackerPogoman is "[pogoDex data for type of attackerPogoman][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
+The attackerPogoman is a privately-named pogoentity. The description of attackerPogoman is "[pogoDex data for type of attackerPogoman][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
 
 To say attackingPogomanName:
 	say "[if the attackerPogoman is injured]wounded [end if][if Not in Kansas Anymore is happening]attacking[otherwise]wild[end if] [type of attackerPogoman]".
@@ -767,7 +767,7 @@ Instead of attacking Elon Musk:
 		
 			
 To say attackStyle:
-	say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]whallop[or]repeatedly punch[in random order]".
+	say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]wallop[or]repeatedly punch[in random order]".
 			
 To say nearMiss:
 	say ", but you[one of]r attack goes wide[or] miss[or]r opponent is too quick for you[in random order]"
@@ -906,7 +906,7 @@ Instead of throwing a pogoball at something (called the target):
 				awardXP 30; 
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
-			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]richochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
+			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]ricochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
 	otherwise:
 		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.[paragraph break]";
 	decrement pogoball count.
@@ -914,7 +914,7 @@ Instead of throwing a pogoball at something (called the target):
 
 The list of text called TRAJECTORYLIST is always {
 " and are amused when the half-open ball plops down on the its head and pulls it upward into the ball",
-". Futily, it yells something at you in defiance, but the sound is drowned out by the energy vortex that draws the pogoman into the waiting pogoball",
+". Futilely, it yells something at you in defiance, but the sound is drowned out by the energy vortex that draws the pogoman into the waiting pogoball",
 " and bowl it down with the deadly accuracy of a world-class pétanque champion",
 " and are amused by its futile attempt to escape the overwhelming attraction of the ball, which snaps shut as soon as the pogoman is imprisoned",
 " nailing it right between the eyes. Dazed, it falls stiffly forward into the waiting ball and is pulled in",
@@ -938,7 +938,7 @@ The list of text called TRAJECTORYLIST is always {
 ". The ball is flying so fast as it passes the pogoman that the creature is drawn out into a long string of glowing plasma before the it is spooled into the closing pogoball",
 " and bag it neatly",
 " and add another xxx to today[apostrophe]s take",
-" and nail it with [one of]deadly accuracy[or]an eagle eye[or]great acumen[or]pinache[or]exquisite style[or]ease[in random order]",
+" and nail it with [one of]deadly accuracy[or]an eagle eye[or]great acumen[or]panache[or]exquisite style[or]ease[in random order]",
 " careful to keep it centered on the target, lest the xxx try to duck or evade to the side. The ball flies true and pogoman is drawn in",
 " with a flick of the wrist, capturing the pogoman in a rotating attraction field that wrings xxx out like a wet rag before sucking into the ball",
 " eager to add one more prize to your collection. Your aim is good and the xxx is pulled into the ball",
@@ -1163,7 +1163,7 @@ Carry out inventoryTransferring:
 		choose row N in the Table of Inventory;
 		if the pogoName entry is the pogotype understood:
 			blank out the whole row;
-			say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I’ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]![paragraph break]";
+			say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I[apostrophe]ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]![paragraph break]";
 			awardXP TRANSFER_XP_VALUE;
 			break.		
 	
@@ -1462,13 +1462,13 @@ Section 10 - Walkthroughing
 Walkthroughing is an action out of world. Understand "walkthrough" as walkthroughing. 
 
 Carry out walkthroughing:
-	say "While the game has a built-in walkthrough, we would encourage you not to use it, but to try the hint system first (type [italic type]hint[roman type]). If you have already done that and prefer to look at the full walkthrough, please understand that it will necessarily be very spoilerish.[paragraph break]One other consideration: The game distribution should have included a nicely formated walkthrough in PDF format. That might be nicer to look at, and you could print it or open it next to the game rather than use this built-in version. The built-in version is retained just in case the game is played online or something else happens to the PDF version.[paragraph break]Before we go on, one last chance. Are you sure you want to see the walkthrough?";
+	say "While the game has a built-in walkthrough, we would encourage you not to use it, but to try the hint system first (type [italic type]hint[roman type]). If you have already done that and prefer to look at the full walkthrough, please understand that it will necessarily be very spoilerish.[paragraph break]One other consideration: The game distribution should have included a nicely formatted walkthrough in PDF format. That might be nicer to look at, and you could print it or open it next to the game rather than use this built-in version. The built-in version is retained just in case the game is played online or something else happens to the PDF version.[paragraph break]Before we go on, one last chance. Are you sure you want to see the walkthrough?";
 	if the player consents:
 		showWalkthrough;
 	otherwise:
 		say line break;
 		if deniedTemptationOnce of the player is true:
-			bestow "Denied Tempatation.";
+			bestow "Denied Temptation.";
 			now deniedTemptationOnce of the player is false;
 		otherwise:
 			say "That[apostrophe]s the spirit![paragraph break]".
@@ -1506,7 +1506,7 @@ To say ATT2:
 
 
 To say NWLA:
-	say "*   is the pinnacle of your gaming career, so you[apostrophe]ll want to look around. You[apostrophe]ll notice that there are two ways of navigating between floors of the building: stairs or elevator. The stairs run up the north side of the building. The elevator can be called ([italic type]press call button[roman type]) and waiting for the doors to open. Once inside the elevator, [italic type]examine panel[roman type] and [italic type]press button[roman type] of your choice.[paragraph break]* Security for the entire building depends on a color-coded access scheme. Initially, your badge is white, affording you access to the Ground Floor (Lobby) and top floor (Cafeteria, Beverages, Snacks, Ball Pit, and the Observation Deck). Maps of the ground and top floor are included in the [quotation mark]diagrams[quotation mark] file.[paragraph break]* Navigate to the Cafeteria (top) level, and then [italic type]northwest[roman type] ([italic type]nw)[roman type] to Beverages.[paragraph break]* [italic type]Drink the koolaid[roman type]. Literally. Now your badge is green."
+	say "*   is the pinnacle of your gaming career, so you[apostrophe]ll want to look around. You[apostrophe]ll notice that there are two ways of navigating between floors of the building: stairs or elevator. The stairs run up the north side of the building. The elevator can be called ([italic type]press call button[roman type]) and waiting for the doors to open. Once inside the elevator, [italic type]examine panel[roman type] and [italic type]press button[roman type] of your choice.[paragraph break]* Security for the entire building depends on a color-coded access scheme. Initially, your badge is white, affording you access to the Ground Floor (Lobby) and top floor (Cafeteria, Beverages, Snacks, Ball Pit, and the Observation Deck). Maps of the ground and top floor are included in the [quotation mark]diagrams[quotation mark] file.[paragraph break]* Navigate to the Cafeteria (top) level, and then [italic type]northwest[roman type] ([italic type]nw)[roman type] to Beverages.[paragraph break]* [italic type]Drink the Kool-Aid[roman type]. Literally. Now your badge is green."
 	
 To say NGLA:
 	say "* Next stop is the Legal Department located on the level below the Lobby, and now accessible by either elevator or stairs.[paragraph break]* [italic type]Examine the computer screen[roman type] there, which invites you to become a Nyantech Beta Tester. Follow the instruction to [quotation mark][italic type]touch agree[roman type][quotation mark]. This will open the Beta-Testing Door to the [italic type]south[roman type].[paragraph break]* The room one more to the [italic type]south[roman type] is the Cousteau Room, and its garage-door like barrier is locked. You need a garage door remote from the desk drawer in the Legal Department. In addition to [italic type]open drawer[roman type] and [italic type]get remote[roman type], you will need to [italic type]put batteries into the remote[roman type]. [italic type]Take the clock, open the panel[roman type] on its back, and [italic type]take the batteries[roman type], then [italic type]put batteries in remote[roman type].[paragraph break]* Go [italic type]south[roman type] again to stand next to the Cousteau Room door and [italic type]press button[roman type] to activate the remote. When the door retracts, walk [italic type]south[roman type] and [italic type]get the wetsuit[roman type].[paragraph break]* Navigate back up to the Ball Pit on the top level ([italic type]east[roman type] from the cafeteria).[paragraph break]* You can [italic type]wear wetsuit[roman type] before going [italic type]east[roman type] from the cafeteria or walk into the pit first and then put it on. After you [italic type]wear the wetsuit[roman type], go [italic type]down, down, down[roman type]. You will have an encounter at the bottom of the pit that will turn your badge blue."
@@ -1515,7 +1515,7 @@ To say NBLA:
 	say "* Take the stairs to one floor below Legal Department. The [quotation mark]diagram[quotation mark] will show the full layout of the building. You can now [italic type]go south[roman type] through the blue door to the Rick Astley Memorial Shrine.[paragraph break] * [italic type]Get walkman[roman type].[paragraph break] * Navigate [italic type]up[roman type] to the Lobby.[paragraph break] * [italic type]Wear walkman[roman type] will drown out subsonic noise that repels people from the LAN Closet. You are now immune, so [italic type]go east[roman type] into the LAN Closet. [italic type]Turn off the phonograph[roman type] or [italic type]break the record[roman type] so you don[apostrophe]t have to keep listening to Rick Astley music.[paragraph break] * Your goal is to get to the Nyantech Cat, which orbits the building. To do so, you need to immobilize the cat on the south side of the building. [italic type]Examine cat control[roman type] to see the cat[apostrophe]s current position, then [italic type]pull plunger[roman type] to halt its rotation. The cat has momentum, so you need to wait until the indicator shows [quotation mark]N[quotation mark] and then pull the plunger, in order for it come to rest in the [quotation mark]S[quotation mark] position.[paragraph break] * Now navigate to the top level, out to the observation deck, and around to the southern side of the deck.[paragraph break] * [italic type]Unclip chain[roman type] from the railing. Then, either [italic type]go south[roman type] or [italic type]jump[roman type]. Either way, you[apostrophe]ll end up on top of the giant mechanical cat.[paragraph break] * On the cat, use [quotation mark][italic type]fore[roman type][quotation mark] ([italic type]f[roman type]) and [quotation mark][italic type]aft[roman type][quotation mark] ([italic type]a[roman type]) directions to navigate.[paragraph break] * Go [italic type]aft[roman type] to the Maintenance Hatch, then [italic type]down[roman type] to the Captain[apostrophe]s Cabin. Finally, go [italic type]fore[roman type] to the cockpit (Cat[apostrophe]s Head). Your badge should turn red."
 	
 To say NRLA:
-	say "* You can[apostrophe]t jump back up to the observation level, so you need to go out the support boom. Go [italic type]aft[roman type] as far as you can to the Gantry Chamber and then [italic type]outside[roman type] to the Gearing Assembly part of the building.[paragraph break]* Now, go [italic type]down[roman type] as far as possible, eventually crashing through the ceiling of the LAN Closet.[paragraph break]* Go [italic type]west[roman type] to the Lobby and then take the stairs to the bottom. From there, through the red door.[paragraph break] *[italic type]Drink[roman type] or [italic type]drop champagne[roman type] as you like, or [italic type]examine the dais[roman type] to advance the scene.[paragraph break]* Follow Elon Musk down to the MuskPod Station.[paragraph break]* Now [italic type]enter the muskPod[roman type]. To get it moving, [italic type]touch[roman type] or [italic type]examine the display[roman type]."
+	say "* You can[apostrophe]t jump back up to the observation level, so you need to go out the support boom. Go [italic type]aft[roman type] as far as you can to the Gantry Chamber and then [italic type]outside[roman type] to the Gearing Assembly part of the building.[paragraph break]* Now, go [italic type]down[roman type] as far as possible, eventually crashing through the ceiling of the LAN Closet.[paragraph break]* Go [italic type]west[roman type] to the Lobby and then take the stairs to the bottom. From there, through the red door.[paragraph break] *[italic type]Drink[roman type] or [italic type]drop champagne[roman type] as you like, or [italic type]examine the dais[roman type] to advance the scene.[paragraph break]* Follow Elon Musk down to the MuskPod Station.[paragraph break]* Now [italic type]enter the MuskPod[roman type]. To get it moving, [italic type]touch[roman type] or [italic type]examine the display[roman type]."
 	
 To say pogolandOverview:
 	say "There is a major paradigm shift in Pogoland -- Pogoman GO! is less a game, and more a fight to survive. You may be hunting pogomen, but they are hunting you. There is a way out of pogoland, if you survive long enough to accomplish it. However, several other ends are also possible. First, let[apostrophe]s cover some pointers about how to survive, then an escape plan, and finally how to deal with various things that could happen to you."
@@ -1546,7 +1546,7 @@ After reading a command:
 		if the player's command includes "[rebootage]":
 			continue the action;
 		if the player's command includes "[a direction]":
-			say "[one of]No sense in walking anywhere if the game isn’t playing. Better reboot the phone.[or][run paragraph on][stopping]";
+			say "[one of]No sense in walking anywhere if the game isn[apostrophe]t playing. Better reboot the phone.[or][run paragraph on][stopping]";
 		if the ignored command count of the phone is:
 			-- 10: 
 				say "With the few remaining system resources it has at its disposal as it circles a virtual drain, the phone begs, [quotation mark]Please, reboot me… before it is too late… (>gasp<).[quotation mark][paragraph break]" instead;
@@ -1768,7 +1768,7 @@ Before printing the locale description of a room:
 				move the defenderPogoman to the location of the player;
 	continue the action.
 	
-[the "or in pogoland terminal" above was added to catch the transition where player is moving as scene is changing; otherwise, the not in kansas condition doesn't apply, a turn goes by, and the player isn't moving between rooms, so this doesn't fire. This seems safe (but oddly redundant otherwise) since the player can only be in pogoland terminal if not in kansas is happening]
+[the "or in pogoland terminal" above was added to catch the transition where player is moving as scene is changing; otherwise, the Not In Kansas Anymore condition doesn't apply, a turn goes by, and the player isn't moving between rooms, so this doesn't fire. This seems safe (but oddly redundant otherwise) since the player can only be in pogoland terminal if Not In Kansas Anymore is happening]
 	
 Rule for writing a paragraph about the defenderPogoman:
 	say "Your[if the defenderPogoman is injured] heroically[end if] [defenderPogoman] is on guard here."
@@ -1787,7 +1787,7 @@ Chapter Activities
 Section ShowStatus
 
 To ShowStatus:
-	let C be "[securitycolor of the badge]";
+	let C be "[securityColor of the badge]";
 	if pogoLevel of the player is greater than topLevel of the player:
 		now topLevel of the player is pogoLevel of the player; [decouple level from XP after NIKA]
 	now the left hand status line is "PogoLevel: [topLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player wears the badge]  |  Badge: [C in title case]";
@@ -1796,7 +1796,7 @@ To ShowStatus:
 
 Section AwardXP
 
-[moral equivalent of a global game score -- simply "AwardXP 30" when needed, and levelling will happen automatically.]
+[moral equivalent of a global game score -- simply "AwardXP 30" when needed, and leveling will happen automatically.]
 
 To AwardXP (award - a number):
 	increase the XP of the player by award;
@@ -1846,7 +1846,7 @@ Check spinning:
 		stop the action;
 	otherwise:
 		if the TURNCOUNTER minus the time stamp of the location of the player is less than the POGOSTOP_LOCKOUT_DURATION and the superuser of the player is false:
-			say "The pogospot spins around and around. Your phone makes a sad face and says, [quotation mark]Sorry. Try again later.[quotation mark][paragraph break]";
+			say "The pogostop spins around and around. Your phone makes a sad face and says, [quotation mark]Sorry. Try again later.[quotation mark][paragraph break]";
 			stop the action;
 		otherwise:
 			continue the action;
@@ -1911,7 +1911,7 @@ Report Helping:
 	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored."
 	
 Instead of helping for the first time:
-	say "That’s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it’s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
+	say "That’s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
 	bestow "Here, let me Google that for you".
 	
 Instead of helping for the second time:
@@ -1930,7 +1930,7 @@ Section 4 - About
 Abouting is an action applying to nothing. Understand "about" or "info" or "information" or "ls" as abouting.
 
 Carry out abouting:
-	say "Don’t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO!"
+	say "Don[apostrophe]t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO!"
 	
 After abouting for the first time:
 	bestow "Typed a Meta-Command” .
@@ -1958,7 +1958,7 @@ Section 7 - Waving
 
 Instead of waving hands, say "You wave your cell phone around in the air, dissipating heat."
 	
-Section 8 - Levelling
+Section 8 - Leveling
 
 [ For reference:
 	
@@ -2025,7 +2025,7 @@ After rebooting:
 			bestow "Successfully rebooted your phone”;
 			try looking;
 		-- 2:
-			say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn’t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
+			say "The phone takes its own sweet time in rebooting, almost as if it wants to punish you. [paragraph break]The splash screen appears and progress bar advances... until it doesn[apostrophe]t for a while.[paragraph break]Oh no. It seems to be stuck about halfway through the reboot.  Looks like another reboot might be in order.";
 			freeze the phone;
 		-- 3:
 			say "The phone rolls its figurative eyes and reboots.[paragraph break]";
@@ -2289,7 +2289,7 @@ Check Ordering:
 		say "Don[apostrophe]t see that here. Would they have that in the cafeteria?";
 		stop the action;
 	else if Not In Kansas Anymore is happening:
-		say "Nothing seems to be open here. You will have to wait until you (somehow) get back to civiization.";
+		say "Nothing seems to be open here. You will have to wait until you (somehow) get back to civilization.";
 		stop the action;
 	else:
 		say "No time for that now!";
@@ -2397,7 +2397,7 @@ Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals.
 Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy".
 
 Before doing something other than examining with the medals when Around The Town is happening for the first time:
-	say "The medals aren[apostrophe]t really tangible. It’s not like you are walking around like Marley’s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[paragraph break]";
+	say "The medals aren[apostrophe]t really tangible. It[apostrophe]s not like you are walking around like Marley[apostrophe]s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[paragraph break]";
 	add "Medal Self-Reference" to MEDALLIST;
 	say awardParadox;
 	stop the action.
@@ -2458,7 +2458,7 @@ To Bestow (medallion - some text):
 	awardXP MEDAL_XP_VALUE;
 	if the number of entries in MEDALLIST is:
 		-- 3: 
-			say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about medals and XP. Don’t say I never did anything for you. You’re welcome.[quotation mark])[paragraph break]";
+			say "([quotation mark]By the way,[quotation mark] your phone mentions parenthetically, [quotation mark]when you get tired of hearing about medals -- and mark my words, you will -- type [quotation mark]mute[quotation mark] to toggle notification about medals and XP. Don[apostrophe]t say I never did anything for you. You[apostrophe]re welcome.[quotation mark])[paragraph break]";
 			bestow "Now Your Phone Is Talking To You";
 		-- 5:
 			bestow "You Just Collected Five Medals";
@@ -2470,7 +2470,7 @@ To Bestow (medallion - some text):
 		-- 100:
 			bestow "Collected A Century of Medals";
 		-- 1000:
-			bestow "Collected A Millenium of Medals".
+			bestow "Collected A Millennium of Medals".
 		
 Muting is an action applying to nothing. Understand "mute" as muting.
 
@@ -2507,7 +2507,7 @@ After examining the phone for the first time, bestow "Technology Explorer".
 
 After examining the Teslatronic Energy Module for the first time, bestow "Awfully Trusting".
 
-After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn’t like the truth".
+After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn[apostrophe]t like the truth".
 
 
 After waiting for the first time, bestow "Loitering Around".
@@ -2561,19 +2561,8 @@ Carry out MedalGetting the number understood:
 Report MedalGetting:
 	say "[number understood] medals awarded, for a total of [number of entries in MEDALLIST]."
 	
-Section 4 - Getting A Pogoman
-
-[forcibly grab a Pogoman without using a pogoball]
-GettingPogoman is an action applying to a thing.  Understand "getPogoman [thing]" as gettingPogoman.
-
-Carry out gettingPogoman:
-	if the noun is a pogoentity:
-		now the player carries the noun;
-		say "You forcibly grab [the noun].[paragraph break]";
-	otherwise:
-		say "That's not a pogoman.[paragraph break]".
 	
-Section 5 - Badgifying
+Section 4 - Badgifying
 	
 Badgifying is an action applying to nothing. Understand "badgify" as badgifying.
 
@@ -2587,7 +2576,7 @@ Carry out badgifying:
 Report badgifying:
 	say "Badge color: [securityColor of the badge]."
 
-Section 6 - Joining Teams
+Section 5 - Joining Teams
 
 Teamjoining is an action applying to a color. 
 
@@ -2599,7 +2588,7 @@ Carry out teamjoining:
 Report teamjoining:
 	say "Welcome to [team color of the player] team!"
 	
-Section 7 - Hanging The Phone
+Section 6 - Hanging The Phone
 
 Hanging is an action applying to nothing.
 
@@ -2614,7 +2603,7 @@ Carry out hanging: [if hangin' ain't too good fer folks like them]
 Report hanging:
 	say "The phone is now well hung."
 	
-Section 8 - Spawn Pogomen
+Section 7 - Spawn Pogomen
 
 Spawning is an action applying to nothing. Understand "spawn" as spawning.
 	
@@ -2634,7 +2623,7 @@ Carry out spawning:
 Report spawning:
 	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][type of attackerPogoman] appears!"
 	
-Section 9 - Sudo
+Section 8 - Sudo
 
 Sudoing is an action applying to nothing. Understand "sudo" as sudoing.
 
