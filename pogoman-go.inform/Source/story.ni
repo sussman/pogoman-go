@@ -20,7 +20,7 @@ Release along with cover art ("The Nyantech mascot cat riding a giant pogoball")
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [for context-specific hints]
-Include Object Response Tests by Juhana Leinonen. [mildly hack for this project]
+Include Object Response Tests by Juhana Leinonen. [mildly hacked for this project]
 Include Menus by Emily Short. [walkthrough menus]
 
 
@@ -5801,7 +5801,7 @@ To visualize (overheadDescription - some text):
 The catProxyOverhead is a catTopDrop. The catProxyOverhead is in Cat's Beret, Maintenance Hatch, CatWalk, Poop Deck, and Deck Area. The printed name of the catProxyOverhead is "Nyantech Cat". Understand "cat" or "gato" or "katze" or "gwunka" or "nyantech" or "kot" or "koshka" or "kat" or "animatronic" or "ship" or  "vessel" as the catProxyOverhead. The description of the catProxyOverhead is "[describeCatPO].".
 
 To say describeCatPO:
-	visualize "[if the onHoldFlag of the CAT Control is true]The giant Nyantech cat is suspended from the building just below your position[otherwise]As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the crossmember of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide[end if].[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There’s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail"
+	visualize "[if the onHoldFlag of the CAT Control is true]The giant Nyantech cat is suspended from the building just below your position[otherwise]As the giant Nyantech Cat circles past your vantage point, you are able to pick out more details than you could from the ground. The Cat is suspended from a heavy metal boom, like the cross member of a construction crane. The boom sweeps around the building about once a minute and must be immensely strong to support the weight of the cat, a metal structure about forty feet long and ten feet wide[end if].[paragraph break]As depicted in all of Nyantech[apostrophe]s online material, the cat wears its trademark red beret, which at this close range looks more like an immense bean bag. There[apostrophe]s an access hatch just above the boom, presumably for maintenance. The cat[apostrophe]s glowing red eyes must be five feet diameter, and although you are twenty feet above them, you can feel the heat evolving off them. A trail of sparking and popping glitter behind the cat seems to come out of a port near its tail"
 	
 Instead of examining the catProxyOverhead when the player is in a cat-top room:
 	say "You are standing on top of it."
@@ -5873,7 +5873,7 @@ Instead of jumping in the Cat Area:
 		
 Section 44 - Cat's Beret
 
-The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat’s head, you can see all the way the Infamous Tarpits on the south edge of town." 
+The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat[apostrophe]s head, you can see all the way the Infamous Tarpits on the south edge of town." 
 
 The possible exits of the Cat's Beret are "The only way to go from here [one of](the only sane way to go, discounting a suicidal fall) [or][stopping]is towards the rear of the cat. The maintenance hatch is just aft of the beret, at the nape of the cat[apostrophe]s neck. Behind that, there is a narrow scaffold over the pop-tart section of the cat. The scaffold runs above the support boom that extends outward from the building. Finally, at the very rear of the cat, sparkles shoot from a short, metal exhaust tube."
 
@@ -5936,7 +5936,7 @@ Section 46 - Catwalk
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
 Instead of going down when the player is in the Catwalk:
-	say "[one of]Going down isn’t really an option. On the side of the cat facing towards the building, the smooth metal skin slopes towards the support boom, but between the wind and slight swaying of the cat hundreds of feet above the pavement, you don’t like the odds of landing on the boom versus plunging over the side. As for the pop-tart side of the cat, there would be nothing to grab onto, aside from a tasty snack on your way to the pavement[or]No, too dangerous[stopping]."
+	say "[one of]Going down isn[apostrophe]t really an option. On the side of the cat facing towards the building, the smooth metal skin slopes towards the support boom, but between the wind and slight swaying of the cat hundreds of feet above the pavement, you don[apostrophe]t like the odds of landing on the boom versus plunging over the side. As for the pop-tart side of the cat, there would be nothing to grab onto, aside from a tasty snack on your way to the pavement[or]No, too dangerous[stopping]."
 	
 The pop-tart shingles are a  plural-named backdrop in catWalk. The description of pop-tart shingles is "Pop-tarts as an actual construction material. Genius." Understand "shingle" or "pop-tarts" or "poptart" or "poptarts" or "giant" as the pop-tart shingles.
 
@@ -6041,13 +6041,13 @@ Instead of entering the hammock:
 	say "You flip around a few times and end up on the floor of the cabin."
 	
 Instead of putting something (called the item) on the hammock:
-	say "[The item] falls through the shoddy knotwork and you grab it before it hits the floor."
+	say "[The item] falls through the shoddy knot work and you grab it before it hits the floor."
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
 
 Section 49 - Gantry Chamber
 
-Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain’s cabin."
+Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain[apostrophe]s cabin."
 
 Every turn when the player is in the Gantry Chamber:
 	if a random chance of 1 in 5 succeeds:
@@ -6069,7 +6069,7 @@ A door called the cockpit door is fore from the Captain's Cabin. The description
 CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat."
 
 After going fore from the Captain's Cabin for the first time:
-	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you’re guessing that it’s actually white).";
+	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).";
 	now the securityColor of the badge is red;
 	bestow "Cat Power!"
 	
@@ -6079,7 +6079,7 @@ After examining the magnificent ruby for the first time:
 	bestow "Sparkly!".
 
 Instead of taking or touching the magnificent floating ruby  for the first time:
-	say "As your hand approaches the jewel, it feels like ants are crawling over your hand and forearm. The air around your hand starts to scintillate and the smell of hamburger fills the room. Drawing still closer to the precious jewel, in the bright light you can see only the bones of your hand as if the skin has become transparent.[paragraph break]That’s enough for you to decide against messing with the ruby.[paragraph break]";
+	say "As your hand approaches the jewel, it feels like ants are crawling over your hand and forearm. The air around your hand starts to scintillate and the smell of hamburger fills the room. Drawing still closer to the precious jewel, in the bright light you can see only the bones of your hand as if the skin has become transparent.[paragraph break]That[apostrophe]s enough for you to decide against messing with the ruby.[paragraph break]";
 	bestow "Holy Kryptonite, Batman!";
 	bestow "Mixed Metaphor".
 	
@@ -6103,7 +6103,7 @@ The MuskLair is a region. Make Over Suite, Throne Room, and MuskTube Station are
 Section 2 - The Throne Room
 
 After going south from the stairsSSB:
-	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room’s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
+	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room[apostrophe]s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
 	now Make Over Suite is visited; [serves as a flag that player has progressed this far]
 	repeat with N running through the things carried by the player:
 		if N is not safe from seizure:
@@ -6124,24 +6124,24 @@ Instead of taking off the formal wear:
 The description of the Throne Room is "A marble room with black and white floor, mirrored walls, and chandeliers. The ceiling is an elaborate trompe-l'oeil rendering of the story of Prometheus[if the champagne glass is in the void]. A downward passage has opened and is ringed by burning torches[otherwise]. At the far end of the magnificent hall is a raised dais lit from above by spotlights[end if]."  The possible exits of the Throne Room are "There are no obvious exits." The title of the Throne Room is "Grand Hall".
 
 Instead of taking inventory when the Make Over Suite is visited and Exploring the Tower is happening for the first time :
-	Say "What?[paragraph break]Where did all you swag go?[paragraph break]That robot must have… Well, at least you’ve still got your phone."
+	Say "What?[paragraph break]Where did all you swag go?[paragraph break]That robot must have… Well, at least you[apostrophe]ve still got your phone."
 	
 Instead going north when the player is in the Throne Room:
 	say "[one of]There are no apparent exits. The robot carried you into the room from the north, but all you see in that direction is a solid wall[or]You can[apostrophe]t to that way[stopping]."
 	
-The mirrored walls are scenery in the Throne Room. The description of the mirrored walls is "The guilded mirrors put Versailles to shame." Understand "guilded" or "mirror" or "mirrors" as the mirrored walls.
+The mirrored walls are scenery in the Throne Room. The description of the mirrored walls is "The gilded mirrors put Versailles to shame." Understand "gilded" or "mirror" or "mirrors" as the mirrored walls.
 
 Instead of doing something other than examining with the mirrored walls:
 	say "You don't want to smudge up the pristine mirrors."
 
-The trompe l'oeil ceiling is scenery in the Throne Room. The description of the trompe l'oiel ceiling is "An art deco rendering of the Prometheus story, with gold overtones." 
+The trompe l'oeil ceiling is scenery in the Throne Room. The description of the trompe l'oeil ceiling is "An art deco rendering of the Prometheus story, with gold overtones." 
 
-Instead of doing something other than examining with the trompe l'oiel ceiling:
+Instead of doing something other than examining with the trompe l'oeil ceiling:
 	say "The vaulted ceiling is too far above you."
 	
 The chandeliers are  plural-named scenery in the Throne Room. The description of the chandeliers is "Exquisite crystal, the chandeliers sparkle and fill the room with brilliant light."
 
-Instead of doing something other than examining with the trompe l'oiel ceiling:
+Instead of doing something other than examining with the trompe l'oeil ceiling:
 	say "They hang far above your head."
 	
 The parquet floor is scenery in the Throne Room. The description of the floor is "The floor is a diamond pattern of inlaid ebony and ivory." Understand "ebony" or "ivory" or "wood" as the floor.
@@ -6268,7 +6268,7 @@ Instead of doing something other than examining with the tube placard:
 
 The MuskPod is an open openable enterable scenery container in MuskTube Station. The description of the MuskPod is "The MuskPod hover above energized superconducting rails. Made of the latest composite materials, the canopy of the maglev pod is swung up to reveal a passenger compartment enough for one person." Understand "pod" or "train" or "maglev" or "capsule" as the MuskPod.
 
-The passenger compartment is part of the MuskPod. The description of the passenger compartment is "Hard to see from here. It doesn’t look like there are any complicated controls on it." Understand "cockpit" as the passenger compartment.
+The passenger compartment is part of the MuskPod. The description of the passenger compartment is "Hard to see from here. It doesn[apostrophe]t look like there are any complicated controls on it." Understand "cockpit" as the passenger compartment.
 
 Instead of doing something other than examining with the passenger compartment:
 	say "You would have to climb into the pod to mess around with the passenger compartment."
@@ -6283,7 +6283,7 @@ The rails are scenery in MuskTube Station. The description of the rails is "The 
 Instead of doing something other than examining with the rails:
 	say "You would rather not mess around with the high tech (not to mention high voltage) rails that extend into the dark tunnel that leads out of the station."
 
-The tunnel is scenery in the MuskTube Station. The description of the tunnel is "The rails extend away from the platform and dive deep into the earth in the direction ahead of the small pod. It is too dark to see any further into the tunnel, which looks just wide enough to accomodate the pod." Understand "tunnels" as the tunnel. 
+The tunnel is scenery in the MuskTube Station. The description of the tunnel is "The rails extend away from the platform and dive deep into the earth in the direction ahead of the small pod. It is too dark to see any further into the tunnel, which looks just wide enough to accommodate the pod." Understand "tunnels" as the tunnel. 
 
 Instead of doing something other than examining with the tunnel: 
 	say "The tunnel are at the far end of the platform and not easily accessible since the rails are between you and the tunnel entrance."
@@ -6297,7 +6297,7 @@ Every turn when the player is in MuskTube Station and Elon Musk is in the MuskTu
 	increase the tubeRantCounter of Elon Musk by 1;
 	if the tubeRantCounter of Elon Musk is:
 		-- 1:
-			say "Musk gestures grandly, [quotation mark]All of this is in pursuit of a dream. What dream? I’ll tell you... Nothing less than conquest of the galaxy![quotation mark][paragraph break]He peers at you to make sure you are suitably impressed and then continues, [quotation mark]Everything we have done with Pogoman has served that goal: why in the last two weeks alone we have tripled mobile phone battery life! Now, factor in advances in neural interfacing, psychic energy harvesting, the quantum cloud, and what do you have? Nothing less than a miracle. A miracle of science![quotation mark][paragraph break][quotation mark]Now, my friend, on your way for your, shall we say, beta-test?[quotation mark] He gestures to the plastic shell at the end of the platform. [quotation mark]Here begins the journey to unlock our greatest achievement yet: Pogoland itself, where we take the game you love so much to the next level![quotation mark][paragraph break][quotation mark]Please get in the pod.[quotation mark][paragraph break]";
+			say "Musk gestures grandly, [quotation mark]All of this is in pursuit of a dream. What dream? I[apostrophe]ll tell you... Nothing less than conquest of the galaxy![quotation mark][paragraph break]He peers at you to make sure you are suitably impressed and then continues, [quotation mark]Everything we have done with Pogoman has served that goal: why in the last two weeks alone we have tripled mobile phone battery life! Now, factor in advances in neural interfacing, psychic energy harvesting, the quantum cloud, and what do you have? Nothing less than a miracle. A miracle of science![quotation mark][paragraph break][quotation mark]Now, my friend, on your way for your, shall we say, beta-test?[quotation mark] He gestures to the plastic shell at the end of the platform. [quotation mark]Here begins the journey to unlock our greatest achievement yet: Pogoland itself, where we take the game you love so much to the next level![quotation mark][paragraph break][quotation mark]Please get in the pod.[quotation mark][paragraph break]";
 		-- 2:
 			say "Musk nods and continues his monologue, glad to have an audience. He continues, [quotation mark]PogoLand is the breakthrough towards which we have been working for decades. SpaceX, Tesla, the HAARP telepathy modulator -- all of that was mere preparation![quotation mark][paragraph break][quotation mark]Now then, hop in the pod, will you?[quotation mark][paragraph break]";
 		-- 3:
@@ -6305,7 +6305,7 @@ Every turn when the player is in MuskTube Station and Elon Musk is in the MuskTu
 		-- 4:
 			say "[quotation mark]Everyone said that the things we want to do are impossible; well, some said impossible, some said improbable. Others -- the ones that can’t see beyond the ends of their noses -- said immoral or unethical. Hah! Just as they said that the horse and buggy would never travel more than 30 miles per hour. Let them hold to their prayer beads and voodoo dolls. Ours is the future![quotation mark][paragraph break][quotation mark]Now, into the pod. Daylight’s burning.[quotation mark][paragraph break]";
 		-- otherwise:
-			say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I’m pretty beat. I’m sure I’m fascinating to listen to, but I really shouldn’t keep you. You’ve got some beta-testing to do, and I have to get back to being the world’s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
+			say "Musk runs his fingers through his hair and yawns, [quotation mark]Well. I[apostrophe]m pretty beat. I[apostrophe]m sure I[apostrophe]m fascinating to listen to, but I really shouldn[apostrophe]t keep you. You[apostrophe]ve got some beta-testing to do, and I have to get back to being the world[apostrophe]s most important executive.[quotation mark][paragraph break]Musk gives you a final wave, strides up the stairs, and they retract up after him, leaving you alone on the platform.";
 			move Elon Musk to the void.
 
 Instead of going up from MuskTube Station:
@@ -6332,7 +6332,7 @@ The Elevator is a room. The description of the elevator is "The interior of the 
 
 Section 1 - Control Panel
 
-The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control planel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with an arrow indicating the direction of travel and the following colored buttons:[line break][elevatorButtonState]".
+The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control panel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with an arrow indicating the direction of travel and the following colored buttons:[line break][elevatorButtonState]".
 
 To say elevatorButtonState:
 	repeat with N running from 1 to the number of rows in the Table of Building Floors:
@@ -6364,7 +6364,7 @@ managersButton is a lift button. It is part of the elevatorControl. The printed 
 
 engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "Engineers button". Understand "engineer" or "engineers" or "button" or "black" as the engineersButton. The description of the engineersButton is "[liftButtonDescription of engineersButton]".
 
-internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" or "black" as the internsButton. The description of the cinternsButton is "[liftButtonDescription of internsButton]".
+internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" or "black" as the internsButton. The description of the internsButton is "[liftButtonDescription of internsButton]".
 
 lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "Lobby button". Understand "lobby" or "ground" or "button" or "white" as the lobbyButton. The description of the lobbyButton is "[liftButtonDescription of lobbyButton]".
 
@@ -6741,8 +6741,10 @@ Song Name	Writer
 The stage business of the elevator is {
 "It[apostrophe]s not unusual to be loved by anyone",
 "It[apostrophe]s not unusual to have fun with anyone", 
-"Feelings, nothing more than feelings", "Feelings, wo-o-o feelings", 
-"Muskrat Suzie, Muskrat Sam", "Do the jitterbug out in Muskrat Land", 
+"Feelings, nothing more than feelings", 
+"Feelings, wo-o-o feelings", 
+"Muskrat Suzie, Muskrat Sam", 
+"Do the jitterbug out in Muskrat Land", 
 "I write the songs that make the whole world sing", 
 "I write the songs of love and special things", 
 "When you get lost between the moon and New York City", 
@@ -6750,7 +6752,8 @@ The stage business of the elevator is {
 "But where are the clowns? Send in the clowns", 
 "Well, maybe next year", 
 "Do sol de Ipanema O seu balançado",
-"É mais que um poema","É a coisa mais linda", 
+"É mais que um poema",
+"É a coisa mais linda", 
 "Come sail away, Come sail away", 
 "Come sail away with me",
 "If a face could launch a thousand ships",
@@ -6761,7 +6764,7 @@ The stage business of the elevator is {
 "the honesty[apostrophe]s too much", 
 "At the Copa (Co) Copacobana (Copacabana)",
 "The hottest spot north of Havana", 
-"Who's reaching out to capture a moment?",
+"Who[apostrophe]s reaching out to capture a moment?",
  "Everyone knows it[apostrophe]s Windy", 
 "Islands In The Stream, that is what we are", 
 "No one in between, how can we be wrong?", 
@@ -6813,14 +6816,16 @@ The stage business of the elevator is {
 "I[apostrophe]ll be waiting here for you", 
 "Wasted away again in Margaritaville", 
 "Searchin[apostrophe] for my lost shaker of salt", 
-"Where do I begin", "to tell a story of how great a love can be", 
+"Where do I begin", 
+"to tell a story of how great a love can be", 
 "We[apostrophe]re up all night for good fun", 
 "we're up all night to get lucky", 
 "Hanging around nothing to do but frown", 
 "Rainy days and mondays always get me down", 
 "Hojotoho! Hojotoho! Heiaha! Heiaha!",
 "Helmwige! Hier! Hieher mit dem Ross!",
-"Hojotoho! Hojotoho! Heiaha!","Heiaha! Heiaha!",
+"Hojotoho! Hojotoho! Heiaha!",
+"Heiaha! Heiaha!",
 "Zu Ortlindes Stute stell deinen Hengst",
 "mit meiner Grauen grast gern dein Brauner!",
 "Wer hängt dir im Sattel?",
@@ -6844,12 +6849,13 @@ The stage business of the elevator is {
 "Führet die Mähren fern von einander",
 "bis unsrer Helden Hass sich gelegt!",
 "Der Helden Grimm büsste schon die Graue!",
-"Hojotoho! Hojotoho!","Willkommen! Willkommen!",
+"Hojotoho! Hojotoho!",
+"Willkommen! Willkommen!",
 "Wart ihr Kühnen zu zwei?",
 "Getrennt ritten wir und trafen uns heut[apostrophe]",
 "Sind wir alle versammelt, so säumt nicht lange",
-"nach Walhall brechen wir auf, Wotan zu bringen die Wal","
-Acht sind wir erst: eine noch fehlt",
+"nach Walhall brechen wir auf, Wotan zu bringen die Wal",
+"Acht sind wir erst: eine noch fehlt",
 "Bei dem braunen Wälsung weilt wohl noch Brünnhilde",
 "Auf sie noch harren müssen wir hier",
 "Walvater gäb[apostrophe] uns grimmigen Gruss",
@@ -6976,7 +6982,7 @@ Acht sind wir erst: eine noch fehlt",
 "Sein Zorn zerschellt mich, wenn euer Schutz ihn nicht zähmt",
 "Hieher, Verlor'ne! Lass dich nicht sehn!",
 "Schmiege dich an uns und schweige dem Ruf!",
-"Weh'! Wütend schwingt sich Wotan vom Ross!",
+"Weh[apostrophe]! Wütend schwingt sich Wotan vom Ross!",
 "Hieher rast sein rächender Schritt!"
 }.
 
