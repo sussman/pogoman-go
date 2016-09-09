@@ -3846,7 +3846,7 @@ Instead of going a direction to the perilous passageway:
 	if the passaged of the perilous passageway is:
 		-- 1:			
 			say the headline of the location of the player;
-			say "You are torn. Clearly, there is an artifact of immense power down the dark winding passageway you are standing in front of  -- and having it would certainly help you win gym battles and who knows what else. On the other hand, it’s narrow, poorly lit and in all the years you have lived in this town, you’ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
+			say "You are torn. Clearly, there is an artifact of immense power down the dark winding passageway you are standing in front of  -- and having it would certainly help you win gym battles and who knows what else. On the other hand, it[apostrophe]s narrow, poorly lit and in all the years you have lived in this town, you[apostrophe]ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
 			bestow "At Least Briefly Listened To Your Inner Voice";
 		-- 2:
 			say the headline of the Perilous Passageway;
@@ -3854,15 +3854,15 @@ Instead of going a direction to the perilous passageway:
 			phoneDeath;
 		-- 3:
 			say the headline of the location of the player;
-			say "You recall that last time, walking into this foreboding passageway didn’t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, [quotation mark]off the scale[quotation mark] is one of the items on the scale. In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
+			say "You recall that last time, walking into this foreboding passageway didn[apostrophe]t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, [quotation mark]off the scale[quotation mark] is one of the items on the scale. In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
 		-- 4:
 			say the headline of the Perilous Passageway;
 			say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
-[quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That’s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I’m just saying it’s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
+[quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That[apostrophe]s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I[apostrophe]m just saying it[apostrophe]s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a Chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
 			phoneDeath;
 		-- 5:
 			say the headline of the location of the player;
-			say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can’t remember the name of any of your teachers before high school. Maybe going through this passageway isn’t worth it. On the other hand, you want that artifact... [paragraph break]";
+			say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can[apostrophe]t remember the name of any of your teachers before high school. Maybe going through this passageway isn[apostrophe]t worth it. On the other hand, you want that artifact... [paragraph break]";
 			bestow "Slow Learner";
 		-- 6:
 			say the headline of the Perilous Passageway;
@@ -3870,15 +3870,15 @@ Instead of going a direction to the perilous passageway:
 			phoneDeath;
 		-- 7:
 			say the headline of the location of the player;
-			say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph break]Well, maybe. You daydream winning the adoration of hoardes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passsageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
+			say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph break]Well, maybe. You daydream winning the adoration of hordes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
 			bestow "Better Part Of Valor";
 		-- 8:
 			say the headline of the location of the player;
-			say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]But what are these minor inconveniences next to the what you could achieve? If you did recover a rare artifact from the alley, it would no doubt propel you to the top ranks of the pogoman player hierarchy and elicit the jealosy of every other player.[paragraph break]";
+			say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]But what are these minor inconveniences next to the what you could achieve? If you did recover a rare artifact from the alley, it would no doubt propel you to the top ranks of the pogoman player hierarchy and elicit the jealousy of every other player.[paragraph break]";
 			bestow "Pain Is The Best Teacher";
 		-- 9:
 			say the headline of the Perilous Passageway;
-			say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don’t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We’re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.[paragraph break]As you search in the alley, the artifact detector on your phone goes wild and burns out, overwhelmed by the power of a nearby object.";
+			say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don[apostrophe]t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We[apostrophe]re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.[paragraph break]As you search in the alley, the artifact detector on your phone goes wild and burns out, overwhelmed by the power of a nearby object.";
 			teleport the player to the perilous passageway;
 		-- 10:
 			say "With lingering trepidation, you enter the perilous passageway.";
@@ -3904,13 +3904,13 @@ Instead of Taking Off the Baseball Cap of Pogomastery for the first time:
 Instead of Taking Off the Baseball Cap of Pogomastery:
 	say "It seems stuck to your head."
 
-The disgusting refuse is in the void. The description of the disgusting refuse is "Half-rotted tuna sandwiches, bits of plastic, and a collection of headless barbie dolls; the whole lot of it held together with some sort of sticky black ooze." Understand "garbage" or "trash" or "rubbish" as the disgusting refuse. The indefinite article of the disgusting refuse is "some". Understand "plastic" or "headless" or "barbie" or  "doll" or "barbies" or "dolls" or "black" or "ooze" or "tuna" or "sandwich" or "sandwiches" as the disgusting refuse.
+The disgusting refuse is in the void. The description of the disgusting refuse is "Half-rotted tuna sandwiches, bits of plastic, and a collection of headless Barbie dolls; the whole lot of it held together with some sort of sticky black ooze." Understand "garbage" or "trash" or "rubbish" as the disgusting refuse. The indefinite article of the disgusting refuse is "some". Understand "plastic" or "headless" or "barbie" or  "doll" or "barbies" or "dolls" or "black" or "ooze" or "tuna" or "sandwich" or "sandwiches" as the disgusting refuse.
 
 After opening the garbage bin for the first time:
 	let D be a direction;
 	let N be a random number from 1 to 4;
 	let D be entry N of {north, south, east, west};
-	say "The refuse in this bin has been waiting millenia for a hero like you to come by and set it free. The olfactory shockwave ripples out, throwing you [D]ward from the passageway.[paragraph break]";
+	say "The refuse in this bin has been waiting millennia for a hero like you to come by and set it free. The olfactory shockwave ripples out, throwing you [D]ward from the passageway.[paragraph break]";
 	bestow "Unleashed Untold Power";
 	move the disgusting refuse to the garbage bin;
 	teleport the player to the room D from the perilous passageway.
@@ -4020,7 +4020,7 @@ Instead of going a bad idea direction (called the way):
 					say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
 				-- 1: 
 					say the headline of the location of the player;
-					say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the otherhand... who would know?[paragraph break]";
+					say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the other hand... who would know?[paragraph break]";
 					bestow "Hygiene";
 				-- 2: 
 					say the headline of Reservoir;
@@ -4036,7 +4036,7 @@ Instead of going a bad idea direction (called the way):
 				say "Are you sure you want to go that way?[paragraph break]Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn’t any good place to walk along it.";
 				-- 1:
 					say the headline of the location of the player;
-					say "You are just a bit hesistant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing Pogoman GO! rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
+					say "You are just a bit hesitant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing Pogoman GO! rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
 					bestow "One Jersey Barrier From Certain Death";
 				-- 2:
 					say the headline of R;
@@ -4049,14 +4049,14 @@ Instead of going a bad idea direction (called the way):
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
 					say the headline of the location of the player;
-					say "You can smell the sulfourous tarpits just to the south of town. Are you sure you want to go that way?";
+					say "You can smell the sulfurous tarpits just to the south of town. Are you sure you want to go that way?";
 				-- 1:
 					say the headline of the location of the player;
-					say "You are reluctant to head south: you’d like to think that you’re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
+					say "You are reluctant to head south: you[apostrophe]d like to think that you[apostrophe]re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
 					bestow "Smarter (probably) Than A Prehistoric Sloth";
 				-- 2:
 					say the headline of R;
-					say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don’t see it. It should be right here. It’s like you’re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone’s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty’s torch, your only regret is that you will never capture that Archeodraconozoid.";
+					say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don[apostrophe]t see it. It should be right here. It[apostrophe]s like you[apostrophe]re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone[apostrophe]s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty[apostrophe]s torch, your only regret is that you will never capture that Archeodraconozoid.";
 					phoneDeath;
 				-- otherwise:
 					say the headline of the location of the player;
@@ -4068,7 +4068,7 @@ Instead of going a bad idea direction (called the way):
 					say "The sound of busy railroad just to the east halts you in your, um, tracks.";
 				-- 1:
 					say the headline of the location of the player;
-					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren’t so busy -- you know, with the game and all.[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
+					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren[apostrophe]t so busy -- you know, with the game and all.[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
 					bestow "Refined Sense of Priorities";
 				-- 2:
 					say the headline of R;
@@ -4094,7 +4094,7 @@ NYANCLUEBAT is a list of text that varies. NYANCLUEBAT is {
 "A red search light reflects off windows of buildings and cars along the street and then is gone", 
 "You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite",
 "The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow",
-"A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they’re still accepting beta-testers![quotation mark] They disappear from sight",
+"A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they[apostrophe]re still accepting beta-testers![quotation mark] They disappear from sight",
 "In the distance, the Nyantech Cat mechanically purrs the time as it continues its never-ending journey around the Nyantech building",
 "A group of hyperexcitable tourists walks by, gaping in awe at the soaring Nyantech tower. One of them remarks that were it not for Nyantech, this town would be little more than a collection of historic markers -- and it[apostrophe]s true",
 "From across the street, you over hear a despondent gamer confiding to a friend, [quotation mark]I thought I was beta-tester material. But… I failed. I couldn[apostrophe]t cut it.[quotation mark] They walk away in silent shame",
@@ -4120,7 +4120,7 @@ The employees are plural-named persons in the cafeteria. The description of the 
 The data monocle is part of the employees. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." Understand "monocles" as the data monocle. 
 
 Instead of taking the data monocle for the first time:
-	say "The data monocle seems attached to the employee’s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]";
+	say "The data monocle seems attached to the employee[apostrophe]s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]";
 	bestow "Rude".
 	
 Instead of taking the data monocle:
@@ -4201,7 +4201,7 @@ To say employeeRant2:
 	say "Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social interactions";
 	
 To say visitorRebuff:
-	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can’t you see I’m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
+	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can[apostrophe]t you see I[apostrophe]m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
 	
 Section 3 - Snacks
 
@@ -4213,7 +4213,7 @@ The table is a scenery supporter in Snacks. The description of the table is "A r
 
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
 
-A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millenia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millennia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
 
 Understand "strawberry" as the pop-tart when the flavor of the pop-tart is strawberry.
 Understand "blueberry" as the pop-tart when the flavor of the pop-tart is blueberry.
@@ -4248,12 +4248,12 @@ After eating a pop-tart for the first time:
 	newPopTart.
 	
 After eating a pop-tart for the second time: 
-	say "You’re pretty full and riding a sugar buzz.[paragraph break]";
+	say "You[apostrophe]re pretty full and riding a sugar buzz.[paragraph break]";
 	bestow "Stoked";
 	newPopTart.
 	
 After eating a pop-tart for the third time:
-	say "After snarfing down the pop-tart, you’re kind of vibrating. Also, your left eye is getting blurry.[paragraph break]";
+	say "After snarfing down the pop-tart, you[apostrophe]re kind of vibrating. Also, your left eye is getting blurry.[paragraph break]";
 	bestow "What doesn[apostrophe]t kill you makes you stronger";
 	newPopTart.
 	
@@ -4293,7 +4293,7 @@ The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
-		say "You taste the Kool-Aid skeptically at first, but after the first sip, you can’t get enough of it and you gulp it down.[paragraph break]Suddenly, everything makes sense. Colors are sharper and life more meaningful. At once, you understand the central role that Nyantech plays in the greater universe, and see how everything -- the internet, cell phones, geodata, and gaming -- come together harmoniously to fulfill a vision greater than any of Man’s historical aspirations. You are humbled before a vision of global unity of purpose.[paragraph break]Also, your badge turns green except for a bar of white.[paragraph break]";
+		say "You taste the Kool-Aid skeptically at first, but after the first sip, you can[apostrophe]t get enough of it and you gulp it down.[paragraph break]Suddenly, everything makes sense. Colors are sharper and life more meaningful. At once, you understand the central role that Nyantech plays in the greater universe, and see how everything -- the internet, cell phones, geodata, and gaming -- come together harmoniously to fulfill a vision greater than any of Man[apostrophe]s historical aspirations. You are humbled before a vision of global unity of purpose.[paragraph break]Also, your badge turns green except for a bar of white.[paragraph break]";
 		move the Kool-Aid to the void;
 		now the securityColor of the badge is green;
 		bestow "Privilege Escalated";
@@ -4303,7 +4303,7 @@ Before taking or drinking a pop (called the liquid):
 		the rule succeeds.
 	
 After going southeast from beverages when the securityColor of the badge is green for the first time:
-	say "As you emerge from the beverage room, kool-aid dripping from your lips, one of the employees looks over towards you conspiratorily and gives you a little salute before returning to a trance-like state."
+	say "As you emerge from the beverage room, kool-aid dripping from your lips, one of the employees looks over towards you conspiratorially and gives you a little salute before returning to a trance-like state."
 
 Section 5 - Mechanical Access Shaft
 
@@ -4470,7 +4470,7 @@ Instead of jumping when the player is in Bottom Rung:
 Instead of going down when the player is in the Bottom Rung:
 	try jumping.
 	
-The penlight is a lightsource in the Crawl Space. The description of the penlight is "A black flashlight with a metal barrrel and protective rubber cover on the rear end[if the barrel is open], which hangs open[end if]." Understand "flashlight" or "torch" or "light" as the penlight. 
+The penlight is a lightsource in the Crawl Space. The description of the penlight is "A black flashlight with a metal barrel and protective rubber cover on the rear end[if the barrel is open], which hangs open[end if]." Understand "flashlight" or "torch" or "light" as the penlight. 
 
 The rubber cover is part of the penlight. The description of the rubber cover is "The cover on the rear end of the penlight is [if the barrel is open]open, permitting a view into the hollow barrel[otherwise]closed[end if]." Understand "cap" as the rubber cover.
 	
@@ -4555,12 +4555,12 @@ The stage business of the lobby is {
 "the laws of god? Or of man? Anyhow, I say they[apostrophe]re harmless",
 "a few with the green badges, but only one or two with the blue",
 "but absolutely wretched taste in 80s music”,
-"that he’s behind the project, but so far, no one has met”,
+"that he[apostrophe]s behind the project, but so far, no one has met”,
 "how a wet-suit would relate to anything at all, but I guess”,
-"absolutely amazing. I mean, I’ve had magret de canard before”,
+"absolutely amazing. I mean, I[apostrophe]ve had magret de canard before”,
 "not just a conspiracy theory, but so far no one has penetrated”,
 "instead of the elevator, which permits access to the”,
-"has published on Glénard’s Disease, the vagaries of visceroptosis”,
+"has published on Glénard[apostrophe]s Disease, the vagaries of visceroptosis”,
 "would have to slow it down somehow for that to be at all feasible”,
 "are isolated from the rest of the building and the only way",
 "are sitting right on top of it, but the chances that you will manage”,
@@ -4610,7 +4610,7 @@ Instead of going outside when the player is in the revolvingDoor:
 	say "The helpful (and mildly passive-aggressive) unicorn gives the door an extra kick, and the door spins even further.";
 	try going inside.
 	
-Section 12 - Securty Checkpoint
+Section 12 - Security Checkpoint
 
 The Security Checkpoint is south of the Lobby. The description of the security checkpoint is "A cordoned off area that looks like it was hastily added to the lobby without a lot of forethought. The main feature of the security area is the metal detector and x-ray machine." Understand "area" as the Security Checkpoint.
 
@@ -4632,7 +4632,7 @@ To say rubPhrase:
 	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected"
 
 After going inside from the revolvingDoor for the first time:
-	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts them in a bag.[paragraph break][quotation mark]You’ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
+	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts them in a bag.[paragraph break][quotation mark]You[apostrophe]ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
 	if the player carries the salmon of turpitude:
 		say "[quotation mark]Hold on... what have we here? Hmm, the fabled Salmon of Turpitude. Interesting. It gets its own bag.[quotation mark][paragraph break]";
 	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, pins a badge on you, and boosts you towards the lobby.[paragraph break]";
@@ -4666,13 +4666,13 @@ Instead of touching or opening the LAN Closet Door when the player is in the Lob
 	otherwise:
 		continue the action.
 
-The LAN Closet is east of the Lan Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
+The LAN Closet is east of the LAN Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
 Definition: The speaker is active if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true and the record is on the phonograph.
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
-The phonograph is a supporter. The phonograph is in the LAN Closet. The description of the phonograph is "The [if isBrokenFlag of the phonograph is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is false]. The phono is switched off[end if][if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true]. The phono's platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. The phonograph has a truth state called isBrokenFlag. The isBrokenFlag of the phonograph is false. The phonograph has a truth state called isOnFlag. The isOnFlag of the phonograph is true.
+The phonograph is a supporter. The phonograph is in the LAN Closet. The description of the phonograph is "The [if isBrokenFlag of the phonograph is true]broken [end if]phonograph seems to be set up to drive the huge speaker on the back of the door[if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is false]. The phono is switched off[end if][if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true]. The phono[apostrophe]s platter is revolving[end if]." Understand "phono" or "turntable"  or "platter" or "record player" or "recordplayer" as the phonograph. The phonograph has a truth state called isBrokenFlag. The isBrokenFlag of the phonograph is false. The phonograph has a truth state called isOnFlag. The isOnFlag of the phonograph is true.
 
 Instead of switching on the phonograph:
 	if isBrokenFlag of the phonograph is true:
@@ -4798,11 +4798,11 @@ The numerical counter is part of the CAT Control. The description of the numeric
 
 After examining the numerical counter:
 	now the numerical counter is handled.
-	[handled just reflects that it has been examined - a prequisite for the megaCat medal]
+	[handled just reflects that it has been examined - a prerequisite for the megaCat medal]
 
 Instead of examining the numerical counter for the first time:
 	now the PEC of the CAT Control is 69105;
-	say "A mechanical counter, like a car[apostrophe]s odomoter, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC of the CAT Control]."
+	say "A mechanical counter, like a car[apostrophe]s odometer, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC of the CAT Control]."
 	
 The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position[one of], but could be pulled out to put whatever it controls on hold[or][stopping]." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
 
@@ -4824,7 +4824,7 @@ Instead of pushing the plunger:
 		
 Section 14 - Legal Department
 
-The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive’s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
+The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive[apostrophe]s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
 The Beta Testing Door is a closed locked door. The Beta Testing Door is south of Legal Department. Understand "grey" or "door" as the beta testing door. The description of the beta testing door is "[if the Beta Testing Door is open]An open[otherwise]A closed[end if] grey door marked [quotation mark]Beta Testing[quotation mark]."
 
@@ -4862,7 +4862,7 @@ Instead of touching termsProxy:
 	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2].[quotation mark][paragraph break]".
 	
 To say terms1:
-	say "[one of]waiver of liability[or]agreement to hold harmless[or]notwithstanding previous claims to the so-called inalienable rights of man[or]lack of human subject protections[or]no warrantee of fitness of purpose[or]threats to personal safety and sanity[or]or however unpleasant they may be[or]unthinkable consequences[or]mere mortality[or]enslavement or imprisonment[or]organ atrophy or dysfunction[or]implosion or inversion[or]voids all provisions of the Declaration of Helsinki[or]hideous side-effects[or]unpredictable losses[or]whether self-inflicted or intentional[or]safe delivery of neither body or soul[or]hunting or being hunted[or]including but not limited to mutilation[or]nocturnal, tentacled, bat-winged monster dwelling[or]indemnity against corporal mental compulsion or control[or]all forms of torture both physical and mental[or]including supernatural events[or]no guarantee of restitution or redress[or]science must supercede those of the individual[or]perfidious propensity towards debasement and ruin[in random order]".
+	say "[one of]waiver of liability[or]agreement to hold harmless[or]notwithstanding previous claims to the so-called inalienable rights of man[or]lack of human subject protections[or]no warrantee of fitness of purpose[or]threats to personal safety and sanity[or]or however unpleasant they may be[or]unthinkable consequences[or]mere mortality[or]enslavement or imprisonment[or]organ atrophy or dysfunction[or]implosion or inversion[or]voids all provisions of the Declaration of Helsinki[or]hideous side-effects[or]unpredictable losses[or]whether self-inflicted or intentional[or]safe delivery of neither body or soul[or]hunting or being hunted[or]including but not limited to mutilation[or]nocturnal, tentacled, bat-winged monster dwelling[or]indemnity against corporal mental compulsion or control[or]all forms of torture both physical and mental[or]including supernatural events[or]no guarantee of restitution or redress[or]science must supersede those of the individual[or]perfidious propensity towards debasement and ruin[in random order]".
 	
 To say terms2:
 	say "[one of]repatriation of remains (if they can be located)[or]despite all reasonable precautions[or]so-called supernatural forces[or]surviving assets will be conceded to Nyantech[or]implicit lack of good faith[or]or bearing the mark upon its forehead[or]exclusive and perpetual powers over the subject[or]unjustly or indecently committed against the wishes of the accused[or]through such agents as may be conjured[or]without expectation of compensation for mental or physical duress[or]entirely volunteer basis without expectation of remuneration[or]against all foreseeable loss or injury[or]breach will be punishable by excruciating[or]inflicted in the case of violation of any of these terms[or]under no obligation to protect the subject[or]such penalties including evisceration[or]specimens including bodily fluids[or]agrees not to transfer, copy, disclose, provide or otherwise make available[or]to make, use, copy, modify, sell, distribute[or]disciplined in the event of failure[or]in the unfortunate event of failure[or]the mewling pleas of the masses[or]much like an ant might be crushed beneath the heel[in random order]".
@@ -4902,7 +4902,7 @@ The fresh batteries are plural-named prop.  The fresh batteries are in the batte
 After taking the fresh batteries for the first time:
 	say "You pluck some AA batteries out of the clock."
 
-The office wall is a scenery supporter in the Legal Department. The description of the office wall is "Rich wooden paneling above green wainscotting."
+The office wall is a scenery supporter in the Legal Department. The description of the office wall is "Rich wooden paneling above green wainscoting."
 
 The ergonomic chair is a portable enterable scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters." 
 
@@ -5043,13 +5043,13 @@ Section 16 - Cousteau Room
 	
 Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
 
-The wetsuit is a wearable prop in the cousteau room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
+The wetsuit is a wearable prop in the Cousteau Room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
 
 The flippers are part of the wetsuit. The description of the flippers is "Bright orange rubber flippers, which meet seamlessly with the lower part of the wetsuit legging." Understand "legging" as the flippers.
 
 The mask is part of the wetsuit. The description of the mask is "A rubber face mask, which is built into the head piece of the wetsuit." Understand "head piece" or "neoprene" or "regulator" or "mouthpiece" or "hose" or "valve" or "belt" as the wetsuit.
 
-The tanks are part of the wetsuit. The description of the tanks is "Two large airtanks built into the back of the wetsuit." Understand "strap" or "straps" as the tanks.
+The tanks are part of the wetsuit. The description of the tanks is "Two large air tanks built into the back of the wetsuit." Understand "air" or "tank" or "strap" or "straps" as the tanks.
 
 After wearing the wetsuit: 
 	say "Despite the tight fit, the diving outfit pulls on snuggly over your clothing [if the player wears the Baseball Cap of Pogomastery]including, of course, your Baseball Cap of Pogomastery[end if]. You wriggle into the headpiece and adjust the mask. With a bit of twisting, you slip the flippers over your shoes, zip up the front of the suit, and adjust the air tank for comfort[if the player wears the party hat].[paragraph break]You had to take the party hat off to put the suit on, but you immediately put the strangely adherent hat back on and it bonds tightly with the neoprene headpiece[end if].";
@@ -5082,7 +5082,7 @@ Instead of going a direction (called the way) when the player wears the wetsuit:
 		increase the timesFlopped of the wetsuit by 1;
 		if the timesFlopped of the wetsuit is:
 			-- 1:
-				say "You waddle around in your flippers and fall flat on your face. Luckily, the face mask doesn’t break.[paragraph break]";
+				say "You waddle around in your flippers and fall flat on your face. Luckily, the face mask doesn[apostrophe]t break.[paragraph break]";
 				bestow "At Least You Saved Face";
 			-- 2:
 				say "You struggle and flail, but are not able to walk around wearing the whole undersea get-up.[paragraph break]";
@@ -5124,7 +5124,7 @@ The walkman is a wearable prop on the rickety table. The description of the walk
 
 After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
-	bestow "Curiousity Killed The Cat".
+	bestow "Curiosity Killed The Cat".
 
 Instead of listening to the walkman when the walkman is not worn:
 	say "(first putting on the earphones)[command clarification break]";
@@ -5202,7 +5202,7 @@ Instead of going down from the BallPitShallow for the first time:
 Instead of going down from the BallPitDeep for the first time:
 	say "You swim with difficulty through the viscous sea of rubber balls, which at this depth are nearly flat. Finally, you arrive at the bottom of the pit, where you come face to face with a robotic blue whale. Your organs quiver with each resounding note of its deep, lamenting song.[paragraph break]";
 	bestow "Admiral, there be whales here!";
-	say "You and the whale just hover there for a moment communing with each other. The whale blinks and its eyes shine with a bright blue light.[paragraph break]A moment later, you find yourself standing in the cafeteria, not quite sure of what just happened and wondering if you imagined it. The diving suit is gone, but… what’s this? Your badge has turned blue with a white bar.";
+	say "You and the whale just hover there for a moment communing with each other. The whale blinks and its eyes shine with a bright blue light.[paragraph break]A moment later, you find yourself standing in the cafeteria, not quite sure of what just happened and wondering if you imagined it. The diving suit is gone, but… what[apostrophe]s this? Your badge has turned blue with a white bar.";
 	now the securityColor of the badge is blue;
 	move the wetsuit to the void;
 	teleport the player to the cafeteria.
@@ -5352,7 +5352,7 @@ After going down from the StairsRoof:
 After going down from the StairsPackaging:
 	say "You descend [shortTwentyFlights] to the infirmary level";
 	if the walkman is not worn:
-		say ".[paragraph break][one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewher in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
+		say ".[paragraph break][one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewhere in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
 		say ".";
 	say the headline of the location.
 	
@@ -5401,7 +5401,7 @@ Processing is a room. The description of Processing is "A vast, poorly lit space
 
 The weaponized clipboard is a prop. The description of the weaponized clipboard is "A sturdy electronic clipboard with exceptionally sharp edges. A checklist is displayed on the clipboard." The clipboard is carried by Elon Musk.
 
-The labcoat is worn by Elon Musk. The description of the labcoat is "A [if the vitality of Elon Musk is dead]bloodied and shredded[otherwise]starched and pressed white[end if] full length labcoat[if the goldenBadge is worn by Elon Musk]. A golden badge is clipped to the lapel[end if]."
+The lab coat is worn by Elon Musk. The description of the lab coat is "A [if the vitality of Elon Musk is dead]bloodied and shredded[otherwise]starched and pressed white[end if] full length lab coat[if the goldenBadge is worn by Elon Musk]. A golden badge is clipped to the lapel[end if]."
 
 The checklist is part of the weaponized clipboard. The description of the checklist is "[line break][fixed letter spacing]TTD:[paragraph break]
 1. Develop perpetual battery for mobile phone - check[line break]
@@ -5415,9 +5415,9 @@ The goldenBadge is a privately-named prop. The goldenBadge is worn by Elon Musk.
 Does the player mean the goldenBadge doing something with the goldenBadge:
 	it is likely.
 
-Instead of searching the labcoat:
+Instead of searching the lab coat:
 	if the goldenBadge is worn by Elon Musk and the vitality of Elon Musk is dead:
-		say "You notice the golden badge clipped to the labcoat's lapel and pluck it off the coat.";
+		say "You notice the golden badge clipped to the lab coat[apostrophe]s lapel and pluck it off the coat.";
 		now the player wears the goldenBadge;
 	otherwise:
 		continue the action.
@@ -5454,7 +5454,7 @@ Instead of doing something other than examining with the meat hooks:
 	say "They are too high up."
 	
 To transform the processing area:
-	say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloque, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You’re still going. There must be a bit more to this.[paragraph break]";
+	say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloquy, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You[apostrophe]re still going. There must be a bit more to this.[paragraph break]";
 	bestow "Still ticking”;
 	if the defenderPogoman is in Processing:
 		say "Your [type of the defenderPogoman] flees the crime scene.";
@@ -5514,7 +5514,7 @@ Section 37 - Engineers
 
 Engineers is a room. 
 
-engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychodelic patterns and text", "bolts of lightning richocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
+engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychedelic patterns and text", "bolts of lightning ricocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
 
 Section 38 - Managers
 
@@ -6224,9 +6224,9 @@ The description of Elon Musk is "[MuskDescription]."
 To say MuskDescription:
 	if Elon Musk is in Processing:
 		if the vitality of Elon Musk is less than dead:
-			say "Musk appears somewhat less regal dressed in a labcoat and carrying his clipboard, but he still has an air of arrogance and authority";
+			say "Musk appears somewhat less regal dressed in a lab coat and carrying his clipboard, but he still has an air of arrogance and authority";
 		otherwise:
-			say "The remains of former Nyantech CEO, Elon Musk. His formerly pristine labcoat is a ruin";
+			say "The remains of former Nyantech CEO, Elon Musk. His formerly pristine lab coat is a ruin";
 	otherwise:
 		say "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority".
 		
