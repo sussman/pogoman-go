@@ -2,7 +2,8 @@
 
 
 The story headline is "An interactive satire".
-The release number is 1.
+The story genre is "comedy".
+The release number is 2.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don’t have a job or family to worry about, you might as well get back to it!"
 
@@ -13,7 +14,9 @@ Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
 
-[TODO:  Release along with cover art.]
+[TODO: can add with... a website, the source text, the library card, the introductory postcard]
+
+Release along with cover art ("The Nyantech mascot cat ridinga giant pogoball"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [for context-specific hints]
