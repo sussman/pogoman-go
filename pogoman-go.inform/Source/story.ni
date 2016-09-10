@@ -23,7 +23,6 @@ Include Adaptive Hints by Eric Eve. [for context-specific hints]
 Include Object Response Tests by Juhana Leinonen. [mildly hacked for this project]
 Include Menus by Emily Short. [walkthrough menus]
 
-
 Book 1 - Mechanics
 
 
@@ -585,7 +584,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the second time:
-	say "The scene shifts fluidly to the interior of the gym. [if the color of the location is the team color of the player]Your team (Team [team color of the player])[otherwise]The [color of the location][end if] team has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There[apostrophe]s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It[apostrophe]s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It[apostrophe]s not going anywhere.[paragraph break]It[apostrophe]s stuck. Your phone has crashed.";
+	say "The scene shifts fluidly to the interior of the gym. [if the color of the location is the team color of the player]Your team (Team [team color of the player])[otherwise]The [color of the location] team[end if] has put forward a formidable Idiotti, but you think you can take him. With a practiced thumb, you select your strongest pogoman and send it into combat.[paragraph break]The camera angle spins. Your champion bounces back and forth, judging the enemy and preparing its attack. There[apostrophe]s a countdown and the world [quotation mark]GO[quotation mark] zooms towards you.[paragraph break]Zooms, well, moves reasonably quickly. No, slowly now. It[apostrophe]s stopped. It is just hanging there. White, inanimate letters fill your screen. You can see your pogoman still jinking about like a fool through the [quotation mark]O[quotation mark] in [quotation mark]GO[quotation mark].[paragraph break]Maybe it will keep going if you wait a minute.[paragraph break]No. It[apostrophe]s not going anywhere.[paragraph break]It[apostrophe]s stuck. Your phone has crashed.";
 	freeze the phone.
 	
 Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY_LEVEL_REQUIREMENT for the third time:
@@ -1014,7 +1013,6 @@ Instead of throwing a pogoball at something (called the target):
 				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
 				increase the pogomenCaptured of the player by 1;
-				awardXP 30; 
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
 		otherwise:[target missed]
 			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]ricochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
@@ -3800,7 +3798,7 @@ Check Flagging:
 	otherwise:
 		say "You don't see how that would help the situation."
 		
-The floodlights are scenery in Flag Pole. The description of the floodlights is "Large floodlights ring the pole and are tilted up to illuminate the flag." Understand "light" or "lights" or "floodlight" as the floodlights.
+The floodlights are plural-named scenery in Flag Pole. The description of the floodlights is "Large floodlights ring the pole and are tilted up to illuminate the flag." Understand "light" or "lights" or "floodlight" as the floodlights.
 
 Section 28 - Krusty Kronuts
 
@@ -4074,7 +4072,7 @@ Instead of going a direction to the perilous passageway:
 			phoneDeath;
 		-- 3:
 			say the headline of the location of the player;
-			say "You recall that last time, walking into this foreboding passageway didn[apostrophe]t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, [quotation mark]off the scale[quotation mark] is one of the items on the scale. In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
+			say "You recall that last time, walking into this foreboding passageway didn[apostrophe]t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, since [quotation mark]off the scale[quotation mark] is one of the items on the scale). In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
 		-- 4:
 			say the headline of the Perilous Passageway;
 			say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
@@ -8141,7 +8139,7 @@ Before wearing clothes:
 
 Chapter - 2- Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module[one of]. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command[or][stopping]." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0.
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0.
 
 To freeze the phone:
 	now the phone is hung;
@@ -8315,7 +8313,7 @@ beeleever	"Social, but stings irrationally when excited"
 zealocanth	"A fossil-type with petrified nervous system"
 moldimug	"A tenaceous adversary"
 funjifut	"A dirty little sneaker. Not to be trusted"
-zhokkidge	"A trigonal terrorist"
+zhokkidge	"A intertriginous terrorist"
 seeduino	"Sprouts up unexpectedly"
 weeduino	"Multiples out of control"
 weedowhak	"Trim and fit"
@@ -8629,7 +8627,7 @@ A hint deactivation rule (this is the inventory management hint deactivation rul
 Table of Inventory Management
 hint	used
 "Captured Pogomen show up in your inventory."
-"Your options are limited since they are in Pogoballs."
+"Your options are limited since pogomen in stock are in Pogoballs."
 "You can [italic type]drop, evolve, examine, transfer, heal, [roman type]or [italic type]feed[roman type] captured Pogomen."
 "If you [italic type]drop[roman type] a Pogoman, it will [if Exploring The Tower has ended]stand guard[otherwise]run away[end if]."
 "If you [italic type]evolve[roman type] a Pogoman, it will increase its fighting power."	
@@ -8639,7 +8637,7 @@ hint	used
 "You can get PogoMeth, PogoChum, and other stuff from PogoStops."
 "To specify a non-captured pogoman, refer to it as wild[if Exploring The Tower has ended] or loyal[end if]."
 "You can have up to [MODE_POGOMEN_INVENTORY_LIMIT] in your stock at one time."
-"[italic type]Transfer[roman type] [if Exploring the Tower has not ended] or [italic type]Drop[roman type][end if] will get rid of wounded pogomen first."
+"[italic type]Transfer[roman type][if Exploring the Tower has not ended] or [italic type]Drop[roman type][end if] will get rid of wounded pogomen first."
 
 A hint activation rule (this is the pogostops explained hint activation rule):
 	if the Pogostop is in the location of the player:
