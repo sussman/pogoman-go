@@ -216,8 +216,8 @@ BLUE_CLUEBAT_TURNS is always 40.
 RED_CLUEBAT_TURNS is always 40.
 
 [Inventory]
-POGOMEN_INVENTORY_LIMIT is always 100.
-EXPERT_POGOMEN_INVENTORY_LIMIT is always 25.
+POGOMEN_INVENTORY_LIMIT is always 10.
+EXPERT_POGOMEN_INVENTORY_LIMIT is always 5.
 
 POGOITEM_INVENTORY_LIMIT is always 100.
 EXPERT_POGOITEM_INVENTORY_LIMIT is always 25.
@@ -345,11 +345,11 @@ Instead of dropping a pogothing (called the item):
 		-- pogoEgg:
 			let P be a random pogotype;
 			sort the Table of Inventory in PogoName order;
-			let T be the MODE_POGOMEN_INVENTORY_LIMIT;
-			repeat with N running from 1 to T plus one: 
-				if N is T:
-					say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";
-				otherwise:												
+			choose row MODE_POGOMEN_INVENTORY_LIMIT in the Table of Inventory;
+			if there is a pogoName entry:
+				say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";
+			otherwise:	
+				repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:				
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
 						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transferred to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if].[paragraph break]";
@@ -877,15 +877,10 @@ Instead of throwing a pogoball at something (called the target):
 	if the target is a pogoentity:
 		[Is there room in stock?]
 		sort the Table of Inventory in PogoName order;
-		let T be MODE_POGOMEN_INVENTORY_LIMIT;
-		repeat with N running from 1 to T plus one:
-			if N is T:
-				say "Your pogostock is all ready at capacity ([MODE_POGOMEN_INVENTORY_LIMIT] pogomen).";
-				the rule fails;
-			otherwise:
-				choose row N in the Table of Inventory;
-				if there is no pogoName entry:
-					break;
+		choose row MODE_POGOMEN_INVENTORY_LIMIT in the Table of Inventory;
+		if there is a pogoName entry:
+			say "Your pogostock is all ready at capacity ([MODE_POGOMEN_INVENTORY_LIMIT] pogomen).";
+			the rule fails;
 		[Does the ball hit the target?]
 		let DIFFICULTY be 100;
 		if the type of target is first level:
@@ -1049,7 +1044,8 @@ This is the pogo-inventory rule:
 			choose row N in the Table of Inventory;
 			if there is no pogoName entry:
 				break;
-			let T be T plus one;
+			otherwise:
+				let T be T plus one;
 		say "[T] pogom[if T is greater than 1]e[otherwise]a[end if]n)[line break]";
 		let LASTPOGO be the pogoName in row 1 of Table of Inventory;
 		let LASTWOUNDED be the wounded in row 1 of Table of Inventory;
@@ -1066,6 +1062,8 @@ This is the pogo-inventory rule:
 				let LASTWOUNDED be the wounded entry;
 			otherwise:
 				increase LASTCOUNT by one;
+			if N is MODE_POGOMEN_INVENTORY_LIMIT:
+				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
 	say line break;	
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:
@@ -1082,6 +1080,8 @@ This is the pogo-inventory rule:
 			let T be the team color of the player;
 			say "[T]" in lower case;
 			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scan[quotation mark] command for a display of deployed pogomen."
+			
+
 
 section 11 - Spawning
 
