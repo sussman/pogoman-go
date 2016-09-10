@@ -140,6 +140,9 @@ MIN_TOWN_POGOSTOPS is always 6.
 MAX_TOWN_POGOSTOPS is always 9.
 MIN_TOWN_GYMS is always 2.
 MAX_TOWN_GYMS is always 4.
+MIN_INITIAL_SPAWN is always 3.
+MAX_INITIAL_SPAWN is always 5.
+SPAWN_PERCENT_WOUNDED is always 25. [out of 100]
 
 [Rooms in Village and Pogoland have a pogostop timestamp]
 POGOSTOP_TIMEOUT_DURATION is always 10.
@@ -779,7 +782,7 @@ To say pogoDex data for (creature - a pogotype):
 	let E2 be a pogotype;
 	let E3 be a pogotype;
 	let C be "[creature]" in title case;
-	say "[C]: [pogoDescription corresponding to pogomanName of type of attackerPogoman in the Table of Creatures]. [C] is a ";
+	say "[C]: [pogoDescription corresponding to pogomanName of creature in the Table of Creatures]. [C] is a ";
 	if creature is first level:
 		say "first";
 		let CAT be the Category corresponding to the Original of creature in the Table of Evolution;
@@ -1027,6 +1030,7 @@ This is the pogo-inventory rule:
 				let LASTWOUNDED be the wounded entry;
 			otherwise:
 				increase LASTCOUNT by one;
+	say line break;	
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:
 		let D be 0;
@@ -1035,9 +1039,8 @@ This is the pogo-inventory rule:
 			if there is a guardian entry:
 				increase D by one;
 		if D is 0:
-			say "[line break]No loyal pogomen are on guard in Pogoland.[paragraph break]";
+			say "No loyal pogomen are on guard in Pogoland.[paragraph break]";
 		otherwise:
-			say line break;
 			let DD be "[D in words]" in title case;
 			say "[DD] team ";
 			let T be the team color of the player;
@@ -1293,7 +1296,7 @@ Carry out inventoryExamining:
 			otherwise:
 				let H be true;
 			if W is true and H is true:
-				break;[no need to keep looking]
+				break;[no need to keep looking, covered both possibilities]
 	if W is true or H is true:
 		say "[pogoDex data for pogotype understood]. Health status: ";
 		if W is true:
@@ -2668,6 +2671,17 @@ When play begins:
 	ShowStatus;
 	distributeTownPogostops;
 	distributeTownGyms;
+	if MAX_INITIAL_SPAWN is greater than POGOMEN_INVENTORY_LIMIT:
+		say "debug error: spawning too many initial pogomen";
+	otherwise:
+		repeat with N running from MIN_INITIAL_SPAWN to MAX_INITIAL_SPAWN:
+			let P be a random pogotype;
+			let W be false;
+			if a random chance of SPAWN_PERCENT_WOUNDED in 100 succeeds:
+				let W be true;
+			choose a blank row in the Table of Inventory;
+			now the pogoName entry is P;
+			now the wounded entry is W;
 	openGame.
 	
 To openGame:
