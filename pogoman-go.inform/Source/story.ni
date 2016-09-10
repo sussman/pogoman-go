@@ -672,7 +672,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Section 6 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
-Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonux, rodentikor, skwerl, arborrhat, nutellakin, cheezipouf, ogratic, cheezelord, snorepak, apneapod, seepap, rokabil, jazzahand, grunjturd, agnostator, beeleever, zealocanth, moldimug, funjifut, zhokkidge, seeduino, weeduino, weedowhak, iddi, iddiotto, drumpf, phlogistomander, pyromelion, arsonizard, peekatyou, pokeatyou, pukeatyou, amporb, jowlball, orbowatt, wimporwil, atlazzard, schwartzennator, gastro, queezee, barfalot, perpie, misdementor, and fellanon.
+Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonac, rodentikor, skwerl, arborrhat, nutellakin, cheezipouf, ogratic, cheezelord, snorepak, apneapod, seepap, rokabil, jazzahand, grunjturd, agnostator, beeleever, zealocanth, moldimug, funjifut, zhokkidge, seeduino, weeduino, weedowhak, iddi, iddiotto, drumpf, phlogistomander, pyromelion, arsonizard, peekatyou, pokeatyou, pukeatyou, amporb, jowlball, orbowatt, wimporwil, atlazzard, schwartzennator, gastro, queezee, barfalot, perpie, misdementor, and fellanon.
 
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
  When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
@@ -709,8 +709,8 @@ Understand "emak" as attackerPogoman when the type of attackerPogoman is emak.
 Understand "emak" as the defenderPogoman when the type of defenderPogoman is emak.
 Understand "plaigrhat" as attackerPogoman when the type of attackerPogoman is plaigrhat.
 Understand "plaigrhat" as the defenderPogoman when the type of defenderPogoman is plaigrhat.
-Understand "vermonux" as attackerPogoman when the type of attackerPogoman is vermonux.
-Understand "vermonux" as the defenderPogoman when the type of defenderPogoman is vermonux.
+Understand "vermonac" as attackerPogoman when the type of attackerPogoman is vermonac.
+Understand "vermonac" as the defenderPogoman when the type of defenderPogoman is vermonac.
 Understand "rodentikor" as attackerPogoman when the type of attackerPogoman is rodentikor.
 Understand "rodentikor" as the defenderPogoman when the type of defenderPogoman is rodentikor.
 
@@ -3014,13 +3014,13 @@ Every turn when the player is in the gymnasium:
 	increase the roundsElapsed of the gymnasium by 1;
 	if the roundsElapsed of the gymnasium is:
 		-- 1:
-			say "From far off, you hear another voice, [quotation mark]Vermonux, I choose... You![quotation mark][paragraph break]";
+			say "From far off, you hear another voice, [quotation mark]Vermonac, I choose... You![quotation mark][paragraph break]";
 		-- 2:
-			now the type of attackerPogoman is vermonux;
+			now the type of attackerPogoman is vermonac;
 			now the attackerPogoman is not injured;
 			now the previousRoom of the player is the void;
 			move the attackerPogoman to the gymnasium;
-			say "And the biggest, meanest vermonux you have ever seen splatters out of a pogoball across the fighting mat from you."
+			say "And the biggest, meanest vermonac you have ever seen splatters out of a pogoball across the fighting mat from you."
 
 Book 2 - Places
 
@@ -8076,7 +8076,7 @@ edator	"A creature of note"
 vicore	"Simple and clean, covered with lines"
 emak	"A buffed and buffered creature"
 plaigrhat	"A mysterious rodent of a verminous nature"
-vermonux	"A rodent with extra poison"
+vermonac	"A rodent with extra poison"
 rodentikor	"Too much rodent for mortals to handle"
 skwerl	"A querulous creature"
 arborrhat	"A tree-hugging flea bag"
@@ -8130,7 +8130,7 @@ Section 2 - Table of Evolution
 Table of Evolution
 Category	Original	Ev2	Ev3	AttackType
 "clerical"	edator	vicore	emak	"character assassination"
-"pestilence" 	plaigrhat	vermonux	rodentikor	"filth and disease"
+"pestilence" 	plaigrhat	vermonac	rodentikor	"filth and disease"
 "snickering"	skwerl	arborrhat	nutellakin	"anaphylactic trigger"
 "fromagian"	cheezipouf	ogratic	cheezelord	"grating presence"
 "respiratroid"	snorepak	apneapod	seepap	"stridulous vibration"
