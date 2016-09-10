@@ -5,7 +5,7 @@ The story headline is "An interactive satire".
 The story genre is "comedy".
 The release number is 2.
 The story creation year is 2016.
-The story description is "The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it!"
+The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
 Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
@@ -135,29 +135,14 @@ Chapter Declare Constants
 
 [Game Setup]
 INITIAL_POGOLEVEL is always 3.
-EXPERT_INITIAL_POGOLEVEL is always 2.
-
 INITIAL_XP is always 460.
-EXPERT_INITIAL_XP is always 230.
-
-
 MIN_TOWN_POGOSTOPS is always 6.
 MAX_TOWN_POGOSTOPS is always 9.
-EXPERT_MIN_TOWN_POGOSTOPS is always 3.
-EXPERT_MAX_TOWN_POGOSTOPS is always 5.
-
 MIN_TOWN_GYMS is always 2.
 MAX_TOWN_GYMS is always 4.
-EXPERT_MIN_TOWN_GYMS is always 2.
-EXPERT_MAX_TOWN_GYMS is always 3.
-
 MIN_INITIAL_SPAWN is always 3.
 MAX_INITIAL_SPAWN is always 5.
-EXPERT_MIN_INITIAL_SPAWN is always 1.
-EXPERT_MAX_INITIAL_SPAWN is always 3.
-
 SPAWN_PERCENT_WOUNDED is always 25. [out of 100]
-EXPERT_SPAWN_PERCENT_WOUNDED is always 75.
 
 [Pogoland Setup]
 MIN_PL_POGOSTOPS is always 2.
@@ -191,9 +176,9 @@ EXPERT_POGO_ENCOUNTER_VALUE is always 25.
 CAPTURE_EVOL1_DIFFICULTY is always 80.
 CAPTURE_EVOL2_DIFFICULTY is always 60.
 CAPTURE_EVOL3_DIFFICULTY is always 40.
-EXPERT_CAPTURE_EVOL1_DIFFICULTY is always 90.
-EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 75.
-EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 60.
+EXPERT_CAPTURE_EVOL1_DIFFICULTY is always 60.
+EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 40.
+EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 20.
 
 [Combat]
 OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
@@ -269,16 +254,6 @@ TROPHYLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
 [Mode-dependent parameters]
-MODE_INITIAL_POGOLEVEL is a number that varies.
-MODE_INITIAL_XP is a number that varies.
-MODE_MIN_TOWN_POGOSTOPS is a number that varies.
-MODE_MAX_TOWN_POGOSTOPS is a number that varies.
-MODE_MIN_TOWN_GYMS is a number that varies.
-MODE_MAX_TOWN_GYMS is a number that varies.
-MODE_MIN_INITIAL_SPAWN is a number that varies.
-MODE_MAX_INITIAL_SPAWN  is a number that varies.
-MODE_SPAWN_PERCENT_WOUNDED is a number that varies.
-MODE_POGOSTOP_TIMEOUT_DURATION is a number that varies.
 MODE_MIN_PL_POGOSTOPS is a number that varies.
 MODE_MAX_PL_POGOSTOPS is a number that varies.
 MODE_PREPOGO_ENCOUNTER_VALUE is a number that varies.
@@ -370,7 +345,7 @@ Instead of dropping a pogothing (called the item):
 		-- pogoEgg:
 			let P be a random pogotype;
 			sort the Table of Inventory in PogoName order;
-			let T be the number of rows in the Table of Inventory;
+			let T be the MODE_POGOMEN_INVENTORY_LIMIT;
 			repeat with N running from 1 to T plus one: 
 				if N is T:
 					say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";
@@ -551,7 +526,7 @@ To distributeTownPogostops:
 	
 To distributePogolandPogostops:
 	now POGOSTOPLIST is {};
-	repeat with N running from 1 to a random number from MIN_PL_POGOSTOPS to MAX_PL_POGOSTOPS:
+	repeat with N running from 1 to a random number from MODE_MIN_PL_POGOSTOPS to MODE_MAX_PL_POGOSTOPS:
 		add a random okayPogolandLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms. 
 	
@@ -902,10 +877,11 @@ Instead of throwing a pogoball at something (called the target):
 	if the target is a pogoentity:
 		[Is there room in stock?]
 		sort the Table of Inventory in PogoName order;
-		let T be the number of rows in the Table of Inventory;
+		let T be MODE_POGOMEN_INVENTORY_LIMIT;
 		repeat with N running from 1 to T plus one:
 			if N is T:
-				say "Your pogostock is all ready at capacity ([POGOMEN_INVENTORY_LIMIT] pogomen.";
+				say "Your pogostock is all ready at capacity ([MODE_POGOMEN_INVENTORY_LIMIT] pogomen).";
+				the rule fails;
 			otherwise:
 				choose row N in the Table of Inventory;
 				if there is no pogoName entry:
@@ -913,11 +889,11 @@ Instead of throwing a pogoball at something (called the target):
 		[Does the ball hit the target?]
 		let DIFFICULTY be 100;
 		if the type of target is first level:
-			let DIFFICULTY be CAPTURE_EVOL1_DIFFICULTY;
+			let DIFFICULTY be MODE_CAPTURE_EVOL1_DIFFICULTY;
 		else if type of target is second level:
-			let DIFFICULTY be CAPTURE_EVOL2_DIFFICULTY;
+			let DIFFICULTY be MODE_CAPTURE_EVOL2_DIFFICULTY;
 		else if type of target is third level:
-			let DIFFICULTY be CAPTURE_EVOL3_DIFFICULTY;
+			let DIFFICULTY be MODE_CAPTURE_EVOL3_DIFFICULTY;
 		otherwise:
 			if the player wears the Baseball Cap of Pogomastery:
 				let DIFFICULTY be DIFFICULTY plus HAT_EFFECT;
@@ -1065,13 +1041,20 @@ This is the pogo-inventory rule:
 	sort Table of Inventory in wounded order;
 	sort Table of Inventory in pogoName order;	
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "Alas, you have no pogomen![paragraph break]";
+		say "Alas, you have no pogomen![line break]";
 	otherwise:
-		say "Pogomen Stock:[line break]";
+		say "Pogomen Stock: (";
+		let T be 0;
+		repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			let T be T plus one;
+		say "[T] pogom[if T is greater than 1]e[otherwise]a[end if]n)[line break]";
 		let LASTPOGO be the pogoName in row 1 of Table of Inventory;
 		let LASTWOUNDED be the wounded in row 1 of Table of Inventory;
 		let LASTCOUNT be 1;
-		repeat with N running from 2 to the number of rows in the Table of Inventory:
+		repeat with N running from 2 to the MODE_POGOMEN_INVENTORY_LIMIT:
 			choose row N in the Table of Inventory;		
 			if there is no pogoName entry:
 				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
@@ -1596,25 +1579,27 @@ Check expertModing:
 	if the expertMode of the player is true:
 		say "You are already in expert mode. There is no expert expert mode, sadly.";
 		stop the action;
-	say "Are you sure you want to engage expert mode. I am, are you really that fearless? Once engaged, there is no going back?";
-	if the player consents:
-		say "Okay. Buckle your seat belt. Engaging expert mode...[paragraph break]";
-		bestow "Reckless Disregard for Self Preservation";
 	otherwise:
-		say "No prob. If you decide later, you can still engage expert mode or you can restart and enter expert mode from the beginning, if you[apostrophe]d prefer.";
-		stop the action.
+		say "Are you sure you want to engage expert mode? ";
+		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let P be 0;
+		repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			let P be P plus one;
+		if T is greater than EXPERT_POGOITEM_INVENTORY_LIMIT or P is greater than EXPERT_POGOITEM_INVENTORY_LIMIT:
+			say "You are forewarded that it will exclude some of your current inventory (the limit is [EXPERT_POGOITEM_INVENTORY_LIMIT] game items and [EXPERT_POGOMEN_INVENTORY_LIMIT] pogomen. ";
+		say "Once engaged, there is no going back. Are you that fearless (y/n)?";
+		if the player consents:
+			say "Okay. Buckle your seat belt. Engaging expert mode...[paragraph break]";
+			bestow "Reckless Disregard for Self Preservation";
+		otherwise:
+			say "No prob. If you decide later, you can still engage expert mode or you can restart and enter expert mode from the beginning, if you[apostrophe]d prefer.";
+			stop the action.
 
 Carry out expertModing:
 	now the expertMode of the player is true;
-	now MODE_INITIAL_POGOLEVEL is EXPERT_INITIAL_POGOLEVEL;
-	now MODE_INITIAL_XP is EXPERT_INITIAL_XP;
-	now MODE_MIN_TOWN_POGOSTOPS is EXPERT_MIN_TOWN_POGOSTOPS;
-	now MODE_MAX_TOWN_POGOSTOPS is EXPERT_MAX_TOWN_POGOSTOPS;
-	now MODE_MIN_TOWN_GYMS is EXPERT_MIN_TOWN_GYMS;
-	now MODE_MAX_TOWN_GYMS is EXPERT_MAX_TOWN_GYMS;
-	now MODE_MIN_INITIAL_SPAWN is EXPERT_MIN_INITIAL_SPAWN;
-	now MODE_MAX_INITIAL_SPAWN is  EXPERT_MAX_INITIAL_SPAWN;
-	now MODE_SPAWN_PERCENT_WOUNDED is EXPERT_SPAWN_PERCENT_WOUNDED;
 	now MODE_POGOSTOP_LOCKOUT_DURATION is EXPERT_POGOSTOP_LOCKOUT_DURATION;
 	now MODE_MIN_PL_POGOSTOPS is EXPERT_MIN_PL_POGOSTOPS;
 	now MODE_MAX_PL_POGOSTOPS is EXPERT_MAX_PL_POGOSTOPS;
@@ -1627,7 +1612,34 @@ Carry out expertModing:
 	now MODE_MUSK_DEF is EXPERT_MUSK_DEF;
 	now MODE_POGOSTOP_LOCKOUT_DURATION is EXPERT_POGOSTOP_LOCKOUT_DURATION;
 	now MODE_POGOMEN_INVENTORY_LIMIT is EXPERT_POGOMEN_INVENTORY_LIMIT;
-	now MODE_POGOITEM_INVENTORY_LIMIT is EXPERT_POGOITEM_INVENTORY_LIMIT.
+	now MODE_POGOITEM_INVENTORY_LIMIT is EXPERT_POGOITEM_INVENTORY_LIMIT;
+	sort the Table of Inventory in wounded order;
+	repeat with N running from (EXPERT_POGOMEN_INVENTORY_LIMIT + 1) to POGOMEN_INVENTORY_LIMIT:
+		choose row N in the Table of Inventory;
+		blank out the whole row;
+	let P be the EXPERT_POGOITEM_INVENTORY_LIMIT;
+	if the pogoBallsCarried of the player is at least P:
+		now the pogoBallsCarried of the player is P;
+	now P is P minus pogoBallsCarried of the player;
+	if the pogoMethsCarried of the player is at least P:
+		now the pogoMethsCarried of the player is P;
+	now P is P minus pogoMethsCarried of the player;
+	if the pogoChumsCarried of the player is at least P:
+		now the pogoChumsCarried of the player is P;
+	now P is P minus pogoChumsCarried of the player;
+	if the pogoEggsCarried of the player is at least P:
+		now the pogoEggsCarried of the player is P;
+	now P is P minus pogoEggsCarried of the player;
+	if the pogoIncenseCarried of the player is at least P:
+		now the pogoIncenseCarried of the player is P;
+	if the pogoBallsCarried of the player is 0:
+		move the pogoBall to the void;
+	if the pogoMethsCarried of the player is 0:
+		move the pogoMeth to the void;
+	if the pogoChumsCarried of the player is 0:
+		move the pogoChum to the void;
+	if the pogoIncenseCarried of the player is 0:
+		move the pogoIncense to the void.
 
 
 Chapter Rules Modifications
@@ -1942,7 +1954,7 @@ Check spinning:
 		say " you should spin.[paragraph break]";
 		stop the action;
 	otherwise:
-		if the TURNCOUNTER minus the time stamp of the location of the player is less than the POGOSTOP_LOCKOUT_DURATION and the superuser of the player is false:
+		if the TURNCOUNTER minus the time stamp of the location of the player is less than the MODE_POGOSTOP_LOCKOUT_DURATION and the superuser of the player is false:
 			say "The pogostop spins around and around. Your phone makes a sad face and says, [quotation mark]Sorry. Try again later.[quotation mark][paragraph break]";
 			stop the action;
 		otherwise:
@@ -1950,48 +1962,48 @@ Check spinning:
 
 Carry out spinning:
 	let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
-	if T is POGOITEM_INVENTORY_LIMIT:
-		say "Your game inventory is already maxed out at [POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
+	if T is MODE_POGOITEM_INVENTORY_LIMIT:
+		say "Your game inventory is already maxed out at [MODE_POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
 		stop the action;
 	otherwise:
 		now the booty of the pogostop is {};
 		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let B be a random number between 1 and 4;
 		[guarantees at least one item is produced by the stop]
-		if T plus B is greater than POGOITEM_INVENTORY_LIMIT:
-			let B be POGOITEM_INVENTORY_LIMIT minus T;
+		if T plus B is greater than MODE_POGOITEM_INVENTORY_LIMIT:
+			let B be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if B is greater than 0:
 			add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
 			increase pogoballsCarried of the player by B;
 			move the pogoball to the player;
 		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let C be a random number between 0 and 1;
-		if T plus C is greater than POGOITEM_INVENTORY_LIMIT:
-			let C be POGOITEM_INVENTORY_LIMIT minus T;
+		if T plus C is greater than MODE_POGOITEM_INVENTORY_LIMIT:
+			let C be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if C is greater than 0:
 			add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
 			increase pogoChumsCarried of the player by C;
 			move the pogoChum to the player;
 		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let M be a random number between 0 and 1;
-		if T plus M is greater than POGOITEM_INVENTORY_LIMIT:
-			let M be POGOITEM_INVENTORY_LIMIT minus T;
+		if T plus M is greater than MODE_POGOITEM_INVENTORY_LIMIT:
+			let M be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if M is greater than 0:
 			add "[M] pogometh[if M is greater than 1]s[end if]" to the booty of the pogostop;
 			increase pogoMethsCarried of the player by M;
 			move the pogoMeth to the player;
 		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
 		let EYE be a random number from 0 to 1;
-		if T plus EYE is greater than POGOITEM_INVENTORY_LIMIT:
-			let EYE be POGOITEM_INVENTORY_LIMIT minus T;
+		if T plus EYE is greater than MODE_POGOITEM_INVENTORY_LIMIT:
+			let EYE be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if EYE is greater than 0:
 			add "[EYE] incense" to the booty of the pogostop;
 			increase pogoIncenseCarried of the player by EYE;
 			move the pogoIncense to the player;
 		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let E be a random number from 0 to 1;
-		if T plus E is greater than POGOITEM_INVENTORY_LIMIT:
-			let E be POGOITEM_INVENTORY_LIMIT minus T;
+		if T plus E is greater than MODE_POGOITEM_INVENTORY_LIMIT:
+			let E be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if E is greater than 0:
 			add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 			increase pogoEggsCarried of the player by E;
@@ -2200,7 +2212,7 @@ Check special attacking:
 	else if the noun is the defenderPogoman:
 		say "Your [team color of the player] Energy cannot harm one of your own pogomen.";
 		stop the action;
-	else if the xp of the player is less than the SPECIAL_ATTACK_XP_COST:
+	else if the xp of the player is less than the MODE_SPECIAL_ATTACK_XP_COST:
 		say "You are too low on XP to muster a special attack, a few bits of scintillating blue energy dribble out of your phone.";
 		stop the action;
 	else:
@@ -2241,7 +2253,7 @@ Carry out special attacking:
 		else:
 			say "and slams into Musk, hurting him[if the vitality of Elon Musk is not dead]; he looks [vitality of Elon Musk][end if].";
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
-	now xp of the player is xp of the player minus SPECIAL_ATTACK_XP_COST;
+	now xp of the player is xp of the player minus MODE_SPECIAL_ATTACK_XP_COST;
 	
 After special attacking the attackerPogoman for the first time:
 	bestow "Extra Crispy".
@@ -2300,7 +2312,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 						now the hasHealed of PogoMeth is true;
 					now the pogorecipient is not injured;
 				else:
-					say ".";
+					say ".[paragraph break]";
 				decrement pogometh count.
 				
 [parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
@@ -2753,9 +2765,23 @@ This is the default stage business rule:
 Chapter Initialize
 
 When play begins:
+	[derepress at top of turn sequence]
 	now SUPPRESSMEDALS is false;
-	now BLOCKSTAGEBUSINESSFLAG is true;
 	[don't want stage business on first turn (otherwise enabled b/c previous player room is void)]
+	now BLOCKSTAGEBUSINESSFLAG is true;
+	[game start up]
+	now MODE_MIN_PL_POGOSTOPS is MIN_PL_POGOSTOPS;
+	now MODE_MAX_PL_POGOSTOPS is MAX_PL_POGOSTOPS;
+	now MODE_PREPOGO_ENCOUNTER_VALUE is PREPOGO_ENCOUNTER_VALUE;
+	now MODE_POGO_ENCOUNTER_VALUE is POGO_ENCOUNTER_VALUE;
+	now MODE_CAPTURE_EVOL1_DIFFICULTY is CAPTURE_EVOL1_DIFFICULTY;
+	now MODE_CAPTURE_EVOL2_DIFFICULTY is CAPTURE_EVOL2_DIFFICULTY;
+	now MODE_CAPTURE_EVOL3_DIFFICULTY is CAPTURE_EVOL3_DIFFICULTY;
+	now MODE_SPECIAL_ATTACK_XP_COST is SPECIAL_ATTACK_XP_COST;
+	now MODE_MUSK_DEF is MUSK_DEF;
+	now MODE_POGOSTOP_LOCKOUT_DURATION is POGOSTOP_LOCKOUT_DURATION;
+	now MODE_POGOMEN_INVENTORY_LIMIT is POGOMEN_INVENTORY_LIMIT;
+	now MODE_POGOITEM_INVENTORY_LIMIT is POGOITEM_INVENTORY_LIMIT;
 	now pogoLevel of the player is INITIAL_POGOLEVEL;
 	now the XP of the player is INITIAL_XP;
 	now the player carries the phone;
@@ -2906,7 +2932,7 @@ This is the pogoman apparition rule:
 	if the TURNCOUNTER is less than POGOMAN_LOCKOUT_DURATION:
 		the rule fails;
 	if Not In Kansas Anymore is happening:
-		let N be POGO_ENCOUNTER_VALUE;
+		let N be MODE_POGO_ENCOUNTER_VALUE;
 		if the pogoIncense is ignited:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
@@ -2914,7 +2940,7 @@ This is the pogoman apparition rule:
 			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared![paragraph break]";
 			follow the fightclub rule;
 	otherwise:[before Not In Kansas Anymore]
-		let N be PREPOGO_ENCOUNTER_VALUE;
+		let N be MODE_PREPOGO_ENCOUNTER_VALUE;
 		if the pogoIncense is ignited:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
@@ -3028,7 +3054,7 @@ Every turn during denouement:
 		let GUARD-DEF be GUARD-DEF plus a random number from 0 to FIGHT_RANDOMNESS;	
 		if the defenderPogoman is injured:
 			let GUARD-DEF be GUARD-DEF minus WOUNDED_PENALTY;	
-		if GUARD-DEF is greater than MUSK_DEF:
+		if GUARD-DEF is greater than MODE_MUSK_DEF:
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
 			if the vitality of Elon Musk is dead:
 				say "and deals an almost lethal blow to";
@@ -8526,7 +8552,7 @@ hint	used
 "You need PogoChum to [italic type]feed[roman type] Pogomen."
 "You can get PogoMeth, PogoChum, and other stuff from PogoStops."
 "To specify a non-captured pogoman, refer to it as wild[if Exploring The Tower has ended] or loyal[end if]."
-"You can have up to [POGOMEN_INVENTORY_LIMIT] in your stock at one time."
+"You can have up to [MODE_POGOMEN_INVENTORY_LIMIT] in your stock at one time."
 "[italic type]Transfer[roman type] [if Exploring the Tower has not ended] or [italic type]Drop[roman type][end if] will get rid of wounded pogomen first."
 
 A hint activation rule (this is the pogostops explained hint activation rule):
@@ -8547,8 +8573,8 @@ hint	used
 "On the scanner, [quotation mark]P[quotation mark] represents a pogostop"
 "On the scanner, [quotation mark]X[quotation mark] may mask the [quotation mark]P[quotation mark] if you stand on top of a pogostop."
 "After the pogostop is spun, you cannot immediately re-spin it." 
-"Pogostops can only be spun every [POGOSTOP_LOCKOUT_DURATION] turns."
-"You can only carry [POGOITEM_INVENTORY_LIMIT in words] game items at a time."
+"Pogostops can only be spun every [MODE_POGOSTOP_LOCKOUT_DURATION] turns."
+"You can only carry [MODE_POGOITEM_INVENTORY_LIMIT in words] game items at a time."
 "You can [italic type]drop[roman type] excess items to make room for more."
 "Dropping eggs is especially useful, since new pogomen will hatch."
 
