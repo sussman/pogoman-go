@@ -124,6 +124,7 @@ The player has a truth state called diedAtBorder. The diedAtBorder of the player
 The player has a number called pogomenCaptured. The pogomenCaptured of the player is 0.
 The player has a number called pogomenDefeated. The pogomenDefeated of the player is 0.
 The player has a truth state called deniedTemptationOnce. The deniedTemptationOnce of the player is true.
+The player has a truth state called expertMode. The expertMode of the player is false.
 
 Section 7 - BackDrops
 
@@ -132,24 +133,37 @@ An Awarddrop is a kind of backdrop.
 
 Chapter Declare Constants
 
-
 [Game Setup]
 INITIAL_POGOLEVEL is always 3.
+EXPERT_INITIAL_POGOLEVEL is always 2.
+
 INITIAL_XP is always 460.
+EXPERT_INITIAL_XP is always 230.
+
+
 MIN_TOWN_POGOSTOPS is always 6.
 MAX_TOWN_POGOSTOPS is always 9.
+EXPERT_MIN_TOWN_POGOSTOPS is always 3.
+EXPERT_MAX_TOWN_POGOSTOPS is always 5.
+
 MIN_TOWN_GYMS is always 2.
 MAX_TOWN_GYMS is always 4.
+EXPERT_MIN_TOWN_GYMS is always 2.
+EXPERT_MAX_TOWN_GYMS is always 3.
+
 MIN_INITIAL_SPAWN is always 3.
 MAX_INITIAL_SPAWN is always 5.
-SPAWN_PERCENT_WOUNDED is always 25. [out of 100]
+EXPERT_MIN_INITIAL_SPAWN is always 1.
+EXPERT_MAX_INITIAL_SPAWN is always 3.
 
-[Rooms in Village and Pogoland have a pogostop timestamp]
-POGOSTOP_TIMEOUT_DURATION is always 10.
+SPAWN_PERCENT_WOUNDED is always 25. [out of 100]
+EXPERT_SPAWN_PERCENT_WOUNDED is always 75.
 
 [Pogoland Setup]
 MIN_PL_POGOSTOPS is always 2.
 MAX_PL_POGOSTOPS is always 4.
+EXPERT_MIN_PL_POGOSTOPS is always 2.
+EXPERT_MAX_PL_POGOSTOPS is always 3.
 
 [Ways of gaining XP]
 MEDAL_XP_VALUE is always 10.
@@ -166,13 +180,20 @@ STREETFIGHT_XP_VALUE is always 100.
 
 [likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
 INCENSE_EFFECT_VALUE is always 15.
+
 PREPOGO_ENCOUNTER_VALUE is always 10.[before pogoland]
+EXPERT_PREPOGO_ENCOUNTER_VALUE is always 10.
+
 POGO_ENCOUNTER_VALUE is always 10.[pogoland]
+EXPERT_POGO_ENCOUNTER_VALUE is always 25.
 
 [Difficulty for capturing items with pogoball, always out of 100]
 CAPTURE_EVOL1_DIFFICULTY is always 80.
 CAPTURE_EVOL2_DIFFICULTY is always 60.
 CAPTURE_EVOL3_DIFFICULTY is always 40.
+EXPERT_CAPTURE_EVOL1_DIFFICULTY is always 90.
+EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 75.
+EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 60.
 
 [Combat]
 OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
@@ -180,8 +201,12 @@ OFFENSIVE_RATING_EVO2 is always 50.
 OFFENSIVE_RATING_EVO3 is always 70.
 WOUNDED_PENALTY is always 25.[both attacker and defender pogomen at disadvantage when wounded]
 FIGHT_RANDOMNESS is always 40.
+
 SPECIAL_ATTACK_XP_COST is always 500.
+EXPERT_SPECIAL_ATTACK_XP_COST is always 1000.
+
 MUSK_DEF is always 80.
+EXPERT_MUSK_DEF is always 90.
 
 [Capturing the Player in the Giant Pogoball]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
@@ -192,9 +217,11 @@ CAPTURE_THRESHOLD is always 150. [when desire + randomness > threshold, pogoman 
 HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and combat]
 
 [TIMING]
+POGOSTOP_LOCKOUT_DURATION is always 10. [Rooms in Village and Pogoland have a pogostop timestamp]
+EXPERT_POGOSTOP_LOCKOUT_DURATION is always 10.
+
 INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
-POGOSTOP_LOCKOUT_DURATION is always 10.
 DAIS_DELAY_DURATION is always 15. [if player hasn't noticed dais by this time, it notices itself]
 DESOLATION_DELAY_DURATION is always 15. [delay for player to realize loneliness in Pogoland]
 
@@ -205,7 +232,10 @@ RED_CLUEBAT_TURNS is always 40.
 
 [Inventory]
 POGOMEN_INVENTORY_LIMIT is always 100.
+EXPERT_POGOMEN_INVENTORY_LIMIT is always 25.
+
 POGOITEM_INVENTORY_LIMIT is always 100.
+EXPERT_POGOITEM_INVENTORY_LIMIT is always 25.
 
 [Advancement Requirements]
 GYM_ENTRY_LEVEL_REQUIREMENT is always 4.
@@ -238,6 +268,29 @@ MEDALLIST is a list of text that varies.
 TROPHYLIST is a list of text that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
+[Mode-dependent parameters]
+MODE_INITIAL_POGOLEVEL is a number that varies.
+MODE_INITIAL_XP is a number that varies.
+MODE_MIN_TOWN_POGOSTOPS is a number that varies.
+MODE_MAX_TOWN_POGOSTOPS is a number that varies.
+MODE_MIN_TOWN_GYMS is a number that varies.
+MODE_MAX_TOWN_GYMS is a number that varies.
+MODE_MIN_INITIAL_SPAWN is a number that varies.
+MODE_MAX_INITIAL_SPAWN  is a number that varies.
+MODE_SPAWN_PERCENT_WOUNDED is a number that varies.
+MODE_POGOSTOP_TIMEOUT_DURATION is a number that varies.
+MODE_MIN_PL_POGOSTOPS is a number that varies.
+MODE_MAX_PL_POGOSTOPS is a number that varies.
+MODE_PREPOGO_ENCOUNTER_VALUE is a number that varies.
+MODE_POGO_ENCOUNTER_VALUE is a number that varies.
+MODE_CAPTURE_EVOL1_DIFFICULTY is a number that varies.
+MODE_CAPTURE_EVOL2_DIFFICULTY is a number that varies.
+MODE_CAPTURE_EVOL3_DIFFICULTY is a number that varies.
+MODE_SPECIAL_ATTACK_XP_COST is a number that varies.
+MODE_MUSK_DEF is a number that varies.
+MODE_POGOSTOP_LOCKOUT_DURATION is a number that varies.
+MODE_POGOMEN_INVENTORY_LIMIT is a number that varies.
+MODE_POGOITEM_INVENTORY_LIMIT is a number that varies.
 
 Chapter Pogo-Machinery
 
@@ -1534,6 +1587,47 @@ To say beingCaptured:
 	
 To say bossBattle:
 	say "Soon after arrival in Pogochum Processing, you are assaulted by Elon Musk. There[apostrophe]s nowhere to run -- with your access level, you can[apostrophe]t operate the purple-level elevator and there are no stairs.[paragraph break]* Violence is the answer at this point. You have all your options including [italic type]drop[roman type] to deploy a defending pogoman to help, [italic type]attack Elon Musk[roman type], or [italic type]special attack Elon Musk[roman type].[paragraph break]* This fight is for realsies. If Musk kills you, it[apostrophe]s Game Over.[paragraph break]* If you win the fight, you can [italic type]take golden badge[roman type], which is clipped to his lab coat. You now have access to every floor on the elevator, and each leads to an ending.[paragraph break] *[italic type]Undo[roman type] is not disabled, so you could check out each ending.[paragraph break]* There are two possible endings from a short scene in Legal Department if you choose that level.[paragraph break]* After every ending (some more successful than others), you can check out some game statistics and trivia by typing [quotation mark][italic type]amusing[roman type][quotation mark]."
+	
+Section 11 - Expert Mode
+
+expertModing is an action out of world. Understand "expert mode" as expertModing. 
+
+Check expertModing:
+	if the expertMode of the player is true:
+		say "You are already in expert mode. There is no expert expert mode, sadly.";
+		stop the action;
+	say "Are you sure you want to engage expert mode. I am, are you really that fearless? Once engaged, there is no going back?";
+	if the player consents:
+		say "Okay. Buckle your seat belt. Engaging expert mode...[paragraph break]";
+		bestow "Reckless Disregard for Self Preservation";
+	otherwise:
+		say "No prob. If you decide later, you can still engage expert mode or you can restart and enter expert mode from the beginning, if you[apostrophe]d prefer.";
+		stop the action.
+
+Carry out expertModing:
+	now the expertMode of the player is true;
+	now MODE_INITIAL_POGOLEVEL is EXPERT_INITIAL_POGOLEVEL;
+	now MODE_INITIAL_XP is EXPERT_INITIAL_XP;
+	now MODE_MIN_TOWN_POGOSTOPS is EXPERT_MIN_TOWN_POGOSTOPS;
+	now MODE_MAX_TOWN_POGOSTOPS is EXPERT_MAX_TOWN_POGOSTOPS;
+	now MODE_MIN_TOWN_GYMS is EXPERT_MIN_TOWN_GYMS;
+	now MODE_MAX_TOWN_GYMS is EXPERT_MAX_TOWN_GYMS;
+	now MODE_MIN_INITIAL_SPAWN is EXPERT_MIN_INITIAL_SPAWN;
+	now MODE_MAX_INITIAL_SPAWN is  EXPERT_MAX_INITIAL_SPAWN;
+	now MODE_SPAWN_PERCENT_WOUNDED is EXPERT_SPAWN_PERCENT_WOUNDED;
+	now MODE_POGOSTOP_LOCKOUT_DURATION is EXPERT_POGOSTOP_LOCKOUT_DURATION;
+	now MODE_MIN_PL_POGOSTOPS is EXPERT_MIN_PL_POGOSTOPS;
+	now MODE_MAX_PL_POGOSTOPS is EXPERT_MAX_PL_POGOSTOPS;
+	now MODE_PREPOGO_ENCOUNTER_VALUE is EXPERT_PREPOGO_ENCOUNTER_VALUE;
+	now MODE_POGO_ENCOUNTER_VALUE is  EXPERT_POGO_ENCOUNTER_VALUE;
+	now MODE_CAPTURE_EVOL1_DIFFICULTY is EXPERT_CAPTURE_EVOL1_DIFFICULTY;
+	now MODE_CAPTURE_EVOL2_DIFFICULTY is EXPERT_CAPTURE_EVOL2_DIFFICULTY;
+	now MODE_CAPTURE_EVOL3_DIFFICULTY is EXPERT_CAPTURE_EVOL3_DIFFICULTY;
+	now MODE_SPECIAL_ATTACK_XP_COST is  EXPERT_SPECIAL_ATTACK_XP_COST;
+	now MODE_MUSK_DEF is EXPERT_MUSK_DEF;
+	now MODE_POGOSTOP_LOCKOUT_DURATION is EXPERT_POGOSTOP_LOCKOUT_DURATION;
+	now MODE_POGOMEN_INVENTORY_LIMIT is EXPERT_POGOMEN_INVENTORY_LIMIT;
+	now MODE_POGOITEM_INVENTORY_LIMIT is EXPERT_POGOITEM_INVENTORY_LIMIT.
 
 
 Chapter Rules Modifications
