@@ -744,6 +744,90 @@ Understand "vermonac" as attackerPogoman when the type of attackerPogoman is ver
 Understand "vermonac" as the defenderPogoman when the type of defenderPogoman is vermonac.
 Understand "rodentikor" as attackerPogoman when the type of attackerPogoman is rodentikor.
 Understand "rodentikor" as the defenderPogoman when the type of defenderPogoman is rodentikor.
+Understand "skwerl" as attackerPogoman when the type of attackerPogoman is skwerl.
+Understand "skwerl" as the defenderPogoman when the type of defenderPogoman is skwerl.
+Understand "arborrhat" as attackerPogoman when the type of attackerPogoman is arborrhat.
+Understand "arborrhat" as the defenderPogoman when the type of defenderPogoman is arborrhat.
+Understand "nutellakin" as attackerPogoman when the type of attackerPogoman is nutellakin.
+Understand "nutellakin" as the defenderPogoman when the type of defenderPogoman is nutellakin.
+Understand "cheezipouf" as attackerPogoman when the type of attackerPogoman is cheezipouf.
+Understand "cheezipouf" as the defenderPogoman when the type of defenderPogoman is cheezipouf.
+Understand "ogratic" as attackerPogoman when the type of attackerPogoman is ogratic.
+Understand "ogratic" as the defenderPogoman when the type of defenderPogoman is ogratic.
+Understand "cheezelord" as attackerPogoman when the type of attackerPogoman is cheezelord.
+Understand "cheezelord" as the defenderPogoman when the type of defenderPogoman is cheezelord.
+Understand "snorepak" as attackerPogoman when the type of attackerPogoman is snorepak.
+Understand "snorepak" as the defenderPogoman when the type of defenderPogoman is snorepak.
+Understand "apneapod" as attackerPogoman when the type of attackerPogoman is apneapod.
+Understand "apneapod" as the defenderPogoman when the type of defenderPogoman is apneapod.
+Understand "seepap" as attackerPogoman when the type of attackerPogoman is seepap.
+Understand "seepap" as the defenderPogoman when the type of defenderPogoman is seepap.
+Understand "rokabil" as attackerPogoman when the type of attackerPogoman is rokabil.
+Understand "rokabil" as the defenderPogoman when the type of defenderPogoman is rokabil.
+Understand "jazzahand" as attackerPogoman when the type of attackerPogoman is jazzahand.
+Understand "jazzahand" as the defenderPogoman when the type of defenderPogoman is jazzahand.
+Understand "grunjturd" as attackerPogoman when the type of attackerPogoman is grunjturd.
+Understand "grunjturd" as the defenderPogoman when the type of defenderPogoman is grunjturd.
+Understand "agnostator" as attackerPogoman when the type of attackerPogoman is agnostator.
+Understand "agnostator" as the defenderPogoman when the type of defenderPogoman is agnostator.
+Understand "beeleever" as attackerPogoman when the type of attackerPogoman is beeleever.
+Understand "beeleever" as the defenderPogoman when the type of defenderPogoman is beeleever.
+Understand "zealocanth" as attackerPogoman when the type of attackerPogoman is zealocanth.
+Understand "zealocanth" as the defenderPogoman when the type of defenderPogoman is zealocanth.
+Understand "moldimug" as attackerPogoman when the type of attackerPogoman is moldimug.
+Understand "moldimug" as the defenderPogoman when the type of defenderPogoman is moldimug.
+Understand "funjifut" as attackerPogoman when the type of attackerPogoman is funjifut.
+Understand "funjifut" as the defenderPogoman when the type of defenderPogoman is funjifut.
+Understand "zhokkidge" as attackerPogoman when the type of attackerPogoman is zhokkidge.
+Understand "zhokkidge" as the defenderPogoman when the type of defenderPogoman is zhokkidge.
+Understand "seeduino" as attackerPogoman when the type of attackerPogoman is seeduino.
+Understand "seeduino" as the defenderPogoman when the type of defenderPogoman is seeduino.
+Understand "weeduino" as attackerPogoman when the type of attackerPogoman is weeduino.
+Understand "weeduino" as the defenderPogoman when the type of defenderPogoman is weeduino.
+Understand "weedowhak" as attackerPogoman when the type of attackerPogoman is weedowhak.
+Understand "weedowhak" as the defenderPogoman when the type of defenderPogoman is weedowhak.
+Understand "iddi" as attackerPogoman when the type of attackerPogoman is iddi.
+Understand "iddi" as the defenderPogoman when the type of defenderPogoman is iddi.
+Understand "iddiotto" as attackerPogoman when the type of attackerPogoman is iddiotto.
+Understand "iddiotto" as the defenderPogoman when the type of defenderPogoman is iddiotto.
+Understand "drumpf" as attackerPogoman when the type of attackerPogoman is drumpf.
+Understand "drumpf" as the defenderPogoman when the type of defenderPogoman is drumpf.
+Understand "phlogistomander" as attackerPogoman when the type of attackerPogoman is phlogistomander.
+Understand "phlogistomander" as the defenderPogoman when the type of defenderPogoman is phlogistomander.
+Understand "pyromelion" as attackerPogoman when the type of attackerPogoman is pyromelion.
+Understand "pyromelion" as the defenderPogoman when the type of defenderPogoman is pyromelion.
+Understand "arsonizard" as attackerPogoman when the type of attackerPogoman is arsonizard.
+Understand "arsonizard" as the defenderPogoman when the type of defenderPogoman is arsonizard.
+Understand "peekatyou" as attackerPogoman when the type of attackerPogoman is peekatyou.
+Understand "peekatyou" as the defenderPogoman when the type of defenderPogoman is peekatyou.
+Understand "pokeatyou" as attackerPogoman when the type of attackerPogoman is pokeatyou.
+Understand "pokeatyou" as the defenderPogoman when the type of defenderPogoman is pokeatyou.
+Understand "pukeatyou" as attackerPogoman when the type of attackerPogoman is pukeatyou.
+Understand "pukeatyou" as the defenderPogoman when the type of defenderPogoman is pukeatyou.
+Understand "amporb" as attackerPogoman when the type of attackerPogoman is amporb.
+Understand "amporb" as the defenderPogoman when the type of defenderPogoman is amporb.
+Understand "jowlball" as attackerPogoman when the type of attackerPogoman is jowlball.
+Understand "jowlball" as the defenderPogoman when the type of defenderPogoman is jowlball.
+Understand "orbowatt" as attackerPogoman when the type of attackerPogoman is orbowatt.
+Understand "orbowatt" as the defenderPogoman when the type of defenderPogoman is orbowatt.
+Understand "wimporwil" as attackerPogoman when the type of attackerPogoman is wimporwil.
+Understand "wimporwil" as the defenderPogoman when the type of defenderPogoman is wimporwil.
+Understand "atlazzard" as attackerPogoman when the type of attackerPogoman is atlazzard.
+Understand "atlazzard" as the defenderPogoman when the type of defenderPogoman is atlazzard.
+Understand "schwartzennator" as attackerPogoman when the type of attackerPogoman is schwartzennator.
+Understand "schwartzennator" as the defenderPogoman when the type of defenderPogoman is schwartzennator.
+Understand "gastro" as attackerPogoman when the type of attackerPogoman is gastro.
+Understand "gastro" as the defenderPogoman when the type of defenderPogoman is gastro.
+Understand "queezee" as attackerPogoman when the type of attackerPogoman is queezee.
+Understand "queezee" as the defenderPogoman when the type of defenderPogoman is queezee.
+Understand "barfalot" as attackerPogoman when the type of attackerPogoman is barfalot.
+Understand "barfalot" as the defenderPogoman when the type of defenderPogoman is barfalot.
+Understand "perpie" as attackerPogoman when the type of attackerPogoman is perpie.
+Understand "perpie" as the defenderPogoman when the type of defenderPogoman is perpie.
+Understand "misdementor" as attackerPogoman when the type of attackerPogoman is misdementor.
+Understand "misdementor" as the defenderPogoman when the type of defenderPogoman is misdementor.
+Understand "fellanon" as attackerPogoman when the type of attackerPogoman is fellanon.
+Understand "fellanon" as the defenderPogoman when the type of defenderPogoman is fellanon.
 
 Understand "loyal" or "defending" or "defender" as the defenderPogoman.
 Understand "wild" or "attacking" or "attacker" as the attackerPogoman.
