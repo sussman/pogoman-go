@@ -9,7 +9,7 @@ The story description is "The world is full of Pogomen, and now that you don[apo
 
 Use MAX_STATIC_DATA of 260000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
-Use Max_DICT_ENTRIES of 1500.
+Use Max_DICT_ENTRIES of 1600.
 Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -672,7 +672,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 Section 6 - Pogomen
 
 [This can go up with kinds later, but for now, here for clarify]
-Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonux, and rodentikor.
+Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonux, rodentikor, skwerl, arborrhat, nutellakin, cheezipouf, ogratic, cheezelord, snorepak, apneapod, seepap, rokabil, jazzahand, grunjturd, agnostator, beeleever, zealocanth, moldimug, funjifut, zhokkidge, seeduino, weeduino, weedowhak, iddi, iddiotto, drumpf, phlogistomander, pyromelion, arsonizard, peekatyou, pokeatyou, pukeatyou, amporb, jowlball, orbowatt, wimporwil, atlazzard, schwartzennator, gastro, queezee, barfalot, perpie, misdementor, and fellanon.
 
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
  When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
@@ -8078,6 +8078,48 @@ emak	"A buffed and buffered creature"
 plaigrhat	"A mysterious rodent of a verminous nature"
 vermonux	"A rodent with extra poison"
 rodentikor	"Too much rodent for mortals to handle"
+skwerl	"A querulous creature"
+arborrhat	"A tree-hugging flea bag"
+nutellakin	"A buck-toothed pest"
+cheezipouf	"A powdery orange ball of lard"
+ogratic	"Melted and oozing"
+cheezelord	"Known for its blood curdling scream"
+snorepak	"Annoying but rhythmic"
+apneapod	"Stealthy until it is not"
+seepap	"A high-pressure face sucker"
+rokabil	"A syncopated beat beast"
+jazzahand	"No problem alone, but troublesome in waves"
+grunjturd	"Found only in the Pacific Northwest."
+agnostator	"A modern animal comfortable with ambiguity"
+beeleever	"Social, but stings irrationally when excited"
+zealocanth	"A fossil-type with petrified nervous system"
+moldimug	"A tenaceous adversary"
+funjifut	"A dirty little sneaker. Not to be trusted"
+zhokkidge	"A trigonal terrorist"
+seeduino	"Sprouts up unexpectedly"
+weeduino	"Multiples out of control"
+weedowhak	"Trim and fit"
+iddi	"Not the sharpest tool in the shed"
+iddiotto	"Lurks in bushes"
+drumpf	"A comical menace that can do real harm"
+phlogistomander	"A hot-headed firebrand"
+pyromelion	"A combustible chameleon"
+arsonizard	"An incandescent instigator"
+peekatyou	"A curious creature a penchant for voyeurism"
+pokeatyou	"Annoying finger jabs"
+pukeatyou	"The least social pogoman"
+amporb	"Currently misunderstood"
+jowlball	"Gets the works done"
+orbowatt	"A powerful ally or foe"
+wimporwil	"A 98-pound pogoman"
+atlazzard	"Pumped up and preening"
+schwartzennator	"Composed entirely of steroids"
+gastro	"Extreme endurance: runs and runs"
+queezee	"Preternaturally nauseous"
+barfalot	"A distant relative of pukeatyou"
+perpie	"A criminally-inclined purple dinosaur"
+misdementor	"A criminally-minded wraith"
+fellanon	"A harded criminal with quick tongue"
 
 Definition: A pogotype is first level if it is an original listed in the Table of Evolution.
 Definition: A pogotype is second level if it is an ev2 listed in the Table of Evolution.
@@ -8089,6 +8131,21 @@ Table of Evolution
 Category	Original	Ev2	Ev3	AttackType
 "clerical"	edator	vicore	emak	"character assassination"
 "pestilence" 	plaigrhat	vermonux	rodentikor	"filth and disease"
+"snickering"	skwerl	arborrhat	nutellakin	"anaphylactic trigger"
+"fromagian"	cheezipouf	ogratic	cheezelord	"grating presence"
+"respiratroid"	snorepak	apneapod	seepap	"stridulous vibration"
+"audiophile"	rokabil	jazzahand	grunjturd	"sonic seduction"
+"convictual"	agnostator	beeleever	zealocanth	"subjective truth"
+"mucous"	moldimug	funjifut	zhokkidge	"disabling itch"
+"dweenosaur"	seeduino	weeduino	weedowhak	"twirling nuzzle"
+"cretinaceous"	iddi	iddiotto	drumpf	"blunder buster"
+"thermal"	phlogistomander	pyromelion	arsonizard	"roast and toast"
+"sneezling"	peekatyou	pokeatyou	pukeatyou	"projectile"
+"circuitous"	amporb	jowlball	orbowatt	"defibrillation"
+"iron"	wimporwil	atlazzard	schwartzennator	"throbbing bicep"
+"gutteral"	gastro	queezee	barfalot	"acid reflux"
+"riffraffian"	perpie	misdementor	fellanon	"severe scoffing"
+
 
 section 3 - Table of Relations
 
