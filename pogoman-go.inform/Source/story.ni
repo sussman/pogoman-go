@@ -347,7 +347,7 @@ Instead of dropping a pogothing (called the item):
 			sort the Table of Inventory in PogoName order;
 			choose row MODE_POGOMEN_INVENTORY_LIMIT in the Table of Inventory;
 			if there is a pogoName entry:
-				say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";
+				say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";								
 			otherwise:	
 				repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:				
 					choose row N in the Table of Inventory;
@@ -1638,6 +1638,8 @@ Carry out expertModing:
 		move the pogoMeth to the void;
 	if the pogoChumsCarried of the player is 0:
 		move the pogoChum to the void;
+	if the pogoEggsCarried of the player is 0:
+		move the pogoEgg to the void;
 	if the pogoIncenseCarried of the player is 0:
 		move the pogoIncense to the void.
 
