@@ -2463,7 +2463,7 @@ Report scanning:
 			move the phantom to HOME;
 			repeat with N running from 1 to Y:
 				move the phantom to the room south from the location of the phantom;		
-		say "[one of][line break][fixed letter spacing]X: Your location[line break]G: A pogoman gym[line break]P: A pogostop[line break]N: Nyantech Headquarters[roman type][line break][or][stopping]";
+		say "[line break][fixed letter spacing]X: Your location[line break]G: A pogoman gym[line break]P: A pogostop[line break]N: Nyantech Headquarters[roman type][line break]";
 	otherwise:[i.e., in pogoland]
 		let HOME be Palace;
 		move the phantom to HOME;
@@ -2479,7 +2479,7 @@ Report scanning:
 			move the phantom to HOME;
 			repeat with N running from 1 to Y:
 				move the phantom to the room south from the location of the phantom;
-		say "[one of][line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break][or][stopping]";
+		say "[line break][fixed letter spacing]X: Your location[line break]P: A pogostop[line break]D: A defending pogoman[roman type][line break]";
 	say roman type;
 	move the phantom to the void.
 
