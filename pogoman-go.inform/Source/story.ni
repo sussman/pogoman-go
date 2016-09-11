@@ -241,6 +241,7 @@ SUPPRESSMEDALS is a truth state that varies. SUPPRESSMEDALS is false.
 The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSFLAG is false.
 The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
 FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
+GAME_SAVED is a truth state that varies. GAME_SAVED is false.
 
 [numbers]
 TURNCOUNTER is a number that varies. TURNCOUNTER is 0.
@@ -1983,15 +1984,19 @@ Before printing the locale description of a room:
 	
 Rule for writing a paragraph about the defenderPogoman:
 	say "Your[if the defenderPogoman is injured] heroically[end if] [defenderPogoman] is on guard here."
-	
-Section 9 - Allow Throwing At Inanimate Objects
 
 The futile to throw things at inanimate objects rule is not listed in the check throwing it at rules.
 The block throwing at rule is not listed in the check throwing it at rules.
 
 Instead of throwing something (called the projectile) at a room:
 	try dropping the projectile.
+	
+Section 10 - Game Saving
 
+Check saving the game: 
+	if GAME_SAVED is false:
+		bestow "Savior Of The Universe";
+		now GAME_SAVED is true.
 	
 Chapter Activities
 
