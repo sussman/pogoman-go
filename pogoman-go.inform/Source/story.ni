@@ -1737,6 +1737,12 @@ Carry out expertModing:
 	if the pogoIncenseCarried of the player is 0:
 		move the pogoIncense to the void.
 
+Section 12 - Command Command
+
+Commanding is an action out of world. Understand "command" or "commands" as commanding.
+
+Carry out commanding:
+	say "In addition to commands commonly available in games like this, here are some additional ones that can be used at this point in the game:[paragraph break]* capture (a pogoman)[line break]* clip/unclip (something)[line break]* evolve (a pogoman)[line break]* expert mode[line break]* feed (a pogoman)[line break]* fill/empty (something)[line break][if  Exploring the Tower has ended]* guards[line break][end if]* heal (a pogoman)[line break]* reboot[line break]* scan[line break][if Exploring The Tower has ended]* special attack (someone)[line break][end if]* spin (a pogostop)[line break]* transfer (a pogoman)[paragraph break]".
 
 Chapter Rules Modifications
 
