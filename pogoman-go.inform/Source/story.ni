@@ -5697,7 +5697,7 @@ Instead of pushing a lift button (called the poked item) when the plusQueDenouem
 		stop the action;
 	otherwise:
 		say "The [poked item] lights up, the elevator doors close, and the elevator changes floors more quickly that you would have believed possible.";
-		say paragraph break;
+		say line break;
 	if the poked item is:
 		-- cafeteriaButton:
 			catsInSpace;
