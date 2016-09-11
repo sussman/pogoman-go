@@ -276,7 +276,7 @@ A pogothing is a kind of thing.
 
 A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoballs at them[or][stopping].".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
 
-A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
+A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped meat[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
 A Pogometh-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
