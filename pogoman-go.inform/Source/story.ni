@@ -2200,7 +2200,7 @@ To pickGym:
 
 Section 9 - Rebooting
 
-PhoneBooting is an action applying to nothing. Understand  "r" or "reboot"  or "reinitialize" or "initialize" or "IPL" as phoneBooting. 
+PhoneBooting is an action applying to nothing. Understand  "r" or "reboot"  or "reinitialize" or "initialize" or "IPL" or "unlock phone" or "reboot game" as phoneBooting. 
 
 Carry out phoneBooting:
 	try rebooting the phone.
