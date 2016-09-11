@@ -278,11 +278,11 @@ A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a c
 
 A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped candy[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
 
-A Pogometh-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in[one of]. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen[or][stopping]."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+A Pogometh-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
 
-A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg [one of](drop the egg to hatch it)[or][stopping]." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
+A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg ([italic type]drop[roman type] the egg to hatch it)." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
 
-A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc[one of]. Burn the incense to activate it[or][stopping]." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
+A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc. Burn the incense to activate it." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
 
 To decrement (item - a pogothing) count:
 	let N be 0;
@@ -1336,7 +1336,7 @@ Carry out inventoryEvolving:
 				else:
 					let E be the Ev2 corresponding to the original of the pogotype understood in the Table of Evolution;
 				now the pogoName entry is E;[wounded status carries over]
-				say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air.  A moment later, you see that it has evolved into a freshly-minted [E]![paragraph break]";
+				say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air. A moment later, you see that it has evolved into a freshly-minted [E]![paragraph break]";
 				awardXP EVOLUTION_XP_VALUE;
 				increase timesEvolved of the defenderPogoman by 1;
 				if timesEvolved of the defenderPogoman is:
@@ -1442,7 +1442,7 @@ Understand "heal loyal [pogotype]" as inventoryHealing.
 Check inventoryHealing:
 	sort Table of Inventory in reverse wounded order;
 	if the pogoMethsCarried of the player is less than 1:
-		say "You are out of pogometh[one of]. Can[apostrophe]t heal anything with out some pogometh[or][stopping].";
+		say "You are out of pogometh[one of]. Can[apostrophe]t heal anything without some pogometh[or][stopping].";
 		stop the action;
 	else if the defenderPogoman is in the location of the player and the type of defenderPogoman is the pogotype understood:
 		try healing the defenderPogoman;[a present defender has priority over stock]
@@ -2229,8 +2229,8 @@ After rebooting:
 				say "[line break]Your phone replies, [quotation mark]Great! Maybe later. Let[apostrophe]s see how the rest of the day goes[run paragraph on]";
 			otherwise:
 				say "[line break]With a bit of disappointment, your phone replies, [quotation mark]Okay, be that way. More Pogoman GO! it is, then[run paragraph on]";
-				say ",[quotation mark] and finishes rebooting.";
-				try looking;
+			say ",[quotation mark] and finishes rebooting.";
+			try looking;
 		-- 5:
 			say "After the usual reboot sequence, the phone begins installing an app update and displays a notification from Nyantech:[paragraph break][quotation mark]Although there is nothing at all wrong with our software -- [italic type]and never was[roman type] -- we are nonetheless providing a software update that should mostly fix it.[quotation mark][paragraph break]The update finishes, and you are back in the game.";
 			try looking;
@@ -3581,7 +3581,7 @@ To say chitChat:
 	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how J.J. Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don[apostrophe]t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]Facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet[apostrophe]s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[or]how georeferenced gaming has altered the traffic patterns[or]technical innovations in portable and wearable computing[or]blue-sky research that will one day save the whales[or]whether Moore[apostrophe]s law will continue to apply as silicon dies reach atomic resolution[or]the strategic importance of the Bosphorus Straits in limiting Russian access to the Mediterranean for trade and military purposes[or]the organizational structure of ant colonies[or]how rare it is to find dial phones these days[in random order]"
 	
 To say goOnIn:
-	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter a the building[apostrophe]s revolving door.";
+	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter the building[apostrophe]s revolving door.";
 	teleport the player to the RevolvingDoor.
 
 After talking to the unicorn for the first time:
@@ -4258,7 +4258,7 @@ Instead of going a bad idea direction (called the way):
 					bestow "One Jersey Barrier From Certain Death";
 				-- 2:
 					say the headline of R;
-					say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You  flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
+					say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
 					phoneDeath;
 				-- otherwise: 
 					say the headline of the location of the player;
@@ -9111,7 +9111,7 @@ A hint deactivation rule (this is the Unstickiness hint deactivation rule):
 
 Table of Unstickiness
 hint	used
-"Through the ages, pogomasters have handed down some practical wisdom"
+"Through the ages, pogomasters have handed down some practical wisdom."
 "Try everything you can think of. If it doesn't work, try rephrasing."
 "Reread text to make sure you didn't miss anything."
 "Leave no stone unturned; conversely, don't obsess."
