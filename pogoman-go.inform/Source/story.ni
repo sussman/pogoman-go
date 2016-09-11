@@ -6288,7 +6288,7 @@ A door called the cockpit door is fore from the Captain's Cabin. The description
 CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat."
 
 After going fore from the Captain's Cabin for the first time:
-	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
+	say "Bathed in a barrage of red light, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
 	now the securityColor of the badge is red;
 	bestow "Cat Power!"
 	
