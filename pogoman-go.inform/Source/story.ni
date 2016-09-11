@@ -2120,7 +2120,7 @@ Instead of helping for the fourth time:
 		
 Section 4 - About
 
-Abouting is an action applying to nothing. Understand "about" or "info" or "information" or "ls" as abouting.
+Abouting is an action applying to nothing. Understand "about" or "info" or "menu" or "information" or "ls" as abouting.
 
 Carry out abouting:
 	say "Don[apostrophe]t have an android or iOS device? Lost your phone under the couch? Are you wandering in a cave with no GPS? No problem. You can still enjoy Pogoman GO!"
