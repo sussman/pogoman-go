@@ -1424,7 +1424,7 @@ Carry out inventoryExamining:
 				say "wounded";
 		else:
 			say "healthy";
-		say ".[paragraph break]Note that only certain commands are available for pogomen in your stock, these include [italic type]drop, evolve, heal, and transfer[roman type]."
+		say ".[paragraph break]Note that only certain commands are available for pogomen in your stock, these include [italic type]drop, evolve, heal, [roman type]and [italic type]transfer[roman type]."
 			
 Section 6 - InventoryHealing
 
