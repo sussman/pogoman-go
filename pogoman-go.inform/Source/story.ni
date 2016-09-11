@@ -22,6 +22,8 @@ Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [for context-specific hints]
 Include Object Response Tests by Juhana Leinonen. [mildly hacked for this project]
 Include Menus by Emily Short. [walkthrough menus]
+Include Undo Output Control by Erik Temple. [fairly hacked for this project]
+
 
 Book 1 - Mechanics
 
@@ -1997,6 +1999,15 @@ Check saving the game:
 	if GAME_SAVED is false:
 		bestow "Savior Of The Universe";
 		now GAME_SAVED is true.
+		
+Section 11 - Modified Undoing
+
+Before undoing an action:
+	say "**before***[paragraph break]".
+	
+Report undoing an action:
+	say "*** reportage ***[paragraph break]";
+	the rule succeeds.
 	
 Chapter Activities
 
