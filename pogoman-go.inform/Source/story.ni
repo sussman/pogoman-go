@@ -510,7 +510,7 @@ Instead of switching on pogoincense:
 
 Section 4 - Pogostops
 
-The pogostop is a backdrop. Understand "stop" or "signpost" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location][one of]. To get goodies from the pogostop, spin it[or][stopping]." The pogostop has a list of text called booty. 
+The pogostop is a backdrop. Understand "stop" or "signpost" or "pogo stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location]. To get goodies from the pogostop, spin it." The pogostop has a list of text called booty. 
 
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
