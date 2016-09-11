@@ -6042,7 +6042,7 @@ The hatchProxyOverhead is a catTopDrop. The hatchProxyOverhead is in the Cat's B
 
 
 To say describeHatchPO:
-	visualize "[hatchText]"
+	visualize "[hatchText]."
 	
 To say hatchText:
 	say  "The hatch resembles a bulkhead hatch on a submarine: a heavy door that would pull upwards. It is painted yellow, like the body of the cat, except its metal handle, which is chrome. The hatch is [if the hatchway is open]open[otherwise]sealed[end if]"
@@ -6063,7 +6063,7 @@ To say describeBoomPO:
 The poopProxyOverhead is a catTopDrop. The poopProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, and Deck Area. The printed name of poopProxyOverhead is "rear end of the cat". Understand "butt" or "rear" or "end" or "pipe" or "tail" or "exhaust" or "output" or "port" or "poop" or "tube" or "glitter" or "sparkles" as poopProxyOverhead. The description of the poopProxyOverhead is "[describePoopPO]".
 
 To say describePoopPO:
-	visualize "[poopText]"
+	visualize "[poopText]."
 	
 To say poopText:
 	say "It is hard to see the town through the spewing spray of sparks out of a tin pipe at the rear of the cat"
@@ -6092,7 +6092,7 @@ Instead of jumping in the Cat Area:
 		
 Section 44 - Cat's Beret
 
-The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat[apostrophe]s head, you can see all the way the Infamous Tarpits on the south edge of town." 
+The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat[apostrophe]s head, you can see all the way to the Infamous Tarpits on the south edge of town." 
 
 The possible exits of the Cat's Beret are "The only way to go from here [one of](the only sane way to go, discounting a suicidal fall) [or][stopping]is towards the rear of the cat. The maintenance hatch is just aft of the beret, at the nape of the cat[apostrophe]s neck. Behind that, there is a narrow scaffold over the pop-tart section of the cat. The scaffold runs above the support boom that extends outward from the building. Finally, at the very rear of the cat, sparkles shoot from a short, metal exhaust tube."
 
@@ -6288,7 +6288,7 @@ A door called the cockpit door is fore from the Captain's Cabin. The description
 CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat."
 
 After going fore from the Captain's Cabin for the first time:
-	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).";
+	say "Bathed in the glow of the fabulous jewel, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
 	now the securityColor of the badge is red;
 	bestow "Cat Power!"
 	
