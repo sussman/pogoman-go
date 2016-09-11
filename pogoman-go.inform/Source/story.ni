@@ -6427,10 +6427,10 @@ To dumpChampagne:
 	say "[quotation mark]Yes, I must admit that I too despise the swill. I only keep it around because it seems to be what people expect. But who cares what people expect? Not the likes of you and I![quotation mark]  He pours the champagne on the floor and smashes the glass down, shattering it. A robot arms flashes out to mop up the mess and retracts in the wall. Before you can react, your small puddle of champagne is cleaned up in the same manner.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall, [quotation mark]champagne or no champagne, [run paragraph on]"
 		
 To toastChampagne:
-	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall,[run paragraph on]"
+	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall,[quotation mark][run paragraph on]"
 	
 To elonDescends:
-	say " congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
+	say "congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
 	
 Section 3 - MuskTube Station
 
@@ -7233,7 +7233,7 @@ Instead of switching on the sound system:
 The headsUpDisplay is privately-named scenery in the MuskPodRoom. The printed name of the headsUpDisplay is "heads-up display". The headsUpDisplay is not lit. The description of the headsUpDisplay is "[HUDdescription]." Understand "display" or "heads-up" or "holograph" or "hologram" or "holographic" or "projection" or "HUD" as the headsUpDisplay. Understand "launch" as the headsUpDisplay when the headsUpDisplay is not lit. Understand "status" as the headsUpDisplay when the headsUpDisplay is lit. Understand "eject" as the headsUpDisplay when the muskPod is in Pogoland Terminal.
 
 To say HUDdescription:
-	say "Currently, the HUD displays the words  [quotation mark]";
+	say "Currently, the HUD displays the words [quotation mark]";
 	if the MuskPod is in Pogoland Terminal:
 		say "EJECT";
 	otherwise:
