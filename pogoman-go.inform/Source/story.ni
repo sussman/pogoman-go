@@ -19,7 +19,7 @@ Use full-length room descriptions, american dialect and the serial comma.
 Release along with cover art ("The Nyantech mascot cat riding a giant pogoball"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
-Include Adaptive Hints by Eric Eve. [for context-specific hints]
+Include Adaptive Hints by Eric Eve. [slightly tweaked for context-specific hints]
 Include Object Response Tests by Juhana Leinonen. [mildly hacked for this project]
 Include Menus by Emily Short. [walkthrough menus]
 Include Undo Output Control by Erik Temple. [fairly hacked for this project]
@@ -244,6 +244,7 @@ The BLOCKSTAGEBUSINESSFLAG is a truth state that varies. The BLOCKSTAGEBUSINESSF
 The BLOCKPOGOMANFLAG is a truth state that varies. The BLOCKPOGOMANFLAG is false.
 FIRSTTHROW is truth state that varies. FIRSTTHROW is true.
 GAME_SAVED is a truth state that varies. GAME_SAVED is false.
+GAME_UNDONE is a truth state that varies. GAME_UNDONE is false.
 
 [numbers]
 TURNCOUNTER is a number that varies. TURNCOUNTER is 0.
@@ -2002,11 +2003,19 @@ Check saving the game:
 		
 Section 11 - Modified Undoing
 
-Before undoing an action:
-	say "**before***[paragraph break]".
-	
+[
+Note - yes, this creates a bit of temporal paradox if the first time a player undoes an action, the player
+then follows that with more undoes. In that case, each time is the first time. My brain just melted. As a 
+result, though, even if the medal is bestowed several times in a row, the player only ends up with one medal
+because the medal has only been awarded once in that tlme line
+]
+
 Report undoing an action:
-	say "*** reportage ***[paragraph break]";
+	say "[bracket]undo successful[close bracket][paragraph break]";
+	if GAME_UNDONE is false:
+		bestow "Altered Fabric Of Time-Space";
+		now GAME_UNDONE is true;
+	say the headline of the location of the player;
 	the rule succeeds.
 	
 Chapter Activities
