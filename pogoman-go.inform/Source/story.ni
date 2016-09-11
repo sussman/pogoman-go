@@ -4489,11 +4489,11 @@ After eating a pop-tart:
 	
 Section 4 - Beverages
 
-Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with coke, sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
+Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
 
 Does the player mean examining or drinking the Kool-Aid: it is likely.
 
-The soda fountain is scenery in Beverages. The description of soda fountain is "The soda fountain can dispense coke, sprite, or root beer."
+The soda fountain is scenery in Beverages. The description of soda fountain is "The soda fountain can dispense Coke, Sprite, or root beer."
 
 The dispenser is scenery in Beverages. The description of dispenser is "The dispenser is filled with icy lemonade on one side, and iced tea on the other."
 
@@ -4507,7 +4507,7 @@ The lemonade is pop in Beverages. The description of lemonade is "A balance betw
 
 The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
 
-The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of kool-aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" as kool-aid.
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid.
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
@@ -4521,7 +4521,7 @@ Before taking or drinking a pop (called the liquid):
 		the rule succeeds.
 	
 After going southeast from beverages when the securityColor of the badge is green for the first time:
-	say "As you emerge from the beverage room, kool-aid dripping from your lips, one of the employees looks over towards you conspiratorially and gives you a little salute before returning to a trance-like state."
+	say "As you emerge from the beverage room, Kool-Aid dripping from your lips, one of the employees looks over towards you conspiratorially and gives you a little salute before returning to a trance-like state."
 
 Section 5 - Mechanical Access Shaft
 
@@ -5251,7 +5251,7 @@ Instead of examining the player when the player wears the hat:
 	say "The hat adds a certain gravitas."
 
 After wearing the party hat for the first time:
-	say "Wearing the hat[if the player wears the Baseball Cap of Pogomastery] (on top of the Baseball Cap of Pogomastery)[end if], you feel instantly jovial and can[apostrophe]t help but break into a little spontaneous [if the player is wearing the wetsuit], but awkward,[end if] beta-testing dance.[paragraph break]";
+	say "Wearing the hat[if the player wears the Baseball Cap of Pogomastery] (on top of the Baseball Cap of Pogomastery)[end if], you feel instantly jovial and can[apostrophe]t help but break into a little spontaneous[if the player is wearing the wetsuit], but awkward,[end if] beta-testing dance.[paragraph break]";
 	bestow "Team Spirit".
 	
 After wearing the party hat:
@@ -6569,25 +6569,25 @@ To say liftButtonDescription of (LB - a lift button):
 	say " [LB] is ";
 	if Selected corresponding to the Control of LB in the Table of Building Floors is false:
 		say "not ";
-	say "illuminated."
+	say "illuminated"
 	
-cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "Cafeteria button". Understand "cafeteria" or "button" or "white" as the cafeteriaButton. The description of the cafeteriaButton is "[liftButtonDescription of cafeteriaButton]".
+cafeteriaButton is a lift button. It is part of the elevatorControl. The printed name of cafeteriaButton is "Cafeteria button". Understand "cafeteria" or "button" or "white" as the cafeteriaButton. The description of the cafeteriaButton is "[liftButtonDescription of cafeteriaButton].".
 
-packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "Packaging button". Understand "packaging" or "button" or "purple" as the packagingButton. The description of the packagingButton is "[liftButtonDescription of packagingButton]".
+packagingButton is a lift button. It is part of the elevatorControl. The printed name of the packagingButton is "Packaging button". Understand "packaging" or "button" or "purple" as the packagingButton. The description of the packagingButton is "[liftButtonDescription of packagingButton].".
 
-processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "Processing button". Understand "processing" or "button" or "purple" as the processingButton. The description of the processingButton is "[liftButtonDescription of processingButton]".
+processingButton is a lift button. It is part of the elevatorControl. The printed name of the processingButton is "Processing button". Understand "processing" or "button" or "purple" as the processingButton. The description of the processingButton is "[liftButtonDescription of processingButton].".
 
-infirmaryButton is a lift button. It is part of the elevatorControl. The printed name of the infirmaryButton is "Infirmary button". Understand "infirmary" or "button" or "pink" as the infirmaryButton. The description of the infirmaryButton is "[liftButtonDescription of infirmaryButton]".
+infirmaryButton is a lift button. It is part of the elevatorControl. The printed name of the infirmaryButton is "Infirmary button". Understand "infirmary" or "button" or "pink" as the infirmaryButton. The description of the infirmaryButton is "[liftButtonDescription of infirmaryButton].".
 
-managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButton is "Managers button". Understand "manager" or "managers" or "button" or "black" as the managersButton. The description of the managersButton is "[liftButtonDescription of managersButton]".
+managersButton is a lift button. It is part of the elevatorControl. The printed name of the managersButton is "Managers button". Understand "manager" or "managers" or "button" or "black" as the managersButton. The description of the managersButton is "[liftButtonDescription of managersButton].".
 
-engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "Engineers button". Understand "engineer" or "engineers" or "button" or "black" as the engineersButton. The description of the engineersButton is "[liftButtonDescription of engineersButton]".
+engineersButton is a lift button. It is part of the elevatorControl. The printed name of the engineersButton is "Engineers button". Understand "engineer" or "engineers" or "button" or "black" as the engineersButton. The description of the engineersButton is "[liftButtonDescription of engineersButton].".
 
-internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" or "black" as the internsButton. The description of the internsButton is "[liftButtonDescription of internsButton]".
+internsButton is a lift button. It is part of the elevatorControl. The printed name of the internsButton is "Interns button". Understand "intern" or "interns" or "button" or "black" as the internsButton. The description of the internsButton is "[liftButtonDescription of internsButton].".
 
-lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "Lobby button". Understand "lobby" or "ground" or "button" or "white" as the lobbyButton. The description of the lobbyButton is "[liftButtonDescription of lobbyButton]".
+lobbyButton is a lift button. It is part of the elevatorControl. The printed name of the lobbyButton is "Lobby button". Understand "lobby" or "ground" or "button" or "white" as the lobbyButton. The description of the lobbyButton is "[liftButtonDescription of lobbyButton].".
 
-legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" or "green" as the legalButton. The description of the legalButton is "[liftButtonDescription of legalButton]".
+legalButton is a lift button. It is part of the elevatorControl. The printed name of the legalButton is "Legal Department button". Understand "legal" or "department" or "basement" or "button" or "green" as the legalButton. The description of the legalButton is "[liftButtonDescription of legalButton].".
 
 The arrow is part of the elevatorControl. The description of the arrow is "A glowing arrow that points [if the elevator is upward]up[otherwise]down[end if]."
 
