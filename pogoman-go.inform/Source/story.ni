@@ -4618,7 +4618,7 @@ After going south from the Gearing Assembly:
 
 After going down from the Gearing Assembly:
 	say the headline of the location;
-	say "You [one of]climb slowly and carefully down the ladder, which descends through shaft just wide enough to accommodate one person[or]descend the ladder[stopping]."
+	say "You [one of]climb slowly and carefully down the ladder, which descends through a shaft just wide enough to accommodate one person[or]descend the ladder[stopping]."
 
 The Top Of The Ladder is above Somewhere Along the Ladder. The description of Top Of The Ladder is "You can see light coming from above, the Gearing Assembly area."
 
@@ -6219,7 +6219,7 @@ The Captain's Chair is a enterable scenery supporter in the Captain's Cabin. The
 
 After entering the chair for the first time:
 	say "Yeah, that feels pretty good.[paragraph break]";
-	bestow "You have the conn."
+	bestow "You have the conn"
 	
 The driftwood desk is a supporter in the Captain's Cabin. The description of the driftwood desk is "A small but functional desk made of smooth driftwood."
 
