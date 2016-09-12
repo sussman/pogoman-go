@@ -16,7 +16,7 @@ Use full-length room descriptions, american dialect and the serial comma.
 
 [TODO: can add with... a website, the source text, the library card, the introductory postcard]
 
-Release along with cover art ("The Nyantech mascot cat riding a giant pogoball"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
+Release along with cover art ("The Nyantech mascot cat riding a giant pogoBall"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [slightly tweaked for context-specific hints]
@@ -110,7 +110,7 @@ The player has a number called pogoLevel.
 The player has a number called XP.
 The player has a number called distance walked. Distance walked is 0.
 The player has a color called team color. The team color of the player is usually none.
-The player has a number called pogoballsCarried.  pogoballsCarried is 5.
+The player has a number called pogoBallsCarried.  pogoBallsCarried is 5.
 The player has a number called pogoChumsCarried. pogoChumsCarried is 2.
 The player has a number called pogoMethsCarried. pogoMethsCarried is 0.
 The player has a number called pogoEggsCarried. pogoEggsCarried is 0. [if any, add to when play begins]
@@ -174,7 +174,7 @@ EXPERT_PREPOGO_ENCOUNTER_VALUE is always 10.
 POGO_ENCOUNTER_VALUE is always 10.[pogoland]
 EXPERT_POGO_ENCOUNTER_VALUE is always 25.
 
-[Difficulty for capturing items with pogoball, always out of 100]
+[Difficulty for capturing items with pogoBall, always out of 100]
 CAPTURE_EVOL1_DIFFICULTY is always 80.
 CAPTURE_EVOL2_DIFFICULTY is always 60.
 CAPTURE_EVOL3_DIFFICULTY is always 40.
@@ -195,7 +195,7 @@ EXPERT_SPECIAL_ATTACK_XP_COST is always 1000.
 MUSK_DEF is always 80.
 EXPERT_MUSK_DEF is always 90.
 
-[Capturing the Player in the Giant Pogoball]
+[Capturing the Player in the Giant PogoBall]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
 CAPTURE_RANDOMNESS is always 80.
 CAPTURE_THRESHOLD is always 150. [when desire + randomness > threshold, pogoman decides to try a capture]
@@ -281,29 +281,29 @@ Section 1 - Pogo Items
 
 A pogothing is a kind of thing.
 
-A Pogoball-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoballs at them[or][stopping].".  Understand "ball" or "balls" as a pogoball-kind.  The plural of pogoball-kind is PogoBalls. 
+A PogoBall-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoBalls at them[or][stopping].".  Understand "ball" or "balls" as a pogoBall-kind.  The plural of pogoBall-kind is PogoBalls. 
 
-A Pogochum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogochum appears as a glistening bit of heart-shaped meat[one of]. Pogomen that you haven[apostrophe]t captured yet seem to enjoy them and you gain experience points by feeding pogochum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogochum-kind.  The plural of pogochum-kind is PogoChums.
+A PogoChum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogoChum appears as a glistening bit of heart-shaped meat[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogoChum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogoChum-kind.  The plural of pogoChum-kind is PogoChums.
 
-A Pogometh-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogometh to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogometh-kind.  The plural of pogometh-kind is PogoMeths. 
+A PogoMeth-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogoMeth to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogoMeth-kind.  The plural of pogoMeth-kind is PogoMeths. 
 
-A Pogoegg-kind is a kind of pogothing. The description is "An unhatched pogoman egg ([italic type]drop[roman type] the egg to hatch it)." Understand "egg" as a pogoegg-kind. The plural of pogoegg-kind is pogoeggses.
+A PogoEgg-kind is a kind of pogothing. The description is "An unhatched pogoman egg ([italic type]drop[roman type] the egg to hatch it)." Understand "egg" as a pogoEgg-kind. The plural of pogoEgg-kind is pogoEggses.
 
 A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc. Burn the incense to activate it." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
 
 To decrement (item - a pogothing) count:
 	let N be 0;
 	if item is:
-		-- pogoball:
-			decrease pogoballsCarried of the player by one;
-			let N be pogoballsCarried of the player;
-		-- pogochum:
+		-- pogoBall:
+			decrease pogoBallsCarried of the player by one;
+			let N be pogoBallsCarried of the player;
+		-- pogoChum:
 			decrease pogoChumsCarried of the player by one;
 			let N be pogoChumsCarried of the player;
-		-- pogometh:
+		-- pogoMeth:
 			decrease pogoMethsCarried of the player by one;
 			let N be pogoMethsCarried of the player;
-		-- pogoincense:
+		-- pogoIncense:
 			decrease pogoIncenseCarried of the player by one;
 			let N be pogoIncenseCarried of the player;
 		-- pogoEgg:
@@ -322,31 +322,31 @@ To decrement (item - a pogothing) count:
 
 Instead of dropping a pogothing (called the item):
 	If the item is:
-		-- pogoball:
+		-- pogoBall:
 			say "The PogoBall drops to the ground, spins confusedly in search of a target, gives up, then blinks and disappears.";
 			say line break;
-			decrement pogoball count;
-		-- pogoincense:
-			say "You throw away a pogoincense.";
+			decrement pogoBall count;
+		-- pogoIncense:
+			say "You throw away a pogoIncense.";
 			say line break;
-			decrement pogoincense count;
-		-- pogochum:
+			decrement pogoIncense count;
+		-- pogoChum:
 			if Around the Town is happening:
-				say "You throw away a piece of pogochum.";
+				say "You throw away a piece of pogoChum.";
 			otherwise:
 				say "The moldy chunk of meat hits the ground with a wet smack and then melts[one of]. Creepy[or][stopping].";
 			say line break;
-			decrement pogochum count;
-		-- pogometh:
+			decrement pogoChum count;
+		-- pogoMeth:
 			if Around the Town is happening:
 				if the location of the player contains the attackerPogoman:
-					try giving pogometh to the attackerPogoman;
+					try giving pogoMeth to the attackerPogoman;
 				otherwise:
-					say "You throw away a vial of pogometh[one of].[paragraph break]Kids: Just say [quotation mark]No![quotation mark] to pogometh[or][stopping].";
+					say "You throw away a vial of pogoMeth[one of].[paragraph break]Kids: Just say [quotation mark]No![quotation mark] to pogoMeth[or][stopping].";
 					say line break;
-					decrement pogometh count;
+					decrement pogoMeth count;
 			otherwise:
-				say "You totally drop some pogometh.";
+				say "You totally drop some pogoMeth.";
 				pogoMethEffect;
 		-- pogoEgg:
 			let P be a random pogotype;
@@ -377,9 +377,9 @@ Instead of putting a pogothing (called the item) on something:
 [may need to disable the futile to throw things at inanimate objects rule]
 
 Instead of throwing a pogothing (called the item) at:
-	if the item is the pogoball:
+	if the item is the pogoBall:
 		if the second noun is a room:
-			try dropping the pogoball;
+			try dropping the pogoBall;
 		otherwise:
 			continue the action;
 	otherwise:
@@ -404,47 +404,47 @@ To say notReal:
 Instead of touching a pogothing when Around the Town is happening:
 	say notReal.
 	
-Instead of eating pogochum:
+Instead of eating pogoChum:
 	if Around the Town is happening:
-		try touching the pogochum;
+		try touching the pogoChum;
 	otherwise:
-		say "[one of]It must be an acquired taste, because this time, it is not too bad[or]You find yourself rather enjoying pogochum[or]This is some fine pogochum[or]Musk is a genius! This stuff is awesome[or]Where has pogochum been all your life. You can[apostrophe]t get enough[or]Mmm. Pogochum[stopping].";
+		say "[one of]It must be an acquired taste, because this time, it is not too bad[or]You find yourself rather enjoying pogoChum[or]This is some fine pogoChum[or]Musk is a genius! This stuff is awesome[or]Where has pogoChum been all your life. You can[apostrophe]t get enough[or]Mmm. PogoChum[stopping].";
 		say line break;
-		decrement pogochum count.						
+		decrement pogoChum count.						
 				
-Instead of eating pogochum when Not In Kansas Anymore is happening for the first time:
+Instead of eating pogoChum when Not In Kansas Anymore is happening for the first time:
 	say "Hm. Kind of tasty, actually. Like sushi, but a bit more rangy.[paragraph break]";
 	bestow "Best not to think about what you just put in your mouth";
 	say line break;
-	decrement pogochum count.
+	decrement pogoChum count.
 	
-Instead of eating the pogoball:
+Instead of eating the pogoBall:
 	say "While red and round, they are not apples[one of]. This oral fixation is only going to get you in trouble[or][stopping]."
 	
 Instead of eating a pogoEgg:
 	say "It[apostrophe]s not that kind of egg."
 		
-Section 2 - The Wonderful World of Pogometh
+Section 2 - The Wonderful World of PogoMeth
 
 Instead of eating PogoMeth when Not in Kansas Anymore is happening for the first time:
-	say "You feel much better… but realize that pogometh has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
+	say "You feel much better… but realize that pogoMeth has some side effects. The sky, for instance, sounds extraordinarily colorful.[paragraph break]";
 	pogoMethEffect;
 	bestow "Iatrogenically Induced Synesthesia".
 	
 Instead of eating PogoMeth:
 	if Exploring the Tower has not ended:
-		say "If only pogometh were real[one of]. Alas, it is only part of a game, and only useful for healing pogomen[or][stopping]!";
+		say "If only pogoMeth were real[one of]. Alas, it is only part of a game, and only useful for healing pogomen[or][stopping]!";
 	otherwise:
-		say "You munch down a pogometh[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].[paragraph break]Instantly, you feel much better.[paragraph break]";
+		say "You munch down a pogoMeth[one of]. Not much on taste (but of course, that[apostrophe]s about to change anyhow)[or][stopping].[paragraph break]Instantly, you feel much better.[paragraph break]";
 		pogoMethEffect.
 
 	
-Instead of taking pogometh when Not in Kansas Anymore is happening for the first time:
+Instead of taking pogoMeth when Not in Kansas Anymore is happening for the first time:
 	say "You take one standard adult (which is questionable) dose.[paragraph break]";
 	pogoMethEffect;
 	bestow "Self-Medicating".
 	
-Instead of taking the pogometh when Not in Kansas Anymore is happening:
+Instead of taking the pogoMeth when Not in Kansas Anymore is happening:
 	say "You take one dose.[paragraph break]";
 	pogoMethEffect.
 	
@@ -457,7 +457,7 @@ To pogoMethEffect:
 			now the healthiness of the player is the health state before the healthiness of the player.
 	
 At the time when the trip ends:
-	say "The mind-altering effects of the pogometh seem to have worn off.";
+	say "The mind-altering effects of the pogoMeth seem to have worn off.";
 	now the PogoMeth is not trippy.
 	
 Instead of smelling when the PogoMeth is trippy for the first time:
@@ -513,8 +513,8 @@ At the time when Incense dissipates:
 	say "The incense wears off[one of]; pogomen no longer find you quite so attractive[or][stopping].";
 	now the pogoIncense is not ignited.
 	
-Instead of switching on pogoincense:
-	try burning the pogoincense.
+Instead of switching on pogoIncense:
+	try burning the pogoIncense.
 	
 
 Section 4 - Pogostops
@@ -758,7 +758,7 @@ To say attackingPogomanName:
 	say "[if the attackerPogoman is injured]wounded [end if][if Not in Kansas Anymore is happening]attacking[otherwise]wild[end if] [type of attackerPogoman]".
 
 Instead of taking a pogoentity:
-	say "You'll have to throw a Pogoball at it to capture it!".
+	say "You'll have to throw a PogoBall at it to capture it!".
 		
 Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
@@ -877,7 +877,7 @@ Instead of attacking a pogoentity (called the opponent):
 				say "[attackStyle] the [type of attackerPogoman]";
 				if the attackerPogoman is injured:
 					if the player is in the gymnasium and a random chance of 50 in 100 succeeds:
-						say ". Defeated, it vanishes. A moment later, you are sucked back into a pogoball.";
+						say ". Defeated, it vanishes. A moment later, you are sucked back into a pogoBall.";
 						increase the pogomenDefeated of the player by 1;
 						teleport the player to Processing;
 					otherwise:
@@ -971,10 +971,10 @@ Capturing is an action applying to a thing. Understand "capture [thing]" or "cat
 Check capturing:
 	if the noun is a person:
 		if the noun is an animal:
-			if the player carries the pogoball:
+			if the player carries the pogoBall:
 				continue the action;
 			otherwise:
-				say "You don[apostrophe]t have any pogoballs[one of]! You capture pogomen by throwing pogoballs at them, so go get some pogoballs first[or][stopping]!";
+				say "You don[apostrophe]t have any pogoBalls[one of]! You capture pogomen by throwing pogoBalls at them, so go get some pogoBalls first[or][stopping]!";
 				stop the action;
 		otherwise:
 			say "That[apostrophe]s illegal, well, at least here it is.";	
@@ -983,9 +983,9 @@ Check capturing:
 		try taking the noun.
 
 Carry out capturing:
-	try throwing the pogoball at the noun.
+	try throwing the pogoBall at the noun.
 	
-Instead of throwing a pogoball at something (called the target):
+Instead of throwing a pogoBall at something (called the target):
 	if the target is a pogoentity:
 		[Is there room in stock?]
 		sort the Table of Inventory in PogoName order;
@@ -1014,7 +1014,7 @@ Instead of throwing a pogoball at something (called the target):
 				now the wounded entry is true;
 			otherwise:
 				now the wounded entry is false;
-			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoball[or]curve ball[or]slider[or]spinning pogoball[or]winding pogoball[or]fastball[or]whirling pogoball[or]tumbling pogoball[or]screwball[in random order] at the [type of the target]";	
+			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoBall[or]curve ball[or]slider[or]spinning pogoBall[or]winding pogoBall[or]fastball[or]whirling pogoBall[or]tumbling pogoBall[or]screwball[in random order] at the [type of the target]";	
 			let N be a random number between 1 and the number of entries in TRAJECTORYLIST;
 			let TXT be entry N of TRAJECTORYLIST;
 			replace the word "xxx" in TXT with "[type of target]";
@@ -1038,24 +1038,24 @@ Instead of throwing a pogoball at something (called the target):
 					blank out the guardian entry;
 					blank out the wounded entry;
 				otherwise:
-					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping].[paragraph break]";
+					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoBall and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping].[paragraph break]";
 					increase the pogomenCaptured of the player by 1;
 					awardXP CAPTURE_XP_VALUE ; 
 			if FIRSTTHROW is true:
 				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
 				increase the pogomenCaptured of the player by 1;
-				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoballs!";
+				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoBalls!";
 		otherwise:[target missed]
-			say "You throw a pogoball at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]ricochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
+			say "You throw a pogoBall at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]ricochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
 	otherwise:
-		say "You chuck the pogoball, and encountering no pogoman, it implodes when it lands.[paragraph break]";
-	decrement pogoball count.
+		say "You chuck the pogoBall, and encountering no pogoman, it implodes when it lands.[paragraph break]";
+	decrement pogoBall count.
 	
 
 The list of text called TRAJECTORYLIST is always {
 " and are amused when the half-open ball plops down on the its head and pulls it upward into the ball",
-". Futilely, it yells something at you in defiance, but the sound is drowned out by the energy vortex that draws the pogoman into the waiting pogoball",
+". Futilely, it yells something at you in defiance, but the sound is drowned out by the energy vortex that draws the pogoman into the waiting pogoBall",
 " and bowl it down with the deadly accuracy of a world-class pétanque champion",
 " and are amused by its futile attempt to escape the overwhelming attraction of the ball, which snaps shut as soon as the pogoman is imprisoned",
 " nailing it right between the eyes. Dazed, it falls stiffly forward into the waiting ball and is pulled in",
@@ -1072,18 +1072,18 @@ The list of text called TRAJECTORYLIST is always {
 ". It runs, but the ball over takes it and draws it in",
 " and peg it in the [one of]thigh[or]hip[or]buttocks[or]nape of the neck[or]groin[in random order]. A moment later, the ball absorbs the xxx",
 ". The xxx says a brief prayer to a pogodeity, but to no avail; the ball splits open and pulls the pogoman in as the words die on its lips",
-" and watch it home in on its target. The xxx tries to run, but is not fast enough to evade the pogoball",
+" and watch it home in on its target. The xxx tries to run, but is not fast enough to evade the pogoBall",
 ". In mid-flight, the ball opens and smaller ball jets forward, also opening on its way to the xxx. The smaller ball sucks in the xxx, and then is itself captured by the larger ball",
 ". About halfway to the pogoman, the ball opens and closes repeatedly, like a red and white spherical Pacman. This evokes some sort of deep-seated race memory of videogame ur-predators and the xxx falls to the ground, shaking in terror before being drawn into the ball",
 ". The ball hits so hard that the pogoman pixelates at the point of impact. A moment later, the xxx is vacuumed up",
-". The ball is flying so fast as it passes the pogoman that the creature is drawn out into a long string of glowing plasma before the it is spooled into the closing pogoball",
+". The ball is flying so fast as it passes the pogoman that the creature is drawn out into a long string of glowing plasma before the it is spooled into the closing pogoBall",
 " and bag it neatly",
 " and add another xxx to today[apostrophe]s take",
 " and nail it with [one of]deadly accuracy[or]an eagle eye[or]great acumen[or]panache[or]exquisite style[or]ease[in random order]",
 " careful to keep it centered on the target, lest the xxx try to duck or evade to the side. The ball flies true and pogoman is drawn in",
 " with a flick of the wrist, capturing the pogoman in a rotating attraction field that wrings xxx out like a wet rag before sucking into the ball",
 " eager to add one more prize to your collection. Your aim is good and the xxx is pulled into the ball",
-" and hear a loud crack. At first you suspect it is the plastic ball, but one look at the pogoman tells you otherwise. Holding its [one of]aching head[or]disarticulated shoulder[or]unnaturally bent leg[or]bowed arm[in random order], the pogoman is pulled into the red and white pogoball",
+" and hear a loud crack. At first you suspect it is the plastic ball, but one look at the pogoman tells you otherwise. Holding its [one of]aching head[or]disarticulated shoulder[or]unnaturally bent leg[or]bowed arm[in random order], the pogoman is pulled into the red and white pogoBall",
 " and nearly put out its eye. The startled pogoman is easy pickings for the ball, which pops open and consumes the now sight-impaired xxx",
 " and knock it unconscious. Regardless, the ball sucks in the limp body of the xxx",
 ". The pogoman scrapes at the ground to resist, but the attractive force of the ball is too great",
@@ -1104,7 +1104,7 @@ The list of text called TRAJECTORYLIST is always {
 ". The ball cracks it on the head. It lurches to the side, bleeding slightly from the contusion and is sucked into the ball with a slurping sound",
 ". The ball opens and the xxx is somehow compacted into a much smaller volume that should be possible",
 " and hit it dead on. The xxx leaves claw marks in the ground as it struggles to resist the ball[apostrophe]s attraction, but is ultimately pulled in",
-" and knock it off its feet. Before it can recover, it is drawn into the pogoball, which immediately clamps shut around it",
+" and knock it off its feet. Before it can recover, it is drawn into the pogoBall, which immediately clamps shut around it",
 ". The pogoman attempts to catch it, but the ball goes off like grenade, nearly tearing the limbs off the xxx as it is yanked into the ball",
 ", which dives under it, only to be sucked upwards into the ball",
 ", who jumps up just in time to be hit in the [one of]gut[or]belly[or]stomach[in random order] by the ball. The xxx is thrown backwards and disappears into the ball before it hits the ground",
@@ -1248,7 +1248,7 @@ Check inventoryDropping:
 			stop the action;
 	if Exploring The Tower has ended:
 		if the player is in the giant ball:
-			say "You can[apostrophe]t. You are trapped in a pogoball yourself!";
+			say "You can[apostrophe]t. You are trapped in a pogoBall yourself!";
 			stop the action;
 		if the defenderPogoman is in the location of the player:
 			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
@@ -1273,7 +1273,7 @@ Carry out inventoryDropping:
 					now the defenderPogoman is injured;
 				let C be the team color of the player;
 				let CC be "[C]" in lower case;
-				say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoball and takes up a defensive stance.";
+				say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoBall and takes up a defensive stance.";
 				now the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is P;
 				now the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is W;
 			otherwise:
@@ -1476,7 +1476,7 @@ Understand "heal loyal [pogotype]" as inventoryHealing.
 Check inventoryHealing:
 	sort Table of Inventory in reverse wounded order;
 	if the pogoMethsCarried of the player is less than 1:
-		say "You are out of pogometh[one of]. Can[apostrophe]t heal anything without some pogometh[or][stopping].";
+		say "You are out of pogoMeth[one of]. Can[apostrophe]t heal anything without some pogoMeth[or][stopping].";
 		stop the action;
 	else if the defenderPogoman is in the location of the player and the type of defenderPogoman is the pogotype understood:
 		try healing the defenderPogoman;[a present defender has priority over stock]
@@ -1502,17 +1502,17 @@ Carry out InventoryHealing:
 		choose row N in the Table of Inventory;
 		if the pogoName entry is the pogotype understood:
 			if the wounded entry is false:
-				say "You hold the pogometh near one of the pogoballs in your stock, and even though it isn[apostrophe]t injured, a paw reaches out, grabs the offered pogometh, and retreats again back into the ball.";
+				say "You hold the pogoMeth near one of the pogoBalls in your stock, and even though it isn[apostrophe]t injured, a paw reaches out, grabs the offered pogoMeth, and retreats again back into the ball.";
 				break;
 			else:
 				now the wounded entry is false;
-				say "You drop a bit of pogometh into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.[paragraph break]";
-				decrement pogometh count;
+				say "You drop a bit of pogoMeth into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.[paragraph break]";
+				decrement pogoMeth count;
 				break.	
 				
 Section 7 - inventoryGiving
 
-[covers both giving pogometh and pogochum to pogomen in stock]
+[covers both giving pogoMeth and pogoChum to pogomen in stock]
 
 inventoryGiving is an action applying to one thing and one pogotype. 
 
@@ -1585,9 +1585,9 @@ Check inventoryFeeding:
 			stop the action.
 			
 Carry out inventoryFeeding:
-	say "A pogoball cracks open, a miniature arm reaches out, and the PogoChum disappears into the ball. Shortly after, you hear satisfied chewing sounds.[paragraph break]";
+	say "A pogoBall cracks open, a miniature arm reaches out, and the PogoChum disappears into the ball. Shortly after, you hear satisfied chewing sounds.[paragraph break]";
 	awardXP CHUMMING_XP_VALUE;
-	decrement pogochum count.
+	decrement pogoChum count.
 
 Section 9 - nonPogoHealing
 
@@ -1608,9 +1608,9 @@ Check nonPogoHealing:
 			stop the action;
 		else:
 			if the pogoMethsCarried of the player is greater than 0:
-				try eating pogometh;
+				try eating pogoMeth;
 			otherwise:
-				say "You are out of pogometh!".
+				say "You are out of pogoMeth!".
 				
 Section 10 - Walkthroughing
 
@@ -1654,7 +1654,7 @@ To say aboutWalkthrough:
 
 
 To say ATT1:
-	say "* Scan the town ([italic type]scan[roman type]). X is your position, P are pogostops, G are gyms, and N is Nyantech Corporate Headquarters.[paragraph break]* If you have files that were distributed with the game, one should be [quotation mark]diagrams[quotation mark], which has a map of the whole town. The file can also be found online at http://pogomango.templaro.com/resources/diagrams.pdf.[paragraph break]* Navigate around using compass direction commands ([italic type]n, e, w, s[roman type]). Town is a 7 x 7 grid. If you navigate too far in any direction, you will suffer the non-fatal consequences.[paragraph break]* There is one location in town (the Perilous Passage), where you will be mugged. Repeatedly. You can ignore it entirely without negative consequence. However, if you persist in visiting this location, you can eventually plunder the Baseball Cap of Pogomastery by searching the garbage can there. When worn, the cap confers advantages in capturing pogomen and in battles.[paragraph break]* If you see a pogoman, [italic type]capture[roman type] it by throwing a pogoball at it ([italic type]throw pogoball at…[roman type]).[paragraph break]* Find a location with a pogostop. To get stuff from the pogostop, [italic type]spin[roman type] it. It will yield random amounts of pogometh (which can be used to [italic type]heal[roman type] wounded pogomen), pogochum (which you can [italic type]feed[roman type] or [italic type]give[roman type] to pogomen for points), pogoincense (which you can [italic type]burn[roman type] to attract pogomen), pogoEggs (which you can [italic type]drop[roman type] to hatch pogomen), and pogoballs (used to [italic type]capture[roman type] pogomen).[paragraph break]* A pogostop cannot be immediately tapped again for more goodies; some time has to elapse. Figure out a good route to mine the local pogostops repeatedly until you are satisfied with the amount of swag collected. You can carry a maximum of 100 pogo-items, which is separate from all other inventory.[paragraph break]".
+	say "* Scan the town ([italic type]scan[roman type]). X is your position, P are pogostops, G are gyms, and N is Nyantech Corporate Headquarters.[paragraph break]* If you have files that were distributed with the game, one should be [quotation mark]diagrams[quotation mark], which has a map of the whole town. The file can also be found online at http://pogomango.templaro.com/resources/diagrams.pdf.[paragraph break]* Navigate around using compass direction commands ([italic type]n, e, w, s[roman type]). Town is a 7 x 7 grid. If you navigate too far in any direction, you will suffer the non-fatal consequences.[paragraph break]* There is one location in town (the Perilous Passage), where you will be mugged. Repeatedly. You can ignore it entirely without negative consequence. However, if you persist in visiting this location, you can eventually plunder the Baseball Cap of Pogomastery by searching the garbage can there. When worn, the cap confers advantages in capturing pogomen and in battles.[paragraph break]* If you see a pogoman, [italic type]capture[roman type] it by throwing a pogoBall at it ([italic type]throw pogoBall at…[roman type]).[paragraph break]* Find a location with a pogostop. To get stuff from the pogostop, [italic type]spin[roman type] it. It will yield random amounts of pogoMeth (which can be used to [italic type]heal[roman type] wounded pogomen), pogoChum (which you can [italic type]feed[roman type] or [italic type]give[roman type] to pogomen for points), pogoIncense (which you can [italic type]burn[roman type] to attract pogomen), pogoEggs (which you can [italic type]drop[roman type] to hatch pogomen), and pogoBalls (used to [italic type]capture[roman type] pogomen).[paragraph break]* A pogostop cannot be immediately tapped again for more goodies; some time has to elapse. Figure out a good route to mine the local pogostops repeatedly until you are satisfied with the amount of swag collected. You can carry a maximum of 100 pogo-items, which is separate from all other inventory.[paragraph break]".
 
 To say ATT2:
 	say "* Regarding captured pogomen, you can [italic type]feed[roman type] and [italic type]evolve[roman type] them. Evolving them makes them stronger (better fighters). You can [italic type]transfer[roman type] or [italic type]drop[roman type] pogomen in stock to get rid of them. Experience points are awarded for all of these actions.[paragraph break]* Once you have some pogomen, when you are in a location with a gym, you can [italic type]enter the gym[roman type]. The first few times you try this, it will crash your phone. You[apostrophe]ll need to type [italic type]reboot[roman type] (or [italic type]r[roman type] for short). Follow the prompts and keep trying, eventually you will get into the gym. Once you do manage to get in and not have your phone crash, a fight will take place. Your best pogoman will match up against whatever the gym has to offer. If you keep trying (by entering the gym), you will eventually win and get some trophies.[paragraph break]* It[apostrophe]s worth persisting about gym entry ([italic type]enter gym[roman type]) because you need a certain amount of experience to progress to the next part of the game: entering Nyantech.[paragraph break]* When you go to the center of town, the Nyantech Entrance and try to enter the building, you[apostrophe]ll be stopped by a unicorn, who will demand proof of your experience -- a certain amount of XP, player level, gym trophies, and medals. You gain gym trophies by willing gym battles. Medals are awarded liberally for interacting with the environment; chances are that if you have all the other criteria satisfied, you will also have enough medals (you can list your medals with [italic type]examine medals[roman type]). Some examples of things that yield medals: taking [italic type]inventory[roman type], examining yourself ([italic type]examine me[roman type]), [italic type]examine phone[roman type], or even waiting ([italic type]wait[roman type], or [quotation mark][italic type]z[roman type][quotation mark])."
@@ -1676,16 +1676,16 @@ To say pogolandOverview:
 	say "There is a major paradigm shift in Pogoland -- Pogoman GO! is less a game, and more a fight to survive. You may be hunting pogomen, but they are hunting you. There is a way out of pogoland, if you survive long enough to accomplish it. However, several other ends are also possible. First, let[apostrophe]s cover some pointers about how to survive, then an escape plan, and finally how to deal with various things that could happen to you."
 
 To say survivingPogoland:
-	say "* Superficially, Pogoland is like the town where you began. You can use your scanner ([italic type]scan[roman type]) to see the town. It is smaller (5 x 5) and has pogostops but not gyms -- because fighting now takes place in the streets.[paragraph break] * As you notice when you arrive in Pogoland, if you [italic type]drop[roman type] a pogoman from your stock, it will stand guard, protecting an area. These defending pogomen are loyal to your team.[paragraph break] * If you move around ([italic type]n, e, w, s[roman type]), eventually you will encounter enemy pogomen who will attack you. You have five health levels (healthy, bruised, moderately wounded, near death, and dead). If you die, either at the hands of an enemy pogoman or by going too far over a town border, you will resurrect at the local hospital.[paragraph break] * You can [italic type]eat pogometh[roman type] to heal yourself, but it will scramble your senses for a few turns.[paragraph break] * If you are in a location where there is a defending pogoman and an attacking pogoman arrives, it will first battle the defender, buying you some time. Your defender may win or lose, but even if it wins, it will be wounded, and you may want to [italic type]heal[roman type] it.[paragraph break] * If you are facing an attacker, your defensive choices include [italic type]drop[roman type] a defender (one per location), [italic type]hit[roman type] the attacker, [italic type]capture[roman type] the attacker (who then becomes loyal), or just [italic type]go[roman type] in another direction; chances are the attacker will not pursue. You can also avail yourself of your [italic type]special attack[roman type], which does a lot of damage but consumes XP."
+	say "* Superficially, Pogoland is like the town where you began. You can use your scanner ([italic type]scan[roman type]) to see the town. It is smaller (5 x 5) and has pogostops but not gyms -- because fighting now takes place in the streets.[paragraph break] * As you notice when you arrive in Pogoland, if you [italic type]drop[roman type] a pogoman from your stock, it will stand guard, protecting an area. These defending pogomen are loyal to your team.[paragraph break] * If you move around ([italic type]n, e, w, s[roman type]), eventually you will encounter enemy pogomen who will attack you. You have five health levels (healthy, bruised, moderately wounded, near death, and dead). If you die, either at the hands of an enemy pogoman or by going too far over a town border, you will resurrect at the local hospital.[paragraph break] * You can [italic type]eat pogoMeth[roman type] to heal yourself, but it will scramble your senses for a few turns.[paragraph break] * If you are in a location where there is a defending pogoman and an attacking pogoman arrives, it will first battle the defender, buying you some time. Your defender may win or lose, but even if it wins, it will be wounded, and you may want to [italic type]heal[roman type] it.[paragraph break] * If you are facing an attacker, your defensive choices include [italic type]drop[roman type] a defender (one per location), [italic type]hit[roman type] the attacker, [italic type]capture[roman type] the attacker (who then becomes loyal), or just [italic type]go[roman type] in another direction; chances are the attacker will not pursue. You can also avail yourself of your [italic type]special attack[roman type], which does a lot of damage but consumes XP."
 	
 To say escapingPogoland:
 	say "* There is a motorboat below the Wharf (see diagram) on the eastern side of town. To escape by boat, [italic type]get the watering can[roman type] from the Botanical Garden, [italic type]dump the watering can[roman type], and [italic type]fill the watering can[roman type] at the Service Station.[paragraph break]* Navigate back to the Wharf, [italic type]down[roman type] to the fishing boat, [italic type]push the motor[roman type] (which was tilted up out of the water), [italic type]open the gas tank, fill the gas tank, tighten the gas cap, engage the choke[roman type], and [italic type]pull the cord[roman type]. This leads to one possible ending of the story."
 	
 To say beingCaptured:
-	say "* Eventually, Pogomen start throwing pogoballs at you. If you are lucky, you might be able to [italic type]hit pogoball[roman type] to bust out.[paragraph break]* If you can[apostrophe]t escape a pogoball, you will end up in a gym pit against an extra-strong opponent. Your options here are the same as on the street, but you can also escape the gym by [italic type]climb rope[roman type].  If you lose this battle, you will be scooped back up in a pogoball and dropped off in the PogoChum Processing part of Nyantech Headquarters.[paragraph break]* Given long enough, you will be captured by a pogoman and not succeed in escaping from the ball. In that case, you will be [quotation mark]transferred to the Professor[quotation mark], again ending up on the PogoChum Processing floor of Nyantech HQ."
+	say "* Eventually, Pogomen start throwing pogoBalls at you. If you are lucky, you might be able to [italic type]hit pogoBall[roman type] to bust out.[paragraph break]* If you can[apostrophe]t escape a pogoBall, you will end up in a gym pit against an extra-strong opponent. Your options here are the same as on the street, but you can also escape the gym by [italic type]climb rope[roman type].  If you lose this battle, you will be scooped back up in a pogoBall and dropped off in the PogoChum Processing part of Nyantech Headquarters.[paragraph break]* Given long enough, you will be captured by a pogoman and not succeed in escaping from the ball. In that case, you will be [quotation mark]transferred to the Professor[quotation mark], again ending up on the PogoChum Processing floor of Nyantech HQ."
 	
 To say bossBattle:
-	say "Soon after arrival in Pogochum Processing, you are assaulted by Elon Musk. There[apostrophe]s nowhere to run -- with your access level, you can[apostrophe]t operate the purple-level elevator and there are no stairs.[paragraph break]* Violence is the answer at this point. You have all your options including [italic type]drop[roman type] to deploy a defending pogoman to help, [italic type]attack Elon Musk[roman type], or [italic type]special attack Elon Musk[roman type].[paragraph break]* This fight is for realsies. If Musk kills you, it[apostrophe]s Game Over.[paragraph break]* If you win the fight, you can [italic type]take golden badge[roman type], which is clipped to his lab coat. You now have access to every floor on the elevator, and each leads to an ending.[paragraph break] *[italic type]Undo[roman type] is not disabled, so you could check out each ending.[paragraph break]* There are two possible endings from a short scene in Legal Department if you choose that level.[paragraph break]* After every ending (some more successful than others), you can check out some game statistics and trivia by typing [quotation mark][italic type]amusing[roman type][quotation mark]."
+	say "Soon after arrival in PogoChum Processing, you are assaulted by Elon Musk. There[apostrophe]s nowhere to run -- with your access level, you can[apostrophe]t operate the purple-level elevator and there are no stairs.[paragraph break]* Violence is the answer at this point. You have all your options including [italic type]drop[roman type] to deploy a defending pogoman to help, [italic type]attack Elon Musk[roman type], or [italic type]special attack Elon Musk[roman type].[paragraph break]* This fight is for realsies. If Musk kills you, it[apostrophe]s Game Over.[paragraph break]* If you win the fight, you can [italic type]take golden badge[roman type], which is clipped to his lab coat. You now have access to every floor on the elevator, and each leads to an ending.[paragraph break] *[italic type]Undo[roman type] is not disabled, so you could check out each ending.[paragraph break]* There are two possible endings from a short scene in Legal Department if you choose that level.[paragraph break]* After every ending (some more successful than others), you can check out some game statistics and trivia by typing [quotation mark][italic type]amusing[roman type][quotation mark]."
 	
 Section 11 - Expert Mode
 
@@ -1697,7 +1697,7 @@ Check expertModing:
 		stop the action;
 	otherwise:
 		say "Are you sure you want to engage expert mode? ";
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let P be 0;
 		repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:
 			choose row N in the Table of Inventory;
@@ -1987,19 +1987,19 @@ This is the list exits rule:
 		
 Section 5 - Customized Inventory Details
 
-Rule for printing inventory details of a pogoball-kind:
-	say " ([pogoballsCarried of the player] total)[run paragraph on]"
+Rule for printing inventory details of a pogoBall-kind:
+	say " ([pogoBallsCarried of the player] total)[run paragraph on]"
 	
-Rule for printing inventory details of a pogochum-kind:
+Rule for printing inventory details of a pogoChum-kind:
 	say " ([pogoChumsCarried of the player] total)[run paragraph on]"
 	
-Rule for printing inventory details of a pogometh-kind:
+Rule for printing inventory details of a pogoMeth-kind:
 	say " ([pogoMethsCarried of the player] total)[run paragraph on]"
 	
-Rule for printing inventory details of a pogoegg-kind:
+Rule for printing inventory details of a pogoEgg-kind:
 	say " ([pogoEggsCarried of the player] total)[run paragraph on]"
 	
-Rule for printing inventory details of a pogoincense-kind:
+Rule for printing inventory details of a pogoIncense-kind:
 	say " ([pogoIncenseCarried of the player] total)[run paragraph on]"
 	
 
@@ -2166,38 +2166,38 @@ Check spinning:
 			continue the action;
 
 Carry out spinning:
-	let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+	let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 	if T is MODE_POGOITEM_INVENTORY_LIMIT:
 		say "Your game inventory is already maxed out at [MODE_POGOITEM_INVENTORY_LIMIT] items (not counting pogomen).";
 		stop the action;
 	otherwise:
 		now the booty of the pogostop is {};
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let B be a random number between 1 and 4;
 		[guarantees at least one item is produced by the stop]
 		if T plus B is greater than MODE_POGOITEM_INVENTORY_LIMIT:
 			let B be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if B is greater than 0:
-			add "[B] pogoball[if B is greater than 1]s[end if]" to the booty of the pogostop;
-			increase pogoballsCarried of the player by B;
-			move the pogoball to the player;
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+			add "[B] pogoBall[if B is greater than 1]s[end if]" to the booty of the pogostop;
+			increase pogoBallsCarried of the player by B;
+			move the pogoBall to the player;
+		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let C be a random number between 0 and 1;
 		if T plus C is greater than MODE_POGOITEM_INVENTORY_LIMIT:
 			let C be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if C is greater than 0:
-			add "[C] pogochum[if C is greater than 1]s[end if]" to the booty of the pogostop;
+			add "[C] pogoChum[if C is greater than 1]s[end if]" to the booty of the pogostop;
 			increase pogoChumsCarried of the player by C;
 			move the pogoChum to the player;
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let M be a random number between 0 and 1;
 		if T plus M is greater than MODE_POGOITEM_INVENTORY_LIMIT:
 			let M be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if M is greater than 0:
-			add "[M] pogometh[if M is greater than 1]s[end if]" to the booty of the pogostop;
+			add "[M] pogoMeth[if M is greater than 1]s[end if]" to the booty of the pogostop;
 			increase pogoMethsCarried of the player by M;
 			move the pogoMeth to the player;
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
+		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;			
 		let EYE be a random number from 0 to 1;
 		if T plus EYE is greater than MODE_POGOITEM_INVENTORY_LIMIT:
 			let EYE be MODE_POGOITEM_INVENTORY_LIMIT minus T;
@@ -2205,12 +2205,12 @@ Carry out spinning:
 			add "[EYE] incense" to the booty of the pogostop;
 			increase pogoIncenseCarried of the player by EYE;
 			move the pogoIncense to the player;
-		let T be pogoballsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
+		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
 		let E be a random number from 0 to 1;
 		if T plus E is greater than MODE_POGOITEM_INVENTORY_LIMIT:
 			let E be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if E is greater than 0:
-			add "[E] pogoegg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
+			add "[E] pogoEgg[if E is greater than 1]ses[end if]" to the booty of the pogostop;
 			increase pogoEggsCarried of the player by E;
 			move the pogoEgg to the player;
 		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up[one of]. Your pogostop booty shows up immediately in your inventory and is ready for use[or][stopping].[paragraph break]";
@@ -2471,15 +2471,15 @@ Understand "feed [a pogothing]" as giving it to.
 Healing is an action applying to one thing. Understand "heal [a pogoentity]" as healing.
 
 Carry out healing:
-	try giving pogometh to the noun instead.		
+	try giving pogoMeth to the noun instead.		
 	
 Instead of giving a pogothing (called the pogoitem) to someone (called the pogorecipient):
 	if the pogorecipient is not a pogoentity:
 		say "That earns you a strange look.";
 	otherwise:
 		if the pogoitem is:
-			-- pogochum:
-				say "[The pogorecipient] wolfs down the pogochum ";
+			-- pogoChum:
+				say "[The pogorecipient] wolfs down the pogoChum ";
 				if the pogorecipient is the attackerPogoman:
 					if Around the Town is happening:
 						say "hungrily and appears more friendly.";
@@ -2490,7 +2490,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 				say "[one of][line break]You gain [CHUMMING_XP_VALUE] XP![or][stopping]";
 				awardXP CHUMMING_XP_VALUE;
 				say line break;
-				decrement pogochum count;
+				decrement pogoChum count;
 		-- pogoIncense:
 				if the pogorecipient is the attackerPogoman:
 					if Around the Town is happening:
@@ -2500,15 +2500,15 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 				otherwise:
 					say "[The pogorecipient] looks at it longingly";
 				say " but does not seem inclined to take it.";
-		-- pogoball:
+		-- pogoBall:
 				if the pogorecipient is the attackerPogoman:
 					say "[The pogorecipient] looks on the ball with some trepidation and keeps its distance.";
 				else:
 					say "Your loyal [team color of the player] [pogorecipient] is eager to return to the cozy ball[one of]. You can recapture your own pogomen by throwing the ball at them[or][stopping].";
 		-- pogoEgg:
 				say "[The pogorecipient] does not seem interested in the egg.";
-		-- pogometh:
-				say "[The pogorecipient] snorts the pogometh greedily and afterwards glows warmly";
+		-- pogoMeth:
+				say "[The pogorecipient] snorts the pogoMeth greedily and afterwards glows warmly";
 				if the pogorecipient is injured:
 					say ". It seems restored to full health.[paragraph break]";
 					if the hasHealed of PogoMeth is false:
@@ -2518,7 +2518,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 					now the pogorecipient is not injured;
 				else:
 					say ".[paragraph break]";
-				decrement pogometh count.
+				decrement pogoMeth count.
 				
 [parenthetical author's note - if I type "pogo" one more time I'm going to puke.]
 					
@@ -2815,13 +2815,13 @@ After taking inventory for the first time:
 	follow the pogo-inventory rule;
 	bestow "Taking Stock".
 
-After examining a pogoball for the first time, bestow "Attention To Detail".
+After examining a pogoBall for the first time, bestow "Attention To Detail".
 
 After examining the phone for the first time, bestow "Technology Explorer".
 
 After examining the Teslatronic Energy Module for the first time, bestow "Awfully Trusting".
 
-After examining a pogochum for the first time, bestow "Suppressed further thought about it because you probably wouldn[apostrophe]t like the truth".
+After examining a pogoChum for the first time, bestow "Suppressed further thought about it because you probably wouldn[apostrophe]t like the truth".
 
 
 After waiting for the first time, bestow "Loitering Around".
@@ -3224,7 +3224,7 @@ This is the fightclub rule:
 							frontierDeath.
 						
 This is the hunter is the hunted rule:
-	say "[one of]The [attackerPogoman] chucks a pogoball at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman] takes careful aim and fires a pogoball at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
+	say "[one of]The [attackerPogoman] chucks a pogoBall at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman] takes careful aim and fires a pogoBall at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
 	move the giant ball to the location of the player;
 	now the player is in the giant ball.
 	
@@ -3330,7 +3330,7 @@ Every turn when the player is in the giant ball:
 	increase the rounds imprisoned of the giant ball by one;
 	if rounds imprisoned of the giant ball is:
 		-- 1:
-			say "The pogoball has just started to close.";
+			say "The pogoBall has just started to close.";
 		-- 2:
 			say "The ball is halfway closed.";
 		-- 3:
@@ -3341,7 +3341,7 @@ Every turn when the player is in the giant ball:
 				wait for any key;
 				say "No, I mean a [italic type]lot[roman type] of time goes by.[paragraph break]";
 				wait for any key;
-				say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play Pogoman GO! Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoball.[paragraph break]";
+				say "You don[apostrophe]t even know how long because of course your phone doesn[apostrophe]t have a calendar function since it has been optimized only to play Pogoman GO! Attempts to scratch the number of days into the plastic walls of the ball have also met with failure. Time is weird when you are stuck in a pogoBall.[paragraph break]";
 				wait for any key;
 				say "So, yeah, a really long time.[paragraph break]";
 				wait for any key;
@@ -3350,7 +3350,7 @@ Every turn when the player is in the giant ball:
 					now the healthiness of the player is bruised;
 				now the rounds imprisoned of the giant ball is 0;
 				move the giant ball to the void;
-				say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoball like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat.";
+				say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoBall like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat.";
 			otherwise:
 				say "The ball seals shut around you and you are bounced around some time as your captor goes around collecting any other holdouts that have hidden away in Pogoland.[paragraph break]Later that evening, the [type of attackerPogoman] gets in a car and while waiting for a soda and burrito, you hear it mutter something about transferring you to the professor.";
 				move the player to Processing.[there by triggering the denouement scene]
@@ -3367,7 +3367,7 @@ Every turn when the player is in the gymnasium:
 			now the attackerPogoman is not injured;
 			now the previousRoom of the player is the void;
 			move the attackerPogoman to the gymnasium;
-			say "And the biggest, meanest vermonac you have ever seen splatters out of a pogoball across the fighting mat from you."
+			say "And the biggest, meanest vermonac you have ever seen splatters out of a pogoBall across the fighting mat from you."
 
 Book 2 - Places
 
@@ -3756,7 +3756,7 @@ Instead of taking the lawn for the first time:
 	bestow "Get Off My Lawn!".
 
 Instead of taking the lawn:
-	say "Dude. Lay off the grass. There is enough pogometh for everyone."
+	say "Dude. Lay off the grass. There is enough pogoMeth for everyone."
 	
 Instead of taking the Headless Garden Gnome for the first time:
 	say "You would never live it down if caught trying to make off with the headless figurine.[paragraph break]";
@@ -7514,7 +7514,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 		ArriveInPogoland.
 		
 To ArriveInPogoland:
-	say "a pogoball falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you.[paragraph break]Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
+	say "a pogoBall falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you.[paragraph break]Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
 		say "Behind you, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
@@ -8189,17 +8189,17 @@ section 1 - Plato's Cave
 [An unconnected place  where 'original' clonable objects live... very platonic.]
 
 The Void is a room.   
-The Void contains a Pogoball-kind called PogoBall.
-The Void contains a Pogochum-kind called PogoChum.
-The Void contains a Pogometh-kind called PogoMeth. PogoMeth is edible. PogoMeth can be trippy. PogoMeth is not trippy. PogoMeth has a truth state called hasHealed. The hasHealed of PogoMeth is false.
-The Void contains a Pogoegg-kind called PogoEgg.
+The Void contains a PogoBall-kind called PogoBall.
+The Void contains a PogoChum-kind called PogoChum.
+The Void contains a PogoMeth-kind called PogoMeth. PogoMeth is edible. PogoMeth can be trippy. PogoMeth is not trippy. PogoMeth has a truth state called hasHealed. The hasHealed of PogoMeth is false.
+The Void contains a PogoEgg-kind called PogoEgg.
 The Void contains a PogoIncense-kind called PogoIncense. PogoIncense can be ignited. PogoIncense is not ignited.
 
 Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
 
-The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the translucent plastic case." Understand "pogoball" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
+The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the translucent plastic case." Understand "pogoBall" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
 
 Instead of doing something other than searching or examining or attacking with the giant ball:
 	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
@@ -8219,14 +8219,14 @@ Does the player mean attacking the giant ball: it is likely.
 Instead of attacking the giant ball:
 	if escape attempts of the giant ball is:
 		-- 0:
-			say "You slam your shoulder against the curved walls of your plastic prison and the giant pogoball bursts apart, spilling you onto the ground.";
+			say "You slam your shoulder against the curved walls of your plastic prison and the giant pogoBall bursts apart, spilling you onto the ground.";
 			let R be the location of the giant ball;
 			move the player to R;
 			move the giant ball to the void;			
 			increase the escape attempts of the ball by one;
 			now rounds imprisoned of the giant ball is 0;
 		-- 1:
-			say "[one of]You pound the sides of the pogoball with your fists, but the ball does not yield[or]You launch a flying kick against the walls of the ball. You don[apostrophe]t open it, but you do send the ball into a spin, tumbling you head over heels[or]You slam into the plastic walls with everything you have, but the ball continues to seal up[or]You pound futilely against the walls of the red orb[stopping]."
+			say "[one of]You pound the sides of the pogoBall with your fists, but the ball does not yield[or]You launch a flying kick against the walls of the ball. You don[apostrophe]t open it, but you do send the ball into a spin, tumbling you head over heels[or]You slam into the plastic walls with everything you have, but the ball continues to seal up[or]You pound futilely against the walls of the red orb[stopping]."
 			
 Instead of going a direction when the player is in the giant ball:
 	try exiting.
@@ -8699,7 +8699,7 @@ Chapter 4 - Denouement
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. Denouement ends when vitality of Elon Musk is dead.
 
 When denouement begins:
-	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[quotation mark][paragraph break]In any event, it[apostrophe]s time for Nyantech to eat its own dog food as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogochum!";
+	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[quotation mark][paragraph break]In any event, it[apostrophe]s time for Nyantech to eat its own dog food as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogoChum!";
 	now the healthiness of the player is healthy;
 	move Elon Musk to Processing;
 	now the topLevel of the player is the pogoLevel of the player.
@@ -8806,7 +8806,7 @@ A hint deactivation rule (this is the capture explained hint deactivation rule):
 Table of Capture Explained
 hint	used
 "Pogomen wander around. When you spot one, capture it."	
-"To capture a Pogoman, throw a Pogoball at it."
+"To capture a Pogoman, throw a PogoBall at it."
 "If you miss, try again."
 "The commands [italic type]catch[roman type] or [italic type]capture[roman type] will also work."
 "If you run out of pogoBalls, get more at a PogoStop."
@@ -8823,7 +8823,7 @@ A hint deactivation rule (this is the inventory management hint deactivation rul
 Table of Inventory Management
 hint	used
 "Captured Pogomen show up in your inventory."
-"Your options are limited since pogomen in stock are in Pogoballs."
+"Your options are limited since pogomen in stock are in PogoBalls."
 "You can [italic type]drop, evolve, examine, transfer, heal, [roman type]or [italic type]feed[roman type] captured Pogomen."
 "If you [italic type]drop[roman type] a Pogoman, it will [if Exploring The Tower has ended]stand guard[otherwise]run away[end if]."
 "If you [italic type]evolve[roman type] a Pogoman, it will increase its fighting power."	
@@ -9217,7 +9217,7 @@ hint	used
 "What happens if a defending pogoman and wild pogoman meet?"
 "You're not much of a fighter, but how about attacking a wild pogoman?"
 "How about your special attack, or are you saving it for something?"
-"If you're injured, have you tried taking pogometh?"
+"If you're injured, have you tried taking pogoMeth?"
 "Can you escape from Pogoland?"
 
 A hint activation rule (this is the Gym Class hint activation rule):
@@ -9281,7 +9281,7 @@ hint	used
 "Can you find a way to distract Elon Musk?"
 "Do you have anything in stock that will help you?"
 "Pogomen?"
-"Pogometh?"
+"PogoMeth?"
 "Musk is a great entrepreneur, but pretty lousy fighter. Can you punch him?"
 "Do you have enough XP to mount a special attack?"
 
