@@ -6141,7 +6141,6 @@ Instead of jumping when the player is in the Deck Area:
 					teleport the player to the Cat's Beret;
 				otherwise:
 					say "The Cat is no longer revolving around the building, but it is not parked right below you. When you factor certain death into your decision making process, it occurs to you that it would be better to make sure that the Cat is dead-center below the southern side of the deck (and therefore, directly beneath you) before hopping off.";
-					try looking;
 	otherwise:
 		say cantJump
 		
