@@ -2235,7 +2235,7 @@ Section 5 - Credits
 Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting.
 	
 Report crediting:
-	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? We hear that term is out of favor these days. Story? Yeah, we could go with that. But maybe something that sounds more grand. How about  Œuvre. Yes, that sounds very fancy and even forces interpreters to implement ligatures, so we[apostrophe]ll go with that. Enough about us, onto our honored contributors:[paragraph break]Early Concept Review:[line break]Jacqueline Lott[line break]Sam Kabo Ashwell[paragraph break]First pass editorial review:[line break]TBD[paragraph break]Beta-testers:[line break]TBD[paragraph break]Cover Art:[line break]TBD[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
+	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
 	bestow "So, who is to blame?".
 	
 Section 6 - Music Credits
@@ -7002,7 +7002,7 @@ Legal Department	Green	true	false	legalButton
 section 9 - Elevator Soundtrack
 
 To roll music credits:
-	say "Excerpts of the following songs are used within bounds of fair use in a transformative work. We have attempted to credit each song[apostrophe]s writer, so some of the names will not be as recognizable as the groups or individual singers usually associated with each song. If we got any of the attributions wrong, please let us know by email: pogoman@templaro.com[paragraph break]";
+	say "Excerpts of the following songs are used within bounds of fair use in a transformative work. We have attempted to credit each song[apostrophe]s writer, so some of the names will not be as recognizable as the groups or individual singers usually associated with each song. If we got any of the attributions wrong, please let us know by email: contact@pogoman.templaro.com[paragraph break]";
 	repeat with N running from 1 to the number of rows in the Table of Musical Credits:
 		say italic type;
 		say Song Name in row N of Table of Musical Credits;
