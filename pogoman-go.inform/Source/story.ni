@@ -41,6 +41,7 @@ securityColor is a kind of value. The securityColors are white, green, blue, red
 
 Flavor is a kind of value. The flavors are strawberry, blueberry, raspberry, apple, cranberry, chocolate, licorice, pumpkin, pine-nut, pesto, liver, watermelon, apricot, teriyaki, chutney, fudge, tiramisu, and cinnamon.
 
+Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonac, rodentikor, skwerl, arborrhat, nutellakin, cheezipouf, ogratic, cheezelord, snorepak, apneapod, seepap, rokabil, jazzahand, grunjturd, agnostator, beeleever, zealocanth, moldimug, funjifut, zhokkidge, seeduino, weeduino, weedowhak, iddi, iddiotto, drumpf, phlogistomander, pyromelion, arsonizard, peekatyou, pokeatyou, pukeatyou, amporb, jowlball, orbowatt, wimporwil, atlazzard, schwartzennator, gastro, queezee, barfalot, perpie, misdementor, and fellanon.
 
 Section 2 - Rooms
 
@@ -163,6 +164,7 @@ GYM_LOSS_XP_VALUE is always 50.
 CHUMMING_XP_VALUE is always 10.
 EGG_HATCH_XP_VALUE is always 25.
 STREETFIGHT_XP_VALUE is always 100.
+NEW_POGODEX_XP_VALUE is always 200.
 
 [likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
 INCENSE_EFFECT_VALUE is always 15.
@@ -254,6 +256,7 @@ POGOSTOPLIST is a list of rooms that varies.
 GYMLIST is a list of rooms that varies.
 MEDALLIST is a list of text that varies.
 TROPHYLIST is a list of text that varies.
+POGODEXLIST is a list of pogotypes that varies.
 HEADING is a list of text that varies. HEADING is {"N", "NE", "E", "SE", "S", "SW", "W", "NW"}.
 
 [Mode-dependent parameters]
@@ -717,9 +720,6 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 				
 Section 6 - Pogomen
 
-[This can go up with kinds later, but for now, here for clarify]
-Pogotype is a kind of value. The pogotypes are edator, vicore, emak, plaigrhat, vermonac, rodentikor, skwerl, arborrhat, nutellakin, cheezipouf, ogratic, cheezelord, snorepak, apneapod, seepap, rokabil, jazzahand, grunjturd, agnostator, beeleever, zealocanth, moldimug, funjifut, zhokkidge, seeduino, weeduino, weedowhak, iddi, iddiotto, drumpf, phlogistomander, pyromelion, arsonizard, peekatyou, pokeatyou, pukeatyou, amporb, jowlball, orbowatt, wimporwil, atlazzard, schwartzennator, gastro, queezee, barfalot, perpie, misdementor, and fellanon.
-
 [There is only ONE pogoman -- he's either in the Void or in the current room, with one of many temporary names.
  When the pogoman is 'captured', we simply move him back to the Void and fill out a row in an Inventory table to show the acquisition. The player can only deal with the pogoman in front of him/her.]
 
@@ -1014,7 +1014,14 @@ Instead of throwing a pogoball at something (called the target):
 			if Around The Town is happening or Exploring The Tower is Happening:
 				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target].[paragraph break]";
 				increase the pogomenCaptured of the player by 1;
-				awardXP 30; 
+				if the type of the target is not listed in POGODEXLIST:
+					add the type of the target to POGODEXLIST;
+					say "Adding your first ";
+					say "[type of target]" in title case;
+					say " to the Pogodex (use the command [italic type]pogodex[roman type] to see them all).[paragraph break]";
+					awardXP NEW_POGODEX_XP_VALUE;
+				otherwise: 
+					awardXP 30; 
 			otherwise:
 				if the target is the defenderPogoman:
 					say "a loyal [type of target].[paragraph break]";
@@ -1747,6 +1754,53 @@ Commanding is an action out of world. Understand "command" or "commands" as comm
 
 Carry out commanding:
 	say "In addition to commands commonly available in games like this, here are some additional ones that can be used at this point in the game:[paragraph break]* capture (a pogoman)[line break]* clip/unclip (something)[line break]* evolve (a pogoman)[line break]* expert mode[line break]* feed (a pogoman)[line break]* fill/empty (something)[line break][if  Exploring the Tower has ended]* guards[line break][end if]* heal (a pogoman)[line break]* reboot[line break]* scan[line break][if Exploring The Tower has ended]* special attack (someone)[line break][end if]* spin (a pogostop)[line break]* transfer (a pogoman)[paragraph break]".
+
+Section 13 - Pogodex
+
+Pogodexing is an action applying to nothing. Understand "pogodex" or "catalog" or "catalogue" or "library" or "list" as pogodexing.
+
+Carry Out Pogodexing:
+	say line break;
+	say fixed letter spacing;
+	say "You have collected [number of entries in POGODEXLIST] out of 48 pogomen![paragraph break]";
+	repeat with N running from 1 to the number of rows in the Table of Evolution:
+		choose row N in the Table of Evolution;
+		say Category entry in title case;
+		say ": ";
+		pad "[Category entry]: " spaces;
+		if original entry is listed in POGODEXLIST:
+			say "[Original entry]" in title case;
+			pad "[Original entry]" spaces;
+		otherwise:
+			say "[mystery]";
+			pad "[mystery]" spaces;
+		say " ";
+		if the ev2 entry is listed in POGODEXLIST:
+			say "[ev2 entry]" in title case;
+			pad "[ev2 entry]" spaces;
+		otherwise:
+			say "[mystery]";
+			pad "[mystery]" spaces;
+		say " ";
+		if the ev3 entry is listed in POGODEXLIST:
+			say "[ev3 entry]" in title case;			
+		otherwise:
+			say "[mystery]";
+		say line break;
+	say line break;
+	say roman type.
+		
+To say mystery:	
+	say "??????[run paragraph on]".	
+		
+To pad (glyphs - text) spaces:
+	let MAXLEN be 15; [number of characters in longest pogotype]
+	let S be the number of characters in glyphs;
+	let S be MAXLEN minus S;
+	if S is greater than 0:
+		repeat with N running from 1 to S:
+			say " ".
+	
 
 Chapter Rules Modifications
 
@@ -2929,6 +2983,8 @@ When play begins:
 			choose a blank row in the Table of Inventory;
 			now the pogoName entry is P;
 			now the wounded entry is W;
+			if the P is not listed in POGODEXLIST:
+				add P to POGODEXLIST;
 	openGame.
 	
 To openGame:
