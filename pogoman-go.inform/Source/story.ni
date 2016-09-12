@@ -7,7 +7,7 @@ The release number is 2.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
-Use MAX_STATIC_DATA of 260000.
+Use MAX_STATIC_DATA of 270000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
 Use Max_DICT_ENTRIES of 1600.
 Use MAX_SYMBOLS of 25000.
@@ -3089,6 +3089,11 @@ Chapter Every Turn
 
 Section 1 - General
 
+To decide if (word - a text) begins with a vowel:
+	let W be word in lower case;
+	if character number 1 in W is listed in {"a","e","i","o","u"}, decide yes;
+	decide no.
+
 Every turn:	
 	follow the pogoman apparition rule;
 	CheckLevel; [possibly level-up the player]
@@ -3133,7 +3138,7 @@ This is the pogoman apparition rule:
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
 			let T be "[type of attackerPogoman]" in title case;
-			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [T] appears![paragraph break]".
+			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A[if T begins with a vowel]n[end if] [T] appears![paragraph break]".
 			
 This is the fightclub rule:
 	if the attackerPogoman is in the location of the player:
