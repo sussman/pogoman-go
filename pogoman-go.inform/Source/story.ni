@@ -4528,7 +4528,7 @@ Chapter Inside Nyantech
 
 Section 1 - Region HQ
 
-HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Interns, Engineers, Managers, Packaging, and Processing are rooms in HQ.
+HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Interns, Engineers, Managers, Packaging, Security Checkpoint, Infirmary, and Processing are rooms in HQ.
 
 Section 2 - Cafeteria
 
