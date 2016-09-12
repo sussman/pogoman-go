@@ -5961,6 +5961,13 @@ Instead of climbing the chain:
 	otherwise:
 		say "No need. The chain is already clipped. If you really want to, you can";
 	say " just go in that direction or jump."
+	
+Instead of attacking the chain for the first time:
+	say "Surely, you can find a better way.[paragraph break]";
+	bestow "HULK SMASH CHAIN!!!!!".
+	
+Instead of attacking the chain:
+	say "You about just unclipping it?"
 
 Instead of going south when the player is in DeckS:
 	try jumping.
