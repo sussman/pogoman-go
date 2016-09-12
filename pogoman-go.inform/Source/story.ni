@@ -5010,6 +5010,9 @@ Section 13 - LAN Closet
 
 The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "A[if the LAN Closet Door is open]n open[otherwise] shut[end if] metallic door in the Lobby[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[otherwise]. The door is marked [quotation mark]LAN Closet[quotation mark], and below that in smaller letters, [quotation mark]and CAT control[quotation mark][end if]." Understand "metallic" as the LAN closet door. The LAN Closet Door has a truth state called wasNoticed. The wasNoticed of the LAN Closet Door is false.
 
+Instead of exiting when the player is in the LAN Closet:
+	try going west.
+
 After examining the LAN Closet Door for the first time:
 	now the wasNoticed of the LAN Closet Door is true.
 
