@@ -3067,7 +3067,7 @@ The looming shadow of Nyantech stage business rule is listed after the off limit
 
 This is the looming shadow of Nyantech stage business rule:
 	if the player is in the Village:
-		if a random chance of 1 in 8 succeeds:
+		if a random chance of 1 in 7 succeeds:
 			if the number of entries in NYANCLUEBAT is greater than 0:
 				say "[entry 1 of NYANCLUEBAT].";
 				remove entry 1 from NYANCLUEBAT;
@@ -3079,7 +3079,7 @@ The strangely prescient rantings of Oswaldo stage business rule is listed after 
 
 This is the strangely prescient rantings of Oswaldo stage business rule:
 	if the player is in the Village:
-		if a random chance of 1 in 10 succeeds:
+		if a random chance of 1 in 9 succeeds:
 			if the number of entries in OSWALDOBUSINESS is greater than 0:
 				say "[entry 1 in OSWALDOBUSINESS].";
 				remove entry 1 from OSWALDOBUSINESS;
