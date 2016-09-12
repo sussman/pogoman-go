@@ -6338,10 +6338,11 @@ The logbook is a prop on the driftwood desk. The description of the logbook is "
 
 The entries are part of the logbook. The description of the entries is "[one of]You kick back and relax for some light reading. The log starts off with some technical stuff and diagrams that you thumb through, then some description of various controls aboard the cat, sensors, gearing assemblies, autonomous thruster gimbals, and so on. The middle part of the log is filled with monotonous daily entries about rotation speed, oil pressure, and the like. Boring.[paragraph break]Ah, the last bit becomes more narrative. As you read along the precise block printing of an engineer breaks down into a flowing script and finally a fragmented shorthand and you realize that you are reading the ravings of a madman, or perhaps a visionary. Technological descriptions blend into diatribes about the potential of technology to augment or even steer evolution of individuals or human society taken large. The rantings interlace fantastic hope with dire predictions of a dystopian future.[paragraph break] As you snap the book shut, you aren[apostrophe]t sure what to make of it. While rambling and histrionic at points, you can[apostrophe]t find fault in any of the technical aspects of the logbook, and even the conclusions seem plausible or at least internally consistent, but only if you accept their outlandish premises.[or]A logbook full of both technical material and the ravings of a mad genius[stopping].".
 
+Instead of opening the logbook:
+	try examining the entries.
+
 Instead of doing something other than examining with the entries:
 	say "Do you mean to do that with the logbook?";
-
-[TODO: implement write verb to write in the logbook]
  
 The hurricane lantern is a lightsource on the desk. Understand "lamp" as the hurricane lantern. 
 
