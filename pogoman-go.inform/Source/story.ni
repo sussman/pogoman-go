@@ -857,8 +857,8 @@ Understand "misdementor" as the defenderPogoman when the type of defenderPogoman
 Understand "fellanon" as attackerPogoman when the type of attackerPogoman is fellanon.
 Understand "fellanon" as the defenderPogoman when the type of defenderPogoman is fellanon.
 
-Understand "loyal" or "defending" or "defender" as the defenderPogoman.
-Understand "wild" or "attacking" or "attacker" as the attackerPogoman.
+Understand "loyal" or "defending" or "defender" or "pogoman" as the defenderPogoman.
+Understand "wild" or "attacking" or "attacker" or "pogoman" as the attackerPogoman.
 Understand "Teal" as the defenderPogoman when the team color of the player is Teal.
 Understand "Chartreuse" as the defenderPogoman when the team color of the player is Chartreuse.
 Understand "Alizarin Crimson" or "Alizarin" or "Crimson" as the defenderPogoman when the team color of the player is Alizarin Crimson.
