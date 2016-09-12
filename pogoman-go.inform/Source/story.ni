@@ -5954,6 +5954,13 @@ The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. Th
 
 Instead of taking off the chain:
 	try unclipping the chain.
+	
+Instead of climbing the chain:
+	if the chain is clipped:
+		say "It would be a lot easier to unclip it and";
+	otherwise:
+		say "No need. The chain is already clipped. If you really want to, you can";
+	say " just go in that direction or jump."
 
 Instead of going south when the player is in DeckS:
 	try jumping.
