@@ -594,7 +594,7 @@ Instead of examining a gym for the first time:
 Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT for the first time:
 	let L be the goalXP after level (GYM_ENTRY_LEVEL_REQUIREMENT - 1);
 	let D be L minus the xp of the player;
-	say "You can[apostrophe]t fight in a gym until you reach level [GYM_ENTRY_LEVEL_REQUIREMENT in words]. It has something to do with your creditworthines[one of]. It looks like you are about [D] XP short of level [GYM_ENTRY_LEVEL_REQUIREMENT][or][stopping].[paragraph break]";
+	say "You can[apostrophe]t fight in a gym until you reach level [GYM_ENTRY_LEVEL_REQUIREMENT in words]. It has something to do with your creditworthiness[one of]. It looks like you are about [D] XP short of level [GYM_ENTRY_LEVEL_REQUIREMENT][or][stopping].[paragraph break]";
 	bestow "Dealt With A Minor Rebuke".
 	
 Instead of entering a gym when the pogoLevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT:
@@ -1808,8 +1808,10 @@ To add a (creature - a pogotype) to the pogodex:
 	say " to the Pogodex (use the command [italic type]pogodex[roman type] to see them all).[paragraph break]";
 	awardXP NEW_POGODEX_XP_VALUE;
 	if the number of entries in POGODEXLIST is 24:
+		say "You have collected 24 of 48 pogomen.[paragraph break]";
 		bestow "Playing With Half A Dex";
 	if the number of entries in POGODEXLIST is 48:
+		say "You have collected all 48 pogomen.[paragraph break]";
 		bestow "Collected [apostrophe]em All!".
 
 
@@ -8713,10 +8715,11 @@ title	subtable
 "What can a Beta-Tester do?"	Table of Beta Testing
 "Help! I'm totally stuck."	Table of Unstickiness
 "A wetsuit?"	Table of Aquatics
-"What to do, when I'm blue?"	Table of Blues
+"What to do, when I[apostrophe]m so blue?"	Table of Blues
 "How can Rick Astley possible help?"	Table of Rick Assistance
 "So. Many. Blinky. Lights."	Table of Blinkiness
 "In the belly of the beast"	Table of Ruby Seeking
+"Got Red?"	Table of Royal Reception
 "Champagne?"	Table of Caviar Dreams
 "How do I survive Pogoland?"	Table of Surviving Pogoland
 "A real gym fight"	Table of Gym Class
@@ -9109,7 +9112,7 @@ A hint deactivation rule (this is the Royal Reception hint deactivation rule):
 
 Table of Royal Reception
 hint	used
-"You have seen no one with a red badge. You have surpassed the other players."
+"You have seen no one with a red badge. You have surpassed all the other players."
 "What color door might a red badge open?"
 "Where would Nyantech bury its deepest secrets?"
 "The lower you go, the closer you get to revealing the truth about Nyantech."
