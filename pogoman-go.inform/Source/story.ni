@@ -3690,7 +3690,12 @@ After talking to the unicorn for the first time:
 		
 Section 9 - Ashwell-Lott Estate
 
-The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
+The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" or "house" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
+
+The vineyard is a backdrop in Ashwell-Lott Estate. The description of the vineyard is "Long rows of wooden frames covered with broad green leaves and red grapes." Understand "grape" or "grapes" or "frame" or "frames" or "leaf" or "leaves" or "winery" or "wine" as the vineyard.
+
+Instead of doing something other than examining with the vineyard:
+	say "Visitors are not allowed in the vineyard."
 
 Section 10 - Garden Gnome
 
