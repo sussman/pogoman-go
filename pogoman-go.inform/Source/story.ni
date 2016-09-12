@@ -5442,7 +5442,7 @@ Instead of entering the rickety table, say "Surely, that would be the end of the
 
 Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
 
-The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" as the walkman.
+The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
 
 After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
@@ -5453,7 +5453,7 @@ Instead of listening to the walkman when the walkman is not worn:
 	try wearing the walkman.
 
 Before switching on the walkman:
-	say "You have to wear the earphones to hear anything.";
+	say "The walkman is already on - in fact, you don[apostrophe]t seen any off switch[if the player does not wear the walkman], but you[apostrophe]ll need to put the earphones on to hear anything[end if].";
 	stop the action.
 	
 Before switching off the walkman:
