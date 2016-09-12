@@ -4758,7 +4758,7 @@ To say crawlspaceDescription:
 Instead of going up when the player is in the Crawl Space:
 	say "The bottom of the ladder is a good ten feet or more above you; you can[apostrophe]t reach it."
 
-The acoustic tiles are scenery in the Crawl Space. The description of the acoustic tiles is "Sound-absorbing tiles are all that separate this crawl space from the LAN Closet below." Understand "dust" or "tile" as the acoustic tiles when the player is in the Crawl Space.
+The acoustic tiles are scenery in the Crawl Space. The description of the acoustic tiles is "Sound-absorbing tiles are all that separate this crawl space from the LAN Closet below." Understand "dust" or "tile" as the acoustic tiles when the player is in the Crawl Space. The acoustic tiles have a truth state called isCrashed. The isCrashed of the acoustic tiles is false.
 
 Instead of doing something other than examining with the acoustic tiles, say "Eww. They are covered it dust. You have no desire to muck about in such filth."  
 
@@ -4773,7 +4773,10 @@ Instead of jumping when the player is in the Crawl Space:
 	teleport the player to the LAN Closet.
 	
 To finishFall:
-	say " plunge through a false ceiling, which crashes down around you.[paragraph break]You find yourself in the cat control room.";
+	say " plunge through [if the isCrashed of the acoustic tiles is true]the already trashed ceiling of the LAN closet[otherwise]a false ceiling, which crashes down around you.[paragraph break]You find yourself in the cat control room[end if].[paragraph break]";
+	if the isCrashed of the acoustic tiles is false:
+		bestow "A Gift From Above";
+	now the isCrashed of the acoustic tiles is true;
 	if the penlight is in the Crawl Space and the player does not carry the penlight:
 		move the penlight to the LAN Closet;
 	teleport the player to the LAN Closet.
