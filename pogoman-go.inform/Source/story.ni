@@ -2915,7 +2915,8 @@ Carry out spawning:
 		now the attackerPogoman is not injured.
 		
 Report spawning:
-	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][type of attackerPogoman] appears!"
+	let T be "[type of attackerPogoman]" in title case;
+	say "A freshly-minted [if the attackerPogoman is injured](but unfortunately wounded) [end if][T] appears!"
 	
 Section 8 - Sudo
 
@@ -3122,7 +3123,8 @@ This is the pogoman apparition rule:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;[no attacker is here, so generate a new one]
-			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [type of the attackerPogoman] has appeared![paragraph break]";
+			let T be "[type of attackerPogoman]" in title case;
+			say "[one of]Watch out[or]Danger[or]Look out[in random order]! A wild [T] has appeared![paragraph break]";
 			follow the fightclub rule;
 	otherwise:[before Not In Kansas Anymore]
 		let N be MODE_PREPOGO_ENCOUNTER_VALUE;
@@ -3130,7 +3132,8 @@ This is the pogoman apparition rule:
 			let N be N plus INCENSE_EFFECT_VALUE;
 		if a random chance of N in 100 succeeds:
 			generate a pogoman;
-			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [type of the attackerPogoman] appears![paragraph break]".
+			let T be "[type of attackerPogoman]" in title case;
+			say "[one of]OMG[or]Sakes Alive[or]Great Caesar[apostrophe]s Ghost[or]Zounds[or]Yikes[or]What the… [or]By gum[or]Crikey[or]Ye Gods[or]Holy Cow[or]Jiminy Crickets[or]Leapin[apostrophe] Lizards[or]Whoa… [or]Gosh[or]As I live and breathe[or]Cripes[or]Ack[or]Doh[or]Zoinks[or]Blimey[or]Well I[apostrophe]ll be… [in random order]! A [T] appears![paragraph break]".
 			
 This is the fightclub rule:
 	if the attackerPogoman is in the location of the player:
