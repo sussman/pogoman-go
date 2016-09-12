@@ -154,9 +154,9 @@ EXPERT_MAX_PL_POGOSTOPS is always 3.
 
 [Ways of gaining XP]
 MEDAL_XP_VALUE is always 10.
-EVOLUTION_XP_VALUE is always 50.
+EVOLUTION_XP_VALUE is always 20.
 POGOSTOP_XP_VALUE is always 10.
-CAPTURE_XP_VALUE is always 100.
+CAPTURE_XP_VALUE is always 30.
 INCENSE_XP_VALUE is always 10.
 TRANSFER_XP_VALUE is always 20.
 GYM_VICTORY_XP_VALUE is always 300.
@@ -164,10 +164,10 @@ GYM_LOSS_XP_VALUE is always 50.
 CHUMMING_XP_VALUE is always 10.
 EGG_HATCH_XP_VALUE is always 25.
 STREETFIGHT_XP_VALUE is always 100.
-NEW_POGODEX_XP_VALUE is always 200.
+NEW_POGODEX_XP_VALUE is always 30.
 
 [likelihood of encountering a pogoman is encounter_value + incense effect out of 100]
-INCENSE_EFFECT_VALUE is always 15.
+INCENSE_EFFECT_VALUE is always 25.
 
 PREPOGO_ENCOUNTER_VALUE is always 10.[before pogoland]
 EXPERT_PREPOGO_ENCOUNTER_VALUE is always 10.
@@ -1015,17 +1015,9 @@ Instead of throwing a pogoball at something (called the target):
 				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target].[paragraph break]";
 				increase the pogomenCaptured of the player by 1;
 				if the type of the target is not listed in POGODEXLIST:
-					add the type of the target to POGODEXLIST;
-					say "Adding your first ";
-					say "[type of target]" in title case;
-					say " to the Pogodex (use the command [italic type]pogodex[roman type] to see them all).[paragraph break]";
-					awardXP NEW_POGODEX_XP_VALUE;
-					if the number of entries in POGODEXLIST is 24:
-						bestow "Playing With Half A Dex";
-					if the number of entries in POGODEXLIST is 48:
-						bestow "Collected [apostrophe]em All!";
+					add a type of the target to the pogodex;
 				otherwise: 
-					awardXP 30; 
+					awardXP CAPTURE_XP_VALUE; 
 			otherwise:
 				if the target is the defenderPogoman:
 					say "a loyal [type of target].[paragraph break]";
@@ -1035,7 +1027,7 @@ Instead of throwing a pogoball at something (called the target):
 				otherwise:
 					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoball and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping].[paragraph break]";
 					increase the pogomenCaptured of the player by 1;
-					awardXP 30; 
+					awardXP CAPTURE_XP_VALUE ; 
 			if FIRSTTHROW is true:
 				say "As you well know, except during your increasingly frequent bouts of spot amnesia due to sleep deprivation and/or traumatic brain injury, captured pogomen wind up in your stock. You can [italic type]drop[roman type] them to release them, [italic type]transfer[roman type] them to [quotation mark]send them to the professor[quotation mark], [italic type]evolve[roman type] them to make them stronger, or [italic type]heal[roman type] them if they are wounded. Pogomen in stock will show up in your inventory. Go ahead, take a look.[paragraph break]";
 				now FIRSTTHROW is false;
@@ -1371,6 +1363,8 @@ Carry out inventoryEvolving:
 						bestow "Turned something into something else!";
 					-- 2:
 						bestow "Did something before and it worked, so I did it again";
+				if E is not listed in POGODEXLIST:
+					add a E to the pogodex;
 				break.
 		
 	
@@ -1805,6 +1799,17 @@ To pad (glyphs - text) spaces:
 		repeat with N running from 1 to S:
 			say " ".
 	
+To add a (creature - a pogotype) to the pogodex:
+	add the creature to POGODEXLIST;
+	say "Adding your first ";
+	say "[creature]" in title case;
+	say " to the Pogodex (use the command [italic type]pogodex[roman type] to see them all).[paragraph break]";
+	awardXP NEW_POGODEX_XP_VALUE;
+	if the number of entries in POGODEXLIST is 24:
+		bestow "Playing With Half A Dex";
+	if the number of entries in POGODEXLIST is 48:
+		bestow "Collected [apostrophe]em All!".
+
 
 Chapter Rules Modifications
 
