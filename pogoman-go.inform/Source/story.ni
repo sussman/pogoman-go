@@ -1020,6 +1020,10 @@ Instead of throwing a pogoball at something (called the target):
 					say "[type of target]" in title case;
 					say " to the Pogodex (use the command [italic type]pogodex[roman type] to see them all).[paragraph break]";
 					awardXP NEW_POGODEX_XP_VALUE;
+					if the number of entries in POGODEXLIST is 24:
+						bestow "Playing With Half A Dex";
+					if the number of entries in POGODEXLIST is 48:
+						bestow "Collected [apostrophe]em All!";
 				otherwise: 
 					awardXP 30; 
 			otherwise:
@@ -1753,7 +1757,7 @@ Section 12 - Command Command
 Commanding is an action out of world. Understand "command" or "commands" as commanding.
 
 Carry out commanding:
-	say "In addition to commands commonly available in games like this, here are some additional ones that can be used at this point in the game:[paragraph break]* capture (a pogoman)[line break]* clip/unclip (something)[line break]* evolve (a pogoman)[line break]* expert mode[line break]* feed (a pogoman)[line break]* fill/empty (something)[line break][if  Exploring the Tower has ended]* guards[line break][end if]* heal (a pogoman)[line break]* reboot[line break]* scan[line break][if Exploring The Tower has ended]* special attack (someone)[line break][end if]* spin (a pogostop)[line break]* transfer (a pogoman)[paragraph break]".
+	say "Here are some less commonly used commands that are currently available:[paragraph break]* capture (a pogoman)[line break]* clip/unclip (something)[line break]* commands[line break]* evolve (a pogoman)[line break]* expert mode[line break]* feed (a pogoman)[line break]* fill/empty (something)[line break][if  Exploring the Tower has ended]* guards[line break][end if]* heal (a pogoman)[line break]* pogodex[line break]* reboot[line break]* scan[line break][if Exploring The Tower has ended]* special attack (someone)[line break][end if]* spin (a pogostop)[line break]* transfer (a pogoman)[paragraph break]".
 
 Section 13 - Pogodex
 
@@ -9209,6 +9213,7 @@ A hint deactivation rule (this is the Unstickiness hint deactivation rule):
 Table of Unstickiness
 hint	used
 "Through the ages, pogomasters have handed down some practical wisdom."
+"Take a look at less common commands, try typing [quotation mark][italic type]commands[roman type][quotation mark]."
 "Try everything you can think of. If it doesn't work, try rephrasing."
 "Reread text to make sure you didn't miss anything."
 "Leave no stone unturned; conversely, don't obsess."
