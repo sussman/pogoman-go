@@ -3015,7 +3015,7 @@ To openGame:
 	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it[or][stopping]!";
 	
 After printing the banner text:
-	say "[line break][italic type]Note: You may find the commands [roman type][quotation mark]reboot[quotation mark][italic type] and [roman type][quotation mark]scan[quotation mark][italic type] helpful.[roman type][paragraph break]";
+	say "[line break][italic type]Note: You may find the commands [roman type][quotation mark]scan[quotation mark][italic type] and [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]";
 
 Chapter Stage Business
 
