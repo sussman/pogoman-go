@@ -3164,7 +3164,7 @@ Every turn:
 	Now the BLOCKSTAGEBUSINESSFLAG is false;
 	increase the TURNCOUNTER by one.
 	
-Definition: A room is pogoman interdicted if it is in Ladder Area or it is in BallPit Area or it is in Cat Area or it is in the Fishing Boat or it is MuskPodRoom or it is the gymnasium or it is the Elevator or it is Legal Department.
+Definition: A room is pogoman interdicted if it is in the HQ or it is in Ladder Area or it is in BallPit Area or it is in Stairwell or it is in Cat Area or it is in MuskLair or it is in the Fishing Boat or it is MuskPodRoom or it is the Gymnasium or it is the Elevator.
 
 This is the pogoman apparition rule:
 	if the BLOCKPOGOMANFLAG is true:
