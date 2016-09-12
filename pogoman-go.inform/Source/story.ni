@@ -4699,7 +4699,7 @@ The Gearing Assembly is outside from Gantry Chamber. The Gantry Chamber is south
 
 The description of the Gearing Assembly is "The room itself appears to ride a circular track around the building. There are no controls or indicators here, but there is plenty of heavy equipment including motors and gears. A structural boom extends from the center of the room to support the Nyantech Cat. Near the outer edge of the room, there is a circular hole in the floor and through it, you can see the top of a narrow ladder, which leads downward into darkness."  The possible exits of the Gearing Assembly are "Obvious exits are the boom to the south or downwards using the ladder."
 
-The access hole is an open not openable door. The access hole is below the Gearing Assembly. The  access hole is above The Top of The Ladder. The description of the hole is "A smooth circular access hole cut in the floor of the Gearing Assembly."
+The access hole is an open not openable door. The access hole is below the Gearing Assembly. The access hole is above The Top of The Ladder. The description of the hole is "A smooth circular access hole cut in the floor of the Gearing Assembly."
 
 Instead of entering the hole:
 	if the player is in the Gearing Assembly:
@@ -4753,21 +4753,22 @@ The track is scenery in the Gearing Assembly. The description of the track is "A
 
 After going south from the Gearing Assembly for the first time:
 	say "Earlier today, you managed to make the trip through wind-swept mechanical boom by promising yourself that you would never do it again. Well, guess that assumption was wrong.";
-	say the headline of the location of the player;
-	bestow "Promises are made to be broken".
+	bestow "Promises are made to be broken";
+	try looking.
 	
 After going south from the Gearing Assembly:
-	say "[One of]Once more into the cat, go you[or]Back to the cat[stopping]."
+	say "[One of]Once more into the cat, go you[or]Back to the cat[stopping].";
+	try looking.
 
 After going down from the Gearing Assembly:
-	say the headline of the location;
-	say "You [one of]climb slowly and carefully down the ladder, which descends through a shaft just wide enough to accommodate one person[or]descend the ladder[stopping]."
+	say "You [one of]climb slowly and carefully down the ladder, which descends through a shaft just wide enough to accommodate one person[or]descend the ladder[stopping].";
+	try looking.
 
 The Top Of The Ladder is above Somewhere Along the Ladder. The description of Top Of The Ladder is "You can see light coming from above, the Gearing Assembly area."
 
 After going down from the Top Of The Ladder:
-	say the headline of the location;
-	say "You descend further into the dark shaft."
+	say "You descend further into the dark shaft.";
+	try looking.
 
 Section 8 - Somewhere Along The Ladder
 
@@ -4821,6 +4822,7 @@ To finishFall:
 	now the isCrashed of the acoustic tiles is true;
 	if the penlight is in the Crawl Space and the player does not carry the penlight:
 		move the penlight to the LAN Closet;
+	now the isBrokenFlag of the phonograph is true;
 	teleport the player to the LAN Closet.
 	
 Instead of jumping when the player is in The Top of the Ladder or the player is in Somewhere Along The Ladder:
@@ -4959,16 +4961,16 @@ Instead of doing something other than examining with high-tech conveyances:
 
 Instead of going east from the Lobby when the walkman is not worn for the first time:
 	if the speaker is active:
-		say the headline of the Lobby;
 		 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
 		bestow "Terrified of a LAN closet";
+		try looking;
 	otherwise:
 		continue the action.
 	
 Instead of going east from the Lobby when the walkman is not worn:
 	if the speaker is active:
-		say the headline of the Lobby;
 		say "You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you.";
+		try looking;
 	otherwise:
 		continue the action.
 	
@@ -5021,8 +5023,8 @@ Instead of going south from the Lobby for the first time:
 	bestow "Bureaucracy Is Its Own Reward".
 	
 Instead of going south from the Lobby:
-	say the headline of the Lobby;
-	say "The security nymph points to your property stamp and escorts you back to the lobby."
+	say "The security nymph points to your property stamp and escorts you back to the lobby.";
+	try looking.
 	 
 Section 13 - LAN Closet
 
@@ -5648,8 +5650,8 @@ Section 23 - Stairs -Ground
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
 After going north from the lobby for the first time:
-	say the headline of the location;
-	bestow "Snooping Around".
+	bestow "Snooping Around";
+	try looking.
 
 The printed name of the StairsGround is "Emergency Stairs: Ground Level". The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
@@ -5724,7 +5726,7 @@ After going up from the StairsProcessing:
 	if the walkman is not worn:
 		say " and [one of]notice a heavy, grinding noise punctuated by sounds of liquids sloshing and slurping[or]from the walls you hear the sound of industrial machinery -- maybe a tree mulcher[or]you hear maniacal laughter coming from deep within the building. Or maybe it just the plumbing[or]you notice the vibration of heavy machinery[stopping]";
 		say ".";
-	say the headline of the location.
+	try looking.
 
 	
 After going up from the StairsPackaging:
@@ -5732,7 +5734,7 @@ After going up from the StairsPackaging:
 	if the walkman is not worn:
 		say ". [one of]A droning sound fills the air, like the throat-singing of Tibetan monks[or]It sounds like something is scraping against the inner wall[or]You footfalls echo in the empty stairwell[stopping]";
 		say ".";
-	say the headline of the location.
+	try looking.
 
 		
 After going down from the StairsRoof:
@@ -5740,15 +5742,15 @@ After going down from the StairsRoof:
 	if the walkman is not worn:
 		say "[one of]hear the rumble of heavy motors straining against a load[or]think for a moment that you hear someone yelling for help -- but then it is gone[or]notice a repetitive thumping sound coming from the walls[or]think you might have heard something beyond the walls, but maybe not[stopping]";
 		say ".";
-	say the headline of the location.
+	try looking.
 	
 After going down from the StairsPackaging:
 	say "You descend [shortTwentyFlights] to the infirmary level";
 	if the walkman is not worn:
 		say ".[paragraph break][one of]Did you just hear someone yell the word, [quotation mark]professor[quotation mark]. Probably not. Best to keep going[or]From somewhere in the building, you hear the tinkle of breaking glass[or]Thunder rumbles in the distance. But wait, the weather was fine, wasn[apostrophe]t it? Must have been something else[or]You hear something slowly dripping nearby[stopping]";
 		say ".";
-	say the headline of the location.
-	
+	try looking.
+		
 Section 32 - Stairs -  Packaging
 	
 The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". 
@@ -5776,17 +5778,17 @@ To say printedRoofDoor:
 			say "roof"
 			
 After going south from the stairsRoof for the first time:
-	say the headline of the location;
-	bestow "Made it to the top".          
+	bestow "Made it to the top";
+	try looking.      
 	
 Instead of going up when the player is in stairsRoof for the first time:
 	say "You are at the top of the building; the stairs don[apostrophe]t go up any further.[paragraph break]";
-	say the headline of the location;
-	bestow "Everything Is Downhill From Here Out".
+	bestow "Everything Is Downhill From Here Out";
+	try looking.
 	
 Instead of going up when the player is in stairsRoof:
 	say "You are at the top of the building.";
-	say the headline of the location.
+	try looking.
 	
 Section 34 - Processing
 
@@ -6132,14 +6134,14 @@ Instead of jumping when the player is in the Deck Area:
 			if onHoldFlag of the CAT Control is false:
 				say "The idea seems crazy, but you prepare to the jump. You carefully gauge the timing of the cat[apostrophe]s rotation around the building while you work up the nerve, all the while being sure not to be observed. However, this time, as the cat approaches, you draw back from the edge having realized that the cat is rotating around the building too quickly for you to reliably nail the landing. Still quivering with fear, you replace the chain, which is there for a good reason.";
 				now the chain is clipped;
-				say the headline of the location;
+				try looking;
 			otherwise:
 				if entry 1 in HEADING is "S":
 					say "The things you do for this game… You hold on tightly to your phone and step over the edge.[paragraph break]Arms and legs flailing, you fall without the slightest hint of dignity. Your screams are carried away by the stiff breeze.  Despite any skill whatsoever at jumping off buildings, you land squarely in the center of the cat[apostrophe]s red beret, which is just as warm and fluffy as it looks.";
 					teleport the player to the Cat's Beret;
 				otherwise:
 					say "The Cat is no longer revolving around the building, but it is not parked right below you. When you factor certain death into your decision making process, it occurs to you that it would be better to make sure that the Cat is dead-center below the southern side of the deck (and therefore, directly beneath you) before hopping off.";
-					say the headline of the location;
+					try looking;
 	otherwise:
 		say cantJump
 		
@@ -6290,11 +6292,11 @@ The possible exits of the Cat's Beret are "The only way to go from here [one of]
 
 Instead of going up when the location of the player is cat-top:
 	say "The observation deck is way above you -- too far to reach, even by jumping[one of], although you are welcome to try[or][stopping].";
-	say the headline of the location of the player.
+	try looking.
 	
 Instead of going fore when the player is in the Cat's Beret:
 	say "Any more forward and you would fall off the front end of the Cat.";
-	say the headline of the location of the player.
+	try looking.
 
 	
 Section 45 - Maintenance Hatch
@@ -6385,7 +6387,7 @@ Instead of doing something other than examining with the sparks:
 	
 Instead of going aft when the player is in the Poop Deck:
 	say "Any further aft and you would join the sparkles in flying off the back end of the Cat and plunging earthward.";
-	say the headline of the location of the player.
+	try looking.
 	
 Section 48 - Captain's Cabin
 	
@@ -6466,13 +6468,13 @@ Every turn when the player is in the Gantry Chamber:
 		say "[one of]The boom sways in the wind[or]The wind howls by[or]Groaning metal sounds come from the direction of the boom[or]The support assembly creaks[or]The sounds of the city drift up from far below you[in random order]."
 		
 After going outside from the Gantry Chamber for the first time:
-	say "You carefully crawl on all fours through the long boom, avoiding glances downward. Sure, it would be a great view of the city, but with the wind whipping through the metal webbing of the tube and the whole thing oscillating wildly, you move as quickly as you can to the other end. At last, you enter a room full of huge motors and gears.";
-	say the headline of the location;
-	bestow "Don[apostrophe]t Look Down!".
+	say "You carefully crawl on all fours through the long boom, avoiding glances downward. Sure, it would be a great view of the city, but with the wind whipping through the metal webbing of the tube and the whole thing oscillating wildly, you move as quickly as you can to the other end. At last, you enter a room full of huge motors and gears.[paragraph break]";
+	bestow "Don[apostrophe]t Look Down!";
+	try looking.
 	
 After going outside from the Gantry Chamber:
 	say "You make a beeline for the Gearing Assembly chamber at the other end.";
-	say the headline of the location;
+	try looking.
 	
 Section 50 - Cat's Head
 	
@@ -8000,12 +8002,12 @@ To say motorPosition:
 	say "is currently tilted [if the motor is uptilted]up, out of the[otherwise]down, in the[end if] water"
 
 After going down from the Wharf:
-	say the headline of the location;
-	say "You carefully descend the splintery ladder and jump into a beat-up fiberglass fishing boat."
+	say "You carefully descend the splintery ladder and jump into a beat-up fiberglass fishing boat.";
+	try looking.
 	
 After going up from the fishing boat:
-	say the headline of the location;	
-	say "You scale the shaky ladder on the wharf. [one of]A rung breaks off[or]A few nails pop out[or]One side of the ladder gives way[or]A few more nails pop out[or]The [quotation mark]good[quotation mark] side of the ladder seems to be developing a lengthwise crack[or]Bits of dust fly from the ladder[or]Termites flee from the crumbling ladder[or]the ladder shudders ominously[stopping]."
+	say "You scale the shaky ladder on the wharf. [one of]A rung breaks off[or]A few nails pop out[or]One side of the ladder gives way[or]A few more nails pop out[or]The [quotation mark]good[quotation mark] side of the ladder seems to be developing a lengthwise crack[or]Bits of dust fly from the ladder[or]Termites flee from the crumbling ladder[or]the ladder shudders ominously[stopping].";
+	try looking.
 	
 The gas cap is part of the engine. The description of the gas cap is "A screw-on plastic cap. The cap is [if the gas cap is screwed tight]screwed on tight[otherwise]unscrewed, but retained by an internal chain[end if]." The gas cap can be screwed tight. The gas cap is screwed tight. Understand "chain" as the gas cap when the gas cap is not screwed tight.
 
@@ -8252,7 +8254,7 @@ Definition: a door (called the portal) is interdicted if the securityColor of th
 Instead of opening or touching an interdicted door for the first time:
 	say the headline of the location;
 	say "Your arm immediately goes numb and drops to your side when you touch the stairway door. After a moment, you swing your arm clumsily from the shoulder and sensation slowly returns. When the pins and needles abate, you seem undamaged. Well, no harm, no foul.[paragraph break]";
-	bestow "Misplaced Optimism".
+	bestow "Misplaced Optimism".	
 	
 Instead of opening or touching an interdicted door for the second time:
 	say the headline of the location;
