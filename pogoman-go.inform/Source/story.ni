@@ -4823,8 +4823,9 @@ The rubber cover is part of the penlight. The description of the rubber cover is
 The barrel is an closed openable container. The barrel is part of the penlight. The description of the barrel is "The central part of the flashlight, which holds the batteries."
 
 Instead of examining the penlight:
-	say "(first taking the penlight for a better look)[command clarification break]";
-	now the player carries the penlight;
+	if the player does not carry the penlight:
+		say "(first taking the penlight for a better look)[command clarification break]";
+		now the player carries the penlight;
 	continue the action.
 
 Instead of opening the rubber cover:
