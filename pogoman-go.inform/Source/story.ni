@@ -5425,6 +5425,9 @@ The description of the Rick Astley Shrine is "[one of]As soon as the blue door i
 
 The rickety table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickety table is "A cheap plastic table."
 
+Instead of pushing or pulling the rickety table:
+	disappearTable;
+
 After putting anything on the rickety table:
 	if the number of things on the rickety table is:
 		-- 1:
@@ -5432,11 +5435,14 @@ After putting anything on the rickety table:
 		-- 2:
 			say "The table bows downward and the ancient plastic cracks concerningly.";
 		-- 3:
-			say "The vintage 1980s plastic table collapses to dust.[paragraph break]";
-			bestow "No Great Loss";
-			repeat with N running through the things on the rickety table:
-				move N to the Rick Astley Shrine;
-			move the rickety table to the void.
+			disappearTable.
+			
+To disappearTable:
+	say "The table collapses immediately in a cloud of (probably carcinogenic) slightly off-white dust, which blows away.[paragraph break]";
+	bestow "No Great Loss";
+	repeat with N running through the things on the rickety table:
+		move N to the Rick Astley Shrine;
+	move the rickety table to the void.
 
 Instead of entering the rickety table, say "Surely, that would be the end of the rickety table."
 
