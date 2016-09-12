@@ -4940,13 +4940,19 @@ Instead of doing something other than examining with high-tech conveyances:
 	say "They are darting about too quickly to even get a good look at them."
 
 Instead of going east from the Lobby when the walkman is not worn for the first time:
-	say the headline of the Lobby;
-	 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
-	bestow "Terrified of a LAN closet".
+	if the speaker is active:
+		say the headline of the Lobby;
+		 say "As you approach the LAN closet, you are filled with unbridled anxiety. You are vaguely aware of a low, rumbling sound, more felt than heard. It fills you with dread. The sound is inescapable. Your clothes feel too tight, your gait becomes unsteady, you wipe the sweat from your forehead. Something in the pit of your stomach is clawing at you; animal instinct wells up within you and you are seized by a sudden urge to flee. With as much composure as you can muster, you back away from the ominous door.[paragraph break]";
+		bestow "Terrified of a LAN closet";
+	otherwise:
+		continue the action.
 	
 Instead of going east from the Lobby when the walkman is not worn:
-	say the headline of the Lobby;
-	say "You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you."
+	if the speaker is active:
+		say the headline of the Lobby;
+		say "You try, but as you get closer, you are overcome with fear as a deep, bone-rattling sound overwhelms you.";
+	otherwise:
+		continue the action.
 	
 After going east from the Lobby for the first time:
 	say "With the walkman blaring away in your ears, the arguably melodious strains of Rick Astley drown out the sonic barrier around the LAN closet, and you are able to approach it."
@@ -5086,6 +5092,9 @@ Instead of taking the record:
 		now the player carries the record;
 	otherwise:
 		continue the action.
+		
+Instead of taking off the record:
+	try taking the record.
 		
 Instead of putting something (called the item) on the phonograph:
 	if the item is not the record:
