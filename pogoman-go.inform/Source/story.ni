@@ -4556,6 +4556,13 @@ The table is a scenery supporter in Snacks. The description of the table is "A r
 
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
 
+Instead of searching the chute for the first time:
+	say "Gritty little crumbs fall into your eyes. You blink until your vision clears.[paragraph break]";
+	bestow "Should Have Seen That Coming".
+	
+Instead of searching the chute:
+	say "You can only see a short distance due to lighting; it looks like the chute just rans upwards at an angle."
+
 A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millennia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
 
 Understand "strawberry" as the pop-tart when the flavor of the pop-tart is strawberry.
