@@ -24,7 +24,6 @@ Include Object Response Tests by Juhana Leinonen. [mildly hacked for this projec
 Include Menus by Emily Short. [walkthrough menus]
 Include Undo Output Control by Erik Temple. [fairly hacked for this project]
 
-
 Book 1 - Mechanics
 
 
@@ -212,6 +211,7 @@ INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 DAIS_DELAY_DURATION is always 15. [if player hasn't noticed dais by this time, it notices itself]
 DESOLATION_DELAY_DURATION is always 15. [delay for player to realize loneliness in Pogoland]
+GYM_OVERTHROW_DURATION is always 5. [how long does gym remain captured]
 
 [Oswaldo Clue Bats]
 GREEN_CLUEBAT_TURNS is always 50.
@@ -559,7 +559,7 @@ Instead of pulling a pogostop:
 	
 Section 5 - Gyms
 
-A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false.
+A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false. The gym has a room called mostRecentGym. The mostRecentGym is the void.
 
 Understand "teal" as the gym when the player is in a quadroom and the color of the location is teal.
 Understand "chartreuse" as the gym when the player is in a quadroom and  the color of the location is chartreuse.
@@ -718,7 +718,18 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 			awardXP GYM_VICTORY_XP_VALUE;
 			let T be "Your [CCHOSEN] victorious over a [color of the location] [PP]";
 			increase the pogomenDefeated of the player by 1;
-			add T to TROPHYLIST.
+			add T to TROPHYLIST;
+			now the color of the location of the player is the team color of the player;
+			now the mostRecentGym of the gym is the location of the player;
+			the gym is overthrown in 5 turns from now.
+			
+At the time when the gym is overthrown:
+	while the color of the mostRecentGym of the gym is the team color of the player:
+		let R be a random number between 1 and the number of entries in CORE_TEAM_COLORS;
+		now the color of the mostRecentGym of the gym is entry R in CORE_TEAM_COLORS.
+	
+			
+			
 				
 Section 6 - Pogomen
 
