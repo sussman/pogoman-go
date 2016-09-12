@@ -3530,7 +3530,9 @@ Section 6 - Old Jail
 
 The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for online for play or download.[quotation mark][paragraph break]Disgusted with [if the dog exercise area is unvisited]the[otherwise]yet another[end if] blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."  Old Jail is an improper-named structure. Understand "clink" or "lock-up" or "lock up" or "hoosegow" or "jailhouse" as Old Jail. Understand "building" or "brick"  as Old Jail when the location is Old Jail. The title of Old Jail is "Old Jail". The printed name of Old Jail is "old brick jailhouse".
 
-Instead of entering Old Jail, say "You aren[apostrophe]t sure whether the Old Jail is still in business or not. Given that, you[apostrophe]d just as soon stay on this side of the bars." 
+Instead of entering Old Jail for the first time:
+	say "Most people spend their time trying to stay out of it.[paragraph break]";
+	bestow "Criminal Intent".
 
 Section 7 - Johnson's Rock
 
