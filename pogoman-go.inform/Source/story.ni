@@ -3588,9 +3588,37 @@ The uniform is part of the unicorn. The description of the uniform is "The blue 
 Instead of taking the unicorn:
 	say "I don't suppose the unicorn would care for that.[paragraph break]The unicorn agrees with the parser, [quotation mark]In fact, I wouldn[apostrophe]t.[quotation mark][paragraph break]";
 	bestow "Fourth Wall Broken".
+	
+Instead of pushing the unicorn for the first time:
+	say "How effective do you think you are in pushing against a four-legged creature that outmasses you by nearly ten to one?[paragraph break]";
+	bestow "Rats. Foiled again by the coefficient of static friction.".
+		
+Instead of pushing the unicorn:
+	say "The unicorn stands his ground firmly."
+
+Instead of eating the unicorn for the first time:
+	say "The unicorn snickers as he pokes you in the forehead with this horn, [quotation mark]You[apostrophe]re lucky that I[apostrophe]m on duty today. Usually, the Big Bad Wolf covers this entrance, and that kind of behavior would get [italic type]you[roman type] eaten.[quotation mark][paragraph break]";
+	bestow "To Serve Man".
+	
+Instead of attacking the unicorn for the first time:
+	say "You aren[apostrophe]t sure how you ended up on the pavement with the unicorn[apostrophe]s horn at your throat, but you now have a better appreciation of just how fast a unicorn can move.[paragraph break]";
+	bestow "Touché".
+	
+Instead of attacking the unicorn:
+	say "The unicorn enjoys the sparring, but continues to stand guard."
+	
+Instead of eating the unicorn:
+	say "Consumption of unicorn meat is prohibited by international treated."
 
 Instead of doing something other than examining with the uniform:
 	say "The unicorn is proud of its uniform, and would prefer that you not mess with it."
+	
+Instead of capturing the unicorn for the first time:
+	say "The unicorn looks at you with disappointment, [quotation mark]Do I really look like a pogoman? Really? Please.[quotation mark][paragraph break]";
+	bestow "Mistaken Identity".
+	
+Instead of capturing the unicorn:
+	say "The unicorn ignores you. Apparently, this happens pretty commonly among those who have difficulty distinguishing between fiction (the game) and fantasy (a unicorn)."
 
 The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
