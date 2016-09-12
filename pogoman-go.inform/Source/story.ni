@@ -175,12 +175,12 @@ POGO_ENCOUNTER_VALUE is always 10.[pogoland]
 EXPERT_POGO_ENCOUNTER_VALUE is always 25.
 
 [Difficulty for capturing items with pogoBall, always out of 100]
-CAPTURE_EVOL1_DIFFICULTY is always 80.
-CAPTURE_EVOL2_DIFFICULTY is always 60.
-CAPTURE_EVOL3_DIFFICULTY is always 40.
+CAPTURE_EVOL1_DIFFICULTY is always 70.
+CAPTURE_EVOL2_DIFFICULTY is always 50.
+CAPTURE_EVOL3_DIFFICULTY is always 30.
 EXPERT_CAPTURE_EVOL1_DIFFICULTY is always 60.
-EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 40.
-EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 20.
+EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 35.
+EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 15.
 
 [Combat]
 OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
@@ -695,7 +695,7 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 			let CHOSEN-DEF be CHOSEN-DEF minus WOUNDED_PENALTY;
 		let PP be "[P]" in Title Case;
 		let CCHOSEN be "[CHOSEN]" in Title Case;
-		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![quotation mark][paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] [one of]squeezing the life out of[or]obliterating[or]wiping the floor with[or]pulverizing[or]smashing[or]trashing[or]throttling[or]annihilating[in random order] [if CHOSEN-DEF is greater than P-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if]. [if P-DEF is greater than CHOSEN-DEF]The enemy [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
+		say "You enter the [color of the location] Gym and face off against the [PP] in the other corner of the ring. Applying your expert knowledge as a Level [pogolevel of the player] Pogomaster, you dramatically shout, [quotation mark][CCHOSEN], I choose you![quotation mark][paragraph break]Your [CCHOSEN] and the opposing [PP] battle intensely for a few minutes, and the match ends with [if P-DEF is greater than CHOSEN-DEF]the enemy [PP][otherwise]your [CCHOSEN][end if] [one of]squeezing the life out of[or]obliterating[or]wiping the floor with[or]pulverizing[or]smashing[or]trashing[or]throttling[or]annihilating[in random order] [if P-DEF is greater than CHOSEN-DEF]your [CCHOSEN][otherwise]the enemy [PP][end if]. [if P-DEF is greater than CHOSEN-DEF]The enemy [PP][otherwise]Your [CCHOSEN][end if] gloats briefly over the inanimate corpse of its opponent, which is transferred to the professor. Moments later the [if P-DEF is greater than CHOSEN-DEF]challenger [PP][otherwise]your [CCHOSEN][end if] limps back to its ball and is returned to [if P-DEF is greater than CHOSEN-DEF]your opponent[otherwise]you[end if].";
 		choose row SELECTED in the Table of Inventory;
 		say line break;
 		if P-DEF is greater than CHOSEN-DEF:
@@ -742,7 +742,15 @@ A pogoentity is a kind of neuter animal.
 	  
 Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild. 
 
-The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[pogoDex data for type of defenderPogoman][if the defenderPogoman is injured]. This [type of defenderPogoman] is wounded[end if].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured. The defenderPogoman has a number called timesEvolved. The timesEvolved of the defenderPogoman is 0.
+The defenderPogoman is a privately-named pogoentity. The description of defenderPogoman is "[defendingPogomanDescription].". The printed name of defenderPogoman is "[defendingPogomanName]". The printed plural name of defenderPogoman is "[defendingPogomanName]s". Understand "wounded" or "injured" as the defenderPogoman when the defenderPogoman is injured. The defenderPogoman has a number called timesEvolved. The timesEvolved of the defenderPogoman is 0.
+
+To say defendingPogomanDescription:
+	say "[pogoDex data for type of defenderPogoman]";
+	if the defenderPogoman is injured:
+		say ". This ";
+		let D be the type of defenderPogoman;
+		say "[D]" in title case;
+		say " is wounded".	
 
 To say defendingPogomanName:
 	if the defenderPogoman is injured:
@@ -750,7 +758,8 @@ To say defendingPogomanName:
 	let T be the team color of the player;
 	say "[T]" in lower case;
 	say " ";
-	say the type of defenderPogoman.
+	let D be the type of defenderPogoman;
+	say "[D]" in title case.
 
 The attackerPogoman is a privately-named pogoentity. The description of attackerPogoman is "[pogoDex data for type of attackerPogoman][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
 
@@ -942,12 +951,15 @@ To say pogoDex data for (creature - a pogotype):
 		let E1 be the original corresponding to the Ev3 of creature in the Table of Evolution;
 		let E2 be the Ev2 corresponding to the Ev3 of creature in the Table of Evolution;
 	say " level pogoman of the [CAT] variety, with a [ATK] attack. [C] ";
+	let EE1 be "[E1]" in title case;
+	let EE2 be "[E2]" in title case;
+	let EE3 be "[E3]" in title case;
 	if the creature is first level:
-		say "evolves into [E2], and finally into [E3]";
+		say "evolves into [EE2], and finally into [EE3]";
 	else if creature is second level:
-		say "is the evolved form of [E1], and evolves into [E3]";
+		say "is the evolved form of [EE1], and evolves into [EE3]";
 	else:
-		say "is the final evolution of [E2], which itself is the mid-way evolved form of [E1]"
+		say "is the final evolution of [EE2], which itself is the mid-way evolved form of [EE1]"
 
 Section 7 - Giving to Pogomen
 
@@ -986,6 +998,7 @@ Carry out capturing:
 	try throwing the pogoBall at the noun.
 	
 Instead of throwing a pogoBall at something (called the target):
+	let T be the "[type of target]" in title case;
 	if the target is a pogoentity:
 		[Is there room in stock?]
 		sort the Table of Inventory in PogoName order;
@@ -1017,15 +1030,15 @@ Instead of throwing a pogoBall at something (called the target):
 			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoBall[or]curve ball[or]slider[or]spinning pogoBall[or]winding pogoBall[or]fastball[or]whirling pogoBall[or]tumbling pogoBall[or]screwball[in random order] at the [type of the target]";	
 			let N be a random number between 1 and the number of entries in TRAJECTORYLIST;
 			let TXT be entry N of TRAJECTORYLIST;
-			replace the word "xxx" in TXT with "[type of target]";
+			replace the word "xxx" in TXT with "[T]";
 			say "[TXT]. The ball ";
 			let N be a random number between 1 and the number of entries in BALLLIST;
 			let TXT be entry N of BALLLIST;
-			replace the word "xxx" in TXT with "[type of target]";
+			replace the word "xxx" in TXT with "[T]";
 			say "[TXT].[paragraph break]";
 			say "You[apostrophe]ve captured ";
 			if Around The Town is happening or Exploring The Tower is Happening:
-				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [type of target].[paragraph break]";
+				say "[one of]a hapless[or]an innocent[or]an entirely well-meaning[or]a mild-mannered[or]a poor little[or]a misfortunate[or]an adorable[or]a harmless[or]a gentle[or]an innocuous[or]an inoffensive[or]a naive[or]a powerless[or]a simple[or]a witless[or]an unoffending[or]a friendly[or]an unobtrusive[or]a peaceable[or]a quiet[or]an amiable[or]an unsuspecting[or]a good-humored[or]a good-natured[or]a lovable[in random order] [T].[paragraph break]";
 				increase the pogomenCaptured of the player by 1;
 				if the type of the target is not listed in POGODEXLIST:
 					add a type of the target to the pogodex;
@@ -1033,12 +1046,12 @@ Instead of throwing a pogoBall at something (called the target):
 					awardXP CAPTURE_XP_VALUE; 
 			otherwise:
 				if the target is the defenderPogoman:
-					say "a loyal [type of target].[paragraph break]";
+					say "a loyal [T].[paragraph break]";
 					choose the row with a pogoLandQTH of the location of player in the Table of Defenders;
 					blank out the guardian entry;
 					blank out the wounded entry;
 				otherwise:
-					say "an enemy [type of target][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoBall and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping].[paragraph break]";
+					say "an enemy [T][one of]. Now that it has entered your stock, though, it will be loyal to Team [team color of the player]. Pogomen are fickle like that. If you drop it, it will emerge from its pogoBall and defend a location on your behalf, even to the point of taking damage meant for you[or][stopping].[paragraph break]";
 					increase the pogomenCaptured of the player by 1;
 					awardXP CAPTURE_XP_VALUE ; 
 			if FIRSTTHROW is true:
@@ -1047,7 +1060,7 @@ Instead of throwing a pogoBall at something (called the target):
 				increase the pogomenCaptured of the player by 1;
 				bestow "You[apostrophe]re now my property, because I[apostrophe]m the one with the pogoBalls!";
 		otherwise:[target missed]
-			say "You throw a pogoBall at the [type of target]. The ball [one of ]goes wide, bounces, and disappears[or]ricochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [type of target][or]lands somewhere behind the [type of target][or]falls just in front of the [type of target], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [the target] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
+			say "You throw a pogoBall at the [T]. The ball [one of ]goes wide, bounces, and disappears[or]ricochets off your intended victim and is lost to sight[or]is swallowed by the creature[or]seems to have been a cheap knock-off; half way to the pogoman, it breaks in half. The creature disdainfully kicks the pieces off screen[or]curves wildly and ends up no where near the creature[or]slams into the ground, bounces high in the air, and is carried away by a passing swallow[or]rolls on the ground like a bowling ball, and is easily avoided by the [T][or]lands somewhere behind the [T][or]falls just in front of the [T], who jumps on it and drives it into the ground[or]misses by a mile[or]doubts its own existence and disappears[or]is right on target, but at the last moment, [T] manages to duck[or]spins uncontrollably and disappears[or]goes right past its target[or]brushes right by the pogoman[or]comes so, so, close, but…. Sorry[in random order].[paragraph break]";
 	otherwise:
 		say "You chuck the pogoBall, and encountering no pogoman, it implodes when it lands.[paragraph break]";
 	decrement pogoBall count.
@@ -1167,17 +1180,20 @@ This is the pogo-inventory rule:
 		repeat with N running from 2 to the MODE_POGOMEN_INVENTORY_LIMIT:
 			choose row N in the Table of Inventory;		
 			if there is no pogoName entry:
-				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
+				let LLASTPOGO be "[LASTPOGO]" in title case;
+				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LLASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
 				break;
 			if LASTWOUNDED is not the wounded entry or LASTPOGO is not the pogoName entry:
-				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
+				let LLASTPOGO be "[LASTPOGO]" in title case;
+				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LLASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
 				let LASTCOUNT be 1;
 				let LASTPOGO be the pogoName entry;
 				let LASTWOUNDED be the wounded entry;
 			otherwise:
 				increase LASTCOUNT by one;
 			if N is MODE_POGOMEN_INVENTORY_LIMIT:
-				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
+				let LLASTPOGO be "[LASTPOGO]" in title case;
+				say "* [LASTCOUNT in words] [if LASTWOUNDED is true](wounded) [end if][LLASTPOGO][if LASTCOUNT is greater than 1]s[end if][line break]";
 	say line break;	
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:
@@ -1244,14 +1260,16 @@ Check inventoryDropping:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			let P be "[pogotype understood]" in title case;
+			say "You don[apostrophe]t have a captured [P] in stock.";
 			stop the action;
 	if Exploring The Tower has ended:
 		if the player is in the giant ball:
 			say "You can[apostrophe]t. You are trapped in a pogoBall yourself!";
 			stop the action;
 		if the defenderPogoman is in the location of the player:
-			say "A loyal [type of the defenderPogoman] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
+			let T be "[type of the defenderPogoman]" in title case;
+			say "A loyal [T] is already on guard here[one of]. Only one per location (they are a tad territorial)[or][stopping].";
 			stop the action;
 		otherwise:
 			sort Table of Inventory in wounded order;[select stronger defenders]
@@ -1265,6 +1283,7 @@ Carry out inventoryDropping:
 		if the pogoName entry is the pogotype understood:
 			let W be the wounded entry;
 			let P be the pogoName entry;
+			let PP be "[P]" in title case;
 			blank out the whole row;
 			if Exploring The Tower has ended:					
 				move the defenderPogoman to the location of the player;
@@ -1273,11 +1292,11 @@ Carry out inventoryDropping:
 					now the defenderPogoman is injured;
 				let C be the team color of the player;
 				let CC be "[C]" in lower case;
-				say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [P] [if W is true]that seems injured [end if]bursts from its pogoBall and takes up a defensive stance.";
+				say "A[if the team color of the player is unbleached titanium or the team color of the player is alizarin crimson]n[end if] [CC] [PP] [if W is true]that seems injured [end if]bursts from its pogoBall and takes up a defensive stance.";
 				now the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is P;
 				now the wounded corresponding to the pogoLandQTH of the location of the player in the Table of Defenders is W;
 			otherwise:
-				say "As soon as the [P] is free, it zips away immediately.";
+				say "As soon as the [PP] is free, it zips away immediately.";
 			break.		
 						
 Section 3 - Transferring
@@ -1308,7 +1327,8 @@ Check inventoryTransferring:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			let P be "[pogotype understood]" in title case;
+			say "You don[apostrophe]t have a captured [P] in stock.";
 			stop the action.
 	
 Carry out inventoryTransferring:
@@ -1316,7 +1336,8 @@ Carry out inventoryTransferring:
 		choose row N in the Table of Inventory;
 		if the pogoName entry is the pogotype understood:
 			blank out the whole row;
-			say "[One of]You ship your [pogotype understood] off to the glue factory[or]The [pogotype understood] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [pogotype understood], I[apostrophe]ll miss you briefly[or]See ya[or]One less [pogotype understood] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [pogotype understood] went, but decide not to worry about it[or]Shipped[or]The [pogotype understood] disappears in a wisp of smoke[or]The [pogotype understood] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]![paragraph break]";
+			let P be "[pogotype understood]" in title case;
+			say "[One of]You ship your [P] off to the glue factory[or]The [P] departs for its extended vacation with Herr Doktor[or]Off to the salt mines[or]Goodbye, [P], I[apostrophe]ll miss you briefly[or]See ya[or]One less [P] in the inventory[or]Sined. Sealed. Delivered[or]You briefly wonder [P] went, but decide not to worry about it[or]Shipped[or]The [P] disappears in a wisp of smoke[or]The [P] is vaporized and carried away on a gentle but ominous breeze[or]Transferred[stopping]![paragraph break]";
 			awardXP TRANSFER_XP_VALUE;
 			break.		
 	
@@ -1351,15 +1372,17 @@ Check inventoryEvolving:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			let P be "[pogotype understood]" in title case;
+			say "You don[apostrophe]t have a captured [P] in stock.";
 			stop the action.
 
-Carry out inventoryEvolving:
+Carry out inventoryEvolving:	
 	repeat with N running from 1 to the number of rows in Table of Inventory:
 		choose row N in the Table of Inventory;
 		if the pogoName entry is the pogotype understood:
+			let P be "[pogotype understood]" in title case;
 			if the pogotype understood is third level:
-				say "Your [pogotype understood] is already fully evolved.";
+				say "Your [P] is already fully evolved.";
 				break;
 			else:
 				let E be a pogotype;
@@ -1368,7 +1391,8 @@ Carry out inventoryEvolving:
 				else:
 					let E be the Ev2 corresponding to the original of the pogotype understood in the Table of Evolution;
 				now the pogoName entry is E;[wounded status carries over]
-				say "Your [pogotype understood] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air. A moment later, you see that it has evolved into a freshly-minted [E]![paragraph break]";
+				let EE be "[E]" in title case;
+				say "Your [P] vibrates with energy, shooting sparks in all directions as it hovers and spins in the air. A moment later, you see that it has evolved into a freshly-minted [EE]![paragraph break]";
 				awardXP EVOLUTION_XP_VALUE;
 				increase timesEvolved of the defenderPogoman by 1;
 				if timesEvolved of the defenderPogoman is:
@@ -1423,7 +1447,8 @@ Check inventoryExamining:
 		if PRESENT is false:
 			if OUTSIDER is: [if there is stock, is there a match?]
 				-- 0:
-					say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+					let P be "[pogotype understood]" in title case;
+					say "You don[apostrophe]t have a captured [P] in stock.";
 				-- 1:[if nothing in stock matches, look outside]
 					try examining the attackerPogoman;
 				-- 2:
@@ -1494,7 +1519,8 @@ Check inventoryHealing:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			let P be "[pogotype understood]" in title case;
+			say "You don[apostrophe]t have a captured [P] in stock.";
 			stop the action.
 			
 Carry out InventoryHealing:
@@ -1506,7 +1532,8 @@ Carry out InventoryHealing:
 				break;
 			else:
 				now the wounded entry is false;
-				say "You drop a bit of pogoMeth into the ball containing your wounded [pogotype understood] and hear happy frolicking from inside the ball.[paragraph break]";
+				let P be "[pogotype understood]" in title case;
+				say "You drop a bit of pogoMeth into the ball containing your wounded [P] and hear happy frolicking from inside the ball.[paragraph break]";
 				decrement pogoMeth count;
 				break.	
 				
@@ -1581,7 +1608,8 @@ Check inventoryFeeding:
 				let PRESENT be true;
 				break;
 		if PRESENT is false:
-			say "You don[apostrophe]t have a captured [a pogotype understood] in stock.";
+			let P be "[pogotype understood]" in title case;
+			say "You don[apostrophe]t have a captured [P] in stock.";
 			stop the action.
 			
 Carry out inventoryFeeding:
@@ -2143,7 +2171,8 @@ Carry out guarding:
 		repeat with N running from 1 to the number of rows in Table of Defenders:
 			choose row N in the Table of Defenders;
 			if there is a guardian entry:
-				say "[pogoLandQTH entry]: [guardian entry] [if wounded entry is true](wounded)[end if][line break]".
+				let G be "[guardian entry]" in title case;
+				say "[pogoLandQTH entry]: [G] [if wounded entry is true](wounded)[end if][line break]".
 
 Section 2 - Spinning
 
@@ -2202,7 +2231,7 @@ Carry out spinning:
 		if T plus EYE is greater than MODE_POGOITEM_INVENTORY_LIMIT:
 			let EYE be MODE_POGOITEM_INVENTORY_LIMIT minus T;
 		if EYE is greater than 0:
-			add "[EYE] incense" to the booty of the pogostop;
+			add "[EYE] pogoIncense" to the booty of the pogostop;
 			increase pogoIncenseCarried of the player by EYE;
 			move the pogoIncense to the player;
 		let T be pogoBallsCarried of the player plus pogoChumsCarried of the player plus pogoMethsCarried of the Player plus pogoEggsCarried of the player plus pogoIncenseCarried of the Player;
@@ -2706,9 +2735,9 @@ Topic	Provider
 
 Chapter Medals & Trophies
 
-Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals.
+Medals are an awarddrop. Medals are everywhere. Understand "medal" as medals. Medals have a truth state called reviewedOnce. The reviewedOnce of the medals is false.
 
-Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy".
+Bronzes are an awarddrop. Bronzes are everywhere. Understand "trophy" or "trophies" as bronzes. Bronzes are privately-named. The printed name of bronzes is "trophy". Bronzes have a truth state called reviewedOnce. The reviewedOnce of the Bronzes is false.
 
 Before doing something other than examining with the medals when Around The Town is happening for the first time:
 	say "The medals aren[apostrophe]t really tangible. It[apostrophe]s not like you are walking around like Marley[apostrophe]s Ghost, weighed down by medals around your neck. They are just part of the Pogoman GO! game on your phone.[paragraph break]Congratulations! You have earned the [quotation mark]Medal Self-Reference[quotation mark] medal.[paragraph break]";
@@ -2750,6 +2779,10 @@ Instead of examining an awarddrop:
 			say "You are bespangled with the following medals:[paragraph break]";
 		repeat with L running through the MEDALLIST:
 			say "     * [L][line break]";
+		if reviewedOnce of the Medals is false:
+			say line break;
+			bestow "Medal Connosieur";
+			now reviewedOnce of the Medals is true;
 	otherwise:[i.e., trophies]
 		If Around the Town is happening:
 			if the number of entries in TROPHYLIST is 0:
@@ -2757,9 +2790,13 @@ Instead of examining an awarddrop:
 			otherwise:
 				say "Your phone lists the [number of entries in TROPHYLIST in words] troph[if the number of entries in TROPHYLIST is 1]y[otherwise]ies[end if] you have won in gym battles:[paragraph break]";
 		otherwise:
-			say "Your trophy collection includes the following shiny metal trophies:";
+			say "Your trophy collection includes the following shiny metal trophies:[paragraph break]";
 		repeat with L running through TROPHYLIST:
-			say "     * [L][line break]".
+			say "     * [L][line break]";
+		if reviewedOnce of the Bronzes is false:
+			say line break;
+			bestow "Prepare the Mantelpiece";
+			now reviewedOnce of the Bronzes is true.
 
 To Bestow (medallion - some text):
 	let L be text;
@@ -6512,7 +6549,8 @@ CatHead is fore from the cockpit door. CatHead is privately-named. The printed n
 After going fore from the Captain's Cabin for the first time:
 	say "Bathed in a barrage of red light, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
 	now the securityColor of the badge is red;
-	bestow "Cat Power!"
+	bestow "Cat Power!";
+	try looking.
 	
 The magnificent floating ruby is a prop in CatHead. The description of the magnificent floating ruby is "The blood-red stone is as large as your head, but you can barely look at it through the brilliant reflections off its many facets." Understand "facets" as the magnificent floating ruby. 
 
@@ -8362,7 +8400,7 @@ Before wearing clothes:
 
 Chapter - 2- Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0.
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0. Understand "cell" or "mobile" or "cellular" or "GSM" or "portable" or "telephone" or "T8000" as the phone.
 
 To freeze the phone:
 	now the phone is hung;
