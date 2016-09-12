@@ -363,6 +363,8 @@ Instead of dropping a pogothing (called the item):
 						now wounded entry is false;						
 						AwardXP EGG_HATCH_XP_VALUE;
 						decrement pogoEgg count;
+						if P is not listed in POGODEXLIST:
+							add a P to the pogodex;
 						break.
 			
 			
