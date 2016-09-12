@@ -5952,6 +5952,9 @@ Instead of climbing the cafeteria windows:
 
 The chain is a chainItem in DeckS. Understand "chain" or "clip" as the chain. The description of the chain is "A chain terminating in a large spring-loaded clip that [if the chain is clipped]attaches to[otherwise]hangs free from[end if] the railing."
 
+Instead of taking off the chain:
+	try unclipping the chain.
+
 Instead of going south when the player is in DeckS:
 	try jumping.
 
