@@ -126,6 +126,7 @@ The player has a number called pogomenCaptured. The pogomenCaptured of the playe
 The player has a number called pogomenDefeated. The pogomenDefeated of the player is 0.
 The player has a truth state called deniedTemptationOnce. The deniedTemptationOnce of the player is true.
 The player has a truth state called expertMode. The expertMode of the player is false.
+The player has a truth state called hasPogodexed. The hasPogodexed of the player is false.
 
 Section 7 - BackDrops
 
@@ -521,6 +522,9 @@ Section 4 - Pogostops
 
 The pogostop is a backdrop. Understand "stop" or "signpost" or "pogo stop" as the pogostop.  The description of pogostop is "On your phone, a cartoon signpost with a picture of [the location]. To get goodies from the pogostop, spin it." The pogostop has a list of text called booty. 
 
+After examining a pogostop for the first time:
+	bestow "Stopped To Smell The Roses".
+
 Definition: a quadroom is an okayInitialPogostopLocation if it is not Nyantech Entrance and it is not listed in POGOSTOPLIST and it is not in the Borderlands.
 
 Definition: a room is an okayPogolandLocation if it is in Pogoland and it is not listed in POGOSTOPLIST and it is not fishing boat.
@@ -560,6 +564,9 @@ Instead of pulling a pogostop:
 Section 5 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false. The gym has a room called mostRecentGym. The mostRecentGym is the void.
+
+After examining the gym for the first time:
+	bestow "We[apostrophe]ll Pump You Up!".
 
 Understand "teal" as the gym when the player is in a quadroom and the color of the location is teal.
 Understand "chartreuse" as the gym when the player is in a quadroom and  the color of the location is chartreuse.
@@ -992,7 +999,8 @@ Check capturing:
 			say "That[apostrophe]s illegal, well, at least here it is.";	
 			the rule fails;	
 	otherwise:
-		try taking the noun.
+		try taking the noun;
+		stop the action.
 
 Carry out capturing:
 	try throwing the pogoBall at the noun.
@@ -1796,7 +1804,7 @@ Carry out commanding:
 
 Section 13 - Pogodex
 
-Pogodexing is an action applying to nothing. Understand "pogodex" or "catalog" or "catalogue" or "library" or "list" as pogodexing.
+Pogodexing is an action applying to nothing. Understand "pogodex" or "catalog" or "catalogue" or "library" or "list" as pogodexing. 
 
 Carry Out Pogodexing:
 	say line break;
@@ -1827,7 +1835,15 @@ Carry Out Pogodexing:
 			say "[mystery]";
 		say line break;
 	say line break;
-	say roman type.
+	say roman type;
+	if the hasPogodexed of the player is false:
+		now the hasPogodexed of the player is true;
+		if the number of entries in POGODEXLIST is 48:
+			say "Congratulations! You have hunted down every last species![paragraph break]";
+		otherwise:
+			let R be 48 - the number of entries in POGODEXLIST;
+			say "Only [R in words] to go! Happy hunting![paragraph break]";
+		bestow "Got Your Ducks In A Row".
 		
 To say mystery:	
 	say "??????[run paragraph on]".	
@@ -2781,7 +2797,7 @@ Instead of examining an awarddrop:
 			say "     * [L][line break]";
 		if reviewedOnce of the Medals is false:
 			say line break;
-			bestow "Medal Connosieur";
+			bestow "Medal Connoissieur";
 			now reviewedOnce of the Medals is true;
 	otherwise:[i.e., trophies]
 		If Around the Town is happening:
@@ -4778,7 +4794,7 @@ Instead of searching the access hole:
 	otherwise:
 		say "You can see up into the Gearing Assembly area."
 
-The electric motor is scenery in the Gearing Assembly. The description of the motor is "A 8000 Horsepower three-phase electric motor. Through a complicated transmission system, it drives a gear assembly."  Understand "motors" or "equipment" as the electric motor.
+The electric motor is scenery in the Gearing Assembly. The description of the electric motor is "A 8000 Horsepower three-phase electric motor. Through a complicated transmission system, it drives a gear assembly."  Understand "motors" or "equipment" as the electric motor.
 
 Instead of taking the electric motor for the first time:
 	say "It is the size of a city bus.[paragraph break]";
@@ -7804,7 +7820,7 @@ Section 10 - Forest
 
 The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well." Forest is a place.
 
-The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "trees" as the tall trees.
+The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "tree" as the tall trees.
 
 Instead of climbing the tall trees:
 	say "You climb around on the trees for a while, but they are so tightly spaced that you don[apostrophe]t get a good view of the area."
@@ -7812,6 +7828,16 @@ Instead of climbing the tall trees:
 Instead of examining the tall trees for the first time:
 	say "You suddenly lose view of the forest, but can see the trees just fine.[paragraph break]";
 	bestow "Because Proverb".
+	
+Instead of burning the tall trees:
+	say "They are too green."
+	
+Instead of cutting the tall trees for the first time:
+	say "But for lack of axe that[apostrophe]s a great idea.[paragraph break]";
+	bestow "You[apostrophe]re a lumberjack and that[apostrophe]s okay"
+	
+Instead of cutting the tall trees:
+	say "You don[apostrophe]t have the necessary equipment."
 
 Section 11 - Wharf
 
@@ -7832,7 +7858,18 @@ Instead of entering the cemetery for the first time:
 
 Section 14 - Beach
 
-The description of Beach is "Waves roll in gently, breaking upon the pristine white sands." Beach is a place.
+The description of Beach is "Waves roll in gently, breaking upon the pristine white sands." Beach is a place. Understand "sand" or "sands" as the Beach.
+
+The amusement park token is a prop. The description of the amusement park token is "A shiny plastic token engraved with the words [quotation mark]For Amusement Only![quotation mark]."
+
+Instead of searching the Beach for the first time:
+	say "You find a Spanish doubloon! You are rich![paragraph break]Oh wait. Were doubloons plastic?[paragraph break]";
+	bestow "Pirate Booty";
+	now the player carries the amusement park token.
+	
+Instead of searching the Beach:
+	say "You find nothing else."
+	
 
 Section 15 - Stadium
 
@@ -7935,7 +7972,7 @@ Instead of doing something other than examining or emptying or drinking with the
 	say "You are not keen to get the discolored water on your hands[if the single glove is worn], not even the gloved one[end if]."
 	
 Instead of doing something other than examining or emptying or drinking with the gasoline:
-	say "You are not keen to get the discolored water on your hands[if the single glove is worn], not even the gloved one[end if]."
+	say "You are not keen to get the stinky liquid on your hands[if the single glove is worn], not even the gloved one[end if]."
 	
 Instead of inserting something  (called the additive) into the watering can:
 	if the additive is the gasoline or the additive is the water:
@@ -8015,9 +8052,35 @@ Section 22 - Blacksmith
 
 The description of Blacksmith is "Black smoke pours from the chimney and hot coals are visible in the forge."
 
+The chimney is a backdrop in Blacksmith. The description of chimney is "A crude stone chimney bellows smoke." Understand "smoke" or "stone" or "masonry" as the chimney.
+
+Instead of entering the chimney:
+	say "That[apostrophe]s not something you can enter -- and survive."
+
+Instead of climbing the chimney for the first time:
+	say "Funny thing about fire and all, but the chimney is too hot to climb.[paragraph break]";
+	bestow "Fire equals Hot".
+	
+Instead of climbing the chimney:
+	say "It is too hot to climb."
+	
+The coals are a backdrop in the Blacksmith. The description of the coals is "Red, hot coals. The air above them shimmers." Understand "coal" as the coals. 
+
+Instead of taking the coals for the first time: 
+	say "Bravely, but not really too intelligently, you grab one and spend the thirty seconds throwing it from hand to hand, hoping that it will cool off. It doesn[apostrophe]t, so you toss it back in the pile.[paragraph break]";
+	bestow "Hot Potatoe";
+	bestow "Autocorrect";
+	bestow "Hot Pototo".
+	
+Instead of taking the coals:
+	say "They are too hot to handle."
+	
+Instead of doing something other than taking or examining with the coals:
+	say "They are too hot!"
+
 Section 23 - Farm
 
-The description of Farm is "A red farmhouse and tall grain silo stand in front of furrowed fields of wheat."
+The description of Farm is "[if the burntUp of the farm is false]A red farmhouse and tall grain silo stand in front of furrowed fields of wheat[otherwise]A field of burnt earth and ashes[end if]." Understand "red" or "farmhouse" or "house" as the farm when the burntUp of the Farm is false. Understand "charred" or "field" or "fields" or "burnt" or "burned"  or "ash" or "ashes" as the Farm when the burntUp of the Farm is true. The farm has a truth state called burntUp. The burntUp of the farm is false. The printed name of the farm is "[if the burntUp of the farm is false]Farm[otherwise]Smoking Ruins[end if]". 
 
 The wheat is scenery in the farm. The description of the wheat is "Waving fields of new-fangled gluten-free wheat." Understand "field" as the wheat.
 
@@ -8026,6 +8089,31 @@ Instead of cutting the wheat:
 	
 Instead of searching the wheat:
 	say "You unexpectedly discovered the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to have fallen on hard time, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[quotation mark][paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
+	
+The tall grain silo is scenery in Farm. The description of the tall grain silo is "A tall red metal cylinder with a domed top. The silo stands a few feet from the farmhouse."
+
+Instead of climbing the tall grain silo:
+	say "There are just no good handholds.".
+	
+Instead of eating the wheat for the first time:
+	say "After the first few minutes of chewing the plant you can understand why early man learned to make bread instead.[paragraph break]";
+	bestow "Still Awaiting The Neolithic Revolution".
+	
+Instead of eating the wheat:
+	say "Hay is for horses!"
+	
+Instead of taking the wheat:
+	try cutting the wheat.
+	
+The charred bone is a prop. The charred bone is in the void. The description of the charred bone is "A blackened fragment of a long bone."
+
+Instead of burning the wheat:
+	say "You succeed in introducing slash and burn agriculture, but it doesn[apostrophe]t go very well for you. The field catches fire instantly and spreads immediately to the silo, which goes up like a torch. The silo collapses shortly afterwards on the farmhouse. The wooden farmhouse burns like a small sun. In the end, nothing is left. Nothing.[paragraph break]";
+	bestow "Uncle Owen? Aunt Beru?";
+	now the burntUp of the farm is true;
+	now the wheat is in the void;
+	now the tall grain silo is in the void;
+	now the charred bone is in farm.
 	
 
 Section 24 - Aquarium
@@ -8046,9 +8134,28 @@ The description of Pogoland Terminal is "A concrete platform next to some maglev
 
 Section 28 - The Boat
 
-The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]." The possible exits of the fishing boat are "From here, you can go back up dilapidated ladder to the wharf."
+The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]." The possible exits of the fishing boat are "From here, you can go back up dilapidated ladder to the wharf." The fishing boat has a truth state called hasExploded. The hasExploded of the fishing boat is false.
 
 The engine is scenery in the fishing boat. The description of the engine is "[one of]Given the size of the boat, you won[apostrophe]t be setting any speed records, but the motor looks to be in reasonable repair. [or][stopping]On top of the engine, there is a gas cap. To the side, there is a valve marked choke. On the front, there is a speed control, which is in the [quotation mark]fast[quotation mark] position. [one of] In fact, it looks like it has been pushed a bit beyond the marking, and the handle is bent a bit in that direction.[paragraph break]It speaks of desperation.[paragraph break]Or poor manufacturing processes; hard to say. [paragraph break][or][stopping]Between the gas cap and the speed control a plastic handle that dangles by a bit of cord. The motor [motorPosition]."  The engine can be uptilted or downtilted. The engine is uptilted. Understand "motor" or "outboard" as the engine. 
+
+To say motorPosition:
+	say "is currently tilted [if the engine is uptilted]up, out of the[otherwise]down, in the[end if] water"
+
+Instead of climbing the wharf:
+	try climbing the ladder.
+	
+Instead of jumping when the player is on the wharf:
+	say "The weathered wood creaks and bends every time you land."
+	
+Instead of burning the wharf:
+	say "Constantly soaked by the spray of breaking waves, the wharf is too damp to take flame."
+	
+Instead of attacking the wharf for the first time:
+	say "The Klingon warrior springs into action, cradling his sharp, curved batleff with expertise. He lets out a war cry and charges... oh wait. Did you say wharf?[paragraph break]";
+	bestow "Qapla!".
+	
+Instead of attacking the wharf:
+	say "Since you are standing on the wharf, you are understandably reluctant to damage it, taking note of the jagged rocks and breaking surf below you."
 
 The rickety ladder is a backdrop. The rickety ladder is in the Wharf and the fishing boat. The description of the rickety ladder is "Splinters held together with rust."
 
@@ -8057,14 +8164,21 @@ Instead of climbing the ladder:
 		try going up;
 	otherwise:
 		try going down.
+		
+Instead of attacking or pulling or pushing the ladder:
+	say "It sways back and forth under your assault, and you fall into the boat below.";
+	try going down.
+	
+Instead of burning the ladder:
+	say "The water-logged ladder is too soaked to catch fire."
 
-The propeller is part of the motor. The description of the propeller is "These razor-sharp rotating blades propel the boat through the water."
+The propeller is part of the engine. The description of the propeller is "These razor-sharp rotating blades propel the boat through the water."
 
 Instead of doing something other than examining with the propeller:
 	say "You[apostrophe]re more intent on keeping all your fingers than monkeying around with the rotating blades of the propeller."
 
-To say motorPosition:
-	say "is currently tilted [if the motor is uptilted]up, out of the[otherwise]down, in the[end if] water"
+Instead of going down from the Wharf when the hasExploded of the fishing boat is true:
+	say "There is nothing below you but sharp rocks and treacherous waves."
 
 After going down from the Wharf:
 	say "You carefully descend the splintery ladder and jump into a beat-up fiberglass fishing boat.";
@@ -8076,8 +8190,43 @@ After going up from the fishing boat:
 	
 The gas cap is part of the engine. The description of the gas cap is "A screw-on plastic cap. The cap is [if the gas cap is screwed tight]screwed on tight[otherwise]unscrewed, but retained by an internal chain[end if]." The gas cap can be screwed tight. The gas cap is screwed tight. Understand "chain" as the gas cap when the gas cap is not screwed tight.
 
-Understand "unscrew" as opening when the player is in the fishing boat.
-Understand "screw" or "tighten" as closing when the player is in the fishing boat.
+Instead of opening the gas cap:
+	if the gas cap is screwed tight:
+		say "After a few turns, the cap is open. The cap is retained by a small chain so it can[apostrophe]t accidentally fall into the water. You can now see into the gas tank.";
+		now the gas cap is not screwed tight;
+		now the gas tank is open;
+	otherwise:
+		say "The gas cap is already unscrewed."
+		
+Instead of turning the gas cap:
+	if the gas cap is screwed tight:
+		try opening the gas cap;
+	otherwise:
+		try closing the gas cap.
+		
+Instead of taking off the gas cap:
+	try opening the gas cap. 
+	
+Instead of putting the gas cap on something (called the receiver):
+	if the receiver is the gas tank or the receiver is the engine:
+		try closing the gas cap;
+	otherwise:
+		say "You can[apostrophe]t put the gap cap on [the receiver]."
+			
+Instead of opening the gas tank:
+	try opening the gas cap.
+	
+Instead of closing the gas tank:
+	try closing the gas cap.
+		
+Instead of closing the gas cap:
+	if the gas cap is not screwed tight:
+		say "You screw down the gas cap and it makes a tight seal with the engine.";
+		now the gas cap is screwed tight;
+		now the gas tank is closed;
+	otherwise:
+		say "The gas cap is already securely tightened."
+
 
 To say tankDescription:
 	say "[if gasoline is in the gas tank]Full[otherwise]Bone dry[end if]".
@@ -8114,7 +8263,7 @@ The speed control lever is a part of the engine. The description of the speed co
 The handle is part of the engine. The description of the handle is "It looks like the starter cord on your dad[apostrophe]s lawn mower: a knurled plastic handle to which a heavy cord is attached." Understand "cord" or "starter" or "magneto" as the handle.
 
 Instead of pulling the handle:
-	if the motor is uptilted:
+	if the engine is uptilted:
 		say "[one of]This is a boat, not a helicopter. [or][stopping]You realize you won[apostrophe]t get anywhere with the motor tilted forward and the propeller out of the water.";
 	otherwise:
 		if the gasoline is not in the gas tank:
@@ -8130,16 +8279,20 @@ Instead of pulling the handle:
 					wait for any key;
 					lemurEnding.
 				
-				
 To say thirdCapWarning:	
-	say "Standing in a fuel-soaked boat, covered from head to toe in in gasoline, surrounded by a shimmering slick of fuel that has already reached the shore and is drifting down the coast, a random spark lights it all up.[paragraph break]BOOM! The boat briefly flirts with the idea of being an airplane and sails over the wharf on its way into town.[paragraph break]";
+	say "Standing in a fuel-soaked boat, covered from head to toe in in gasoline, surrounded by a shimmering slick of fuel that has already reached the shore and is drifting down the coast, a random spark lights it all up.[paragraph break]";
+	explode the boat.
+	
+To explode the boat:	
+	say "BOOM! The boat briefly flirts with the idea of being an airplane and sails over the wharf on its way into town.[paragraph break]";
+	now the hasExploded of the fishing boat is true;
 	if the player carries the watering can:
-		move the watering can to the boat;
+		move the watering can to the fishing boat;
 	frontierDeath.
-			
+	
 Instead of pushing the engine:
 	if the engine is uptilted:
-		say "The motor teeters back and splashed into the water.";
+		say "The motor teeters back and splashes into the water.";
 		now the engine is downtilted;
 	otherwise:
 		say "The motor is already in the down position and ready to run."
@@ -8147,43 +8300,16 @@ Instead of pushing the engine:
 Instead of pulling the engine:
 	if the engine is downtilted:
 		say "With some effort, you raise the engine out of the water.";
+		now the engine is uptilted;
 	otherwise:
 		say "The engine is already high and dry."
 		
 Instead of pushing or pulling the speed lever control:
 	say "You try pushing and pulling the lever in both directions[one of ] and even spend some time waggling it back and forth, trying to get it to loosen up[or][stopping], but it seems frozen in the [quotation mark]fast[quotation mark] position."
-		
-Instead of opening the gas cap:
-	if the gas cap is screwed tight:
-		say "After a few turns, the cap is open. The cap is retained by a small chain so it can[apostrophe]t accidentally fall into the water. You can now see into the gas tank.";
-		now the gas cap is not screwed tight;
-		now the gas tank is open;
-	otherwise:
-		say "The gas cap is already unscrewed."
-		
-Instead of taking off the gas cap:
-	try opening the gas cap. 
 	
-Instead of putting the gas cap on something (called the receiver):
-	if the receiver is the gas tank or the receiver is the engine:
-		try closing the gas cap;
-	otherwise:
-		say "You can[apostrophe]t put the gap cap on [the receiver]."
-			
-Instead of opening the gas tank:
-	try opening the gas cap.
-	
-Instead of closing the gas tank:
-	try closing the gas cap.
-		
-Instead of closing the gas cap:
-	if the gas cap is not screwed tight:
-		say "You screw down the gas cap and it makes a tight seal with the engine.";
-		now the gas cap is screwed tight;
-		now the gas tank is closed;
-	otherwise:
-		say "The gas cap is already securely tightened."
-		
+Instead of filling the engine:
+	try filling the gas tank.
+				
 Instead of searching the gas tank:
 	if the gas tank is open:
 		say "[tankDescription].";
