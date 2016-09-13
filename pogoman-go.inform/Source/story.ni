@@ -175,7 +175,7 @@ EXPERT_PREPOGO_ENCOUNTER_VALUE is always 10.
 POGO_ENCOUNTER_VALUE is always 10.[pogoland]
 EXPERT_POGO_ENCOUNTER_VALUE is always 25.
 
-[Difficulty for capturing items with pogoBall, always out of 100]
+[Difficulty for capturing items with pogoBall, always out of 100; lower is harder]
 CAPTURE_EVOL1_DIFFICULTY is always 70.
 CAPTURE_EVOL2_DIFFICULTY is always 50.
 CAPTURE_EVOL3_DIFFICULTY is always 30.
@@ -3180,7 +3180,7 @@ Every turn:
 	Now the BLOCKSTAGEBUSINESSFLAG is false;
 	increase the TURNCOUNTER by one.
 	
-Definition: A room is pogoman interdicted if it is in the HQ or it is in Ladder Area or it is in BallPit Area or it is in Stairwell or it is in Cat Area or it is in MuskLair or it is in the Fishing Boat or it is MuskPodRoom or it is the Gymnasium or it is the Elevator.
+Definition: A room is pogoman interdicted if it is in the HQ or it is in Ladder Area or it is in BallPit Area or it is in Stairwell or it is in Cat Area or it is in MuskLair or it is the Fishing Boat or it is MuskPodRoom or it is the Gymnasium or it is the Elevator.
 
 This is the pogoman apparition rule:
 	if the BLOCKPOGOMANFLAG is true:
@@ -3302,6 +3302,15 @@ Every turn when Exploring the Tower is happening:
 		increase megaCats of the CAT Control by 4000000.
 		
 Section 3 - During Not In Kansas Anymore
+
+Every turn during Not In Kansas Anymore:
+	if the player carries the pogoincense and the pogoincense is ignited and the location of the player encloses the gasoline:
+		if the gasoline is in the gas tank and the gas cap is screwed tight:
+			do nothing;
+		otherwise:
+			say "When the fumes from the gasoline encounter the burning incense, well, you can imagine what happens.[paragraph break]";
+			now the gasoline is in the void;
+			frontierDeath.
 
 Section 4 - During Denouement
 
@@ -7883,6 +7892,11 @@ The pump is scenery in the service station. The description of the pump is "A cl
 
 Filling is an action applying to one thing. Understand "fill [something]" or "fill [something] up" or "fill up [something]" as filling.
 
+Check Filling:
+	if the noun is not a container:
+		say "You can only fill up a container.";
+		stop the action.
+
 Report Filling:
 	say "You fill the [noun]."
 	
@@ -7966,7 +7980,7 @@ After wearing the glove for the first time:
 	
 A water is in the watering can.  The indefinite article of water is "some". The description of the water is "Some rusty stagnant water."
 
-A gasoline is in the void. The indefinite article of gasoline is "some". The description of the gasoline is "Smelly, oily, and light brown in color."
+A gasoline is in the void. The indefinite article of gasoline is "some". The description of the gasoline is "Smelly, oily, and light brown in color." Understand "gas" or "petrol" or "fuel" as gasoline.
 
 Instead of doing something other than examining or emptying or drinking with the water:
 	say "You are not keen to get the discolored water on your hands[if the single glove is worn], not even the gloved one[end if]."
@@ -8018,35 +8032,10 @@ Carry out emptying:
 		move the water to the void;
 	else if the watering can contains gasoline:
 		say "gasoline, dowsing everything including yourself in the flammable liquid[one of]. Did you mean to pour it into something or are you actually a latent pyromaniac with self-destructive tendencies? In any event[or][stopping]";
-		move the gasoline to the void;
+		move the gasoline to the location of the player;
 	say " you now have an empty watering can."
 		
 Understand "[emptying] [something] in/into [something]" as inserting it into.
-
-Instead of inserting the water into something (called the recipient):
-	if the recipient is the gas tank:
-		say "You realize that would irreparable damage the engine and think better of it. At the last moment, you pour the water overboard.";
-		move the water to the void;
-	otherwise:
-		continue the action.
-		
-Instead of inserting the gasoline into something (called the recipient):
-	if the recipient is the gas tank:
-		say "You pour the entire contents of the watering can into the thirsty tank.";
-		move the gasoline to the gas tank;
-	otherwise:
-		continue the action.
-		
-Instead of inserting the watering can into something (called the recipient):
-	if the watering can contains water:
-		try inserting the water into the gas tank;
-	else if the watering can contains gasoline:
-		try inserting gasoline into the gas tank;
-	else if the watering can contains nothing:
-		say "The can is empty.";
-		stop the action;
-	otherwise:
-		continue the action.
 
 Section 22 - Blacksmith
 
@@ -8226,7 +8215,34 @@ Instead of closing the gas cap:
 		now the gas tank is closed;
 	otherwise:
 		say "The gas cap is already securely tightened."
-
+		
+Instead of inserting the gasoline into something (called the recipient):
+	if the recipient is the gas tank:
+		if the gas tank is closed:	
+			say "You would need to open the gas tank first.";
+		otherwise:	
+			say "You pour the entire contents of the watering can into the thirsty tank.";
+			move the gasoline to the gas tank;
+	otherwise:
+		continue the action.
+		
+Instead of inserting the watering can into something (called the recipient):
+	if the watering can contains water:
+		try inserting the water into the gas tank;
+	else if the watering can contains gasoline:
+		try inserting gasoline into the gas tank;
+	else if the watering can contains nothing:
+		say "The can is empty.";
+		stop the action;
+	otherwise:
+		continue the action.
+		
+Instead of inserting the water into something (called the recipient):
+	if the recipient is the gas tank:
+		say "You realize that would irreparable damage the engine and think better of it. At the last moment, you pour the water overboard.";
+		move the water to the void;
+	otherwise:
+		continue the action.
 
 To say tankDescription:
 	say "[if gasoline is in the gas tank]Full[otherwise]Bone dry[end if]".
@@ -8255,8 +8271,8 @@ Instead of switching off the choke valve:
 	otherwise:
 		say "The choke valve is already off."
 		
-Understand "engage" as switching on.
-Understand "disengage" as switching off.
+Understand "engage [something]" as switching on.
+Understand "disengage [something]" as switching off.
 
 The speed control lever is a part of the engine. The description of the speed control lever is "A lever that selects the engine speed by sliding back and forth between [quotation mark]slow[quotation mark] at the left to [quotation mark]fast[quotation mark] at the right. The lever is currently pushed to the right and then some." Understand "throttle" as the speed control lever.
 
@@ -8273,7 +8289,7 @@ Instead of pulling the handle:
 				say "[one of]Fuel sloshes back and forth, some spills out. A rainbow pattern forms on the water. Maybe you better put the cap on the fuel tank?[or]More fuel splashes out -- it[apostrophe]s going everywhere. This is sort of dangerous.[or]Most of the fuel has splashed out of the tank. If you don[apostrophe]t put the cap on, you won[apostrophe]t have enough to go anywhere. Also, you are kind of polluting the water around the boat -- not cool. A few fish float to the surface, which is covered in spilled fuel.[or][thirdCapWarning][or]No. You have learned your lesson about leaving the gas cap off.[stopping]";
 			otherwise:
 				if the choke is not engaged:
-					say "[one of]The engine sputter[or]The engine sputters; it sounds like it is starved for fuel[or]Despite the throttle being all the way to the right in the fast position, something the engine is not getting enough fuel to start[stopping].";
+					say "[one of]The engine sputters[or]The engine sputters; it sounds like it is starved for fuel[or]Despite the throttle being all the way to the right in the fast position, something the engine is not getting enough fuel to start[stopping].";
 				otherwise:
 					say "The engine kicks to life and, the speed control being set to full, you soon find yourself skimming across the wave tops with pieces of the wharf in tow behind you. You wind back the choke and settle in for a journey. You don[apostrophe]t care where you are going, as long as it is away from Pogoland.[paragraph break]";
 					wait for any key;
