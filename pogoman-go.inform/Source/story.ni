@@ -7825,11 +7825,21 @@ Section 9 - Canyon
 
 The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction." Canyon is a place.
 
+The canyon walls are scenery in Canyon. The description of the canyon walls is "Sheer walls of ochre sedimentary rock tower above you." Understand "rock" or "rocks" or "sedimentary" as the canyon walls.
+
+Instead of climbing the walls:
+	say "The walls are too crumbly to climb."
+	
+The canyon stairs are scenery in the Canyon. The description of the canyon stairs is "The stairs are ancient, and in some places are worn smooth, but it is clear that they are not a natural feature. The stairs run in all directions and meet at the center, the lowest point of the canyon. You imagine that in wetter weather water must pool there, but it is sandy and dry at present." Understand "sand" or "sandy" or "point" or "cross" or "crossroad" or "crossroads" or "intersection" or "pit" as the canyon stairs.
+
+Instead of climbing the canyon stairs:
+	say "They run in all directions; just say the direction to go.".
+
 Section 10 - Forest
 
 The description of Forest is "Beech trees predominate in this forest, but there are oak, maple, and elm trees as well." Forest is a place.
 
-The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "tree" as the tall trees.
+The tall trees are scenery in the forest. The description of the tall trees is "Tall, leafy trees in every direction." Understand "tree" or "maple" or "oak" or "ash" or "beech" or "elm" or "birch" or "maples" or "oaks" or "ashes" or "birches" or "elms" or "beeches" as the tall trees.
 
 Instead of climbing the tall trees:
 	say "You climb around on the trees for a while, but they are so tightly spaced that you don[apostrophe]t get a good view of the area."
@@ -7883,6 +7893,21 @@ Instead of searching the Beach:
 Section 15 - Stadium
 
 The description of Stadium is "The large, concrete arena must accommodate crowds of at least fifty thousand (of course, no one is there now). A large scoreboard and banks of lights are visible above the seating area."
+
+The scoreboard is scenery in the Stadium. The description of the scoreboard is "The scoreboard is still lit up from the most recent game.  The clock is frozen with five minutes to go in the second quarter, and the score is Pogoland Pioneers 5 versus Nyantech Nihilists 3. It is not clear what game they were playing. The field is crisscrossed with white lines, but there are no other markings or equipment on the field."
+
+Instead of doing something other than examining with the scoreboard:
+	say "The scoreboard is suspended high above the field, and is out of reach."
+	
+The banks of lights are scenery in the stadium. The description of the banks of lights is "Huge arrays of floodlights ring the stadium above the top level of the seating area. The lights shine like daylight and appear to have been left on even though no one is using the stadium."
+
+Instead of doing something other than examining with the banks of lights:
+	say "The banks of lights are positioned far above the highest row of the seating area and are out of reach."
+	
+The seating area is scenery in the Stadium. The description of the seating area is "Row upon row of plastic seats, ranging from prestigious box seats near the field to barely visible plastic perches in the nosebleed section at the top of the stadium."
+
+Instead of doing something other than examining with the seating area:
+	say "You have better things to do than mess with the seats in an abandoned stadium."
 
 Section 16 - Service Station
 
@@ -8082,7 +8107,7 @@ Instead of searching the wheat:
 The tall grain silo is scenery in Farm. The description of the tall grain silo is "A tall red metal cylinder with a domed top. The silo stands a few feet from the farmhouse."
 
 Instead of climbing the tall grain silo:
-	say "There are just no good handholds.".
+	say "You can[apostrophe]t shimmy up a silo. There are no good handholds.".
 	
 Instead of eating the wheat for the first time:
 	say "After the first few minutes of chewing the plant you can understand why early man learned to make bread instead.[paragraph break]";
@@ -8111,16 +8136,26 @@ The description of Aquarium is "The shell-shaped building is surrounded by fount
 
 Section 25 - Post Office
 
-The description of Post Office is "A modern building with advertisements in the window about how the post office is still somehow relevant."
+The description of Post Office is "A modern building with advertisements in the window about how the post office is still somehow relevant." Understand "window" or "windows" or "glass" or "pane" as the Post Office.
+
+The postal advertisement is scenery in the Post Office. The description of the advertisement is "Stick figures have an entirely contrived conversation about how the post office is still a cornerstone of the community despite modern technologies such as the facsimile machine and dial-up internet." Understand "ad" or "advertisements" or "ads" as the postal advertisement. 
+
+Instead of doing something other than examining with the postal advertisement:
+	say "The advertisements are behind the glass windows of the post office."
 
 Section 26 - Dark Alley
 
-The description of Dark Alley is "A dark, garbage-strewn alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place.
+The description of Dark Alley is "A dark and filthy alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place.
 
 Section 27 - Pogoland Terminal
 
 The description of Pogoland Terminal is "A concrete platform next to some maglev rails."  Pogoland Terminal is a place.
 
+The superconducting rails are scenery in Pogoland Terminal. The description of the superconducting rails is "Parallel tracks of room temperature superconductor. They buzz with electricity." Understand "maglev" or "magnetic" or "electric" or "electrical" or "superconductor" or "room temperature" as the superconducting rails.
+
+Instead of doing something other than examining with the superconducting rails:
+	say "There is enough power running through those rails to atomize you. You would rather not fiddle with them."
+	
 Section 28 - The Boat
 
 The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]." The possible exits of the fishing boat are "From here, you can go back up dilapidated ladder to the wharf." The fishing boat has a truth state called hasExploded. The hasExploded of the fishing boat is false.
