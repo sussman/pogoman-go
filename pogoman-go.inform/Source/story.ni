@@ -3344,7 +3344,8 @@ Every turn during denouement:
 				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";	
 	otherwise:
 		if the vitality of Elon Musk is less than dead:
-			say "Elon Musk antagonizes you. He ";
+			say "[entry 1 in MUSKPROVOCATION][paragraph break]He ";
+			rotate MUSKPROVOCATION backwards;
 	if the vitality of Elon Musk is less than dead:
 		if a random chance of 1 in 2 succeeds	:
 			now the healthiness of the player is the health state after the healthiness of the player;
@@ -3352,9 +3353,82 @@ Every turn during denouement:
 				say "slices your head clean off with his razor-sharp clipboard, ending the battle.";	
 				muskEnding;	
 			otherwise:	
-				say "comes at you with his twirling razor-edged clipboard and cuts you. You are [healthiness of the player].";	
+				say "[entry 1 in MUSKATTACKFLAVOR]. You are [healthiness of the player].";	
+				rotate MUSKATTACKFLAVOR backwards;
 		otherwise:	
-			say "slashes at you with his clipboard, but misses."
+			say "[entry 1 in MUSKMISSESFLAVOR].";
+			rotate MUSKMISSESFLAVOR backwards.
+			
+MUSKPROVOCATION is a list of text that varies. MUSKPROVOCATION is {
+"Elon Musk spins in the air and slashes down with his clipboard, [quotation mark]Prepare to meet your fate, like all the other so-called beta-testers that have come before you.[quotation mark]",
+"Elon Musk leers at you, [quotation mark]I thought that all the pogomaster training would make you a more worthy adversary, but I see that I overestimated you.[quotation mark]",
+"[quotation mark]Please at least try to make this worth my extremely valuable time. All I ask is that you either die quickly, or die well.[quotation mark]",
+"The billionaire taunts you, [quotation mark]How did you ever manage to catch any pogomen with such slow reflexes? My grandmother (Grandma Musk, bless her little cybernetic heart) would run circles around you in her hoverchair. Let[apostrophe]s do this.[quotation mark]",
+"The technology investor laughs derisively at your attempts to avoid the lethal edges of his metal clipboard, which glints in the light as he dances around you. [quotation mark]It would be faster and dare I say it, less painful for you to simply hold still.[quotation mark] Musk thinks about that for a moment and reconsiders, [quotation mark]On the other hand, I think I would prefer you to struggle a bit. It is more sporting.[quotation mark]",
+"The entrepreneur dances around you, jabbing at you with his clipboard, while trying to keep you off balance. He snickers, [quotation mark]You[apostrophe]re not much of a match for me, but I didn[apostrophe]t expect much from the sort of gamer rabble that walks in off the street.[quotation mark]",
+"[quotation mark]If you could scream a bit more, that would help,[quotation mark] suggests Musk. [quotation mark]I like screamers. I can feel their terror and know that I[apostrophe]m getting somewhere. So yes, if you could scream or beg that would be really fine. Crying, on the other hand, I could do without. I want to hear what you[apostrophe]re saying. It[apostrophe]s all about elocution, you know.[quotation mark]",
+"The businessman chides you, [quotation mark]I don[apostrophe]t expect you to put up much of a fight, but surely, you could make more of an effort to at least make it entertaining for me. I mean, that is the very least you could do. Manners and all.[quotation mark]",
+"The billionaire howls madly and snaps his jaws at you like an attack dog; you draw back reflexively. [quotation mark]Ah,[quotation mark] he remarks, [quotation mark]animal instinct. It is hard to get away from it, no? No matter how civilized we appear, deep down, life is a fight for dominance and you will find that I am the alpha dog.[quotation mark]",
+"Musk takes a running leap, spins through the air above your head, and lands behind you. [quotation mark]You must realize that you have no chance against me. Genetic augmentation, cellular enhancements, and of course my innate intelligence and self-discipline make this a fight barely worth having, but [italic type]noblesse oblige[roman type], I will see it though, I suppose.[quotation mark]",
+"Elon Musk steps to the side, just out of your reach, and whispers, [quotation mark]your day is over, Neanderthal.[quotation mark]",
+"Elon Musk slaps you with the side of his clipboard, a move clearly not intended to injure so much as embarass you. [quotation mark]What[apostrophe]s the matter? Never had to face an opponent that could think for himself? Never had to come to terms with being the a mere toy? Well, I will will certainly have some fun with you![quotation mark]",
+"The technology visionary mocks you, [quotation mark]When I[apostrophe]m done with you, I don[apostrophe]t suppose anyone will even bother to look for you. You are a nobody, nothing. I suppose I can at least melt down your cell phone for scrap.[quotation mark]",
+"[quotation mark]I dare you to even try and hit me,[quotation mark] jeers Musk.",
+"[quotation mark]You know, I watched your clumsy effort to sneak around the building and the painfully incompetent way you handled yourself in Pogoland. I thought I had laid it all out so simply. Painful, I tell you.[quotation mark] Musk maneuvers around you. [quotation mark]But not nearly so painful as what awaits you.[quotation mark]",
+"[quotation mark]I suppose you are extraordinarily lucky to have crossed paths with someone of my grandeur not once, but twice.[quotation mark] Musk catches a glimpse of himself reflected on his metallic clipboard and pauses in admiration. [quotation mark]But such an honor comes with a price.[quotation mark]",
+"[quotation mark]Could you please stop acting like an imbecile and put up a decent fight?[quotation mark] pleads Musk.",
+"[quotation mark]I wish you would hurry up. This final death scene bores me,[quotation mark] whines Musk. [quotation mark]I have things to do.[quotation mark][paragraph break][quotation mark]Did you know, by the way, that Rick Astley is touring? Yes, it[apostrophe]s true. One day he just came out of retirement. Just last week he did a gig out in Las Vegas. I am so psyched.[quotation mark][paragraph break][quotation mark]Anyhow, back to our fisticuffs.[quotation mark]",
+"[quotation mark]I should mention,[quotation mark] Musk notes dryly, [quotation mark]that in addition to turning you into pogoChum, I will need to deduct the cost of the false ceiling in the LAN server room. You were a bit messy. I believe that I can simply deduct it electronically from your mobile phone account. I hope your payments are up to date.[quotation mark][paragraph break][quotation mark]Anyhow, prepare to die.[quotation mark]",
+"[quotation mark]You know,[quotation mark] reflects Musk, [quotation mark]if I had a dollar for every two-bit pogomaster wanna-be like you who… oh wait, I do.[quotation mark]",
+"[quotation mark]I hope you enjoyed your time in the pogoBall,[quotation mark] jeers Musk. [quotation mark]I gave it a good shake before letting you out.[quotation mark]"
+}.
+
+MUSKATTACKFLAVOR is a list of text that varies. MUSKATTACKFLAVOR is {
+"spins on his heel, his lab coat billowing up and his deadly clipboard whirling from his outstretched arm like the blade of a circular saw. Its finely honed edge catches you on your [one of]arm[or]leg[or]shoulder[or]thigh[or]forearm[or]left shoulder blade[or]hip[purely at random] and slices effortlessly to the bone",
+"feints low with his clipboard and head butts you",
+"leaps upward, grabs a meat hook, and swings around to kick you in the head",
+"lobs off a hunk of hanging meat with his razor-sharp clipboard and beats you with it",
+"bashes you with his clipboard, which sends you reeling backwards",
+"lunges forward with his clipboard, cutting your leg",
+"slashes your face with the end of his clipboard, while ducking under your guard",
+"stabs you in the side with his clipboard",
+"knocks the wind out of you with a kick to the gut",
+"backhands you with his clipboard. You nearly lose consciousness",
+"drives his clipboard into you back. You cry in pain as he sails past you",
+"smashes you in the face with the side of his clipboard. For a moment, you see stars",
+"flings the clipboard at you at a peculiar angle. You duck just in time to avoid being scalped, but it does cut you right above the eye before returning to Musk[apostrophe]s waiting hand",
+"dives at your feet, but you jump just in time to avoid being tackled",
+"springs into the air, and carves his initials in your chest with his clipboard as he corkscrews through the air. He lands ten feet away and wipes the bloody edge of his clipboard on the ground with a self-satisfied grin",
+"lands a running kick to your midsection, which sends you sprawling",
+"plants his knuckles deep in your face",
+"runs past you, dealing you a karate chop to the nape of your neck. Your vision fades and blackness closes in, but you struggle to remain standing",
+"elbows you in the stomach and nicks your face with the corner of the clipboard has he pushes you to the side",
+"drives the clipboard into your arm, cutting deep",
+"grabs you by the neck and flips you over, cutting across your ribs with his clipboard as you roll past him"
+}.
+
+MUSKMISSESFLAVOR is a list of text that varies. MUSKMISSESFLAVOR is {
+"spins across the floor slicing downward with his clipboard, but misjudges and wedges it momentarily into a hunk of hanging meat rather than you",
+"brings the clipboard down right where you used to be. With relief, you complete your roll to the side and spring back to your feet",
+"jabs at you with the clipboard, but you block the thrust with the flat of your hand and deflect it upward and to the side",
+"lunges at you, but you catch his wrist in a kick and knock the clipboard from his grasp. He dives after it, but at least it buys you enough time to catch your breath",
+"slashes left to right with his clipboard, you are able to step on it, pinning it to the ground while you jump clear of his reach",
+"advances on you but misreads your body language and sails past as you pivot past him",
+"chops high with the clipboard, just missing your ear",
+"twists towards you, ready to cut upward with his clipboard, but you catch his arm and use his own momentum to propel him past you",
+"drops to a crouch, continues around and launches a flying kick; however, you are able to catch his leg and spin him in the air. He lands with gracefully some distance away",
+"pierces your fine formal wear with his clipboard, but does not strike deeply enough to draw blood",
+"slices through the air just in front of your face with the clipboard. The breeze is refreshing",
+"windmills past you with the clipboard, but you are able to step out of reach",
+"prepares to decapitate you with his clipboard, but you deflect the attack",
+"stabs at you with the clipboard, but you catch his arm and pull him forward past you",
+"thrusts upward with the clipboard, just missing your neck",
+"punches just a hair to your left",
+"sweeps his arm around and the deadly sharp-edged clipboard flies through the air just above your head",
+"wraps his hands around your neck to choke you, but you slip free",
+"screams with rage as he rushes past you, his deadly metallic clipboard missing its mark by mere inches",
+"grabs at your arm but misses"
+}.
 
 Section 5 - During Legal Ending
 
