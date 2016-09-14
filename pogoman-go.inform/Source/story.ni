@@ -7268,19 +7268,21 @@ To roll music credits:
 		say Writer in row N of Table of Musical Credits;
 		say line break;
 	say line break;
-	say "Song suggestions by:[paragraph break]Brad Black[line break]Julianne Brand[line break]Bonnie Carlson[line break]Chris Casey[line break]Bill [quotation mark]Indy[quotation mark] Cavalier[line break]Deanna Doubler-McLeod[line break]Mark Frey[line break]Rajinda Jayasinghe[line break]Denise Jobin Welch[line break]Rose Kumitz-Brunette[line break]Benoit X.[line break]John Lodder[line break]Jesse McGrew[line break]Katherine Morayati[line break]Linda Motley[line break]Peter Olsen[line break]Dana Smith[paragraph break]".
+	say "Song suggestions by:[paragraph break]Brad [quotation mark]The Awesome[quotation mark] Black[line break]Julianne Brand[line break]Bonnie Carlson[line break]Chris Casey[line break]Bill [quotation mark]Indy[quotation mark] Cavalier[line break]Deanna Doubler-McLeod[line break]Mark Frey[line break]Rajinda Jayasinghe[line break]Denise Jobin Welch[line break]Davy Krieger[line break]Rose Kumitz-Brunette[line break]Kristin Lasek[line break]John Lodder[line break]Jesse McGrew[line break]Katherine Morayati[line break]Linda Motley[line break]Peter Olsen[line break]Margaret Sharps Caton[line break]Dana Smith[line break]Benoit X.[paragraph break]".
 
 Table of Musical Credits
 Song Name	Writer
 "Afternoon Delight"	"Bill Danoff"
-"All By Myself"	"Eric Carmen"	
+"All By Myself"	"Eric Carmen"
 "Billy Don't Be A Hero"	"Mitch Murray, Peter Callander"
 "Blowin[apostrophe] In The Wind"	"Bob Dylan"
 "Bridge Over Troubled Waters"	"Paul Simon"
 "Come Sail Away"	"Dennis DeYoung"
 "Copacobana"	"Barry Manilow, Jack Feldman, Bruce Sussman"
 "Die Walküre, Act 3, All of it."	"Richard Wagner"
+"Edge of Seventeen"	"Stevie Nicks"
 "Endless Love"	"Lionel Ritchie"
+"Escape"	"Rupert Holmes"
 "Feelings"	"Morris Albert"
 "Garota de Ipanema (versão português)"	"Antônio Carlos Jobim, Vinicius de Moraes"
 "Get Lucky"	"Daft Punk"
@@ -7398,8 +7400,15 @@ The stage business of the elevator is {
 "to tell a story of how great a love can be", 
 "We[apostrophe]re up all night for good fun", 
 "we're up all night to get lucky", 
+"sings a song, sings a song",
+"sounds like she[apostrophe]s singing",
+"ooh, baby ooh, say ooh",
 "Hanging around nothing to do but frown", 
 "Rainy days and Mondays always get me down", 
+"If you like making love at midnight",
+"in the dunes on the cape",
+"You[apostrophe]re the lady I[apostrophe]ve looked for",
+"come with me and escape",
 "Hojotoho! Hojotoho! Heiaha! Heiaha!",
 "Helmwige! Hier! Hieher mit dem Ross!",
 "Hojotoho! Hojotoho! Heiaha!",
