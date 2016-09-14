@@ -2660,7 +2660,7 @@ Carry out ordering:
 Instead of ordering a topic listed in the Table of Ordering Out:
 	let the BESTPLACE be the Provider entry;
 	if the BESTPLACE is the location of the player:
-		say "Your mouth waters at the prospect, and you can see people having talking, and laughing and having a good type right here, but you must be strong! No time for such weaknesses as food, drink, sleep, or other bodily functions. A true pogomaster must make sacrifices! (although your stomach is kind of grumbly).";
+		say "Your mouth waters at the prospect, and you can see people talking, and laughing and having a good type right here, but you must be strong! No time for such weaknesses as food, drink, sleep, or other bodily functions. A true pogomaster must make sacrifices! (although your stomach is kind of grumbly).";
 	else:
 		say "This isn[apostrophe]t the best place for that, and unfortunately, the [BESTPLACE] does not deliver."
 
@@ -7268,7 +7268,7 @@ To roll music credits:
 		say Writer in row N of Table of Musical Credits;
 		say line break;
 	say line break;
-	say "Song suggestions by:[paragraph break]Brad Black[line break]Julianne Brand[line break]Bonnie Carlson[line break]Chris Casey[line break]Bill [quotation mark]Indy[quotation mark] Cavalier[line break]Deanna Doubler-McLeod[line break]Mark Frey[line break]Rajinda Jayasinghe[line break]Denise Jobin Welch[line break]Rose Kumitz-Brunette[line break]Benoit Leclef[line break]John Lodder[line break]Jesse McGrew[line break]Katherine Morayati[line break]Linda Motley[line break]Peter Olsen[line break]Dana Smith[paragraph break]".
+	say "Song suggestions by:[paragraph break]Brad Black[line break]Julianne Brand[line break]Bonnie Carlson[line break]Chris Casey[line break]Bill [quotation mark]Indy[quotation mark] Cavalier[line break]Deanna Doubler-McLeod[line break]Mark Frey[line break]Rajinda Jayasinghe[line break]Denise Jobin Welch[line break]Rose Kumitz-Brunette[line break]Benoit X.[line break]John Lodder[line break]Jesse McGrew[line break]Katherine Morayati[line break]Linda Motley[line break]Peter Olsen[line break]Dana Smith[paragraph break]".
 
 Table of Musical Credits
 Song Name	Writer
