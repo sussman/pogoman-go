@@ -9,7 +9,7 @@ The story description is "The world is full of Pogomen, and now that you don't h
 
 Use MAX_STATIC_DATA of 270000.
 Use MAX_NUM_STATIC_STRINGS of 25000.
-Use Max_DICT_ENTRIES of 1600.
+Use Max_DICT_ENTRIES of 1700.
 Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -745,6 +745,8 @@ Section 6 - Pogomen
 A pogoentity is a kind of neuter animal.  
 
 [do not need to record evolution level - it is implicit from the table of evolution. Pogomen are wild until captured, after that, they take on the team color (important in pogoland, where they defend a position)]
+
+Understand "Choose [pogotype]" as inventoryDropping.
 	  
 Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild. 
 
