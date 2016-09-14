@@ -350,7 +350,8 @@ Instead of dropping a pogothing (called the item):
 				say "You totally drop some pogoMeth.";
 				pogoMethEffect;
 		-- pogoEgg:
-			let P be a random pogotype;
+			choose a random row in the table of Evolution;
+			let P be the original entry;
 			sort the Table of Inventory in PogoName order;
 			choose row MODE_POGOMEN_INVENTORY_LIMIT in the Table of Inventory;
 			if there is a pogoName entry:
@@ -359,7 +360,8 @@ Instead of dropping a pogothing (called the item):
 				repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:				
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
-						say "A baby [P] pops out[if Around The Town is happening]! It is immediately transferred to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if].[paragraph break]";
+						let PP be "[P]" in title case;
+						say "A baby [PP] pops out[if Around The Town is happening]! It is immediately transferred to your stock of captive pogomen[otherwise]! Hungry for calcium (as all pogomen are at birth), it devours the broken shell, imprints on you like a baby duckling, and jumps immediately into your stock[end if].[paragraph break]";
 						now pogoName entry is P;
 						now wounded entry is false;						
 						AwardXP EGG_HATCH_XP_VALUE;
