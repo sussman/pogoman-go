@@ -4363,37 +4363,37 @@ Instead of going a direction to the perilous passageway:
 	increase the passaged of the perilous passageway by one;
 	if the passaged of the perilous passageway is:
 		-- 1:			
-			say the headline of the location of the player;
 			say "You are torn. Clearly, there is an artifact of immense power down the dark winding passageway you are standing in front of  -- and having it would certainly help you win gym battles and who knows what else. On the other hand, it[apostrophe]s narrow, poorly lit and in all the years you have lived in this town, you[apostrophe]ve never seen anyone walk in or out of the so-called [quotation mark]perilous[quotation mark] passageway.[paragraph break]";
 			bestow "At Least Briefly Listened To Your Inner Voice";
+			try looking;
 		-- 2:
 			say the headline of the Perilous Passageway;
 			say "As you round a pile of boxes behind a garbage bin searching eagerly for the artifact, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
 			phoneDeath;
 		-- 3:
-			say the headline of the location of the player;
 			say "You recall that last time, walking into this foreboding passageway didn[apostrophe]t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, since [quotation mark]off the scale[quotation mark] is one of the items on the scale). In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
+			try looking;
 		-- 4:
 			say the headline of the Perilous Passageway;
 			say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break]
 [quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That[apostrophe]s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I[apostrophe]m just saying it[apostrophe]s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a Chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
 			phoneDeath;
 		-- 5:
-			say the headline of the location of the player;
 			say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can[apostrophe]t remember the name of any of your teachers before high school. Maybe going through this passageway isn[apostrophe]t worth it. On the other hand, you want that artifact... [paragraph break]";
 			bestow "Slow Learner";
+			try looking;
 		-- 6:
 			say the headline of the Perilous Passageway;
 			say "A familiar scene unfolds. Two thugs jump out from behind boxes and squint at you in the dim light.[paragraph break][quotation mark]Hey Eddy?[quotation mark][paragraph break][quotation mark]Yeah, Frankie?[quotation mark][paragraph break][quotation mark]Is that the bozo who keeps coming back?[quotation mark][paragraph break][quotation mark]The improbable ninja dude?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break][quotation mark]Yeah, I think so. Or, at least someone so similar as to be indistinguishable.[quotation mark][paragraph break][quotation mark]So, for all practical purposes, it is?[quotation mark][paragraph break][quotation mark]Yeah.[quotation mark][paragraph break]Eddy lifts a garbage can lid to protect himself from your ninjitsu, while Frankie winds up with two ten-pound cured salamis and claps them together around your head. Since you were desperately sweeping the alley with your eyes trying to find the artifact, the impact of the luncheon meat takes you by surprise. The phone flies from your grip, ricochets off the dumpster and the screen shatters, showering Frankie with razor-sharp shards of trademarked Corning Gorilla Glass.[paragraph break]You go down like a sack of bricks.";
 			phoneDeath;
 		-- 7:
-			say the headline of the location of the player;
 			say "No, just no.[paragraph break]Is any artifact worth this pain?[paragraph break]Well, maybe. You daydream winning the adoration of hordes of pogo-fans who would fall at your feet in admiration of the pogoman artifact that you would carry from the passageway like Howard Carter emerging from the tomb of Tutankhamen with ancient booty. Yes, that is compelling.[paragraph break]";
 			bestow "Better Part Of Valor";
+			try looking;
 		-- 8:
-			say the headline of the location of the player;
 			say "Nothing good will come from going in there. After the last attack, your ears ring constantly, your right eye is blurry, and everything seems to be spinning except when you stand very still and hold your breathe.[paragraph break]But what are these minor inconveniences next to the what you could achieve? If you did recover a rare artifact from the alley, it would no doubt propel you to the top ranks of the pogoman player hierarchy and elicit the jealousy of every other player.[paragraph break]";
 			bestow "Pain Is The Best Teacher";
+			try looking;
 		-- 9:
 			say the headline of the Perilous Passageway;
 			say "You saunter into the den of Frankie and Eddy.[paragraph break]When they see you, they startle.[paragraph break][quotation mark]Hey, buddy. We don[apostrophe]t want any trouble,[quotation mark] pleads Eddy.[paragraph break]Backing away and stumbling over garbage, Frankie holds his hands up, [quotation mark]We[apostrophe]re just leaving.[quotation mark][paragraph break]They vanish into the shadows, leaving you alone in the squalid passageway.[paragraph break]As you search in the alley, the artifact detector on your phone goes wild and burns out, overwhelmed by the power of a nearby object.";
@@ -4534,67 +4534,67 @@ Instead of going a bad idea direction (called the way):
 		-- Reservoir:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0: 
-					say the headline of the location of the player;
 					say "Wait a minute -- The town reservoir lies just to the north of this part of town. A few steps in that direction and you[apostrophe]ll be soaked.[paragraph break]";
+					try looking;
 				-- 1: 
-					say the headline of the location of the player;
 					say "It[apostrophe]s actually illegal to bathe in the town reservoir. People drink this stuff. On the other hand... who would know?[paragraph break]";
 					bestow "Hygiene";
+					try looking;
 				-- 2: 
 					say the headline of Reservoir;
 					say "Head down, eyes on the screen, you walk into the town reservoir. The tangled duckweed drags behind you, as you sink deeper into the muddy bottom, struggling forward, phone now raised above your head. You cough and sputter as water enters your lungs, but push onward, intent on capturing some water-type pogomen.[paragraph break]Through the muddy water, you can still distinguish the glow of the screen.[paragraph break]Finally, water laps up against the phone, cooling it and bring it well-deserved final rest. The screen flickers, you hear a muffled, sorrowful beep, and all goes dark.";
 					phoneDeath;
 				-- otherwise: 
-					say the headline of the location of the player;
 					say "You[apostrophe]ve learned your lesson about trying to play Pogoman underwater. Nope, from now on you will stick to dry land.[paragraph break]";
+					try looking;
 		-- Superhighway:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-				say the headline of the location of the player;
 				say "Are you sure you want to go that way?[paragraph break]Superhighway 17, which has been under construction for almost fifteen years is now open and just to the west of here.[paragraph break]Sure, there may be some juicy pogomen along the highway (or perhaps laying along the edges of the road), but there really isn[apostrophe]t any good place to walk along it.";
+				try looking;
 				-- 1:
-					say the headline of the location of the player;
 					say "You are just a bit hesitant to keep going west.[paragraph break]From here, you can hear the roar of traffic on the ten-lane Superhighway 17 just to the west. It[apostrophe]s just over the hedge, but there[apostrophe]s no shoulder on the road and since most the drivers will also be playing Pogoman GO! rather than paying attention to driving, it would be suicidal to walk in that direction. Suicidal, I say.[paragraph break]";
 					bestow "One Jersey Barrier From Certain Death";
+					try looking;
 				-- 2:
 					say the headline of R;
 					say "You hop neatly over the hedge and land on a newly paved section of road just in front of a sporty bright orange convertible. Your shins crack like matchsticks on its front bumper and you tumble forward onto the hood, head first into -- and through -- the windshield. Momentum carries you past the surprised driver, who reflexively jams the brakes to the floor. You flip over the baby seat and roll off the back of the car as it drift sideways into an uncontrolled spin, slams into a oil tanker and is swallowed in a mushroom cloud of flames on an overpass. [paragraph break]Cars from both directions pile up and are consumed in the firestorm. Girders supporting the overpass slowly twist in the extreme heat and eventually give way, crashing down on the puppy rescue shelter, below. Fanned by the wind, the fire jumps to the bushes and is soon working its way up distant hills, burning through dry brush and headed for the forest.[paragraph break]But then tragedy strikes: your phone lands screen-down with a crunching sound. ";
 					phoneDeath;
 				-- otherwise: 
-					say the headline of the location of the player;
 					say "Since the accident, you have an abiding fear of highways and stay put.";
+					try looking;
 		-- Tarpit:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-					say the headline of the location of the player;
 					say "You can smell the sulfurous tarpits just to the south of town. Are you sure you want to go that way?";
+					try looking;
 				-- 1:
-					say the headline of the location of the player;
 					say "You are reluctant to head south: you[apostrophe]d like to think that you[apostrophe]re smarter than the many prehistoric animals whose skeletons ended up on display in the Town Museum.[paragraph break]";
 					bestow "Smarter (probably) Than A Prehistoric Sloth";
+					try looking;
 				-- 2:
 					say the headline of R;
 					say "As you move southward, your phone vibrates. What a find! An super rare ancient prehistoric multicolored Archeodraconozoid! You thought they were only a legend. It registers on your phone, but where is it? You scan back and forth in AR mode. Where is it? You must have it!![paragraph break]You wade further and further into the field, you sore feet relaxing on the warm, soft ground.[paragraph break]But still, you don[apostrophe]t see it. It should be right here. It[apostrophe]s like you[apostrophe]re standing on it.[paragraph break]While you go through your inventory and ignite some incense to attract your prize, you sink deeper and deeper into the tar field. Day dreaming about how great it would be to tell everyone that you captured a Archeodraconozoid, the warmth slowly envelops your legs, your chest, your neck.[paragraph break]The field belches natural gas as you struggle and the gas ignites explosively from the burning virtual incense. Soon, the field is on fire. You struggle towards the edge of the field, desperately wiping the sticky tar from your phone[apostrophe]s screen.[paragraph break]As you draw your final breath and sink into the field holding the phone above your head like the State of Liberty[apostrophe]s torch, your only regret is that you will never capture that Archeodraconozoid.";
 					phoneDeath;
 				-- otherwise:
-					say the headline of the location of the player;
-					say "The burns still smart -- you reconsider walking into the tarpit.";
+					say "The burns still smart -- you reconsider walking into the tarpit.[paragraph break]";
+					try looking;
 		-- Railway:	
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-					say the headline of the location of the player;
 					say "The sound of busy railroad just to the east halts you in your, um, tracks.";
+					try looking;
 				-- 1:
-					say the headline of the location of the player;
 					say "You start to head east, but then recall the railway tracks nearby -- wasn[apostrophe]t it just last weekend that a third grader was run down by a freight train? Someone should do something about it, like maybe post some signs. You[apostrophe]d do it yourself if you weren[apostrophe]t so busy -- you know, with the game and all.[paragraph break]Your eyes are drawn back down to the beckoning phone screen and your mind wanders back to the game.[paragraph break]";
 					bestow "Refined Sense of Priorities";
+					try looking;
 				-- 2:
 					say the headline of R;
 					say "As you step over the train tracks, in your peripheral vision to the left, you catch a glimpse of a moving red light. Glancing up from your phone for just a moment, you see it[apostrophe]s just a pick-up truck backing up down the road. No worries.[paragraph break]From the other direction, there is a explosive rush of wind and you are suddenly yanked up and backwards by your collar. Your phone spills out of your hand and, improbably, lands flat on the third rail.[paragraph break][quotation mark]No! You shout,[quotation mark] to the muscular commuter who you dangles you above the platform.  The bullet train passing only inches from your face. You struggle impotently in his grasp, your cell phone-atrophied arms no match for his grand physique. [quotation mark]My phone! I must save my phone.[quotation mark][paragraph break]As soon as he sets you down, you jump off the platform. But it is too late. Sparks jump from the phone to the ground, the fence, the rails. You ignore the loss of feeling in your arms as you clumsily knock the phone off the rail. It drips to the ground a glowing, molten mass.";
 					phoneDeath;
 				-- otherwise:
-					say the headline of the location of the player;
-					say "You have an aversion to railroad tracks, so you remain where you are.";
+					say "You have an aversion to railroad tracks, so you remain where you are.[paragraph break]";
+					try looking;
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 	
 Section 56 - Town Atmosphere
@@ -7796,67 +7796,67 @@ Instead of going a poor idea direction (called the way):
 		-- Shark-Infested Reef:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0: 
-					say the headline of the location of the player;
 					say "You dip a toe into the gentle waves and the sea erupts into a frothy nightmare of teeth vying to take off your leg. You jump back just in time. Clearly, entering the sea will result in an immediate, but painful, end.[paragraph break]";
 					bestow "Chicken Of The Sea";
+					try looking;
 				-- 1: 
 					say the headline of R;
 					say "[quotation mark]Damn your logic, Spock![quotation mark] you cry as you throw self-preservation to the wind and dive majestically into the waves.[paragraph break]There is a sharp pain in your arm, then your leg, then where your leg used to be, and then the water turns red and your vision fades.[paragraph break][bold type]*** EATEN BY SHARKS! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
-					say the headline of the location of the player;
-					say "No, from now on, if you are going out to sea, it will be in a boat.";
+					say "No, from now on, if you are going out to sea, it will be in a boat.[paragraph break]";
+					try looking;
 		-- Quicksand:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-					say the headline of the location of the player;
 					say "Ah, nothing but miles and miles of luscious sand out to the west. Beautiful but desolate. You pause to admire it, but you are also a bit concerned that there is nothing -- not even a cactus --  alive over there.[paragraph break]";
 					bestow "Getting Away From It All";
+					try looking;
 				-- 1:
-					say the headline of the location of the player;
 					say "As you head west, you catch sight of some vultures -- and they catch sight of you. They had been squawking and clawing each other savagely, but now you have their full attention. They quit their bickering and take again to the air, flying patiently over the bone-laden sandy wasteland.[paragraph break]";
 					bestow "Lazy Circles In The Sky";
+					try looking;
 				-- 2:
 					say the headline of R;
 					say "Curious about the absence of any living creatures whatsoever to the west, while at the same time showing remarkable ability to disregard the heavy handed hinted of Mother Nature, you wander into the sandy expanse, carefully shading your phone[apostrophe]s screen from the sun[apostrophe]s punishing glare.[paragraph break]You are not more than 100 yards -- say, as far as anyone could reasonably throw a rope to rescue someone -- when the sand begins sucking at your feet. As you struggle to regain purchase, you sink some more. Soon, the sand is up to your hips and you have to hold the phone at an awkward angle.[paragraph break]A bit more struggling, and your shoulders go under, forcing you to look up into the bright sky. The contrast is awful and you are forced to turn the screen to maximum brightness. Finally, the sand fills your mouth, then your nose. As your head goes under the sand, you continue to blow the sand away, not quite able to make out detail on your screen. You struggle for a while more, guided only by the phone[apostrophe]s haptic feedback.[paragraph break]When the phone vibrates indicating the presence of a nearby pogoman, you inadvisably squeal in delight. In that moment, sand fills your mouth and lungs. Your fingers scrape their last on the screen, and you descend below the surface of the quicksand.[paragraph break][bold type]*** SLOW THINKING! QUICK SINKING! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise: 
-					say the headline of the location of the player;
-					say "There doesn[apostrophe]t appear to be anything alive over there, and you[apostrophe]ve learned that you won[apostrophe]t be either if you go that way, so you stay put.";
+					say "There doesn[apostrophe]t appear to be anything alive over there, and you[apostrophe]ve learned that you won[apostrophe]t be either if you go that way, so you stay put.[paragraph break]";
+					try looking;
 		-- Cliff:
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-					say the headline of the location of the player;
-					say "The view to the south is magnificent: far below, just beyond a rocky area, you can see a rich forest canopy, with birds flitting between the tree tops. It isn[apostrophe]t entirely clear how one would get down to the level, but it sure does seem worth a try. As you set off in that direction, though, the ground drops off rather suddenly and the ground becomes more gravely. You realize that the pogoman that are showing up to the south may be a few hundred feet below your current position and remark how poorly cliffs are rendered in the map view on your phone.[paragraph break]";
+					say "The view to the south is magnificent: far below, just beyond a rocky area, you can see a rich forest canopy, with birds flitting between the tree tops. It isn[apostrophe]t entirely clear how one would get down to the level, but it sure does seem worth a try. As you set off in that direction, though, the ground drops off rather suddenly and becomes more gravely. You realize that the pogoman that are showing up to the south may be a few hundred feet below your current position and remark how poorly cliffs are rendered in the map view on your phone.[paragraph break]";
 					bestow "Scenic View";
+					try looking;
 				-- 1:
-					say the headline of the location of the player;
 					say "As you lean over the edge of the escarpment to the south, you contemplate just what sort of pogomen are most likely to be living in the field of sharp rocks just below you. You try the phone in portrait view to get a better look at the full breadth of pointed crags. As you ponder the view, you shift your foot and dislodge a chunk of the cliff face, which showers down, hitting the bottom a few moments later. Startled, you draw back.[paragraph break]";
 					bestow "Life On The Edge";
+					try looking;
 				-- 2:
 					say the headline of R;
 					say "The ground gives way under you suddenly, and you find yourself hanging from a tree root by your one free hand. Looking down, you see the rocks you kicked loose still on their way towards the rocky spires below.[paragraph break]Hanging precariously, your sweaty grip on the thin root none too certain, you realize that with your other hand hanging downward, the phone[apostrophe]s power save mode is engaged and the screen dimmed. That[apostrophe]s no good, because you can[apostrophe]t see the screen, so you raise the phone and are pleased to see the screen illuminate.[paragraph break]In fact, it looks like there is a wild emak just[paragraph break][bold type]*** PLUMMETED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
-					say the headline of the location of the player;
 					say "You have developed a sudden, powerful fear of heights and no longer want to explore the treacherous cliffs to the south.";
+					try looking;
 		-- Volcano:	
 			if the number of times killed corresponding to the place of death of R in the Table of Border Deaths is:
 				-- 0:
-					say the headline of the location of the player;
 					say "As you walk north, the ground shakes under your feet, making text hard to read, so you increase the font size a bit. When the mountain in front of you explodes, showering you with ash, you reflexively wipe it off the phone screen and continue to scan for pogomen, stepping carefully over rivulets of molten rock.[paragraph break]However, before you continue, you realize that excessive heat could damage the phone, indeed blisters are already forming on your feet and lower leg, so no doubt this is not good for the phone[apostrophe]s sensitive screen. You withdraw to a point that the phone[apostrophe]s plastic case is no longer searingly hot.[paragraph break]";
 					bestow "Too Hot To Trot";
+					try looking;
 				-- 1:
-					say the headline of the location of the player;
 					say "You find that jumping from foot to foot, you can walk even further towards the active volcano to the north. You marvel as large chunks of rock are blown skyward and the phone[apostrophe]s screen spins -- there must be some iron in those boulders flying towards you.[paragraph break]One lands on your leg, pinning it against the oven-hot mountain, flattening and cooking your lower extremity like an olive-oil soaked panini in a George Foreman grill. You prudently roll to the side dragging your deformed appendage, careful to shield the phone from the flaming cinders, which now rain down all around you. Painfully, you manage to retreat slightly to a place where you get full bars on cell phone reception.[paragraph break]";
 					bestow "Shake A Leg"; 
+					try looking;
 				-- 2:
 					say the headline of R;
 					say " As you wander northward, flanked by incandescent streams of lava that bubble and slosh down the side of the volcano, some annoying text pops up on the phone warning you to pay attention to your surroundings while playing the game.[paragraph break]How patronizing, you think, as the ledge of rock you are standing on breaks free of the mountainside. As you surf through a lava tube towards a magma lake, you petulantly thumb the phone to dismiss the nagging window. [paragraph break][bold type]*** INCINERATED! ***[roman type][paragraph break]";
 					frontierDeath;
 				-- otherwise:
-					say the headline of the location of the player;
-					say "The shimmering heat and fiery skies create too much glare, so you decide to steer clear of the hellish inferno to the north.";
+					say "The shimmering heat and fiery skies create too much glare, so you decide to steer clear of the hellish inferno to the north.[paragraph break]";
+					try looking;
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 
 To frontierDeath:
