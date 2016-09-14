@@ -379,10 +379,7 @@ Instead of putting a pogothing (called the item) on something:
 
 Instead of throwing a pogothing (called the item) at:
 	if the item is the pogoBall:
-		if the second noun is a room:
-			try dropping the pogoBall;
-		otherwise:
-			continue the action;
+		continue the action;
 	otherwise:
 		if Exploring The Tower has ended:
 			try dropping the item;
@@ -400,7 +397,7 @@ Instead of touching a pogothing when Around the Town is happening for the first 
 	bestow "Harsh Reality".
 		
 To say notReal:
-	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence"
+	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence."
 	
 Instead of touching a pogothing when Around the Town is happening:
 	say notReal.
@@ -1006,8 +1003,8 @@ Carry out capturing:
 	try throwing the pogoBall at the noun.
 	
 Instead of throwing a pogoBall at something (called the target):
-	let T be the "[type of target]" in title case;
 	if the target is a pogoentity:
+		let T be the "[type of target]" in title case;
 		[Is there room in stock?]
 		sort the Table of Inventory in PogoName order;
 		choose row MODE_POGOMEN_INVENTORY_LIMIT in the Table of Inventory;
