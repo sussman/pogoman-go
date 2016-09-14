@@ -7899,6 +7899,17 @@ Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
 
+The wild flowers are in the valley. The description of the wild flowers is "Brilliant purple and yellow flowers with fine petals."
+
+Instead of taking the wild flowers:
+	say "The flowers have remarkable tensile strength. You are unable to pluck them."
+	
+Instead of smelling the wild flowers:
+	say "As you lean forward, the sticky stamen in the middle of the flower adheres to your nose and pulls your face closer. The petals wrap around your head and force your face into the gooey middle of the plant. Your eyes burn with a chemical sting, and you fight for breath amid the smothering pollen. Slowly, you lose consciousness.[paragraph break]";
+	frontierDeath.
+	
+Understand "pick [something]" as taking when the player is in the valley.
+
 Section 8 - Desert
 
 The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here." Desert is a place.
@@ -8566,6 +8577,9 @@ The badge is a prop in the void. The securityColor of the badge is white. The de
 Instead of examining the badge for the first time:
 	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
 	bestow "Sometimes Technology Is Mysterious".
+
+Instead of taking off the badge:
+	try dropping the badge.
 
 Instead of dropping the badge for the first time:
 	say "No, you[apostrophe]ve worked too hard and come too far to cast it all away.[paragraph break]";
