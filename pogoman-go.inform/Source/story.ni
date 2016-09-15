@@ -7894,16 +7894,32 @@ The description of Palace is "This is the McMansion of Palaces - clearly, they s
 
 Section 5 - Baseball Diamond
 
-The description of Baseball Diamond is "A regulation baseball diamond, with field markings."
+The description of Baseball Diamond is "A Little League baseball diamond, with field markings."   Understand "little league" as the Baseball Diamond.
+
+The field marking are scenery in the Baseball Diamond. The description of the field markings is "Two chalk lines lines diverge from behind home plate to mark off the playing field; everything outside those lines is considered foul. Lines also run in a diamond shape between the four bases, circumscribing the infield." Understand "grass" or "chalk" or "line" or "lines" or "mark" or "marks" or "markings" as the field markings.
 
 Section 6 - Mountain
 
-The description of Mountain is "Rivaling the largest mountains in the world, this one has a single snow-covered peak." Mountain is a place.
+The description of Mountain is "Rivaling the largest in the world, this lonely mountain has a single snow-covered peak." Mountain is a place.
 
 Instead of climbing in the mountain for the first time:
 	say "Why?[paragraph break]";
 	bestow "Because It[apostrophe]s There Is A Lame Excuse".
-
+	
+Instead of climbing the mountain:
+	say "[one of]You struggle climb about a hundred feet up and realize that mountains are really tall and that climbing them takes a lot of work. You write off the effort for another day[or]No, too much work[stopping]."
+	
+Instead of entering the mountain for the first time:
+	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A replendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
+	bestow "No Place For Swords & Sorcery". 
+	
+Instead of entering the mountain when the player is in mountain: [redundant to override the general enter place rule]
+	say "This isn[apostrophe]t that kind of mountain."
+	
+Instead of searching the mountain for the first time:
+	try entering the mountain.
+	
+	
 Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
@@ -8091,7 +8107,26 @@ The description of Hospital is "A sprawling and state-of-the-art, but strangely 
 
 Section 20 - Motel
 
-The description of Motel is "A classic two-level drive-in motel with no-vacancy sign out front. It looks a bit dumpy."
+The description of Motel is "A classic two-level drive-in motel with no-vacancy sign out front. It looks a bit dumpy." Understand "hotel" or "inn" as the motel.
+
+The neon sign is scenery in Motel. Understand "no-vacancy" or "vacancy" or "electric" or "electrical" as the neon sign.
+
+The description of the neon sign is "The name of the down-at-the-heels motel strobes on and off in yellow neon: [quotation mark]Happy Sands Motel[quotation mark]. Ironically, some of the letters are out, so it just blinks back and forth between [quotation mark]Happy[quotation mark] and [quotation mark]Sad[quotation mark]. On closer inspection, it does not look like the word [quotation mark]No[quotation mark] next to [quotation mark]Vacancy[quotation mark] works either, but you guess from the state of the motel that this is never really an issue. The sign buzzes and occassionally emits bright sparks of arcing electricity in the humid, salty air."
+
+Instead of touching or taking the neon sign for the first time:
+	say "There is brief flash, as the sign discharges high voltage through your arm, across your chest, and down through your feet into the moist, salt-saturated soil.[paragraph break]That is a gentle way of saying that you[apostrophe]ve just been electrocuted.[paragraph break]";
+	bestow "Grounded For Life";
+	frontierDeath.
+	
+Instead of touching or taking the neon sign:
+	say "No thanks. From here on out, you have adopted a strict policy of not touching neon signs. No exceptions."
+	
+Instead of searching or entering the motel when the player is in motel:
+	say "You would never be so desperate as to set foot in that particular motel. Not even to catch pogomen."
+	
+Instead of sleeping when the player is in motel:
+	try entering the motel.
+
 
 Section 21 - Botanical Garden
 
@@ -8235,7 +8270,9 @@ Instead of burning the wheat:
 
 Section 24 - Aquarium
 
-The description of Aquarium is "The shell-shaped building is surrounded by fountains that shoot water in arcs back and forth above the sidewalk."
+The description of Aquarium is "The snail shell-shaped building is surrounded by fountains that shoot water in arcs back and forth above the sidewalk."
+
+The fountains are plural-named scenery in the aquarium. The description of the fountains is "Water shoots back and forth at unpredictable intervals between carved scallops, conchs, cowries, and clams." Understand "water" or "fountain" or "scallop" or "scallops" or "conch" or "conches" or "cowrie" or "cowries" or "shell" or "clam" or "clams" or "carving" or "carvings" or "sidewalk" or "sidewalks" as the fountains.
 
 Section 25 - Post Office
 
