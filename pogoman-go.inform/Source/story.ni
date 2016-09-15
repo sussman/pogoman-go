@@ -497,7 +497,7 @@ To say alteredTouch:
 	
 Section 3 - Incense
 
-Instead of burning incense:
+Instead of burning pogoIncense:
 	If Around The Town is happening:
 		say "You burn some virtual incense and a cloud of virtual incense smoke surrounds for a while[one of], attracting some admittedly virtual pogomen to you[or][stopping].";
 		say line break;
@@ -1632,8 +1632,8 @@ Carry out inventoryFeeding:
 
 Section 9 - nonPogoHealing
 
-[without this rule, using heal on anything would result in an error that the object can't be seen, which shoots any semblance of mimesis right in the head
-]	
+[without this rule, using heal on anything would result in an error that the object can't be seen, which shoots any semblance of mimesis right in the head]
+	
 nonPogoHealing is an action applying to one thing. Understand "heal [something]" as nonPogoHealing.
 
 Check nonPogoHealing:
@@ -1880,6 +1880,19 @@ Using is an action applying to one thing. Understand "use [something]" as using.
 
 Report Using:
 	say "Could you be more specific? To see some less common commands, type [quotation mark][italic type]commands[roman type][quotation mark]."
+	
+Section 15 - Burning
+
+Before burning something:
+	if the location of the player encloses the gasoline:
+		gasoline death;
+		stop the action.
+		
+To gasoline death:
+	say "When the fumes from the gasoline encounter the flame, well, you can imagine what happens.[paragraph break]";
+	now the gasoline is in the void;
+	frontierDeath.
+	
 
 Chapter Rules Modifications
 
@@ -3411,9 +3424,7 @@ Every turn during Not In Kansas Anymore:
 		if the gasoline is in the gas tank and the gas cap is screwed tight:
 			do nothing;
 		otherwise:
-			say "When the fumes from the gasoline encounter the burning incense, well, you can imagine what happens.[paragraph break]";
-			now the gasoline is in the void;
-			frontierDeath.
+			gasoline death.
 
 Section 4 - During Denouement
 
@@ -8158,13 +8169,19 @@ Instead of doing something other than examining with the seating area:
 
 Section 16 - Service Station
 
-The description of Service Station is "A one-pump gas station." Service Station is a place.
+The description of Service Station is "[if the burntUp of the service station is false]A one-pump gas station[otherwise]A deep, blacked crater, the size of a a service station[end if]." Service Station is a place. The printed name of the service station is "[if the burntUp of the service station is false]service station[otherwise]blackened crater[end if]". Understand "crater" or "blackened" or "hole" as the service station when the burntUp of the Service Station is true. The service station has a truth state called burntUp. The burntUp of the service station is false.
+
 
 The pump is scenery in the service station. The description of the pump is "A clunky pump with an advertisement that offers, [quotation mark]Fill [apostrophe]er up?[quotation mark]". Understand  "gas" or "gasoline" or "fuel" or "petrol" or "diesel" or "gasoil" or "kerosene" as the pump.
+
+The old advertisement is scenery in the service station. The description of the old advertisement is "Pasted directly the pump, the ad depicts an all too familiar cat in a red beret filling a gas can. Under the cat are the words [quotation mark]Fill [apostrophe]er up?[quotation mark]."
 
 Filling is an action applying to one thing. Understand "fill [something]" or "fill [something] up" or "fill up [something]" as filling.
 
 Check Filling:
+	if the location of the player is the service station and the burntUp of the service station is true:
+		say "The only thing that is going to fill around here is the giant crater -- with water, the next time it rains, that is.";
+		stop the action;
 	if the noun is not a container:
 		say "You can only fill up a container.";
 		stop the action.
@@ -8199,6 +8216,22 @@ Understand "fill [something] with/from [something]" as inserting it into (with n
 Instead of inserting the pump into the watering can:
 	say "You fill the can up with premium unleaded.";
 	move the gasoline to the watering can.
+	
+Instead of burning the service station:
+	try burning the pump.
+	
+Instead of burning the old advertisement:
+	try burning the pump.
+	
+Instead of burning the pump:	
+	say "When you apply a flame, nothing happens, and life goes on a usual.[paragraph break]";
+	wait for any key;
+	say "No, just joking. You die. Of course. And painfully, at that. In a ball of flame. Actually, two balls of flame: the ball of flame from the pump itself, then the ball of flame from the giant fuel reservoir buried under the service station.[paragraph break]On second thought, from your perspective, one ball of flame, because that is enough to kill you. You are not really troubled by the second ball of flame, which is, by very definition, overkill and superfluous to your state of existence.[paragraph break]";
+	bestow "Penchant For Immolation";
+	now the burntUp of the service station is true;
+	now the pump is in the void;
+	now the old advertisement is in the void;
+	frontierDeath.
 			
 Section 17 - School House
 
@@ -8845,7 +8878,15 @@ Before wearing clothes:
 
 Chapter - 2- Phone
 
-The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command." The phone can be pokedat. The phone is not pokedat. The phone can be hung. The phone is not hung. The phone has a number called the ignored command count. The ignored command count is 0. The phone has a number called times rebooted. The times rebooted of the phone is 0. Understand "cell" or "mobile" or "cellular" or "GSM" or "portable" or "telephone" or "T8000" as the phone.
+The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner by using the [italic type]scan[roman type] command." Understand "cell" or "mobile" or "cellular" or "GSM" or "portable" or "telephone" or "T8000" as the phone.
+
+
+The phone can be pokedat. The phone is not pokedat. 
+The phone can be hung. The phone is not hung. 
+The phone has a number called the ignored command count. The ignored command count is 0.
+The phone has a number called times rebooted. The times rebooted of the phone is 0. 
+The phone has a truth state called rimshot. The rimshot of the phone is false.
+
 
 To freeze the phone:
 	now the phone is hung;
