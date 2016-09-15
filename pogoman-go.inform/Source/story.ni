@@ -2650,17 +2650,11 @@ Report scanning:
 
 Section 17 - Ordering
 
-Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering.
+Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
 
 Check Ordering:
 	if the Around the Town is happening:
 		continue the action;
-	else if Exploring The Tower is happening:
-		say "Don[apostrophe]t see that here. Would they have that in the cafeteria?";
-		stop the action;
-	else if Not In Kansas Anymore is happening:
-		say "Nothing seems to be open here. You will have to wait until you (somehow) get back to civilization.";
-		stop the action;
 	else:
 		say "No time for that now!";
 		stop the action.
