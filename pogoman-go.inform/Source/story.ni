@@ -750,7 +750,14 @@ A pogoentity is a kind of neuter animal.
 
 [do not need to record evolution level - it is implicit from the table of evolution. Pogomen are wild until captured, after that, they take on the team color (important in pogoland, where they defend a position)]
 
-Understand "Choose [pogotype]" as inventoryDropping.
+Understand "choose [pogotype]" as inventoryDropping.
+Understand "choose [tealToken] [pogotype]'" as inventoryDropping.
+Understand  "choose [chartreuseToken] [pogotype]" as inventoryDropping.
+Understand "choose [alizarinCrimsonToken] [pogotype]" as inventoryDropping.
+Understand "choose [viridianToken] [pogotype]" as inventoryDropping.
+Understand "choose [papayawhipToken] [pogotype]" as inventoryDropping.
+Understand "choose [unbleachedTitaniumToken] [pogotype]" as inventoryDropping.
+Understand "choose loyal [pogotype]" as InventoryDropping.
 	  
 Pogoentity has a pogotype called type. A Pogoentity can be injured. A pogoentity is usually not injured. A pogoentity can be wild. A pogoentity is usually wild. 
 
@@ -1301,6 +1308,7 @@ Carry out inventoryDropping:
 			if Exploring The Tower has ended:					
 				move the defenderPogoman to the location of the player;
 				now the type of defenderPogoman is P;
+				say "DEBUG wounded status: [if W is true]True[end if][if W is false]False[end if][paragraph break].";
 				if W is true:
 					now the defenderPogoman is injured;
 				let C be the team color of the player;
@@ -1883,7 +1891,7 @@ Report Using:
 	
 Section 15 - Burning
 
-Before burning something:
+Before burning:
 	if the location of the player encloses the gasoline:
 		gasoline death;
 		stop the action.
@@ -1892,7 +1900,6 @@ To gasoline death:
 	say "When the fumes from the gasoline encounter the flame, well, you can imagine what happens.[paragraph break]";
 	now the gasoline is in the void;
 	frontierDeath.
-	
 
 Chapter Rules Modifications
 
@@ -8094,6 +8101,18 @@ Section 12 - Dojo
 
 The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof." 
 
+Instead of burning the dojo for the first time:
+	say "Wood, but the non-flammable kind.[paragraph break]Because there are people like you.[paragraph break]";
+	bestow "This Is Why We Can[apostrophe]t Have Nice Things".
+	
+Instead of burning the dojo for the second time:
+	say "Do jo want to start a fire or something?[paragraph break]";
+	bestow "Knock, Knock".
+	
+Instead of burning the dojo:
+	say "The dojo deftly evades the flame."
+	
+	
 Section 13 - Cemetery
 
 The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay." Cemetery is a place. Understand "grave yard" as the cemetery.
@@ -8885,8 +8904,6 @@ The phone can be pokedat. The phone is not pokedat.
 The phone can be hung. The phone is not hung. 
 The phone has a number called the ignored command count. The ignored command count is 0.
 The phone has a number called times rebooted. The times rebooted of the phone is 0. 
-The phone has a truth state called rimshot. The rimshot of the phone is false.
-
 
 To freeze the phone:
 	now the phone is hung;
@@ -8919,12 +8936,22 @@ Before doing something with the phone:
 			continue the action;
 		if the current action is giving to:
 			continue the action;
+		if the current action is burning:
+			continue the action;
 		otherwise:
 			say "The phone has been optimized for playing Pogoman GO! All other features that might consume energy have been disabled.[paragraph break]";
 			if the phone is not pokedat:
 				bestow "My Phone Doesn't Play That";
 				now the phone is pokedat;			
 			stop the action.
+			
+
+Instead of burning the phone for the first time:
+	say "This phone is not a burner.[paragraph break]";
+	bestow "Rimshot!".
+	
+Instead of burning the phone:
+	say "You would not dream of harming your beloved phone."
 		
 Dialing is an action applying to one thing. Understand "dial [something]" as dialing.
 
