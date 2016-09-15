@@ -2128,6 +2128,7 @@ Before printing the locale description of a room:
 	if the previousRoom of the player is not the location of the player:
 		move the attackerPogoman to the void;[clear the attacker when moving rooms]
 		move the defenderPogoman to the void;
+		now the defenderPogoman is not injured;
 		if Not In Kansas Anymore is happening or the player is in Pogoland Terminal:[update the defender ]
 			if there is a guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders:
 				now the type of defenderPogoman is the guardian corresponding to the pogoLandQTH of the location of the player in the Table of Defenders;
