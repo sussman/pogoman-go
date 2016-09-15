@@ -351,7 +351,11 @@ Instead of dropping a pogothing (called the item):
 				pogoMethEffect;
 		-- pogoEgg:
 			choose a random row in the table of Evolution;
-			let P be the original entry;
+			let P be a pogotype;
+			if a random chance of 2 in 10 succeeds:
+				let P be the Ev2 entry;
+			otherwise:
+				let P be the original entry;
 			sort the Table of Inventory in PogoName order;
 			choose row MODE_POGOMEN_INVENTORY_LIMIT in the Table of Inventory;
 			if there is a pogoName entry:
@@ -1870,6 +1874,12 @@ To add a (creature - a pogotype) to the pogodex:
 		say "You have collected all 48 pogomen.[paragraph break]";
 		bestow "Collected [apostrophe]em All!".
 
+Section 14 - Using
+
+Using is an action applying to one thing. Understand "use [something]" as using.
+
+Report Using:
+	say "Could you be more specific? To see some less common commands, type [quotation mark][italic type]commands[roman type][quotation mark]."
 
 Chapter Rules Modifications
 
@@ -2271,12 +2281,12 @@ Report Helping:
 	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored."
 	
 Instead of helping for the first time:
-	say "That[apostrophe]s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important. If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
+	say "That[apostrophe]s what the internet is for. This had to be cranked out immediately due to market demand. Quality control be damned! Jimmy, our official beta-tester down at the plasma donation center, seemed reasonably happy without a help feature, so apparently it[apostrophe]s not really important.[paragraph break]According to Jimmy, already knows about [italic type]commands[roman type] like [quotation mark][italic type]x[roman type][quotation mark] for [italic type]examine[roman type], [quotation mark][italic type]i[roman type][quotation mark] for [italic type]inventory[roman type], and so on. It is sure is lucky that we have a professional like Jimmy on retainer.[paragraph break]If you care enough to ask for help again, we will think about implementing the feature.[paragraph break]";
 	bestow "Here, let me Google that for you".
 	
 Instead of helping for the second time:
-	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is hints, right?[paragraph break]";
-	bestow "Type [apostrophe]hints[apostrophe] for hints".
+	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is [italic type]hints[roman type], right?[paragraph break]";
+	bestow "Type [apostrophe][italic type]hints[roman type][apostrophe] for hints".
 	
 Instead of helping for the third time:
 	say "There is no more help to be had here, but here[apostrophe]s a medal for your trouble.[paragraph break]";
@@ -2301,7 +2311,7 @@ Section 5 - Credits
 Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting.
 	
 Report crediting:
-	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
+	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Dan Biemer[line break]* Hugo Labrande[line break]* Denise Jobin Welch[line break]* Lara Welch[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
 	bestow "So, who is to blame?".
 	
 Section 6 - Music Credits
@@ -7225,7 +7235,10 @@ Section 7 - Getting Out of the Elevator
 Instead of exiting when the player is in the elevator:
 	if the elevator is doorsajar:
 		if the securityColor of the badge is less than the secLevel corresponding to the Niveau of the floor level of the elevator in the Table of Building Floors:
-			say "You try, but the your badge literally holds you back.";
+			say "You try, but the your badge literally holds you back.[paragraph break]";
+			if the hasBeenLiteral of the badge is false:
+				bestow "But That[apostrophe]s Not How You Use [apostrophe]Literally[apostrophe]!";
+				now the hasBeenLiteral of the badge is true;
 		otherwise:
 			say "You walk off the elevator.";
 			teleport the player to the floor level of the elevator;
@@ -8574,7 +8587,7 @@ The game counter is a thing. The game counter is in the void. The game counter c
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge] badge[if the securityColor of the badge is not white] with a white stripe[end if]".
+The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge] badge[if the securityColor of the badge is not white] with a white stripe[end if]". The badge has a truth state called hasBeenLiteral. The hasBeenLiteral of the badge is false.
 
 Instead of examining the badge for the first time:
 	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
@@ -8896,7 +8909,7 @@ Category	Original	Ev2	Ev3	AttackType
 "thermal"	phlogistomander	pyromelion	arsonizard	"roast and toast"
 "sneezling"	peekatyou	pokeatyou	pukeatyou	"projectile"
 "circuitous"	amporb	jowlball	orbowatt	"defibrillation"
-"iron"	wimporwil	atlazzard	schwartzennator	"throbbing bicep"
+"ferrous"	wimporwil	atlazzard	schwartzennator	"throbbing bicep"
 "gutteral"	gastro	queezee	barfalot	"acid reflux"
 "riffraffian"	perpie	misdementor	fellanon	"severe scoffing"
 
@@ -9651,6 +9664,7 @@ hint	used
 "Take a look at less common commands, try typing [quotation mark][italic type]commands[roman type][quotation mark]."
 "Try everything you can think of. If it doesn't work, try rephrasing."
 "Reread text to make sure you didn't miss anything."
+"Sometimes if you fail at first, you may succeed by trying again."
 "Leave no stone unturned; conversely, don't obsess."
 "This game follows many, but not all, of the conventions of computer adventure games. If something makes sense to you, try it even though it [quotation mark]shouldn't work.[quotation mark]"
 "If you are really stuck, put the game aside and let it percolate through your subconscious for a while. Come back fresh."
