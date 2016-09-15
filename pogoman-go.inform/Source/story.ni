@@ -1226,7 +1226,7 @@ This is the pogo-inventory rule:
 			
 
 
-section 11 - Spawning
+Section 11 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
@@ -3024,6 +3024,104 @@ The default stage business rule is listed last in the stage business rules.
 This is the default stage business rule:
 	say "*** DEFAULT STAGE BUSINESS FOR TESTING PURPOSES ONLY ***."
 	
+]
+
+Section 10 - Batch Object Testing
+
+[Extending JL's object testing framework for game-specific actions]
+
+This is the test capturing rule:
+	announce tests for "capturing [the noun]";
+	try capturing the noun.
+	
+This is the test nonPogoHealing rule:
+	announce tests for "nonPogoHealing [the noun]";
+	try nonPogoHealing the noun.
+	
+This is the test using rule:
+	announce tests for "using [the noun]";
+	try using the noun.
+	
+This is the test spinning rule:
+	announce tests for "spinning [the noun]";
+	try spinning the noun.
+	
+This is the test rebooting rule:
+	announce tests for "Rebooting [the noun]";
+	try rebooting the noun.
+	
+This is the test tapeFailing rule:
+	announce tests for "tapeFailing [the noun].";
+	try tapeFailing the noun.
+	
+This is the test special attacking rule:
+	announce tests for "Special attacking [the noun]";
+	try special attacking the noun.
+	
+This is the test healing rule:
+	announce tests for "Healing [the noun]";
+	try healing the noun.
+	
+This is the test flagging rule:
+	announce tests for "Flagging [the noun]";
+	try flagging the noun.
+	
+This is the test licking rule:
+	announce tests for "Licking [the noun]";
+	try licking the noun.
+	
+This is the test talking to rule:
+	announce tests for "Talking to [the noun]";
+	try talking to the noun.
+	
+This is the test unclipping rule:
+	announce tests for "Unclipping [the noun]";
+	try unclipping the noun.
+	
+This is the test clipping rule:
+	announce tests for "Clipping [the noun]";
+	try clipping the noun.
+	
+This is the test filling rule:
+	announce tests for "Filling [the noun]";
+	try filling the noun.
+	
+This is the test emptying rule:
+	announce tests for "Emptying [the noun]";
+	try emptying the noun.
+	
+This is the test dialing rule:
+	announce tests for "Dialing [the noun]";
+	try dialing the noun.
+	
+This is the test charging rule:
+	announce tests for "Charging [the noun]";
+	try charging the noun.
+	
+Table of analyzing actions (continued)
+topic	testing rule
+"capturing"	test capturing rule
+"nonPogoHealing"	test nonPogoHealing rule
+"using"	test using rule
+"spinning"	test spinning rule
+"rebooting"	test rebooting rule
+"tapeFailing"	test tapeFailing rule
+"special attacking"	test special attacking rule
+"healing"	test healing rule
+"flagging"	test flagging rule
+"licking"	test licking rule
+"talking to"	test talking to rule
+"unclipping"	test unclipping rule
+"clipping"	test clipping rule
+"filling"	test filling rule
+"emptying"	test emptying rule
+"dialing"	test dialing rule
+"charging"	test charging rule
+
+[
+Verbs not applying to objects: Walthrough, guard, expert mode, disable hints, ask for hints, help, about, credits, music credits, rebooting, muting, swimming, diving, poogdexing, commanding, scanning, muting
+
+Items working on inventory can't be tested since inventory commands work on pogotypes and not things
 ]
 
 Chapter Initialize
@@ -8130,7 +8228,7 @@ Instead of sleeping when the player is in motel:
 
 Section 21 - Botanical Garden
 
-The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this flower garden." Understand "hedges" or "paths" as the botanical garden. Botanical garden is a place.
+The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this herbal garden." Understand "hedges" or "paths" as the botanical garden. Botanical garden is a place.
 
 A watering can is an open container in the Botanical Garden. The description of the watering can is "An old school gardening can: sheet metal and at least two gallons capacity. Unfortunately, the end of the spout is broken off and it can only pour, not sprinkle." 
 
