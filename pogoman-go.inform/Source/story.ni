@@ -8103,7 +8103,7 @@ Instead of pushing or pulling the grave stones for the first time:
 	teleport the player to the farm.
 	
 Instead of pushing or pulling the grave stones:
-	say "The grave stones are old, but firmly planted. They don[apostrophe] budge."
+	say "The grave stones are old, but firmly planted. They don[apostrophe]t budge."
 	
 Instead of entering grave stones:
 	try entering the cemetery.
@@ -8118,6 +8118,8 @@ Your mortal coil is in the void. The description of your mortal coil is "A barel
 Instead of cutting or burning or attacking or unclipping the mortal coil when Not In Kansas Anymore is happening:
 	say "Snap![paragraph break]";
 	frontierDeath.
+	
+Understand "shuffle off [something]" as unclipping when Not In Kansas Anymore is happening.
 	
 	
 Section 14 - Beach
