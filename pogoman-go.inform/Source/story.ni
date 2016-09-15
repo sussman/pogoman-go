@@ -7908,13 +7908,14 @@ Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
 
-The wild flowers are in the valley. The description of the wild flowers is "Brilliant purple and yellow flowers with fine petals."
+The wild flowers are in the valley. The description of the wild flowers is "Brilliant purple and yellow flowers with fine petals." Understand "flower" or "plant" or "petal" or "petals" or "stamen" or "stamens" or "stem" or "stems" or "foliage" as the wild flowers.
 
 Instead of taking the wild flowers:
 	say "The flowers have remarkable tensile strength. You are unable to pluck them."
 	
-Instead of smelling the wild flowers:
-	say "As you lean forward, the sticky stamen in the middle of the flower adheres to your nose and pulls your face closer. The petals wrap around your head and force your face into the gooey middle of the plant. Your eyes burn with a chemical sting, and you fight for breath amid the smothering pollen. Slowly, you lose consciousness.[paragraph break]";
+Instead of smelling the wild flowers for the first time:
+	say "As you lean forward, the sticky stamen in the middle of the flower adheres to your nose and pulls your face closer. The petals wrap around your head and force your face into the gooey center of the flower. Stinging pollen abrades your eyes and a sickly sweet odor burns your lungs.[paragraph break]Your knees buckle and your fall to the ground as the plants stem coils around your legs, cutting off circulation. Serrated leaves saw back and forth at the base of your neck. Taking advantage of your immobilitity, lurking pogomen emerge from the foliage; you can hear them flighting to be first in line at the feast.[paragraph break]";
+	bestow "Stopped To Smell The Flowers";
 	frontierDeath.
 	
 Understand "pick [something]" as taking when the player is in the valley.
