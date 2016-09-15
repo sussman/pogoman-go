@@ -8,7 +8,7 @@ The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
 Use MAX_STATIC_DATA of 270000.
-Use MAX_NUM_STATIC_STRINGS of 25000.
+Use MAX_NUM_STATIC_STRINGS of 26000.
 Use Max_DICT_ENTRIES of 1700.
 Use MAX_SYMBOLS of 25000.
 
@@ -8085,13 +8085,41 @@ The description of Dojo is "A traditional martial arts training center, the buil
 
 Section 13 - Cemetery
 
-The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay." Cemetery is a place.
+The description of Cemetery is "The leaning grave stones and crumbling mausoleums impart a sense of neglect and decay." Cemetery is a place. Understand "grave yard" as the cemetery.
 
 Instead of entering the cemetery for the first time:
 	say "Don[apostrophe]t worry, you[apostrophe]ll eventually end up here.[paragraph break]";
 	bestow "People Are Dying To Get In";
 	bestow "Enough With The Dad Jokes".
+	
+Instead of entering the cemetery when the player is in the cemetery:
+	say "You have gone as far as your mortal coil will allow.[paragraph break](i.e., your mortal coil is stretched all the way out)."
 
+The grave stones are scenery in the cemetery. The description of the grave stones is "Grey and brown stone slabs, some intact, some fragmented, all of them worn and weathered, their inscriptions lost to time." Understand "head" or "headstone" or "marker" or "stones" or "graves" or "slab" or "slabs" or "stone" as the grave stones.
+
+Instead of pushing or pulling the grave stones for the first time:
+	say "Your irreverant action coincides in a noncausal way with an unthinkably unlikely macro-level perturbation in space-time, and you find yourself falling towards a field of wheat a few days from now.[paragraph break]";
+	bestow "When In Doubt: Quantum Mechanics";
+	teleport the player to the farm.
+	
+Instead of pushing or pulling the grave stones:
+	say "The grave stones are old, but firmly planted. They don[apostrophe] budge."
+	
+Instead of entering grave stones:
+	try entering the cemetery.
+	
+The mausoleums are scenery in the cemetery. The description of the mausoleums is "Dark, windowless blocks of stone that stand between this world and the next." Understand "mausoleum" or "necropolis" as the mausoleums. 
+
+Instead of entering the mausoleums:
+	try entering the cemetery.
+	
+Your mortal coil is in the void. The description of your mortal coil is "A barely visible silver thread attached to the small of your back (that point you can[apostrophe]t quite scratch) and leading off into infinite space." Understand "thread" or "silver" or "threads" or "coils" or "slinky" or "astral" or "wire" as the mortal coil.
+
+Instead of cutting or burning or attacking or unclipping the mortal coil when Not In Kansas Anymore is happening:
+	say "Snap![paragraph break]";
+	frontierDeath.
+	
+	
 Section 14 - Beach
 
 The description of Beach is "Waves roll in gently, breaking upon the pristine white sands." Beach is a place. Understand "sand" or "sands" as the Beach.
@@ -8334,7 +8362,7 @@ The description of Farm is "[if the burntUp of the farm is false]A red farmhouse
 
 The wheat is scenery in the farm. The description of the wheat is "Waving fields of new-fangled gluten-free wheat." Understand "field" as the wheat.
 
-Instead of cutting the wheat:
+Instead of cutting or pulling or taking the wheat:
 	say "It isn[apostrophe]t ready for harvest yet."
 	
 Instead of searching the wheat:
@@ -8351,9 +8379,6 @@ Instead of eating the wheat for the first time:
 	
 Instead of eating the wheat:
 	say "Hay is for horses!"
-	
-Instead of taking the wheat:
-	try cutting the wheat.
 	
 The charred bone is a prop. The charred bone is in the void. The description of the charred bone is "A blackened fragment of a long bone."
 
@@ -9173,6 +9198,7 @@ Not in Kansas Anymore is a scene. Not in Kansas Anymore begins when Exploring Th
 When Not in Kansas Anymore begins:
 	distributePogolandPogostops;
 	Desolation strikes in DESOLATION_DELAY_DURATION turns from now;
+	now the mortal coil is part of the player;
 	now the description of the player is "You have been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
 		
 At the time when desolation strikes:
@@ -9183,6 +9209,7 @@ Chapter 4 - Denouement
 Denouement is a scene. Denouement begins when Not in Kansas Anymore ends. Denouement ends when vitality of Elon Musk is dead.
 
 When denouement begins:
+	now the mortal coil is in the void;
 	say "You materialize just above the floor in a vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling like shirts at the dry cleaner[apostrophe]s.[paragraph break]A nurse [if the healthiness of the player is dead]reanimated you[otherwise]treats your injuries[end if] and retreats into the shadows as Elon Musk steps forward. Wearing a white lab coat and carrying a metal clipboard, he towers over you.[paragraph break][quotation mark]Well, you had a good run,[quotation mark] he says. [quotation mark]Certainly better than those two did -- Musk points to the hanging carcasses of game authors Ben Collins-Sussman and Jack Welch, which are carried away on meat hooks. As you saw, plenty of bugs still need to be worked out.[quotation mark][paragraph break]In any event, it[apostrophe]s time for Nyantech to eat its own dog food as we say in the industry! I hereby release you from your beta-tester contract, which as you may have noticed,[quotation mark] he says with a sly grin, [quotation mark]has been the only thing keeping you alive.[quotation mark][paragraph break][quotation mark]Wait,[quotation mark] you plead. [quotation mark]What about the purpose of the game being to accelerate technology and improve the world for humanity?[quotation mark][paragraph break][quotation mark]Well,[quotation mark] he drawls. [quotation mark]Thumbs up on the technology bit, but I[apostrophe]m afraid your only future will be as pogoChum!";
 	now the healthiness of the player is healthy;
 	move Elon Musk to Processing;
