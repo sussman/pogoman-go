@@ -969,7 +969,7 @@ Instead of attacking Elon Musk:
 		
 			
 To say attackStyle:
-	say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]wallop[or]repeatedly punch[in random order]".
+	say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]wallop[or]let loose a flurry of blows towards[in random order]".
 			
 To say nearMiss:
 	say ", but you[one of]r attack goes wide[or] miss[or]r opponent is too quick for you[in random order]"
@@ -2563,7 +2563,7 @@ Carry out special attacking:
 			move Elon Musk to the void;
 			bestow "Kill It With Fire!";
 		else:
-			say "and slams into Musk, hurting him[if the vitality of Elon Musk is not dead]; he looks [vitality of Elon Musk][end if].";
+			say " and slams into Musk.";
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
 	now xp of the player is xp of the player minus MODE_SPECIAL_ATTACK_XP_COST;
 	
@@ -3494,11 +3494,10 @@ Every turn during denouement:
 		if the vitality of Elon Musk is less than dead:
 			say "Musk ";
 			if the defenderPogoman is in Processing:
-				say "ignores the [type of defenderPogoman] and concentrates on killing you. He ";	
-	otherwise:
-		if the vitality of Elon Musk is less than dead:
-			say "[entry 1 in MUSKPROVOCATION][paragraph break]He ";
-			rotate MUSKPROVOCATION backwards;
+				say "ignores the [type of defenderPogoman] and concentrates on killing you.[paragraph break]";	
+	if the vitality of Elon Musk is less than dead:
+		say "[entry 1 in MUSKPROVOCATION][paragraph break]He ";
+		rotate MUSKPROVOCATION backwards;
 	if the vitality of Elon Musk is less than dead:
 		if a random chance of 1 in 2 succeeds	:
 			now the healthiness of the player is the health state after the healthiness of the player;
@@ -6309,8 +6308,9 @@ Does the player mean the goldenBadge doing something with the goldenBadge:
 
 Instead of searching the lab coat:
 	if the goldenBadge is worn by Elon Musk and the vitality of Elon Musk is dead:
-		say "You notice the golden badge clipped to the lab coat[apostrophe]s lapel and pluck it off the coat.";
+		say "You notice the golden badge clipped to the lab coat[apostrophe]s lapel and pluck it off the coat. Pinning it to your formal wear, you toss aside your old badge.";
 		now the player wears the goldenBadge;
+		now the badge is in the void;
 	otherwise:
 		continue the action.
 		
@@ -6319,9 +6319,10 @@ Instead of taking the goldenBadge:
 		if the vitality of Elon Musk is not dead:
 			say "[quotation mark]Mine![quotation mark] he says and [one of]wheels out of the way[or]parries your attempt[or]dives to the side[or]deflects your attempt[or]turns to the side quickly[or]jumps out of range[in random order].";
 		otherwise:
-			say "You pluck the badge off the corpse without the slightest hesitation.[paragraph break]";
+			say "You pluck the badge off the corpse without the slightest hesitation, and toss away your old one.[paragraph break]";
 			bestow "Hardened By Experience";
 			now the player wears the goldenBadge;
+		 	now the badge is in the void;
 	otherwise:
 		say "You take the badge and pin it on yourself in place of the old badge, which you discard.";
 		now the badge is in the void;
@@ -6353,17 +6354,15 @@ To transform the processing area:
 	now the clipboard is in Processing;
 	now the defenderPogoman is in the void.
 		
-Before pushing the call button when the denouement is happening:
+Before pushing the call button when Exploring The Tower has happened:
 	if the player wears the goldenBadge:
 		continue the action;
 	otherwise:
 		say "You receive a mild shock from the elevator, which beeps at you insistently and refuses to open[if the vitality of Musk is not dead].[paragraph break]Musk laughs at you derisively[end if].";
 		stop the action.
 	
-Before touching the call button when the denouement is happening:
+Before touching the call button when Exploring The Tower has happened:
 	try pushing the call button.
-	
-
 	
 Instead of pushing a lift button (called the poked item) when the plusQueDenouement is happening:
 	if the poked item is the processingButton:
@@ -8233,7 +8232,7 @@ Section 5 - Baseball Diamond
 
 The description of Baseball Diamond is "A Little League baseball diamond, with field markings."   Understand "little league" as the Baseball Diamond.
 
-The field marking are scenery in the Baseball Diamond. The description of the field markings is "Two chalk lines lines diverge from behind home plate to mark off the playing field; everything outside those lines is considered foul. Lines also run in a diamond shape between the four bases, circumscribing the infield." Understand "grass" or "chalk" or "line" or "lines" or "mark" or "marks" or "markings" as the field markings.
+The field markings are scenery in the Baseball Diamond. The description of the field markings is "Two chalk lines lines diverge from behind home plate to mark off the playing field; everything outside those lines is considered foul. Lines also run in a diamond shape between the four bases, circumscribing the infield." Understand "grass" or "chalk" or "line" or "lines" or "mark" or "marks" or "marking" as the field markings.
 
 Section 6 - Mountain
 
@@ -8635,7 +8634,7 @@ Section 23 - Farm
 
 The description of Farm is "[if the burntUp of the farm is false]A red farmhouse and tall grain silo stand in front of furrowed fields of wheat[otherwise]A field of burnt earth and ashes[end if]." Understand "red" or "farmhouse" or "house" as the farm when the burntUp of the Farm is false. Understand "charred" or "field" or "fields" or "burnt" or "burned"  or "ash" or "ashes" as the Farm when the burntUp of the Farm is true. The farm has a truth state called burntUp. The burntUp of the farm is false. The printed name of the farm is "[if the burntUp of the farm is false]Farm[otherwise]Smoking Ruins[end if]". 
 
-The wheat is scenery in the farm. The description of the wheat is "Waving fields of new-fangled gluten-free wheat." Understand "field" as the wheat.
+The wheat is scenery in the farm. The description of the wheat is "Waving fields of new-fangled gluten-free wheat." Understand "field" or "grain" as the wheat.
 
 Instead of cutting or pulling or taking the wheat:
 	say "It isn[apostrophe]t ready for harvest yet."
