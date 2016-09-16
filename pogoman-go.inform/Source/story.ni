@@ -9273,10 +9273,11 @@ The official hat is worn by the unicorn. The description of the official hat is 
 Instead of touching the official hat:
 	say "The unicorn shimmies and backs away. It does not like it when people poke it in the head."
 	
-Instead of looking under the officia hat:
+Instead of looking under the official hat:
 	say "Under the official hat is an official unicorn."
 	
-Instead of pulling or pushing or touching or attacking or cuting or licking or tasting or smelling or turning or wearing or squeezing or eating or "The unicorns blocks you with his horn."
+Instead of pulling or pushing or touching or attacking or cuting or licking or tasting or smelling or turning or wearing or squeezing or eating:
+	say  "The unicorns blocks you with his horn."
 
 Section 5 - Actions Concerning The Unicorn
 
