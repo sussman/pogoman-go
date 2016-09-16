@@ -4085,6 +4085,9 @@ The description of Rotary Clock Tower is "Off to one side of the park, the clock
 
 Instead of climbing the Rotary Clock Tower:
 	say "You gleefully hop on the tower and hang on as it spins madly. In the first hour, it spins almost eight degrees. Eventually, you grow bored and drop off."
+	
+Instead of pulling or pushing or spinning or turning the rotary clock tower:
+	say "It does that all by itself."
 
 Section 15 - Floyd Memorial Bench
 
@@ -9276,7 +9279,7 @@ Instead of touching the official hat:
 Instead of looking under the official hat:
 	say "Under the official hat is an official unicorn."
 	
-Instead of pulling or pushing or touching or attacking or cuting or licking or tasting or smelling or turning or wearing or squeezing or eating:
+Instead of doing something other than examining or touching or looking under with the official hat:
 	say  "The unicorns blocks you with his horn."
 
 Section 5 - Actions Concerning The Unicorn
