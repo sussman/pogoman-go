@@ -3896,6 +3896,12 @@ The description of Nyantech Entrance is "A towering edifice hewn from solid obsi
 
 The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
 
+Instead of taking the arbitrary notice:
+	say "The unicorn clears his throat, [quotation mark]I believe that is building property.[quotation mark][paragraph break]" 
+	
+Instead of touching the arbitrary notice:
+	say "The notice says the same thing, but in Braille."
+
 The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as badge #794: Officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" or "harris" or "polanski" or "badge" or "hoof" or "hoofs" or "costume" or "794" or "#794" as the unicorn. The unicorn has a number called timesDenied. The timesDenied of the unicorn is 0.
 
 The horn is part of the unicorn. The description of the horn is "A long, twisted horn that ends in a very business-like point; obviously, it is not just ornamentation."
@@ -3985,7 +3991,7 @@ Before entering proxyEntrance for the first time:
 	continue the action.
 
 Instead of climbing the proxyEntrance:
-	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, Spidey.[quotation mark][paragraph break][or]The surface is too slippery.[stopping]"
+	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, Spidey.[quotation mark][or]The surface is too slippery. [stopping][paragraph break]".[leave the space after slippery to suppress CR]
 	
 Instead of attacking the proxyEntrance:
 	say "The unicorn parries the attack with his sharp horn."
@@ -4118,18 +4124,26 @@ Instead of taking the lawn:
 	say "Dude. Lay off the grass. There is enough pogoMeth for everyone."
 	
 Instead of taking the Headless Garden Gnome for the first time:
-	say "You would never live it down if caught trying to make off with the headless figurine.[paragraph break]";
+	say "You would never live it down if you were caught caught trying to make off with the headless figurine.[paragraph break]";
 	bestow "Gnomish Ignominy".
 	
 Instead of taking the Headless Garden Gnome:
 	say "It would not go with any of your other furniture."
 	
 Instead of putting the severed head on the Headless Garden Gnome:
-	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Not a moment later, the gnome shrugs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
+	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Without missing a beat, the gnome shrugs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
 	bestow "Party Time! Rock On!";
 	move the severed head to the void;
 	now the beheaded of the Garden Gnome is false.
 	
+Instead of climbing the Headless Garden Gnome:
+	say "It is only about a foot tall, so you are not so much climbing it as stepping on it."
+	
+Instead of burning the lawn:
+	say "It is too green to catch fire[one of], but it[apostrophe]s the thought that counts, so thanks[or][stopping]."
+	
+Instead of smelling the severed head:
+	say "Severe halitosis."
 
 Section 11 - Parking Lot Award
 
@@ -4215,6 +4229,9 @@ Instead of smelling when the player is in Hook & Ladder:
 Section 19 - Prissy's Little Sausages
 
 The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy[apostrophe]s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
+
+Instead of smelling when the player is in Prissy's Little Sausages:
+	say "Smells like bratwurst!"
 
 Section 20 - Yummi Tummi Softserve
 
@@ -4359,14 +4376,18 @@ Biocontainment Facility is an improper-named structure. Understand "bioweapons" 
 The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seems strangely unattracted to the brains of gamers."
 
 Instead of doing something other than examining with the zombie horde:
-	say "You feel like you have reached a tacit détente with the zombie masses -- live and let unlive, as it were. You don[apostrophe]t want to rile them up, so you keep your distance. On the whole, they are no worse than many roommates you have had."
-	
+	say "You feel like you have achieved a tacit détente with the zombie masses -- live and let unlive, as it were.[paragraph break]You don[apostrophe]t want to rile them up, so you keep your distance.[paragraph break]On the whole, they are no worse than many roommates you have had."
 		
 Before printing the locale description of the biocontainment facility:
 	if the biocontainment facility is unvisited:
 		bestow "Just One of the Boys";
 	otherwise:
 		continue the action.
+		
+Instead of searching the Biocontainment Facility:
+	try entering the Biocontainment Facility.
+	
+
 
 Section 31 - Battle of Margot's Pantry
 
@@ -4618,6 +4639,20 @@ Instead of turning the screw for the first time:
 	
 Instead of turning or taking the screw:
 	say "It is firmly screwed into the surfboard. This is, after all, a permanent exhibit."
+	
+Instead of taking the found art:
+	say "What would you even do with it? It is not like you have a home to put it in."
+	
+Instead of pulling the screw for the first time:
+	say "Pull a nail; push a screw.[paragraph break]";
+	bestow "The Right Tool For The Right Job".
+	
+Instead of pulling or pushing the screw:
+	 say "It seems to be screwed into the surfboard really firmly."
+	
+Instead of buying the art:
+	say "Would you pay them, or would they pay you?"
+
 	
 	
 Section 49 - Crystal Skull
