@@ -14,9 +14,7 @@ Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
 
-[TODO: can add with... a website, the source text, the library card, the introductory postcard]
-
-Release along with cover art ("The Nyantech mascot cat riding a giant pogoBall"), the introductory booklet, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
+Release along with cover art ("The Nyantech mascot cat riding a giant pogoBall"), the introductory booklet, the introductory postcard, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [slightly tweaked for context-specific hints]
@@ -1341,7 +1339,6 @@ Carry out inventoryDropping:
 			if Exploring The Tower has ended:					
 				move the defenderPogoman to the location of the player;
 				now the type of defenderPogoman is P;
-				say "DEBUG wounded status: [if W is true]True[end if][if W is false]False[end if][paragraph break].";
 				if W is true:
 					now the defenderPogoman is injured;
 				let C be the team color of the player;
@@ -2626,6 +2623,7 @@ Instead of giving a pogothing (called the pogoitem) to someone (called the pogor
 						bestow "Enabler";
 						now the hasHealed of PogoMeth is true;
 					now the pogorecipient is not injured;
+					now the wounded corresponding to the pogolandQTH of the location of the player in the Table of Defenders is false;
 				else:
 					say ".[paragraph break]";
 				decrement pogoMeth count.
