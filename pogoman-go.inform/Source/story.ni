@@ -3,7 +3,7 @@
 
 The story headline is "An interactive satire".
 The story genre is "comedy".
-The release number is 3.
+The release number is 4.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
