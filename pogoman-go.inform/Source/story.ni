@@ -302,13 +302,19 @@ A pogothing is a kind of thing.
 
 A PogoBall-kind is a kind of pogothing.  The description is "It[apostrophe]s a cheap mass-produced red and white plastic ball[one of]. You capture pogomen by throwing pogoBalls at them[or][stopping].".  Understand "ball" or "balls" as a pogoBall-kind.  The plural of pogoBall-kind is PogoBalls. 
 
-A PogoChum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogoChum appears as a glistening bit of heart-shaped meat[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogoChum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogoChum-kind.  The plural of pogoChum-kind is PogoChums.
+A PogoChum-kind is a kind of pogothing.  The description is "[if Exploring the Tower has ended]Rancid bits of chopped up… something[otherwise]On your phone, pogoChum appears as a glistening bit of heart-shaped meat. Pogomen seem to enjoy them and you gain experience points by feeding pogoChum to them[end if]."  Understand "chum" as a pogoChum-kind.  The plural of pogoChum-kind is PogoChums.
 
 A PogoMeth-kind is a kind of pogothing.  The description is "You[apostrophe]re not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogoMeth to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogoMeth-kind.  The plural of pogoMeth-kind is PogoMeths. 
 
 A PogoEgg-kind is a kind of pogothing. The description is "An unhatched pogoman egg ([italic type]drop[roman type] the egg to hatch it)." Understand "egg" as a pogoEgg-kind. The plural of pogoEgg-kind is pogoEggses.
 
 A PogoIncense-kind is a kind of pogothing. The description is "A hockey-puck shaped plastic disc. Burn the incense to activate it." Understand "disc" or "incense" as pogoIncense-Kind. The plural of pogoIncense-kind is incense.
+
+Instead of pushing pogoMeth when Exploring the Tower has ended:
+	say "You are a user only; not in retail."
+	
+Instead of licking pogoMeth:
+	try eating pogoMeth.
 
 To decrement (item - a pogothing) count:
 	let N be 0;
@@ -350,23 +356,23 @@ Instead of dropping a pogothing (called the item):
 			say line break;
 			decrement pogoIncense count;
 		-- pogoChum:
-			if Around the Town is happening:
-				say "You throw away a piece of pogoChum.";
-			otherwise:
+			if Exploring the Tower has ended:
 				say "The moldy chunk of meat hits the ground with a wet smack and then melts[one of]. Creepy[or][stopping].";
+			otherwise:
+				say "You throw away a piece of pogoChum.";
 			say line break;
 			decrement pogoChum count;
 		-- pogoMeth:
-			if Around the Town is happening:
+			if Exploring the Tower has ended:
+				say "You totally drop some pogoMeth.";
+				pogoMethEffect;
+			otherwise:
 				if the location of the player contains the attackerPogoman:
 					try giving pogoMeth to the attackerPogoman;
 				otherwise:
 					say "You throw away a vial of pogoMeth[one of].[paragraph break]Kids: Just say [quotation mark]No![quotation mark] to pogoMeth[or][stopping].";
 					say line break;
 					decrement pogoMeth count;
-			otherwise:
-				say "You totally drop some pogoMeth.";
-				pogoMethEffect;
 		-- pogoEgg:
 			choose a random row in the table of Evolution;
 			let P be a pogotype;
@@ -379,7 +385,7 @@ Instead of dropping a pogothing (called the item):
 			if there is a pogoName entry:
 				say "Your pogoman inventory is already full[one of]. Hang onto the egg for later[or][stopping].";								
 			otherwise:	
-				repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:				
+				repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:	
 					choose row N in the Table of Inventory;
 					if there is no pogoName entry :
 						let PP be "[P]" in title case;
@@ -424,19 +430,19 @@ Instead of touching or pulling or pushing or rubbing or waving or squeezing or c
 	bestow "Harsh Reality".
 	
 	
-Instead of touching or pulling or pushing or rubbing or waving or squeezing or cutting or swinging or tasting or turning a pogothing when Around the Town is happening:
+Instead of touching or pulling or pushing or rubbing or waving or squeezing or cutting or swinging or tasting or turning a pogothing when Exploring the Tower has not ended:
 	say "You can[apostrophe]t because it is just part of a game on your phone."
 		
 To say notReal:
 	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence"
 	
 Instead of eating pogoChum:
-	if Around the Town is happening:
-		try touching the pogoChum;
-	otherwise:
+	if Exploring the Tower has ended:
 		say "[one of]It must be an acquired taste, because this time, it is not too bad[or]You find yourself rather enjoying pogoChum[or]This is some fine pogoChum[or]Musk is a genius! This stuff is awesome[or]Where has pogoChum been all your life. You can[apostrophe]t get enough[or]Mmm. PogoChum[stopping].";
 		say line break;
-		decrement pogoChum count.						
+		decrement pogoChum count;
+	otherwise:
+		try touching the pogoChum.			
 				
 Instead of eating pogoChum when Not In Kansas Anymore is happening for the first time:
 	say "Hm. Kind of tasty, actually. Like sushi, but a bit more rangy.[paragraph break]";
@@ -5409,10 +5415,28 @@ The stage business of the lobby is {
 
 The lobbyEmployees are privately-named plural-named scenery persons. The lobbyEmployees are in the lobby. The printed name of the lobbyEmployees is "employees". The description of the lobbyEmployees is "Employees hustle and bustle around the lobby on their motorized contrivances." Understand "workers" or "worker" or "employee" or "employees" as the lobbyEmployees. 
 
+Instead of pushing or pulling or turning the lobbyEmployees:
+	say "They are moving around too fast for you to grab."
+	
+Instead of attacking or cutting the lobbyEmployees:
+	say "You have only the greatest admiration for the people who developed the game you love. You would not dream of harming them."
+
 The lobbyPlayers are privately-named plural-named scenery persons. The lobbyPlayers are in the lobby. The printed name of the lobbyPlayers is "visitors". The description of the lobbyPlayers is "Players mull about the lobby in awe." Understand "visitor" or "visitors" or "gamer" or "player" or "gamers" or "players" as the lobbyPlayers. 
 
-The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" or "contrivance" or "contrivances" or "motorized" as the high-tech conveyances.
+Instead of smelling the lobbyPlayers:
+	say "They smell like a Star Trek convention."
+	
+Instead of pushing or pulling or turning the lobbyPlayers:
+	say "They are running around excitedly and evade your grasp."
+	
+Instead of attacking or cutting the lobbyPlayers for the first time:
+	say "That would violate the Pogomaster Code of Ethics.[paragraph break]";
+	bestow "Principled".
+	
+Instead of attacking or cutting the lobbyPlayers:
+	say "You wish them no harm."
 
+The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" or "contrivance" or "contrivances" or "motorized" as the high-tech conveyances.
 
 Instead of doing something other than examining with high-tech conveyances:
 	say "They are darting about too quickly to even get a good look at them."
@@ -5459,6 +5483,9 @@ Instead of rubbing the stamp for the first time:
 Instead of rubbing the stamp:
 	say "[rubPhrase]."
 	
+Instead of licking the stamp:
+	say "The dark ink is waterproof."
+	
 To say rubPhrase:
 	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected"
 
@@ -5502,7 +5529,21 @@ Instead of touching or opening the LAN Closet Door when the player is in the Lob
 
 The LAN Closet is east of the LAN Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
+
+
 Definition: The speaker is active if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true and the record is on the phonograph.
+
+Instead of listening to the Lan Closet Door:
+	if the speaker is active:
+		if the player wears the walkman:
+			say "Beyond the song, you can make out a bass rumbling.";
+		otherwise:
+			say "You reel back in terror from the sound at the door.";
+	otherwise:
+		try listening.
+		
+Instead of rubbing or licking or smelling or tasting or pushing or pulling or turning or attacking or cutting or taking the Lan Closet Door:
+	try touching the Lan Closet Door.
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
@@ -6096,7 +6137,7 @@ To say stairwellDescription:
 
 The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, StairsInterns, StairsEngineers, StairsManagers, StairsInfirmary, StairsProcessing, StairsPackaging, StairsRoof are staircase rooms in the Stairwell. The Stairwell is in HQ.	
 
-The concrete is a backdrop in the Stairwell. The description of the concrete is "Monotonous light grey concrete." Understand "wall" or "walls" or "floor" or "floors" or "ceiling" as the concrete.
+The concrete is a backdrop in the Stairwell. The description of the concrete is "Monotonous light grey concrete." Understand "wall" or "walls" or "floor" or "floors" or "ceiling" or "cement" as the concrete.
 
 The stairs is a backdrop in the Stairwell. The description of the stairs is "Broad flights of stairs run vertically through the entire building." Understand "stair" as the stairs. 
 
@@ -6398,6 +6439,9 @@ Instead of putting something (called the item) on the decking:
 	
 The cafeteria windows are a backdrop in the Deck Area. The description of the cafeteria windows is "Through the tinted windows of the top floor of the Nyantech tower, you can see both visitors and employees eating in the cafeteria." Understand "window" as the cafeteria windows.
 
+Instead of opening or closing or pushing or pulling or turning the cafeteria windows:
+	try entering the cafeteria windows.
+
 Instead of searching the cafeteria windows:
 	try examining the cafeteria windows.
 	
@@ -6676,7 +6720,7 @@ To say describeCatPO:
 Instead of examining the catProxyOverhead when the player is in a cat-top room:
 	say "You are standing on top of it."
 	
-The eyesProxyOverhead is a catTopDrop. The eyesProxyOverhead is in the Deck Area. The printed name of the eyesProxyOverhead is "eyes". Understand "red" or "glowing" or "eye" or "eyes" as the eyesProxyOverhead. The description of the eyesProxyOverhead is "[describeEyesPO]".
+The eyesProxyOverhead is a catTopDrop. The eyesProxyOverhead is in the Deck Area. The eyesProxyOverhead is plural-named. The printed name of the eyesProxyOverhead is "eyes". Understand "red" or "glowing" or "eye" or "eyes" as the eyesProxyOverhead. The description of the eyesProxyOverhead is "[describeEyesPO]". 
 
 To say describeEyesPO:
 	visualize "The cat's deep red eyes seem to glow as they search the landscape"
@@ -6704,7 +6748,7 @@ To say describeCatwalkPO:
 	visualize "[catWalkText]"
 	
 To say catWalkText:
-	say "A narrow metal scaffold with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. You imagine that you are just about above the lattice-work boom that extends from the building to support the cat about fifty stories above the ground"
+	say "A narrow metal with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. You imagine that you are just about above the lattice-work boom that extends from the building to support the cat about fifty stories above the ground"
 	
 The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" or "grue" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
 
@@ -7266,6 +7310,12 @@ Instead of talking to someone (called the auditor) in the elevator:
 Section 2 - Exterior of the elevator
 
 The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" as the elevatorExterior. 
+
+Instead of taking the elevatorExterior:
+	say "Have you pressed the call button?"
+	
+Instead of pushing the elevatorExterior:
+	try pushing the call button.
 
 To say elevatorDoorDesc:
 	say "elevator doors here are [if the player is in the floor level of the elevator]open[otherwise]closed[end if]".
@@ -8986,17 +9036,17 @@ Instead of dropping the badge, say "No. They[apostrophe]ll have to peel it from 
 
 Definition: a door (called the portal) is interdicted if the securityColor of the portal is greater than the securityColor of the badge.
 
-Instead of opening or touching an interdicted door for the first time:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door for the first time:
 	say the headline of the location;
 	say "Your arm immediately goes numb and drops to your side when you touch the stairway door. After a moment, you swing your arm clumsily from the shoulder and sensation slowly returns. When the pins and needles abate, you seem undamaged. Well, no harm, no foul.[paragraph break]";
 	bestow "Misplaced Optimism".	
 	
-Instead of opening or touching an interdicted door for the second time:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door for the second time:
 	say the headline of the location;
 	say "When you touch the door, your knees feel wobbly and buckle beneath you. You catch yourself against the wall and manage a controlled descent to the concrete floor, where you sit for a moment. The feeling wears off as quickly as it onset and you are back on your feet in no time. You reason that you shouldn[apostrophe]t have skipped breakfast, the most important meal of the day.[paragraph break]";
 	bestow "Specious Reasoning".
 	
-Instead of opening or touching an interdicted door for the third time:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door for the third time:
 	say the headline of the location;
 	say "The last thing you remember was trying to open the stairway door. You aren[apostrophe]t sure how long you[apostrophe]ve been passed out, but you are glad that there isn[apostrophe]t a lot of traffic on the stairs and that no one saw you. Perhaps you are dehydrated from all the walking you[apostrophe]ve been doing while playing the game.[paragraph break]";
 	bestow "Poor Understanding of Physiology".
@@ -9004,26 +9054,26 @@ Instead of opening or touching an interdicted door for the third time:
 To say bright flash:
 	say "There is a bright flash as you touch the door...[paragraph break]".
 	
-Instead of opening or touching an interdicted door for the fourth time:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door for the fourth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "A nurse removes a dressing from your chest. At first glance, the skin underneath appears to be grey and glistening, but as the gauze is peeled back, you can see more clearly that it is just flesh colored, like the surrounding skin.[paragraph break][quotation mark]You took a nasty fall on those stairs,[quotation mark] says the nurse sympathetically. Her outfit is decidedly retro, a uniform right out of a 1950s soap opera: white apron and hat, with her hair pulled back in a practical bun. [quotation mark]I wish they would improve the lighting on those stairs.[quotation mark][paragraph break]Before you can say anything else, she certifies you fit as a fiddle and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 	
-Instead of opening or touching an interdicted door for the fifth time:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door for the fifth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "The same nurse as before leans over you and removes some stickers attached to your chest and unclips a glowing red device from your right index finger.[paragraph break][quotation mark]Perhaps you should stick to the elevator. I tell you, those stairs can be treacherous. I wish they would give them a coat of non-skid paint. More people lose their footing in there…[quotation mark][paragraph break]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.";
 	hospital discharge.
 
-Instead of opening or touching an interdicted door for the sixth time:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door for the sixth time:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "The droning whine fades and becomes a steady beat. The nurse replaces two paddles on a red cart covered in vials, syringes, and empty plastic packets. She pulls a tube from your throat that come to think of it has been puffing air into your lungs, removes a tube from somewhere on your left leg, and pulls off all the stickers and wires.[paragraph break]Wiping the perspiration from her forehead and replacing the hat that must have fallen off at some point, she reassures you, [quotation mark]You took a bit of a spill on the stairs and gave your ankle real twist, but now you[apostrophe]re bright eyed and bushy tailed.[quotation mark]Before you can say anything else, she certifies you ship shape and guides you to a waiting elevator. The elevator doors close behind you.[paragraph break]";
 	bestow "What[apostrophe]s wrong with this picture?";
 	hospital discharge.
 	
-Instead of opening or touching an interdicted door:
+Instead of opening or touching or attacking or cutting or pushing or pulling or turning or spinning or licking or tasting or rubbing an interdicted door:
 	say "[bright flash]";
 	teleport the player to the Infirmary;
 	say "You wake up in a glowing vat of viscous pink liquid in a room full of blinking lights. Tubes retract from your body and the liquid drains. After a while, you feel well enough to stand up, find your clothes, and get dressed. As you slip on your shoes, the floor begins to move like a conveyor belt, which deposits you in the elevator.";
