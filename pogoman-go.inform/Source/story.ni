@@ -26,7 +26,7 @@ Include Undo Output Control by Erik Temple. [fairly hacked for this project]
 
 Book 1 - Mechanics
 
-
+ 
 Chapter Kinds
 
 
@@ -3892,73 +3892,43 @@ Instead of spinning the historical marker for the first time:
 
 Section 8 - Nyantech Entrance
 
-The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance, which is just through a revolving door past the unicorn, beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)". 
+[Entrance]
 
-The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
+The description of Nyantech Entrance is "A towering edifice hewn from solid obsidian, the imposing structure is visible from miles away. The entrance, which is just through a revolving door past the unicorn, beckons to you." Nyantech Entrance is improper-named. The printed name of Nyantech Entrance is "entrance to the Nyantech Tower". The title of Nyantech Entrance is "Nyantech Tower (outside)".
 
-Instead of taking the arbitrary notice:
-	say "The unicorn clears his throat, [quotation mark]I believe that is building property.[quotation mark][paragraph break]" 
-	
-Instead of touching the arbitrary notice:
-	say "The notice says the same thing, but in Braille."
+After going to Nyantech Entrance for the first time:
+	say the headline of Nyantech Entrance;
+	say "You stand reverently below the enormous Nyantech Tower, its obsidian walls reaching majestically to the sky above you. From here, you can see the giant animatronic Nyantech Cat orbiting the building fifty stories above you, spewing sparkles in its wake. Its glowing red eyes sweep up and down, looking everywhere. This is the promised land, a place you have always dreamed of visiting.[paragraph break]Through the glass, you see Nyantech employees in the lobby scooting every which way on segways and hoverboards.[paragraph break]A uniformed unicorn stands near the revolving door leading inward to the lobby. With a hint of annoyance, he rubs your nose print off the glass with a furry hoof.[paragraph break]";
+	bestow "Reached the Mothership";
 
-The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as badge #794: Officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" or "harris" or "polanski" or "badge" or "hoof" or "hoofs" or "costume" or "794" or "#794" as the unicorn. The unicorn has a number called timesDenied. The timesDenied of the unicorn is 0.
 
-The horn is part of the unicorn. The description of the horn is "A long, twisted horn that ends in a very business-like point; obviously, it is not just ornamentation."
-
-Instead of touching the horn:
-	say "The unicorn turns its heads to the side; touching the horn is considered poor etiquette."
-
-The hat is worn by the unicorn. The description of the hat is "A official narrow-brimmed blue hat that coordinates well with the unicorn[apostrophe]s uniform."
-
-Instead of touching the hat:
-	say "The unicorn shimmies and backs away. It does not like it when people poke it in the head."
-
-The uniform is part of the unicorn. The description of the uniform is "The blue uniform fits pretty well considering the extensive tailoring required for unicorns."
-
-Instead of taking the unicorn:
-	say "I don't suppose the unicorn would care for that.[paragraph break]The unicorn agrees with the parser, [quotation mark]In fact, I wouldn[apostrophe]t.[quotation mark][paragraph break]";
-	bestow "Fourth Wall Broken".
-	
-Instead of pushing the unicorn for the first time:
-	say "How effective do you think you are in pushing against a four-legged creature that outmasses you by nearly ten to one?[paragraph break]";
-	bestow "Rats. Foiled again by the coefficient of static friction.".
-		
-Instead of pushing the unicorn:
-	say "The unicorn stands his ground firmly."
-
-Instead of eating the unicorn for the first time:
-	say "The unicorn snickers as he pokes you in the forehead with this horn, [quotation mark]You[apostrophe]re lucky that I[apostrophe]m on duty today. Usually, the Big Bad Wolf covers this entrance, and that kind of behavior would get [italic type]you[roman type] eaten.[quotation mark][paragraph break]";
-	bestow "To Serve Man".
-	
-Instead of attacking the unicorn for the first time:
-	say "You aren[apostrophe]t sure how you ended up on the pavement with the unicorn[apostrophe]s horn at your throat, but you now have a better appreciation of just how fast a unicorn can move.[paragraph break]";
-	bestow "Touché".
-	
-Instead of attacking the unicorn:
-	say "The unicorn enjoys the sparring, but continues to stand guard."
-	
-Instead of eating the unicorn:
-	say "Consumption of unicorn meat is prohibited by international treated."
-
-Instead of doing something other than examining with the uniform:
-	say "The unicorn is proud of its uniform, and would prefer that you not mess with it."
-	
-Instead of capturing the unicorn for the first time:
-	say "The unicorn looks at you with disappointment, [quotation mark]Do I really look like a pogoman? Really? Please.[quotation mark][paragraph break]";
-	bestow "Mistaken Identity".
-	
-Instead of capturing the unicorn:
-	say "The unicorn ignores you. Apparently, this happens pretty commonly among those who have difficulty distinguishing between fiction (the game) and fantasy (a unicorn)."
-
-The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
+[Entrance Proxy]
 
 The proxyEntrance is a privately-named scenery in the Nyantech Entrance. The printed name of proxyEntrance is "building".  The description of proxyEntrance is "An imposing fifty story building of black glass and home to the creators of your favorite game, Pogoman GO!" Understand "entrance" or "building" or "office" or "tower" or "obsidian" or "glass" or "wall" or "walls" or "HQ" or "headquarters" or "offices" as the proxyEntrance. 
 
-The lowCat is a privately-named scenery. The lowCat is in Nyantech Entrance. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "The corporate mascot of Nyantech, a giant version of the cat has been incorporated into the building itself. Up at least fifty stories, the cat revolves the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" as the lowCat.
+Instead of searching the proxyEntrance:
+	say "You would have to go in first."
+	
+Before entering proxyEntrance for the first time:
+	say "Eager to rub elbows with the creators of your favorite game, and to have a chance at the special pogomen rumored to inhabit the building, you saunter into revolving door.";
+	continue the action.
 
-Instead of doing something other than examining with the lowCat:
-	say "The Nyantech Cat is way too far above you."
+Instead of climbing the proxyEntrance:
+	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, Spidey.[quotation mark][or]The surface is too slippery. [stopping][paragraph break]".[leave the space after slippery to suppress CR]
+	
+Instead of attacking the proxyEntrance:
+	say "The unicorn parries the attack with his sharp horn."
+
+Instead of entering the proxyEntrance:
+	say "[one of][unicorn1][or][unicorn2][or][unicorn3][or][unicorn4][or][unicorn2][stopping][paragraph break]";
+
+Instead of going inside when the player is in Nyantech Entrance:
+	try entering the proxyEntrance.
+
+[Revolving Door Proxy]
+
+
+The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
 Instead of doing something with the revolvingDoorProxy:
 	if the current action is examining:
@@ -3979,103 +3949,31 @@ Instead of doing something with the revolvingDoorProxy:
 					if the current action is rubbing:
 						say "That unicorn says, [quotation mark]Please leave that to the professionals.[quotation mark][paragraph break]";
 					otherwise:
-						say "The unicorn remarks, [quotation mark]Are you going to monkey with the door all day long, or are you here to go into the building. Gheesh.[quotation mark][paragraph break]"
+						say "The unicorn remarks, [quotation mark]Are you going to monkey with the door all day long, or are you here to go into the building. Gheesh.[quotation mark][paragraph break]".
 
-After going to Nyantech Entrance for the first time:
-	say the headline of Nyantech Entrance;
-	say "You stand reverently below the enormous Nyantech Tower, its obsidian walls reaching majestically to the sky above you. From here, you can see the giant animatronic Nyantech Cat orbiting the building fifty stories above you, spewing sparkles in its wake. Its glowing red eyes sweep up and down, looking everywhere. This is the promised land, a place you have always dreamed of visiting.[paragraph break]Through the glass, you see Nyantech employees in the lobby scooting every which way on segways and hoverboards.[paragraph break]A uniformed unicorn stands near the revolving door leading inward to the lobby. With a hint of annoyance, he rubs your nose print off the glass with a furry hoof.[paragraph break]";
-	bestow "Reached the Mothership";
-	
-Before entering proxyEntrance for the first time:
-	say "Eager to rub elbows with the creators of your favorite game, and to have a chance at the special pogomen rumored to inhabit the building, you saunter into revolving door.";
-	continue the action.
 
-Instead of climbing the proxyEntrance:
-	say "[one of]As you slide down the nearly frictionless surface of the Nyantech Tower, the unicorn chides you, [quotation mark]Not today, Spidey.[quotation mark][or]The surface is too slippery. [stopping][paragraph break]".[leave the space after slippery to suppress CR]
-	
-Instead of attacking the proxyEntrance:
-	say "The unicorn parries the attack with his sharp horn."
+[Low Cat]
 
-Instead of entering the proxyEntrance:
-	say "[one of][unicorn1][or][unicorn2][or][unicorn3][or][unicorn4][or][unicorn2][stopping][paragraph break]";
-			
-Instead of going inside when the player is in Nyantech Entrance:
-	try entering the proxyEntrance.
-		
-To say unicorn1:
-	say "The unicorn sticks a hoof in the revolving door to block your entrance.[paragraph break][quotation mark]Not so fast,[quotation mark] it says with all the authority that comes with a plastic badge. [quotation mark]I[apostrophe]ll need to see your cell phone.[quotation mark]".
-	
-To say unicorn2:
-	say "The unicorn taps it hoof. [quotation mark]Phone, please.[quotation mark]"
-	
-To say unicorn3:
-	say "[quotation mark]Let[apostrophe]s not make this difficult, buddy.[quotation mark] The unicorn leans towards you in a way that would be intimidating were it not a fairy creature. [quotation mark]I need to check your phone before you enter. It[apostrophe]s the rules.[quotation mark]"
-	
-To say unicorn4:
-	say "[quotation mark]I[apostrophe]ll give you credit for being persistent, but look, I[apostrophe]m just following company policy. Before you go in, I have to check out your game credentials. Nothing personal, it[apostrophe]s just the rules. So, let[apostrophe]s see the phone, okay?[quotation mark]".
-	
-Instead of showing something (called the item) to the unicorn:
-	try giving the item to the unicorn.
-	
-[to require both level and xp caps implies that we're looking for an XP value above that needed to achieve the player's current level]
 
-To say requirement:
-	if the pogoLevel of the player is less than TOWER_LEVEL_REQUIREMENT:
-		say "reached level [TOWER_LEVEL_REQUIREMENT in words]";
-	otherwise:
-		if the xp of the player is less than TOWER_XP_REQUIREMENT:
-			say "[TOWER_XP_REQUIREMENT] XP";
-		otherwise:
-			if the number of entries in MEDALLIST is less than TOWER_MEDAL_REQUIREMENT:
-				say "[TOWER_MEDAL_REQUIREMENT in words] medal[if TOWER_MEDAL_REQUIREMENT is greater than 1]s[end if]";
-			otherwise:
-				if the number of entries in TROPHYLIST is less than TOWER_TROPHY_REQUIREMENT:
-					say "[TOWER_TROPHY_REQUIREMENT in words] gym troph[if TOWER_TROPHY_REQUIREMENT is greater than 1]ies[otherwise]y[end if]";
-				otherwise:
-					say "ERROR: unknown problem with entry requirements".
+The lowCat is a privately-named scenery. The lowCat is in Nyantech Entrance. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "The corporate mascot of Nyantech, a giant version of the cat has been incorporated into the building itself. Up at least fifty stories, the cat revolves the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" as the lowCat.
+
+Instead of doing something other than examining with the lowCat:
+	say "The Nyantech Cat is way too far above you."
+
+
+[Arbitrary Notice]
+
+The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
+
+Instead of taking the arbitrary notice:
+	say "The unicorn clears his throat, [quotation mark]I believe that is building property.[quotation mark][paragraph break]" 
+	
+Instead of touching the arbitrary notice:
+	say "The notice says the same thing, but in Braille."
 					
 To say arbitraryNoticeDescription:
 	say "[apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe]".
-	
-Instead of giving something  (called the item) to the unicorn:
-	if the item is not the phone:
-		say "The phone -- I could care about. That? Not so much.";
-	otherwise:
-		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the number of entries in TROPHYLIST is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
-			say "[goOnin]";
-		otherwise:
-			increase the timesDenied of the unicorn by 1;
-			if the timesDenied of the unicorn is:
-				-- 1:
-					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
-					bestow "Subjected to arbitrary requirements”;
-				-- 2:
-					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogoman player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
-					bestow "That puts things in perspective”;
-				-- 3:
-					say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I[apostrophe]m telling you.[quotation mark][paragraph break]";
-					bestow “But I am a special snowflake”;
-				-- 4:
-					say "[deny4]";
-				-- 5:
-					say "[deny4]";
-					say "The unicorn rolls his eyes and under his breath mutters, [quotation mark]We got a bright one here, eh, Polanski?[quotation mark][paragraph break]From the rear of the unicorn, there is a wry reply, [quotation mark]I know, right?[quotation mark][paragraph break]";
-					bestow "Exceeded The Patience Of A Unicorn";
-				-- otherwise:
-					say "[deny4]".
-					
-To say deny4:
-	say "The unicorn stops you and uses his horn to point out the words on the door [apostrophe]Experienced Players Only. No exceptions -- The management.[apostrophe][paragraph break][quotation mark]Come back when you have at least [requirement].[quotation mark][paragraph break]”
-	
-To say chitChat:
-	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how J.J. Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don[apostrophe]t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]Facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet[apostrophe]s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[or]how georeferenced gaming has altered the traffic patterns[or]technical innovations in portable and wearable computing[or]blue-sky research that will one day save the whales[or]whether Moore[apostrophe]s law will continue to apply as silicon dies reach atomic resolution[or]the strategic importance of the Bosphorus Straits in limiting Russian access to the Mediterranean for trade and military purposes[or]the organizational structure of ant colonies[or]how rare it is to find dial phones these days[in random order]"
-	
-To say goOnIn:
-	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter the building[apostrophe]s revolving door.";
-	teleport the player to the RevolvingDoor.
 
-After talking to the unicorn for the first time:
-	bestow "Talks With Unicorns".		
 		
 Section 9 - Ashwell-Lott Estate
 
@@ -9328,7 +9226,239 @@ Instead of examining the scrap of paper:
 		say "(picking up the scrap of paper to read it)[command clarification break]";
 		now the player carries the scrap of paper;
 	continue the action.
+	
+Chapter 4 - The Unicorn
 
+Section 1 - Description
+
+The unicorn is a person. The unicorn is in Nyantech Entrance. The description of the unicorn is "The unicorn wears a Peerless Security Agency uniform.  The hat has been modified to accommodate the long, white horn that pokes through it. A name tag identifies the unicorn as badge #794: Officers C. Harris and F. Polanski." Understand "name" or "tag" or "officer" or "officers" or "harris" or "polanski" or "badge" or "hoof" or "hoofs" or "costume" or "794" or "#794" as the unicorn. The unicorn has a number called timesDenied. The timesDenied of the unicorn is 0.
+
+To unicorn kick:
+	say "The annoyed unicorn kicks you -- literally -- to the next city block.";
+	let D be a direction;
+	let N be a random number from 1 to 4;
+	let D be entry N of {north, south, east, west};
+	teleport the player to the room D from Nyantech Entrance.
+
+Section 2 - Horn
+
+The horn is part of the unicorn. The description of the horn is "A long, twisted horn that ends in a very business-like point; obviously, it is not just ornamentation."
+
+Instead of pulling or pushing or touching or taking or turning or squeezing the horn for the first time:
+	say "The unicorn whacks you on the head with the horn and admonishes, [quotation mark]Keep your little primate paws off my horn.[quotation mark][paragraph break]".
+	
+Instead of pulling or pushing or touching or taking or turning or squeezing the horn:
+	unicorn kick.
+	
+Instead of tasting or licking the horn for the first time:
+	say "The horn tastes like licorice, and then like blood. Yours.[paragraph break]The unicorn reads you the riot act about licking his horn. It[apostrophe]s not candy, you know."
+	
+Instead of tasting or licking the horn:
+	unicorn kick.
+
+Section 3 - Uniform
+
+The uniform is part of the unicorn. The description of the uniform is "The blue uniform fits pretty well considering the extensive tailoring required for unicorns."
+
+Instead of doing something other than examining or wearing or taking with the uniform:
+	say "The unicorn is proud of its uniform, and would prefer that you not mess with it."
+
+Instead of taking or wearing the uniform:
+	say "It wouldn[apostrophe]t fit. Too many legs, too few arms."
+
+Section 4 - Official Hat
+
+The official hat is worn by the unicorn. The description of the official hat is "A official narrow-brimmed blue hat that coordinates well with the unicorn[apostrophe]s uniform."
+
+Instead of touching the official hat:
+	say "The unicorn shimmies and backs away. It does not like it when people poke it in the head."
+	
+Instead of looking under the officia hat:
+	say "Under the official hat is an official unicorn."
+	
+Instead of pulling or pushing or touching or attacking or cuting or licking or tasting or smelling or turning or wearing or squeezing or eating or "The unicorns blocks you with his horn."
+
+Section 5 - Actions Concerning The Unicorn
+
+Instead of looking under the unicorn for the first time:
+	say "He is indeed a male unicorn.[paragraph break]";
+	bestow "TMI".
+	
+Instead of looking under the unicorn:
+	say "Now you are just embarassing him."
+	
+Instead of touching or rubbing or squeezing the unicorn for the first time:
+	say "The unicorn looks down at your poking finger and says, [quotation mark]The first poke is free. I get it. A lot of people need to test reality.[quotation mark][paragraph break]Then he fixes you in the eye with his glance, with his horn pointed menacingly downward at your face, and warns, [quotation mark]But next time you touch me, you[apostrophe]ll enjoy a flight courtesy of Air Pegasus, if you know what I mean.[quotation mark][paragraph break]";
+	bestow "No Finger Pointing".
+	
+Instead of touching or rubbing or squeezing the unicorn:
+	unicorn kick.
+	
+Instead of kissing the unicorn:
+	say "The unicorn lets you know that falls outside the bounds of your professional relationship."
+	
+Instead of tasting or licking the unicorn for the first time:
+	say "The unicorn sprays some disinfectant on his uniform (and on you), and informs you that if your mouth comes near him again, you will regret it.[paragraph break]";
+	bestow "Human Slobber".
+	
+Instead of tasting or licking the unicorn:
+	unicorn kick.
+
+Instead of taking the unicorn for the first time:
+	say "I don't suppose the unicorn would care for that.[paragraph break]The unicorn agrees with the parser, [quotation mark]In fact, I wouldn[apostrophe]t.[quotation mark][paragraph break]";
+	bestow "Fourth Wall Broken".
+	
+Instead of pushing the unicorn for the first time:
+	say "How effective do you think you are in pushing against a four-legged creature that outmasses you by nearly ten to one?[paragraph break]";
+	bestow "Rats. Foiled again by the coefficient of static friction.".
+		
+Instead of pushing the unicorn:
+	say "The unicorn stands his ground firmly."
+
+Instead of eating the unicorn for the first time:
+	say "The unicorn snickers as he pokes you in the forehead with this horn, [quotation mark]You[apostrophe]re lucky that I[apostrophe]m on duty today. Usually, the Big Bad Wolf covers this entrance, and that kind of behavior would get [italic type]you[roman type] eaten.[quotation mark][paragraph break]";
+	bestow "To Serve Man".
+	
+Instead of attacking  or cutting the unicorn for the first time:
+	say "You aren[apostrophe]t sure how you ended up on the pavement with the unicorn[apostrophe]s horn at your throat, but you now have a better appreciation of just how fast a unicorn can move.[paragraph break]";
+	bestow "Touché".
+	
+Instead of attacking or cutting the unicorn:
+	say "The unicorn enjoys the sparring, but continues to stand guard."
+	
+Instead of eating the unicorn:
+	say "Consumption of unicorn meat is prohibited by international treated."
+
+Instead of capturing the unicorn for the first time:
+	say "The unicorn looks at you with disappointment, [quotation mark]Do I really look like a pogoman? Really? Please.[quotation mark][paragraph break]";
+	bestow "Mistaken Identity".
+	
+Instead of capturing the unicorn:
+	say "The unicorn ignores you. Apparently, this happens pretty commonly among those who have difficulty distinguishing between fiction (the game) and fantasy (a unicorn)."
+	
+Instead of searching the unicorn for the first time:
+	say "The unicorn reminds you that this usually works the other way around and frisks you.[paragraph break]";
+	bestow "Frisky Business".
+	
+Instead of searching the unicorn:
+	say "The unicorn says [quotation mark]I[apostrophe]ll be the one doing the searches, thank you very much.[quotation mark][paragraph break]".
+	
+Instead of smelling the unicorn:
+	say "He smells like rose water."
+	
+Instead of climbing the unicorn for the first time:
+	say "[quotation mark]Let[apostrophe]s come to an arrangement,[quotation mark] offers the unicorn. [quotation mark]You don[apostrophe]t try to mount me, and I don[apostrophe]t try to mount you.[quotation mark][paragraph break]After of moment of consideration, you agree that this is an entirely satisfactory arrangement."
+	
+After talking to the unicorn for the first time:
+	bestow "Talks With Unicorns".		
+	
+Instead of climbing the unicorn:
+	unicorn kick.
+	
+Instead of buying the unicorn when the player is in Nyantech Entrance:
+	say "The unicorn refuses to be bribed."
+	
+Instead of pulling the unicorn:
+	say "The unicorn reacts with unbridled resentment."
+	
+Instead of turning the unicorn for the first time:
+	say "The unicorn refuses to be turned.[paragraph break]";
+	bestow "Lawful Good".
+	
+Instead of turning the unicorn:
+	say "The unicorn resents your attempt to lead him around like a common dray horse."
+	
+Instead of opening the unicorn:
+	say "Perhaps the unicorn will open up to you if you chat with him."
+	
+Instead of closing the unicorn:
+	say "As you close with the unicorn, he draws back, maintaining a discreet interpersonal distance."
+	
+Instead of listening to the unicorn:
+	say "Pleased to have an audience, the unicorn rambles on about [chitChat]."
+	
+Instead of entering the unicorn for the first time:
+	say "That would jeopardize this game[apostrophe]s PG rating."
+	
+Instead of entering the unicorn:
+	say "That verb is not recognized in this context."
+	
+Instead of burning the unicorn:
+	say "The unicorn extinguishes your flame, complaining that it exceeds his job description."
+	
+
+
+Section 6 - Entering and Conversation
+		
+To say unicorn1:
+	say "The unicorn sticks a hoof in the revolving door to block your entrance.[paragraph break][quotation mark]Not so fast,[quotation mark] it says with all the authority that comes with a plastic badge. [quotation mark]I[apostrophe]ll need to see your cell phone.[quotation mark]".
+	
+To say unicorn2:
+	say "The unicorn taps it hoof. [quotation mark]Phone, please.[quotation mark]"
+	
+To say unicorn3:
+	say "[quotation mark]Let[apostrophe]s not make this difficult, buddy.[quotation mark] The unicorn leans towards you in a way that would be intimidating were it not a fairy creature. [quotation mark]I need to check your phone before you enter. It[apostrophe]s the rules.[quotation mark]"
+	
+To say unicorn4:
+	say "[quotation mark]I[apostrophe]ll give you credit for being persistent, but look, I[apostrophe]m just following company policy. Before you go in, I have to check out your game credentials. Nothing personal, it[apostrophe]s just the rules. So, let[apostrophe]s see the phone, okay?[quotation mark]".
+	
+Instead of showing something (called the item) to the unicorn:
+	try giving the item to the unicorn.
+	
+[to require both level and xp caps implies that we're looking for an XP value above that needed to achieve the player's current level]
+
+To say requirement:
+	if the pogoLevel of the player is less than TOWER_LEVEL_REQUIREMENT:
+		say "reached level [TOWER_LEVEL_REQUIREMENT in words]";
+	otherwise:
+		if the xp of the player is less than TOWER_XP_REQUIREMENT:
+			say "[TOWER_XP_REQUIREMENT] XP";
+		otherwise:
+			if the number of entries in MEDALLIST is less than TOWER_MEDAL_REQUIREMENT:
+				say "[TOWER_MEDAL_REQUIREMENT in words] medal[if TOWER_MEDAL_REQUIREMENT is greater than 1]s[end if]";
+			otherwise:
+				if the number of entries in TROPHYLIST is less than TOWER_TROPHY_REQUIREMENT:
+					say "[TOWER_TROPHY_REQUIREMENT in words] gym troph[if TOWER_TROPHY_REQUIREMENT is greater than 1]ies[otherwise]y[end if]";
+				otherwise:
+					say "ERROR: unknown problem with entry requirements".
+
+
+Instead of giving something  (called the item) to the unicorn:
+	if the item is not the phone:
+		say "The phone -- I could care about. That? Not so much.";
+	otherwise:
+		if the pogoLevel of the player is at least TOWER_LEVEL_REQUIREMENT and the xp of the player is at least TOWER_XP_REQUIREMENT and the number of entries in TROPHYLIST is at least TOWER_TROPHY_REQUIREMENT and the number of entries in MEDALLIST is at least TOWER_MEDAL_REQUIREMENT:
+			say "[goOnin]";
+		otherwise:
+			increase the timesDenied of the unicorn by 1;
+			if the timesDenied of the unicorn is:
+				-- 1:
+					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
+					bestow "Subjected to arbitrary requirements”;
+				-- 2:
+					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogoman player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
+					bestow "That puts things in perspective”;
+				-- 3:
+					say "The unicorn sighs and reminds you, [quotation mark]Only those who have at least [requirement] can enter. Why don[apostrophe]t you run along, play some more and come back later?[quotation mark][paragraph break][quotation mark]I don[apostrophe]t think you understand -- I need to get in there. I want be the very best![quotation mark][paragraph break][quotation mark]Like no one ever was?[quotation mark] mocks the unicorn.[paragraph break][quotation mark]Yeah,[quotation mark] you reply, oblivious. [quotation mark]I[apostrophe]ve traveled across the land…[quotation mark][paragraph break]The unicorn leads you on cruelly, [quotation mark]Searching far and wide?[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, wondering where this is going. [quotation mark]Anyhow, are telling me that I have to grind just to walk into the lobby?[quotation mark][paragraph break][quotation mark]Yeah. That[apostrophe]s precisely what I[apostrophe]m telling you.[quotation mark][paragraph break]";
+					bestow “But I am a special snowflake”;
+				-- 4:
+					say "[deny4]";
+				-- 5:
+					say "[deny4]";
+					say "The unicorn rolls his eyes and under his breath mutters, [quotation mark]We got a bright one here, eh, Polanski?[quotation mark][paragraph break]From the rear of the unicorn, there is a wry reply, [quotation mark]I know, right?[quotation mark][paragraph break]";
+					bestow "Exceeded The Patience Of A Unicorn";
+				-- otherwise:
+					say "[deny4]".
+					
+To say deny4:
+	say "The unicorn stops you and uses his horn to point out the words on the door [apostrophe]Experienced Players Only. No exceptions -- The management.[apostrophe][paragraph break][quotation mark]Come back when you have at least [requirement].[quotation mark][paragraph break]”
+	
+To say chitChat:
+	say "[one of]the weather[or]local sports[or]prospects for discovering life on nearby rocky exoplanets[or]who was more powerful: Dumbledore or Gandalf (the answer being Gandalf, of course)[or]whether wine experts really can tell the difference between wine by taste[or]whether Teilhard de Chardin was a crazy charlatan or a philosopher ahead of his time[or]the organizational structure of the human brain and whether it can be simulated in silico, and if so, would such a simulation be inherently conscious or self-aware[or]funny cat videos you[apostrophe]ve seen[or]how amazing it is that the newspaper industry still exists at all[or]how J.J. Abrams has ruined Star Trek[or]millennials[or]where to find good pizza. You don[apostrophe]t come to a consensus because you are partial to New York Style thin-crust pizza, whereas the unicorn prefers Chicago-style deep dish pizza. Since it[apostrophe]s rare to find a place that can do both well, you agree to disagree on this one[or]yoga[or]what a crappy movie the original, i.e., 1981, Clash of the Titans was despite an amazing cast and how dated it looks compared with the 2010 film, which itself was not a masterpiece[or]how fattening peanut butter is[or]why DC can[apostrophe]t seem to make a good superhero flick[or]Facebook[apostrophe]s privacy settings[or]they heyday of professional wrestling[or]recipes for quiche[or]airplane food[or]infant mortality in medieval Europe[or]the price of copper[or]Sydney Greenstreet[apostrophe]s brief but brilliant career in 1940[apostrophe]s cinema[or]people who purchase a riding mower but have postage stamp-size lawns. This then leads to an extensive discussion about rising postal rates, inefficiency of the post office and whether drones will put them out of business[or]the chances of getting a brain parasite from eating undercooked pork[or]how georeferenced gaming has altered the traffic patterns[or]technical innovations in portable and wearable computing[or]blue-sky research that will one day save the whales[or]whether Moore[apostrophe]s law will continue to apply as silicon dies reach atomic resolution[or]the strategic importance of the Bosphorus Straits in limiting Russian access to the Mediterranean for trade and military purposes[or]the organizational structure of ant colonies[or]how rare it is to find dial phones these days[in random order]"
+	
+To say goOnIn:
+	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter the building[apostrophe]s revolving door.";
+	teleport the player to the RevolvingDoor.
 
 Book 4 - Stuff
 
