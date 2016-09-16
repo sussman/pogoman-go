@@ -128,6 +128,24 @@ The player has a truth state called deniedTemptationOnce. The deniedTemptationOn
 The player has a truth state called expertMode. The expertMode of the player is false.
 The player has a truth state called hasPogodexed. The hasPogodexed of the player is false.
 
+Instead of looking under the player:
+	say "You find your feet."
+	
+Instead of searching the player:
+	try taking inventory.
+	
+Instead of attacking the player:
+	say "You undermine yourself with a mixture of anxiety, self-doubt, and pity."
+	
+Instead of opening the player:
+	say "You open yourself to the wonder of the universe.[paragraph break]Finding none, you close yourself back up."
+	
+Instead of licking the player:
+	say "You lick your lips."
+	
+Instead of emptying the player:
+	say "You feel inhibited, as if someone is watching. You can hold it for now."
+	
 Section 7 - BackDrops
 
 A catTopDrop is a kind of backdrop. catTopDrops are privately-named. 
@@ -286,7 +304,7 @@ A PogoBall-kind is a kind of pogothing.  The description is "It[apostrophe]s a c
 
 A PogoChum-kind is a kind of pogothing.  The description is "[if Around The Town is Happening]On your phone, pogoChum appears as a glistening bit of heart-shaped meat[one of]. Pogomen seem to enjoy them and you gain experience points by feeding pogoChum to them[or][stopping][otherwise]Rancid bits of chopped up… something[end if]."  Understand "chum" as a pogoChum-kind.  The plural of pogoChum-kind is PogoChums.
 
-A PogoMeth-kind is a kind of pogothing.  The description is "You[apostrophe] not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogoMeth to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogoMeth-kind.  The plural of pogoMeth-kind is PogoMeths. 
+A PogoMeth-kind is a kind of pogothing.  The description is "You[apostrophe]re not sure what[apostrophe]s in it, but it seems to make pogomen feel better, at least until withdrawal sets in. Use pogoMeth to [italic type]heal[roman type] (or at least mask the pain for a while of) wounded pogomen."  Understand "meth" as a pogoMeth-kind.  The plural of pogoMeth-kind is PogoMeths. 
 
 A PogoEgg-kind is a kind of pogothing. The description is "An unhatched pogoman egg ([italic type]drop[roman type] the egg to hatch it)." Understand "egg" as a pogoEgg-kind. The plural of pogoEgg-kind is pogoEggses.
 
@@ -379,18 +397,21 @@ Instead of putting a pogothing (called the item) on something:
 	if Exploring The Tower has ended:
 		try dropping the item;
 	Otherwise:
-		say notReal.
+		say "[notReal]."
 	
 [may need to disable the futile to throw things at inanimate objects rule]
 
-Instead of throwing a pogothing (called the item) at:
+Instead of throwing a pogothing (called the item) at something (called the target):
 	if the item is the pogoBall:
 		continue the action;
 	otherwise:
 		if Exploring The Tower has ended:
 			try dropping the item;
-		otherwise:
-			say notReal.
+		otherwise:	
+			if the target is a pogoentity or target is the defenderPogoman or the target is the attackerPogoman:
+				try dropping the item;
+			otherwise:	
+				say "[notReal]."
 		
 Instead of inserting a pogothing (called the item) into something:
 	if Exploring The Tower has ended:
@@ -398,15 +419,16 @@ Instead of inserting a pogothing (called the item) into something:
 	otherwise:
 		say "[notReal]."
 	
-Instead of touching a pogothing when Around the Town is happening for the first time:
+Instead of touching or pulling or pushing or rubbing or waving or squeezing or cutting or swinging or tasting or turning a pogothing when Exploring the Tower has not ended for the first time:
 	say "[notReal].[paragraph break]";
 	bestow "Harsh Reality".
+	
+	
+Instead of touching or pulling or pushing or rubbing or waving or squeezing or cutting or swinging or tasting or turning a pogothing when Around the Town is happening:
+	say "You can[apostrophe]t because it is just part of a game on your phone."
 		
 To say notReal:
-	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence."
-	
-Instead of touching a pogothing when Around the Town is happening:
-	say notReal.
+	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence"
 	
 Instead of eating pogoChum:
 	if Around the Town is happening:
@@ -545,12 +567,8 @@ To distributePogolandPogostops:
 		add a random okayPogolandLocation to POGOSTOPLIST;
 	move the pogostop backdrop to all the pogoStopTargeted rooms. 
 	
-Instead of taking the pogostop when Exploring the Tower has not happened for the first time:
-	say "The pogostops are just pictures on your phone.[paragraph break]";
-	bestow "Get Real".
-	
-Instead of taking a pogostop:
-	say "You can[apostrophe]t."
+To say pogostopNotReal:
+	say "You can[apostrophe]t. Pogostops are just pictures on your phone".
 	
 Instead of attacking a pogostop:
 	try spinning the pogostop.
@@ -563,6 +581,14 @@ Instead of pushing a pogostop:
 	
 Instead of pulling a pogostop:
 	try spinning the pogostop.
+	
+Instead of doing something other than spinning or examining or attacking or pulling or pushing or turning with a pogostop when Around the Town has not ended for the first time:
+	say "[pogostopNotReal].[paragraph break]";
+	bestow "Get Real".
+	
+Instead of doing something other than spinning or examining or attacking or pulling or pushing or turning with a pogostop when Around the Town has not ended:
+	say "[pogostopNotReal]."
+
 	
 Section 5 - Gyms
 
@@ -738,7 +764,8 @@ At the time when the gym is overthrown:
 		let R be a random number between 1 and the number of entries in CORE_TEAM_COLORS;
 		now the color of the mostRecentGym of the gym is entry R in CORE_TEAM_COLORS.
 	
-			
+Instead of smelling the gym:
+	say "It smells like old sneakers worn by a wet dog."			
 			
 				
 Section 6 - Pogomen
@@ -997,7 +1024,7 @@ To generate a pogoman:
 
 Section 9 - Capture Pogomen
 
-Capturing is an action applying to a thing. Understand "capture [thing]" or "catch [thing]" as capturing.
+Capturing is an action applying to a thing. Understand "capture [something]" or "catch [something]" as capturing.
 
 Check capturing:
 	if the noun is a person:
@@ -1661,7 +1688,7 @@ Check nonPogoHealing:
 			otherwise:
 				say "You are out of pogoMeth!".
 				
-Section 10 - Walkthroughing
+Section 11 - Walkthroughing
 
 Walkthroughing is an action out of world. Understand "walkthrough" as walkthroughing. 
 
@@ -1736,7 +1763,7 @@ To say beingCaptured:
 To say bossBattle:
 	say "Soon after arrival in PogoChum Processing, you are assaulted by Elon Musk. There[apostrophe]s nowhere to run -- with your access level, you can[apostrophe]t operate the purple-level elevator and there are no stairs.[paragraph break]* Violence is the answer at this point. You have all your options including [italic type]drop[roman type] to deploy a defending pogoman to help, [italic type]attack Elon Musk[roman type], or [italic type]special attack Elon Musk[roman type].[paragraph break]* This fight is for realsies. If Musk kills you, it[apostrophe]s Game Over.[paragraph break]* If you win the fight, you can [italic type]take golden badge[roman type], which is clipped to his lab coat. You now have access to every floor on the elevator, and each leads to an ending.[paragraph break] *[italic type]Undo[roman type] is not disabled, so you could check out each ending.[paragraph break]* There are two possible endings from a short scene in Legal Department if you choose that level.[paragraph break]* After every ending (some more successful than others), you can check out some game statistics and trivia by typing [quotation mark][italic type]amusing[roman type][quotation mark]."
 	
-Section 11 - Expert Mode
+Section 12 - Expert Mode
 
 expertModing is an action out of world. Understand "expert mode" as expertModing. 
 
@@ -1808,14 +1835,14 @@ Carry out expertModing:
 	if the pogoIncenseCarried of the player is 0:
 		move the pogoIncense to the void.
 
-Section 12 - Command Command
+Section 13 - Command Command
 
 Commanding is an action out of world. Understand "command" or "commands" as commanding.
 
 Carry out commanding:
 	say "Here are some less commonly used commands that are currently available:[paragraph break]* capture (a pogoman)[line break]* clip/unclip (something)[line break]* commands[line break]* evolve (a pogoman)[line break]* expert mode[line break]* feed (a pogoman)[line break]* fill/empty (something)[line break][if  Exploring the Tower has ended]* guards[line break][end if]* heal (a pogoman)[line break]* pogodex[line break]* reboot[line break]* scan[line break][if Exploring The Tower has ended]* special attack (someone)[line break][end if]* spin (a pogostop)[line break]* transfer (a pogoman)[paragraph break]".
 
-Section 13 - Pogodex
+Section 14 - Pogodex
 
 Pogodexing is an action applying to nothing. Understand "pogodex" or "catalog" or "catalogue" or "library" or "list" as pogodexing. 
 
@@ -1882,14 +1909,14 @@ To add a (creature - a pogotype) to the pogodex:
 		say "You have collected all 48 pogomen.[paragraph break]";
 		bestow "Collected [apostrophe]em All!".
 
-Section 14 - Using
+Section 15 - Using
 
 Using is an action applying to one thing. Understand "use [something]" as using.
 
 Report Using:
 	say "Could you be more specific? To see some less common commands, type [quotation mark][italic type]commands[roman type][quotation mark]."
 	
-Section 15 - Burning
+Section 16 - Burning
 
 Before burning:
 	if the location of the player encloses the gasoline:
@@ -2224,7 +2251,7 @@ Carry out guarding:
 
 Section 2 - Spinning
 
-Spinning is an action applying to a thing. Understand "spin [thing]" as spinning.
+Spinning is an action applying to a thing. Understand "spin [something]" as spinning.
 
 Check spinning:
 	if the noun is not a pogostop:
@@ -2482,7 +2509,7 @@ Report tapeFailing:
 		
 Section 14 - Special Attack
 
-Special attacking is an action applying to one thing. Understand "special attack [a thing]" as special attacking when Exploring The Tower has ended.
+Special attacking is an action applying to one thing. Understand "special attack [something]" as special attacking when Exploring The Tower has ended.
 
 Check special attacking:
 	if the noun is not a person:
@@ -2788,7 +2815,7 @@ Before doing something other than examining with the medals when Around The Town
 	stop the action.
 		
 Before doing something other than examining with the bronzes when Around The Town is happening for the first time:
-	say "The trophies aren[apostrophe]t actual, physical bronze cups or little statues that you put on your mantelpiece in case you ever need a prop for a murder mystery. No, they are just part of the Pogoman GO! game you phone. Fear not. A common error.[paragraph break]Congratulations! You have earned the [quotation mark]Intangible Award[quotation mark] medal.[paragraph break]";
+	say "The trophies aren[apostrophe]t actual, physical bronze cups or little statues that you put on your mantelpiece in case you ever need a prop for a murder mystery. No, they are just part of the Pogoman GO! game on your phone. Fear not. A common error.[paragraph break]Congratulations! You have earned the [quotation mark]Intangible Award[quotation mark] medal.[paragraph break]";
 		add "Intangible Award" to MEDALLIST;
 	say awardParadox;
 	stop the action.
@@ -3072,7 +3099,7 @@ This is the test rebooting rule:
 	try rebooting the noun.
 	
 This is the test tapeFailing rule:
-	announce tests for "tapeFailing [the noun].";
+	announce tests for "tapeFailing [the noun]";
 	try tapeFailing the noun.
 	
 This is the test special attacking rule:
@@ -3792,6 +3819,25 @@ Instead of searching the sky:
 			say "You have already liberated the salmon from its celestial retreat.";
 	otherwise:
 		try examining the sky.
+		
+Instead of attacking the sky for the first time:
+	say "You rail against the injustice of the universe.[paragraph break]The universe ignores you.[paragraph break]";
+	bestow "At Least You Tried".
+	
+Instead of attacking the sky:
+	say "The sky resists passively."
+	
+Instead of taking the sky for the first time:
+	say "I don[apostrophe]t care, I[apostrophe]m still free.[paragraph break]";
+	bestow "You can[apostrophe]t take the sky from me."
+	
+Instead of taking the sky:
+	say "Please leave the sky where it is."
+	
+Instead of touching the sky for the first time:
+	say "This world is not hollow.[paragraph break]You cannot touch the sky.[paragraph break]";
+	bestow "TOS: S3 E8".
+	
 	
 Section 4 - City Park
 
@@ -3805,6 +3851,9 @@ The hedges are scenery in City Park. The description of the hedges is "Tall, tho
 
 Instead of entering or climbing the hedges, say "Ow. No thanks."
 
+Instead of searching the hedges:
+	say "You find even more hedges."
+
 Section 5 - Old Court House
 
 The description of Old Courthouse is "A brick court house, probably of historical significance." Old Courthouse is an improper-named structure.  The title of Old Courthouse is "Old Courthouse". The printed name of the Old Courthouse is "courthouse".  Understand "court" as Old Courthouse. Understand "building" or "brick" as Old Courthouse when the location is Old Courthouse.
@@ -3813,15 +3862,33 @@ Section 6 - Old Jail
 
 The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for online for play or download.[quotation mark][paragraph break]Disgusted with [if the dog exercise area is unvisited]the[otherwise]yet another[end if] blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."  Old Jail is an improper-named structure. Understand "clink" or "lock-up" or "lock up" or "hoosegow" or "jailhouse" as Old Jail. Understand "building" or "brick"  as Old Jail when the location is Old Jail. The title of Old Jail is "Old Jail". The printed name of Old Jail is "old brick jailhouse".
 
-Instead of entering Old Jail for the first time:
+Instead of entering Old Jail when the player is in Old Jail for the first time:
 	say "Most people spend their time trying to stay out of it.[paragraph break]";
 	bestow "Criminal Intent".
 
 Section 7 - Johnson's Rock
 
-The description of Johnson's Rock is  "A historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  Johnson's Rock is an  improper-named artifact. Understand "johnson" or "johnsons" as Johnson's Rock. Understand "rock"  or "stone" or "ground" or "site" as Johnson's Rock when the location is Johnson's Rock. The title of Johnson's Rock is "Johnson's Rock". The printed name of Johnson's Rock is "site of Johnson's Rock".
+The description of Johnson's Rock is  "An historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  Johnson's Rock is an  improper-named artifact. Understand "johnson" or "johnsons" as Johnson's Rock. The printed name of Johnson's Rock is "site of Johnson's Rock". Understand "patch" or "bare" or "rock"  or "stone" or "ground" or "site" as Johnson's Rock when the location is Johnson's Rock. The title of Johnson's Rock is "Johnson's Rock". 
+
+The historical marker is scenery in Johnson's Rock. The description of the historical marker is "A metal sign that identifies this as the site of Johnson's enigmatic rock." 
 
 Instead of taking Johnson's Rock, say "Too late. Some kids already got to it."
+
+Instead of searching Johnson's Rock for the first time:
+	say "You notice the absence of a rock here.[paragraph break]";
+	bestow "Heart Grown Fonder".
+	
+Instead of listening to Johnson's Rock for the first time:
+	say "Listening to rock will make you deaf![paragraph break]";
+	bestow "Meh. Music these days."
+	
+Instead of taking the historical marker for the first time:
+	say "No. Then they would just have to put up another marker to commemorate the absence of the first marker. This would be the start of a slippery and recursive slope.[paragraph break]";
+	bestow "And What Would You Do With All Those Markers?".
+	
+Instead of spinning the historical marker for the first time:
+	say "It is a metal sign, not a pogostop![paragraph break]";
+	bestow "Dammit".
 
 Section 8 - Nyantech Entrance
 
@@ -4080,7 +4147,17 @@ Section 13 - Spit n' Solder
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark].". Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
 
-The display is scenery in Spit n' Solder. The description of the window is "In addition to testing vacuum tubes, the store advertises that it also services BlackBerry phones for the real Luddites." Understand "windows" or "window" as the display.
+The display is scenery in Spit n' Solder. The description of the display is "In addition to testing vacuum tubes, the store advertises that it also services BlackBerry phones." Understand "windows" or "window" as the display.
+
+After examining the display for the first time:
+	bestow "Know Your Clients".
+	
+Instead of buying something for the first time:
+	say "No funds. You plowed all your assets into your phone to play Pogoman GO![paragraph break]";
+	bestow "Investment In The Future".
+	
+Instead of buying something:
+	say "No funds."
 
 Section 14 - Rotary Clock Tower
 
@@ -4124,6 +4201,9 @@ Section 18 - Hook & Ladder
 
 The description of Hook & Ladder is "The home of Fire Brigade Number 12." Hook & Ladder is an improper-named structure. Understand "hook and ladder" or "firehouse" as Hook & Ladder. Understand "building" as Hook & Ladder when the location is Hook & Ladder. The title of Hook & Ladder is "Hook & Ladder". The printed name of Hook & Ladder is "firehouse".
 
+Instead of smelling when the player is in Hook & Ladder:
+	say "Smells smoky."
+
 Section 19 - Prissy's Little Sausages
 
 The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy[apostrophe]s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
@@ -4146,26 +4226,38 @@ Instead of doing something other than examining with the customers:
 
 The ice cream is scenery in Yummi Tummi Softserve. The description of the ice cream is "Every sort of ice cream is available here. Certainly, such favorites as banana-splits, fudge sundaes, and black-and-white sodas, but also YTS signature dishes such as the [one of]guacamole frappe[or]teriyaki twirl[or]habañero double firehouse squirt[or]the triple-scoop live fire-ant combo[or]toothpaste gelato with Oreo bowl[or]Rocky Mountain Spotted cone[in random order] and their [one of]scorpion pops[or]razor ices[or]petroleum floats[or]whipped cream and industrial surprise platters[or]old fashioned typhoid squid cakes[in random order]." Understand "float" or "floats" or "soda" or "sodas" or "creams" or "cone" or "cones" or "sundae" or "sundaes" or "bowl" or "bowls" as the ice cream.
 
+Instead of tasting or eating ice cream for the first time:
+	say "A pogomaster must be resolute in the face of temptation. You try to put the delightful dessert out of your mind and concentrate on the game.[paragraph break]";
+	bestow "But It Does Look Tasty".
+	
+Instead of tasting or eating ice cream:
+	say "No time for eating. Must play Pogoman GO!".
+
 Section 21 - Service Dog Memorial
 
 The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]". Service Dog Memorial is an improper-named artifact. Understand "scruffy" as the Service Dog Memorial. Understand "statue" or "sculpture" as Service Dog Memorial when the location is Service Dog Memorial. The title of Service Dog Memorial is "Service Dog Memorial". The printed name of Service Dog Memorial is "elaborate memorial to service dogs".
 
 Section 22 - Gardens of Zarf
 
-The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
+The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
-The garden sign is scenery in The Gardens of Zarf. The description of the garden sign is "[zarfSign]".
+The zarfian sign is scenery in The Gardens of Zarf. The description of the zarfian sign is "[zarfSign]".
 
-After examining the garden sign for the first time:
+After examining the zarfian sign for the first time:
 	bestow "Eye For Detail".
 
 To say zarfSign:
 	say "The fine print on the sign reads: [quotation mark]Warning: Rated Relatively Cruel.[quotation mark]";
 
-
-Instead of entering The Gardens of Zarf :
+Instead of searching or entering The Gardens of Zarf when the player is in Gardens of Zarf for the first time:
 	say "Weeds grab at your feet and a sunflower nearly slices your head off. While struggling free, the azaleas grab your wrist and shake the phone free. It falls into a horde of marigolds that rip it to pieces.";
 	phoneDeath.
+	
+Instead of searching or entering The Gardens of Zarf  when the player is in Gardens of Zarf:
+	say "You heed the sign."
+	
+Instead of pulling or pushing or spinning or turning the zarfian sign:
+	say "It does not budge."
 
 Section 23 - Flan Emporium
 
@@ -4193,11 +4285,16 @@ The stained glass is scenery in the Church of the Orthogonal Sticks. The descrip
 
 Instead of doing something other than examining with the stained glass, say "You can't, the windows are too high up."
 
+Instead of burning the church of the orthogonal sticks for the first time:
+	say "Do you want to end up in the Old Jail that badly?[paragraph break]";
+	bestow "Intolerance Not Tolerated".
+	
 Section 26 - Witch Pillory
 
 The description of Witch Pillory is "This site commemorates the town[apostrophe]s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]". Witch Pillory is an improper-named artifact. The printed name of Witch Pillory is "witch pillory".
 
-Instead of entering Witch Pillory, say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
+Instead of entering or climbing Witch Pillory when the player is in Witch Pillory:
+	say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
 
 Section 27 - Flag Pole
 
@@ -4222,13 +4319,28 @@ Check Flagging:
 		
 The floodlights are plural-named scenery in Flag Pole. The description of the floodlights is "Large floodlights ring the pole and are tilted up to illuminate the flag." Understand "light" or "lights" or "floodlight" as the floodlights.
 
+Instead of switching on or switching off the floodlights:
+	say "The floodlights are not something you can switch. Someone can. Just not you."
+	
+Instead of entering the floodlights:
+	say "You are bathed in warm light."
+	
+Instead of flagging or turning or pushing or pulling the floodlights:
+	say "Their angle is fixed; they don[apostrophe]t budge."
+
 Section 28 - Krusty Kronuts
 
 The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken." Krusty Kronuts is an improper-named structure. Understand "donut" or "donuts" or "doughnut" or "doughnuts" or "kroughnut" or "kroughnuts" or "kronut" as Krusty Kronuts. Understand "building" or "store" or "restaurant" as Krusty Kronuts when the location is Krusty Kronuts. The printed name of Krusty Kronuts is "kroughnut store". The title of Krusty Kronuts is "Krusty Kronuts".
 
+Instead of smelling when the player is in Krusty Kronuts:
+	say "Mmm.  Kroooonuts!"
+
 Section 29 - Cyclorama
 
 The description of Cyclorama is "The indoor bicycle track yields important radionuclides for pharmaceutical use." Cyclorama is an improper-named structure. Understand "bike" or "bicycle" or "track" or "cycle" as Cyclorama. Understand "building" as Cyclorama when the location is Cyclorama. The printed name of Cyclorama is "indoor bike track". The title of Cyclorama is "Cyclorama".
+
+Instead of spinning cyclorama:
+	say "Spinning is something you do inside cyclorama, not to cyclorama."
 
 Section 30 - Biocontainment Facility
 
@@ -4292,7 +4404,29 @@ The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing
 
 Dog Exercise Area is an improper-named place. Understand "field" or "run" as Dog Exercise Area. Understand "park" as Dog Exercise Area when the location is Dog Exercise Area. The title of Dog Exercise Area is "Dog Exercise Area". The printed name of Dog Exercise Area is "dog run".
 
-The dogs are scenery in the dog exercise area. The description of dogs is "Floppy eared beagles, bristly schnauzers, and skinny greyhounds romp about, glad to be out and about with their owners[one of]. You puzzle how so many people could spent so much time out of their mothers[apostrophe] basements without a cell phone in hand. It is truly enigmatic[or][stopping]." Understand "dog" or "canine" or "owner" or "owners" or "schnauzer" or "schnauzers" or "beagle" or "beagles" or "greyhound" or "greyhounds" as the dogs.
+The dogs are animals. The dogs are scenery. The dogs are plural-named. The dogs are in the dog exercise area. The description of dogs is "Floppy eared beagles, bristly schnauzers, and skinny greyhounds romp about, glad to be out and about with their owners[one of]. You puzzle how so many people could spent so much time out of their mothers[apostrophe] basements without a cell phone in hand. It is truly enigmatic[or][stopping]." Understand "dog" or "canine" or "owner" or "owners" or "schnauzer" or "schnauzers" or "beagle" or "beagles" or "greyhound" or "greyhounds" as the dogs.
+
+Instead of smelling the dogs for the first time:
+	say "You smell nothing unexpected.[paragraph break]Neither do the dogs."
+	
+Instead of smelling the dogs:
+	say "The dog run could use a bit of picking up."
+	
+Instead of attacking or cutting the dogs:
+	say "Their fangs dissuade you from doing so."
+	
+Instead of licking the dogs for the first time:
+	say "You lick them; they lick you.[paragraph break]";
+	bestow "Quid Pro Quo".
+	
+Instead of licking the dogs:
+	say "Mutual licking occurs."
+	
+Instead of rubbing the dogs:
+	say "You pet the dogs briefly while scanning the area for pogomen."
+	
+Instead of spinning the dogs:
+	say "They enjoy it and want to play more!"
 
 Section 37 - Bottle Cap Wall
 
@@ -4303,6 +4437,7 @@ Instead of Climbing The Bottle Cap Wall:
 	
 Instead of opening the Bottle Cap Wall:
 	say "These bottle caps were long ago opened."
+
 
 Section 38 - Mile Marker 0.7
 
@@ -4319,7 +4454,6 @@ To say oriented:
 	say "You are seized with the absolute conviction that you are less than one mile from [italic type]something[roman type]."
 	
 
-
 Section 39 - Unfathomable Orb
 
 The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
@@ -4329,8 +4463,12 @@ Unfathomable Orb is an improper-named artifact. Understand "lawn" or "furniture"
 Instead of taking the orb:
 	say "The orb is something which no one really gets, and which few people can take for more than a few moments."
 	
-Instead of touching the orb:
+Instead of touching or rubbing the orb:
 	say "Briefly, you have the sensation of leaving your body and floating weightlessly somewhere above the town. In the distance below, you see [heightDescription]. When you recoil, the vision stops."
+	
+Instead of searching the orb for the first time:
+	say "Searching the orb reveals absolutely nothing. Predictably.[paragraph break]";
+	bestow "Unenlightened".
 	
 Section 40 - Rottweiler Art
 
@@ -4449,6 +4587,10 @@ Instead of licking the Crystal Skull:
 	
 Instead of taking the Crystal Skull:
 	say "It[apostrophe]s not something you can take[one of]. Also: it is cursed, or at least rumored to be. It certainly was for Harrison Ford[or][stopping]."
+	
+Instead of rubbing the Crystal Skull for the first time:
+	say "The coarse salt abrades your hand and the friction raises the temperature of the skull by a fraction of a degree.[paragraph break]";
+	bestow "Got A Lot Done Today".
 
 Section 50 - Vuvuzelas For Freedom
 
@@ -4828,8 +4970,12 @@ Instead of talking to something (called the auditor):
 			say "The employees are hustling and bustling around; no time for chit-chat with a mere gamer.";
 		-- lobbyPlayers:
 			say "Your fellow Pogoman enthusiasts are beside themselves with excitement to be at the center of the Pogoman universe; they are far too absorbed in the game and in searching out the rumored secrets of Nyantech[apostrophe]s headquarters to spare a moment for discourse with a human.";
+		-- unicorn:
+			say "The unicorn perks up a bit, glad to have some relief from the monotony of the day. Your conversation with him takes a sudden turn and the two of you talk about [chitChat].";
+		-- Salmon Of Turpitude:
+			say "The salmon continues to give a glassy-eyed stare[one of]. Apparently, the salmon is not one to engage in small talk[or][stopping].";
 		-- otherwise:
-			say "[The auditor] nods briefly and this leads to a long conversation about [chitChat].";
+			say "You receive no answer.";
 
 To say employeeRant:
 	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][employeeRant2][stopping].[quotation mark][paragraph break]".
@@ -8895,6 +9041,11 @@ Instead of taking off clothes:
 Before wearing clothes:
 	say "You are already wearing your clothes.";
 	the rule succeeds.
+	
+Instead of looking under clothes:
+	say "Nothing but you."
+	
+
 
 Chapter - 2- Phone
 
@@ -8964,7 +9115,7 @@ Charging is an action applying to one thing. Understand "charge  [something]" as
 
 Check charging:
 	If the noun is not the phone:
-		say "You can't charge [a noun]" instead.
+		say "You can't charge [a noun]." instead.
 		
 Instead of charging the phone:
 	say "The Nyantech T8000 never needs to be charged. Never. You wonder about that sometimes.[paragraph break]";
