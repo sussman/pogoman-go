@@ -4079,6 +4079,12 @@ The vineyard is a backdrop in Ashwell-Lott Estate. The description of the vineya
 
 Instead of doing something other than examining with the vineyard:
 	say "Visitors are not allowed in the vineyard."
+	
+Instead of listening when the player is in the Ashwell-Lott Estate:
+	say "You hear the whine of the grape presses."
+	
+Instead of searching the Ashwell-Lott Estate:
+	try searching the vineyard.
 
 Section 10 - Garden Gnome
 
@@ -4125,23 +4131,25 @@ Instead of putting the severed head on the Headless Garden Gnome:
 	now the beheaded of the Garden Gnome is false.
 	
 
-	
 Section 11 - Parking Lot Award
 
 The description of Parking Lot Award is "A[if buffed of the Parking Lot Award is true]n almost painfully shiny[otherwise] tarnished[end if] brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason." Parking Lot Award is an improper-named place. Understand "plaque" or "brass" as Parking Lot Award when the location is Parking Lot Award. The printed name of Parking Lot Award is "award for best parking lot design". The title of Parking Lot Award is "Parking Lot Award". The Parking Lot Award has a truth state called buffed. The buffed of the Parking Lot Award is false.
 
+Understand "buff [something]" as rubbing.
+
 Instead of rubbing the Parking Lot Award:
 	say "You buff the plaque";
 	if the buffed of the Parking Lot Award is true:
-		say " some more.";
+		say " some more.";		
 	otherwise:
 		say ".[paragraph break]";
 		now buffed of the Parking Lot Award is true;
-	bestow "Parking Lot Award Award". [sic]
+		bestow "Parking Lot Award Award". [sic]
+
 
 Section 12 - Old Town Hall
 
-The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling." Old Town Hall is a structure. Understand "building" as Old Town Hall when the location is Old Town Hall.
+The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling." Old Town Hall is a structure. Understand "building" as Old Town Hall when the location is Old Town Hall. Understand "oak" or "panels"  as Old Town Hall.
 
 Section 13 - Spit n' Solder
 
@@ -4362,7 +4370,12 @@ Before printing the locale description of the biocontainment facility:
 
 Section 31 - Battle of Margot's Pantry
 
-The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "dinos" or "dino's" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  or "plaque" as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
+The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "dinos" or "dino's" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
+
+The DOP plaque is scenery in Margot's Pantry. The description of the DOP plaque is "A small plaque mounted in the brick wall of the building." Understand "brick" or "wall" as the DOP plaque.
+
+Instead of smelling when the player is in Battle of Margot's Pantry:
+	say "Fresh Pizza! No. Must be strong. Keep Mind on Game."
 
 Section 32 - Gas Station Gazebo
 
@@ -4482,9 +4495,25 @@ Instead of smelling the rottweiler art for the first time:
 
 Section 41 - Sister City Friendship Altar
 
-The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are illegible."
+The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are nearly illegible."
 
 Sister City Friendship Altar is an improper-named artifact. Understand "sacrifice" or "human" or "sacrificial" as the Sister City Friendship Altar. Understand "city"  or [questionably] "art" as Sister City Friendship Altar when the location is Sister City Friendship Altar. The printed name of Sister City Friendship Altar is "altar". The title of Sister City Friendship Altar is "Sister City Friendship Altar".
+
+The runes are scenery in Sister City Friendship Altar. The description of the runes is "Cryptic yet somehow menacing runes."
+
+Instead of touching or searching or examining the runes for the first time:
+	say "You are not sure how you even know how, but you read the runes aloud and find your dressed in shiny bronze Hittite armor doing battle with an Urgothot, the legendary sand dragon of Mesopotamian lore.[paragraph break]You quickly slay the Urgothot because, entertaining though it is, you were in the middle of playing Pogoman GO! and can ill afford to spend time battling ancient hellspawn.[paragraph break]While trying to avoid coming off as ill-mannered, you accept the rushed thanks of their royal majesties, shovel food down quickly during the celebration thrown in your honor (while stealing frequent glances at your phone), and slip away before a thousand slaves can haul your commemorative statue to the top of a nearby ziggurat.[paragraph break]With some relief, you perform the typical ritual of return, and having said the runes backwards, find yourself back in town, where you phone reaquires cellular service and you can finally get back to what you were doing.[paragraph break]";
+	bestow "Slayer Of The Mighty Urgothot".
+	
+Instead of touching or searching or examining the runes: 
+	say "You don[apostrophe]t have time for that sort of nonsense."
+	
+Instead of entering the Sister City Friendship Altar when the player is in the Sister City Friendship Altar for the first time:
+	say "Disembodied spirits scream frantically not to, so you don[apostrophe]t.[paragraph break]";
+	bestow "Good Advice".
+	
+Instead of entering the Sister City Friendship Altar when the player is in the Sister City Friendship Altar:
+	say "You are not willing to sacrifice any more time to messing around here, when you could be running around, searching for pogomen."
 
 Section 42 - 1893
 
@@ -4510,14 +4539,43 @@ The description of Fire Is Our Friend is "An eternal flame burns bright above a 
 
 Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "brazier" or "horsemen" or "four horsemen of the apocalypse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
 
+Instead of touching or taking or tasting or licking or pulling or pushing or rubbing or turning Fire Is Our Friend:
+	try touching the flame.
+	
+Instead of smelling Fire Is Our Friend:
+	try smelling the flame.
+	
+Instead of switching on Fire is Our Friend:
+	try switching on the flame.
+	
+Instead of switching off Fire Is Our Friend:
+	try switching off the flame.
+
 The flame is scenery in Fire is Our Friend. The description of the flame is "A constant, bright flame above the brazier."
 
-Instead of touching the flame for the first time:
+Instead of touching or taking or tasting or licking or pulling or pushing or rubbing or turning the flame for the first time:
 	say "Yes, the flame is real. Ow.[paragraph break]";
 	bestow "Like A Moth".
 	
-Instead of touching the flame:
+Instead of touching or taking or tasting or licking or pulling or pushing or rubbing or turning  the flame:
 	say "You have already ascertained that the flame is too hot to touch. Third degree burns are not going to help you catch any pogomen, so you desist."
+	
+Instead of smelling the flame for the first time:
+	say "It smells a lot like you would imagine your nose might smell if it were on fire."
+	
+Instead of smelling the the flame:
+	say "It smells like something is burning."
+	
+Instead of switching on the flame:
+	say "It is already on."
+	
+Instead of switching off the flame for the first time:
+	say "That would undermine the Eternalness of the Eternal Flame.[paragraph break]";
+	bestow "Sic Transit Gloria Mundi".
+	
+Instead of switching off the flame:
+	say "Rather consistently, the eternal flame lacks an off switch."
+	
 
 Section 46 - Unearthly Geometry
 
@@ -4607,14 +4665,17 @@ Toxicodendron radicans is an improper-named artifact. Understand "poison" or "iv
 The small sign is scenery in Toxicodendron radicans. The description of the sign is "A tiny sign spiked into the undergrowth. It warns people away from the poison ivy here."
 
 Instead of touching the Toxicodendron radicans for the first time:
-	say "Even though you are itching to do so, you hold back.";
+	say "Even though you are itching to do so, you hold back.[paragraph break]";
 	bestow "Pruritic Prudence".
 	
-Instead of touching the Toxicodendron radicans:
+Instead of taking or rubbing or touching or licking or pulling or pushing or tasting or squeezing  or searching or turning the Toxicodendron radicans:
 	say "Being literate, you heed the sign."
 	
-Instead of doing anything other than examining with the small sign:
+Instead of doing something other than examining with the small sign:
 	say "You are not keen to plow through the field of poison ivy."
+
+Instead of entering the Toxicodendron radicans when the player is in Toxicodendron radicans:
+	try touching the Toxicodendron radicans.
 	
 	
 Section 52 - Perilous Passageway
@@ -4675,7 +4736,33 @@ Instead of going a direction to the perilous passageway:
 		-- otherwise:
 			teleport the player to the perilous passageway.
 	
-The garbage bin is a closed openable fixed in place container. The garbage bin is in perilous passageway. The description of the garbage bin is "An filthy metal trash bin." Understand "bin" or "skip" or "waste" or "dust" as the garbage bin.
+The garbage bin is a closed openable fixed in place container. The garbage bin is in perilous passageway. The description of the garbage bin is "An filthy metal trash bin." Understand "bin" or "skip" or "waste" or "dust" or "can" or "lid" or "top" as the garbage bin.
+
+Instead of smelling the garbage bin:
+	if the garbage bin is closed:
+		say "With the lid on, the garbage doesn[apostrophe]t smell too bad.";
+	otherwise:
+		if the disgusting refuse is in the garbage bin:
+			try smelling the refuse;
+		otherwise:
+			say "The can smelled better earlier, with garbage in it."
+
+Instead of entering the garbage bin for the first time:
+	say "It[apostrophe]s worth a look. Since mom kicked you out of the basement, you have not really had a place of your own.[paragraph break]";
+	bestow "Standards Lowered";
+	try searching the garbage bin.
+	
+Instead of entering the garbage bin:
+	say "You can[apostrophe]t quite fit into it."
+	
+Instead of emptying the garbage bin:
+	if the garbage bin is closed:
+		say "Hard to do with the lid on it.";
+	otherwise:
+		if the disgusting refuse is in the garbage bin:
+			try searching the garbage bin;
+		otherwise:
+			say "There is no garbage in the bin."
 
 The Baseball Cap of Pogomastery is a wearable pogothing. The Baseball Cap of Pogomastery is in void. The description of the Baseball Cap of Pogomastery is "[one of]You immediately recognize the[or]The[stopping] legendary Baseball Cap of Pogomastery, a red and white hat with a broad brim." Understand "hat" or "brim" as the Baseball Cap of Pogomastery.
 
@@ -4698,11 +4785,14 @@ After opening the garbage bin for the first time:
 	teleport the player to the room D from the perilous passageway.
 
 Instead of smelling the disgusting refuse for the first time:
-	say "You add your stomach contents to the fetid mass in the garbage can.";
+	say "You add your stomach contents to the fetid mass in the garbage can.[paragraph break]";
 	bestow "What[apostrophe]s up, Chuck?".
 	
 Instead of smelling the disgusting refuse: 
 	say "It smells the way it looks."
+	
+Instead of eating the disgusting refuse:
+	say "There are more pleasant ways to die."
 	
 Instead of taking the disgusting refuse:
 	try searching the disgusting refuse.
