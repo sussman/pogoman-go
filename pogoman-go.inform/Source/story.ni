@@ -188,16 +188,16 @@ INCENSE_EFFECT_VALUE is always 25.
 PREPOGO_ENCOUNTER_VALUE is always 10.[before pogoland]
 EXPERT_PREPOGO_ENCOUNTER_VALUE is always 10.
 
-POGO_ENCOUNTER_VALUE is always 10.[pogoland]
-EXPERT_POGO_ENCOUNTER_VALUE is always 25.
+POGO_ENCOUNTER_VALUE is always 20.[pogoland]
+EXPERT_POGO_ENCOUNTER_VALUE is always 30.
 
 [Difficulty for capturing items with pogoBall, always out of 100; lower is harder]
 CAPTURE_EVOL1_DIFFICULTY is always 70.
-CAPTURE_EVOL2_DIFFICULTY is always 50.
-CAPTURE_EVOL3_DIFFICULTY is always 30.
-EXPERT_CAPTURE_EVOL1_DIFFICULTY is always 60.
-EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 35.
-EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 15.
+CAPTURE_EVOL2_DIFFICULTY is always 45.
+CAPTURE_EVOL3_DIFFICULTY is always 25.
+EXPERT_CAPTURE_EVOL1_DIFFICULTY is always 50.
+EXPERT_CAPTURE_EVOL2_DIFFICULTY is always 30.
+EXPERT_CAPTURE_EVOL3_DIFFICULTY is always 10.
 
 [Combat]
 OFFENSIVE_RATING_EVO1 is always 30.[ratings used for gym and street combat]
@@ -215,7 +215,7 @@ EXPERT_MUSK_DEF is always 90.
 [Capturing the Player in the Giant PogoBall]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
 CAPTURE_RANDOMNESS is always 80.
-CAPTURE_THRESHOLD is always 150. [when desire + randomness > threshold, pogoman decides to try a capture]
+CAPTURE_THRESHOLD is always 100. [when desire + randomness > threshold, pogoman decides to try a capture]
 
 [Magical Items]
 HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and combat]
