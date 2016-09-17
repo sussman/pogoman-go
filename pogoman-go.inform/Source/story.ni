@@ -6505,6 +6505,15 @@ Instead of searching the lab coat:
 	otherwise:
 		continue the action.
 		
+Instead of searching Elon Musk:
+	if Exploring The Tower has ended:
+		if the vitality of Elon Musk is dead:
+			try searching the lab coat;
+		otherwise:
+			say "You cannot get inside his guard to do so.";
+	otherwise:
+		say "Elon Musk tsk-tsks the attempt."
+		
 Instead of taking the goldenBadge:
 	if the goldenBadge is worn by Elon Musk:
 		if the vitality of Elon Musk is not dead:
