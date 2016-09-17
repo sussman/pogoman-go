@@ -5936,6 +5936,12 @@ The office wall is a scenery supporter in the Legal Department. The description 
 
 The ergonomic chair is a portable enterable scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters."  Understand "fance" or "swivel" or "executive" as the ergonomic chair.
 
+Instead of spinning the player when the player is on the ergonomic chair:
+	try spinning the ergonomic chair.
+	
+Instead of spinning the player:
+	say "You spin around. Whee."
+
 Instead of taking the ergonomic chair, say "Quality comes with a price - thanks to its heavy duty all metal frame, the chair weighs a ton. You can[apostrophe]t pick it up."
 			
 Instead of pushing or pulling the ergonomic chair:
