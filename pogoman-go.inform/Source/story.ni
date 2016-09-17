@@ -1910,7 +1910,9 @@ To add a (creature - a pogotype) to the pogodex:
 		bestow "Playing With Half A Dex";
 	if the number of entries in POGODEXLIST is 48:
 		say "You have collected all 48 pogomen.[paragraph break]";
-		bestow "Collected [apostrophe]em All!".
+		bestow "Collected [apostrophe]em All!";
+		say "A pogogram pops up on your phone:[paragraph break]";
+		say "[fixed letter spacing]MESSAGE BEGINS[paragraph break]TO: POGOMASTER STOP[line break]FROM: POGOMANAGEMENT STOP[line break]PRIORITY: ULTRA STOP[line break]NEWS OF YOUR ACHIEVEMENT HAS REACHED HEADQUARTERS STOP[line break]YOU ARE INSTRUCTED TO REPORT IMMEDIATELY AS A BETA-TESTER CANDIDATE STOP[line break]PROCEED TO NYANTECH HQ BEST SPEED STOP[paragraph break]SIGNED M[paragraph break]MESSAGE ENDS.[roman type][paragraph break]".
 
 Section 15 - Using
 
