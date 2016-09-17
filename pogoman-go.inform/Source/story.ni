@@ -98,7 +98,7 @@ A workerProxy are a kind of plural-named scenery thing. A workerProxy has a list
 
 Section 5 - People
 
-A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "monocle" or "monocles" or "employees" or "workers" as a worker. 
+A worker is a kind of person. The description of a worker is "Like all the other employees, [if the number of workers in the elevator is greater than one]these stare[otherwise]this one stares[end if] distractedly into space." Understand "employee" or "worker" or "employees" or "workers" as a worker. 
 
 A gamer is a kind of privately-named person. The description of the gamer is "Not so different from the way you hope you don[apostrophe]t appear to others." Understand "visitor" or "gamer" or "visitors" or  "gamer" or "gamers" as a gamer. 
 
@@ -4940,7 +4940,11 @@ Instead of cutting or attacking the employees:
 Instead of cutting or attacking the nose:
 	try attacking the employees.
 
-The data monocle is part of the employees. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." Understand "monocles" as the data monocle. 
+The data monocle is a privately-named backdrop in cafeteria and in lobby and in elevator. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." 
+
+Understand "monocle" or "monocles" as the data monocle when the player is in the cafeteria or the player is in the lobby.
+
+Understand "monocle" or "monocles" as the data monocle when the player is in the elevator and a worker is in the elevator.
 
 Instead of taking the data monocle for the first time:
 	say "The data monocle seems attached to the employee[apostrophe]s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]Also, a blue spark lashes out from the monitor and numbs your hand. You take that as a warning.[paragraph break]";
@@ -4952,7 +4956,11 @@ Instead of taking the data monocle:
 Instead of touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the monocle:
 	say "Zap! You receive an electrical shock."
 	
-The nose is part of the employees. The description of nose is "A facial protuberance which filter and humidifies air before it enters the upper respiratory system. But that's not important right now."
+The nose is a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of nose is "A facial protuberance which filter and humidifies air before it enters the upper respiratory system. But that's not important right now."
+
+Understand "nose" as the nose when the player is in the cafeteria or the player is in the lobby.
+
+Understand "nose" as the nose when the player is in the elevator and a worker is in the elevator.
 
 Instead of taking the nose for the first time:
 	say "Predictably, that doesn[apostrophe]t work.[paragraph break]";
@@ -4974,7 +4982,15 @@ The visitors are plural-named persons in the cafeteria. The description of the v
 Instead of cutting or attacking the visitors:
 	say "[noCutPlayers]."
 	
-The badges are scenery in cafeteria. Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "bar" as the badges. The description of the badges is "Badges just like yours, most of them white, some of them green or blue with a white bar. The employee badges are all black with a white bar. Each badge bears a photograph of its wearer."
+The badges are a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of the badges is "Visitor badges you have seen are just like yours, most of them white, some of them green or blue with a white bar. Employee badges are black with a white bar. Each badge bears a photograph of its wearer."
+
+Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" as the badges when the player is in the cafeteria.
+
+Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" as the badges when the player is in the lobby.
+
+Understand "white" or "badge" or "badges" or "bar" as the badges when the player is in the elevator and a gamer is in the elevator.
+
+Understand  "black" or "badge" or "badges" as the badges when the player is in the elevator and a worker is in the elevator.
 
 Instead of taking or touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the badges:
 	say "Whenever you get too near someone else[apostrophe]s badge, first the little hairs on your arm stand on end, then your fingers start to tingle, and finally, your arm feels like it is on fire.[paragraph break]You have the impression that the badges are specific to the person pictured on the badge."
@@ -7482,7 +7498,13 @@ To teleport (transportees - a number) employees from (origin - a room) to (desti
 		let transportees be Z;
 	repeat with N running from 1 to the transportees:
 		move a random worker in the origin to the destination.
-
+		
+Instead of attacking or cutting the workers:
+	say "[noCutEmployees]."
+	
+Instead of attacking or cutting the gamers:
+	say "[noCutPlayers]."
+	
 Section 4 - The elevator at the player's floor
 
 [arrival after having been called with the button]
