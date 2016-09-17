@@ -2362,7 +2362,7 @@ Section 5 - Credits
 Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting.
 	
 Report crediting:
-	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Dan Biemer[line break]* Hugo Labrande[line break]* Denise Jobin Welch[line break]* Lara Welch[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
+	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
 	bestow "So, who is to blame?".
 	
 Section 6 - Music Credits
@@ -4364,6 +4364,8 @@ Instead of rubbing the dogs:
 	
 Instead of spinning the dogs:
 	say "They enjoy it and want to play more!"
+	
+Understand "pet [something]" as rubbing.
 
 Section 37 - Bottle Cap Wall
 
@@ -6064,7 +6066,7 @@ Welcome to Beta Testing is south of the Beta Testing Door.  The description of W
 
 The party hat is a wearable prop in Welcome to Beta Testing. The description of the party hat is "A brightly colored cardboard hat bearing the words [quotation mark]Yeah! Beta-Testing![quotation mark]".
 
-The posters are a plural-named scenery in Welcome to Beta Testing. The description of posters is "The walls are covered with uplifting, motivational posters, mostly cats, puppies and unicorns, with slogans like [quotation mark]You can do it![quotation mark], [quotation mark]Success is just another word for unending work[quotation mark], and [quotation mark]If you fail, fail forward (but really, don[apostrophe]t fail).[quotation mark]"
+The posters are a plural-named scenery in Welcome to Beta Testing. The description of posters is "The walls are covered with uplifting, motivational posters, mostly cats, puppies and unicorns, with slogans like [quotation mark]You can do it![quotation mark], [quotation mark]Success is just another word for unending work[quotation mark], and [quotation mark]If you fail, fail forward (but really, don[apostrophe]t fail).[quotation mark]". Understand "poster" or "cat" or "cats" or "puppy" or "puppies" or "adorable" or "animal" or "animals" or "unicorn" or "unicorns" or "slogn" or "slogans" as the posters.
 
 Instead of examining the player when the player wears the hat:
 	say "The hat adds a certain gravitas."
@@ -6406,7 +6408,7 @@ After going up from the StairsPackaging:
 
 		
 After going down from the StairsRoof:
-	 say "You descend [shortTwentyFlights] [shortNoExits] and you";
+	 say "You descend [shortTwentyFlights] [shortNoExits] and you ";
 	if the walkman is not worn:
 		say "[one of]hear the rumble of heavy motors straining against a load[or]think for a moment that you hear someone yelling for help -- but then it is gone[or]notice a repetitive thumping sound coming from the walls[or]think you might have heard something beyond the walls, but maybe not[stopping]";
 		say ".";
@@ -8209,7 +8211,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 	if the MuskPod is not in Pogoland Terminal:[location of pod serves as event marker]
 		say "The canopy refuses to open[one of]. It seems committed to keeping you alive during hypersonic transport. Go figure[or][stopping].";
 	otherwise:
-		say "As you straddle the gap between the pod and platform, you and";
+		say "As you straddle the gap between the pod and platform, you and ";
 		ArriveInPogoland.
 		
 To ArriveInPogoland:
@@ -9459,7 +9461,7 @@ To say blueClueBat:
 	say "Someone pegs you in the head with a little bit of something shiny. It takes you a minute to find it.[paragraph break]As you unroll it, you mumble to yourself about the deplorable behavior of gamers these days. You can hardly belief that another Pogoman GO! player would stoop to winging a bit of discarded gum wrapper at you from behind your back. The nerve.[paragraph break]".
 	
 To say redClueBat:
-	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake moustache, and his attempt at limping is comical. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracy buff Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront him with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
+	say "You notice a man standing next to you -- disturbingly, you didn[apostrophe]t hear him coming. He was not here, and now he is just here. Weird.[paragraph break]He is wearing dark sunglasses, an obviously fake mustache, and his attempt at limping is comical. It takes you a minute, but you realize you have seen him around before -- he is undoubtedly local conspiracy buff Oswaldo, who has a long ranted about the ulterior motives of Nyantech.[paragraph break]As you turn to confront him with your suspicions, you are amazed to find that he has disappeared as quietly as he came; the only evidence of his having been here: a keychain with no keys left behind on the ground.[paragraph break]";
 	
 Instead of examining the scrap of paper:
 	if the player does not carry the scrap of paper:
@@ -9674,7 +9676,7 @@ Instead of giving something  (called the item) to the unicorn:
 			increase the timesDenied of the unicorn by 1;
 			if the timesDenied of the unicorn is:
 				-- 1:
-					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
+					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But… I need to get in! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitrary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
 					bestow "Subjected to arbitrary requirements”;
 				-- 2:
 					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogoman player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re a bit short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
@@ -9897,7 +9899,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* Did you find the Salmon of Turpitude?[paragraph break]* Did you put the head back on the gnome?[paragraph break]* There are ten endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* Did you find the Salmon of Turpitude?[paragraph break]* Did you put the head back on the gnome?[paragraph break]* There are ten endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
