@@ -4926,22 +4926,34 @@ Section 2 - Cafeteria
 
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant."  The possible exits of the Cafeteria are "The [elevatorDoorDesc], the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]." Understand "restaurant" as the cafeteria.
 
+Instead of smelling when the player is in the cafeteria:
+	say "Mixing gourmet aromas complement each other here."
+
 The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
+
+Instead of cutting or attacking the employees:
+	say "[noCutEmployees]."
+	
+Instead of cutting or attacking the nose:
+	try attacking the employees.
 
 The data monocle is part of the employees. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." Understand "monocles" as the data monocle. 
 
 Instead of taking the data monocle for the first time:
-	say "The data monocle seems attached to the employee[apostrophe]s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]";
+	say "The data monocle seems attached to the employee[apostrophe]s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]Also, a blue spark lashes out from the monitor and numbs your hand. You take that as a warning.[paragraph break]";
 	bestow "Rude".
 	
 Instead of taking the data monocle:
-	say "You might as well try to take the employees nose -- the monocle seems to be physically implanted."
+	say "You might as well try to take the employees nose -- the monocle seems to be physically implanted. Also, you receive a painful electrical shock every time your hand comes within a few inches of a monocle. Seems like they take this proprietary technology stuff seriously."
+	
+Instead of touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the monocle:
+	say "Zap! You receive an electrical shock."
 	
 The nose is part of the employees. The description of nose is "A facial protuberance which filter and humidifies air before it enters the upper respiratory system. But that's not important right now."
 
 Instead of taking the nose for the first time:
 	say "Predictably, that doesn[apostrophe]t work.[paragraph break]";
-	bestow "Literal".
+	bestow "The Nose Bone Is Connected To The Face Bone".
 	
 Instead of taking the nose:
 	say "Yech."
@@ -4951,9 +4963,15 @@ Instead of listening when the player is in the cafeteria:
 	
 Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
 
-The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level-twenty pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
+The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level [the pogolevel of the player plus 20 in words] pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
 
-The badges are part of the visitors. Understand "green" or "blue" or "black" or "white" or "colors" or "badge" as the badges when the player is in the cafeteria. The description of the badges is "Badges just like yours, most of them white, some of them green or blue with a white bar. The employee badges are all black with a white bar."
+Instead of cutting or attacking the visitors:
+	say "[noCutPlayers]."
+	
+The badges are scenery in cafeteria. Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "bar" as the badges. The description of the badges is "Badges just like yours, most of them white, some of them green or blue with a white bar. The employee badges are all black with a white bar. Each badge bears a photograph of its wearer."
+
+Instead of taking or touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the badges:
+	say "Whenever your hand gets too near someone else[apostrophe]s badge, first the little hairs on your arm stand on end, then your fingers start to tingle, and finally, your arm feels like it is on fire.[paragraph break]You have the impression that the badges are specific to the person pictured on the badge."
 
 Talking to is an action applying to one thing. Understand "talk to/at/with [something]" as talking to.
 
@@ -5416,7 +5434,10 @@ Instead of pushing or pulling or turning the lobbyEmployees:
 	say "They are moving around too fast for you to grab."
 	
 Instead of attacking or cutting the lobbyEmployees:
-	say "You have only the greatest admiration for the people who developed the game you love. You would not dream of harming them."
+	say "[noCutEmployees]."
+	
+To say noCutEmployees:
+	say "You have only the greatest admiration for the people who developed the game you love. You would not dream of harming them".
 
 The lobbyPlayers are privately-named plural-named scenery persons. The lobbyPlayers are in the lobby. The printed name of the lobbyPlayers is "visitors". The description of the lobbyPlayers is "Players mull about the lobby in awe." Understand "visitor" or "visitors" or "gamer" or "player" or "gamers" or "players" as the lobbyPlayers. 
 
@@ -5427,11 +5448,17 @@ Instead of pushing or pulling or turning the lobbyPlayers:
 	say "They are running around excitedly and evade your grasp."
 	
 Instead of attacking or cutting the lobbyPlayers for the first time:
+	noFirstCutPlayers.
+	
+To noFirstCutPlayers:
 	say "That would violate the Pogomaster Code of Ethics.[paragraph break]";
 	bestow "Principled".
-	
+
 Instead of attacking or cutting the lobbyPlayers:
-	say "You wish them no harm."
+	say "[noCutPlayers]."
+	
+To say noCutPlayers:
+	say "You wish them no harm"
 
 The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" or "contrivance" or "contrivances" or "motorized" as the high-tech conveyances.
 
@@ -9017,6 +9044,11 @@ The game counter is a thing. The game counter is in the void. The game counter c
 section 2 - Badge
 
 The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge] badge[if the securityColor of the badge is not white] with a white stripe[end if]". The badge has a truth state called hasBeenLiteral. The hasBeenLiteral of the badge is false.
+Understand "white" as the badge when the securityColor of the badge is white. 
+Understand "green" as the badge when the securityColor of the badge is green.
+Understand "blue" as the badge when the securityColor of the badge is blue.
+Understand "red" as the badge when the securityColor of the badge is red.
+Understand "gold" as the badge when the securityColor of the badge is gold.
 
 Instead of examining the badge for the first time:
 	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
