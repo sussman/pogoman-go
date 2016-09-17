@@ -3,7 +3,7 @@
 
 The story headline is "An interactive satire".
 The story genre is "comedy".
-The release number is 4.
+The release number is 5.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
@@ -7399,6 +7399,9 @@ To say elevatorDoorDesc:
 
 The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding white [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" or "ring" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void.
 
+Does the player mean pushing the call button:
+	it is very likely.
+
 Instead of going west when the elevatorExterior is in the location of the player:
 	try entering the elevatorExterior.
 
@@ -9285,9 +9288,6 @@ To phoneDeath:
 	wait for any key;
 	say paragraph break;
 	wait for any key;
-	say paragraph break;
-	wait for any key;
-	say paragraph break;
 	clear the screen;
 	if the player is in a room adjacent to the Perilous Passageway:
 		say "Some nebulous time later, you regain consciousness not too far from the passageway, where you were so ignominiously assaulted. For the rest of the day you[run paragraph on]";
