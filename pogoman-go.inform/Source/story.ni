@@ -4931,7 +4931,11 @@ Section 1 - Region HQ
 
 HQ is a region. Lobby, RevolvingDoor, LAN Closet, Cafeteria, Beverages, Snacks, Legal Department, Cousteau Room, Welcome to Beta Testing, Rick Astley Shrine, Support Boom, Interns, Engineers, Managers, Packaging, Security Checkpoint, Infirmary, and Processing are rooms in HQ.
 
-Section 2 - Cafeteria
+Section 2 - Lighting
+
+The diffuse overhead lighting is a backdrop. The diffuse overhead lighting is in HQ and in Ball Pit. The diffuse  lighting is in Ball Pit. The description of diffuse overhead lighting is "All parts of the Nyantech corporate offices are lit by soft, natural lighting that diffuses down from the ceiling." Understand "light" or "lights" or "lighting" or "ceiling" as the diffuse overhead lighting.
+
+Section 3 - Cafeteria
 
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant."  The possible exits of the Cafeteria are "The [elevatorDoorDesc], the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]." Understand "restaurant" as the cafeteria.
 
@@ -5067,7 +5071,7 @@ To say employeeRant2:
 To say visitorRebuff:
 	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can[apostrophe]t you see I[apostrophe]m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
 	
-Section 3 - Snacks
+Section 4 - Snacks
 
 Snacks is northeast of the Cafeteria. The description of Snacks is "A poster above a table advertises every kind of pop-tart known to man, all of them glazed and sprinkled: strawberry, blueberry, raspberry, apple, chocolate, cranberry, and many more. Just above the table is a metal chute, which projects just a bit from the wall." The possible exits of Snacks are "The company cafeteria is to the southwest."
 
@@ -5157,7 +5161,7 @@ After eating a pop-tart:
 Instead of buying something when the player is in Snacks:
 	say "[freeStuff]."
 	
-Section 4 - Beverages
+Section 5 - Beverages
 
 Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
 
@@ -5223,7 +5227,7 @@ Before taking or drinking a pop (called the liquid):
 After going southeast from beverages when the securityColor of the badge is green for the first time:
 	say "As you emerge from the beverage room, Kool-Aid dripping from your lips, one of the employees looks over towards you conspiratorially and gives you a little salute before returning to a trance-like state."
 
-Section 5 - Mechanical Access Shaft
+Section 6 - Mechanical Access Shaft
 
 The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, Somewhere Along The Ladder, and Bottom Rung are rooms in the Ladder Area.
 
@@ -5250,7 +5254,7 @@ Instead of climbing the ladderProxy:
 	otherwise:
 		try going up.
 		
-Section 6 - Gearing Assembly
+Section 7 - Gearing Assembly
 
 The Gearing Assembly is outside from Gantry Chamber. The Gantry Chamber is south from the Gearing Assembly.
 
@@ -5300,7 +5304,7 @@ The grease is a scenery in the Gearing Assembly. The description of the grease i
 Instead of doing something other than examining with the grease: 
 	say "You don[apostrophe]t want anything to do with the grease[one of]. Once it gets on you, you[apostrophe]d track it all over an make a big mess[or][stopping]."
 	
-Section 7 - Boom Arm
+Section 8 - Boom Arm
 
 The boomArm is a privately-named backdrop in the Gearing Assembly and in the Gantry Chamber. The description of the boomArm is "A long metal boom that extends from the building, and suspends the cat almost 50 stories above street level." The printed name of the boomArm is "support boom". Understand "boom" or "support" as the boomArm
 
@@ -5327,7 +5331,7 @@ After going down from the Top Of The Ladder:
 	say "You descend further into the dark shaft.";
 	try looking.
 
-Section 8 - Somewhere Along The Ladder
+Section 9 - Somewhere Along The Ladder
 
 Somewhere Along The Ladder is above the Bottom Rung. The description of Somewhere Along The Ladder is "It [if the player carries a switched on lightsource]would be[otherwise]is[end if] pitch dark in here without some sort of light source[if the player carries a switched on lightsource], although there really isn[apostrophe]t all that much to see here, many floors below the top of the shaft[end if]."
 
@@ -5335,11 +5339,11 @@ After going down from Somewhere Along The Ladder for the first time:
 	say the headline of the location;
 	say "There[apostrophe]s good news and bad news.[paragraph break]The good news: you have reached the bottom of the ladder.[paragraph break]The bad news: you don’t feel anything beneath you."
 
-Section 9 - Bottom Rung
+Section 10 - Bottom Rung
 
 The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up hundreds of feet, almost to the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
 
-Section 10 - Crawl Space
+Section 11 - Crawl Space
 
 The Crawl Space is above the LAN Closet.  The description of the Crawl Space is "[crawlspaceDescription]."
 
@@ -5454,7 +5458,7 @@ Instead of opening the barrel when penlight is switched on:
 	say "As soon as you open the end cap, the light winks off.";
 	now the penlight is switched off.
 
-Section 11 - Lobby
+Section 12 - Lobby
 
 The description of the Lobby is "A beehive of activity for both employees and visitors, the atmosphere in the luxurious lobby is somehow both corporate and relaxed. There is a constant drone of conversation in the background." The possible exits of the Lobby are "The [elevatorDoorDesc] and the security checkpoint is to the south, towards the street. The only other interesting doors here are the emergency stairs to the north and [if the wasNoticed of the LAN Closet Door is true]the metallic door to the LAN Closet[otherwise]a metallic door[end if] to the east." The lobby has a list of text called stage business.
 
@@ -5567,7 +5571,7 @@ Instead of going outside when the player is in the revolvingDoor:
 	say "The helpful (and mildly passive-aggressive) unicorn gives the door an extra kick, and the door spins even further.";
 	try going inside.
 	
-Section 12 - Security Checkpoint
+Section 13 - Security Checkpoint
 
 The Security Checkpoint is south of the Lobby. The description of the security checkpoint is "A cordoned off area that looks like it was hastily added to the lobby without a lot of forethought. The main feature of the security area is the metal detector and x-ray machine." Understand "area" as the Security Checkpoint.
 
@@ -5613,7 +5617,7 @@ Instead of going south from the Lobby:
 	say "The security nymph points to your property stamp and escorts you back to the lobby.";
 	try looking.
 	 
-Section 13 - LAN Closet
+Section 14 - LAN Closet
 
 The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "A[if the LAN Closet Door is open]n open[otherwise] shut[end if] metallic door in the Lobby[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[otherwise]. The door is marked [quotation mark]LAN Closet[quotation mark], and below that in smaller letters, [quotation mark]and CAT control[quotation mark][end if]." Understand "metallic" as the LAN closet door. The LAN Closet Door has a truth state called wasNoticed. The wasNoticed of the LAN Closet Door is false.
 
@@ -5754,10 +5758,6 @@ Instead of cutting the wires:
 
 The hardware is scenery  Nyantechnology in the LAN Closet. The description of the hardware is "Looks mostly like network switches. Indicator lights on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
 
-The ceiling is scenery in the LAN Closet. The description of the ceiling is "Fiber panels with inset lighting." 
-
-The lighting is part of the ceiling. The description of the lighting is "High efficiency industrial light panels set into the ceiling." Understand "light" or "panels" as the lighting.
-
 Instead of attacking a Nyantechnology:
 	say "[One of]You can[apostrophe]t believe you even had that thought. You[apostrophe]re at the very heart of Nyantech! The data in these cables is the lifeblood of Pogoman. You[apostrophe]d never do anything to harm the game. You lovingly pet the equipment[or]You can[apostrophe]t bring yourself to even consider harming Nyantech hardware[or]Shudder. No[stopping]."
 	
@@ -5802,7 +5802,7 @@ Instead of pushing the plunger:
 		now onHoldFlag of the CAT Control is false;
 		say "The LEDs again start lighting in order, clockwise, slowly at first, but then resuming their previous pace. The PEC counter starts clicking over more rapidly as well."
 		
-Section 14 - Legal Department
+Section 15 - Legal Department
 
 The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive[apostrophe]s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
@@ -6074,7 +6074,7 @@ Instead of switching on or switching off the LED:
 
 The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position."  
 
-Section 15 - Welcome to Beta Testing
+Section 16 - Welcome to Beta Testing
 
 Welcome to Beta Testing is south of the Beta Testing Door.  The description of Welcome to Beta Testing is "The room is brightly lit and the walls are covered with inspirational posters." The possible exits of Welcome to Beta Testing are "To the north is the door to the Legal Department office and to the south is a wide [if the Cousteau Door is closed]metal door[otherwise]door way[end if] leading to the Cousteau Room."
 
@@ -6092,7 +6092,7 @@ After wearing the party hat for the first time:
 After wearing the party hat:
 	say "You pop the hat onto your head [if the player wears the Baseball Cap of Pogomastery](on top of the Baseball Cap of Pogomastery) [end if]at what you think is a rakish angle[one of]. But consider for just a moment, a three by two cell table: how my friends see me; how my family sees me; how I see myself; how society sees me; how others gamers see me; how I really look. Now, notice that the hat only looks rakish in one of the six cells?[paragraph break]Just saying[or][stopping]."
 	 
-Section 16 - Cousteau Room
+Section 17 - Cousteau Room
 	
 Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north." Understand "wall" or "walls" or "tile" or "tiles" as the Cousteau Room.
 
@@ -6150,7 +6150,7 @@ Instead of taking off the wetsuit:
 Instead of listening when the player is in the Cousteau Room:
 	say "You hear sounds from some remote sea shore."
 	
-Section 17 - Rick Astley Shrine
+Section 18 - Rick Astley Shrine
 
 The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood of endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "[one of]Thankfully, t[or]T[stopping]he exit back to the emergency stairs is to the north."
 
@@ -6226,7 +6226,7 @@ To say A Ghastly Astley Lyric:
 Instead of listening when the player is in the Rick Astley Shrine and the player does not wear the walkman:
 	say "It is quiet in here. Too quiet.";
 
-Section 18 - Ball Pit
+Section 19 - Ball Pit
 
 The BallPit Area is a region. Ball Pit, BallPitShallow, BallPitDeep, and BallPitBottom are rooms in the BallPit Area.
 	
@@ -6235,15 +6235,15 @@ Ball Pit is east of the Cafeteria. The description of Ball Pit is "You tread to 
 Instead of exiting when the player is in the Ball Pit:
 	try going west.
 
-Section 19 - Ball Pit Shallow
+Section 20 - Ball Pit Shallow
 
 BallPitShallow is down from Ball Pit. The printed name of BallPitShallow is "In The Ball Pit, Just Under The Surface". The description of BallPitShallow is "Swimming through brightly colored rubber balls."
 
-Section 20 - Ball Pit Deep
+Section 21 - Ball Pit Deep
 
 BallPitDeep is down from BallPitShallow. The printed name of BallPitDeep is "Deep In The Ball Pit". The description of BallPitDeep is "At this depth, only dim rainbow-colored light filters down."
 
-Section 21 - Ball Pit Bottom
+Section 22 - Ball Pit Bottom
 
 BallPitBottom is down from BallPitDeep. The printed name of BallPitBottom is "The Bottom Of The Ball Pit". "The dark depths of the ball pit."
 
@@ -6300,7 +6300,7 @@ Instead of going up when the player is in the BallPit Area:
 	otherwise:
 		say "You are already at the surface[one of] and despite your best effort, you are unable to levitate above it[or][stopping]."
 
-Section 22 - Stairwell Layout
+Section 23 - Stairwell Layout
 
 To say shortEmergencyStairs:
 	say "emergency stairs"
@@ -6329,7 +6329,7 @@ The stairs is a backdrop in the Stairwell. The description of the stairs is "Bro
 Instead of putting something (called the item) on the stairs:
 	try dropping the item.
 
-Section 23 - Stairs -Ground
+Section 24 - Stairs -Ground
 		
 The groundDoor is a white door. It is north of the Lobby and south of the StairsGround.  The printed name of the groundDoor is "white [shortDoorToThe] [if the location is the lobby][shortEmergencyStairs][otherwise]lobby[end if]". Understand "white" or "door" or "lobby" or "emergency" or "stairs" as the groundDoor.
 
@@ -6339,13 +6339,13 @@ After going north from the lobby for the first time:
 
 The printed name of the StairsGround is "Emergency Stairs: Ground Level". The possible exits of the StairsGround is "To the south there is a white door labeled [quotation mark]Lobby[quotation mark]."
 
-Section 24 - Stairs - Basement
+Section 25 - Stairs - Basement
 
 The basementDoor is a green door. It is north of Legal Department and south of the StairsBasement. The printed name of the basementDoor is "green [shortDoorToThe] [if the location is Legal Department][shortEmergencyStairs][otherwise]Legal Department[end if]". Understand "green" or "door" or "legal" or "emergency" or "stairs" or "basement" as the basementDoor.
 
 The StairsBasement is below StairsGround. The printed name of StairsBasement is "Emergency Stairs: Basement Level". The possible exits of StairsBasement is "To the south there is a green door labeled [quotation mark]Legal Department[quotation mark]."
 
-Section 25 - Stairs - Sub-Basement
+Section 26 - Stairs - Sub-Basement
 
 The StairsSB is below StairsBasement. The printed name of StairsSB is "Emergency Stairs: Sub-Basement Level". The possible exits of StairsSB is "To the south there is a [subBasementDoor]."
 
@@ -6362,7 +6362,7 @@ To say printedSubBasementDoor:
 			say "blue area"
 			
 
-Section 26 - Stairs - Sub-Sub-Basement
+Section 27 - Stairs - Sub-Sub-Basement
 
 	
 The StairsSSB is below StairsSB. The printed name of StairsSSB is "Emergency Stairs: Sub-Sub-Basement Level". The possible exits of StairsSSB is "To the south there is a red door with no label." 
@@ -6371,31 +6371,31 @@ The subSubBasementDoor is a red door. It is north of the Make Over Suite and sou
 
 The printed name of the subSubbasementDoor is "red [shortDoorToThe] [if the location is Make Over Suite][shortEmergencyStairs][otherwise]red corridor[end if]". Understand "red" or "door" or "legal" or "emergency" or "stairs" or "basement" or "subsubbasement" as the subSubBasementDoor.
 
-Section 27 - Stairs - Interns
+Section 28 - Stairs - Interns
 
 The internsDoor is a black door. It is south of the StairsInterns. The printed name of the internsDoor is "black [shortDoorToThe] intern offices". Understand "black" or "door" or "intern" or "interns" or "emergency" or "stairs" as the internsDoor. The internsDoor is north of Interns. The internsDoor is south of StairsInterns.
 
 The StairsInterns is above StairsGround. The printed name of StairsInterns is "Emergency Stairs: Level 1". The possible exits of StairsInterns is "To the south there is a black door labeled [quotation mark]Interns[quotation mark]."
 
-Section 28 - Stairs - Engineers
+Section 29 - Stairs - Engineers
 
 The engineersDoor is a black door. It is south of the StairsEngineers. The printed name of the engineersDoor is "black [shortDoorToThe] engineering offices". Understand "black" or "door" or "engineer" or "engineers" or "emergency" or "stairs" as the engineersDoor
 
 The StairsEngineers is above StairsInterns. The printed name of StairsEngineers is "Emergency Stairs: Level 2". The possible exits of StairsEngineers are "To the south there is a black door labeled [quotation mark]Engineers[quotation mark]."
 
-Section 29 - Stairs - Managers
+Section 30 - Stairs - Managers
 
 The managersDoor is a black door. It is south of the StairsManagers. The printed name of the managersDoor is "black [shortDoorToThe] managerial offices". Understand "black" or "door" or "manager" or "managers" or "emergency" or "stairs" as the managersDoor
 
 The StairsManagers is above StairsEngineers. The printed name of StairsManagers is "Emergency Stairs: Level 3". The possible exits of StairsManagers is "To the south there is a black door labeled [quotation mark]Managers[quotation mark]."
 
-Section 30 - Stairs -  Infirmary
+Section 31 - Stairs -  Infirmary
 
 The StairsInfirmary is above StairsManagers. The printed name of StairsInfirmary is "Emergency Stairs: Level 4". The possible exits of StairsInfirmary is "To the south there is a pink door labeled [quotation mark]Infirmary[quotation mark]."
 
 The infirmaryDoor is a pink door. It is south of the StairsInfirmary. The printed name of the infirmaryDoor is "pink [shortDoorToThe] infirmary". Understand "pink" or "door" or "infirmary" or "emergency" or "stairs" as the infirmaryDoor
 
-Section 31 - Stairs -  Processing
+Section 32 - Stairs -  Processing
 
 The StairsProcessing is above StairsInfirmary. The printed name of StairsProcessing is "Emergency Stairs: Above Level 4". 
 
@@ -6435,7 +6435,7 @@ After going down from the StairsPackaging:
 		say ".";
 	try looking.
 		
-Section 32 - Stairs -  Packaging
+Section 33 - Stairs -  Packaging
 	
 The StairsPackaging is above StairsProcessing. The printed name of StairsPackaging is "Emergency Stairs: Way The Hell Above Level 4". 
 
@@ -6445,7 +6445,7 @@ Instead of going a direction (called the way) when the player is in the StairsPa
 	otherwise:
 		continue the action.
 		
-section 33 - Stairs - Roof
+section 34 - Stairs - Roof
 
 The StairsRoof is above StairsPackaging. The printed name of StairsRoof is "Emergency Stairs: Roof Access". The possible exits of StairsRoof is "To the south there is a white door labeled [quotation mark]Roof Access[quotation mark]."
 
@@ -6474,7 +6474,7 @@ Instead of going up when the player is in stairsRoof:
 	say "You are at the top of the building.";
 	try looking.
 	
-Section 34 - Processing
+Section 35 - Processing
 
 Processing is a room. The description of Processing is "A vast, poorly lit space with high ceilings and purple walls. All around you, large cuts of meat are suspended from hooks, which slowly move along a track in the ceiling. The [elevatorDoorDesc]. "
 
@@ -6577,11 +6577,11 @@ Instead of pushing a lift button (called the poked item) when the plusQueDenouem
 		-- legalButton:
 			now the selected of legalEnding is true.
 		
-Section 35 - Packaging
+Section 36 - Packaging
 
 Packaging is a room. 
 
-Section 36 - Interns
+Section 37 - Interns
 
 Interns is a room. 
 
@@ -6590,13 +6590,13 @@ To say fromElevator:
 
 internsProxy are a workerProxy. internsProxy are in the void. The description of a internsProxy is "[fromElevator][entry 1 of the WPLIST of internsProxy]." Understand "intern" or "interns" or "employee" or "employees" or "worker" or "workers" as the internsProxy. The WPLIST of internsProxy is {"a roiling mass of interns playing three-dimensional twister to the accompaniment of a driving disco beat", "interns running around in leotards and dancing in a stream of bubbles"}. The printed name of the internsProxy is "interns".
 
-Section 37 - Engineers
+Section 38 - Engineers
 
 Engineers is a room. 
 
 engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychedelic patterns and text", "bolts of lightning ricocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
 
-Section 38 - Managers
+Section 39 - Managers
 
 Managers is a room.
 
@@ -6606,7 +6606,7 @@ Instead of doing something other than examining with a workerProxy:
 	say "You would have to exit the elevator here to do that."
 
 
-Section 39 - Deck
+Section 40 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
@@ -6837,12 +6837,12 @@ Instead of climbing the railing when the player is in the deck area:
 Instead of going down from deckS:
 	try jumping.
 
-Section 40 - Cat Region
+Section 41 - Cat Region
 
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
 
-Section 41 - Cat Navigation
+Section 42 - Cat Navigation
 
 [Based on Recipe 42: Example Fore]
 
@@ -6875,7 +6875,7 @@ Instead of going starboard, say noLateral.
 
 Instead of going port, say noLateral.
 
-Section 42 - Cat Overhead Proxies
+Section 43 - Cat Overhead Proxies
 
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
@@ -6956,7 +6956,7 @@ Before doing something other than examining with a catTopDrop (called the QTH):
 		say "You would have to walk over to [the QTH].";
 		the rule fails.
 
-Section 43 - Cat View
+Section 44 - Cat View
 
 Definition: A room is cat-top if it is the Cat's Beret or it is the Maintenance Hatch or it is The Catwalk or it is the Poop Deck.
 
@@ -6970,7 +6970,7 @@ Instead of jumping in the Cat Area:
 	otherwise:
 		say "You bang your head in the tight quarters."
 		
-Section 44 - Cat's Beret
+Section 45 - Cat's Beret
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat[apostrophe]s head, you can see all the way to the Infamous Tarpits on the south edge of town." 
 
@@ -6985,7 +6985,7 @@ Instead of going fore when the player is in the Cat's Beret:
 	try looking.
 
 	
-Section 45 - Maintenance Hatch
+Section 46 - Maintenance Hatch
 
 Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
@@ -7030,7 +7030,7 @@ Instead of searching the hatchway:
 	otherwise:
 		say "The hatchway is closed."
 			
-Section 46 - Catwalk
+Section 47 - Catwalk
 
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
@@ -7049,7 +7049,7 @@ Instead of eating the pop-tart shingles for the first time:
 
 Instead of doing something other than examining with the pop-tart shingles, say "They are tantalizingly out of reach."
 
-Section 47 - Poop Deck
+Section 48 - Poop Deck
 
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
@@ -7075,7 +7075,7 @@ Instead of going aft when the player is in the Poop Deck:
 	say "Any further aft and you would join the sparkles in flying off the back end of the Cat and plunging earthward.";
 	try looking.
 	
-Section 48 - Captain's Cabin
+Section 49 - Captain's Cabin
 	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
 "Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
@@ -7148,7 +7148,7 @@ Instead of putting something (called the item) on the hammock:
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
 
-Section 49 - Gantry Chamber
+Section 50 - Gantry Chamber
 
 Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain[apostrophe]s cabin."
 
@@ -7165,7 +7165,7 @@ After going outside from the Gantry Chamber:
 	say "You make a beeline for the Gearing Assembly chamber at the other end.";
 	try looking.
 	
-Section 50 - Cat's Head
+Section 51 - Cat's Head
 	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
