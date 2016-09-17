@@ -1078,7 +1078,7 @@ Instead of throwing a pogoBall at something (called the target):
 				now the wounded entry is true;
 			otherwise:
 				now the wounded entry is false;
-			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoBall[or]curve ball[or]slider[or]spinning pogoBall[or]winding pogoBall[or]fastball[or]whirling pogoBall[or]tumbling pogoBall[or]screwball[in random order] at the [type of the target]";	
+			say "You [one of]whip[or]chuck[or]side-arm[or]wing[or]fire off[or]wind up and deliver[or]lob[or]throw[or]fling[or]hurl[or]let fly[or]launch[or]shoot[or]cast[or]heave[or]toss[or]pitch[or]sling[in random order] a [one of]pogoBall[or]curve ball[or]slider[or]spinning pogoBall[or]winding pogoBall[or]fastball[or]whirling pogoBall[or]tumbling pogoBall[or]screwball[in random order] at the [T]";	
 			let N be a random number between 1 and the number of entries in TRAJECTORYLIST;
 			let TXT be entry N of TRAJECTORYLIST;
 			replace the word "xxx" in TXT with "[T]";
@@ -8232,7 +8232,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 		ArriveInPogoland.
 		
 To ArriveInPogoland:
-	say "a pogoBall falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an emak pops out of the ball and takes up a defensive posture next to you.[paragraph break]Like, actually, there. Standing next to you. In real life. An emak![paragraph break]";
+	say "a pogoBall falls out your inventory and lands on the platform with a cracking sound. Before you can get your head around the apparently inconsistent behavior of virtual objects, an Emak pops out of the ball and takes up a defensive posture next to you.[paragraph break]Like, actually, there. Standing next to you. In real life. An Emak![paragraph break]";
 		bestow "Time to review your history of hallucinogen abuse”;
 		say "Behind you, the MuskPod canopy lowers and the pod accelerates back in the direction from which it came.";
 		move the MuskPod to the void;
