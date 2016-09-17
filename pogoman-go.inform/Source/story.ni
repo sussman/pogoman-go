@@ -2854,7 +2854,7 @@ Instead of examining an awarddrop:
 			say "     * [L][line break]";
 		if reviewedOnce of the Medals is false:
 			say line break;
-			bestow "Medal Connoissieur";
+			bestow "Medal Connoisseur";
 			now reviewedOnce of the Medals is true;
 	otherwise:[i.e., trophies]
 		If Around the Town is happening:
@@ -4395,7 +4395,7 @@ To say oriented:
 
 Section 39 - Unfathomable Orb
 
-The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed,  perhaps unknowable.[or]An epistemologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
+The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed, perhaps unknowable.[or]An epistemologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
 
 Unfathomable Orb is an improper-named artifact. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as Unfathomable Orb when the location is Unfathomable Orb. The title of Unfathomable Orb is "Unfathomable Orb". The printed name of the Unfathomable Orb is "orb".
 
@@ -4428,7 +4428,7 @@ Sister City Friendship Altar is an improper-named artifact. Understand "sacrific
 The runes are scenery in Sister City Friendship Altar. The description of the runes is "Cryptic yet somehow menacing runes."
 
 Instead of touching or searching or examining the runes for the first time:
-	say "You are not sure how you even know how, but you read the runes aloud and find your dressed in shiny bronze Hittite armor doing battle with an Urgothot, the legendary sand dragon of Mesopotamian lore.[paragraph break]You quickly slay the Urgothot because, entertaining though it is, you were in the middle of playing Pogoman GO! and can ill afford to spend time battling ancient hellspawn.[paragraph break]While trying to avoid coming off as ill-mannered, you accept the rushed thanks of their royal majesties, shovel food down quickly during the celebration thrown in your honor (while stealing frequent glances at your phone), and slip away before a thousand slaves can haul your commemorative statue to the top of a nearby ziggurat.[paragraph break]With some relief, you perform the typical ritual of return, and having said the runes backwards, find yourself back in town, where you phone reaquires cellular service and you can finally get back to what you were doing.[paragraph break]";
+	say "You are not sure how you even know how, but you read the runes aloud and find your dressed in shiny bronze Hittite armor doing battle with an Urgothot, the legendary sand dragon of Mesopotamian lore.[paragraph break]You quickly slay the Urgothot because, entertaining though it is, you were in the middle of playing Pogoman GO! and can ill afford to spend time battling ancient hellspawn.[paragraph break]While trying to avoid coming off as ill-mannered, you accept the rushed thanks of their royal majesties, shovel food down quickly during the celebration thrown in your honor (while stealing frequent glances at your phone), and slip away before a thousand slaves can haul your commemorative statue to the top of a nearby ziggurat.[paragraph break]With some relief, you perform the typical ritual of return, and having said the runes backwards, find yourself back in town, where you phone reacquires cellular service and you can finally get back to what you were doing.[paragraph break]";
 	bestow "Slayer Of The Mighty Urgothot".
 	
 Instead of touching or searching or examining the runes: 
@@ -9205,7 +9205,7 @@ The game counter is a thing. The game counter is in the void. The game counter c
 
 section 2 - Badge
 
-The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled  [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge] badge[if the securityColor of the badge is not white] with a white stripe[end if]". The badge has a truth state called hasBeenLiteral. The hasBeenLiteral of the badge is false.
+The badge is a prop in the void. The securityColor of the badge is white. The description of the badge is "The badge is [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and the top of the badge is labeled [quotation mark]Nyantech Headquarters[quotation mark] in the usual font. Below that, a picture of your face overlaid with a bright, [team color of the player] number [pogoLevel of the player]." The printed name of the badge is "[securityColor of the badge] badge[if the securityColor of the badge is not white] with a white stripe[end if]". The badge has a truth state called hasBeenLiteral. The hasBeenLiteral of the badge is false.
 Understand "white" as the badge when the securityColor of the badge is white. 
 Understand "green" as the badge when the securityColor of the badge is green.
 Understand "blue" as the badge when the securityColor of the badge is blue.
@@ -9419,7 +9419,7 @@ Oswaldo has a number called clue bat. The clue bat of Oswaldo is 0.
 
 The scrap of paper is in the void. The description of the scrap of paper is "A scrunched up piece of paper with a picture of a golden chalice with bolts of green lightning zig-zagging upwards from it." Understand "golden" or "gold" or "chalice" or "lightning" or "green" as the scrap of paper.
 
-The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" or "shiny" as the gum wrapper.
+The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" or "shiny" or "circle" or "circles" as the gum wrapper.
 
 The keychain is in the void. The description of the keychain is "A high-tech souvenir keychain of the Nyantech corporate mascot, the Nyantech Cat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyantech cat" or "mascot" or "souvenir" as the keychain.
 
@@ -9737,7 +9737,7 @@ apneapod	"Stealthy until it is not"
 seepap	"A high-pressure face sucker"
 rokabil	"A syncopated beat beast"
 jazzahand	"No problem alone, but troublesome in waves"
-grunjturd	"Found only in the Pacific Northwest."
+grunjturd	"Found only in the Pacific Northwest"
 agnostator	"A modern animal comfortable with ambiguity"
 beeleever	"Social, but stings irrationally when excited"
 zealocanth	"A fossil-type with petrified nervous system"
