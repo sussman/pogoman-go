@@ -9021,13 +9021,19 @@ To say tankDescription:
 
 The gas tank is a closed openable container. The gas tank is part of the engine. The description of the gas tank is "[tankDescription]."
 
-The choke valve is part of the engine. The description of the choke valve is "A knob that rotates either on (choke) or off. Current the choked is [if the choke is not engaged]not[end if] engaged."  The choke valve can be engaged. The choke valve is not engaged. 
+The choke valve is part of the engine. The description of the choke valve is "A knob that rotates either on (choke) or off. Current the choked is [if the choke is not engaged]not [end if]engaged."  The choke valve can be engaged. The choke valve is not engaged. 
 
 Instead of opening the choke:
 	try switching on the choke.
 	
 Instead of closing the choke:
 	try switching off the choke.
+	
+Instead of turning the choke:
+	if the choke is engaged:
+		try switching off the choke;
+	otherwise:
+		try switching on the choke.
 	
 Instead of switching on the choke valve:
 	if the choke valve is not engaged:
