@@ -3433,7 +3433,8 @@ This is the fightclub rule:
 							frontierDeath.
 						
 This is the hunter is the hunted rule:
-	say "[one of]The [attackerPogoman] chucks a pogoBall at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [attackerPogoman] takes careful aim and fires a pogoBall at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
+	let P be "[attackerPogoman]" in title case;
+	say "[one of]The [P] chucks a pogoBall at you! It nails you in stomach and knocks the wind out of you. You struggle, but are sucked kicking and screaming into the ball[or]The [P] takes careful aim and fires a pogoBall at you. You try to jump over it, but stumble and instead fall right on top of it. The ball sucks you in[stopping].";
 	move the giant ball to the location of the player;
 	now the player is in the giant ball.
 	
@@ -7117,7 +7118,7 @@ Instead of sleeping in the Captain's Cabin:
 
 The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain[apostrophe]s Log[quotation mark] and is full of detailed handwritten entries." Understand "log" or "book" or "Nyantech Cat Captain's" or "Captain's" as the logbook.
 
-The entries are part of the logbook. The description of the entries is "[one of]You kick back and relax for some light reading. The log starts off with some technical stuff and diagrams that you thumb through, then some description of various controls aboard the cat, sensors, gearing assemblies, autonomous thruster gimbals, and so on. The middle part of the log is filled with monotonous daily entries about rotation speed, oil pressure, and the like. Boring.[paragraph break]Ah, the last bit becomes more narrative. As you read along the precise block printing of an engineer breaks down into a flowing script and finally a fragmented shorthand and you realize that you are reading the ravings of a madman, or perhaps a visionary. Technological descriptions blend into diatribes about the potential of technology to augment or even steer evolution of individuals or human society taken large. The rantings interlace fantastic hope with dire predictions of a dystopian future.[paragraph break] As you snap the book shut, you aren[apostrophe]t sure what to make of it. While rambling and histrionic at points, you can[apostrophe]t find fault in any of the technical aspects of the logbook, and even the conclusions seem plausible or at least internally consistent, but only if you accept their outlandish premises.[or]A logbook full of both technical material and the ravings of a mad genius[stopping].".
+The entries are part of the logbook. The description of the entries is "[one of]You kick back and relax for some light reading. The log starts off with some technical stuff and diagrams that you thumb through, then some description of various controls aboard the cat, sensors, gearing assemblies, autonomous thruster gimbals, and so on. The middle part of the log is filled with monotonous daily entries about rotation speed, oil pressure, and the like. Boring.[paragraph break]Ah, the last bit becomes more narrative. As you read along the precise block printing of an engineer breaks down into a flowing script and finally a fragmented shorthand and you realize that you are reading the ravings of a madman, or perhaps a visionary. Technological descriptions blend into diatribes about the potential of technology to augment or even steer evolution of individuals or human society taken large. The rantings interlace fantastic hope with dire predictions of a dystopian future.[paragraph break] As you snap the book shut, you aren[apostrophe]t sure what to make of it. While rambling and histrionic at points, you can[apostrophe]t find fault in any of the technical aspects of the logbook, and even the conclusions seem plausible or at least internally consistent, but only if you accept their outlandish premises.[or]A logbook full of both technical material and the ravings of a mad genius[stopping].". Understand "handwriting" or "entry" as the entries.
 
 Instead of opening the logbook:
 	try examining the entries.
@@ -7171,7 +7172,7 @@ Section 51 - Cat's Head
 	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
-CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat."
+CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat." Understand "eye" or "eyes" or "cone" or "cones" or "energy" or "cones of energy" as CatHead.
 
 After going fore from the Captain's Cabin for the first time:
 	say "Bathed in a barrage of red light, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
@@ -8128,7 +8129,7 @@ Chapter in the Pod
 
 The MuskPodRoom is a privately-named room. The printed name of the MuskPodRoom is "pod". The title of the MuskPodRoom is "MuskPod". Understand "muskpod" or "pod" as the MuskPodRoom. The muskPodRoom has a number called statusCounter. The statusCounter of the MuskPodRoom is 0. The muskPodRoom has a number called hudCounter. The hudCounter of the MuskPodRoom is 0.
 
-The description of the MuskPodRoom is "The MuskPod is a technological tour de force: a single passenger maglev vehicle capable of hypersonic velocities through subterranean passages. It also has comfortable Corinthian leather seats and a state of the art sound system[if the MuskPod is in Pogoland Terminal]. Above you, the canopy is open, but still protects you from the drizzle[end if].[paragraph break]A holographic display floats in the air before you."
+The description of the MuskPodRoom is "The MuskPod is a technological tour de force: a single passenger maglev vehicle capable of hypersonic velocities through subterranean passages. It also has comfortable Corinthian leather seats and a state of the art sound system[if the MuskPod is in Pogoland Terminal]. Above you, the canopy is open, but still protects you from the drizzle[end if].[paragraph break]A holographic heads-up display floats in the air before you." 
 
 The seat is scenery in the MuskPodRoom. The description of the seat is "Supple leather that conforms perfectly to your body." Understand "corinthian" or "leather" or "seats" as the seat.
 	
@@ -8448,7 +8449,7 @@ Instead of climbing the mountain:
 	say "[one of]You struggle climb about a hundred feet up and realize that mountains are really tall and that climbing them takes a lot of work. You write off the effort for another day[or]No, too much work[stopping]."
 	
 Instead of entering the mountain for the first time:
-	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A replendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
+	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
 	bestow "No Place For Swords & Sorcery". 
 	
 Instead of entering the mountain when the player is in mountain: [redundant to override the general enter place rule]
@@ -8468,7 +8469,7 @@ Instead of taking the wild flowers:
 	say "The flowers have remarkable tensile strength. You are unable to pluck them."
 	
 Instead of smelling the wild flowers for the first time:
-	say "As you lean forward, the sticky stamen in the middle of the flower adheres to your nose and pulls your face closer. The petals wrap around your head and force your face into the gooey center of the flower. Stinging pollen abrades your eyes and a sickly sweet odor burns your lungs.[paragraph break]Your knees buckle and your fall to the ground as the plants stem coils around your legs, cutting off circulation. Serrated leaves saw back and forth at the base of your neck. Taking advantage of your immobilitity, lurking pogomen emerge from the foliage; you can hear them flighting to be first in line at the feast.[paragraph break]";
+	say "As you lean forward, the sticky stamen in the middle of the flower adheres to your nose and pulls your face closer. The petals wrap around your head and force your face into the gooey center of the flower. Stinging pollen abrades your eyes and a sickly sweet odor burns your lungs.[paragraph break]Your knees buckle and your fall to the ground as the plants stem coils around your legs, cutting off circulation. Serrated leaves saw back and forth at the base of your neck. Taking advantage of your immobility, lurking pogomen emerge from the foliage; you can hear them fighting to be first in line at the feast.[paragraph break]";
 	bestow "Stopped To Smell The Flowers";
 	frontierDeath.
 	
@@ -9159,7 +9160,7 @@ The rope is in the gymnasium. The description of the rope is "A thick natural fi
 The gymceiling is privately-named scenery. The gymceiling is in the gymnasium. The printed name of the gymceiling is "ceiling". The description of the gymceiling is "A high ceiling supported by metal beams." Understand "beams" or "ceiling" or "roof" as the gymceiling.
 
 Instead of climbing the rope:
-	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.";
+	say "Channeling your inner-grammar school, you reach as high as you can, grab the rope between your knees and start shimmying.[paragraph break]A few minutes later, even with the windows, you start swinging until you can grab the ledge. The rest isn[apostrophe]t pretty, but then again, you are not getting points for style. After looping one leg over the window frame, as you prepare to sort of roll over it, the whole ledge gives way and you find yourself rolling down the sloped tile roof of a traditional pagoda.[paragraph break]";
 	bestow "Acrobatic";
 	teleport the player to the Dojo.
 	
