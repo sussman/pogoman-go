@@ -7109,6 +7109,9 @@ Instead of entering the desk for the first time:
 	
 Instead of entering the desk:
 	say "You are not sure it is sturdy enough."
+	
+Instead of sleeping in the Captain's Cabin:
+	try entering the hammock.
 
 The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain[apostrophe]s Log[quotation mark] and is full of detailed handwritten entries." Understand "log" or "book" or "Nyantech Cat Captain's" or "Captain's" as the logbook.
 
