@@ -24,7 +24,7 @@ Include Undo Output Control by Erik Temple. [fairly hacked for this project]
 
 Book 1 - Mechanics  
 
- 
+
 Chapter Kinds
 
 
@@ -2933,7 +2933,6 @@ After examining the Teslatronic Energy Module for the first time, bestow "Awfull
 
 After examining a pogoChum for the first time, bestow "Suppressed further thought about it because you probably wouldn[apostrophe]t like the truth".
 
-
 After waiting for the first time, bestow "Loitering Around".
 
 Chapter Adaptable Verbs
@@ -5328,7 +5327,7 @@ After going down from Somewhere Along The Ladder for the first time:
 
 Section 9 - Bottom Rung
 
-The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up hundreds of feet almost the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
+The Bottom Rung is above the Crawl Space. The description of Bottom Rung is "You are standing on the bottom rung of a narrow ladder that reaches up hundreds of feet, almost to the top of the Nyantech Tower. Below you, a bit of light shines up between the acoustic tiles in a hanging ceiling. It looks like an about a ten foot drop from the ladder to the ceiling beneath you."
 
 Section 10 - Crawl Space
 
@@ -5757,7 +5756,7 @@ Instead of climbing the racks:
 
 Instead of going up from the LAN Closet for the first time:
 	say "[bold type]Somewhere above the LAN closet[roman type][line break]";
-	say "You scamper up the racks and hang onto the bundles of red CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room. It[apostrophe]s too dark to see much, but feeling around you spot a penlight.";
+	say "You scamper up the racks and hang onto the bundles of red CAT5 cable that runs upward. Pushing aside the ceiling tile, you stick your head up into a dark area above this room.";
 	continue the action.
 	
 The CAT Control is a scenery thing. The CAT Control is in the LAN Closet. The description of the CAT Control is "The panel is labeled [quotation mark]CAT Control[quotation mark] and has a picture of the Nyantech Cat at the center of eight red LEDs arranged in a circle. The LEDs are labeled according to their corresponding compass directions, N, NE, E, SE, S, SW, W, and SW. Currently the [entry 1 in HEADING] light is lit[if the onHoldFlag of the CAT Control is false], but the LEDs light up and wink out in progression traveling clockwise[end if]. Below that arrangement is a large red plunger with the word [quotation mark]HOLD[quotation mark]. Below that plunger control is a numerical counter labeled [quotation mark]Psychic Energy Collected[quotation mark]. The numbers on the display are rolling upwards." Understand "panel" or "light" or "lights" or "LED" or "LEDS" as the CAT Control. The CAT Control has a number called PEC. The PEC of the CAT control is 0. The CAT Control has a number called MegaCats. The MegaCats of the CAT Control is 0. The CAT Control has a truth state called the onHoldFlag. The onHoldFlag of the CAT Control is false.
@@ -5797,17 +5796,52 @@ Section 14 - Legal Department
 
 The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive[apostrophe]s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
+The printed name of the Legal Department is "legal department[if the player is on the ergonomic chair] (lounging in the fancy swivel chair)[end if]".
+
 The Beta Testing Door is a closed locked door. The Beta Testing Door is south of Legal Department. Understand "grey" or "door" as the beta testing door. The description of the beta testing door is "[if the Beta Testing Door is open]An open[otherwise]A closed[end if] grey door marked [quotation mark]Beta Testing[quotation mark]."
+
+Instead of taking or pulling the walnut paneling:
+	say "It is firmly attached to the wall."
+	
+Instead of taking or pulling the wainscot:
+	try taking the walnut paneling.
 
 The walnut paneling is scenery in the Legal Department. The description of the walnut paneling is "Not the cheap plywood kind, this is full thickness walnut."
 
+Instead of searching or attacking or looking under or listening to the walnut paneling:
+	say "You tap it searching for hidden compartments, but it sounds solid enough."
+
 The wainscot is scenery in the Legal Department. The description of the wainscot is "The dark green wainscoting around the base of the walls gives the room a finished look."
 
+Instead of searching or attacking or looking under or listening to the wainscot:
+	try searching the walnut paneling.
+	
+Instead of searching or attacking or looking under or listening to the office wall:
+	try searching the walnut paneling.
+
 The grey rug is scenery in the Legal Department. The description of the grey rug is "The dark grey connotes professionalism."
+
+Instead of smelling the grey rug:
+	say "New rug smell."
+
+Instead of taking or pulling or looking under the grey rug:
+	say "The rug is tacked down firmly to the floor."
 
 The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side."
 
 The drawer is an openable closed container. The drawer is part of the desk. The description of the drawer is "A sliding drawer, which is [if the drawer is open]open[otherwise]shut[end if]."
+
+Instead of pulling the drawer:
+	if the drawer is closed:
+		try opening the drawer;
+	otherwise:
+		say "It is already open."
+		
+Instead of pushing the drawer:
+	if the drawer is open:
+		try closing the drawer;
+	otherwise:
+		say "It is already closed."
 
 After opening the drawer:
 	say "The draw slides out and reveals that it contains ";
@@ -5831,13 +5865,19 @@ agreeProxy is a privately-named scenery in Legal Department. The printed name of
 To say noScreenResponse:
 	say "The screen does not respond."
 
-Instead of doing something other than examining or touching with the agreeProxy:
+Instead of doing something other than examining or touching or pushing with the agreeProxy:
 	say "[noScreenResponse]".
 	
 termsProxy is a privately-named scenery in Legal Department. The printed name of the termsProxy is "TERMS". The description of the termsProxy is "The word [quotation mark]TERMS[quotation mark] glows a bit dimmer than the word [quotation mark]AGREE[quotation mark] as if to convey its conviction that reading the terms won[apostrophe]t really do much for you, but would be something of an inconvenience for the computer."  Understand "terms" as the termsProxy.
 
-Instead of doing something other than examining or touching with the termsProxy:
+Instead of doing something other than examining or touching or pushing with the termsProxy:
 	say "[noScreenResponse]".
+	
+Instead of pushing the agreeProxy:
+	try touching the agreeProxy.
+	
+Instead of pushing the termsProxy:
+	try touching the termsProxy.
 	
 Instead of touching termsProxy:
 	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2].[quotation mark][paragraph break]".
@@ -5860,6 +5900,10 @@ Instead of touching the agreeProxy:
 
 The plastic clock is a prop. The plastic clock is on the office wall. The description of the plastic clock is "[if the plastic clock is not on a supporter]The front of the clock is a clear plastic dome over an analog clock face with hour, minute, and second hands. On the back of the clock, there a panel[otherwise]A cheap plastic clock[end if][if fresh batteries are in the battery holder]. The clock ticks quietly[end if]." Understand "hour" or "minute" or "second" or "hand" as the plastic clock. Understand "dome" or "hour" or "minute" or "second" as the plastic clock when the plastic clock is not on the office wall.
 
+Instead of eating the plastic clock for the first time:
+	say "It is plainly inedible.[paragraph break]";
+	bestow "Captain Hook".
+
 Instead of taking the plastic clock:
 	if the plastic clock was on the office wall:
 		say "(first taking the plastic clock off the wall)[command clarification break]";
@@ -5880,12 +5924,15 @@ After putting the clock on the wall:
 
 The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries." Understand "battery" as the fresh batteries.
 
+Instead of eating the batteries:
+	say "They would not be of much use to you by the time you saw them again."
+
 After taking the fresh batteries for the first time:
 	say "You pluck some AA batteries out of the clock."
 
 The office wall is a scenery supporter in the Legal Department. The description of the office wall is "Rich wooden paneling above green wainscoting."
 
-The ergonomic chair is a portable enterable scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters." 
+The ergonomic chair is a portable enterable scenery supporter in the Legal Department. The description of the ergonomic chair is "An executive desk chair built for comfort. The chair is solidly built and mounted on rolling casters."  Understand "fance" or "swivel" or "executive" as the ergonomic chair.
 
 Instead of taking the ergonomic chair, say "Quality comes with a price - thanks to its heavy duty all metal frame, the chair weighs a ton. You can[apostrophe]t pick it up."
 			
@@ -5905,6 +5952,9 @@ Instead of spinning the chair:
 		say "You give the chair a good spin. Nothing beats cheap entertainment. Well, except playing Pogoman."
 
 The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment[if the battery compartment is open], which is open[end if]." Understand "garage" or "opener" or "box" or "brown" as the remote.
+
+Instead of switching on or switching off the remote:
+	say "Have you tried pressing the button on the remote?"
 
 The battery compartment is an closed openable container. The battery compartment is part of the remote. The description of the battery compartment is "[batteryCompartmentDescription]."  
 
@@ -5937,6 +5987,9 @@ Instead of inserting fresh batteries into the closed battery compartment:
 The back panel is an closed openable container. The back panel is part of the clock. The description of the back panel is "[if the back panel is open]An open[otherwise]A latched[end if] panel on the back of the clock[if the back panel is open]. Inside, there is a battery holder[end if]." Understand "latch" as the back panel.
 
 Understand "unlatch [something]" as opening.
+
+Instead of unclipping the back panel:
+	try opening the back panel.
 
 The battery holder is an open fixed in place container in the back panel. The description of the battery holder is "A space on the back of the clock to insert AA batteries[if fresh batteries are not in the battery holder], which is currently empty[end if]."
 
@@ -6000,7 +6053,10 @@ Instead of opening or closing the Cousteau Door:
 
 The LED is a thing. The LED is part of the remote. The description of the LED is "A rectangular red indicator light on the remote. It is not illuminated." Understand "indicator" or "light" as the LED.
 
-The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position." 
+Instead of switching on or switching off the LED:
+	say "Have you tried pressing the button on the remote?"
+
+The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position."  
 
 Section 15 - Welcome to Beta Testing
 
@@ -6019,10 +6075,10 @@ After wearing the party hat for the first time:
 	
 After wearing the party hat:
 	say "You pop the hat onto your head [if the player wears the Baseball Cap of Pogomastery](on top of the Baseball Cap of Pogomastery) [end if]at what you think is a rakish angle[one of]. But consider for just a moment, a three by two cell table: how my friends see me; how my family sees me; how I see myself; how society sees me; how others gamers see me; how I really look. Now, notice that the hat only looks rakish in one of the six cells?[paragraph break]Just saying[or][stopping]."
-	
+	 
 Section 16 - Cousteau Room
 	
-Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
+Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north." Understand "wall" or "walls" or "tile" or "tiles" as the Cousteau Room.
 
 The wetsuit is a wearable prop in the Cousteau Room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
 
@@ -6082,9 +6138,12 @@ Section 17 - Rick Astley Shrine
 
 The description of the Rick Astley Shrine is "[one of]As soon as the blue door is opened, a voice congratulates you, [quotation mark]Welcome to Blue Level, Beta Tester. You have done well![quotation mark][paragraph break]This sort of praise from Nyantech goes right your primitive gamer hindbrain, which immediately releases a flood of endorphins. You bathe in the warm glow of pleasure hormones until you suddenly realize that you are surrounded by 1980s Rick Astley memorabilia: posters, photos, autographs.[paragraph break]You shield your eyes to limit the horror[or]A room full of Rick Astley memorabilia[stopping]."  The possible exits of the Rick Astley Shrine are "[one of]Thankfully, t[or]T[stopping]he exit back to the emergency stairs is to the north."
 
+Instead of smelling when the player is in the Rick Astley Shrine:
+	say "The Shrine has the musty smell of things best left forgotten."
+
 The rickety table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickety table is "A cheap plastic table."
 
-Instead of pushing or pulling the rickety table:
+Instead of pushing or pulling or cutting or attacking or climbing or turning or spinning or touching the rickety table:
 	disappearTable;
 
 After putting anything on the rickety table:
@@ -6105,7 +6164,17 @@ To disappearTable:
 
 Instead of entering the rickety table, say "Surely, that would be the end of the rickety table."
 
-Memorabilia are plural-named scenery in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
+Memorabilia are plural-named backdrop in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
+
+Instead of searching the memorabilia for the first time:
+	say "You search through the memorabilia and are left with a feeling of profound nostaligia. Or perhaps nausea.[paragraph break]";
+	bestow "Walk Down Memory Lane".
+	
+Instead of searching the memorabilia:
+	say "You find nothing new."
+	
+Instead of taking the memorabilia:
+	say "They are best left here, where few will ever see them."
 
 The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
 
@@ -6124,6 +6193,13 @@ Before switching on the walkman:
 Before switching off the walkman:
 	say "The walkman seems to be stuck in the [quotation mark]on[quotation mark] position and is looping continuously.";
 	stop the action.
+	
+Instead of opening the walkman for the first time:
+	say "The walkman appears to have been modified: the door that retains the tape would ordinarily swing out, but you do not even see hinges. It looks like there is no way to ejected the tape. Similarly, there is no trace of a battery compartment.[paragraph break]";
+	bestow "Odd Design".
+	
+Instead of opening the walkman:
+	say "You can[apostrophe]t."
 	
 After wearing the walkman:
 	say "You are immediately assaulted by the musical stylings of Rick Astley."
@@ -7018,7 +7094,7 @@ Instead of entering the desk for the first time:
 Instead of entering the desk:
 	say "You are not sure it is sturdy enough."
 
-The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain[apostrophe]s Log[quotation mark] and is full of detailed handwritten entries."
+The logbook is a prop on the driftwood desk. The description of the logbook is "The front of the book is labeled [quotation mark]Nyantech Cat Captain[apostrophe]s Log[quotation mark] and is full of detailed handwritten entries." Understand "log" or "book" or "Nyantech Cat Captain's" or "Captain's" as the logbook.
 
 The entries are part of the logbook. The description of the entries is "[one of]You kick back and relax for some light reading. The log starts off with some technical stuff and diagrams that you thumb through, then some description of various controls aboard the cat, sensors, gearing assemblies, autonomous thruster gimbals, and so on. The middle part of the log is filled with monotonous daily entries about rotation speed, oil pressure, and the like. Boring.[paragraph break]Ah, the last bit becomes more narrative. As you read along the precise block printing of an engineer breaks down into a flowing script and finally a fragmented shorthand and you realize that you are reading the ravings of a madman, or perhaps a visionary. Technological descriptions blend into diatribes about the potential of technology to augment or even steer evolution of individuals or human society taken large. The rantings interlace fantastic hope with dire predictions of a dystopian future.[paragraph break] As you snap the book shut, you aren[apostrophe]t sure what to make of it. While rambling and histrionic at points, you can[apostrophe]t find fault in any of the technical aspects of the logbook, and even the conclusions seem plausible or at least internally consistent, but only if you accept their outlandish premises.[or]A logbook full of both technical material and the ravings of a mad genius[stopping].".
 
@@ -9245,6 +9321,13 @@ To freeze the phone:
 	now BLOCKPOGOMANFLAG is true.
 
 The Teslatronic Energy Module is part of the phone. The description of the Teslatronic Energy Module is "The TEM is buried deep within the phone behind layers of radiation shielding, but you are not worried because the phone comes with a guarantee that the exposure is no worse than going through airport screening." Understand "TEM" as the Teslatronic Energy Module.
+
+Instead of opening the Teslatronic Energy Module for the first time:
+	say "Exposing everyone in the city to plutonium would not be a good idea, so the TEM is factory-sealed.[paragraph break]";
+	bestow "Sealed For Your Protection".
+	
+Instead of opening the Teslatronic Energy Module:
+	say "The module is an integral part of the phone. If it ever fails, you will just have to buy another phone. Marketing."
 
 Instead of throwing the phone at:
 	try dropping the phone.
