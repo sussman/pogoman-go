@@ -22,7 +22,7 @@ Include Object Response Tests by Juhana Leinonen. [mildly hacked for this projec
 Include Menus by Emily Short. [walkthrough menus]
 Include Undo Output Control by Erik Temple. [fairly hacked for this project]
 
-Book 1 - Mechanics
+Book 1 - Mechanics  
 
  
 Chapter Kinds
@@ -4927,7 +4927,10 @@ Section 2 - Cafeteria
 The Cafeteria is north of DeckS. The description of the cafeteria is "Nyantech employees and visiting players alike enjoy heaping platefuls of the gourmet fare served gratis in the company cafeteria. A waiter serves up a plate of [one of]roasted boar[or]braised chicken and kale[or]homemade butter croissants with maple glaze[or]herb-encrusted roast leg of lamb with garlic roasted baby potatoes[or]orecchiette bolognese with chestnuts[or]beautifully prepared magret de canard[or]pan-seared foie gras[or]fingerling rice, sublimated sungold crumble & late-summer rye[or]homespun water pancake[or]fermented anchovy with lime[or]sunflower paté[or]quickened ham, fig, and rubbed watercress[or]salt reduction with eggplant[or]pan-seared artichoke with ramp[or]fingerling peach surprise with surprise folk corn[or]pork bellies with rustic butter[in random order], which diners happily devour in an instant."  The possible exits of the Cafeteria are "The [elevatorDoorDesc], the observation deck to the south, and signs point east to the [quotation mark]Pit[quotation mark], northwest to [quotation mark]Beverages[quotation mark], and northeast to [quotation mark]Snacks[quotation mark]." Understand "restaurant" as the cafeteria.
 
 Instead of smelling when the player is in the cafeteria:
-	say "Mixing gourmet aromas complement each other here."
+	say "Mixing gourmet aromas complement each other."
+	
+Instead of buying something when the player is in Cafeteria:
+	say "[freeStuff]."
 
 The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
 
@@ -4963,6 +4966,9 @@ Instead of listening when the player is in the cafeteria:
 	
 Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
 
+Instead of doing something other than examining or smelling with the food:
+	say "Food can wait. Must explore the building! Pogoman glory awaits!"
+
 The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level [the pogolevel of the player plus 20 in words] pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
 
 Instead of cutting or attacking the visitors:
@@ -4971,7 +4977,7 @@ Instead of cutting or attacking the visitors:
 The badges are scenery in cafeteria. Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "bar" as the badges. The description of the badges is "Badges just like yours, most of them white, some of them green or blue with a white bar. The employee badges are all black with a white bar. Each badge bears a photograph of its wearer."
 
 Instead of taking or touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the badges:
-	say "Whenever your hand gets too near someone else[apostrophe]s badge, first the little hairs on your arm stand on end, then your fingers start to tingle, and finally, your arm feels like it is on fire.[paragraph break]You have the impression that the badges are specific to the person pictured on the badge."
+	say "Whenever you get too near someone else[apostrophe]s badge, first the little hairs on your arm stand on end, then your fingers start to tingle, and finally, your arm feels like it is on fire.[paragraph break]You have the impression that the badges are specific to the person pictured on the badge."
 
 Talking to is an action applying to one thing. Understand "talk to/at/with [something]" as talking to.
 
@@ -5050,10 +5056,24 @@ Instead of searching the chute for the first time:
 	say "Gritty little crumbs fall into your eyes. You blink until your vision clears.[paragraph break]";
 	bestow "Should Have Seen That Coming".
 	
+Instead of entering the chute:
+	say "It is too small for you to enter."
+	
+Instead of inserting something (called the item) into the chute:
+	if the item is the pop-tart:
+		say "You try to shove the pop-tart nto the chute, but it comes immediately out again since the chute is angled down towards you.";
+	else if the item is a pogothing:
+		say "That makes no sense.";
+	else:
+		say "[The item] does not fit well into the pop-tart-shaped chute."
+	
 Instead of searching the chute:
 	say "You can only see a short distance due to lighting; it looks like the chute just rans upwards at an angle."
 
 A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millennia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+
+Instead of tasting the pop-tart:
+	say "Your favorite: [flavor of the pop-tart]!"
 
 Understand "strawberry" as the pop-tart when the flavor of the pop-tart is strawberry.
 Understand "blueberry" as the pop-tart when the flavor of the pop-tart is blueberry.
@@ -5109,9 +5129,42 @@ After eating a pop-tart:
 	teleport the player to the cafeteria;
 	newPopTart.
 	
+Instead of buying something when the player is in Snacks:
+	say "[freeStuff]."
+	
 Section 4 - Beverages
 
 Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
+
+Instead of emptying or filling a pop (called the drink):
+	try drinking the drink.
+	
+Instead of pulling a pop (called the drink):
+	say "You pull a long, tall [drink] and slug it down. Mmm, refreshing."
+	
+Instead of pushing a pop:
+	say "No reason to push it; it sells itself."
+	
+Instead of tasting a pop (called the drink):
+	say "It tastes just like you would expect [drink] to taste, except better because you are at Nyantech."
+
+Instead of drinking the soda fountain:
+	say "Do you mean to drink something specific?"
+	
+Instead of buying something when the player is in Beverages:
+	say "[freeStuff]."
+	
+Instead of licking the soda fountain:
+	say "[residue]."
+	
+Instead of licking the dispenser:
+	say "[residue]."
+	
+To say residue:
+	say "Mmm. The gummy residue of dried sugary drinks".
+	
+to say freeStuff:
+	say "Everything here is free".
 
 Does the player mean examining or drinking the Kool-Aid: it is likely.
 
@@ -5121,9 +5174,9 @@ The dispenser is scenery in Beverages. The description of dispenser is "The disp
 
 The root beer is pop in Beverages. The description of root beer is "A cold, frothy brown soft drink with sassafras overtones." 
 
-The sprite is pop in Beverages. The description of sprite is "A refreshing, light, citrus-flavored soft drink."
+The Sprite is pop in Beverages. The description of sprite is "A refreshing, light, citrus-flavored soft drink."
 
-The coke is pop in Beverages. The description of coke is "A dark, sweet beverage with a touch of acidity."
+The Coke is pop in Beverages. The description of coke is "A dark, sweet beverage with a touch of acidity."
 
 The lemonade is pop in Beverages. The description of lemonade is "A balance between sweet and sour; perfect on a hot day."
 
@@ -6381,14 +6434,14 @@ To transform the processing area:
 	now the clipboard is in Processing;
 	now the defenderPogoman is in the void.
 		
-Before pushing the call button when Exploring The Tower has happened:
+Before pushing the call button when Exploring The Tower has ended:
 	if the player wears the goldenBadge:
 		continue the action;
 	otherwise:
 		say "You receive a mild shock from the elevator, which beeps at you insistently and refuses to open[if the vitality of Musk is not dead].[paragraph break]Musk laughs at you derisively[end if].";
 		stop the action.
 	
-Before touching the call button when Exploring The Tower has happened:
+Instead of touching the call button:
 	try pushing the call button.
 	
 Instead of pushing a lift button (called the poked item) when the plusQueDenouement is happening:
