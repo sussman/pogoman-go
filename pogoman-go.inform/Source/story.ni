@@ -9,7 +9,7 @@ The story description is "The world is full of Pogomen, and now that you don't h
 
 Use MAX_STATIC_DATA of 270000.
 Use MAX_NUM_STATIC_STRINGS of 26000.
-Use Max_DICT_ENTRIES of 1700.
+Use Max_DICT_ENTRIES of 1800.
 Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -3285,7 +3285,7 @@ The looming shadow of Nyantech stage business rule is listed after the off limit
 
 This is the looming shadow of Nyantech stage business rule:
 	if the player is in the Village:
-		if a random chance of 1 in 7 succeeds:
+		if a random chance of 1 in 5 succeeds:
 			if the number of entries in NYANCLUEBAT is greater than 0:
 				say "[entry 1 of NYANCLUEBAT].";
 				remove entry 1 from NYANCLUEBAT;
@@ -3297,7 +3297,7 @@ The strangely prescient rantings of Oswaldo stage business rule is listed after 
 
 This is the strangely prescient rantings of Oswaldo stage business rule:
 	if the player is in the Village:
-		if a random chance of 1 in 9 succeeds:
+		if a random chance of 1 in 7 succeeds:
 			if the number of entries in OSWALDOBUSINESS is greater than 0:
 				say "[entry 1 in OSWALDOBUSINESS].";
 				remove entry 1 from OSWALDOBUSINESS;
@@ -3807,7 +3807,23 @@ Section 2 - Location-specific elements in The Village
    can't subclass scenery itself.
 ]
 
-Section 3 - The Sky Itself
+Section 3 - Nyantech Backdrop
+
+The dark tower is a backdrop in the Village. The description of the dark tower is "[permutedTower]." Understand "nyantech" or "office building" or "tower" or "ebony" or "black" or "jet" or "obsidian" or "monolith" or "monolithic" or "corporate" or "headquarter" or "headquarters" or "center" or "operations" or "office" or "offices" as the dark tower when Around The Town is happening and the player is not in Nyantech Entrance.
+
+Instead of doing something other than examining with the dark tower:
+	say "The tower is near the city center; you would need to walk over there."
+	
+Section 4 - The NyanCat Village Backdrop
+
+
+The lowCat is a privately-named backdrop. The lowCat is in the Village. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "A giant version of Nyantech[apostrophe]s corporate mascot, a cat wearing a red beret, has been incorporated into the Nyantech Headquarters Tower at the center of the town. Up at least fifty stories, the mechanical cat revolves around the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" or "mascot" as the lowCat when Around The Town is happening.
+
+Instead of doing something other than examining with the lowCat:
+	say "The Nyantech Cat is way too far above you[if the player is not in the Nyantech Entrance], orbiting the Nyantech Corporate Offices near the center of town[end if]."
+
+
+Section 5 - The Sky Itself
 
 The sky is a backdrop. The sky is in The Village, DeckN, DeckS, DeckW, DeckE. The description of the sky is "Clear as the eye can see."
 
@@ -3841,7 +3857,7 @@ Instead of touching the sky for the first time:
 	bestow "TOS: S3 E8".
 	
 	
-Section 4 - City Park
+Section 6 - City Park
 
 The description of City Park is "A small park, well groomed, with a few trees and hedges."  City Park is an improper-named place. The title of City Park is "City Park". The printed name of City Park is "municipal park". Understand "municipal" as the City Park.
 
@@ -3856,11 +3872,11 @@ Instead of entering or climbing the hedges, say "Ow. No thanks."
 Instead of searching the hedges:
 	say "You find even more hedges."
 
-Section 5 - Old Court House
+Section 7 - Old Court House
 
 The description of Old Courthouse is "A brick court house, probably of historical significance." Old Courthouse is an improper-named structure.  The title of Old Courthouse is "Old Courthouse". The printed name of the Old Courthouse is "courthouse".  Understand "court" as Old Courthouse. Understand "building" or "brick" as Old Courthouse when the location is Old Courthouse.
 
-Section 6 - Old Jail
+Section 8 - Old Jail
 
 The description of the Old Jail is "[one of]A solidly built brick building that was once a one-room jail.[paragraph break]Annoyingly, an in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like this game, check out our single-room escape adventure comedy, Hoosegow, which is available for online for play or download.[quotation mark][paragraph break]Disgusted with [if the dog exercise area is unvisited]the[otherwise]yet another[end if] blatant attempt at self-promotion, you angrily swipe the ad off your screen[or]A single-room jailhouse that once imprisoned famous outlaw Muddy Charlie[stopping]."  Old Jail is an improper-named structure. Understand "clink" or "lock-up" or "lock up" or "hoosegow" or "jailhouse" as Old Jail. Understand "building" or "brick"  as Old Jail when the location is Old Jail. The title of Old Jail is "Old Jail". The printed name of Old Jail is "old brick jailhouse".
 
@@ -3868,7 +3884,7 @@ Instead of entering Old Jail when the player is in Old Jail for the first time:
 	say "Most people spend their time trying to stay out of it.[paragraph break]";
 	bestow "Criminal Intent".
 
-Section 7 - Johnson's Rock
+Section 9 - Johnson's Rock
 
 The description of Johnson's Rock is  "An historical marker next to a bare patch of ground describes Johnson's Rock, an object that has long puzzled local historians. The stone is also the subject of yearly high school pranks, and apparently has been stolen yet again.".  Johnson's Rock is an  improper-named artifact. Understand "johnson" or "johnsons" as Johnson's Rock. The printed name of Johnson's Rock is "site of Johnson's Rock". Understand "patch" or "bare" or "rock"  or "stone" or "ground" or "site" as Johnson's Rock when the location is Johnson's Rock. The title of Johnson's Rock is "Johnson's Rock". 
 
@@ -3892,7 +3908,7 @@ Instead of spinning the historical marker for the first time:
 	say "It is a metal sign, not a pogostop![paragraph break]";
 	bestow "Dammit".
 
-Section 8 - Nyantech Entrance
+Section 10 - Nyantech Entrance
 
 [Entrance]
 
@@ -3954,14 +3970,6 @@ Instead of doing something with the revolvingDoorProxy:
 						say "The unicorn remarks, [quotation mark]Are you going to monkey with the door all day long, or are you here to go into the building. Gheesh.[quotation mark][paragraph break]".
 
 
-[Low Cat]
-
-
-The lowCat is a privately-named scenery. The lowCat is in Nyantech Entrance. The printed name of lowCat is "Nyantech Cat". The description of the lowCat is "The corporate mascot of Nyantech, a giant version of the cat has been incorporated into the building itself. Up at least fifty stories, the cat revolves the building to the tune of the Nyantech Cat theme song, punctuated every quarter hour by the cat purring the time of day[if a random chance of 3 in 4 succeeds]. The cat is not visible for the moment as it passes behind the building[end if]." Understand "sparkle" or "sparkles" or "sparks" or "cat" or "nyantech" or "eyes" or "eye" as the lowCat.
-
-Instead of doing something other than examining with the lowCat:
-	say "The Nyantech Cat is way too far above you."
-
 
 [Arbitrary Notice]
 
@@ -3977,7 +3985,7 @@ To say arbitraryNoticeDescription:
 	say "[apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe]".
 
 		
-Section 9 - Ashwell-Lott Estate
+Section 11 - Ashwell-Lott Estate
 
 The description of Ashwell-Lott Estate is "A 19th Century manor house, now a winery." Ashwell-Lott Estate is an improper-named structure. Understand "ashwell" or "ashwell-lott" or "lott" or "house" as Ashwell-Lott Estate. Understand "building" as Ashwell-Lott Estate when the location is Ashwell-Lott Estate. The printed name of Ashwell-Lott Estate is "estate". The title of Ashwell-Lott Estate is "Ashwell-Lott Estate".
 
@@ -3992,7 +4000,7 @@ Instead of listening when the player is in the Ashwell-Lott Estate:
 Instead of searching the Ashwell-Lott Estate:
 	try searching the vineyard.
 
-Section 10 - Garden Gnome
+Section 12 - Garden Gnome
 
 The description of Headless Garden Gnome is "A[if the beheaded of the Garden Gnome is false]n absurdly happy[otherwise] decapitated[end if] garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Headless Garden Gnome is an improper-named artifact. Understand "decapitated" or "headless" as Headless Garden Gnome when the beheaded of the Headless Garden Gnome is true. Understand "sculpture" or "art" or "figurine" or "statue" as Headless Garden Gnome when the location is Headless Garden Gnome. The printed name of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]decapitated[otherwise]absurdly happy[end if] garden gnome statue". The title of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]Headless Garden Gnome[otherwise]Formerly Headless Garden Gnome[end if]". The Headless Garden Gnome has a truth state called beheaded. The beheaded of the Headless Garden Gnome is true. Understand "formerly" or "happy" or "absurdly" as the Headless Garden Gnome when the beheaded of the Headless Garden Gnome is false.
 
@@ -4045,7 +4053,7 @@ Instead of burning the lawn:
 Instead of smelling the severed head:
 	say "Severe halitosis."
 
-Section 11 - Parking Lot Award
+Section 13 - Parking Lot Award
 
 The description of Parking Lot Award is "A[if buffed of the Parking Lot Award is true]n almost painfully shiny[otherwise] tarnished[end if] brass plaque next to this empty and entirely unremarkable parking lot proclaims that it won a design award for some incomprehensible reason." Parking Lot Award is an improper-named place. Understand "plaque" or "brass" as Parking Lot Award when the location is Parking Lot Award. The printed name of Parking Lot Award is "award for best parking lot design". The title of Parking Lot Award is "Parking Lot Award". The Parking Lot Award has a truth state called buffed. The buffed of the Parking Lot Award is false.
 
@@ -4061,11 +4069,11 @@ Instead of rubbing the Parking Lot Award:
 		bestow "Parking Lot Award Award". [sic]
 
 
-Section 12 - Old Town Hall
+Section 14 - Old Town Hall
 
 The description of Old Town Hall is "A single story edifice of white-washed roughly hewn oak panels, the Old Town Hall is now used for wedding receptions, Bar Mitzvahs, and Thursday-night bear wrestling." Old Town Hall is a structure. Understand "building" as Old Town Hall when the location is Old Town Hall. Understand "oak" or "panels"  as Old Town Hall.
 
-Section 13 - Spit n' Solder
+Section 15 - Spit n' Solder
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark].". Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
 
@@ -4081,7 +4089,7 @@ Instead of buying something for the first time:
 Instead of buying something:
 	say "No funds."
 
-Section 14 - Rotary Clock Tower
+Section 16 - Rotary Clock Tower
 
 The description of Rotary Clock Tower is "Off to one side of the park, the clock tower rotates once every twenty-four hours." Rotary Clock Tower is an improper-named artifact. The printed name of Rotary Clock Tower is "rotary clock tower".
 
@@ -4091,7 +4099,7 @@ Instead of climbing the Rotary Clock Tower:
 Instead of pulling or pushing or spinning or turning the rotary clock tower:
 	say "It does that all by itself."
 
-Section 15 - Floyd Memorial Bench
+Section 17 - Floyd Memorial Bench
 
 The description of Floyd Memorial Bench is "A wooden bench with an inset black nameplate." Floyd Memorial Bench is an improper-named place. The printed name of Floyd Memorial Bench is "bench". The title of Floyd Memorial Bench is "Floyd Memorial Bench". 
 
@@ -4104,7 +4112,7 @@ Instead of doing something other than examining with the nameplate:
 	say "Leave the nameplate alone, you hooligan!".
 
 
-Section 16 - Giant Chicken
+Section 18 - Giant Chicken
 
 The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks." Giant Chicken is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Giant Chicken when the location is Giant Chicken. The title of Giant Chicken is "Giant Chicken". The printed name of Giant Chicken is "giant chicken sculpture".
 
@@ -4116,27 +4124,27 @@ Instead of climbing the Giant Chicken:
 Instead of attacking the Giant Chicken:
 	say "Squaaawwwwwwkk!"
 
-Section 17 - Welbourn Travel
+Section 19 - Welbourn Travel
 
 The description of Welbourn Travel is "Maps of various adventures fill the windows of this travel agency." Welbourn Travel is an improper-named structure. The printed name of Welbourn Travel is "Welbourn Travel Agency". Understand "agency" as Welbourn Travel. Understand "building" or "store" as Welbourn Travel when the location is Welbourn Travel. The printed name of Welbourn Travel is "Welbourn Travel Agency". The title of Welbourn Travel is "Welbourn Travel". 
 
 The maps are scenery in Welbourn Travel. The description of the maps is "Colorful maps that detail twisty and not-so-twisty passages through the town and abroad." Understand "map" or "window" or "windows" as the maps.
 
-Section 18 - Hook & Ladder
+Section 20 - Hook & Ladder
 
 The description of Hook & Ladder is "The home of Fire Brigade Number 12." Hook & Ladder is an improper-named structure. Understand "hook and ladder" or "firehouse" as Hook & Ladder. Understand "building" as Hook & Ladder when the location is Hook & Ladder. The title of Hook & Ladder is "Hook & Ladder". The printed name of Hook & Ladder is "firehouse".
 
 Instead of smelling when the player is in Hook & Ladder:
 	say "Smells smoky."
 
-Section 19 - Prissy's Little Sausages
+Section 21 - Prissy's Little Sausages
 
 The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy[apostrophe]s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
 
 Instead of smelling when the player is in Prissy's Little Sausages:
 	say "Smells like bratwurst!"
 
-Section 20 - Yummi Tummi Softserve
+Section 22 - Yummi Tummi Softserve
 
 The description of Yummi Tummi Softserve is "Pink robotic pigs roller skate between tables serving up sundaes, cones, and floats." Yummi Tummi Softserve is an improper-named artifact. Understand "ice" or "cream" or "soft" or "serve" or "parlor" as Yummi Tummi Softserve. Understand "building" or "restaurant" as Yummi Tummi Softserve when the location is Yummi Tummi Softserve. The printed name of Yummi Tummi Softserve is "ice cream parlor". The title of Yummi Tummi Softserve is "Yummi Tummi Softserve". Understand "YTS" as Yummi Tummi Softserve.
 
@@ -4161,11 +4169,11 @@ Instead of tasting or eating ice cream for the first time:
 Instead of tasting or eating ice cream:
 	say "No time for eating. Must play Pogoman GO!".
 
-Section 21 - Service Dog Memorial
+Section 23 - Service Dog Memorial
 
 The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]". Service Dog Memorial is an improper-named artifact. Understand "scruffy" as the Service Dog Memorial. Understand "statue" or "sculpture" as Service Dog Memorial when the location is Service Dog Memorial. The title of Service Dog Memorial is "Service Dog Memorial". The printed name of Service Dog Memorial is "elaborate memorial to service dogs".
 
-Section 22 - Gardens of Zarf
+Section 24 - Gardens of Zarf
 
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
@@ -4187,7 +4195,7 @@ Instead of searching or entering The Gardens of Zarf  when the player is in Gard
 Instead of pulling or pushing or spinning or turning the zarfian sign:
 	say "It does not budge."
 
-Section 23 - Flan Emporium
+Section 25 - Flan Emporium
 
 The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some." Flan Emporium is an improper-named structure. Understand "building" or "store" as Flan Emporium when the location is Flan Emporium. The printed name of Flan Emporium is "flan store". The title of Flan Emporium is "Flan Emporium".
 
@@ -4195,7 +4203,7 @@ Instead of eating Flan Emporium, say "Unfortunately, there is no tasty flan layi
 
 Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
 
-Section 24 - General Nelson
+Section 26 - General Nelson
 	
 The description of General Nelson is "A larger than life statue of General Bosphorus [quotation mark]Rabid Mongrel[quotation mark] Nelson." General Nelson is an improper-named artifact. Understand "sculpture" or "art"  or "statue" as General Nelson when the location is General Nelson. The printed name of General Nelson is "statue of General Nelson". The title of General Nelson is "General Nelson".
 
@@ -4205,7 +4213,7 @@ Instead of climbing General Nelson:
 To say tefloned:
 	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with teflon to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litigious statue-climbing buffoons[or][stopping]."
 
-Section 25 - Church of the Orthogonal Sticks
+Section 27 - Church of the Orthogonal Sticks
 
 The description of Church of the Orthogonal Sticks is "The church is constructed entirely of Lincoln Logs except for the stained glass."  Church of the Orthogonal Sticks is an improper-named structure. Understand "lincoln" or "logs" as Church of the Orthogonal Sticks. Understand "building" as Church of the Orthogonal Sticks when the location is Church of the Orthogonal Sticks. The printed name of the Church of the Orthogonal Sticks is "church". The Title of the Church of the Orthogonal Sticks is "Church of the Orthogonal Sticks".
 
@@ -4217,14 +4225,14 @@ Instead of burning the church of the orthogonal sticks for the first time:
 	say "Do you want to end up in the Old Jail that badly?[paragraph break]";
 	bestow "Intolerance Not Tolerated".
 	
-Section 26 - Witch Pillory
+Section 28 - Witch Pillory
 
 The description of Witch Pillory is "This site commemorates the town[apostrophe]s fine tradition of witch hunts in the 1600s. [one of] Way to go founding fathers![or][stopping]". Witch Pillory is an improper-named artifact. The printed name of Witch Pillory is "witch pillory".
 
 Instead of entering or climbing Witch Pillory when the player is in Witch Pillory:
 	say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
 
-Section 27 - Flag Pole
+Section 29 - Flag Pole
 
 The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base." Flag Pole is an improper-named artifact. The printed name of flag pole is "flag pole".
 
@@ -4256,21 +4264,21 @@ Instead of entering the floodlights:
 Instead of flagging or turning or pushing or pulling the floodlights:
 	say "Their angle is fixed; they don[apostrophe]t budge."
 
-Section 28 - Krusty Kronuts
+Section 30 - Krusty Kronuts
 
 The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken." Krusty Kronuts is an improper-named structure. Understand "donut" or "donuts" or "doughnut" or "doughnuts" or "kroughnut" or "kroughnuts" or "kronut" as Krusty Kronuts. Understand "building" or "store" or "restaurant" as Krusty Kronuts when the location is Krusty Kronuts. The printed name of Krusty Kronuts is "kroughnut store". The title of Krusty Kronuts is "Krusty Kronuts".
 
 Instead of smelling when the player is in Krusty Kronuts:
 	say "Mmm.  Kroooonuts!"
 
-Section 29 - Cyclorama
+Section 31 - Cyclorama
 
 The description of Cyclorama is "The indoor bicycle track yields important radionuclides for pharmaceutical use." Cyclorama is an improper-named structure. Understand "bike" or "bicycle" or "track" or "cycle" as Cyclorama. Understand "building" as Cyclorama when the location is Cyclorama. The printed name of Cyclorama is "indoor bike track". The title of Cyclorama is "Cyclorama".
 
 Instead of spinning cyclorama:
 	say "Spinning is something you do inside cyclorama, not to cyclorama."
 
-Section 30 - Biocontainment Facility
+Section 32 - Biocontainment Facility
 
 The description of Biocontainment Facility is "[if the biocontainment facility is unvisited]You are vaguely aware that something isn[apostrophe]t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There[apostrophe]s something wrong with them, but you can[apostrophe]t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break][end if]The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don[apostrophe]t seem to notice folks playing Pogoman.". 
 
@@ -4292,7 +4300,7 @@ Instead of searching the Biocontainment Facility:
 	
 
 
-Section 31 - Battle of Margot's Pantry
+Section 33 - Battle of Margot's Pantry
 
 The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "dinos" or "dino's" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
 
@@ -4301,7 +4309,7 @@ The DOP plaque is scenery in Margot's Pantry. The description of the DOP plaque 
 Instead of smelling when the player is in Battle of Margot's Pantry:
 	say "Fresh Pizza! No. Must be strong. Keep Mind on Game."
 
-Section 32 - Gas Station Gazebo
+Section 34 - Gas Station Gazebo
 
 The description of Gas Station Gazebo is "Yet another gas station gazebo.[one of] What is it with gas stations and gazebos?[or][stopping]".  Gas Station Gazebo is an improper-named artifact. Understand "building"  as Gas Station Gazebo when the location is Gas Station Gazebo. The title of Gas Station Gazebo is "Gas Station Gazebo". The printed name of Gas Station Gazebo is "gazebo".
 
@@ -4312,11 +4320,11 @@ Instead of entering the Gas Station Gazebo for the first time:
 Instead of entering the Gas Station Gazebo when the player is in Gas Station Gazebo:
 	say "Your irrational fear of Gas Station Gazebos prevents you from taking even one step closer to the macabre structure."
 
-Section 33 - Dung Beetle Mural
+Section 35 - Dung Beetle Mural
 
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium." Dung Beetle Mural is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Dung Beetle Mural when the location is Dung Beetle Mural. The printed name of Dung Beetle Mural is "mural". The title of Dung Beetle Mural is "Dung Beetle Mural".
 
-Section 34 - Hank's Tavern
+Section 36 - Hank's Tavern
 
 The description of Hank's Tavern is "Now an artist[apostrophe]s colony, the tavern boasts pottery wheels, arc-welding, and improvised explosive courses at night (in addition to a good selection of pub food and drinks)." Hank's Tavern is an improper-named structure. Understand "hank" or "hanks" as Hank's Tavern. Understand "building" or "store" or "restaurant"  or "bar" or "pub" or "club" as Hank's Tavern when the location is Hank's Tavern. The title of Hank's Tavern is "Hank's Tavern". The printed name of Hank's Tavern is "pub".
 
@@ -4324,7 +4332,7 @@ Instead of listening when the player is in Hank's Tavern:
 	say "From the tavern you hear people socializing and the occasional [one of]muffled explosion[or]shattering of porcelain[or]whine of an angle grinder cutting through plate iron[or]whirring of servos[or]sizzle of an industrial laser[or]splatter of plasma-scintered alloy[or]whistling of welding gas[in random order]."
 	
 	
-Section 35 - Olde Train Station
+Section 37 - Olde Train Station
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers." Olde Train Station is an improper-named structure. Understand "old" as Olde Train Station. Understand "building" as Olde Train Station when the location is Olde Train Station. The printed name of Olde Train Station is "station". The title of Olde Train Station is "Olde Train Station".
 
@@ -4335,7 +4343,7 @@ Instead of doing something other than examining with the railroad tracks:
 	say paragraph break.
 	
 
-Section 36 - Dog Exercise Area
+Section 38 - Dog Exercise Area
 
 The description of the Dog Exercise Area is "[one of]Dogs can be seen practicing yoga and synchronized barking at all hours of the day (much to the annoyance of their neighbors).[paragraph break]An[if the Old Jail is visited]other[end if] in-game advertisement pops up on your phone:[paragraph break][quotation mark]If you like dogs, check out our canine-centric sci-fi game, Rover[apostrophe]s Day Out, which is available online for play or download.[quotation mark][paragraph break]You hastily swipe the shameless advertisement from your phone[or]A large, open field where dogs and owners play[stopping]."
 
@@ -4367,7 +4375,7 @@ Instead of spinning the dogs:
 	
 Understand "pet [something]" as rubbing.
 
-Section 37 - Bottle Cap Wall
+Section 39 - Bottle Cap Wall
 
 The description of Bottle Cap Wall is "A wall made entirely of bottle caps." Bottle Cap Wall is an improper-named artifact. Understand "mural" as Bottle Cap Wall. Understand "sculpture" or "statue" or [even, liberally] "art" as Bottle Cap Wall when the location is Bottle Cap Wall. The printed name of the Bottle Cap Wall is "wall made entirely of bottle caps". The title of Bottle Cap Wall is "Bottle Cap Wall". Understand "caps" as the Bottle Cap Wall.
 
@@ -4378,7 +4386,7 @@ Instead of opening the Bottle Cap Wall:
 	say "These bottle caps were long ago opened."
 
 
-Section 38 - Mile Marker 0.7
+Section 40 - Mile Marker 0.7
 
 The description of MarkerSeven is "Demonstrating the importance of relativity, the mile marker is unquestionably 0.7 miles from something -- it just doesn[apostrophe]t say what." MarkerSeven is privately-named. MarkerSeven is a proper-named artifact. Understand "seven" or "zero" or "naught" or "point" or "decimal" or "mile" or "marker" or "post" as MarkerSeven.  The printed name of MarkerSeven is "mile marker 0.7". 
 
@@ -4393,7 +4401,7 @@ To say oriented:
 	say "You are seized with the absolute conviction that you are less than one mile from [italic type]something[roman type]."
 	
 
-Section 39 - Unfathomable Orb
+Section 41 - Unfathomable Orb
 
 The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is uncertain and, indeed, perhaps unknowable.[or]An epistemologically indeterminate orb.[or]An orb. Or is it?[or]A spherical tesseract.[or]An equi-improbable arrangement of uncertainties about a central point.[or]An unusual piece of lawn furniture.[stopping]".
 
@@ -4409,7 +4417,7 @@ Instead of searching the orb for the first time:
 	say "Searching the orb reveals absolutely nothing. Predictably.[paragraph break]";
 	bestow "Unenlightened".
 	
-Section 40 - Rottweiler Art
+Section 42 - Rottweiler Art
 
 The description of Rottweiler Art is "They may be good guard dogs, but they are lousy artists. The sculpture lacks subtlety."
 
@@ -4419,16 +4427,16 @@ Instead of smelling the rottweiler art for the first time:
 	say "Smells like some other dogs have already expressed their opinion on this work of art.[paragraph break]";
 	bestow "Everyone Is A Critic".
 
-Section 41 - Sister City Friendship Altar
+Section 43 - Sister City Friendship Altar
 
 The description of Sister City Friendship Altar is "A timeworn granite slab with furrows cut to drain towards the edges, the arcane runes at its base are nearly illegible."
 
-Sister City Friendship Altar is an improper-named artifact. Understand "sacrifice" or "human" or "sacrificial" as the Sister City Friendship Altar. Understand "city"  or [questionably] "art" as Sister City Friendship Altar when the location is Sister City Friendship Altar. The printed name of Sister City Friendship Altar is "altar". The title of Sister City Friendship Altar is "Sister City Friendship Altar".
+Sister City Friendship Altar is an improper-named artifact. Understand "sacrifice" or "human" or "sacrificial" as the Sister City Friendship Altar. Understand "city"  or [questionably] "art" as Sister City Friendship Altar when the location is Sister City Friendship Altar. The printed name of Sister City Friendship Altar is "altar". The title of Sister City Friendship Altar is "Sister City Friendship Altar". Understand "slab" or "furrow" or "furrows" as the Sister City Friendship Altar.
 
 The runes are scenery in Sister City Friendship Altar. The description of the runes is "Cryptic yet somehow menacing runes."
 
 Instead of touching or searching or examining the runes for the first time:
-	say "You are not sure how you even know how, but you read the runes aloud and find your dressed in shiny bronze Hittite armor doing battle with an Urgothot, the legendary sand dragon of Mesopotamian lore.[paragraph break]You quickly slay the Urgothot because, entertaining though it is, you were in the middle of playing Pogoman GO! and can ill afford to spend time battling ancient hellspawn.[paragraph break]While trying to avoid coming off as ill-mannered, you accept the rushed thanks of their royal majesties, shovel food down quickly during the celebration thrown in your honor (while stealing frequent glances at your phone), and slip away before a thousand slaves can haul your commemorative statue to the top of a nearby ziggurat.[paragraph break]With some relief, you perform the typical ritual of return, and having said the runes backwards, find yourself back in town, where you phone reacquires cellular service and you can finally get back to what you were doing.[paragraph break]";
+	say "You are not sure how you even know how, but you read the runes aloud and find yourself dressed in shiny bronze Hittite armor doing battle with an Urgothot, the legendary sand dragon of Mesopotamian lore.[paragraph break]You quickly slay the Urgothot because, entertaining though it is, you were in the middle of playing Pogoman GO! and can ill afford to spend time battling ancient hellspawn.[paragraph break]While trying to avoid coming off as ill-mannered, you accept the rushed thanks of their royal majesties, shovel food down quickly during the celebration thrown in your honor (while stealing frequent glances at your phone), and slip away before a thousand slaves can haul your commemorative statue to the top of a nearby ziggurat.[paragraph break]With some relief, you perform the typical ritual of return, and having said the runes backwards, find yourself back in town, where you phone reacquires cellular service and you can finally get back to what you were doing.[paragraph break]";
 	bestow "Slayer Of The Mighty Urgothot".
 	
 Instead of touching or searching or examining the runes: 
@@ -4441,25 +4449,25 @@ Instead of entering the Sister City Friendship Altar when the player is in the S
 Instead of entering the Sister City Friendship Altar when the player is in the Sister City Friendship Altar:
 	say "You are not willing to sacrifice any more time to messing around here, when you could be running around, searching for pogomen."
 
-Section 42 - 1893
+Section 44 - 1893
 
 The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year." 
 
 Year1893 is an improper-named artifact. Year1893 is privately-named.  Understand "1893" or "plaque" as Year1893. The printed name of Year1893 is "plaque". The title of Year1893 is "1893 Plaque".
 
-Section 43 - Eagle's Sojourn
+Section 45 - Eagle's Sojourn
 
 The description of Eagle's Sojourn is "A bas relief carving of Dwight Eisenhower dressed as a cowboy and riding an eagle to the moon."
 
 Eagle's Sojourn is an improper-named artifact. Understand "eagle" or "eagles" or "carving" or "moon" or "cowboy" or "dwight" or "eisenhower" as Eagle's Sojourn. Understand "sculpture" or "statue" or "art" as Eagle's Sojourn when the location is Eagle's Sojourn. The title of Eagle's Sojourn is "Eagle[apostrophe]s Sojourn". The printed name of Eagle's Sojourn is "carving".
 
-Section 44 - Nymph With Telescope
+Section 46 - Nymph With Telescope
 
 The description of Telescope Nymph is "Based on one of Shakespeare[apostrophe]s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
 
 Telescope Nymph is an improper-named artifact. Understand "with" as Telescope Nymph. Understand "sculpture" or "statue" or "art" as Telescope Nymph when the location is Telescope Nymph. The printed name of Telescope Nymph is "nymph statue". The title of Telescope Nymph is "Nymph With Telescope".
 
-Section 45 - Fire Is Our Friend
+Section 47 - Fire Is Our Friend
 
 The description of Fire Is Our Friend is "An eternal flame burns bright above a bronze brazier held aloft by the Four Horsemen of the Apocalypse. The plaque notes that the piece was donated to the town by Fire Brigade 11."
 
@@ -4503,7 +4511,7 @@ Instead of switching off the flame:
 	say "Rather consistently, the eternal flame lacks an off switch."
 	
 
-Section 46 - Unearthly Geometry
+Section 48 - Unearthly Geometry
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
 
@@ -4512,7 +4520,7 @@ Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "out
 Instead of touching the Unearthly Geometry:
 	say "You are momentarily reduced to a state of gibbering idiocy. It lasts only a moment before you fix your eyes back on the cell phone screen and start walking around again. The contrast is unstark."
 
-Section 47 - Cranberry Bog
+Section 49 - Cranberry Bog
 
 The description of Cranberry Bog is "The town[apostrophe]s cranberry bog, a quiet pond filled with the delectable but bitter berries. Bodies are pulled from its depths with some regularity, but at least they are well-preserved by the acidity of the bog." Understand "cranberries" or "berries" or "berry" as the bog.
 
@@ -4527,7 +4535,7 @@ Instead of entering the Cranberry Bog:
 Instead of swimming in the Bog:
 	say "Too many plants."
 
-Section 48 - Found Art
+Section 50 - Found Art
 
 The description of Found Art is "A single screw attached to a surfboard.[one of] This is what counts as art these days. Jeesh.[or][stopping]".
 
@@ -4560,7 +4568,7 @@ Instead of buying the art:
 
 	
 	
-Section 49 - Crystal Skull
+Section 51 - Crystal Skull
 
 The description of Crystal Skull is "There isn[apostrophe]t much left of the salty skull exhibit. Occasionally, deer walk through town just to lick it."
 
@@ -4590,13 +4598,13 @@ Instead of rubbing the Crystal Skull for the first time:
 	say "The coarse salt abrades your hand and the friction raises the temperature of the skull by a fraction of a degree.[paragraph break]";
 	bestow "Got A Lot Done Today".
 
-Section 50 - Vuvuzelas For Freedom
+Section 52 - Vuvuzelas For Freedom
 
 The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
 
 Vuvuzelas For Freedom is an improper-named artifact. Understand "vuvuzela" or "uprising" or "bronze" or "plate" or "sidewalk" as Vuvuzelas For Freedom. Understand "commemorative" or "plaque" as Vuvuzelas For Freedom when the location is Vuvuzelas For Freedom. The printed name of Vuvuzelas for Freedom is "plaque". The title of Vuvuzelas for Freedom is "Vuvuzelas For Freedom".
 
-Section 51 - Poison Ivy
+Section 53 - Poison Ivy
 
 The description of Toxicodendron radicans is "In the middle of this field, there is a small sign, [quotation mark]Warning: Poison Ivy.[quotation mark]"
 
@@ -4618,7 +4626,7 @@ Instead of entering the Toxicodendron radicans when the player is in Toxicodendr
 	try touching the Toxicodendron radicans.
 	
 	
-Section 52 - Perilous Passageway
+Section 54 - Perilous Passageway
 
 The description of Perilous Passageway is "A disgusting passageway."
 
@@ -4767,7 +4775,7 @@ Instead of smelling the Baseball Cap of Pogomastery:
 	say "It smells better than it should, considering."
 	
 
-Section 53 - Dealing with Quadrooms
+Section 55 - Dealing with Quadrooms
 
 Instead of taking a quadroom (called the QTH):
 	say "[The QTH] [are] not something you can take."
@@ -4790,7 +4798,7 @@ Before doing something with a quadroom (called the QTH) when the player is in th
 	otherwise:
 		continue the action.
 			
-Section 54 - Stick to the Straight and Narrow
+Section 56 - Stick to the Straight and Narrow
 
 A direction can be blasphemous or orthodox. A direction is usually orthodox. Northeast, northwest, southeast, and southwest are blasphemous.
 
@@ -4806,7 +4814,7 @@ Before going a blasphemous direction when the location is in The Village:
 			bestow "No-cutting-corners";
 			stop the action.
 
-Section 55 - Border Death Table
+Section 57 - Border Death Table
 
 Table of Border Deaths
 Place of Death	Number of Times Killed
@@ -4891,7 +4899,7 @@ Instead of going a bad idea direction (called the way):
 					try looking;
 	increase number of times killed corresponding to the place of death of R in the Table of Border Deaths by one.
 	
-Section 56 - Town Atmosphere
+Section 58 - Town Atmosphere
 
 OSWALDOBUSINESS is a list of text that varies. OSWALDOBUSINESS is {
 "Oswaldo, the town[apostrophe]s conspiracy theorist, walks past you, and tips his tin-foil hat in greeting. He adjusts the clapboard signs that hang down both in front and behind him, and is around the corner before you look up again from your phone",
