@@ -9166,6 +9166,9 @@ The gymnasium is a room. The description of the gymnasium is "A typical pogogym,
 
 The rope is in the gymnasium. The description of the rope is "A thick natural fiber rope that hangs down from the ceiling off to one side of the gym."
 
+Instead of taking the rope:
+	say "How can you take it? The other end is attached to the ceiling."
+
 The gymceiling is privately-named scenery. The gymceiling is in the gymnasium. The printed name of the gymceiling is "ceiling". The description of the gymceiling is "A high ceiling supported by metal beams." Understand "beams" or "ceiling" or "roof" as the gymceiling.
 
 Instead of climbing the rope:
