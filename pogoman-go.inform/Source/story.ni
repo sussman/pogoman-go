@@ -6536,7 +6536,7 @@ To say deckDescription:
 			say "The safety rail that runs around the observation deck is replaced here by a heavy chain that clips to the railing -- you assume that it is for maintenance and shudder as you contemplate how dangerous it would be to remove the chain.[paragraph break]";
 		otherwise:
 			say "There is a gap in the safety rail here, and the chain that is normally stretched across the gap has been unfastened; there is nothing between you and a plunge off the platform -- it is enough to give you vertigo.[paragraph break]";
-	say "[if onHoldFlag of the CAT Control is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you[end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top restaurant"
+	say "[if onHoldFlag of the CAT Control is false]At precisely one minute intervals, the giant Nyantech Cat flies by, just below the level of the observation deck, and continues to circle the building[otherwise]The Nyantech Cat, suspended by its support boom from the side of the building, remains stationary directly below you[end if]. Behind you, through floor to ceiling windows, you can see folks eating and drinking in the roof-top cafeteria"
 	
 To say deckExits:	
 	say "The deck continues around to the ";
@@ -6549,7 +6549,7 @@ To say deckExits:
 		-- deckN:
 			say ". The door to the emergency stairs is to the north";
 		-- deckS: 
-			say ". The roof-top restaurant is to the north".
+			say ". The roof-top cafeteria is to the north".
 
 [When the player is at height, these remote locations -- and everything in them (unless associated grammar is location-specific) -- are in scope, so if the player sees the a room title or just knows that something is located there, the player can try to see it. Most actions at that distance are blocked.]
 
