@@ -8511,12 +8511,12 @@ Section 9 - Canyon
 
 The description of Canyon is "The sedimentary rock walls of the canyon rise sharply to each side, but stairs cut into the rock face provide a path through in each direction." Canyon is a place.
 
-The canyon walls are scenery in Canyon. The description of the canyon walls is "Sheer walls of ochre sedimentary rock tower above you." Understand "rock" or "rocks" or "sedimentary" as the canyon walls.
+The canyon walls are scenery in Canyon. The description of the canyon walls is "Sheer walls of ochre sedimentary rock tower above you." Understand "rock" or "rocks" or "sedimentary" or "wall" as the canyon walls.
 
 Instead of climbing the walls:
 	say "The walls are too crumbly to climb."
 	
-The canyon stairs are scenery in the Canyon. The description of the canyon stairs is "The stairs are ancient, and in some places are worn smooth, but it is clear that they are not a natural feature. The stairs run in all directions and meet at the center, the lowest point of the canyon. You imagine that in wetter weather water must pool there, but it is sandy and dry at present." Understand "sand" or "sandy" or "point" or "cross" or "crossroad" or "crossroads" or "intersection" or "pit" as the canyon stairs.
+The canyon stairs are scenery in the Canyon. The description of the canyon stairs is "The stairs are ancient, and in some places are worn smooth, but it is clear that they are not a natural feature. The stairs run in all directions and meet at the center, the lowest point of the canyon. You imagine that in wetter weather water must pool there, but it is sandy and dry at present." Understand "sand" or "sandy" or "point" or "cross" or "crossroad" or "crossroads" or "intersection" or "pit" or "stair" or "staircase" as the canyon stairs.
 
 Instead of climbing the canyon stairs:
 	say "They run in all directions; just say the direction to go.".
@@ -8546,11 +8546,11 @@ Instead of cutting the tall trees:
 
 Section 11 - Wharf
 
-The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place.
+The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place. Understand "wharfs" or "wharves" or "dock" or "docks" or "pier" or "piers".
 
 Section 12 - Dojo
 
-The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof." 
+The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."  Understand "gym" or "gymnasium" or "pagoda" as the Dojo.
 
 Instead of burning the dojo for the first time:
 	say "Wood, but the non-flammable kind.[paragraph break]Because there are people like you.[paragraph break]";
@@ -8641,7 +8641,6 @@ Section 16 - Service Station
 
 The description of Service Station is "[if the burntUp of the service station is false]A one-pump gas station[otherwise]A deep, blacked crater, the size of a a service station[end if]." Service Station is a place. The printed name of the service station is "[if the burntUp of the service station is false]service station[otherwise]blackened crater[end if]". Understand "crater" or "blackened" or "hole" as the service station when the burntUp of the Service Station is true. The service station has a truth state called burntUp. The burntUp of the service station is false.
 
-
 The pump is scenery in the service station. The description of the pump is "A clunky pump with an advertisement that offers, [quotation mark]Fill [apostrophe]er up?[quotation mark]". Understand  "gas" or "gasoline" or "fuel" or "petrol" or "diesel" or "gasoil" or "kerosene" as the pump.
 
 The old advertisement is scenery in the service station. The description of the old advertisement is "Pasted directly the pump, the ad depicts an all too familiar cat in a red beret filling a gas can. Under the cat are the words [quotation mark]Fill [apostrophe]er up?[quotation mark]."
@@ -8725,16 +8724,45 @@ Section 18 - Monastery
 
 The description of Monastery is "A walled fortress surrounding a chapel and some fields."
 
-Instead of Entering the Monastery for the first time:
+Instead of Entering the Monastery when the player is in monastery for the first time:
 	say "One of the things that fortifications are particularly good at is keeping people out."
 	
-The chapel is scenery in Monastery. The description of the chapel is "A chapel of one of the Oblique Orders, its roof is pitched at an acute angle. It stands near the middle of the monastery."
+The fortifications are scenery in the Monastery. The description of the fortifications is "A star-shaped outer wall with murder holes, emplacements for hot oil, and sentry posts. These monks were not much into outreach." Understand "stone" or "masonry" or "wall" or "walls" or "fortification" or "curtain" or "murder hole" or "emplacement" or "emplacements" or "post" or "posts" as the fortifications.
 
-The fields are scenery in the Monastery. The description of the fields is "Mostly hops."
+Instead of attacking the fortifications for the first time:
+	say "I hope you brought a battering ram or at least siege engine with you.[paragraph break]";
+	bestow "Knife To A Gun Fight".
+	
+Instead of attacking the fortifications:
+	say "After wailing on the thick stones walls for a while, it does not appear that you have made much progress in bringing them down."
+	
+Instead of climbing the fortifications:
+	say "The outward slant of the curtain wall around the monastery makes climbing difficult without proper gear."
+	
+The chapel is scenery in Monastery. The description of the chapel is "A chapel of one of the Oblique Orders, its roof is pitched at an acute angle. It stands near the middle of the monastery." Understand "church" as the chapel. 
+
+Instead of doing something other than examining with the chapel:
+	say "The chapel is near the middle of the monastery, far behind the monastery fortifications."
+
+The fields are scenery in the Monastery. The description of the fields is "Mostly hops." Understand "hops" or "field" as the fields.
+
+Instead of jumping in the monastery for the first time:
+	say "You bounce around like a  bunny.[paragraph break]";
+	bestow "One With The Field".
+
+Instead of doing something other than examining with the fields:
+	say "The fields are in the distance, far behind the monastery fortifications."
 
 Section 19 - Hospital
 
 The description of Hospital is "A sprawling and state-of-the-art, but strangely windowless, medical facility."
+
+Instead of entering the hospital when the player is in hospital for the first time:
+	say "There are no doors and no windows. Not even a convenient air vent.[paragraph break]More to the point, however, you do not have insurance coverage, so even if you were to get in, it would be pointless.[paragraph break]";
+	bestow "Note To Self: Get A Job".
+	
+Instead of entering the hospital:
+	say "There are no doors or even windows. You don[apostrophe]t see a way in."
 
 Section 20 - Motel
 
@@ -8761,7 +8789,7 @@ Instead of sleeping when the player is in motel:
 
 Section 21 - Botanical Garden
 
-The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this herbal garden." Understand "hedges" or "paths" as the botanical garden. Botanical garden is a place.
+The description of Botanical Garden is "Trimmed hedges line the well-intentioned paths of this herbal garden." Understand "hedge" or "hedges" or "path" or "paths" as the botanical garden. Botanical garden is a place.
 
 A watering can is an open container in the Botanical Garden. The description of the watering can is "An old school gardening can: sheet metal and at least two gallons capacity. Unfortunately, the end of the spout is broken off and it can only pour, not sprinkle." 
 
@@ -8913,7 +8941,7 @@ Instead of doing something other than examining with the postal advertisement:
 
 Section 26 - Dark Alley
 
-The description of Dark Alley is "A dark and filthy alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place.
+The description of Dark Alley is "A dark and filthy alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place. Understand "passage" or "passageway" as the Dark Alley.
 
 Section 27 - Pogoland Terminal
 
