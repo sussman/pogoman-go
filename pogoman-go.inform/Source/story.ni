@@ -3249,7 +3249,7 @@ At the time when legal counsel frets:
 	legal counsel frets in N turns from now.
 
 To say disclaimerText:	
-	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]commiting crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not appy[cycling]".
+	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]commiting crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not apply[cycling]".
 
 Chapter Stage Business
 
