@@ -969,7 +969,7 @@ Instead of attacking Elon Musk:
 		
 			
 To say attackStyle:
-	say "You [one of]launch a flying kick at[or]land a neat karate chop on[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]wallop[or]let loose a flurry of blows towards[in random order]".
+	say "You [one of]launch a flying kick at[or]throw an expert karate chop at[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]wallop[or]let loose a flurry of blows towards[in random order]".
 			
 To say nearMiss:
 	say ", but you[one of]r attack goes wide[or] miss[or]r opponent is too quick for you[in random order]"
@@ -3249,7 +3249,7 @@ At the time when legal counsel frets:
 	legal counsel frets in N turns from now.
 
 To say disclaimerText:	
-	say "Warning: Do not play Pogoman GO! while [bold type][one of]trespassing[or]golfing[or]balanced precariously[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]commiting crimes[in random order]".
+	say "[bold type]Warning: Do not play Pogoman GO! while [one of]trespassing[or]golfing[or]balanced precariously[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]commiting crimes[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[in random order]".
 
 Chapter Stage Business
 
@@ -6524,6 +6524,12 @@ Instead of searching Elon Musk:
 	otherwise:
 		say "Elon Musk tsk-tsks the attempt."
 		
+Instead of taking the clipboard:
+	if the vitality of Elon Musk is dead:
+		continue the action;
+	otherwise:
+		say "Elon [one of]twists it away[or]slices at your hand[or]withdraws its from your reach[or]evades your grasp[in random order]."
+		
 Instead of taking the goldenBadge:
 	if the goldenBadge is worn by Elon Musk:
 		if the vitality of Elon Musk is not dead:
@@ -7540,6 +7546,8 @@ Section 2 - Exterior of the elevator
 
 The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" as the elevatorExterior. 
 
+
+
 Instead of taking the elevatorExterior:
 	say "Have you pressed the call button?"
 	
@@ -7549,7 +7557,7 @@ Instead of pushing the elevatorExterior:
 To say elevatorDoorDesc:
 	say "elevator doors here are [if the player is in the floor level of the elevator]open[otherwise]closed[end if]".
 
-The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding white [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" or "ring" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void.
+The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" or "ring" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void. Understand "elevator button" as the call button. Understand "plastic" or "ring" or "illuminated" as the call button.
 
 Does the player mean pushing the call button:
 	it is very likely.
