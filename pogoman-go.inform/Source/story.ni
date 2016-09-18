@@ -3220,7 +3220,7 @@ When play begins:
 			now the wounded entry is W;
 			if the P is not listed in POGODEXLIST:
 				add P to POGODEXLIST;		
-	legal counsel frets in 50 turns from now;				
+	legal counsel frets in 3 turns from now;				
 	openGame.
 	
 To openGame:
@@ -3241,8 +3241,7 @@ To openGame:
 	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it[or][stopping]!".
 	
 After printing the banner text:
-	say "[line break][italic type]Note: You may find the commands [roman type][quotation mark]scan[quotation mark][italic type] and [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]";
-	say "[bold type]Warning: Do not play Pogoman GO! while driving.[roman type][paragraph break]";
+	say "[line break][italic type]Note: You may find the commands [roman type][quotation mark]scan[quotation mark][italic type] and [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]".
 
 At the time when legal counsel frets:
 	say "[disclaimerText].";
@@ -3250,7 +3249,7 @@ At the time when legal counsel frets:
 	legal counsel frets in N turns from now.
 
 To say disclaimerText:	
-	say "[bold type]Warning: Do not play Pogoman GO! while [one of]trespassing[or]golfing[or]balanced precariously[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]commiting crimes[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[in random order]".
+	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]commiting crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not appy[cycling]".
 
 Chapter Stage Business
 
@@ -3930,7 +3929,7 @@ The description of Nyantech Entrance is "A towering edifice hewn from solid obsi
 
 After going to Nyantech Entrance for the first time:
 	say the headline of Nyantech Entrance;
-	say "You stand reverently below the enormous Nyantech Tower, its obsidian walls reaching majestically to the sky above you. From here, you can see the giant animatronic Nyantech Cat orbiting the building fifty stories above you, spewing sparkles in its wake. Its glowing red eyes sweep up and down, looking everywhere. This is the promised land, a place you have always dreamed of visiting.[paragraph break]Through the glass, you see Nyantech employees in the lobby scooting every which way on segways and hoverboards.[paragraph break]A uniformed unicorn stands near the revolving door leading inward to the lobby. With a hint of annoyance, he rubs your nose print off the glass with a furry hoof.[paragraph break]";
+	say "You stand reverently below the enormous Nyantech Tower, its obsidian walls reaching majestically to the sky above you. From here, you can see the giant animatronic Nyantech Cat orbiting the building fifty stories above you, spewing sparkles in its wake. Its glowing red eyes sweep up and down, looking everywhere. This is the promised land, a place you have always dreamed of visiting.[paragraph break]Through the tinted glass, you strain to peer into the building[apostrophe]s lobby.[paragraph break]A uniformed unicorn stands near the revolving door leading inward to the lobby. With a hint of annoyance, he rubs your nose print off the glass with a furry hoof.[paragraph break]";
 	bestow "Reached the Mothership";
 
 
@@ -7590,7 +7589,7 @@ Instead of pushing the call button:
 		if the floor level of the elevator is the location of the player:
 			say "The button goes out immediately[one of] because the elevator is already here[or][stopping].";
 		otherwise:			
-			say "The white plastic ring around the button lights up.";
+			say "The plastic ring around the button lights up.";
 			now the call button is lit;
 			now the requestor of the call button is the location of the player;
 			let T be a random number from 1 to 4;
@@ -10006,7 +10005,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* Did you find the Salmon of Turpitude?[paragraph break]* Did you put the head back on the gnome?[paragraph break]* There are ten endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walkûre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break]* Did you find the Salmon of Turpitude?[paragraph break]* Did you put the head back on the gnome?[paragraph break]* There are ten endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walküre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
