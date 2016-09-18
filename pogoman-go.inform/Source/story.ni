@@ -5632,21 +5632,21 @@ Instead of going south from the Lobby:
 	 
 Section 14 - LAN Closet
 
-The LAN Closet Door is a closed door. The LAN Closet Door is east of the Lobby. The description of the LAN Closet Door is "A[if the LAN Closet Door is open]n open[otherwise] shut[end if] metallic door in the Lobby[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[otherwise]. The door is marked [quotation mark]LAN Closet[quotation mark], and below that in smaller letters, [quotation mark]and CAT control[quotation mark][end if]." Understand "metallic" as the LAN closet door. The LAN Closet Door has a truth state called wasNoticed. The wasNoticed of the LAN Closet Door is false.
+The LAN closet door is a closed door. The LAN closet door is east of the Lobby. The description of the LAN closet door is "A[if the LAN Closet Door is open]n open[otherwise] shut[end if] metallic door in the Lobby[if the player is in the LAN Closet]. A large speaker is mounted on the back of the door[otherwise]. The door is marked [quotation mark]LAN Closet[quotation mark], and below that in smaller letters, [quotation mark]and CAT control[quotation mark][end if]." Understand "metallic" as the LAN closet door. The LAN closet door has a truth state called wasNoticed. The wasNoticed of the LAN closet door is false.
 
 Instead of exiting when the player is in the LAN Closet:
 	try going west.
 
-After examining the LAN Closet Door for the first time:
-	now the wasNoticed of the LAN Closet Door is true.
+After examining the LAN closet door for the first time:
+	now the wasNoticed of the LAN closet door is true.
 
-Instead of touching or opening the LAN Closet Door when the player is in the Lobby:
+Instead of touching or opening the LAN closet door when the player is in the Lobby:
 	if the player does not wear the walkman:
 		try going east;
 	otherwise:
 		continue the action.
 
-The LAN Closet is east of the LAN Closet Door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
+The LAN Closet is east of the LAN Closet door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
 
 
@@ -5661,8 +5661,8 @@ Instead of listening to the Lan Closet Door:
 	otherwise:
 		try listening.
 		
-Instead of rubbing or licking or smelling or tasting or pushing or pulling or turning or attacking or cutting or taking the Lan Closet Door:
-	try touching the Lan Closet Door.
+Instead of rubbing or licking or smelling or tasting or pushing or pulling or turning or attacking or cutting or taking the Lan closet door:
+	try touching the Lan closet door.
 
 The record is a prop . The record is on the phonograph. The description of the record is "A 33⅓ rpm LP, [quotation mark]Visceral Fear Sounds, Volume One[if the speaker is active],[quotation mark] rotates on the phonograph.[otherwise].[quotation mark][end if]".
 
