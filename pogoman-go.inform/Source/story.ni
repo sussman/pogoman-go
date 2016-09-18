@@ -227,7 +227,7 @@ EXPERT_POGOSTOP_LOCKOUT_DURATION is always 10.
 INCENSE_DURATION is always 10.
 POGOMAN_LOCKOUT_DURATION is always 5.[no pogomen for first rounds of game to cut down on text]
 DAIS_DELAY_DURATION is always 15. [if player hasn't noticed dais by this time, it notices itself]
-DESOLATION_DELAY_DURATION is always 15. [delay for player to realize loneliness in Pogoland]
+DESOLATION_DELAY_DURATION is always 20. [delay for player to realize loneliness in Pogoland]
 GYM_OVERTHROW_DURATION is always 5. [how long does gym remain captured]
 
 [Oswaldo Clue Bats]
@@ -6541,8 +6541,27 @@ Instead of dropping the goldenBadge:
 To say noDropGolden:
 	say "No, you have literally killed for it. You are now its rightful owner"
 	
+The hanging meat is scenery in Processing. The description of the hanging meat is "Large hunks of raw meat." Understand "rib" or "ribs" or "arm" or "arms" or "leg" or "legs" or "side" or "sides" or "rump" or "rumps" or "cutlet" or "cutlets" or "brisket" or "briskets" or "torso" or "torsos" or "back" or "backs" or "meats" or "long pig" or "human" or "man" or "rancid" or "raw" or "bloody" or "flesh" or "manflesh" as the hanging meat.
+	
 The meat hooks are scenery in Processing. The description of the meat hooks is "Heavy, jointed (and no doubt sharp) cast iron hooks that hang from a track along the ceiling." The meat hooks are plural-named. Understand "iron" or "hook" or "track" or "ceiling" as the meat hooks. 
 
+Does the player mean doing something with the hanging meat:
+	it is likely.
+
+Instead of doing something other than examining or eating with the hanging meat for the first time:
+	say "You do know what that meat is, right?[paragraph break]";
+	bestow "The Long Pig Award For Research Excellence".
+	
+Instead of doing something other than examining or eating with the hanging meat:
+	say "You do not want to come anywhere near the meat if you can avoid it. The idea is revolting."
+	
+Instead of eating the meat for the first time:
+	say "Tastes just like pogoChum.[paragraph break]";
+	bestow "PogoChum is People".
+	
+Instead of eating the meat:
+	say "You are not sure your stomach would handle that just now."
+	
 Instead of doing something other than examining with the meat hooks:
 	say "They are too high up."
 	
@@ -8828,7 +8847,7 @@ Instead of climbing the chimney for the first time:
 Instead of climbing the chimney:
 	say "It is too hot to climb."
 	
-The coals are a backdrop in the Blacksmith. The description of the coals is "Red, hot coals. The air above them shimmers." Understand "coal" as the coals. 
+The coals are a backdrop in the Blacksmith. The description of the coals is "Red, hot coals. The air above them shimmers." Understand "coal" or "forge" as the coals. 
 
 Instead of taking the coals for the first time: 
 	say "Bravely, but not really too intelligently, you grab one and spend the thirty seconds throwing it from hand to hand, hoping that it will cool off. It doesn[apostrophe]t, so you toss it back in the pile.[paragraph break]";
