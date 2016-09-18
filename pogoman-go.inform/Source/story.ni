@@ -814,7 +814,8 @@ To say defendingPogomanName:
 The attackerPogoman is a privately-named pogoentity. The description of attackerPogoman is "[pogoDex data for type of attackerPogoman][if the attackerPogoman is injured]. This [type of attackerPogoman] is wounded[end if].". The printed name of attackerPogoman is "[attackingPogomanName]". The printed plural name of attackerPogoman is "[attackingPogomanName]s". Understand "wounded" or "injured" as the attackerPogoman when the attackerPogoman is injured. The attackerPogoman has a number called desire to capture. The desire to capture of the attackerPogoman is 0. 
 
 To say attackingPogomanName:
-	say "[if the attackerPogoman is injured]wounded [end if][if Not in Kansas Anymore is happening]attacking[otherwise]wild[end if] [type of attackerPogoman]".
+	let T be "[type of attackerPogoman]" in title case;
+	say "[if the attackerPogoman is injured]wounded [end if][if Not in Kansas Anymore is happening]attacking[otherwise]wild[end if] [T]".
 
 Instead of taking a pogoentity:
 	say "You'll have to throw a PogoBall at it to capture it!".
@@ -9431,6 +9432,9 @@ Instead of opening the Teslatronic Energy Module for the first time:
 	say "Exposing everyone in the city to plutonium would not be a good idea, so the TEM is factory-sealed.[paragraph break]";
 	bestow "Sealed For Your Protection".
 	
+Instead of opening the phone:
+	try opening the Teslatronic Energy Module.
+	
 Instead of opening the Teslatronic Energy Module:
 	say "The module is an integral part of the phone. If it ever fails, you will just have to buy another phone. Marketing."
 
@@ -9453,7 +9457,7 @@ Before doing something with the phone:
 		otherwise:
 			stop the action;
 	otherwise:
-		if the current action is rebooting, charging, eating, examining, dropping, attacking, inserting into, or throwing at:
+		if the current action is rebooting, charging, eating, examining, dropping, opening, attacking, inserting into, or throwing at:
 			continue the action;
 		if the current action is showing to:
 			continue the action;
