@@ -3218,7 +3218,8 @@ When play begins:
 			now the pogoName entry is P;
 			now the wounded entry is W;
 			if the P is not listed in POGODEXLIST:
-				add P to POGODEXLIST;
+				add P to POGODEXLIST;		
+	legal counsel frets in 50 turns from now;				
 	openGame.
 	
 To openGame:
@@ -3236,10 +3237,19 @@ To openGame:
 		say "[T minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
-	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it[or][stopping]!";
+	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it[or][stopping]!".
 	
 After printing the banner text:
 	say "[line break][italic type]Note: You may find the commands [roman type][quotation mark]scan[quotation mark][italic type] and [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]";
+	say "[bold type]Warning: Do not play Pogoman GO! while driving.[roman type][paragraph break]";
+
+At the time when legal counsel frets:
+	say "[disclaimerText].";
+	let N be a random number between 40 and 50;
+	legal counsel frets in N turns from now.
+
+To say disclaimerText:	
+	say "Warning: Do not play Pogoman GO! while [bold type][one of]trespassing[or]golfing[or]balanced precariously[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]commiting crimes[in random order]".
 
 Chapter Stage Business
 
@@ -8546,7 +8556,7 @@ Instead of cutting the tall trees:
 
 Section 11 - Wharf
 
-The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place. Understand "wharfs" or "wharves" or "dock" or "docks" or "pier" or "piers".
+The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place. Understand "wharfs" or "wharves" or "dock" or "docks" or "pier" or "piers" as Wharf.
 
 Section 12 - Dojo
 
