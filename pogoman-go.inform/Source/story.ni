@@ -10039,7 +10039,8 @@ When Not in Kansas Anymore begins:
 	now the description of the player is "You have been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
 		
 At the time when desolation strikes:
-	say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It[apostrophe]s creepy . All of the buildings are locked up. Maybe it[apostrophe]s a holiday or something?"
+	if Not In Kansas Anymore is happening:
+		say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It[apostrophe]s creepy . All of the buildings are locked up. Maybe it[apostrophe]s a holiday or something?"
 	
 Chapter 4 - Denouement
 
