@@ -8976,6 +8976,14 @@ The fishing boat is down from the Wharf. The description of the boat is "It list
 
 The engine is scenery in the fishing boat. The description of the engine is "[one of]Given the size of the boat, you won[apostrophe]t be setting any speed records, but the motor looks to be in reasonable repair. [or][stopping]On top of the engine, there is a gas cap. To the side, there is a valve marked choke. On the front, there is a speed control, which is in the [quotation mark]fast[quotation mark] position. [one of] In fact, it looks like it has been pushed a bit beyond the marking, and the handle is bent a bit in that direction.[paragraph break]It speaks of desperation.[paragraph break]Or poor manufacturing processes; hard to say. [paragraph break][or][stopping]Between the gas cap and the speed control a plastic handle that dangles by a bit of cord. The motor [motorPosition]."  The engine can be uptilted or downtilted. The engine is uptilted. Understand "motor" or "outboard" as the engine. 
 
+Understand "raise [something]" or "lift [something]" or "tilt [something] up" as pulling when the player is in the Fishing Boat.
+
+Understand "lower [something]" as pushing when the player is in the Fishing Boat.
+
+Understand "tilt [something]" as pushing when the player is in the Fishing Boat and the engine is upTilted.
+
+Understand "tilt [something]" as pulling when the player is in the Fishing Boat and the engine is not upTilted.
+
 To say motorPosition:
 	say "is currently tilted [if the engine is uptilted]up, out of the[otherwise]down, in the[end if] water"
 
