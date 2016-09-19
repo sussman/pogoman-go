@@ -7507,7 +7507,7 @@ After entering the MuskPod:
 	teleport the player to the MuskPodRoom.
 	
 Instead of attacking Elon Musk when the player is in MuskTube Station:
-	say "Your hand passes right through him and he flickers.[paragraph break]Noting the look of astonishment on your face, he clarifies, [quotation mark]Yes, a hologram. I can[apostrophe]t be everywhere, every minute of the day. Busy schedule. But I did think that you would benefit from a personal audience, albeit virtual."
+	say "Your hand passes right through him and he flickers.[paragraph break]Noting the look of astonishment on your face, he clarifies, [quotation mark]Yes, a hologram. I can[apostrophe]t be everywhere, every minute of the day. Busy schedule. But I did think that you would benefit from a personal audience, albeit virtual.[quotation mark][paragraph break]".
 
 Chapter in the Elevator
 
