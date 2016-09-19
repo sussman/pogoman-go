@@ -9192,7 +9192,8 @@ Instead of searching the gas tank:
 		say "[tankDescription]."
 		
 Instead of doing something with the gas tank when the gas tank is not open:
-	say "The tank is not open; you need to unscrew the gas cap to get a look inside."
+	say "(first unscrewing the gas cap)[command clarification break]";
+	continue the action.
 
 
 Section 29 - Dealing with Pogorooms
