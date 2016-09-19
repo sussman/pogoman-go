@@ -5201,6 +5201,8 @@ Section 5 - Beverages
 
 Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast." 
 
+The spotlight is scenery. The spotlight is in Beverages. The description of the spotlight is "A high ceiling[if the securityColor of the badge is white] with a single, extremely bright spotlight[end if]."  Understand "light" or "spot" or "spot light" as the spotlight when the securityColor of the badge is white.
+
 Instead of emptying or filling a pop (called the drink):
 	try drinking the drink.
 	
@@ -5247,7 +5249,7 @@ The lemonade is pop in Beverages. The description of lemonade is "A balance betw
 
 The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
 
-The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid. Understand "marble" or "pededal" as Kool-Aid when the securityColor of the badge is white.
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid. Understand "marble" or "pededal" or "blinky" or "blinking" or "bulb" as Kool-Aid when the securityColor of the badge is white.
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
