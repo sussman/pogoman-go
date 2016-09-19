@@ -8511,7 +8511,7 @@ Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
 
-The wild flowers are in the valley. The description of the wild flowers is "Brilliant purple and yellow flowers with fine petals." Understand "flower" or "plant" or "petal" or "petals" or "stamen" or "stamens" or "stem" or "stems" or "foliage" as the wild flowers.
+The wild flowers are in the valley. The description of the wild flowers is "Brilliant purple and yellow flowers with fine petals." Understand "flower" or "plant" or "petal" or "petals" or "stamen" or "stamens" or "stem" or "stems" or "foliage" as the wild flowers. The wild flowers are plural-named. The indefinite article of the wild flowers is "some".
 
 Instead of taking the wild flowers:
 	say "The flowers have remarkable tensile strength. You are unable to pluck them."
