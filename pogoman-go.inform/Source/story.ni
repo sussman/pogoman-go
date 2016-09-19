@@ -9467,7 +9467,7 @@ Before doing something with the phone:
 		otherwise:
 			stop the action;
 	otherwise:
-		if the current action is rebooting, charging, eating, examining, dropping, opening, attacking, inserting into, or throwing at:
+		if the current action is rebooting, charging, eating, examining, dropping, touching, rubbing, licking, burning, opening, attacking, inserting into, or throwing at:
 			continue the action;
 		if the current action is showing to:
 			continue the action;
@@ -9494,7 +9494,7 @@ Dialing is an action applying to one thing. Understand "dial [something]" as dia
 
 Check dialing:
 	if the noun is not phone:
-		say "You can't dial [the noun]." instead.
+		say "That's not something you can do with [a noun]." instead.
 		
 Charging is an action applying to one thing. Understand "charge  [something]" as charging.	
 
@@ -9502,9 +9502,19 @@ Check charging:
 	If the noun is not the phone:
 		say "You can't charge [a noun]." instead.
 		
+Phone blocking is an action applying to nothing. Understand "email" or "calendar" or "facebook" or "gmail" or "clock" or "twitter" or "tumblr" or "tumble" or "tweet" or "instagram" or "snapchat" or "camera" or "calculator" or "flashlight" or "compass" or "contacts" or "drive" or "dropbox" or "netflix" or "chrome" or "safari" or "ingress" or "messenger" or "news" or "phone" or "skype" or "check mail" or "check facebook" or "update facebook" or "update status" or "post status" or "check time" or "google" or "snap" as phone blocking.
+
+Carry out phone blocking:
+	try squeezing the phone.
+		
 Instead of charging the phone:
 	say "The Nyantech T8000 never needs to be charged. Never. You wonder about that sometimes.[paragraph break]";
 	bestow "Science Is Fabulous!".
+	
+PhoneObject blocking is an action applying to one topic. Understand "email [text]" or "dial [text]" or "call [text]" or "tweet [text]" or "photograph [text]" or "message [text]" or "SMS [text]" or "post [text]" or "google [text]" or "text [text]" as phoneObject blocking.
+
+Carry out phoneObject blocking:
+	try squeezing the phone.
 
 To phoneDeath:
 	say paragraph break;
