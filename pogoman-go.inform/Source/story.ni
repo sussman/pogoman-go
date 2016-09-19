@@ -7846,7 +7846,7 @@ Section 7 - Getting Out of the Elevator
 Instead of exiting when the player is in the elevator:
 	if the elevator is doorsajar:
 		if the securityColor of the badge is less than the secLevel corresponding to the Niveau of the floor level of the elevator in the Table of Building Floors:
-			say "You try, but the your badge literally holds you back.[paragraph break]";
+			say "You try, but your badge literally holds you back.[paragraph break]";
 			if the hasBeenLiteral of the badge is false:
 				bestow "But That[apostrophe]s Not How You Use [apostrophe]Literally[apostrophe]!";
 				now the hasBeenLiteral of the badge is true;
