@@ -2781,6 +2781,27 @@ Topic	Provider
 "calzones" 	Margot's Pantry
 "pasta"	Margot's Pantry
 "pastas"	Margot's Pantry
+"drink"	Hank's Tavern
+"drinks"	Hank's Tavern
+"koolaid"	Hank's Tavern
+"kool-aid"	Hank's Tavern
+"cocktail"	Hank's Tavern
+"cocktails"	Hank's Tavern
+"whiskey"	Hank's Tavern
+"whisky"	Hank's Tavern
+"beer"	Hank's Tavern
+"beers"	Hank's Tavern
+"rum"	Hank's Tavern
+"screwdriver"	Hank's Tavern
+"scotch"	Hank's Tavern
+"gin"	Hank's Tavern	
+"bourbon"	Hank's Tavern
+"vodka"	Hank's Tavern
+"wine"	Hank's Tavern
+"martini"	Hank's Tavern
+"martinis"	Hank's Tavern
+"coke"	Hank's Tavern
+"pepsi"	Hank's Tavern
 "onion rings"	Hank's Tavern
 "french fries"	Hank's Tavern
 "fries"	Hank's Tavern
