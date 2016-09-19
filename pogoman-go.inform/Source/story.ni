@@ -2213,7 +2213,7 @@ To ShowStatus:
 	let C be "[securityColor of the badge]";
 	if pogoLevel of the player is greater than topLevel of the player:
 		now topLevel of the player is pogoLevel of the player; [decouple level from XP after NIKA]
-	now the left hand status line is "PogoLevel: [topLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the player wears the badge]  |  Badge: [C in title case]";
+	now the left hand status line is "PogoLevel: [topLevel of the player][if the team color of the player is not None]  |  Team: [team color of the player][end if][if the Lobby is visited]  |  Badge: [C in title case]";
 	now the right hand status line is "XP: [XP of the player]".
 	
 
@@ -6510,8 +6510,7 @@ Does the player mean the goldenBadge doing something with the goldenBadge:
 Instead of searching the lab coat:
 	if the goldenBadge is worn by Elon Musk and the vitality of Elon Musk is dead:
 		say "You notice the golden badge clipped to the lab coat[apostrophe]s lapel and pluck it off the coat. Pinning it to your formal wear, you toss aside your old badge.";
-		now the player wears the goldenBadge;
-		now the badge is in the void;
+		goldify badge;
 	otherwise:
 		continue the action.
 		
@@ -6537,12 +6536,15 @@ Instead of taking the goldenBadge:
 		otherwise:
 			say "You pluck the badge off the corpse without the slightest hesitation, and toss away your old one.[paragraph break]";
 			bestow "Hardened By Experience";
-			now the player wears the goldenBadge;
-		 	now the badge is in the void;
+			goldify badge;
 	otherwise:
 		say "You take the badge and pin it on yourself in place of the old badge, which you discard.";
-		now the badge is in the void;
-		now the player wears the goldenBadge.
+		goldify badge.
+		
+To goldify badge:
+	now the badge is in the void;
+	now securityColor of the badge is gold;
+	now the player wears the goldenBadge.
 		
 Instead of taking off the goldenBadge:
 	try dropping the goldenBadge.
