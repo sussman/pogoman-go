@@ -5819,7 +5819,7 @@ Section 15 - Legal Department
 
 The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive[apostrophe]s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
-The printed name of the Legal Department is "legal department[if the player is on the ergonomic chair] (lounging in the fancy swivel chair)[end if]".
+The printed name of the Legal Department is "Legal Department[if the player is on the ergonomic chair] (lounging in the fancy swivel chair)[end if]".
 
 The Beta Testing Door is a closed locked door. The Beta Testing Door is south of Legal Department. Understand "grey" or "door" as the beta testing door. The description of the beta testing door is "[if the Beta Testing Door is open]An open[otherwise]A closed[end if] grey door marked [quotation mark]Beta Testing[quotation mark]."
 
