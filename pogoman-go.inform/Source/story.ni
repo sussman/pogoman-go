@@ -9,7 +9,7 @@ The story description is "The world is full of Pogomen, and now that you don't h
 
 Use MAX_STATIC_DATA of 270000.
 Use MAX_NUM_STATIC_STRINGS of 26000.
-Use Max_DICT_ENTRIES of 1800.
+Use Max_DICT_ENTRIES of 1900.
 Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -5003,11 +5003,11 @@ Instead of taking the data monocle:
 Instead of touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the monocle:
 	say "Zap! You receive an electrical shock."
 	
-The nose is a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of nose is "A facial protuberance which filter and humidifies air before it enters the upper respiratory system. But that's not important right now."
+The nose is a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of nose is "The nose is a facial protuberance which filter and humidifies air before it enters the upper respiratory system. But that's not important right now."
 
-Understand "nose" as the nose when the player is in the cafeteria or the player is in the lobby.
+Understand "nose" or "face" as the nose when the player is in the cafeteria or the player is in the lobby.
 
-Understand "nose" as the nose when the player is in the elevator and a worker is in the elevator.
+Understand "nose" or "face" as the nose when the player is in the elevator and a worker is in the elevator.
 
 Instead of taking the nose for the first time:
 	say "Predictably, that doesn[apostrophe]t work.[paragraph break]";
@@ -5031,13 +5031,13 @@ Instead of cutting or attacking the visitors:
 	
 The badges are a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of the badges is "Visitor badges you have seen are just like yours, most of them white, some of them green or blue with a white bar. Employee badges are black with a white bar. Each badge bears a photograph of its wearer."
 
-Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" as the badges when the player is in the cafeteria.
+Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" or "photograph" or "photo" or "picture" or "image" as the badges when the player is in the cafeteria.
 
-Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" as the badges when the player is in the lobby.
+Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" or "photograph" or "photo" or "picture" or "image" as the badges when the player is in the lobby.
 
-Understand "white" or "badge" or "badges" or "bar" as the badges when the player is in the elevator and a gamer is in the elevator.
+Understand "white" or "badge" or "badges" or "bar" or "photograph" or "photo" or "picture" or "image" as the badges when the player is in the elevator and a gamer is in the elevator.
 
-Understand  "black" or "badge" or "badges" as the badges when the player is in the elevator and a worker is in the elevator.
+Understand  "black" or "badge" or "badges" or "photograph" or "photo" or "picture" or "image"  as the badges when the player is in the elevator and a worker is in the elevator.
 
 Instead of taking or touching or rubbing or tasting or pulling or pushing or turning or spinning or licking the badges:
 	say "Whenever you get too near someone else[apostrophe]s badge, first the little hairs on your arm stand on end, then your fingers start to tingle, and finally, your arm feels like it is on fire.[paragraph break]You have the impression that the badges are specific to the person pictured on the badge."
@@ -5113,7 +5113,7 @@ The poster is scenery in Snacks. The description of the poster is "A glossy adve
 
 The table is a scenery supporter in Snacks. The description of the table is "A rustic table positioned directly below the metal slot in the wall." Understand "rustic" as the table.
 
-The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart."
+The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart." Understand "slot" as the chute.
 
 Instead of searching the chute for the first time:
 	say "Gritty little crumbs fall into your eyes. You blink until your vision clears.[paragraph break]";
@@ -5197,7 +5197,7 @@ Instead of buying something when the player is in Snacks:
 	
 Section 5 - Beverages
 
-Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast."
+Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast." 
 
 Instead of emptying or filling a pop (called the drink):
 	try drinking the drink.
@@ -5245,7 +5245,7 @@ The lemonade is pop in Beverages. The description of lemonade is "A balance betw
 
 The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
 
-The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid.
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid. Understand "marble" or "pededal" as Kool-Aid when the securityColor of the badge is white.
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
@@ -7149,6 +7149,11 @@ Section 49 - Captain's Cabin
 	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
 "Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
+
+The deck plating is scenery. The deck plating is in Captain's Cabin. The description of the deck plating is "A gunmetal deck." Understand "deck" or "plate" or "metal" as the deck plating. 
+
+Instead of entering the deck:
+	say "Captains prefer to stand."
 
 A small porthole is scenery in the Captain's Cabin. The description of the small porthole is "A round porthole framed in brass and mounted flush with the wall." Understand "window" or "brass" as the porthole.
 
