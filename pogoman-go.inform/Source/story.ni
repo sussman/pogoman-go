@@ -4973,7 +4973,7 @@ Understand "monocle" or "monocles" as the data monocle when the player is in the
 Understand "monocle" or "monocles" as the data monocle when the player is in the elevator and a worker is in the elevator.
 
 Instead of taking the data monocle for the first time:
-	say "The data monocle seems attached to the employee[apostrophe]s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]Also, a blue spark lashes out from the monitor and numbs your hand. You take that as a warning.[paragraph break]";
+	say "The data monocle seems attached to the employee[apostrophe]s face. Maybe superglue? In any case, the employee ignores you.[paragraph break]Also, a blue spark lashes out from the monocle and numbs your hand. You take that as a warning.[paragraph break]";
 	bestow "Rude".
 	
 Instead of taking the data monocle:
