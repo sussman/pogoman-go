@@ -6132,7 +6132,9 @@ After wearing the party hat:
 	 
 Section 17 - Cousteau Room
 	
-Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north." Understand "wall" or "walls" or "tile" or "tiles" as the Cousteau Room.
+Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
+
+The stucco walls are scenery. The stucco walls are in the Cousteau Room. The description of the stucco walls is "Rough stucco walls with an underwater theme."  Understand "stucco" or "wall" or "walls" or "tile" or "tiles" as the Cousteau Room.
 
 The wetsuit is a wearable prop in the Cousteau Room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
 
