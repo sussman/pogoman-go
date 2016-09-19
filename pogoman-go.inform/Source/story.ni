@@ -5112,7 +5112,7 @@ Instead of inserting something (called the item) into the chute:
 Instead of searching the chute:
 	say "You can only see a short distance due to lighting; it looks like the chute just rans upwards at an angle."
 
-A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millennia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" as the pop-tart.
+A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millennia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" or "tart" as the pop-tart.
 
 Instead of tasting the pop-tart:
 	say "Your favorite: [flavor of the pop-tart]!"
