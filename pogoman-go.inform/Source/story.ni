@@ -596,7 +596,7 @@ Instead of doing something other than spinning or examining or attacking or pull
 	
 Section 5 - Gyms
 
-A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false. The gym has a room called mostRecentGym. The mostRecentGym is the void.
+A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false. The gym has a room called mostRecentGym. The mostRecentGym is the void. The gym has a truth state called poorEtiquetteFlag. The poorEtiquetteFlag of the gym is false.
 
 After examining the gym for the first time:
 	bestow "We[apostrophe]ll Pump You Up!".
@@ -666,8 +666,10 @@ Instead of entering a gym when the pogoLevel of the player is at least GYM_ENTRY
 	sort the Table of Inventory in wounded order;
 	sort the Table of Inventory in pogoName order;
 	if there is no pogoName in row 1 of the Table of Inventory:
-		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen.";
-		bestow "Poor Gym Etiquette";
+		say "You are kicked out of the gym because you don[apostrophe]t have any pogomen.[paragraph break]";
+		if the poorEtiquetteFlag of the gym is false:
+			bestow "Poor Gym Etiquette";
+			now the poorEtiquetteFlag of the gym is true;
 		stop the action;
 	otherwise:
 		let LAST be 100;
