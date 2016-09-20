@@ -2717,7 +2717,11 @@ Report scanning:
 	say roman type;
 	move the phantom to the void.
 
-Section 17 - Ordering
+Section 17 - Knocking
+
+Understand "knock [something]" or "knock on [something]" or "rap [something]" or "rap on [something]" as attacking.
+
+Section 18 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
 
