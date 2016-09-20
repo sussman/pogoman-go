@@ -2670,7 +2670,7 @@ To say the map symbol of (QTH - a room):
 
 Section 16 - Scanning
 	
-Scanning is an action applying to nothing. Understand "scan" as scanning.
+Scanning is an action applying to nothing. Understand "scan" or "map" or "gps" or "mapquest" or "directions" or "navigate" as scanning.
 
 Check scanning:
 	if the player is in the Village or the player is in Pogoland:
