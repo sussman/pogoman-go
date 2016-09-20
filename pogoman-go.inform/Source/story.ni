@@ -5121,7 +5121,7 @@ Instead of talking to something (called the auditor):
 			say "You receive no answer.";
 
 To say employeeRant:
-	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][employeeRant2][stopping].[quotation mark][paragraph break]".
+	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][employeeRant2][in random order].[quotation mark][paragraph break]".
 	
 To say employeeRant1:
 	say "Hello, $identity[bracket]player[bracket][team color of the player][close bracket][bracket][pogoLevel of the player][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)";
