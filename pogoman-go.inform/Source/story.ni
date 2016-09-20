@@ -2565,7 +2565,7 @@ Carry out special attacking:
 			otherwise:
 				say ", who weathers the blast without apparent damage.";
 	else if the player is in processing:
-		say "You concentrate your XP into a precision blast aimed at [if the vitality of Elon Musk is dead]the corpse of Elon [end if]Musk. The scintillating blue energy rips across the meat processing facility";
+		say "You concentrate your XP into a precision blast aimed at [if the vitality of Elon Musk is dead]the corpse of Elon [end if]Musk. The scintillating blue energy flies from your fingertips";
 		if the vitality of Elon Musk is dead:
 			say ". The inanimate corpse is reduced to cinders, which scatter";
 			if the goldenBadge is worn by Elon Musk:
@@ -6753,6 +6753,33 @@ Instead of taking the goldenBadge:
 		say "You take the badge and pin it on yourself in place of the old badge, which you discard.";
 		goldify badge.
 		
+Instead of taking Elon Musk when the vitality of Elon Musk is dead:
+	say "In a somewhat macabre turn of events, you grab ahold of the bodily remains of Elon Musk and start dragging the corpse around.";
+	now the player carries Elon Musk.
+	
+Instead of dropping Elon Musk when the vitality of Elon Musk is dead for the first time:
+	say "You drop the corpse.[paragraph break]";
+	bestow "Requiescat In Pace".
+	
+Instead of dropping Elon Musk when the vitality of Elon Musk is dead:
+	say "Thud."
+	
+Instead of eating Elon Musk when the vitality of Elon Musk is dead for the first time:
+	say "You like pogoChum as next as the next person, but there is something about Elon Musk that leaves your stomach unsettled.[paragraph break]";
+	bestow "Picky Eater".
+	
+Instead of eating Elon Musk when the vitality of Elon Musk is dead:
+	say "No, he has to age a while before he will be tender enough."
+		
+Instead of taking or wearing the lab coat when the vitality of Elon Musk is dead:
+	if Elon Musk wears the lab coat:
+		say "You slip the lab coat off of Musk[apostrophe]s inanimate frame and try it on for size[if Elon Musk wears the goldenBadge]. As you do so, the golden badge that was clipped to the lab coat falls to the floor[end if].";
+		now the player wears the lab coat;
+		if Elon Musk wears the goldenBadge:
+			now the goldenBadge is in the location of the player;
+	otherwise:
+		continue the action.
+
 To goldify badge:
 	now the badge is in the void;
 	now securityColor of the badge is gold;
