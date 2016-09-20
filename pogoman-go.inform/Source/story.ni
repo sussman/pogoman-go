@@ -22,8 +22,8 @@ Include Object Response Tests by Juhana Leinonen. [mildly hacked for this projec
 Include Menus by Emily Short. [walkthrough menus]
 Include Undo Output Control by Erik Temple. [fairly hacked for this project]
 
-Book 1 - Mechanics  
-
+Book 1 - Mechanics 
+ 
 
 Chapter Kinds
 
@@ -2568,7 +2568,12 @@ Carry out special attacking:
 			move Elon Musk to the void;
 			bestow "Kill It With Fire!";
 		else:
-			say " and slams into Musk.";
+			say " and [one of]slams into[or]is channeled into[or]unleashes its fury open[or]drives into[or]hits[or]explodes against[in random order] Musk. He looks ";
+			if the vitality of Elon Musk is dead:
+				say "on death[apostrophe]s doorstep";
+			otherwise:
+				say "[vitality of Elon Musk]";
+			say ".";
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
 	now xp of the player is xp of the player minus MODE_SPECIAL_ATTACK_XP_COST;
 	
