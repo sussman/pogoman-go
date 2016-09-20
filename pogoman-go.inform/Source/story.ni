@@ -4345,10 +4345,24 @@ The description of Biocontainment Facility is "[if the biocontainment facility i
 
 Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
 
-The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seems strangely unattracted to the brains of gamers."
+The zombie horde is an animal. The zombie horde is plural-named.  The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seems strangely unattracted to the brains of gamers." Understand "zombies" or "undead" or "masses" or "pack" as the zombie horde.	
 
-Instead of doing something other than examining with the zombie horde:
-	say "You feel like you have achieved a tacit détente with the zombie masses -- live and let unlive, as it were.[paragraph break]You don[apostrophe]t want to rile them up, so you keep your distance.[paragraph break]On the whole, they are no worse than many roommates you have had."
+Instead of doing something with the zombie horde:
+	if the current action is examining:
+		zombie mumble;
+	else if the current action is showing:
+		zombie mumble;
+	else if the current action is telling:
+		zombie mumble;
+	else if the current action is asking:
+		zombie mumble;
+	else if the current action is talking to:
+		zombie mumble;	
+	else:
+		say "You feel like you have achieved a tacit détente with the zombie masses -- live and let unlive, as it were.[paragraph break]You don[apostrophe]t want to rile them up, so you keep your distance.[paragraph break]On the whole, they are no worse than many roommates you have had."
+		
+To zombie mumble:
+	say "[one of]Mmmm[or]Arrrrgggghhhh[or]Gaaacccckkkk (spittle, drool, slobber) Gaack[or]Ppphhhhbbbbt[or]Brains? No? Arrrggghhh[or]Mrrrppphhh LOL Gack[in random order]![paragraph break]".
 		
 Before printing the locale description of the biocontainment facility:
 	if the biocontainment facility is unvisited:
