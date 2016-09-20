@@ -5920,6 +5920,13 @@ After opening the drawer:
 
 The computer screen is part of the desk. The description of the computer screen is "A computer screen that is set into the surface of the desk displays the following text:[paragraph break][if the Beta Testing Door is locked][fixed letter spacing]            Nyantech, Inc.[line break]            Legal Division[paragraph break]        Beta-Tester Agreement[paragraph break]  By touching [quotation mark]agree[quotation mark], the user agrees[line break]        to be held bound by all[line break]      provisions of this agreement[paragraph break]       TOUCH [quotation mark]AGREE[quotation mark] TO CONTINUE[paragraph break]TOUCH [quotation mark]TERMS[quotation mark] TO REVIEW TERMS OF AGREEMENT[roman type][otherwise][welcomeTester][end if]". Understand "display" as the computer screen.
 
+Instead of attacking the computer screen for the first time:
+	say "You violent outburst merely elicits a mild beep followed by the less than satisfying comment of [quotation mark]Input Not Understood. Please choose either TERMS or AGREE.[quotation mark][paragraph break]";
+	bestow "Lack Of Finesse".
+	
+Instead of attacking the computer screen:
+	say "The computer beeps at you mellowly."	
+
 Instead of switching off the computer screen for the first time:
 	say "You don[apostrophe]t see a switch (or, for that matter, an electrical cord to unplug).[paragraph break]";
 	bestow "Yank The Plug!".
