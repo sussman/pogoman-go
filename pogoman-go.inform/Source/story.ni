@@ -4627,6 +4627,9 @@ Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "out
 
 Instead of touching the Unearthly Geometry:
 	say "You are momentarily reduced to a state of gibbering idiocy. It lasts only a moment before you fix your eyes back on the cell phone screen and start walking around again. The contrast is unstark."
+	
+Instead of climbing Unearthly Geometry:
+	say "You climb through space of varying dimensions, ending up somewhere behind yourself, just slightly before you began."
 
 Section 49 - Cranberry Bog
 
