@@ -3850,7 +3850,7 @@ Section 2 - Location-specific elements in The Village
 
 Section 3 - Nyantech Backdrop
 
-The dark tower is a backdrop in the Village. The description of the dark tower is "[permutedTower]." Understand "nyantech" or "office building" or "tower" or "ebony" or "black" or "jet" or "obsidian" or "monolith" or "monolithic" or "corporate" or "headquarter" or "headquarters" or "center" or "operations" or "office" or "offices" as the dark tower when Around The Town is happening and the player is not in Nyantech Entrance.
+The dark tower is a privately-named backdrop in the Village. The description of the dark tower is "[permutedTower]." Understand "nyantech" or "office building" or  "dark" or "tower" or "ebony" or "black" or "jet" or "obsidian" or "monolith" or "monolithic" or "corporate" or "headquarter" or "headquarters" or "center" or "operations" or "office" or "offices" as the dark tower when Around The Town is happening and the player is not in Nyantech Entrance.
 
 Instead of doing something other than examining with the dark tower:
 	say "The tower is near the city center; you would need to walk over there."
