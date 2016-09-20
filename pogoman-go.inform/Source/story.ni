@@ -2764,7 +2764,7 @@ Report Filling:
 
 Section 24 - Ordering
 
-Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" as ordering when Around the Town is Happening.
+Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" or "buy [text]" as ordering when Around the Town is Happening.
 
 Check Ordering:
 	if the Around the Town is happening:
@@ -4249,7 +4249,7 @@ The description of Prissy's Little Sausages is "Ninety varieties of miniature sa
 Instead of smelling when the player is in Prissy's Little Sausages:
 	say "Smells like bratwurst!"
 	
-Before eating Prissy's Little Sausages:
+Before eating or buying Prissy's Little Sausages:
 	try ordering "sausages";
 	stop the action.
 
@@ -4278,7 +4278,7 @@ Instead of tasting or eating ice cream for the first time:
 Instead of tasting or eating ice cream:
 	say "No time for eating. Must play Pogoman GO!".
 	
-Before eating Yummi Tummi Softserve:
+Before eating or buying Yummi Tummi Softserve:
 	try ordering "ice cream";
 	stop the action.
 
@@ -4321,7 +4321,7 @@ Instead of eating Flan Emporium, say "Unfortunately, there is no tasty flan layi
 
 Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
 
-Before eating Flan Emporium:
+Before eating or buying Flan Emporium:
 	try ordering "flan";
 	stop the action.
 
@@ -4393,7 +4393,7 @@ The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken." K
 Instead of smelling when the player is in Krusty Kronuts:
 	say "Mmm.  Kroooonuts!"
 	
-Before eating Krusty Kronuts:
+Before eating or buying Krusty Kronuts:
 	try ordering "kronuts";
 	stop the action.
 
@@ -4447,7 +4447,7 @@ The DOP plaque is scenery in Margot's Pantry. The description of the DOP plaque 
 Instead of smelling when the player is in Battle of Margot's Pantry:
 	say "Fresh Pizza! No. Must be strong. Keep Mind on Game."
 	
-Before eating Margot's pantry:
+Before eating or buying Margot's pantry:
 	try ordering "pizza";
 	stop the action.
 
@@ -4686,7 +4686,7 @@ Instead of swimming in the Bog:
 	say "Too many plants."
 	
 Instead of eating Cranberry Bog:
-	try ordering "cranberries".
+	say "You are not sure it is safe to eat them without giving them a thorough cleaning."
 
 Section 50 - Found Art
 
