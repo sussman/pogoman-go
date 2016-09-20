@@ -7402,7 +7402,7 @@ Instead of searching the cat eye:
 The dangerous cones of crimson energy are plural-named scenery.  The dangerous cones of crimson energy are in the CatHead. The description of the dangerous cones of crimson energy is "The crimson cones of energy are a physical manifestation of the psychic energy collected from the entire village and focused down to a minute point at the center of the magnificent ruby." Understand "cone" as the dangerous cones of crimson energy.
 
 Instead of eating or licking the cones:
-	say "They are not that kind of cone. You should try Yummi Tummi Softserve."
+	say "They are not that kind of cone. You must be thinking of Yummi Tummi Softserve."
 
 Instead of doing something other than examining with the dangerous cones of crimson energy:
 	say "The cones project right through you, as if you were no more substantial than a ghost."
@@ -8377,7 +8377,7 @@ Instead of entering when the player is in the MuskPodRoom:
 	
 The podCanopy is privately-named scenery in the MuskPodRoom. The printed name of the podCanopy is "canopy". The description of the podCanopy is "A clear polymer bubble above the passenger compartment[if the MuskPod is in Pogoland Terminal]. It is tilted up to allow exit[end if]." Understand "canopy" or "cawling" as the podCanopy.
 
-The podPassengerCompartment is privately-named scenery in the MuskPodRoom. The printed name of the podPassengerCompartment is "cabin". Understand "cabin" as the podPassengerCompartment. The description of the podPassengerCompartment is "The comfortable cabin in which you currently sit."
+The podPassengerCompartment is privately-named scenery in the MuskPodRoom. The printed name of the podPassengerCompartment is "cabin". Understand "cabin" or "muskPod" or "pod" as the podPassengerCompartment. The description of the podPassengerCompartment is "The comfortable cabin in which you currently sit."
 	
 The sound system is scenery in the MuskPodRoom. The description of the sound system is "Elegant in its simplicity, a marvel of modern industrial design."
 
