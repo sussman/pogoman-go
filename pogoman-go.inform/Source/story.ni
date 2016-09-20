@@ -2730,7 +2730,15 @@ Section 19 - Pushing
 
 Understand "roll" or "roll in [something]" or "roll [something]" as pushing.
 
-Section 20 - Ordering
+Section 20 - Looking
+
+Understand "view" as looking.
+
+Section 21 - Examining
+
+Understand "inspect [something]" as examining.
+
+Section 22 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
 
