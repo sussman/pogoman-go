@@ -5072,6 +5072,9 @@ Instead of cutting or attacking the visitors:
 	
 The badges are a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of the badges is "Visitor badges you have seen are just like yours, most of them white, some of them green or blue with a white bar. Employee badges are black with a white bar. Each badge bears a photograph of its wearer."
 
+Instead of unclipping the badges:
+	try taking the badges.
+
 Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" or "photograph" or "photo" or "picture" or "image" as the badges when the player is in the cafeteria.
 
 Understand "green" or "blue" or "black" or "white" or "colors" or "badge" or "badges" or "bar" or "photograph" or "photo" or "picture" or "image" as the badges when the player is in the lobby.
@@ -6611,6 +6614,12 @@ The checklist is part of the weaponized clipboard. The description of the checkl
 5. Take Over The World!!!! - pending".
 
 The goldenBadge is a privately-named prop. The goldenBadge is worn by Elon Musk. The description of the goldenBadge is "It has the same overall design as your badge, but no photo or name. It just says [quotation mark]CEO[quotation mark]." The goldenBadge is worn by Elon Musk. The printed name of the goldenBadge is "golden badge". Understand "golden" or "badge" as the goldenBadge.
+
+Instead of unclipping the goldenBadge:
+	if the player wears the goldenBadge:
+		try taking off the goldenBadge;
+	otherwise:
+		try taking the goldenBadge.
 
 Does the player mean the goldenBadge doing something with the goldenBadge:
 	it is likely.
@@ -9432,6 +9441,9 @@ Understand "green" as the badge when the securityColor of the badge is green.
 Understand "blue" as the badge when the securityColor of the badge is blue.
 Understand "red" as the badge when the securityColor of the badge is red.
 Understand "gold" as the badge when the securityColor of the badge is gold.
+
+Instead of unclipping the badge:
+	try taking off badge.
 
 Does the player mean pushing the badge:
 	it is unlikely.
