@@ -966,7 +966,7 @@ Instead of attacking Elon Musk:
 				say ", all but finishing";
 			otherwise:
 				say ", wounding";
-			say " him.";
+			say " him. He looks [vitality of Elon Musk].";
 		otherwise:
 			say "[nearMiss]."
 		
