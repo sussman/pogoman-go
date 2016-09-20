@@ -598,6 +598,9 @@ Section 5 - Gyms
 
 A gym is a backdrop. Understand "gym" as gym. The description of gym is "The [color of the location] gym appears on your phone as stacked floating rings." Understand "ring" or "rings" or "floating" as the gym. The gym has a truth state called firstWinFlag. The gym has a truth state called firstLossFlag. The firstWinFlag of the gym is false. The firstLossFlag of the gym is false. The gym has a room called mostRecentGym. The mostRecentGym is the void. The gym has a truth state called poorEtiquetteFlag. The poorEtiquetteFlag of the gym is false.
 
+Instead of climbing the gym:
+	say "You see no way to climb a building, which is merely an animated stack of floating rings in a game on your phone."
+
 After examining the gym for the first time:
 	bestow "We[apostrophe]ll Pump You Up!".
 
