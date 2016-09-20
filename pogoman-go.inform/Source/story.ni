@@ -9394,6 +9394,9 @@ Understand "blue" as the badge when the securityColor of the badge is blue.
 Understand "red" as the badge when the securityColor of the badge is red.
 Understand "gold" as the badge when the securityColor of the badge is gold.
 
+Does the player mean pushing the badge:
+	it is unlikely.
+
 Instead of examining the badge for the first time:
 	say "It[apostrophe]s [securityColor of the badge][if the securityColor of the badge is not white] with a white stripe diagonally across it[end if] and has a nice picture of your face...[paragraph break]Wait a minute? When did they have a chance to take that... ?[paragraph break]";
 	bestow "Sometimes Technology Is Mysterious".
