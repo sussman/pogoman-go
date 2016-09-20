@@ -5138,7 +5138,7 @@ Instead of taking the nose:
 Instead of listening when the player is in the cafeteria:
 	say lobby stage business.
 	
-Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
+Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing." Understand "plate" or "plates" as the food.
 
 Instead of doing something other than examining or smelling with the food:
 	say "Game now, eat later. Must explore the building! Pogoman glory awaits!"
