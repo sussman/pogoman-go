@@ -5147,7 +5147,7 @@ Instead of talking to something (called the auditor):
 		-- unicorn:
 			say "The unicorn perks up a bit, glad to have some relief from the monotony of the day. Your conversation with him takes a sudden turn and the two of you talk about [chitChat].";
 		-- Salmon Of Turpitude:
-			say "The salmon continues to give a glassy-eyed stare[one of]. Apparently, the salmon is not one to engage in small talk[or][stopping].";
+			say "The salmon continues to give you a glassy-eyed stare[one of]. Apparently, the salmon is not one to engage in small talk[or][stopping].";
 		-- otherwise:
 			say "You receive no answer.";
 
@@ -5324,6 +5324,20 @@ After going southeast from beverages when the securityColor of the badge is gree
 Section 6 - Mechanical Access Shaft
 
 The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, Somewhere Along The Ladder, and Bottom Rung are rooms in the Ladder Area.
+
+Instead of dropping something (called the item) when the player is in Ladder Area:
+	if the item is a pogothing:
+		continue the action;
+	else if the player is in Gearing Assembly:
+		continue the action;
+	else:
+		if the player wears the item:
+			say "You would have to take it off first.";
+		else:
+			say "The [item] clatters downwards, out of sight.";
+			now the item is in The LAN Closet.
+	
+		
 
 The ladderProxy is a privately-named backdrop in the Ladder Area. The description of the ladderProxy is "A long ladder in a narrow shaft."  The printed name of the ladderProxy is "ladder". Understand "ladder" as the ladderProxy.
 
