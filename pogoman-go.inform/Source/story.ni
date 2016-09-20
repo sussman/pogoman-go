@@ -1706,7 +1706,7 @@ Section 11 - Walkthroughing
 Walkthroughing is an action out of world. Understand "walkthrough" as walkthroughing. 
 
 Carry out walkthroughing:
-	say "While the game has a built-in walkthrough, we would encourage you not to use it, but to try the hint system first (type [italic type]hint[roman type]). If you have already done that and prefer to look at the full walkthrough, please understand that it will necessarily be very spoilerish.[paragraph break]One other consideration: The game distribution should have included a nicely formatted walkthrough in PDF format. That might be nicer to look at, and you could print it or open it next to the game rather than use this built-in version. The built-in version is retained just in case the game is played online or something else happens to the PDF version.[paragraph break]Before we go on, one last chance. Are you sure you want to see the walkthrough?";
+	say "While the game has a built-in walkthrough, we would encourage you not to use it, but to try the context-specific hint system first (type [italic type]hint[roman type]). Hints will vary according to your current situation and the immediate goals that you have to solve to progress.[paragraph break]If you have already done that and prefer to look at the full walkthrough, please understand that it will necessarily be very spoilerish.[paragraph break]One other consideration: The game distribution should have included a nicely formatted walkthrough in PDF format. That might be nicer to look at, and you could print it or open it next to the game rather than use this built-in version. The built-in version is retained just in case the game is played online or something else happens to the PDF version.[paragraph break]Before we go on, one last chance. Are you sure you want to see the walkthrough?";
 	if the player consents:
 		showWalkthrough;
 	otherwise:
@@ -2348,7 +2348,7 @@ Instead of helping for the first time:
 	bestow "Here, let me Google that for you".
 	
 Instead of helping for the second time:
-	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is [italic type]hints[roman type], right?[paragraph break]";
+	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is [italic type]hints[roman type], right? Hints are context-sensitive and will relate to whatever goals stand between you and the next part of the story. They are arranged to reveal gradually to try to avoid spoilers.[paragraph break]";
 	bestow "Type [apostrophe][italic type]hints[roman type][apostrophe] for hints".
 	
 Instead of helping for the third time:
