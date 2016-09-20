@@ -6425,7 +6425,7 @@ After going east from the Cafeteria for the first time:
 After going east from the Cafeteria:
 	say "You are adrift in a pit, filled with small rubber balls."
 	
-The ballObject is a privately-named backdrop in the BallPit Area. The printed name of ballObject is "ball". The description of the ballObject is "Glossy, supple, and slippery balls of every color." Understand "ball" or "balls" as the ballObject.
+The ballObject is a privately-named backdrop in the BallPit Area. The printed name of ballObject is "ball". The description of the ballObject is "Glossy, supple, and slippery balls of every color." Understand "ball" or "balls" or "rubber" as the ballObject.
 
 Before taking ballObject:
 	say "The more you tighten your grip, the more balls slip through your fingers." instead. [Unless the ball is Alderaan, in which case it is bad news for that particular ball.]
