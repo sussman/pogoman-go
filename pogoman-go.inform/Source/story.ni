@@ -8,7 +8,7 @@ The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
 Use MAX_STATIC_DATA of 280000.
-Use MAX_NUM_STATIC_STRINGS of 26000.
+Use MAX_NUM_STATIC_STRINGS of 27000.
 Use Max_DICT_ENTRIES of 1900.
 Use MAX_SYMBOLS of 25000.
 
@@ -1750,7 +1750,7 @@ To say ATT2:
 
 
 To say NWLA:
-	say "*   is the pinnacle of your gaming career, so you[apostrophe]ll want to look around. You[apostrophe]ll notice that there are two ways of navigating between floors of the building: stairs or elevator. The stairs run up the north side of the building. The elevator can be called ([italic type]press call button[roman type]) and waiting for the doors to open. Once inside the elevator, [italic type]examine panel[roman type] and [italic type]press button[roman type] of your choice.[paragraph break]* Security for the entire building depends on a color-coded access scheme. Initially, your badge is white, affording you access to the Ground Floor (Lobby) and top floor (Cafeteria, Beverages, Snacks, Ball Pit, and the Observation Deck). Maps of the ground and top floor are included in the [quotation mark]diagrams[quotation mark] file.[paragraph break]* Navigate to the Cafeteria (top) level, and then [italic type]northwest[roman type] ([italic type]nw)[roman type] to Beverages.[paragraph break]* [italic type]Drink the Kool-Aid[roman type]. Literally. Now your badge is green."
+	say "* Visting Nyantech Headquarters is the pinnacle of your gaming career, so you[apostrophe]ll want to look around. You[apostrophe]ll notice that there are two ways of navigating between floors of the building: stairs or elevator. The stairs run up the north side of the building. The elevator can be called ([italic type]press call button[roman type]) and waiting for the doors to open. Once inside the elevator, [italic type]examine panel[roman type] and [italic type]press button[roman type] of your choice.[paragraph break]* Security for the entire building depends on a color-coded access scheme. Initially, your badge is white, affording you access to the Ground Floor (Lobby) and top floor (Cafeteria, Beverages, Snacks, Ball Pit, and the Observation Deck). Maps of the ground and top floor are included in the [quotation mark]diagrams[quotation mark] file.[paragraph break]* Navigate to the Cafeteria (top) level, and then [italic type]northwest[roman type] ([italic type]nw)[roman type] to Beverages.[paragraph break]* [italic type]Drink the Kool-Aid[roman type]. Literally. Now your badge is green."
 	
 To say NGLA:
 	say "* Next stop is the Legal Department located on the level below the Lobby, and now accessible by either elevator or stairs.[paragraph break]* [italic type]Examine the computer screen[roman type] there, which invites you to become a Nyantech Beta Tester. Follow the instruction to [quotation mark][italic type]touch agree[roman type][quotation mark]. This will open the Beta-Testing Door to the [italic type]south[roman type].[paragraph break]* The room one more to the [italic type]south[roman type] is the Cousteau Room, and its garage-door like barrier is locked. You need a garage door remote from the desk drawer in the Legal Department. In addition to [italic type]open drawer[roman type] and [italic type]get remote[roman type], you will need to [italic type]put batteries into the remote[roman type]. [italic type]Take the clock, open the panel[roman type] on its back, and [italic type]take the batteries[roman type], then [italic type]put batteries in remote[roman type].[paragraph break]* Go [italic type]south[roman type] again to stand next to the Cousteau Room door and [italic type]press button[roman type] to activate the remote. When the door retracts, walk [italic type]south[roman type] and [italic type]get the wetsuit[roman type].[paragraph break]* Navigate back up to the Ball Pit on the top level ([italic type]east[roman type] from the cafeteria).[paragraph break]* You can [italic type]wear wetsuit[roman type] before going [italic type]east[roman type] from the cafeteria or walk into the pit first and then put it on. After you [italic type]wear the wetsuit[roman type], go [italic type]down, down, down[roman type]. You will have an encounter at the bottom of the pit that will turn your badge blue."
@@ -7374,7 +7374,24 @@ Section 51 - Cat's Head
 	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
-CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat." Understand "eye" or "eyes" or "cone" or "cones" or "energy" or "cones of energy" as CatHead.
+CatHead is fore from the cockpit door. CatHead is privately-named. The printed name of CatHead is "interior of the Cat's Head". The title of CatHead is "Inside The Cat's Head". The description of CatHead is "Through the translucent glowing red eyes of the cat, each of which reaches from floor to ceiling in this compact chamber, you see the shimmering cityscape below. A fist-sized ruby floats in the air between them and spins slowly, irradiated by cones of red energy focused inward by the eyes." The possible exits of the CatHead are "The only way back is aft, towards the rest of the cat." 
+
+The cat eye is scenery. The cat eye is in the CatHead. The description of the cat eye is "The glowing red eyes of the cat focus rippling waves of crimson energy towards the ruby." Understand "eyes" as the cat eye. 
+
+Instead of climbing or taking or touching or rubbing or licking or tasting or pushing or pulling or turning or spinning the cat eye:
+	say "The eyes of the cat are immensely hot, and you cannot closer to them than about an arm[apostrophe]s length away."
+	
+Instead of searching the cat eye:
+	say "You have a creepy feeling that instead, the cat is the one who will be peering into your very soul."
+	
+The dangerous cones of crimson energy are plural-named scenery.  The dangerous cones of crimson energy are in the CatHead. The description of the dangerous cones of crimson energy is "The crimson cones of energy are a physical manifestation of the psychic energy collected from the entire village and focused down to a minute point at the center of the magnificent ruby." Understand "cone" as the dangerous cones of crimson energy.
+
+Instead of eating or licking the cones:
+	say "They are not that kind of cone. You should try Yummi Tummi Softserve."
+
+Instead of doing something other than examining with the dangerous cones of crimson energy:
+	say "The cones project right through you, as if you were no more substantial than a ghost."
+
 
 After going fore from the Captain's Cabin for the first time:
 	say "Bathed in a barrage of red light, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
