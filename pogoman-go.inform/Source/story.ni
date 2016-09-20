@@ -6199,6 +6199,9 @@ Section 17 - Cousteau Room
 	
 Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Some colorful arrows are painted on one part of the wall, near a corner. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
 
+Instead of listening when the player is in the Cousteau Room:
+	say "Splash. Splash. Soothing Splash. Splash."
+
 The colorful arrows are scenery. The colorful arrows are in the Cousteau Room. The description of the colorful arrows is "Some green and blue arrows are pointed on the wall. These are not bow-and-arrow sorts of arrows, but the kind you draw in powerpoint: black outline and a simple filled shape. In one column, there are nine upward-facing green arrows and right next to that column, there is another column of three downward-facing blue arrows." Understand "arrow" or "painting" or "paintings" as the colorful arrows.
 
 Instead of touching the colorful arrows:
