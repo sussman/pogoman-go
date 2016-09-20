@@ -6261,7 +6261,7 @@ Instead of smelling when the player is in the Rick Astley Shrine:
 
 The rickety table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickety table is "A cheap plastic table."
 
-Instead of pushing or pulling or cutting or attacking or climbing or turning or spinning or touching the rickety table:
+Instead of taking or pushing or pulling or cutting or attacking or climbing or turning or spinning or touching the rickety table:
 	disappearTable;
 
 After putting anything on the rickety table:
