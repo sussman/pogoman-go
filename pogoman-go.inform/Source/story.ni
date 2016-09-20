@@ -5639,10 +5639,20 @@ To say rubPhrase:
 	say "Your [one of]circulation improves[or]hands feel warm[or]hands shine brilliantly[in random order] but the indelible ink is not affected"
 
 After going inside from the revolvingDoor for the first time:
-	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector, but watch with concern as she plucks your other belongings one at a time off the belt and puts them in a bag.[paragraph break][quotation mark]You[apostrophe]ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
+	say "You turn a corner to the security checkpoint as you enter the building.[paragraph break]For the thousandth time that day, a heavy-set dryad in a security uniform says, [quotation mark]People through the metal detector, items [italic type]including phones[roman type] through the x-ray.[quotation mark][paragraph break]Not wanting to create trouble, you put all your items on conveyor belt and step through the metal detector. You are relieved when the dryad hands you back your phone on the other side of the detector";
+	let C be false;
+	repeat with N running through things carried by the player:
+		if N is safe from seizure:
+			do nothing;
+		otherwise:
+			now C is true;
+	if C is true:
+		say ", but watch with concern as she plucks your other belongings one at a time off the belt and puts them in a bag.[paragraph break][quotation mark]You[apostrophe]ll get it all back when you leave,[quotation mark] she says.[paragraph break]";
+	otherwise:
+		say ".[paragraph break]";
 	if the player carries the salmon of turpitude:
 		say "[quotation mark]Hold on... what have we here? Hmm, the fabled Salmon of Turpitude. Interesting. It gets its own bag.[quotation mark][paragraph break]";
-	say "Finally, she locks the bag up in a locker, stamps your hand with some sort of ink, pins a badge on you, and boosts you towards the lobby.[paragraph break]";
+	say "Finally, she [if C is true]locks the bag up in a locker, [end if]stamps your hand with some sort of ink, pins a badge on you, and boosts you towards the lobby.[paragraph break]";
 	bestow "Bagged and Tagged";
 	repeat with N running through the things carried by the player:
 		if N is not safe from seizure:
