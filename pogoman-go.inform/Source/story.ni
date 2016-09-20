@@ -188,7 +188,7 @@ INCENSE_EFFECT_VALUE is always 25.
 PREPOGO_ENCOUNTER_VALUE is always 10.[before pogoland]
 EXPERT_PREPOGO_ENCOUNTER_VALUE is always 10.
 
-POGO_ENCOUNTER_VALUE is always 20.[pogoland]
+POGO_ENCOUNTER_VALUE is always 15.[pogoland]
 EXPERT_POGO_ENCOUNTER_VALUE is always 30.
 
 [Difficulty for capturing items with pogoBall, always out of 100; lower is harder]
@@ -215,7 +215,7 @@ EXPERT_MUSK_DEF is always 90.
 [Capturing the Player in the Giant PogoBall]
 DESIRE_TO_CAPTURE_INCREMENT is always 10. [tendency to capture rather than attack]
 CAPTURE_RANDOMNESS is always 80.
-CAPTURE_THRESHOLD is always 100. [when desire + randomness > threshold, pogoman decides to try a capture]
+CAPTURE_THRESHOLD is always 125. [when desire + randomness > threshold, pogoman decides to try a capture]
 
 [Magical Items]
 HAT_EFFECT is always 15.[Baseball Cap of Pogomastery affects both capture and combat]
@@ -2099,7 +2099,7 @@ if a title isn't specified, the printed name will be used. If the printed name i
 Section 4 - Listing custom exits
 
 This is the list exits rule:
-	if the possible exits of the location is not "":
+	if the possible exits of the location is not "" and the player is not in the giant ball:
 		say "[the possible exits of the location][paragraph break]".
 		
 Section 5 - Customized Inventory Details
