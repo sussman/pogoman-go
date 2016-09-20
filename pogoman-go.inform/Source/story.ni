@@ -5135,7 +5135,7 @@ Instead of listening when the player is in the cafeteria:
 Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing."
 
 Instead of doing something other than examining or smelling with the food:
-	say "Food can wait. Must explore the building! Pogoman glory awaits!"
+	say "Game now, eat later. Must explore the building! Pogoman glory awaits!"
 
 The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level [the pogolevel of the player plus 20 in words] pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
 
