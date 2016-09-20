@@ -2744,7 +2744,22 @@ Understand "ignite [something]" as burning.
 
 Understand "extinguish [something]" as switching off.
 
-Section 23 - Ordering
+Section 23 - Filling
+
+Filling is an action applying to one thing. Understand "fill [something]" or "fill [something] up" or "fill up [something]" as filling.
+
+Check Filling:
+	if the location of the player is the service station and the burntUp of the service station is true:
+		say "The only thing that is going to fill around here is the giant crater -- with water, the next time it rains, that is.";
+		stop the action;
+	if the noun is not a container:
+		say "You can only fill up a container.";
+		stop the action.
+
+Report Filling:
+	say "You fill the [noun]."
+
+Section 24 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
 
@@ -8841,18 +8856,8 @@ The pump is scenery in the service station. The description of the pump is "A cl
 
 The old advertisement is scenery in the service station. The description of the old advertisement is "Pasted directly the pump, the ad depicts an all too familiar cat in a red beret filling a gas can. Under the cat are the words [quotation mark]Fill [apostrophe]er up?[quotation mark]."
 
-Filling is an action applying to one thing. Understand "fill [something]" or "fill [something] up" or "fill up [something]" as filling.
+Understand "fill [something] with gas" or "fill [something] with gasoline" or "fill [something] with fuel" or "fill [something] with petrol" as filling when the player is in the Service Station or the player is in the Fishing Boat.
 
-Check Filling:
-	if the location of the player is the service station and the burntUp of the service station is true:
-		say "The only thing that is going to fill around here is the giant crater -- with water, the next time it rains, that is.";
-		stop the action;
-	if the noun is not a container:
-		say "You can only fill up a container.";
-		stop the action.
-
-Report Filling:
-	say "You fill the [noun]."
 	
 Instead of filling the watering can:
 	if the location is the service station:
