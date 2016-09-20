@@ -4269,7 +4269,7 @@ The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battali
 
 Section 24 - Gardens of Zarf
 
-The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "flowers" or "marigolds" or "carnivorous" or "plants" or "Zarf" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
+The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "Zarfian" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
 The zarfian sign is scenery in The Gardens of Zarf. The description of the zarfian sign is "[zarfSign]".
 
@@ -4288,6 +4288,11 @@ Instead of searching or entering The Gardens of Zarf  when the player is in Gard
 	
 Instead of pulling or pushing or spinning or turning the zarfian sign:
 	say "It does not budge."
+	
+The innocuous-appearing plants are plural-named scenery. The innocuous-appearing plants are in the Gardens of Zarf. The description of the innocuous-appearing plants is "Flowers and ornamentals growing in an aesthetically pleasing  and not at all troubling arrangement."  Understand "plant" or "plants" or "flower" or "flowers" or "carnivorous" or "man-eating" or "meat-eating" or "deadly" or "lethal" or "sunflower" or "azalea" or "azaleas" or "sunflowers" or "marigold" or "marigolds" as the innocuous-appearing plants.. 
+
+Instead of doing something other than examining with the innocuous-appearing plants:
+	say "The flowers are set back a bit from the edge of the garden. Certainly, they would be easily within reach if you were to come into the garden itself."
 
 Section 25 - Flan Emporium
 
@@ -8722,7 +8727,7 @@ Instead of smelling the wild flowers for the first time:
 	bestow "Stopped To Smell The Flowers";
 	frontierDeath.
 	
-Understand "pick [something]" as taking when the player is in the valley.
+Understand "pick [something]" as taking when the player is in the Valley or the player is in the Gardens of Zarf.
 
 Section 8 - Desert
 
