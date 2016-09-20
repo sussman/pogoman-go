@@ -4614,6 +4614,12 @@ The description of Fire Is Our Friend is "An eternal flame burns bright above a 
 
 Fire Is Our Friend is an improper-named artifact. Understand "eternal" or "brazier" or "horsemen" or "four horsemen of the apocalypse" or "hazard" or "flaming" as Fire Is Our Friend. Understand "sculpture" or "statue" or "art" as Fire Is Our Friend when the location is Fire Is Our Friend. The title of Fire Is Our Friend is "Fire Is Our Friend". The printed name of Fire Is Our Friend is "flaming sculpture".
 
+Instead of putting the phone on the flame:
+	try burning the phone.
+	
+Instead of inserting the phone into the flame:
+	try burning the phone.
+
 Instead of touching or taking or tasting or licking or pulling or pushing or rubbing or turning Fire Is Our Friend:
 	try touching the flame.
 	
@@ -9678,6 +9684,12 @@ Instead of opening the Teslatronic Energy Module for the first time:
 Instead of opening the phone:
 	try opening the Teslatronic Energy Module.
 	
+Instead of putting the phone on something:
+	try dropping the phone.
+	
+Instead of inserting the phone into something:
+	try dropping the phone.
+	
 Instead of opening the Teslatronic Energy Module:
 	say "The module is an integral part of the phone. If it ever fails, you will just have to buy another phone. Marketing."
 
@@ -9691,7 +9703,7 @@ Instead of inserting the phone into:
 	try dropping the phone.
 	
 Instead of dropping the phone:
-	say "You could never bring yourself to part with the phone -- you need it to play Pogoman GO!"
+	say "You could not bear for the phone to leave your hand for even a second -- you need the phone to play Pogoman GO!"
 	
 Before doing something with the phone:
 	if the phone is hung:
@@ -9700,7 +9712,9 @@ Before doing something with the phone:
 		otherwise:
 			stop the action;
 	otherwise:
-		if the current action is rebooting, charging, eating, examining, dropping, touching, rubbing, licking, burning, opening, attacking, inserting into, or throwing at:
+		if the current action is rebooting, charging, eating, examining, dropping, touching, rubbing, licking, burning, opening, attacking, inserting into or throwing at:
+			continue the action;
+		if the current action is putting on:
 			continue the action;
 		if the current action is showing to:
 			continue the action;
