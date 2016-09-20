@@ -2764,7 +2764,7 @@ Report Filling:
 
 Section 24 - Ordering
 
-Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
+Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" as ordering when Around the Town is Happening.
 
 Check Ordering:
 	if the Around the Town is happening:
@@ -2785,6 +2785,8 @@ Instead of ordering a topic listed in the Table of Ordering Out:
 
 Table of Ordering Out
 Topic	Provider
+"brain"	Biocontainment Facility
+"brains"	Biocontainment Facility
 "kroughnut"	Krusty Kronuts
 "kronut"	Krusty Kronuts
 "kroughnuts"	Krusty Kronuts
@@ -2867,6 +2869,8 @@ Topic	Provider
 "frites"	Hank's Tavern
 "beer"	Hank's Tavern
 "wine"	Ashwell-Lott Estate
+"grape"	Ashwell-Lott Estate
+"grapes"	Ashwell-Lott Estate
 "nut"	Hank's Tavern
 "nuts"	Hank's Tavern
 "cheese"	Hank's Tavern
@@ -2888,6 +2892,10 @@ Topic	Provider
 "food"	Hank's Tavern
 "snack"	Hank's Tavern
 "snacks"	Hank's Tavern
+"cranberry"	Cranberry Bog
+"cranberries"	Cranberry Bog
+"berry"	Cranberry Bog
+"berries"	Cranberry Bog
 
 Chapter Medals & Trophies
 
@@ -4093,6 +4101,9 @@ Instead of listening when the player is in the Ashwell-Lott Estate:
 	
 Instead of searching the Ashwell-Lott Estate:
 	try searching the vineyard.
+	
+Instead of eating the vineyard:
+	try ordering "grapes".
 
 Section 12 - Garden Gnome
 
@@ -4233,10 +4244,14 @@ Instead of smelling when the player is in Hook & Ladder:
 
 Section 21 - Prissy's Little Sausages
 
-The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy[apostrophe]s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
+The description of Prissy's Little Sausages is "Ninety varieties of miniature sausage, all served with Prissy[apostrophe]s special sauce." Prissy's Little Sausages is an improper-named structure. Understand "prissy" as Prissy's Little Sausages. The title of Prissy's Little Sausages is "Prissy's Little Sausages". The printed name of Prissy's Little Sausages is "sausage restaurant". Understand "building" or "store" or "restaurant" or "sausage" or "bratwurst" or "bratwursts" as Prissy's Little Sausages when the location is Prissy's Little Sausages. 
 
 Instead of smelling when the player is in Prissy's Little Sausages:
 	say "Smells like bratwurst!"
+	
+Before eating Prissy's Little Sausages:
+	try ordering "sausages";
+	stop the action.
 
 Section 22 - Yummi Tummi Softserve
 
@@ -4262,6 +4277,10 @@ Instead of tasting or eating ice cream for the first time:
 	
 Instead of tasting or eating ice cream:
 	say "No time for eating. Must play Pogoman GO!".
+	
+Before eating Yummi Tummi Softserve:
+	try ordering "ice cream";
+	stop the action.
 
 Section 23 - Service Dog Memorial
 
@@ -4301,6 +4320,10 @@ The description of Flan Emporium is "Flan! Flan! Flan! Everybody wants some." Fl
 Instead of eating Flan Emporium, say "Unfortunately, there is no tasty flan laying about."
 
 Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and in any event, there isn't any here."
+
+Before eating Flan Emporium:
+	try ordering "flan";
+	stop the action.
 
 Section 26 - General Nelson
 	
@@ -4369,6 +4392,10 @@ The description of Krusty Kronuts is "Home of the caramel-glazed toroiducken." K
 
 Instead of smelling when the player is in Krusty Kronuts:
 	say "Mmm.  Kroooonuts!"
+	
+Before eating Krusty Kronuts:
+	try ordering "kronuts";
+	stop the action.
 
 Section 31 - Cyclorama
 
@@ -4410,17 +4437,19 @@ Before printing the locale description of the biocontainment facility:
 		
 Instead of searching the Biocontainment Facility:
 	try entering the Biocontainment Facility.
-	
-
 
 Section 33 - Battle of Margot's Pantry
 
 The description of Battle of Margot's Pantry is "The Descendants of Posterity have erected a plaque commemorating this turning point in western civilization. In modern times, it appears to be [quotation mark]Dino's Pizza[quotation mark]." Battle of Margot's Pantry is an improper-named structure. Understand "dino's pizza" or "pizzeria" or "dino" or "dinos" or "dino's" or "pizza" or "dinos pizza" as Battle of Margot's Pantry. Understand "building" or "store" or "restaurant"  as Battle of Margot's Pantry when the location is Battle of Margot's Pantry. The title of Battle of Margot's Pantry is "Battle of Margot's Pantry". The printed name of Battle of Margot's Pantry is "pizzeria".
 
-The DOP plaque is scenery in Margot's Pantry. The description of the DOP plaque is "A small plaque mounted in the brick wall of the building.[paragraph break]It says, [quotation mark]On the spot (or perhaps nearby) in 1893 (plus or minus), a decisive battle (or at least memorable one) was fought (perhaps strongly contested is a better way of phrasing that) between two opposing sides (we are sure of that part), with one of them the victor.[paragraph break]This plaque erected in memory of the fallen (if any were actually killed; even if not, no doubt they are dead by now anyhow, so good enough, really).[paragraph break]Presented by the Historical Inference Committee of the Daughters of Posterity, Crawdad Gulch Chapter.[quotation mark]". Understand "brick" or "wall" as the DOP plaque.
+The DOP plaque is scenery in Margot's Pantry. The description of the DOP plaque is "A small plaque mounted in the brick wall of the building.[paragraph break]It says, [quotation mark]On the spot (or perhaps nearby) in 1893 (plus or minus), a decisive battle (or at least memorable one) was fought (perhaps strongly contested is a better way of phrasing that) between two opposing sides (we are sure of that part), with one of them the victor.[paragraph break]This plaque erected in memory of the fallen (if any were actually killed; even if not, no doubt they are dead by now anyhow, so good enough, really).[paragraph break]Presented by the Historical Inference Committee of the Descendants of Posterity, Crawdad Gulch Chapter.[quotation mark]". Understand "brick" or "wall" as the DOP plaque.
 
 Instead of smelling when the player is in Battle of Margot's Pantry:
 	say "Fresh Pizza! No. Must be strong. Keep Mind on Game."
+	
+Before eating Margot's pantry:
+	try ordering "pizza";
+	stop the action.
 
 Section 34 - Gas Station Gazebo
 
@@ -4443,7 +4472,6 @@ The description of Hank's Tavern is "Now an artist[apostrophe]s colony, the tave
 
 Instead of listening when the player is in Hank's Tavern:
 	say "From the tavern you hear people socializing and the occasional [one of]muffled explosion[or]shattering of porcelain[or]whine of an angle grinder cutting through plate iron[or]whirring of servos[or]sizzle of an industrial laser[or]splatter of plasma-scintered alloy[or]whistling of welding gas[in random order]."
-	
 	
 Section 37 - Olde Train Station
 
@@ -4650,6 +4678,9 @@ Instead of entering the Cranberry Bog:
 	
 Instead of swimming in the Bog:
 	say "Too many plants."
+	
+Instead of eating Cranberry Bog:
+	try ordering "cranberries".
 
 Section 50 - Found Art
 
