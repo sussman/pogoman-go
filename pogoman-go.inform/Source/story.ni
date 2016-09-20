@@ -7277,7 +7277,7 @@ After taking the lantern for the first time:
 
 The hammock is a fixed in place thing in the Captain's Cabin. The description of the hammock is "A ratty old string hammock."
 
-Understand "climb into [something]" as entering.
+Understand "climb into [something]" or "lie on [something]" or "lay on [something]" or "lie down on [something]" or "lay down on [something]" or "climb onto [something]" as entering.
 
 Instead of entering the hammock for the first time:
 	say "You clamber into the hammock, which looked more comfortable than it actually is and stand up again before it gets too painful.[paragraph break]";
