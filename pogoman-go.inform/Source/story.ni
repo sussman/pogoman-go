@@ -9311,7 +9311,7 @@ The Void contains a PogoIncense-kind called PogoIncense. PogoIncense can be igni
 
 Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing.
 
-The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" as the glass of champagne.
+The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" or "bubbly" or "liquid" as the glass of champagne.
 
 The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the translucent plastic case." Understand "pogoBall" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
 
