@@ -5908,7 +5908,7 @@ Instead of examining the numerical counter for the first time:
 	now the PEC of the CAT Control is 69105;
 	say "A mechanical counter, like a car[apostrophe]s odometer, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC of the CAT Control]."
 	
-The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position[one of], but could be pulled out to put whatever it controls on hold[or][stopping]." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
 
 Instead of pulling the plunger:
 	if onHoldFlag of the CAT Control is true:
