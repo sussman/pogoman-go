@@ -1694,6 +1694,13 @@ Check nonPogoHealing:
 			otherwise:
 				say "You are out of pogoMeth!".
 				
+Section 10 - nonPogoEvolving
+
+nonPogoEvolving is an action applying to one thing. Understand "evolve [thing]" as nonPogoEvolving.
+
+Carry out nonPogoEvolving:
+	say "You can only evolve pogomen that you have captured and have in stock."
+
 Section 11 - Walkthroughing
 
 Walkthroughing is an action out of world. Understand "walkthrough" as walkthroughing. 
