@@ -1938,13 +1938,22 @@ Section 16 - Burning
 
 Before burning:
 	if the location of the player encloses the gasoline:
-		gasoline death;
+		if Not in Kansas Anymore is happening:
+			gasoline death;
+		else if Denouement is happening:
+			MADFieryEnding;
+		else if PlusQueDenouement is happening:
+			LonesomeFieryEnding;
 		stop the action.
 		
 To gasoline death:
-	say "When the fumes from the gasoline encounter the flame, well, you can imagine what happens.[paragraph break]";
 	now the gasoline is in the void;
-	frontierDeath.
+	if the player is in the giant ball:
+		say "The interior of the plastic ball instantly transforms into an inferno. You experience searing pain, and then nothing.[paragraph break]Just when you are about to write off having any more life experiences, you begin to hear laughter and clapping. Your vision starts to return...[paragraph break]";
+		teleport the player to processing;
+	otherwise:	
+		say "When the fumes from the gasoline encounter the flame, well, you can imagine what happens.[paragraph break]";
+		frontierDeath.
 
 Chapter Rules Modifications
 
@@ -6857,9 +6866,9 @@ Instead of pushing a lift button (called the poked item) when the plusQueDenouem
 		-- managersButton:
 			ceoEnding;
 		-- engineersButton:
-			ceoEnding;
+			engineersEnding;
 		-- internsButton:
-			ceoEnding;
+			internsEnding;
 		-- lobbyButton:
 			lobbyEnding;
 		-- legalButton:
@@ -9547,6 +9556,9 @@ The glass of champagne is a prop in the void. The description of the champagne g
 
 The giant ball is a closed transparent container in the void. The description of the giant ball is "The scene outside the ball is distorted and colored red by the translucent plastic case." Understand "pogoBall" or "plastic" or "case" or "shell" as the giant ball. The giant ball has a number called escape attempts. The escape attempts of the giant ball are 0. The giant ball has a number called rounds imprisoned. The rounds imprisoned of the giant ball are 0.  
 
+Does the player mean examining the giant ball:
+	it is very likely.
+
 Instead of doing something other than searching or examining or attacking with the giant ball:
 	say "Your actions seems futile, and every moment, the two halves of the plastic shell draw closer together."
 
@@ -10259,6 +10271,26 @@ The list of text called ASCII_ART_NUMBERS is always {
 }
 
 Book 6 - Endings
+
+to MADFieryEnding:
+	say "TODO: mutually assured destruction with gasoline ending![paragraph break]";
+	end the story finally saying "PYRRHIC VICTORY!"
+
+to LonesomeFieryEnding:
+	say "TODO: Gasoline finale![paragraph break]";
+	end the story finally saying "IMMOLATED!".
+	
+to HookEnding:
+	say "TODO: Hook ending![paragraph break]";
+	end the story finally saying "WORSHIPPED!".
+	
+To internsEnding:
+	say "TODO: Interns ending![paragraph break]";
+	end the story finally saying "INTERMINABLE INTERNSHIP!".
+	
+To engineersEnding:
+	say "TODO: Engineers ending![paragraph break]";
+	end the story finally saying "A NEW PARTERSHIP".
 
 To lemurEnding:
 	say "EPILOGUE[paragraph break]Years have passed since your arrived on the small island. From maps in the boat, you know you are somewhere in the Indian Ocean, but you don[apostrophe]t really care precisely where. Since your arrival, you have lived peacefully with the lemurian inhabitants of the island and even learned to communicate with them. Having no cell phone reception and plenty of time on your hands, you and a group of the more technically-minded prosimians have reverse-engineered the phone, which now provides the community with electrical lighting and heat for cooking. You have even programmed the phone to play Snake and Tetris, which the lemurs have found amusing enough to make you their ruler.[paragraph break]And yet, when the Nyantech Blimps appear on the horizon, their red beams searching, you wonder what has become of the rest of the world.[paragraph break]";
