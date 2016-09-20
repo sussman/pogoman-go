@@ -3305,7 +3305,7 @@ At the time when legal counsel frets:
 	legal counsel frets in N turns from now.
 
 To say disclaimerText:	
-	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]commiting crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not apply[cycling]".
+	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]commiting crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not apply[cycling][roman type]".
 
 Chapter Stage Business
 
@@ -7614,7 +7614,10 @@ Instead of attacking Elon Musk when the player is in MuskTube Station:
 
 Chapter in the Elevator
 
-The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward. The elevator has a list of text called stage business.
+The Elevator is a room. The description of the elevator is "The interior of the elevator is well lit. A control panel features buttons engraved with floor descriptions. There is a small sign above the panel." The elevator has a room called floor level. The floor level of the elevator is void. The elevator can be doorsajar. The elevator is not doorsajar. The elevator can be upward. The elevator is upward. The elevator has a list of text called stage business. Understand "lift" as the elevator.
+
+Understand "leave elevator" or "exit elevator" or "exit lift" or "leave lift" as exiting when the player is in the elevator.
+
 
 Section 1 - Control Panel
 
