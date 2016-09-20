@@ -5353,6 +5353,12 @@ Instead of searching the access hole:
 
 The electric motor is scenery in the Gearing Assembly. The description of the electric motor is "A 8000 Horsepower three-phase electric motor. Through a complicated transmission system, it drives a gear assembly."  Understand "motors" or "equipment" as the electric motor.
 
+Instead of switching on the electric motor:
+	say "The motor is not controlled from up here."
+	
+Instead of switching off the electric motor:
+	try switching on the electric motor.
+
 Instead of taking the electric motor for the first time:
 	say "It is the size of a city bus.[paragraph break]";
 	bestow "Not today, Clark Kent".
