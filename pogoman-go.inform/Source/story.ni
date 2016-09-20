@@ -7314,7 +7314,16 @@ Section 48 - Poop Deck
 
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
-The tin pipe is scenery in Poop Deck. The description of the pipe is "An small metal exhaust tin pipe extends a few inches from the rear of the cat."
+The tin pipe is scenery in Poop Deck. The description of the pipe is "An small metal exhaust tin pipe extends a few inches from the rear of the cat." Understand "tail" as the tin pipe.
+
+Instead of putting the pop-tart on the tin pipe for the first time:
+	say "You carefully place the mouth-watering pastry on the tail pipe and toast it to perfection. Never has a pop-tart been so perfectly and uniformly toasted.[paragraph break]As the delectable vapor wafts up, you cannot resist cramming the entire pop-tart into your mouth in one lustful gulp. It burns slightly going down, but it is the best thing you have ever eaten or could ever imagine eating.[paragraph break]";
+	move the pop-tart to void;
+	bestow "Pop-Tart Nirvana".
+	
+Instead of putting the pop-tart on the tin pipe:
+	say "Hoping to repeat your earlier success with the pop-tart, you place it on the tin pipe, but the magical combination of heat, wind, and je ne sais quoi just isn[apostrophe]t there. The pop-tart carbonizes instantly on contact with the pipe and the black ashes blow away in the wind.";
+	move the pop-tart to the void.
 
 Instead of doing something other than examining with the pipe: 
 	say "The tin pipe is red hot."
