@@ -1734,7 +1734,7 @@ title	subtable	description	toggle
 " 6. Pogoland Overview"	--	"[pogolandOverview]"	--
 " 7. Surviving Pogoland"	--	"[SurvivingPogoland]"	--
 " 8. Escaping Pogoland"	--	"[escapingPogoland]"	--
-" 9. Captured a Pogoman"	--	"[beingCaptured]"	--
+" 9. Captured by a Pogoman"	--	"[beingCaptured]"	--
 "10. Boss Battle"	--	"[bossBattle]"	--
 
 
