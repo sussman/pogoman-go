@@ -8371,6 +8371,9 @@ The MuskPodRoom is a privately-named room. The printed name of the MuskPodRoom i
 The description of the MuskPodRoom is "The MuskPod is a technological tour de force: a single passenger maglev vehicle capable of hypersonic velocities through subterranean passages. It also has comfortable Corinthian leather seats and a state of the art sound system[if the MuskPod is in Pogoland Terminal]. Above you, the canopy is open, but still protects you from the drizzle[end if].[paragraph break]A holographic heads-up display floats in the air before you." 
 
 The seat is scenery in the MuskPodRoom. The description of the seat is "Supple leather that conforms perfectly to your body." Understand "corinthian" or "leather" or "seats" as the seat.
+
+Instead of entering when the player is in the MuskPodRoom:
+	say "You are already comfortably seated in the luxurious MuskPod."
 	
 The podCanopy is privately-named scenery in the MuskPodRoom. The printed name of the podCanopy is "canopy". The description of the podCanopy is "A clear polymer bubble above the passenger compartment[if the MuskPod is in Pogoland Terminal]. It is tilted up to allow exit[end if]." Understand "canopy" or "cawling" as the podCanopy.
 
