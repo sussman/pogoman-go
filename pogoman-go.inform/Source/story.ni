@@ -2726,7 +2726,11 @@ Section 18 - Sleeping
 
 Understand "rest" or "relax" or "stretch out" or "lean back" or "recline" or "chill" or "chill out" as sleeping.
 
-Section 19 - Ordering
+Section 19 - Pushing
+
+Understand "roll" or "roll in [something]" or "roll [something]" as pushing.
+
+Section 20 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
 
