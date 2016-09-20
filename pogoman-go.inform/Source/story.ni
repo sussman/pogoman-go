@@ -7,7 +7,7 @@ The release number is 6.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
-Use MAX_STATIC_DATA of 270000.
+Use MAX_STATIC_DATA of 280000.
 Use MAX_NUM_STATIC_STRINGS of 26000.
 Use Max_DICT_ENTRIES of 1900.
 Use MAX_SYMBOLS of 25000.
@@ -6194,9 +6194,28 @@ After wearing the party hat:
 	 
 Section 17 - Cousteau Room
 	
-Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
+Cousteau Room is south of the Cousteau Door. The description of the Cousteau Room is "The room is tiled, and filled with the sound of waves crashing into the shoreline. The walls are almost white at the top but range to a dark blue near the floor, which is a gritty stucco. Some colorful arrows are painted on one part of the wall, near a corner. Lights play on the ceiling, like reflected waves, and the overall effect evokes a deep-sea vibe."  The possible exits of the Cousteau Room are "The only exit from here is back through the wide door to the north."
 
-The stucco walls are scenery. The stucco walls are in the Cousteau Room. The description of the stucco walls is "Rough stucco walls with an underwater theme."  Understand "stucco" or "wall" or "walls" or "tile" or "tiles" as the Cousteau Room.
+The colorful arrows are scenery. The colorful arrows are in the Cousteau Room. The description of the colorful arrows is "Some green and blue arrows are pointed on the wall. These are not bow-and-arrow sorts of arrows, but the kind you draw in powerpoint: black outline and a simple filled shape. In one column, there are nine upward-facing green arrows and right next to that column, there is another column of three downward-facing blue arrows." Understand "arrow" or "painting" or "paintings" as the colorful arrows.
+
+Instead of touching the colorful arrows:
+	say "The arrows are flat paintings on the wall and are smooth to the touch."
+	
+Instead of turning or spinning or pushing or pulling the arrows:
+	say "The arrows do not move."
+	
+The ocean floor is scenery. The ocean floor is in the Cousteau Room. The description of the ocean floor is "A concrete floor with just a bit of sandy texture; it is light tan in color." Understand "sandy" or "sand" or "tan" or "light" or "hard" or "texture" as the floor.
+
+Instead of touching the floor:
+	say "The floor feels gritty, like a sand paper."
+
+Instead of entering the ocean floor:
+	say "The floor is rock hard and not at all comfortable, so you get back up almost instantly."
+
+The stucco walls are scenery. The stucco walls are in the Cousteau Room. The description of the stucco walls is "Rough stucco walls with an underwater theme."  Understand "stucco" or "wall" or "walls" or "tile" or "tiles" as the stucco walls.
+
+Instead of touching the stucco walls:
+	say "The walls are rough, and even sharp at points. Not at all pleasant to touch."
 
 The wetsuit is a wearable prop in the Cousteau Room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
 
