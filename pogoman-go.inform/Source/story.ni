@@ -2738,7 +2738,13 @@ Section 21 - Examining
 
 Understand "inspect [something]" as examining.
 
-Section 22 - Ordering
+Section 22 - Burning
+
+Understand "ignite [something]" as burning.
+
+Understand "extinguish [something]" as switching off.
+
+Section 23 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" as ordering when Around the Town is Happening.
 
@@ -7307,11 +7313,14 @@ Instead of doing something other than examining with the entries:
  
 The hurricane lantern is a lightsource on the desk. Understand "lamp" as the hurricane lantern. 
 
-After switching on the lantern for the first time:
+Instead of burning the hurricane lantern:
+	try switching on the hurricane lantern.
+
+After switching on the hurricane lantern for the first time:
 	say "The lantern lights immediately and shines brilliantly. Apparently, high efficiency LEDs have taken the place of the old wick mechanism.[paragraph break]";
 	bestow "Et Lux Facta Est".
 
-After taking the lantern for the first time:
+After taking the hurricane lantern for the first time:
 	bestow "Adventurer: First Class".
 
 The hammock is a fixed in place thing in the Captain's Cabin. The description of the hammock is "A ratty old string hammock."
