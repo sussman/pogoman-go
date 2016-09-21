@@ -8784,16 +8784,12 @@ Instead of climbing in the mountain for the first time:
 Instead of climbing the mountain:
 	say "[one of]You struggle climb about a hundred feet up and realize that mountains are really tall and that climbing them takes a lot of work. You write off the effort for another day[or]No, too much work[stopping]."
 	
-Instead of entering the mountain for the first time:
+Instead of searching or entering the mountain for the first time:
 	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
 	bestow "No Place For Swords & Sorcery". 
 	
 Instead of entering the mountain when the player is in mountain: [redundant to override the general enter place rule]
 	say "This isn[apostrophe]t that kind of mountain."
-	
-Instead of searching the mountain for the first time:
-	try entering the mountain.
-	
 	
 Section 7 - Valley
 
@@ -9443,7 +9439,7 @@ To say thirdCapWarning:
 	explode the boat.
 	
 To explode the boat:	
-	say "BOOM! The boat briefly flirts with the idea of being an airplane and sails over the wharf on its way into town.[paragraph break]";
+	say "BOOM! The boat briefly flirts with the idea of being an airplane.[paragraph break]";
 	now the hasExploded of the fishing boat is true;
 	if the player carries the watering can:
 		move the watering can to the fishing boat;
