@@ -4343,7 +4343,7 @@ Instead of searching or entering The Gardens of Zarf  when the player is in Gard
 Instead of pulling or pushing or spinning or turning the zarfian sign:
 	say "It does not budge."
 	
-The innocuous-appearing plants are plural-named scenery. The innocuous-appearing plants are in the Gardens of Zarf. The description of the innocuous-appearing plants is "Flowers and ornamentals growing in an aesthetically pleasing  and not at all troubling arrangement."  Understand "plant" or "plants" or "flower" or "flowers" or "carnivorous" or "man-eating" or "meat-eating" or "deadly" or "lethal" or "sunflower" or "azalea" or "azaleas" or "sunflowers" or "marigold" or "marigolds" as the innocuous-appearing plants.. 
+The innocuous-appearing plants are plural-named scenery. The innocuous-appearing plants are in the Gardens of Zarf. The description of the innocuous-appearing plants is "Flowers and ornamentals growing in an aesthetically pleasing and not at all troubling arrangement."  Understand "plant" or "plants" or "flower" or "flowers" or "carnivorous" or "man-eating" or "meat-eating" or "deadly" or "lethal" or "sunflower" or "azalea" or "azaleas" or "sunflowers" or "marigold" or "marigolds" as the innocuous-appearing plants.. 
 
 Instead of doing something other than examining with the innocuous-appearing plants:
 	say "The flowers are set back a bit from the edge of the garden. Certainly, they would be easily within reach if you were to come into the garden itself."
@@ -5404,7 +5404,7 @@ The lemonade is pop in Beverages. The description of lemonade is "A balance betw
 
 The iced tea is pop in Beverages. The description of iced tea is "Sweet tea, with a hint of mint."
 
-The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid. Understand "marble" or "pededal" or "blinky" or "blinking" or "bulb" as Kool-Aid when the securityColor of the badge is white.
+The Kool-Aid is pop in Beverages. The description of Kool-Aid is "The shimmering chalice of Kool-Aid is engraved [quotation mark]Nyantech Corporate Kool-Aid[quotation mark]". Understand "golden" or "chalice" or "grail" or "graal" as Kool-Aid. Understand "koolaid" or "kool aid" as kool-aid. Understand "marble" or "pedestal" or "blinky" or "blinking" or "bulb" as Kool-Aid when the securityColor of the badge is white.
 
 Before taking or drinking a pop (called the liquid):
 	if the liquid is Kool-Aid and the Kool-Aid is in Beverages:
@@ -6871,7 +6871,7 @@ Before pushing the call button when Exploring The Tower has ended:
 Instead of touching the call button:
 	try pushing the call button.
 	
-Instead of pushing a lift button (called the poked item) when the plusQueDenouement is happening:
+Instead of pushing or touching a lift button (called the poked item) when the plusQueDenouement is happening:
 	if the poked item is the processingButton:
 		say "The button does not light.";
 		stop the action;
