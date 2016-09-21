@@ -2575,11 +2575,13 @@ Check special attacking:
 		continue the action.
 		
 Carry out special attacking:
+	let AA be "[type of attackerPogoman]";
+	let DD be "[type of defenderPogoman]";
 	if the location of the player is in Pogoland:
 		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
 		move the noun to the void;
 	else if the location of the player is the Gymnasium:
-		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone and strikes your opponent, the [type of the attackerPogoman]";
+		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone and strikes your opponent, the [AA]";
 		if the attackerPogoman is injured:
 			say ". It is entirely engulfed in the blast ";
 			if a random chance of 75 in 100 succeeds:
@@ -2604,7 +2606,7 @@ Carry out special attacking:
 				say ", leaving behind only a golden badge.[paragraph break]";
 				move the goldenBadge to Processing;
 				if the defenderPogoman is in Processing:
-					say "Spooked by the intensity of your attack, the [type of defenderPogoman] flees the crime scene.";
+					say "Spooked by the intensity of your attack, the [DD] flees the crime scene.";
 			otherwise:
 				say ".[paragraph break]";
 			move Elon Musk to the void;
@@ -4108,7 +4110,7 @@ Instead of doing something with the revolvingDoorProxy:
 
 [Arbitrary Notice]
 
-The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]."
+The arbitrary notice is a backdrop. The arbitrary notice is in Nyantech Entrance and RevolvingDoor. The description of the arbitrary notice is "[arbitraryNoticeDescription]." Understand "message" or "sign" or "pane" or "panes" as the arbitrary notice.
 
 Instead of taking the arbitrary notice:
 	say "The unicorn clears his throat, [quotation mark]I believe that is building property.[quotation mark][paragraph break]" 
@@ -7715,11 +7717,11 @@ Elon Musk is a person in MuskTube Station. Elon Musk has a health state called v
 The description of Elon Musk is "[MuskDescription]."
 	
 To say MuskDescription:
-	if Elon Musk is in Processing:
+	if Exploring the Tower has ended:
 		if the vitality of Elon Musk is less than dead:
 			say "Musk appears somewhat less regal dressed in a lab coat and carrying his clipboard, but he still has an air of arrogance and authority";
 		otherwise:
-			say "The remains of former Nyantech CEO, Elon Musk. His formerly pristine lab coat is a ruin";
+			say "The remains of former Nyantech CEO, Elon Musk[if Elon Musk wears the lab coat]. His formerly pristine lab coat is a ruin[end if]";
 	otherwise:
 		say "Sporting a tailor made bearskin business suit accessorized with a stylish ermine stole, Musk is a natural born leader who exudes confidence and authority".
 		
@@ -8823,7 +8825,7 @@ The description of Lighthouse is "A tall, red and white-striped concrete tower b
 
 Section 4 - Palace
 
-The description of Palace is "This is the McMansion of Palaces - clearly, they started with a typical walled keep and kept adding towers and crenulations. The overall effect is a bit gaudy."
+The description of Palace is "This is the McMansion of Palaces - clearly, they started with a typical walled keep and kept adding towers and crenulations. The overall effect is a bit gaudy." Understand "towers" or "wall" or "tower" or "walls" or "crenulation" or "crenulations" as the Palace.
 
 Section 5 - Baseball Diamond
 
@@ -8842,7 +8844,7 @@ Instead of climbing in the mountain for the first time:
 Instead of climbing the mountain:
 	say "[one of]You struggle climb about a hundred feet up and realize that mountains are really tall and that climbing them takes a lot of work. You write off the effort for another day[or]No, too much work[stopping]."
 	
-Instead of searching or entering the mountain for the first time:
+Instead of searching or entering the mountain when the player is in the mountain for the first time:
 	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
 	bestow "No Place For Swords & Sorcery". 
 	
@@ -9851,7 +9853,7 @@ Check charging:
 	If the noun is not the phone:
 		say "You can't charge [a noun]." instead.
 		
-Phone blocking is an action applying to nothing. Understand "email" or "calendar" or "facebook" or "gmail" or "clock" or "twitter" or "tumblr" or "tumble" or "tweet" or "instagram" or "snapchat" or "camera" or "calculator" or "flashlight" or "compass" or "contacts" or "drive" or "dropbox" or "netflix" or "chrome" or "safari" or "ingress" or "messenger" or "news" or "phone" or "skype" or "check mail" or "check facebook" or "update facebook" or "update status" or "post status" or "check time" or "google" or "snap" as phone blocking.
+Phone blocking is an action applying to nothing. Understand "email" or "calendar" or "facebook" or "gmail" or "clock" or "twitter" or "tumblr" or "tumble" or "tweet" or "instagram" or "snapchat" or "camera" or "calculator" or "flashlight" or "compass" or "contacts" or "drive" or "dropbox" or "netflix" or "chrome" or "safari" or "ingress" or "messenger" or "news" or "phone" or "skype" or "check mail" or "check facebook" or "update facebook" or "update status" or "post status" or "check time" or "google" or "snap" or "siri" or "ok google" as phone blocking.
 
 Carry out phone blocking:
 	try squeezing the phone.
