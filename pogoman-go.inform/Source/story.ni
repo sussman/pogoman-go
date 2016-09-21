@@ -1048,8 +1048,24 @@ Check capturing:
 				say "You don[apostrophe]t have any pogoBalls[one of]! You capture pogomen by throwing pogoBalls at them, so go get some pogoBalls first[or][stopping]!";
 				stop the action;
 		otherwise:
-			say "That[apostrophe]s illegal, well, at least here it is.";	
-			the rule fails;	
+			if the noun is Elon Musk and Elon Musk is in Processing:
+				if the vitality of Elon Musk is dead:
+					say "You know that the ball will not capture inanimate objects; you[apostrophe]ll need to find another way to dispose of the body.";
+					the rule fails;
+				otherwise:
+					say "You [one of]whip[or]wing[or]cast[or]throw[or]fire[in random order] the ball at Elon Musk, ";
+					if a random chance of 1 in 4 succeeds:
+						say "and he is sucked mid-rant into the plastic ball! His clipboard clatters to the floor of the pogoChum processing facility.[paragraph break]With a sense of finality, you bring your heel down on the plastic ball, crushing it flat.[paragraph break]The ooze around the edges of the crushed ball does not bear further description. Disgusted, you kick it away and breathe a sigh of relief.";
+						now the vitality of Elon Musk is dead;
+						now Elon Musk is in the void;
+						now the clipboard is in Processing;
+						the rule succeeds;
+					otherwise:
+						say "but he [one of]steps to the side[or]deflects the pogoBall away[or]ducks just in time[or]bats the pogoBall away with his clipboard[or]fries the ball mid-flight with a bolt of energy from his fingertips[or]reacts with seemingly superhuman reflexes and moves out of the way[in random order].";
+						the rule fails;
+			otherwise:
+				say "That[apostrophe]s illegal, well, at least here it is.";	
+				the rule fails;	
 	otherwise:
 		try taking the noun;
 		stop the action.
@@ -3534,7 +3550,7 @@ This is the fightclub rule:
 						now the desire to capture of the attackerPogoman is desire to capture of the attackerPogoman plus DESIRE_TO_CAPTURE_INCREMENT;
 					if the healthiness of the player is less than near death:
 						now the healthiness of the player is the health state after the healthiness of the player;
-						say "The [AA] attacks you! You are [healthiness of the player]!";
+						say "The [AA] attacks you! You are [healthiness of the player]![paragraph break]";
 					otherwise:
 						say "The [AA] finishes you off![paragraph break]";
 						let AAA be "[type of attackerPogoman]" in upper case;
@@ -6834,12 +6850,13 @@ Instead of eating the meat:
 	say "You are not sure your stomach would handle that just now."
 	
 To transform the processing area:
-	say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloquy, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You[apostrophe]re still going. There must be a bit more to this.[paragraph break]";
-	bestow "Still ticking”;
-	if the defenderPogoman is in Processing:
-		say "Your [type of the defenderPogoman] flees the crime scene.";
-	now the clipboard is in Processing;
-	now the defenderPogoman is in the void.
+	if Elon Musk is in Processing:
+		say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloquy, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You[apostrophe]re still going. There must be a bit more to this.[paragraph break]";
+		bestow "Still ticking”;
+		if the defenderPogoman is in Processing:
+			say "Your [type of the defenderPogoman] flees the crime scene.";
+		now the clipboard is in Processing;
+		now the defenderPogoman is in the void.
 		
 Before pushing the call button when Exploring The Tower has ended:
 	if the player wears the goldenBadge:
@@ -6891,7 +6908,9 @@ Instead of taking or climbing or clipping or pulling or touching or swinging the
 	if the defenderPogoman is in Processing:
 		let P be the type of defenderPogoman;
 	let PP be "[P]" in title case;
-	say "You jump up and grab one of the meat hooks, which is traveling along the ceiling. As you ride along between the slabs of questionable meat, Musk[if the defenderPogoman is in processing] and your [PP][end if] run[if the defenderPogoman is not in processing]s[end if] along beneath you, keeping pace.";
+	say "You jump up and grab one of the meat hooks, which is traveling along the ceiling.";
+	if the vitality of Elon Musk is less than dead:
+		say "As you ride along between the slabs of questionable meat, Musk[if the defenderPogoman is in processing] and your [PP][end if] run[if the defenderPogoman is not in processing]s[end if] along beneath you, keeping pace.";
 	now the isDangling of the meat hooks is true.
 	
 Every turn when the isDangling of the meat hooks is true and the healthiness of the player is not dead:
@@ -6904,7 +6923,7 @@ Every turn when the isDangling of the meat hooks is true and the healthiness of 
 		-- 2:
 			say "are not too far away from the point where the meat hook track runs upwards, through a hole in the ceiling.";
 		-- 3: 
-			say "are nearly to the point where the meat hooks ride upward sharply through a hole in the ceiling that you think is large enough to fit through. If you can hang on, you are pretty sure that Musk will not be able to follow.";
+			say "are nearly to the point where the meat hooks ride upward sharply through a hole in the ceiling that you think is large enough to fit through[if Elon Musk is in Processing]. If you can hang on, you are pretty sure that Musk will not be able to follow[end if].";
 		-- 4:
 			hookEnding;
 	increase the turnsDangling of the meat hooks by one.
@@ -10312,8 +10331,12 @@ to LonesomeFieryEnding:
 	end the story finally saying "IMMOLATED!".
 	
 to HookEnding:
-	say "TODO: Hook ending![paragraph break]";
-	end the story finally saying "WORSHIPPED!".
+	if the vitality of Elon Musk is dead:
+		say "TODO: Hook ending![paragraph break]";
+		end the story finally saying "WORSHIPPED!";
+	otherwise:
+		say "TODO: Hook ending, but with Elon still alive.[paragraph break]";
+		end the story finally saying "HUNTED!".
 	
 To internsEnding:
 	say "TODO: Interns ending![paragraph break]";
@@ -10372,7 +10395,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break][if the expertMode of the player is false]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break][end if]* [if the isFound of the Salmon of Turpitude is false]Did you find the legendary Salmon of Turpitude?[otherwise]Congratulations on finding the mysterious Salmon of Turpitude![end if][line break]* [if the beheaded of the Headless Garden Gnome is true]Did you put the head back on the garden gnome?[otherwise]Our compliments for having restored the garden gnome[apostrophe]s head![end if][line break]* There are fifteen endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walküre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break][if the expertMode of the player is false]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break][end if]* [if the isFound of the Salmon of Turpitude is false]Did you find the legendary Salmon of Turpitude?[otherwise]Congratulations on finding the mysterious Salmon of Turpitude![end if][line break]* [if the beheaded of the Headless Garden Gnome is true]Did you put the head back on the garden gnome?[otherwise]Our compliments for having restored the garden gnome[apostrophe]s head![end if][line break]* There are sixteen endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walküre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
