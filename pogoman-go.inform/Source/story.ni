@@ -1054,13 +1054,14 @@ Check capturing:
 					the rule fails;
 				otherwise:
 					say "You [one of]whip[or]wing[or]cast[or]throw[or]fire[in random order] the ball at Elon Musk, ";
-					if a random chance of 1 in 4 succeeds:
+					if the ballMissedOnce of Elon Musk is true and a random chance of 1 in 3 succeeds:
 						say "and he is sucked mid-rant into the plastic ball! His clipboard clatters to the floor of the pogoChum processing facility.[paragraph break]With a sense of finality, you bring your heel down on the plastic ball, crushing it flat.[paragraph break]The ooze around the edges of the crushed ball does not bear further description. Disgusted, you kick it away and breathe a sigh of relief.";
 						now the vitality of Elon Musk is dead;
 						now Elon Musk is in the void;
 						now the clipboard is in Processing;
 						the rule succeeds;
 					otherwise:
+						now the ballMissedOnce of Elon Musk is true;
 						say "but he [one of]steps to the side[or]deflects the pogoBall away[or]ducks just in time[or]bats the pogoBall away with his clipboard[or]fries the ball mid-flight with a bolt of energy from his fingertips[or]reacts with seemingly superhuman reflexes and moves out of the way[in random order].";
 						the rule fails;
 			otherwise:
@@ -7706,7 +7707,7 @@ Section 3 - MuskTube Station
 
 MuskTube Station is a room. The description of MuskTube Station is "You[apostrophe]re in a secret maglev railway station far under the Nyantech Tower. A sign on the wall reads [quotation mark]MuskTube Station[quotation mark], and indeed it appears to be a train station of sorts, with a platform and odd-looking train tracks. An egg-shaped container with racing stripes floats above the tracks." The title of MuskTube Station is "MuskTube Station". The possible exits of MuskTube Station are "The only way out of here [if Elon Musk is in MuskTube Station](on foot, at least) would be to go back up to the Throne Room[otherwise]would be to set off in the pod[end if]."
 
-Elon Musk is a person in MuskTube Station. Elon Musk has a health state called vitality. The vitality of Elon Musk is healthy. Elon Musk has a number called tubeRantCounter. The tubeRantCounter of Elon Musk is 0. 
+Elon Musk is a person in MuskTube Station. Elon Musk has a health state called vitality. The vitality of Elon Musk is healthy. Elon Musk has a number called tubeRantCounter. The tubeRantCounter of Elon Musk is 0. Elon Musk has a truth state called ballMissedOnce. The ballMissedOnce of Elon Musk is false.
 
 The description of Elon Musk is "[MuskDescription]."
 	
