@@ -7592,6 +7592,9 @@ The MuskLair is a region. Make Over Suite, Throne Room, and MuskTube Station are
 
 Section 2 - The Throne Room
 
+Instead of entering the subSubBasementDoor:
+	try going south.
+
 After going south from the stairsSSB:
 	say "As you walk past the red door, you are immediately overcome by a strong, earthy smell -- something animal, perhaps. Your next observation is the richness of the room[apostrophe]s elaborate decorations.[paragraph break]However, before you fully appreciate the fancy paintings and furniture, you are seized by multiple pairs of robotic arms suspended from a track in the ceiling. One lifts you, another removes your now well worn clothes. Gently but with firm intent, the arms flip you over, wash and blow dry your hair, perform a manicure, brush your teeth, and dress you in formal wear. All the while, the robotic assembly moves along its track.[paragraph break]Finally, the robot sets you down in a marble room, hands you a stemmed glass, uncorks a bottle of champagne, and pours your glass full of the bubbly liquid.";
 	now Make Over Suite is visited; [serves as a flag that player has progressed this far]
