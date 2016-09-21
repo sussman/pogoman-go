@@ -962,6 +962,9 @@ Instead of attacking Elon Musk:
 	if the vitality of Elon Musk is dead:
 		say "That seems like overkill.";
 	otherwise:
+		if the isDangling of the meat hooks is true:
+			say "You drop from the meat hook to [one of]confront[or]face[or]take on[or]dish out a beating to[or]bring the fight to[in random order] Elon Musk.[paragraph break]";
+			now the isDangling of the meat hooks is false;
 		say "[attackStyle] Elon Musk";
 		if a random chance of 1 in 2 succeeds:
 			now the vitality of Elon Musk is the health state after the vitality of Elon Musk;
@@ -2574,6 +2577,9 @@ Carry out special attacking:
 			otherwise:
 				say ", who weathers the blast without apparent damage.";
 	else if the player is in processing:
+		if the isDangling of the meat hooks is true:
+			say "You drop from the meat hook to make your special attack.";
+			now the isDangling of the meat hooks is false;
 		say "You concentrate your XP into a precision blast aimed at [if the vitality of Elon Musk is dead]the corpse of Elon [end if]Musk. The scintillating blue energy flies from your fingertips";
 		if the vitality of Elon Musk is dead:
 			say ". The inanimate corpse is reduced to cinders, which scatter";
@@ -2682,7 +2688,7 @@ To say the map symbol of (QTH - a room):
 
 Section 16 - Scanning
 	
-Scanning is an action applying to nothing. Understand "scan" or "map" or "gps" or "mapquest" or "directions" or "navigate" as scanning.
+Scanning is an action applying to nothing. Understand "scan" or "map" or "maps" or "gps" or "mapquest" or "directions" or "navigate" as scanning.
 
 Check scanning:
 	if the player is in the Village or the player is in Pogoland:
@@ -3578,7 +3584,8 @@ Section 4 - During Denouement
 
 Every turn during denouement:
 	if the defenderPogoman is in Processing:
-		say "Your [type of defenderPogoman] attacks ";
+		let DD be "[type of defenderPogoman]" in title case;
+		say "Your [DD] attacks ";
 		let GUARD-DEF be 0;
 		if the type of the defenderPogoman is first level:
 			let GUARD-DEF be OFFENSIVE_RATING_EVO1;
@@ -3603,7 +3610,7 @@ Every turn during denouement:
 		if the vitality of Elon Musk is less than dead:
 			say "Musk ";
 			if the defenderPogoman is in Processing:
-				say "ignores the [type of defenderPogoman] and concentrates on killing you.[paragraph break]";	
+				say "ignores the [DD] and concentrates on killing you.[paragraph break]";	
 	if the vitality of Elon Musk is less than dead:
 		say "[entry 1 in MUSKPROVOCATION][paragraph break]He ";
 		rotate MUSKPROVOCATION backwards;
@@ -3631,7 +3638,7 @@ MUSKPROVOCATION is a list of text that varies. MUSKPROVOCATION is {
 "The businessman chides you, [quotation mark]I don[apostrophe]t expect you to put up much of a fight, but surely, you could make more of an effort to at least make it entertaining for me. I mean, that is the very least you could do. Manners and all.[quotation mark]",
 "The billionaire howls madly and snaps his jaws at you like an attack dog; you draw back reflexively. [quotation mark]Ah,[quotation mark] he remarks, [quotation mark]animal instinct. It is hard to get away from it, no? No matter how civilized we appear, deep down, life is a fight for dominance and you will find that I am the alpha dog.[quotation mark]",
 "Musk takes a running leap, spins through the air above your head, and lands behind you. [quotation mark]You must realize that you have no chance against me. Genetic augmentation, cellular enhancements, and of course my innate intelligence and self-discipline make this a fight barely worth having, but [italic type]noblesse oblige[roman type], I will see it though, I suppose.[quotation mark]",
-"Elon Musk steps to the side, just out of your reach, and whispers, [quotation mark]your day is over, Neanderthal.[quotation mark]",
+"Elon Musk steps to the side, just out of your reach, and whispers, [quotation mark]Your day is over, Neanderthal.[quotation mark]",
 "Elon Musk slaps you with the side of his clipboard, a move clearly not intended to injure so much as embarass you. [quotation mark]What[apostrophe]s the matter? Never had to face an opponent that could think for himself? Never had to come to terms with being the a mere toy? Well, I will will certainly have some fun with you![quotation mark]",
 "The technology visionary mocks you, [quotation mark]When I[apostrophe]m done with you, I don[apostrophe]t suppose anyone will even bother to look for you. You are a nobody, nothing. I suppose I can at least melt down your cell phone for scrap.[quotation mark]",
 "[quotation mark]I dare you to even try and hit me,[quotation mark] jeers Musk.",
@@ -3670,20 +3677,20 @@ MUSKATTACKFLAVOR is a list of text that varies. MUSKATTACKFLAVOR is {
 
 MUSKMISSESFLAVOR is a list of text that varies. MUSKMISSESFLAVOR is {
 "spins across the floor slicing downward with his clipboard, but misjudges and wedges it momentarily into a hunk of hanging meat rather than you",
-"brings the clipboard down right where you used to be. With relief, you complete your roll to the side and spring back to your feet",
+"brings the clipboard down right where you used to be. With relief, you swing to the side and spring back to your feet",
 "jabs at you with the clipboard, but you block the thrust with the flat of your hand and deflect it upward and to the side",
 "lunges at you, but you catch his wrist in a kick and knock the clipboard from his grasp. He dives after it, but at least it buys you enough time to catch your breath",
-"slashes left to right with his clipboard, you are able to step on it, pinning it to the ground while you jump clear of his reach",
+"slashes left to right with his clipboard, you are able to kick it out of his hand and swing clear of his reach",
 "advances on you but misreads your body language and sails past as you pivot past him",
 "chops high with the clipboard, just missing your ear",
 "twists towards you, ready to cut upward with his clipboard, but you catch his arm and use his own momentum to propel him past you",
 "drops to a crouch, continues around and launches a flying kick; however, you are able to catch his leg and spin him in the air. He lands with gracefully some distance away",
 "pierces your fine formal wear with his clipboard, but does not strike deeply enough to draw blood",
 "slices through the air just in front of your face with the clipboard. The breeze is refreshing",
-"windmills past you with the clipboard, but you are able to step out of reach",
+"windmills past you with the clipboard, but you are able to maneuver out of reach",
 "prepares to decapitate you with his clipboard, but you deflect the attack",
 "stabs at you with the clipboard, but you catch his arm and pull him forward past you",
-"thrusts upward with the clipboard, just missing your neck",
+"thrusts upward with the clipboard, just missing you",
 "punches just a hair to your left",
 "sweeps his arm around and the deadly sharp-edged clipboard flies through the air just above your head",
 "wraps his hands around your neck to choke you, but you slip free",
@@ -6809,8 +6816,6 @@ To say noDropGolden:
 	
 The hanging meat is scenery in Processing. The description of the hanging meat is "Large hunks of raw meat." Understand "rib" or "ribs" or "arm" or "arms" or "leg" or "legs" or "side" or "sides" or "rump" or "rumps" or "cutlet" or "cutlets" or "brisket" or "briskets" or "torso" or "torsos" or "back" or "backs" or "meats" or "long pig" or "human" or "man" or "rancid" or "raw" or "bloody" or "flesh" or "manflesh" as the hanging meat.
 	
-The meat hooks are scenery in Processing. The description of the meat hooks is "Heavy, jointed (and no doubt sharp) cast iron hooks that hang from a track along the ceiling." The meat hooks are plural-named. Understand "iron" or "hook" or "track" or "ceiling" as the meat hooks. 
-
 Does the player mean doing something with the hanging meat:
 	it is likely.
 
@@ -6827,9 +6832,6 @@ Instead of eating the meat for the first time:
 	
 Instead of eating the meat:
 	say "You are not sure your stomach would handle that just now."
-	
-Instead of doing something other than examining with the meat hooks:
-	say "They are too high up."
 	
 To transform the processing area:
 	say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloquy, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You[apostrophe]re still going. There must be a bit more to this.[paragraph break]";
@@ -6874,11 +6876,44 @@ Instead of pushing a lift button (called the poked item) when the plusQueDenouem
 		-- legalButton:
 			now the selected of legalEnding is true.
 		
-Section 36 - Packaging
+
+Section 36 - Meat Hooks
+
+The meat hooks are scenery in Processing. The description of the meat hooks is "Heavy, jointed (and no doubt sharp) cast iron hooks that hang from a track along the ceiling." The meat hooks are plural-named. Understand "iron" or "hook" or "track" or "ceiling" as the meat hooks. The meat hooks have a truth state called isDangling. The isDangling of the meat hooks is false. The meat hooks have a number called turnsDangling. The turnsDangling of the meat hooks is 0.
+
+The printed name of Processing is "Processing[if the isDangling of the meat hooks is true] (Dangling From A Meat Hook)[end if]".
+
+Instead of jumping:
+	try taking the meat hooks.
+
+Instead of taking or climbing or clipping or pulling or touching or swinging the meat hooks:
+	let P be a pogotype;
+	if the defenderPogoman is in Processing:
+		let P be the type of defenderPogoman;
+	let PP be "[P]" in title case;
+	say "You jump up and grab one of the meat hooks, which is traveling along the ceiling. As you ride along between the slabs of questionable meat, Musk[if the defenderPogoman is in processing] and your [PP][end if] run[if the defenderPogoman is not in processing]s[end if] along beneath you, keeping pace.";
+	now the isDangling of the meat hooks is true.
+	
+Every turn when the isDangling of the meat hooks is true and the healthiness of the player is not dead:
+	say "The meat hooks crank along and you ";
+	if the turnsDangling of meat hooks is:
+		-- 0:
+			say "can[apostrophe]t quite see where they are going, but are glad to be along for the ride. As long as you keep your grip on the meat hooks, there is a chance that you can ride them out of here.";
+		-- 1:
+			say "see a point towards the other side of the processing facility where the meat hooks take a sharp turn upwards.";
+		-- 2:
+			say "are not too far away from the point where the meat hook track runs upwards, through a hole in the ceiling.";
+		-- 3: 
+			say "are nearly to the point where the meat hooks ride upward sharply through a hole in the ceiling that you think is large enough to fit through. If you can hang on, you are pretty sure that Musk will not be able to follow.";
+		-- 4:
+			hookEnding;
+	increase the turnsDangling of the meat hooks by one.
+
+Section 37 - Packaging
 
 Packaging is a room. 
 
-Section 37 - Interns
+Section 38 - Interns
 
 Interns is a room. 
 
@@ -6887,13 +6922,13 @@ To say fromElevator:
 
 internsProxy are a workerProxy. internsProxy are in the void. The description of a internsProxy is "[fromElevator][entry 1 of the WPLIST of internsProxy]." Understand "intern" or "interns" or "employee" or "employees" or "worker" or "workers" as the internsProxy. The WPLIST of internsProxy is {"a roiling mass of interns playing three-dimensional twister to the accompaniment of a driving disco beat", "interns running around in leotards and dancing in a stream of bubbles"}. The printed name of the internsProxy is "interns".
 
-Section 38 - Engineers
+Section 39 - Engineers
 
 Engineers is a room. 
 
 engineersProxy are a workerProxy. engineersProxy are in the void. The description of a engineersProxy is "[fromElevator][entry 1 of the WPLIST of engineersProxy]." Understand "engineer" or "engineers" or "employee" or "employees" or "worker" or "workers" as the engineersProxy. The WPLIST of engineersProxy is  {"row after row of casually dressed employees behind standing desks. Each has their hands straight out, palm pressed up against a pair of large flat screen monitors acrawl with psychedelic patterns and text", "bolts of lightning ricocheting around the floor, while the engineers hide under their desks"}. The printed name of the engineersProxy is "engineers".
 
-Section 39 - Managers
+Section 40 - Managers
 
 Managers is a room.
 
@@ -6903,7 +6938,7 @@ Instead of doing something other than examining with a workerProxy:
 	say "You would have to exit the elevator here to do that."
 
 
-Section 40 - Deck
+Section 41 - Deck
 
 The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the Deck Area. The Deck Area is in HQ.
 
@@ -7134,12 +7169,12 @@ Instead of climbing the railing when the player is in the deck area:
 Instead of going down from deckS:
 	try jumping.
 
-Section 41 - Cat Region
+Section 42 - Cat Region
 
 
 The Cat Area is a region. The Cat's Beret, Maintenance Hatch, Captain's Cabin, CatHead, Catwalk, Gantry Chamber, and Poop Deck are rooms in the Cat Area. The Cat Area is in HQ.
 
-Section 42 - Cat Navigation
+Section 43 - Cat Navigation
 
 [Based on Recipe 42: Example Fore]
 
@@ -7172,7 +7207,7 @@ Instead of going starboard, say noLateral.
 
 Instead of going port, say noLateral.
 
-Section 43 - Cat Overhead Proxies
+Section 44 - Cat Overhead Proxies
 
 [Backgrounds visible from above, e.g., from the Deck or upper parts of the cat exterior. If the cat is rotating around the building, assume it's visible from any deck position. However, if it's stopped, it is visible +/- 45 degrees]
 
@@ -7253,7 +7288,7 @@ Before doing something other than examining with a catTopDrop (called the QTH):
 		say "You would have to walk over to [the QTH].";
 		the rule fails.
 
-Section 44 - Cat View
+Section 45 - Cat View
 
 Definition: A room is cat-top if it is the Cat's Beret or it is the Maintenance Hatch or it is The Catwalk or it is the Poop Deck.
 
@@ -7267,7 +7302,7 @@ Instead of jumping in the Cat Area:
 	otherwise:
 		say "You bang your head in the tight quarters."
 		
-Section 45 - Cat's Beret
+Section 46 - Cat's Beret
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat[apostrophe]s head, you can see all the way to the Infamous Tarpits on the south edge of town." 
 
@@ -7282,7 +7317,7 @@ Instead of going fore when the player is in the Cat's Beret:
 	try looking.
 
 	
-Section 46 - Maintenance Hatch
+Section 47 - Maintenance Hatch
 
 Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance hatch is "[hatchText]." The possible exits of the Maintenance Hatch are "You can go forward towards the cat's red beret, aft towards its tail, or go below decks through the hatch."
 
@@ -7327,7 +7362,7 @@ Instead of searching the hatchway:
 	otherwise:
 		say "The hatchway is closed."
 			
-Section 47 - Catwalk
+Section 48 - Catwalk
 
 Catwalk is aft of the Maintenance Hatch. The description of the Catwalk is "[catWalkText]." The possible exits of the catwalk are "You choices about ways to go from here are pretty dichotomous: towards the cat[apostrophe]s head or towards its butt."
 
@@ -7346,7 +7381,7 @@ Instead of eating the pop-tart shingles for the first time:
 
 Instead of doing something other than examining with the pop-tart shingles, say "They are tantalizingly out of reach."
 
-Section 48 - Poop Deck
+Section 49 - Poop Deck
 
 Poop Deck is aft of The Catwalk. The description of the Poop Deck is "[poopText]." The possible exits of the Poop Deck are "There[apostrophe]s no way to go but forward, away from the cat[apostrophe]s flaming rear end."
 
@@ -7381,7 +7416,7 @@ Instead of going aft when the player is in the Poop Deck:
 	say "Any further aft and you would join the sparkles in flying off the back end of the Cat and plunging earthward.";
 	try looking.
 	
-Section 49 - Captain's Cabin
+Section 50 - Captain's Cabin
 	
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
 "Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
@@ -7462,7 +7497,7 @@ Instead of putting something (called the item) on the hammock:
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
 
-Section 50 - Gantry Chamber
+Section 51 - Gantry Chamber
 
 Gantry Chamber is aft from the gangway. The description of the Gantry Chamber is "This chamber is open only on the side of the cat facing the building, where the cat joins with a twenty-foot long crawlway in the middle of the boom that supports the cat. The tubular metal structure runs towards a gap in the building[apostrophe]s stonework and disappears at the far end into darkness."  The possible exits of Gantry Chamber are "From here, you can go outside towards the building (i.e., through the metal support boom) or forward towards the captain[apostrophe]s cabin."
 
@@ -7479,7 +7514,7 @@ After going outside from the Gantry Chamber:
 	say "You make a beeline for the Gearing Assembly chamber at the other end.";
 	try looking.
 	
-Section 51 - Cat's Head
+Section 52 - Cat's Head
 	
 A door called the cockpit door is fore from the Captain's Cabin. The description of the cockpit door is "A metal door with the word [quotation mark]cockpit[quotation mark] on it." 
 
@@ -10337,7 +10372,7 @@ To say amusingText:
 	repeat with N running through rooms:
 		if N is visited:
 			increase R by 1;
-	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break][if the expertMode of the player is false]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break][end if]* [if the isFound of the Salmon of Turpitude is false]Did you find the legendary Salmon of Turpitude?[otherwise]Congratulations on finding the mysterious Salmon of Turpitude![end if][line break]* [if the beheaded of the Headless Garden Gnome is true]Did you put the head back on the garden gnome?[otherwise]Our compliments for having restored the garden gnome[apostrophe]s head![end if][line break]* There are ten endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walküre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
+	say "[R] locations in the course of the game, you achieved Level [topLevel of the player] for the [team color of the player] Team, won [the number of entries in TROPHYLIST] gym trophies, and earned [number of entries in medallist] medals. You finished the game with [xp of the player] XP. In total, you captured [pogomenCaptured of the player] pogomen, and you and your loyal pogomen took down [pogomenDefeated of the player] pogomen from other teams.[paragraph break][if the expertMode of the player is false]* If you feel you have attained Pogomasterdom, give the game a try on expert mode. When the game starts, type [italic type]expert mode[roman type]. It[apostrophe]s your funeral.[paragraph break][end if]* [if the isFound of the Salmon of Turpitude is false]Did you find the legendary Salmon of Turpitude?[otherwise]Congratulations on finding the mysterious Salmon of Turpitude![end if][line break]* [if the beheaded of the Headless Garden Gnome is true]Did you put the head back on the garden gnome?[otherwise]Our compliments for having restored the garden gnome[apostrophe]s head![end if][line break]* There are fifteen endings to the game - how many did you find?[paragraph break]* This game is pretty huge. At last count we had TODO: 139 rooms, 278 objects, TODO: 8000 lines of code (but who[apostrophe]s counting.)[paragraph break]* Did you stay in the elevator long enough to get through the entire Third Act of Wagner[apostrophe]s Die Walküre?[paragraph break]* There[apostrophe]s more info including a form to provide feedback on the game[apostrophe]s website, pogoman.templaro.com.[paragraph break]* If you want to see how the sausage was made, check out (literally) the repository: github.com/sussman/pogoman-go[paragraph break]* Neither Elon Musk nor Rick Astley were actually harmed in the making of this story."
 
 Book 8 - Scenes
 
