@@ -2796,7 +2796,11 @@ Check Filling:
 Report Filling:
 	say "You fill the [noun]."
 
-Section 24 - Ordering
+Section 24 - Eating
+
+Understand "snort" or "snarf" as eating.
+
+Section 25 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" or "buy [text]" as ordering when Around the Town is Happening.
 
