@@ -7371,6 +7371,10 @@ Instead of jumping in the Cat Area:
 	otherwise:
 		say "You bang your head in the tight quarters."
 		
+The buildingProxy is a privately-named backdrop. The buildingProxy is in Cat's Beret, Maintenance Hatch, Catwalk, Gantry, and Poop Deck. 
+
+The description of the buildingProxy is "The obsidian black skyscraper towers over the town. The mechanical Nyantech Cat is joined to the tower by an impressively strong support beam, which rides a geared track around the building. The top of the Cat is about twenty feet below the level of the building[apostrophe]s observation deck, which runs around the roof-top cafeteria."  Understand "tower" or "skyscraper" or "building" or "black" or "obsidan" or "office" or "headquarter" or "headquarters" or "HQ" or "nyantech" or "corporate" or "cafeteria" or "observation" or "deck" or "rail" or "gear" or "geared" or "track" as the buildingProxy.
+		
 Section 46 - Cat's Beret
 
 The Cat's Beret is down from DeckS.  The description of the Cat's Beret is "From your snug but sure position atop the Nyantech Cat[apostrophe]s head, you can see all the way to the Infamous Tarpits on the south edge of town." 
