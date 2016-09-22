@@ -9,7 +9,7 @@ The story description is "The world is full of Pogomen, and now that you don't h
 
 Use MAX_STATIC_DATA of 280000.
 Use MAX_NUM_STATIC_STRINGS of 27000.
-Use Max_DICT_ENTRIES of 1900.
+Use Max_DICT_ENTRIES of 2000.
 Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -5166,13 +5166,7 @@ Instead of talking to the waiter:
 	say "The waiter seems annoyed by your petty banter."
 	
 Instead of searching or touching or rubbing the waiter:
-	say "The waiter might not like that.[paragraph break]Or perhaps he would, but not while he is working.[paragraph break]Time and place, you know."
-
-	
- 
-	
-
- 
+	say "The waiter might not like that.[paragraph break]Or perhaps he would, but not while he is working.[paragraph break]Time and place, you know." 
 	
 The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" or "crowd" as the employees.
 
@@ -5214,7 +5208,9 @@ Instead of taking the nose:
 Instead of listening when the player is in the cafeteria:
 	say lobby stage business.
 	
-Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing." Understand "plate" or "plates" as the food.
+Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing. By the time you reach for one thing, something else has come along to take its place."  
+
+Understand "plate" or "plates" or "roasted" or "boar" or "roast" or "braised" or "chicken" or "kale" or "homemade" or "butter" or "croissant" or "croissants" or "maple" or "glaze" or "herb" or "herbs" or "herb-encrusted" or "leg" or "leg of lamb" or "lamb" or "garlic" or "roasted" or "baby" or "potato" or "potatoes" or "pan-seared" or "foie" or "gras" or "orecchiette" or "bolongese" or "chestnut" or "chestnuts" or "magret" or "canard" or "magret de canard" or "fingerling" or "rice" or "sublimated" or  "sungold" or "crumble" or "late-summer" or "rye" or "homespun" or "homemade" or "water" or "pancake" or "fermented" or "anchovy" or "anchovies" or "lime" or "paté" or "pate" or "quickened" or "ham" or "fig" or "hams" or "figs" or "limes" or "pancakes" or "legs" or "croissants" or "chickens" or "boars" or "rubbed" or "watercress" or "salt" or "reduction" or "eggplant" or "egg plant" or "egg plants" or "artichoke" or "artichokes" or "ramp" or "ramps" or "peach" or "surprise" or "folk" or "corn" or "pork" or "belly" or "bellies" or "rustic" as the food.
 
 Instead of doing something other than examining or smelling with the food:
 	say "Game now, eat later. Must explore the building! Pogoman glory awaits!"
