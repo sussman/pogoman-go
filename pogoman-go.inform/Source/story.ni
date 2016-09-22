@@ -5305,6 +5305,9 @@ Snacks is northeast of the Cafeteria. The description of Snacks is "A poster abo
 
 The poster is scenery in Snacks. The description of the poster is "A glossy advertisement dominated by a colorful assortment of pop-tarts above the slogan [quotation mark]SmartPastries for SmartPeople![quotation mark]."
 
+Instead of taking the poster:
+	say "You have no place to hang it and don[apostrophe]t really like the color scheme anyhow."
+
 The table is a scenery supporter in Snacks. The description of the table is "A rustic table positioned directly below the metal slot in the wall." Understand "rustic" as the table.
 
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart." Understand "slot" as the chute.
@@ -6349,6 +6352,9 @@ The party hat is a wearable prop in Welcome to Beta Testing. The description of 
 
 The posters are a plural-named scenery in Welcome to Beta Testing. The description of posters is "The walls are covered with uplifting, motivational posters, mostly cats, puppies and unicorns, with slogans like [quotation mark]You can do it![quotation mark], [quotation mark]Success is just another word for unending work[quotation mark], and [quotation mark]If you fail, fail forward (but really, don[apostrophe]t fail).[quotation mark]". Understand "poster" or "cat" or "cats" or "puppy" or "puppies" or "adorable" or "animal" or "animals" or "unicorn" or "unicorns" or "slogn" or "slogans" as the posters.
 
+Instead of taking the posters:
+	say "The last thing you need is a more inspirational cat posters."
+
 Instead of examining the player when the player wears the hat:
 	say "The hat adds a certain gravitas."
 
@@ -7247,9 +7253,9 @@ The starboard is a direction. The starboard has opposite port.
 
 The port is a direction. The port has opposite starboard. 
 
-The fore is a direction. The fore has opposite aft. Understand "f" or "forward" or "foreward" as fore when the location is in the Cat Area. 
+The fore is a direction. The fore has opposite aft. Understand "f" or "forward" or "foreward" or "head" as fore when the location is in the Cat Area. 
 
-The aft is a direction. The aft has opposite fore. Understand "a" or "aftward" or "abaft" or "backwards" or "back" or "rear" or "rearwards" as aft when the location is in the Cat Area.
+The aft is a direction. The aft has opposite fore. Understand "a" or "aftward" or "abaft" or "backwards" or "back" or "rear" or "rearwards" or "butt" as aft when the location is in the Cat Area.
 
 Does the player mean going a nautical direction when the location is in the Cat Area: it is very likely.
 
