@@ -1317,12 +1317,12 @@ This is the testInventory rule:
 					increase H by one;
 		say "[T] Pogom[if T is greater than 1]e[otherwise]a[end if]n in stock: ";
 		if W is 0:
-			say "all of them healthy.";
+			say "all of them healthy";
 		else if H is 0:
 			say "all of them [bracket]wounded[close bracket]";
 		else:
 			say "[H] healthy [bracket][W] wounded[close bracket]";
-		say line break;
+		say ".[paragraph break]";
 	let secondColumnFlag be false;
 	repeat with P running through pogotypes:
 		let H be 0;
