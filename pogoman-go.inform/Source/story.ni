@@ -1229,9 +1229,8 @@ The list of text called BALLLIST is always {
 "creaks and groans with the strain of holding in the xxx until it loses hope and submits to its fate",
 "lands where the xxx stood just a moment ago"
 }
-
 		
-section 10 - PogoInventory
+section 11 - PogoInventory
 	
 After taking inventory:
 	follow the pogo-inventory rule.
@@ -1290,7 +1289,7 @@ This is the pogo-inventory rule:
 			
 
 
-Section 11 - Spawning
+Section 12 - Spawning
 
 [see Chapter Not Ready For Prime Time - spawning is a test command to generate a random pogoman for so-called "experimentation" in the location of the player]
 
@@ -3304,6 +3303,67 @@ Verbs not applying to objects: Walthrough, guard, expert mode, disable hints, as
 Items working on inventory can't be tested since inventory commands work on pogotypes and not things
 ]
 
+Section 11 - TestInventory
+
+testInventorying is an action applying to nothing. Understand "testinv" as testInventorying.
+
+Carry out testInventorying:
+	follow the testInventory rule.	
+
+This is the testInventory rule:
+	sort Table of Inventory in wounded order;
+	sort Table of Inventory in pogoName order;	
+	if there is no pogoName in row 1 of the Table of Inventory:
+		say "Alas, you have no pogomen![line break]";
+	otherwise:
+		say "Pogomen Stock: (";
+		let T be 0;
+		repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:
+			choose row N in the Table of Inventory;
+			if there is no pogoName entry:
+				break;
+			otherwise:
+				let T be T plus one;
+		say "[T] pogom[if T is greater than 1]e[otherwise]a[end if]n)[line break]";
+	repeat with P running through pogotypes:
+		let H be 0;
+		let W be 0;
+		repeat with N running from 1 to MODE_POGOMEN_INVENTORY_LIMIT:
+			choose row N in the Table of Inventory;		
+			if there is no pogoName entry:
+				break;
+			if the pogoName entry is P:
+				if the wounded entry is true:
+					increase W by one;
+				otherwise:
+					increase H by one;
+		if W + H is greater than 0:
+			let T be "[P]" in Title Case;
+			say "[T]: ";
+			if H is greater than 0:
+				say "[H in words] healthy";
+			if H is greater than 0 and W is greater than 0:
+				say " and";
+			if W is greater than 0:
+				say "[W in words] wounded";
+			say line break;
+	say line break;
+	[Defending Pogomen]
+	if Not In Kansas Anymore is happening:
+		let D be 0;
+		repeat with N running from 1 to the number of rows in Table of Defenders:
+			choose row N in the Table of Defenders;
+			if there is a guardian entry:
+				increase D by one;
+		if D is 0:
+			say "No loyal pogomen are on guard in Pogoland.[paragraph break]";
+		otherwise:
+			let DD be "[D in words]" in title case;
+			say "[DD] team ";
+			let T be the team color of the player;
+			say "[T]" in lower case;
+			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scan[quotation mark] command for a display of deployed pogomen."
+				
 Chapter Initialize
 
 When play begins:
