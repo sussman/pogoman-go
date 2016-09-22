@@ -4792,7 +4792,7 @@ Section 48 - Unearthly Geometry
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
 
-Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outré" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horror" or "grotesque" or "vision" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
+Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outré" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horror" or "grotesque" or "vision" or "tentacles" or "project" or "knot" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
 
 Instead of touching the Unearthly Geometry:
 	say "You are momentarily reduced to a state of gibbering idiocy. It lasts only a moment before you fix your eyes back on the cell phone screen and start walking around again. The contrast is unstark."
