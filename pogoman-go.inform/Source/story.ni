@@ -5133,7 +5133,48 @@ Instead of smelling when the player is in the cafeteria:
 Instead of buying something when the player is in Cafeteria:
 	say "[freeStuff]."
 
-The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" as the employees.
+The waiter is a person in the cafeteria. The description of the waiter is "A rail thin man, probably in his thirties, with a pencil mustache and dressed in a well tailored tuxedo. He is in constant motion, ferrying one after another serving to the ravenous crowd in the cafeteria."
+
+Instead of cutting or attacking the waiter:
+	say "Hurting the waiter would not be popular with the cafeteria crowd, so you leave him alone."
+	
+Instead of pulling or pushing or turning or spinning the waiter:
+	say "There are so many people vying for the attention of the waiter that he does not notice."
+	
+Instead of taking the waiter:
+	say "He doesn[apostrophe]t get off his shift for another few hours, so he can[apostrophe]t go anywhere just now. [quotation mark]Trop pressé, monsieur! Tout à fait trop pressé![quotation mark][paragraph break]".
+	
+Instead of showing something to the waiter:
+	say "He just rolls his eyes and continues his frenetic duties."
+	
+Instead of buying the waiter:
+	say "He motions you away, [quotation mark]Please, pas de [apostrophe]tip[apostrophe]. Je suis professionel![quotation mark][paragraph break]"
+	
+Instead of giving something to the waiter:
+	try buying the waiter.
+	
+Instead of tasting or licking or eating the waiter:
+	say "The waiter pauses a moment, [quotation mark]Peut-être monsieur would préfère a pop-tart artisanal?[quotation mark] He points to a room northeast from the cafeteria and gets back to work."
+	
+Instead of capturing the waiter:
+	say "The waiter puffs with indignity and flicks a bit of [one of]tartine[or]crêpe[or]mousse[or]potage[or]charcuterie[in random order] at you."
+	
+Instead of kissing the waiter:
+	say "The waiter returns the greeting and keeps working."
+	
+Instead of talking to the waiter:
+	say "The waiter seems annoyed by your petty banter."
+	
+Instead of searching or touching or rubbing the waiter:
+	say "The waiter might not like that.[paragraph break]Or perhaps he would, but not while he is working.[paragraph break]Time and place, you know."
+
+	
+ 
+	
+
+ 
+	
+The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" or "crowd" as the employees.
 
 Instead of cutting or attacking the employees:
 	say "[noCutEmployees]."
