@@ -7334,7 +7334,7 @@ To say describeCatwalkPO:
 	visualize "[catWalkText]"
 	
 To say catWalkText:
-	say "A narrow metal with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tarts on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. You imagine that you are just about above the lattice-work boom that extends from the building to support the cat about fifty stories above the ground"
+	say "A narrow metal with a low railing -- a catwalk if you will -- runs along the spine of the cat. It [if the location is not the Catwalk]looks like it would be[otherwise]is[end if] wide enough to walk on comfortably if you ignore a more or less certain drop to certain death to either side.[paragraph break]From up here, you can tell that the giant pop-tart on the exterior side of the cat is actually made of hundreds of thousands of actual pop-tarts overlapped like roofing shingles. You imagine that you are just about above the lattice-work boom that extends from the building to support the cat about fifty stories above the ground"
 	
 The boomProxyOverhead is a catTopDrop. The boomProxyOverhead is in Cat's Beret, Maintenance Hatch, Catwalk, Poop Deck, and Deck Area. The printed name of boomProxyOverhead is "support boom". Understand "boom" or "support" or "arm" or "crane" or "gantry" or "grue" as the boomProxyOverhead. The description of the boomProxyOverhead is "[describeBoomPO]".
 
