@@ -1233,7 +1233,9 @@ The list of text called BALLLIST is always {
 section 11 - PogoInventory
 	
 After taking inventory:
-	follow the pogo-inventory rule.
+	follow testInventory rule.
+	
+[
 	
 This is the pogo-inventory rule:
 	sort Table of Inventory in wounded order;
@@ -1287,14 +1289,8 @@ This is the pogo-inventory rule:
 			say "[T]" in lower case;
 			say " pogom[if D is 1]a[otherwise]e[end if]n [regarding D][hold][if D is 1] a[end if] defensive position[if D is greater than 1]s[end if].[paragraph break]Use the [quotation mark]guards[quotation mark] command for a list or [quotation mark]scan[quotation mark] command for a display of deployed pogomen."
 			
-Section 12 - Test Inventorying
-
-
-testInventorying is an action applying to nothing. Understand "testinv" as testInventorying.
-
-Carry out testInventorying:
-	follow the testInventory rule.	
-
+]
+			
 This is the testInventory rule:
 	sort Table of Inventory in wounded order;
 	sort Table of Inventory in pogoName order;	
@@ -1342,17 +1338,16 @@ This is the testInventory rule:
 			if H is greater than 0:
 				say "[H]";
 			if H is greater than 0 and W is greater than 0:
-				say ", ";
+				say " ";
 			if W is greater than 0:
 				say "[bracket][W][close bracket]";
 			if secondColumnFlag is false:
-				let SPACER be 4;
+				let SPACER be 3; [space after colon and two between columns]
 				let SPACER be SPACER + the number of characters in "[P]";
 				let SPACER be SPACER + the number of characters in "[H]";
 				if W is greater than 0:
-					increase SPACER by 2;
-				if W is greater than 9:
 					increase SPACER by 1;
+					increase SPACER by the number of characters in "[W]";
 				if H is greater than 0 and W is greater than 0:
 					increase SPACER by 2; 
 				let SPACER be 26 - SPACER;
@@ -1362,7 +1357,7 @@ This is the testInventory rule:
 			otherwise:
 				say line break;	
 				now secondColumnFlag is false;
-	say line break;
+	say paragraph break;
 	say roman type;
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:
@@ -3142,7 +3137,7 @@ Carry out muting:
 After examining the player for the first time, bestow "Introspection".
 
 After taking inventory for the first time:
-	follow the pogo-inventory rule;
+	follow the testInventory rule;
 	bestow "Taking Stock".
 
 After examining a pogoBall for the first time, bestow "Attention To Detail".
@@ -3257,7 +3252,7 @@ Check spawning:
 		
 Carry out spawning:
 	move attackerPogoman to the location of the player;
-	now the type of attackerPogoman is a random pogotype;
+	now the type of attackerPogoman is zealocanth;
 	if a random chance of 1 in 2 succeeds:
 		now the attackerPogoman is injured;
 	otherwise:
