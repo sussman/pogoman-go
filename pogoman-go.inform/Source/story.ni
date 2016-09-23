@@ -2632,7 +2632,7 @@ Understand "stop [a thing]" as switching off.
 
 Section 13 - TapeFailing
 
-tapeFailing is an action applying to one thing. Understand "fast forward [a thing]" or "reverse [a thing]" or "record [a thing]" or "eject [a thing]" as tapeFailing.
+tapeFailing is an action applying to one thing. Understand "fast forward [a thing]" or "reverse [a thing]" or "rewind [a thing]" or "record [a thing]" or "eject [a thing]" as tapeFailing.
 
 Report tapeFailing:
 	if the noun is the walkman:
