@@ -6193,7 +6193,7 @@ The grey rug is scenery in the Legal Department. The description of the grey rug
 Instead of smelling the grey rug:
 	say "New rug smell."
 
-Instead of taking or pulling or looking under the grey rug:
+Instead of taking or pulling or pushing or spinning or turning or looking under the grey rug:
 	say "The rug is tacked down firmly to the floor."
 
 The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side."
