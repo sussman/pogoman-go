@@ -9575,6 +9575,9 @@ Instead of closing the gas cap:
 	otherwise:
 		say "The gas cap is already securely tightened."
 		
+Does the player mean inserting the gasoline into the gas tank:
+	it is very likely.
+		
 Instead of inserting the gasoline into something (called the recipient):
 	if the recipient is the gas tank:
 		if the gas tank is closed:	
