@@ -6298,7 +6298,7 @@ Instead of listening to the clock:
 After putting the clock on the wall:
 	say "You place the clock back on the wall."
 
-The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries." Understand "battery" as the fresh batteries.
+The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries." Understand "battery" or "aa" or "disposible" or "alkaline" or "lithium" or "zinc" or "carbon" as the fresh batteries.
 
 Instead of eating the batteries:
 	say "They would not be of much use to you by the time you saw them again."
