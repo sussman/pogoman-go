@@ -7715,20 +7715,20 @@ The magnificent floating ruby is a prop in CatHead. The description of the magni
 After examining the magnificent ruby for the first time:
 	bestow "Sparkly!".
 
-Instead of taking or touching the magnificent floating ruby  for the first time:
+Instead of taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby  for the first time:
 	say "As your hand approaches the jewel, it feels like ants are crawling over your hand and forearm. The air around your hand starts to scintillate and the smell of hamburger fills the room. Drawing still closer to the precious jewel, in the bright light you can see only the bones of your hand as if the skin has become transparent.[paragraph break]That[apostrophe]s enough for you to decide against messing with the ruby.[paragraph break]";
 	bestow "Holy Kryptonite, Batman!";
 	bestow "Mixed Metaphor".
 	
-Instead of taking or touching the magnificent floating ruby  for the second time:
+Instead of taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby  for the second time:
 	say "No way are you going to try to grab that glowing nugget of plutonium or whatever the hell it is.[paragraph break]";
 	Bestow "Plutonium Adverse".
 	
-Instead of taking or touching the magnificent floating ruby for the third time:
+Instead of taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby for the third time:
 	say "Not a chance. It[apostrophe]s surely worth a fortune. But will it help you catch pogomen? Nope.[paragraph break]On the other hand, you sure do seem to be racking up a bunch of points from messing around with it.[paragraph break]";
 	Bestow "Radiation Exposure Equals XP".
 	
-Instead of taking or touching the magnificent floating ruby:
+Instead of taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby:
 	say "Not today."
 
 Chapter Musk Lair
