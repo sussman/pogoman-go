@@ -7053,7 +7053,7 @@ Instead of taking or climbing or clipping or pulling or touching or swinging the
 	if the defenderPogoman is in Processing:
 		let P be the type of defenderPogoman;
 	let PP be "[P]" in title case;
-	say "You jump up and grab one of the meat hooks, which is traveling along the ceiling.";
+	say "You jump up and grab one of the meat hooks, which is traveling along the ceiling.[paragraph break]";
 	if the vitality of Elon Musk is less than dead:
 		say "As you ride along between the slabs of questionable meat, Musk[if the defenderPogoman is in processing] and your [PP][end if] run[if the defenderPogoman is not in processing]s[end if] along beneath you, keeping pace.";
 	now the isDangling of the meat hooks is true.
