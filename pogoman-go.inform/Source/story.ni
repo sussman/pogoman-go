@@ -4096,6 +4096,9 @@ The hedges are scenery in City Park. The description of the hedges is "Tall, tho
 
 Instead of entering or climbing the hedges, say "Ow. No thanks."
 
+Instead of cutting the hedges:
+	say "Not your job."
+
 Instead of searching the hedges:
 	say "You find even more hedges."
 
