@@ -4705,6 +4705,9 @@ Instead of touching or searching or examining the runes for the first time:
 	say "You are not sure how you even know how, but you read the runes aloud and find yourself dressed in shiny bronze Hittite armor doing battle with an Urgothot, the legendary sand dragon of Mesopotamian lore.[paragraph break]You quickly slay the Urgothot because, entertaining though it is, you were in the middle of playing Pogoman GO! and can ill afford to spend time battling ancient hellspawn.[paragraph break]While trying to avoid coming off as ill-mannered, you accept the rushed thanks of their royal majesties, shovel food down quickly during the celebration thrown in your honor (while stealing frequent glances at your phone), and slip away before a thousand slaves can haul your commemorative statue to the top of a nearby ziggurat.[paragraph break]With some relief, you perform the typical ritual of return, and having said the runes backwards, find yourself back in town, where you phone reacquires cellular service and you can finally get back to what you were doing.[paragraph break]";
 	bestow "Slayer Of The Mighty Urgothot".
 	
+Instead of touching the altar:
+	say "It feels like any other sacrificial pagan altar."
+	
 Instead of touching or searching or examining the runes: 
 	say "You don[apostrophe]t have time for that sort of nonsense."
 	
