@@ -7488,6 +7488,8 @@ Maintenance Hatch is aft of the Cat's Beret. The description of the maintenance 
 
 The hatchway is a door. It is down from the Maintenance Hatch. The description of the hatchway is "[hatchText]." The hatchway is closed. Understand "hatch" or "bulkhead" or "handle" as the hatchway.
 
+Understand "lift [something]" as pulling when location of the player is the maintenance hatch.
+
 To complain that (portal - a door) is already open:
 	say "[The portal] is already open."
 	
