@@ -10553,7 +10553,7 @@ to buildingCollapse:
 	end the story finally saying "DIED OF CRUSHING ENNUI".
 	
 to lobbyEnding:
-	say "You stumble out of the lobby, rip off the golden badge, and hand it to the unicorn. [quotation mark]There[apostrophe]s been an incident,[quotation mark] you tell him. [quotation mark]Up on the processing level. Very unfortunate.[quotation mark][paragraph break]As he can calls it in on his radio, you hustle around the block and duck into a dark alley. Traumatized by your experience with Pogoman GO!, you throw your phone [if the player wears the Baseball Cap of Pogomastery]and the Baseball Cap of Pogomastery[end if] into a garbage can and collapse on filthy mattress.[paragraph break]Later that evening, when unsuspecting player unwisely visit the dark alley you now call home, you use your special attack, relieving them of their phones and their cash.";
+	say "You stumble out of the lobby, rip off the golden badge, and hand it to the unicorn. [quotation mark]There[apostrophe]s been an incident,[quotation mark] you tell him. [quotation mark]Up on the processing level. Very unfortunate.[quotation mark][paragraph break]As he can calls it in on his radio, you hustle around the block and duck into a dark alley. Traumatized by your experience with Pogoman GO!, you throw your phone [if the player wears the Baseball Cap of Pogomastery]and the Baseball Cap of Pogomastery [end if]into a garbage can and collapse on filthy mattress.[paragraph break]Later that evening, when unsuspecting player unwisely visit the dark alley you now call home, you use your special attack, relieving them of their phones and their cash.";
 	end the story finally saying "LIFE OF CRIME".
 		
 Rule for amusing a victorious player: 
