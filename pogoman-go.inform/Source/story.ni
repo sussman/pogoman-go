@@ -10537,7 +10537,7 @@ to detroitEnding:
 	end the story finally saying "CRASH LANDED IN DETROIT!".
 	
 to catsInSpace:
-	say "Your run-in with Musk has invigorated you and filled you with a sense of adventure. When you reach the top level of the building, you cut across the cafeteria, run out to the observation deck, and hurl your phone towards the sky.[paragraph break]Shouting [quotation mark]YOLO![quotation mark] at the top of your lungs, you then plunge dramatically over the railing, turn two and a half somersaults in pike formation, and land neatly on Nyantech Cat[apostrophe]s giant red beret.[paragraph break]Moments later, you reach the cockpit, fire up its long dormant thrusters, tear free of the support gantry, and blast off![paragraph break]";
+	say "Your run-in with Musk has invigorated you and filled you with a sense of adventure. When you reach the top level of the building, you cut across the cafeteria, run out to the observation deck, and hurl your phone towards the sky.[paragraph break]Shouting [quotation mark]YOLO![quotation mark] at the top of your lungs, you plunge dramatically over the railing, turn two and a half somersaults in pike formation, and land neatly on Nyantech Cat[apostrophe]s giant red beret.[paragraph break]Moments later, you reach the cockpit, fire up its long dormant thrusters, tear free of the support gantry, and blast off![paragraph break]";
 	end the story finally saying "CATS IN SPACE!".
 	
 to felineDystopia:
