@@ -975,7 +975,6 @@ Instead of attacking Elon Musk:
 			say " him. He looks [vitality of Elon Musk].";
 		otherwise:
 			say "[nearMiss]."
-		
 			
 To say attackStyle:
 	say "You [one of]launch a flying kick at[or]throw an expert karate chop at[or]lunge towards[or]drive your fist into[or]let out your aggressions on[or]spin around and deliver a glancing kick to[or]jamb an elbow into[or]bring your knee up against[or]slam your foot down on[or]join your hands and bring them down like a hammer on[or]smash into[or]wallop[or]let loose a flurry of blows towards[in random order]".
@@ -7047,6 +7046,10 @@ The printed name of Processing is "Processing[if the isDangling of the meat hook
 
 Instead of jumping:
 	try taking the meat hooks.
+	
+Instead of going down when the player is in Processing and the isDangling of the meat hooks is true:
+	now  the isDangling of the meat hooks is false;
+	say "You drop down from the meat hook."
 
 Instead of taking or climbing or clipping or pulling or touching or swinging the meat hooks:
 	let P be a pogotype;
