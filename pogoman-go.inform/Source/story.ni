@@ -3865,7 +3865,8 @@ Every turn when the player is in the giant ball:
 				move the giant ball to the void;
 				say "A voice echoes in the distance, [quotation mark]Pogomaster, I choose you![quotation mark][paragraph break]A sliver of light appears in the walls of your plastic prison. You pour out of the pogoBall like a decanted yolk and resume your normal shape.[paragraph break]Your eyes slowly adapt to the dim light of a rundown gym. You stand at one corner of a regulation-size pogoman fighting mat.";
 			otherwise:
-				say "The ball seals shut around you and you are bounced around some time as your captor goes around collecting any other holdouts that have hidden away in Pogoland.[paragraph break]Later that evening, the [type of attackerPogoman] gets in a car and while waiting for a soda and burrito, you hear it mutter something about transferring you to the professor.";
+				let PP be "[type of attackerPogoman]" in title case;
+				say "The ball seals shut around you and you are bounced around some time as your captor goes around collecting any other holdouts that have hidden away in Pogoland.[paragraph break]Later that evening, the [PP] gets in a car and while waiting for a soda and burrito, you hear it mutter something about transferring you to the professor.";
 				move the player to Processing.[there by triggering the denouement scene]
 				
 Section 7 - When In The Gymnasium
