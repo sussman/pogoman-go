@@ -7789,7 +7789,7 @@ Instead of doing something other than examining with the trompe l'oeil ceiling:
 	
 The parquet floor is scenery in the Throne Room. The description of the floor is "The floor is a diamond pattern of inlaid ebony and ivory." Understand "ebony" or "ivory" or "wood" as the floor.
 
-The Prometheus fresco is scenery in the Throne Room. The description of the Prometheus fresco is "The fresco seems to follow you around the room; its eyes are hauntingly realistic[one of]. And the face... the face reminds you of billionaire Elon Musk[or][stopping]." Understand "painting" or "Promethean" as the Prometheus fresco.
+The Prometheus fresco is scenery in the Throne Room. The description of the Prometheus fresco is "The fresco seems to follow you around the room; its eyes are hauntingly realistic[one of]. And the face... the face reminds you of billionaire Elon Musk[or][stopping]." Understand "face" or "painting" or "Promethean" as the Prometheus fresco.
 
 Instead of doing something other than examining with the Prometheus fresco:
 	say "The painting follows the curvature of the vaulted ceiling, which is far above you."
