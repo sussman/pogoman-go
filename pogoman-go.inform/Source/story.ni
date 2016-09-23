@@ -9402,8 +9402,14 @@ The wheat is scenery in the farm. The description of the wheat is "Waving fields
 Instead of cutting or pulling or taking the wheat:
 	say "It isn[apostrophe]t ready for harvest yet."
 	
-Instead of searching the wheat:
+Instead of searching the wheat for the first time:
 	say "You unexpectedly discover the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to have fallen on hard time, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[quotation mark][paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
+	
+Instead of entering the wheat for the first time:
+	try searching the wheat.
+	
+Instead of entering the wheat:
+	say "You are concerned that once you enter the wheat, you would have limited vision of what is around you."
 	
 The tall grain silo is scenery in Farm. The description of the tall grain silo is "A tall red metal cylinder with a domed top. The silo stands a few feet from the farmhouse."
 
