@@ -7965,8 +7965,13 @@ After entering the MuskPod:
 	say "The pod dips slightly and rocks as you step into it the sleek cockpit and then slide into a custom-molded seat. Moments later, the cowling pivots down and clicks shut. A single word appears on the cockpit display [quotation mark]LAUNCH[quotation mark].";
 	teleport the player to the MuskPodRoom.
 	
+
+	
 Instead of attacking Elon Musk when the player is in MuskTube Station:
-	say "Your hand passes right through him and he flickers.[paragraph break]Noting the look of astonishment on your face, he clarifies, [quotation mark]Yes, a hologram. I can[apostrophe]t be everywhere, every minute of the day. Busy schedule. But I did think that you would benefit from a personal audience, albeit virtual.[quotation mark][paragraph break]".
+	say "You pass right through him and he flickers.[paragraph break]Noting the look of astonishment on your face, he clarifies, [quotation mark]Yes, a hologram. I can[apostrophe]t be everywhere, every minute of the day. Busy schedule. But I did think that you would benefit from a personal audience, albeit virtual.[quotation mark][paragraph break]".
+	
+Instead of touching or pushing or pulling or spinning or turning or licking or rubbing Elon Musk when the player is in MuskTube Station:
+	try attacking Elon Musk.
 
 Chapter in the Elevator
 
