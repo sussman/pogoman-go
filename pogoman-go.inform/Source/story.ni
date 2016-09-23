@@ -5638,7 +5638,10 @@ Instead of taking a scenery thing (called the item) when the player is in the Ge
 	if the item is a backdrop:
 		continue the action;
 	otherwise:
-		say "No. Aside from being massive [the item] [are] covered in thick, sticky, black grease."
+		if the item is grease:
+			try touching the grease;
+		otherwise:
+			say "No. Aside from being massive [the item] [are] covered in thick, sticky, black grease."
 
 Instead of doing something with the ladderProxy when the player is in the Gearing Assembly:
 	if the current action is examining:
