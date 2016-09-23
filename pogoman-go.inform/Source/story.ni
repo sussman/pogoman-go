@@ -5629,7 +5629,6 @@ Instead of taking the electric motor for the first time:
 	say "It is the size of a city bus.[paragraph break]";
 	bestow "Not today, Clark Kent".
 	
-
 Instead of taking the gears for the first time:
 	say "Aside from not wanting to lose a finger in their greasy maw, the gears are way too huge to take.[paragraph break]";
 	bestow "Digital Preservation".
@@ -5660,7 +5659,7 @@ Section 8 - Boom Arm
 
 The boomArm is a privately-named backdrop in the Gearing Assembly and in the Gantry Chamber. The description of the boomArm is "A long metal boom that extends from the building, and suspends the cat almost 50 stories above street level." The printed name of the boomArm is "support boom". Understand "boom" or "support" or "crawlway" or "crawl" or "way" as the boomArm
 
-The gears are plural-named scenery in the Gearing Assembly. The description of the gears is "Huge, greasy gears that move the room and its attached boom along a toothed track that circles the upper portion of the building, just below the observation deck." Understand "gear" or "assembly" or "transmission" as the gears.
+The gears are plural-named scenery in the Gearing Assembly. The description of the gears is "Huge, greasy gears that move the room and its attached boom along a toothed track that circles the upper portion of the building, just below the observation deck." Understand "gear" or "gearing" or "cog" or "cogs" or "cam" or "cams" or "assembly" or "transmission" as the gears.
 
 The track is scenery in the Gearing Assembly. The description of the track is "A bumpy metal track that rings the building. The upper part of the gearing assembly follows the track as it rotates the cat support boom around the building. The track is covered in grease and generally free of rust." Understand "tracks" as the track.
 
