@@ -6585,7 +6585,7 @@ Instead of searching the memorabilia:
 Instead of taking the memorabilia:
 	say "They are best left here, where few will ever see them."
 
-The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
+The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "cassette" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
 
 After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
