@@ -7772,7 +7772,7 @@ Instead of taking inventory when the Make Over Suite is visited and Exploring th
 Instead going north when the player is in the Throne Room:
 	say "[one of]There are no apparent exits. The robot carried you into the room from the north, but all you see in that direction is a solid wall[or]You can[apostrophe]t to that way[stopping]."
 	
-The mirrored walls are scenery in the Throne Room. The description of the mirrored walls is "The gilded mirrors put Versailles to shame." Understand "gilded" or "mirror" or "mirrors" as the mirrored walls.
+The mirrored walls are scenery in the Throne Room. The description of the mirrored walls is "The gilded mirrors of this hall put Versailles to shame." Understand "gilded" or "mirror" or "mirrors" or "hall" or "throne" or "room" as the mirrored walls.
 
 Instead of doing something other than examining with the mirrored walls:
 	say "You don't want to smudge up the pristine mirrors."
@@ -7789,7 +7789,7 @@ Instead of doing something other than examining with the trompe l'oeil ceiling:
 	
 The parquet floor is scenery in the Throne Room. The description of the floor is "The floor is a diamond pattern of inlaid ebony and ivory." Understand "ebony" or "ivory" or "wood" as the floor.
 
-The Prometheus fresco is scenery in the Throne Room. The description of the Prometheus fresco is "The fresco seems to follow you around the room; its eyes are hauntingly realistic[one of]. And the face... the face reminds you of billionaire Elon Musk[or][stopping]." Understand "face" or "painting" or "Promethean" as the Prometheus fresco.
+The Prometheus fresco is scenery in the Throne Room. The description of the Prometheus fresco is "The fresco seems to follow you around the room; its eyes are hauntingly realistic[one of]. And the face... the face reminds you of billionaire Elon Musk[or][stopping]." Understand "face" or "eyes" or "eye" or "painting" or "Promethean" as the Prometheus fresco.
 
 Instead of doing something other than examining with the Prometheus fresco:
 	say "The painting follows the curvature of the vaulted ceiling, which is far above you."
@@ -7799,12 +7799,20 @@ The spotlights are plural-named scenery in the Throne Room. The description of t
 Instead of doing something other than examining with the spotlights:
 	say "The spot lights are just below the ceiling, which is far above you."
 	
-The torches are plural-named scenery in the void. The description of the torches is "Two rows of wooden tiki torches burn brightly around the area formerly occupied by the throne."
+The torches are plural-named scenery in the void. The description of the torches is "Two rows of wooden tiki torches burn brightly around the stairs, which lead downward." Understand "torch" as the torches.
 
 Instead of doing something other than examining with the torches:
 	say "The torches are burning not only bright, but hot. You don[apostrophe]t want to get too close to them."
 	
 The dais is scenery in the Throne Room. 
+
+The staircaseProxy is a privately-named backdrop. The staircaseProxy is in the Throne Room and in the MuskTube Station. The description of the staircaseProxy is "A glossy marble staircase that spirals [if the location of the player is the Throne Room]downward[otherwise]upward to the Throne Room[end if]." 
+
+Understand "stairs" or "stair" or "marble" or "glossy" or "spiral" or "staircase" as "[spiralStairs]".
+
+Understand "[spiralStairs]" as the staircaseProxy when the player is in the Throne Room and the torches are in the Throne Room.
+
+Understand "[spiralStairs]" as the staircaseProxy when the player is in MuskTube Station and Elon Musk is in MuskTube Station.
 
 [failsafe for player not looking at the dais to move plot forward]
 At the time when the dais reveals itself:
@@ -7965,8 +7973,6 @@ After going down from the Throne Room when MuskTube Station is visited:
 After entering the MuskPod:
 	say "The pod dips slightly and rocks as you step into it the sleek cockpit and then slide into a custom-molded seat. Moments later, the cowling pivots down and clicks shut. A single word appears on the cockpit display [quotation mark]LAUNCH[quotation mark].";
 	teleport the player to the MuskPodRoom.
-	
-
 	
 Instead of attacking Elon Musk when the player is in MuskTube Station:
 	say "You pass right through him and he flickers.[paragraph break]Noting the look of astonishment on your face, he clarifies, [quotation mark]Yes, a hologram. I can[apostrophe]t be everywhere, every minute of the day. Busy schedule. But I did think that you would benefit from a personal audience, albeit virtual.[quotation mark][paragraph break]".
