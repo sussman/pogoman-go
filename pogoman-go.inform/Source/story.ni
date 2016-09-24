@@ -1354,12 +1354,14 @@ This is the testInventory rule:
 					say " ";
 				now secondColumnFlag is true;
 			otherwise:
-				say line break;	
 				now secondColumnFlag is false;
-	say paragraph break;
+				say line break;
+	if secondColumnFlag is true:[if left off on column 1]
+		say line break;
+	say line break;
 	say roman type;
 	[Defending Pogomen]
-	if Not In Kansas Anymore is happening:
+	if Not In Kansas Anymore is happening:		
 		let D be 0;
 		repeat with N running from 1 to the number of rows in Table of Defenders:
 			choose row N in the Table of Defenders;
@@ -2663,10 +2665,10 @@ Carry out special attacking:
 	let AA be "[type of attackerPogoman]";
 	let DD be "[type of defenderPogoman]";
 	if the location of the player is in Pogoland:
-		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone to the [noun], which is vaporized instantly!";
+		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy flashes from your phone to the [noun], which is vaporized instantly!";
 		move the noun to the void;
 	else if the location of the player is the Gymnasium:
-		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy rips flashes from your phone and strikes your opponent, the [AA]";
+		say "You channel your XP into you special attack and with a thunderclap, a blue-hot frothing stream of raw energy flashes from your phone and strikes your opponent, the [AA]";
 		if the attackerPogoman is injured:
 			say ". It is entirely engulfed in the blast ";
 			if a random chance of 75 in 100 succeeds:
@@ -3251,7 +3253,7 @@ Check spawning:
 		
 Carry out spawning:
 	move attackerPogoman to the location of the player;
-	now the type of attackerPogoman is zealocanth;
+	now the type of attackerPogoman is a random pogotype;
 	if a random chance of 1 in 2 succeeds:
 		now the attackerPogoman is injured;
 	otherwise:
@@ -9015,12 +9017,12 @@ Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
 
-The wild flowers are in the valley. The description of the wild flowers is "Brilliant purple and yellow flowers with fine petals." Understand "flower" or "plant" or "petal" or "petals" or "stamen" or "stamens" or "stem" or "stems" or "foliage" as the wild flowers. The wild flowers are plural-named. The indefinite article of the wild flowers is "some".
+The exotic flowers are in the valley. The description of the exotic flowers is "Brilliant purple and yellow flowers with fine petals." Understand "flower" or "plant" or "petal" or "petals" or "stamen" or "stamens" or "stem" or "stems" or "foliage" as the exotic flowers. The exotic flowers are plural-named. The indefinite article of the exotic flowers is "some".
 
-Instead of taking the wild flowers:
+Instead of taking the exotic flowers:
 	say "The flowers have remarkable tensile strength. You are unable to pluck them."
 	
-Instead of smelling the wild flowers for the first time:
+Instead of smelling the exotic flowers for the first time:
 	say "As you lean forward, the sticky stamen in the middle of the flower adheres to your nose and pulls your face closer. The petals wrap around your head and force your face into the gooey center of the flower. Stinging pollen abrades your eyes and a sickly sweet odor burns your lungs.[paragraph break]Your knees buckle and your fall to the ground as the plants stem coils around your legs, cutting off circulation. Serrated leaves saw back and forth at the base of your neck. Taking advantage of your immobility, lurking pogomen emerge from the foliage; you can hear them fighting to be first in line at the feast.[paragraph break]";
 	bestow "Stopped To Smell The Flowers";
 	frontierDeath.
