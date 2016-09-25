@@ -3827,7 +3827,7 @@ Every turn during legalEnding:
 		-- 3:
 			say "quivering";
 		-- 4:
-			say "agitated";
+			say "decidely agitated";
 		-- 5: 
 			say "nervous";
 		-- 6:
