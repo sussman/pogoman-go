@@ -10629,7 +10629,7 @@ When Not in Kansas Anymore begins:
 		
 At the time when desolation strikes:
 	if Not In Kansas Anymore is happening:
-		say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It[apostrophe]s creepy . All of the buildings are locked up. Maybe it[apostrophe]s a holiday or something?"
+		say "After spending some time in Pogoland you realize what has been disturbing you about this place: the absence of people. All the buildings and grounds are in pristine condition, but where are the hordes of players walking around with phones in hand? It[apostrophe]s creepy. All of the buildings are locked up. Maybe it[apostrophe]s a holiday or something?"
 	
 Chapter 4 - Denouement
 
