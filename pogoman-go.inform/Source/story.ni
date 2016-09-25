@@ -4975,6 +4975,9 @@ Instead of going a direction to the perilous passageway:
 	
 The garbage bin is a closed openable fixed in place container. The garbage bin is in perilous passageway. The description of the garbage bin is "An filthy metal trash bin." Understand "bin" or "skip" or "waste" or "dust" or "can" or "lid" or "top" as the garbage bin.
 
+Does the player mean taking the garbage bin:
+	it is unlikely.
+
 Instead of smelling the garbage bin:
 	if the garbage bin is closed:
 		say "With the lid on, the garbage doesn[apostrophe]t smell too bad.";
