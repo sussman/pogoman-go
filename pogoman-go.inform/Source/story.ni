@@ -4354,7 +4354,7 @@ Section 18 - Giant Chicken
 
 The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks." Giant Chicken is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Giant Chicken when the location is Giant Chicken. The title of Giant Chicken is "Giant Chicken". The printed name of Giant Chicken is "giant chicken sculpture".
 
-The swizzle sticks are scenery. The swizzle sticks are in Giant Chicken. The description of the swizzle sticks is "How many drinks must have been stirred in this effort?"
+The swizzle sticks are plural-named scenery. The swizzle sticks are in Giant Chicken. The description of the swizzle sticks is "How many drinks must have been stirred in this effort?" The indefinite article of the swizzle sticks is "some".
 
 Instead of climbing the Giant Chicken:
 	say tefloned.
