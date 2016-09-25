@@ -4042,6 +4042,9 @@ The dark tower is a privately-named backdrop in the Village. The description of 
 Instead of doing something other than examining with the dark tower:
 	say "The tower is near the city center; you would need to walk over there."
 	
+Does the player mean doing something with the dark tower:
+	it is unlikely.
+	
 Section 4 - The NyanCat Village Backdrop
 
 
