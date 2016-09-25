@@ -2467,7 +2467,7 @@ Instead of helping for the first time:
 	bestow "Here, let me Google that for you".
 	
 Instead of helping for the second time:
-	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is [italic type]hints[roman type], right? Hints are context-sensitive and will relate to whatever goals stand between you and the next part of the story. They are arranged to reveal gradually to try to avoid spoilers.[paragraph break]";
+	say "Not joking about the website: PogomanGo.templaro.com.[paragraph break]Besides, what you are probably looking for is [italic type]hints[roman type], right? Hints are context-sensitive and will relate to whatever goals stand between you and the next step in your pogoman adventure. They are arranged to reveal gradually to try to avoid spoilers.[paragraph break]";
 	bestow "Type [apostrophe][italic type]hints[roman type][apostrophe] for hints".
 	
 Instead of helping for the third time:
