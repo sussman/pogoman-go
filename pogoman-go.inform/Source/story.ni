@@ -4489,9 +4489,9 @@ Instead of entering or climbing Witch Pillory when the player is in Witch Pillor
 
 Section 29 - Flag Pole
 
-The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base." Flag Pole is an improper-named artifact. The printed name of flag pole is "flag pole".
+The description of Flag Pole is "A hundred-foot flag pole lit day and night by floodlights around its base." Flag Pole is an improper-named artifact. The printed name of flag pole is "flag pole". Understand "flagpole" as the flag pole.
 
-The flagProxy is privately-named scenery in Flag Pole.  The printed name of the flagProxy is "flag". The description of the flagProxy is "It waves proudly in the slight breeze." Understand "flag" or "banner" as flagProxy.
+The flagProxy is privately-named scenery in Flag Pole.  The printed name of the flagProxy is "flag". The description of the flagProxy is "It waves proudly in the slight breeze." Understand "flag" or "banner" as flagProxy. 
 
 Instead of climbing Flag Pole, say "Inadvisable. The location is way too public, particularly with all those lights shining on it."
 
