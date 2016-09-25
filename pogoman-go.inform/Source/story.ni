@@ -7022,7 +7022,8 @@ To transform the processing area:
 		say "Musk is clearly done for, but gathers his energy and prepares to speak for one last time.[paragraph break]Fearing a rather drawn out soliloquy, you kick him in the head, putting an end to all that nonsense.[paragraph break][bold type]** YOU HAVE WON… [roman type][paragraph break]Oh wait, no not quite. You[apostrophe]re still going. There must be a bit more to this.[paragraph break]";
 		bestow "Still ticking”;
 		if the defenderPogoman is in Processing:
-			say "Your [type of the defenderPogoman] flees the crime scene.";
+			let DD be "[type of defenderPogoman]" in title case;
+			say "Your [DD] flees the crime scene.";
 		now the clipboard is in Processing;
 		now the defenderPogoman is in the void.
 		
