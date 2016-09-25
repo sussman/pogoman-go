@@ -5677,7 +5677,7 @@ Instead of doing something with the ladderProxy when the player is in the Gearin
 The grease is a scenery in the Gearing Assembly. The description of the grease is "Yucky, thick black grease."
 
 Instead of doing something other than examining with the grease: 
-	say "You don[apostrophe]t want anything to do with the grease[one of]. Once it gets on you, you[apostrophe]d track it all over an make a big mess[or][stopping]."
+	say "You don[apostrophe]t want anything to do with the grease[one of]. Once it gets on you, you[apostrophe]d track it all over and make a big mess[or][stopping]."
 	
 Section 8 - Boom Arm
 
