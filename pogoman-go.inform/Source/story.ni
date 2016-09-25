@@ -4315,7 +4315,7 @@ Section 15 - Spit n' Solder
 
 The description of Spit n' Solder is "The town hardware store. A sun-faded display in the windows advertises [quotation mark]free vacuum tube testing[quotation mark].". Spit n' Solder is an improper-named structure. Understand "hardware" as Spit n' Solder. Understand "building" or "store" as Spit n' Solder when the location is Spit n' Solder. The title of Spit n' Solder is "Spit n[apostrophe] Solder". The printed name of Spit n' Solder is "hardware store".
 
-The display is scenery in Spit n' Solder. The description of the display is "In addition to testing vacuum tubes, the store advertises that it also services BlackBerry phones." Understand "windows" or "window" as the display.
+The display is scenery in Spit n' Solder. The description of the display is "In addition to testing vacuum tubes, the store advertises that it also services BlackBerry phones." Understand "ad" or "advertisement" or "windows" or "window" as the display.
 
 After examining the display for the first time:
 	bestow "Know Your Clients".
