@@ -4711,7 +4711,7 @@ Instead of touching or searching or examining the runes for the first time:
 	bestow "Slayer Of The Mighty Urgothot".
 	
 Instead of touching the altar:
-	say "It feels like any other sacrificial pagan altar."
+	say "It feels like any other pagan sacrificial altar."
 	
 Instead of touching or searching or examining the runes: 
 	say "You don[apostrophe]t have time for that sort of nonsense."
