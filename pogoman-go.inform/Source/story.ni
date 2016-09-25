@@ -4930,7 +4930,7 @@ Instead of going a direction to the perilous passageway:
 			try looking;
 		-- 2:
 			say the headline of the Perilous Passageway;
-			say "As you round a pile of boxes behind a garbage bin searching eagerly for the artifact, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
+			say "As you round a pile of boxes behind a garbage bin searching eagerly for a pogoman artifact, you are immediately flanked by two shady characters who have been lurking in the alley. The heavyset short one blocks your exit while the tall wiry one wearing a red bandana rips the phone from your grasp. He tosses the phone onto a pile of glowing cell phones and his partner tosses you onto a heap of unconscious players.";	
 			phoneDeath;
 		-- 3:
 			say "You recall that last time, walking into this foreboding passageway didn[apostrophe]t work out very well for you. You consider walking around the block. On the other hand, pogoman artifacts are few and far between. Having one place you definitively among the game elite. The artifact-detector on your phone is off the scale (in a sense, since [quotation mark]off the scale[quotation mark] is one of the items on the scale). In any event, it looks pretty powerful.[paragraph break]Decisions, decisions.";
