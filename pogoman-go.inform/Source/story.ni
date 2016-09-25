@@ -9965,6 +9965,9 @@ Instead of putting the phone on something:
 Instead of inserting the phone into something:
 	try dropping the phone.
 	
+Instead of taking the Teslatronic Energy Module:
+	try opening the Teslatronic Energy Module.
+	
 Instead of opening the Teslatronic Energy Module:
 	say "The module is an integral part of the phone. If it ever fails, you will just have to buy another phone. Marketing."
 
