@@ -2475,7 +2475,7 @@ Instead of helping for the third time:
 	bestow "Needy".
 	
 Instead of helping for the fourth time:
-	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored. Consider it [quotation mark]tough love.[quotation mark][paragraph break]No medal for you.";
+	say "In the interest of not fostering further dependency behavior, your wearisome cries for help will henceforth be ignored. Consider it [quotation mark]tough love[quotation mark].[paragraph break]No medal for you.";
 		
 Section 4 - About
 
