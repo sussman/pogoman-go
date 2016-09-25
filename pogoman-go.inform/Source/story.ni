@@ -1642,7 +1642,7 @@ Carry out inventoryExamining:
 		say "[pogoDex data for pogotype understood]. Health status: ";
 		if W is true:
 			if H is true:
-				say "both healthy and wounded.";
+				say "both healthy and wounded";
 			else:
 				say "wounded";
 		else:
