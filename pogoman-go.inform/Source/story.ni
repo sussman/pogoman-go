@@ -10624,7 +10624,7 @@ When Not in Kansas Anymore begins:
 	distributePogolandPogostops;
 	Desolation strikes in DESOLATION_DELAY_DURATION turns from now;
 	now the mortal coil is part of the player;
-	now the description of the player is "You have been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft  and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
+	now the description of the player is "You have been playing for days, have jumped off a building, crawled through the insides of a cat, dropped down a shaft and through a ceiling, have been shot at supersonic velocities through the very center of the planet. [if the healthiness of the player is healthy]Despite all that, you look healthy enough[otherwise]After all you have been through you look [healthiness of the player][end if]."
 		
 At the time when desolation strikes:
 	if Not In Kansas Anymore is happening:
