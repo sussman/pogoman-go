@@ -5988,11 +5988,11 @@ After going inside from the revolvingDoor for the first time:
 	
 Instead of going south from the Lobby for the first time:
 	say the headline of the Lobby;
-	say "You are stopped by the security nymph, who takes one look at your hand and says, [quotation mark]Sorry. Company property cannot leave the building.[quotation mark][paragraph break]";
+	say "You are stopped by the security dryad, who takes one look at your hand and says, [quotation mark]Sorry. Company property cannot leave the building.[quotation mark][paragraph break]";
 	bestow "Bureaucracy Is Its Own Reward".
 	
 Instead of going south from the Lobby:
-	say "The security nymph points to your property stamp and escorts you back to the lobby.";
+	say "The security dryad points to your property stamp and escorts you back to the lobby.";
 	try looking.
 	 
 Section 14 - LAN Closet
