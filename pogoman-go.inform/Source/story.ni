@@ -823,7 +823,7 @@ To say attackingPogomanName:
 	say "[if the attackerPogoman is injured]wounded [end if][if Not in Kansas Anymore is happening]attacking[otherwise]wild[end if] [T]".
 
 Instead of taking a pogoentity:
-	say "You'll have to throw a PogoBall at it to capture it!".
+	say "You[apostrophe]ll have to throw a PogoBall at it to [italic type]capture[roman type] it!".
 		
 Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
