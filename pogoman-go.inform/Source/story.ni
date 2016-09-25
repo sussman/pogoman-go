@@ -5389,13 +5389,25 @@ Instead of talking to something (called the auditor):
 			say "You receive no answer.";
 
 To say employeeRant:
-	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][employeeRant2][in random order].[quotation mark][paragraph break]".
+	say "The employee [one of]seems taken aback by your approach[or]startles with a lurch[or]looks around wildly and then stares awkwardly at you[or]struggles to focus on something other than the monocle for once and looks you squarely in the neck[in random order] and [one of]replies[or]says[or]answers[in random order], [quotation mark][one of][employeeRant1][or][employeeRant2][or][employeeRant3][or][employeeRant4][or][employeeRant5][or][employeeRant6][in random order].[quotation mark][paragraph break]".
 	
 To say employeeRant1:
-	say "Hello, $identity[bracket]player[bracket][team color of the player][close bracket][bracket][pogoLevel of the player][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)";
+	say "Hello, $identity[bracket]player[bracket][team color of the player][close bracket][bracket][pogoLevel of the player][close bracket][close bracket], looks like the weather is going to be &extractWeather([quotation mark]town[quotation mark], +3)".
 	
 To say employeeRant2:
-	say "Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social interactions";
+	say "Ah, [bracket]one of[close bracket]good[bracket]or[close bracket]great[bracket]or[close bracket]nice[bracket]or[close bracket]wonderful[bracket]or[close bracket]how pleasant[bracket]at random[close bracket] to see a [bracket]one of[close bracket]player[bracket]or[close bracket]visitor[bracket]or[close bracket]gamer[bracket]at random[close bracket] and to have normal social interactions".
+	
+To say employeeRant3:
+	say "echo sprintf($nonThreatingGreeting, $banalBanter, $socialExtrication);".
+	
+To say employeeRant4:
+	say "(princ [quotation mark]Always glad to meet a [quotation mark])(format t [quotation mark]~a player of level ~d[quotation mark] pogoLevel teamColor)".
+	
+To say employeeRant5:
+	say "print [quotation mark]Have you tried the $_ ? It is superb this time of year \n[quotation mark]"
+	
+To say employeeRant6:
+	say "10 CLS:PRINT [quotation mark]HAVE YOU VISITED THE OBSERVATION DECK? THE VIEW IS REMARKABLE.[quotation mark]:PRINT:PRINT [quotation mark]FROM UP THERE YOU CAN SEE [quotation mark]:PRINT $TOWN_LOCATION[bracket]RND*48[close bracket]"
 	
 To say visitorRebuff:
 	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can[apostrophe]t you see I[apostrophe]m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
