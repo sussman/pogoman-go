@@ -6224,6 +6224,9 @@ Instead of taking or pulling or pushing or spinning or turning or looking under 
 
 The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side." Understand "antique" as the mahogany desk.
 
+Instead of opening the mahogany desk:
+	try opening the drawer.
+
 The drawer is an openable closed container. The drawer is part of the desk. The description of the drawer is "A sliding drawer, which is [if the drawer is open]open[otherwise]shut[end if]."
 
 Instead of pulling the drawer:
