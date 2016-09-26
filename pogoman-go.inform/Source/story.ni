@@ -5323,7 +5323,7 @@ Understand "plate" or "plates" or "roasted" or "boar" or "roast" or "braised" or
 Instead of doing something other than examining or smelling with the food:
 	say "Game now, eat later. Must explore the building! Pogoman glory awaits!"
 
-The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level [the pogolevel of the player plus 20 in words] pogomasters. You feel a little out of your league." Understand "players" or "player" or "visitor" as visitors.
+The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level [the pogolevel of the player plus 20 in words] pogomasters. You feel a little out of your league." Understand "players" or "player" or "gamer" or "gamers" or "visitor" as visitors.
 
 Instead of cutting or attacking the visitors:
 	say "[noCutPlayers]."
