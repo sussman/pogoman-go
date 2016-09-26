@@ -7600,7 +7600,7 @@ Instead of putting the pop-tart on the tin pipe:
 Instead of doing something other than examining with the pipe: 
 	say "The tin pipe is red hot."
 	
-Instead of taking the tin pipe for the first time:
+Instead of taking or touching the tin pipe for the first time:
 	say "Your fingers sizzle as the make contact with the hot tin pipe. You pull your hand back immediately. Well, let[apostrophe]s say, [italic type]most[roman type] of your hand.[paragraph break]";
 	bestow "Kids, Don[apostrophe]t Try This".
 	
