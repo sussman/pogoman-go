@@ -6214,7 +6214,7 @@ Instead of searching or attacking or looking under or listening to the wainscot:
 Instead of searching or attacking or looking under or listening to the office wall:
 	try searching the walnut paneling.
 
-The grey rug is scenery in the Legal Department. The description of the grey rug is "The dark grey connotes professionalism."
+The grey rug is scenery in the Legal Department. The description of the grey rug is "The dark grey connotes professionalism." Understand "carpet" as the grey rug.
 
 Instead of smelling the grey rug:
 	say "New rug smell."
