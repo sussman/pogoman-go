@@ -7604,7 +7604,7 @@ Instead of taking or touching the tin pipe for the first time:
 	say "Your fingers sizzle as the make contact with the hot tin pipe. You pull your hand back immediately. Well, let[apostrophe]s say, [italic type]most[roman type] of your hand.[paragraph break]";
 	bestow "Kids, Don[apostrophe]t Try This".
 	
-The sparks are plural-named scenery in the Poop Deck. The description of the sparks is "A trail of sparks flies out behind the cat and is visible for miles around."
+The sparks are plural-named scenery in the Poop Deck. The description of the sparks is "A trail of sparks flies out behind the cat and is visible for miles around." Understand "sparkles" or "confetti" or "rainbow" or "rainbows" or "sparkle" or "trail" or "confettis" or "spark" as the sparks.
 
 Instead of taking the sparks for the first time:
 	say "You give up after nearly welding yourself to the cat.[paragraph break]";
