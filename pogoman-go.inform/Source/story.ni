@@ -6222,7 +6222,7 @@ Instead of smelling the grey rug:
 Instead of taking or pulling or pushing or spinning or turning or looking under the grey rug:
 	say "The rug is tacked down firmly to the floor."
 
-The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side."
+The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side." Understand "antique" as the mahogany desk.
 
 The drawer is an openable closed container. The drawer is part of the desk. The description of the drawer is "A sliding drawer, which is [if the drawer is open]open[otherwise]shut[end if]."
 
