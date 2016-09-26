@@ -1143,7 +1143,7 @@ Instead of throwing a pogoBall at something (called the target):
 	
 
 The list of text called TRAJECTORYLIST is always {
-" and are amused when the half-open ball plops down on the its head and pulls it upward into the ball",
+" and are amused when the half-open ball plops down on its head and pulls it upward into the ball",
 ". Futilely, it yells something at you in defiance, but the sound is drowned out by the energy vortex that draws the pogoman into the waiting pogoBall",
 " and bowl it down with the deadly accuracy of a world-class pétanque champion",
 " and are amused by its futile attempt to escape the overwhelming attraction of the ball, which snaps shut as soon as the pogoman is imprisoned",
