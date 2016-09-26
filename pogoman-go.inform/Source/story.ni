@@ -7839,6 +7839,12 @@ The dais is scenery in the Throne Room.
 
 The staircaseProxy is a privately-named backdrop. The staircaseProxy is in the Throne Room and in the MuskTube Station. The description of the staircaseProxy is "A glossy marble staircase that spirals [if the location of the player is the Throne Room]downward[otherwise]upward to the Throne Room[end if]." 
 
+Instead of climbing the staircaseProxy:
+	if the player is in the Throne Room:
+		try going down;
+	otherwise:
+		try going up.
+
 Understand "stairs" or "stair" or "marble" or "glossy" or "spiral" or "staircase" as "[spiralStairs]".
 
 Understand "[spiralStairs]" as the staircaseProxy when the player is in the Throne Room and the torches are in the Throne Room.
