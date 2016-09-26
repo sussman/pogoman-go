@@ -8821,7 +8821,7 @@ Instead of exiting when the player is in the MuskPodRoom:
 	if the MuskPod is not in Pogoland Terminal:[location of pod serves as event marker]
 		say "The canopy refuses to open[one of]. It seems committed to keeping you alive during hypersonic transport. Go figure[or][stopping].";
 	otherwise:
-		say "As you straddle the gap between the pod and platform, you and ";
+		say "As you straddle the gap between the pod and platform, you stumble and ";
 		ArriveInPogoland.
 		
 To ArriveInPogoland:
