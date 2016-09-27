@@ -3732,7 +3732,7 @@ Every turn during denouement:
 		if a random chance of 1 in 2 succeeds	:
 			now the healthiness of the player is the health state after the healthiness of the player;
 			if the healthiness of the player is dead:
-				say "slices your head clean off with his razor-sharp clipboard, ending the battle.";	
+				say "slices your head clean off with his razor-sharp clipboard, ending the battle.[paragraph break]";	
 				muskEnding;	
 			otherwise:	
 				say "[entry 1 in MUSKATTACKFLAVOR]. You are [healthiness of the player].";	
