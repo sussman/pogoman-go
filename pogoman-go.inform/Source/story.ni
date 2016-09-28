@@ -10906,7 +10906,7 @@ A hint activation rule (this is the Exploring Nyantech hint activation rule):
 		activate the Table of Exploring Nyantech.
 		
 A hint deactivation rule (this is the Exploring Nyantech hint deactivation rule):
-	if the securityColor of the badge is Green:
+	if the Kool-Aid is in the void:
 		deactivate the Table of Exploring Nyantech.
 
 Table of Exploring Nyantech
@@ -10925,7 +10925,7 @@ hint	used
 "Can you really swallow Nyantech's way of doing things?"
 
 A hint activation rule (this is the Finding Legal hint activation rule):
-	if the securityColor of the badge is Green:
+	if the securityColor of the badge is green:
 		activate the Table of Finding Legal.
 		
 A hint deactivation rule (this is the Finding Legal hint deactivation rule):
@@ -11006,7 +11006,7 @@ A hint activation rule (this is the Aquatics hint activation rule):
 		activate the Table of Aquatics.
 			
 A hint deactivation rule (this is the Aquatics hint deactivation rule):
-	if the securityColor of the badge is blue:
+	if BallPitDeep is visited:
 		deactivate the Table of Aquatics.
 
 Table of Aquatics
@@ -11236,6 +11236,8 @@ hint	used
 "PogoMeth?"
 "Musk is a great entrepreneur, but pretty lousy fighter. Can you punch him?"
 "Do you have enough XP to mount a special attack?"
+"Any other way off the floor?"
+"Where do the meat hooks go?"
 
 A hint activation rule (this is the Wicked Witch hint activation rule):
 	if the vitality of Elon Musk is dead:
