@@ -14,7 +14,7 @@ Use MAX_SYMBOLS of 25000.
 
 Use full-length room descriptions, american dialect and the serial comma.
 
-Release along with cover art ("The Nyantech mascot cat riding a giant pogoBall"), the introductory booklet, the introductory postcard, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
+Release along with cover art ("The Nyantech mascot cat riding a giant pogoBall"), a website, the introductory booklet, the introductory postcard, a file of "Diagrams" called "diagrams.pdf", a file of "Walkthrough" called "walkthrough.pdf", and a file of "Web Content" called "OffLineContent".
 
 Include Basic Screen Effects by Emily Short.  [allows us to 'pause the game']
 Include Adaptive Hints by Eric Eve. [slightly tweaked for context-specific hints]
