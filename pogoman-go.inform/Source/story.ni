@@ -3,7 +3,7 @@
 
 The story headline is "An interactive satire".
 The story genre is "comedy".
-The release number is 13.
+The release number is 14.
 The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
@@ -2493,7 +2493,7 @@ Section 5 - Credits
 Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting.
 	
 Report crediting:
-	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[line break]* John Lodder[line break]* Aaron Reed[line break]* Davy Krieger[line break]* Mike VanHelder[line break]* Duncan Bowsman[line break]* Frances Collins-Sussman[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
+	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[line break]* John Lodder[line break]* Aaron Reed[line break]* Davy Krieger[line break]* Mike VanHelder[line break]* Duncan Bowsman[line break]* Frances Collins-Sussman[line break]* Mark Lee Stillwell[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
 	bestow "So, who is to blame?".
 	
 Section 6 - Music Credits
