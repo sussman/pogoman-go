@@ -8399,7 +8399,7 @@ Legal Department	Green	true	false	legalButton
 section 9 - Elevator Soundtrack
 
 To roll music credits:
-	say "Excerpts of the following songs are used within bounds of fair use in a transformative work. We have attempted to credit each song[apostrophe]s writer, so some of the names will not be as recognizable as the groups or individual singers usually associated with each song. If we got any of the attributions wrong, please let us know by email: contact@pogoman.templaro.com[paragraph break]";
+	say "Excerpts of the following songs are used within bounds of fair use in a transformative work. We have attempted to credit each song[apostrophe]s writer, so some of the names will not be as recognizable as the groups or individual singers usually associated with each song. If we got any of the attributions wrong, please let us know by email: contact@pogomango.templaro.com[paragraph break]";
 	repeat with N running from 1 to the number of rows in the Table of Musical Credits:
 		say italic type;
 		say Song Name in row N of Table of Musical Credits;
