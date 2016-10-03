@@ -5106,15 +5106,18 @@ A direction can be blasphemous or orthodox. A direction is usually orthodox. Nor
 
 A person can be untainted or sinful. The player is untainted.
 
-Before going a blasphemous direction when the location is in The Village:
+Before going a blasphemous direction when the location is in The Village or the location is in Pogoland:
 	if the phone is hung:
 		try going north instead;
 	otherwise:
-		say "No can do. The City Fathers were Ultra-Orthogonalists.[paragraph break]";
+		if the location of the player is in the village:
+			say "No can do. The City Fathers were Ultra-Orthogonalists.[paragraph break]";
+		otherwise:
+			say "Orthogonal directions only, please.[paragraph break]";
 		if the player is untainted:[state is tracked so this only fires once]
 			now the player is sinful;
 			bestow "No-cutting-corners";
-			stop the action.
+		stop the action.
 
 Section 57 - Border Death Table
 
