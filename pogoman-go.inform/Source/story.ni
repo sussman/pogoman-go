@@ -2454,6 +2454,10 @@ Carry out spinning:
 		say "The pogostop spews out [booty of the pogostop], which you quickly scoop up[one of]. Your pogostop booty shows up immediately in your inventory and is ready for use[or][stopping].[paragraph break]";
 		awardXP POGOSTOP_XP_VALUE;
 		now the time stamp of the location of the player is the TURNCOUNTER.
+		
+Rule for supplying a missing noun while spinning:
+	if the pogostop is in the location of the player:
+		now the noun is the pogostop.
 
 Section 3 - Help
 
@@ -2490,10 +2494,12 @@ After abouting for the first time:
 
 Section 5 - Credits
 
-Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting.
+Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting. 
 	
 Report crediting:
-	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[line break]* John Lodder[line break]* Aaron Reed[line break]* Davy Krieger[line break]* Mike VanHelder[line break]* Duncan Bowsman[line break]* Frances Collins-Sussman[line break]* Mark Lee Stillwell[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]";
+	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[line break]* John Lodder[line break]* Aaron Reed[line break]* Davy Krieger[line break]* Mike VanHelder[line break]* Duncan Bowsman[line break]* Frances Collins-Sussman[line break]* Mark Lee Stillwell[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]".
+	
+After crediting for the first time:
 	bestow "So, who is to blame?".
 	
 Section 6 - Music Credits
