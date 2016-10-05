@@ -2196,7 +2196,10 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 	otherwise:
 		say "I didn[apostrophe]t hear you. What did you say?";
 	the rule succeeds.
-
+	
+Rule for printing a parser error when the latest parser error is didn't understand error or the latest parser error is not a verb I recognise error:
+	say "I didn[apostrophe]t understand that; type [quotation mark][italic type]commands[roman type][quotation mark] to see some less common commands.";
+	the rule succeeds.
 
 Section 3 - Room Headers and Headlines
 
