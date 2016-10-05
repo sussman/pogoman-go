@@ -1964,7 +1964,7 @@ Carry out expertModing:
 
 Section 13 - Command Command
 
-Commanding is an action out of world. Understand "command" or "commands" as commanding.
+Commanding is an action out of world. Understand "command" or "commands" or "verb" or "verbs" as commanding.
 
 Carry out commanding:
 	say "Here are some less commonly used commands that are currently available:[paragraph break]* capture (a pogoman)[line break]* clip/unclip (something)[line break]* commands[line break]* evolve (a pogoman)[line break]* expert mode[line break]* feed (a pogoman)[line break]* fill/empty (something)[line break][if  Exploring the Tower has ended]* guards[line break][end if]* heal (a pogoman)[line break]* pogodex[line break]* reboot[line break]* scan[line break][if Exploring The Tower has ended]* special attack (someone)[line break][end if]* spin (a pogostop)[line break]* transfer (a pogoman)[paragraph break]".
