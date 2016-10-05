@@ -2935,7 +2935,7 @@ Section 27 - Xyzzying
 Xyzzying is an action applying to nothing. Understand "xyzzy" as xyzzying.
 
 Carry out xyzzying:
-	say "You successfully enter the cheat code into Pogoman GO![paragraph break]";
+	say "You enter the marginally effective cheat code into Pogoman GO![paragraph break]";
 	awardXP 1.
 	
 After xyzzying for the first time:
