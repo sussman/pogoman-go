@@ -2188,7 +2188,17 @@ To say picked a nice color:
 	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first [unicode 9785][unicode 9785][unicode 9785][paragraph break]";
 	now the teamColorPrompt of the player is 0.
 
-Section 2 - Room Headers and Headlines
+Section 2 - Parser Errors
+
+Rule for printing a parser error when the latest parser error is the I beg your pardon error: 
+	if the phone is hung:
+		do nothing;
+	otherwise:
+		say "I didn[apostrophe]t hear you. What did you say?";
+	the rule succeeds.
+
+
+Section 3 - Room Headers and Headlines
 
 To say header of (QTH - a room):
 	let T be the title of the QTH;
@@ -2209,7 +2219,7 @@ The room header rule substitutes for the room description heading rule.
 To say the headline of (QTH - a room):
 	say "[line break][bold type][header of QTH][roman type][line break]".
 
-Section 3 - Get rid of door descriptions
+Section 4 - Get rid of door descriptions
 
  For printing a locale paragraph about a door (called the item) 
     (this is the don't mention doors in room descriptions rule): 
@@ -2220,13 +2230,13 @@ Section 3 - Get rid of door descriptions
 if a title isn't specified, the printed name will be used. If the printed name isn't specified, the printed name is automatically based on what ever name was used in declaring the object. Most locations are flagged as improper-named so the printed name will work correctly, i.e., "the object" instead of "object", when "the" is a phrase option.
 ]
 
-Section 4 - Listing custom exits
+Section 5 - Listing custom exits
 
 This is the list exits rule:
 	if the possible exits of the location is not "" and the player is not in the giant ball:
 		say "[the possible exits of the location][paragraph break]".
 		
-Section 5 - Customized Inventory Details
+Section 6 - Customized Inventory Details
 
 Rule for printing inventory details of a pogoBall-kind:
 	say " ([pogoBallsCarried of the player] total)[run paragraph on]"
@@ -2246,13 +2256,13 @@ Rule for printing inventory details of a pogoIncense-kind:
 
 
 
-Section 6 - Rotational text lists
+Section 7 - Rotational text lists
 
 To overhear things in (QTH - room):
 	rotate the stage business of the QTH backwards;
 	say entry 1 of the stage business of QTH.
 
-Section 7 - Miscellany (probably reorganize later)
+Section 8 - Miscellany (probably reorganize later)
 
 This is the run from sound rule:
 	if the speaker is active and the walkman is not worn:
@@ -2286,7 +2296,7 @@ To teleport the player to (destination - a room):
 	now the previousRoom of the player is the void;
 	move the player to the destination.
 			
-Section 8 - Mentioning Defenders
+Section 9 - Mentioning Defenders
 
 [This is to update the pogomen in the room; has to happen before deciding what objects to list in the room; every turn procedures would be too late, for example]
 
