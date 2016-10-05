@@ -7165,10 +7165,16 @@ The meat hooks are scenery in Processing. The description of the meat hooks is "
 The printed name of Processing is "Processing[if the isDangling of the meat hooks is true] (Dangling From A Meat Hook)[end if]".
 
 Instead of jumping:
-	try taking the meat hooks.
+	say "You jump up and down, but cell phone reception doesn[apostrophe]t get any better."
+
+Instead of jumping when the player is in Processing:
+	if the isDangling of the meat hooks is true:
+		try going down;
+	otherwise:
+		try taking the meat hooks.
 	
 Instead of going down when the player is in Processing and the isDangling of the meat hooks is true:
-	now  the isDangling of the meat hooks is false;
+	now the isDangling of the meat hooks is false;
 	say "You drop down from the meat hook."
 
 Instead of taking or climbing or clipping or pulling or touching or swinging the meat hooks:
