@@ -125,6 +125,7 @@ The player has a number called pogomenDefeated. The pogomenDefeated of the playe
 The player has a truth state called deniedTemptationOnce. The deniedTemptationOnce of the player is true.
 The player has a truth state called expertMode. The expertMode of the player is false.
 The player has a truth state called hasPogodexed. The hasPogodexed of the player is false.
+The player has a truth state called hasScored. The hasScored of the player is false.
 
 Instead of looking under the player:
 	say "You find your feet."
@@ -2900,7 +2901,19 @@ Section 25 - Wearing
 
 Understand "put [something wearable] on head" as wearing.
 
-Section 26 - Ordering
+Section 26 - Scoring
+
+Carry out requesting the score:
+	let M be the number of entries in MEDALLIST;
+	let T be the number of entries in TROPHYLIST;
+	say "So far, you have reached pogolevel [pogolevel of the player] and racked up [xp of the player] experience points, or as a sophisticated pogomaster such as yourself would say, [quotation mark]XP[quotation mark].  As for medals and trophies, you have [if M is 1]but [end if][M in words] medal[if M is not 1]s[end if] and [if T is 0]a big fat [end if][T in words] troph[if T is 1]y[otherwise]ies[end if]. To list medals or trophies, use the command [italic type]examine medals[roman type] or [italic type]examine trophies[roman type].[paragraph break]";
+	if the hasScored of the player is false:
+		bestow "Now you know the score.";
+		now the hasScored of the player is true;
+	the rule succeeds.
+	
+	
+Section 27 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" or "buy [text]" as ordering when Around the Town is Happening.
 
