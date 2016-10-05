@@ -2637,7 +2637,25 @@ Check Diving:
 
 Section 12 - Playing
 
-Understand "play [a thing]" as switching on.
+Playing is an action applying to one thing. Understand "play [a thing]" as playing.
+
+Carry out playing:
+	if the noun is:
+		-- walkman:
+			try switching on the walkman;
+		-- phonograph:
+			try switching on the phonograph;
+		-- record:
+			if the record is not on the phonograph:
+				say "You would need to put it on the phonograph first.";
+			otherwise:
+				try switching on the phonograph;
+		-- phone:
+			say "That[apostrophe]s precisely what you are now doing.";
+		-- otherwise:
+			say "You[apostrophe]re not sure how to play [noun]."
+
+
 
 Understand "stop [a thing]" as switching off.
 
@@ -3391,6 +3409,10 @@ This is the test charging rule:
 	announce tests for "Charging [the noun]";
 	try charging the noun.
 	
+This is the test playing rule:
+	announce tests for "Testing [the noun]";
+	try playing the noun.
+	
 Table of analyzing actions (continued)
 topic	testing rule
 "capturing"	test capturing rule
@@ -3410,6 +3432,7 @@ topic	testing rule
 "emptying"	test emptying rule
 "dialing"	test dialing rule
 "charging"	test charging rule
+"playing"	test playing rule
 
 [
 Verbs not applying to objects: Walthrough, guard, expert mode, disable hints, ask for hints, help, about, credits, music credits, rebooting, muting, swimming, diving, poogdexing, commanding, scanning, muting
@@ -10052,7 +10075,7 @@ Before doing something with the phone:
 		otherwise:
 			stop the action;
 	otherwise:
-		if the current action is rebooting, charging, eating, examining, dropping, touching, rubbing, licking, burning, opening, attacking, inserting into or throwing at:
+		if the current action is playing, rebooting, charging, eating, examining, dropping, touching, rubbing, licking, burning, opening, attacking, inserting into or throwing at:
 			continue the action;
 		if the current action is putting on:
 			continue the action;
