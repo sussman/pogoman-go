@@ -6526,7 +6526,7 @@ The party hat is a wearable prop in Welcome to Beta Testing. The description of 
 The posters are a plural-named scenery in Welcome to Beta Testing. The description of posters is "The walls are covered with uplifting, motivational posters, mostly cats, puppies and unicorns, with slogans like [quotation mark]You can do it![quotation mark], [quotation mark]Success is just another word for unending work[quotation mark], and [quotation mark]If you fail, fail forward (but really, don[apostrophe]t fail).[quotation mark]". Understand "poster" or "cat" or "cats" or "puppy" or "puppies" or "adorable" or "animal" or "animals" or "unicorn" or "unicorns" or "slogn" or "slogans" as the posters.
 
 Instead of taking the posters:
-	say "The last thing you need is a more inspirational cat posters."
+	say "The last thing you need is more inspirational cat posters."
 
 Instead of examining the player when the player wears the hat:
 	say "The hat adds a certain gravitas."
