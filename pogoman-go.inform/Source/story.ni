@@ -2930,8 +2930,52 @@ Carry out requesting the score:
 		now the hasScored of the player is true;
 	the rule succeeds.
 	
+Section 27 - Xyzzying
+
+Xyzzying is an action applying to nothing. Understand "xyzzy" as xyzzying.
+
+Carry out xyzzying:
+	say "You successfully enter the cheat code into Pogoman GO![paragraph break]";
+	awardXP 1.
 	
-Section 27 - Ordering
+After xyzzying for the first time:
+	bestow "Obsessive Compulsive Tendencies Enabled".
+	
+After xyzzying for the second time:
+	bestow "Immediate Reward Creates Expectations".
+	
+After xyzzying for the fourth time:
+	bestow "Intermittent Reward Is More Effective".
+	
+After xyzzying for the seventh time:
+	bestow "Still going after that one point!".
+	
+After xyzzying for the 12th time:
+	bestow "Persistent".
+	
+After xyzzying for the 30th time:
+	bestow "Diminishing Returns".
+	
+After xyzzying for the 61st time:
+	bestow "Beta Tester, First Class".
+	
+After xyzzying for the 214th time:
+	bestow "Is Your Keyboard Stuck?".
+	
+After xyzzying for the 401st time:
+	bestow "Scary".
+	
+After xyzzying for the 4195th  time:
+	bestow "Time to put the game down and walk away".
+	
+After xyzzying for the 27023rd time:
+	bestow "Time to replace the [quotation mark]G[quotation mark] key."
+	
+After xyzzying for the 69105th time:
+	bestow "Heat Death of the Universe Approaching".
+	
+	
+Section 28 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" or "buy [text]" as ordering when Around the Town is Happening.
 
