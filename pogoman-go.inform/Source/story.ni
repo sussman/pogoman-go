@@ -1362,7 +1362,6 @@ This is the testInventory rule:
 				say line break;
 	if secondColumnFlag is true:[if left off on column 1]
 		say line break;
-	say line break;
 	say roman type;
 	[Defending Pogomen]
 	if Not In Kansas Anymore is happening:		
@@ -1370,7 +1369,8 @@ This is the testInventory rule:
 		repeat with N running from 1 to the number of rows in Table of Defenders:
 			choose row N in the Table of Defenders;
 			if there is a guardian entry:
-				increase D by one;
+				increase D by one;		
+		say line break;		
 		if D is 0:
 			say "No loyal pogomen are on guard in Pogoland.[paragraph break]";
 		otherwise:
@@ -2001,14 +2001,15 @@ Carry Out Pogodexing:
 		otherwise:
 			say "[mystery]";
 		say line break;
-	say line break;
 	say roman type;
 	if the hasPogodexed of the player is false:
 		now the hasPogodexed of the player is true;
 		if the number of entries in POGODEXLIST is 48:
+			say line break;
 			say "Congratulations! You have hunted down every last species![paragraph break]";
 		otherwise:
 			let R be 48 - the number of entries in POGODEXLIST;
+			say line break;
 			say "Only [R in words] to go! Happy hunting![paragraph break]";
 		bestow "Got Your Ducks In A Row".
 		
@@ -3227,6 +3228,7 @@ After examining the player for the first time, bestow "Introspection".
 
 After taking inventory for the first time:
 	follow the testInventory rule;
+	say line break;
 	bestow "Taking Stock".
 
 After examining a pogoBall for the first time, bestow "Attention To Detail".
