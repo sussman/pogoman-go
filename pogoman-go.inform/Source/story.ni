@@ -10059,7 +10059,7 @@ To hospital discharge:
 
 section 3 - The Salmon of Turpitude
 
-The Salmon of Turpitude is a prop in the void. It is proper-named. The description of the Salmon of Turpitude is "A large Atlantic salmon with an undeserved reputation." The Salmon of Turpitude has a truth state called isFound. The isFound of the Salmon of Turpitude is false.
+The Salmon of Turpitude is a prop in the void. The description of the Salmon of Turpitude is "A large Atlantic salmon with an undeserved reputation." The Salmon of Turpitude has a truth state called isFound. The isFound of the Salmon of Turpitude is false.
 
 Instead of eating the Salmon of Turpitude, 
 	say "You are not sure it[apostrophe]s fresh enough to consider as sushi."
@@ -10504,7 +10504,90 @@ To say goOnIn:
 	say "[quotation mark]Let[apostrophe]s see. Team [team color of the player], level [pogoLevel of the player in words], is it? Experience points, check. Medals, check. Trophies, check. Well, everything looks in order. I have to call this in.[quotation mark][paragraph break]The unicorn speaks into a collar microphone, [quotation mark]Breaker, Breaker. Unicorn seven-niner-four, here. Security Central, be advised that I am in contact with Team [team color of the player] individual of level [pogoLevel of the player in words], I repeat level [pogoLevel of the player in words]. Please advise of necessary action. Security Central, this is unicorn seven-niner-four standing by for instructions. Over.[quotation mark][paragraph break]The radio crackles, [quotation mark]For cripes sake, Cuthbert, just let them in.[quotation mark][paragraph break][quotation mark]Roger, roger, Security Central, this is unicorn seven-niner-four acknowledging instructions. Over and out.[quotation mark][paragraph break]The unicorn informs you are now authorized to enter the building. You pass by him and enter the building[apostrophe]s revolving door.";
 	teleport the player to the RevolvingDoor.
 
-Book 4 - Stuff
+Book 4 - Default Message Overrides
+
+The block vaguely going rule response (A) is "You[apostrophe]ll have to say which way to go, using directions like [if the player is in the Cat Area]fore, aft, up, or down[otherwise]north, south, east, west, up, or down[end if]."
+
+The can't take yourself rule response (A) is "Since Pogoman GO! has taken over your life, people can[apostrophe]t take any more of you; indeed, neither can you."
+
+The can't take people's possessions rule response (A) is "[The owner] [seem] to feel about the [noun] they way you feel about your phone."
+
+The can't take scenery rule response (A) is "[regarding the noun][They're] not something you can just pick up and walk away with."
+
+The can't take what's fixed in place rule response (A) is "[regarding the noun] [They] [don't] budge."
+
+The can't put onto what's not a supporter rule response (A) is "Putting things on [the second noun] [would achieve] nothing -- except eating up your valuable time, during which you could otherwise be playing Pogoman."
+
+The can't insert something into itself rule response (A) is "Not even a legendary pogomaster can put something inside itself."
+
+The can't insert into closed containers rule response (A) is "Hang on, pogo-genius: you probably want to open the [second noun] first."
+
+The can't eat unless edible rule response (A) is "You don[apostrophe]t think you would find the [noun] palatable."
+
+The standard report eating rule response (A) is "You ingest [the noun]; but the flavor does not distract you from playing Pogoman GO!".
+
+The can't enter what's already entered rule response (A) is "But [we]['re] already on [the noun], n[apostrophe]est-ce pas?"
+
+The can't enter what's already entered rule response (B) is "But [we]['re] already in [the noun], n[apostrophe]est-ce pas?"
+
+The can't enter what's not enterable rule response (A) is "[regarding the noun][They're] not something a respectable pogomaster would stand on."
+
+The can't enter what's not enterable rule response (B) is "[regarding the noun][They're] not something upon which a grammatically finicky pogomaster would sit."
+
+The implicitly pass through other barriers rule response (A) is "(reluctantly sliding your lazy gamer butt off [the current home])[command clarification break]".
+
+The implicitly pass through other barriers rule response (B) is "(slipping like a ninja out of [the current home])[command clarification break]".
+
+The implicitly pass through other barriers rule response (C) is "(clambering onto [the target])[command clarification break]".
+
+The implicitly pass through other barriers rule response (D) is "(slipping into [the target])[command clarification break]".
+
+The implicitly pass through other barriers rule response (E) is "(boldly entering [the target])[command clarification break]".
+
+The standard report entering rule response (A) is "You hop onto [the noun]."
+
+The standard report entering rule response (B) is "You slip into [the noun]."
+
+The standard report wearing rule response (A) is "You don [the noun][one of]. Ordinary people just wear stuff, but pogomasters prefer to don as a matter of gamer honor[or][stopping]."
+
+The standard report taking off rule response (A) is "You doff [the noun][one of]. Others -- those not initiated into the mysteries of Pogodom -- might merely take [the noun] off, but you doff it. You doff the living crap out of it. No one has ever doffed quite as well as you IYHO[or][stopping]."
+
+The block attacking rule response (A) is "Violence doesn[apostrophe]t seem to get you very far in this context."
+
+The kissing yourself rule response (A) is "Okay, but nothing too gross."
+
+The standard report waiting rule response (A) is "Your phone eats another megabyte of data."
+
+The report touching yourself rule response (A) is  "Yes, you are still here."
+
+The can't pull scenery rule response (A) is "[regarding the noun] [They're] not something you can yank on."
+
+The report pulling rule response (A) is  "You tug on the [noun], but nothing obvious [happen]."
+
+The can't push what's fixed in place rule response (A) is "[The noun] [don't] budge."
+
+The can't push scenery rule response (A) is "What? You think you can just go around pushing old thing?"
+
+The report pushing rule response (A) is "You give the [noun] a good shove, but nothing obvious [happen]."
+
+The can't push unpushable things rule response (A) is "Oh sure, that would be a top-notch idea, if [the noun] were the sort of thing that could be willy-nilly pushed hither and thither."
+
+The report squeezing rule response (A) is "You pincer grip fails to impress [the noun]."
+
+The block saying yes rule response (A) is  "You realize that was a rhetorical question, right?"
+
+The block saying no rule response (A) is "Could you stop being so negative?"
+
+The block burning rule response (A) is "This dangerous act would achieve little, but it would be kind of [one of]amusing[or]entertaining[or]diverting[or]delightful[or]fun to watch[in random order] in a [one of]pyromaniacal[or]sociopathic[or]incendiary[or]psychopathic[or]crackpot[or]flaky[in random order] sort of way. Unfortunately, [the noun] [do] not appear to be very flammable. "
+
+
+
+
+
+
+
+
+
 
 
 Book 5 - Tables 
