@@ -10580,15 +10580,49 @@ The block saying no rule response (A) is "Could you stop being so negative?"
 
 The block burning rule response (A) is "This dangerous act would achieve little, but it would be kind of [one of]amusing[or]entertaining[or]diverting[or]delightful[or]fun to watch[in random order] in a [one of]pyromaniacal[or]sociopathic[or]incendiary[or]psychopathic[or]crackpot[or]flaky[in random order] sort of way. Unfortunately, [the noun] [do] not appear to be very flammable. "
 
+The block waking up rule response (A) is "The dreadful truth is that playing Pogoman GO! has become your life."
 
+The block thinking rule response (A) is "You think about [one of]the time your career counselor told you that thinking about Pogoman GO! all the time might be a sign of obsessive-compulsive tendancies[or]playing more Pogoman GO![stopping]."
 
+The report smelling rule response (A) is "You nothing unexpected given your difficulty of recalling the last time you showered."
 
+The block cutting rule response (A) is "Cutting [regarding the noun][them] up [would achieve] little, and would be only mildly entertaining."
 
+The report jumping rule response (A) is "You would jump on the spot, but there is no in-game rewards for doing so, and it seems like a lot of work."
 
+The block tying rule response (A) is "You have never been good at tying knots."
 
+The block drinking rule response (A) is "No time to drink; must play Pogoman GO!"
 
+The block saying sorry rule response (A) is "Buck up, you have nothing to apologize for -- what could be more virtuous than a life spent playing Pogoman GO!"
 
+The block swinging rule response (A) is "You don[apostrophe]t see much advantage to swinging random objects around[one of]. Consider finding a cat[or][stopping]."
 
+The block climbing rule response (A) is "[one of]There are two kinds of things in this world: things that you can climb, and things that you cannot. Okay, technically, there are three, if you take into consideration things that climb you. Or, actually, four, since not everything climbs you. It is implicit that you cannot climb yourself, so perhaps that is a very specific fifth case. So, in total five. Having come to that conclusion, it now remains to be said that this is one of the things in category two, to wit, a thing that you cannot climb[or]You can[apostrophe]t climb that[stopping]."
+
+The block sleeping rule response (A) is "Hah! Sleep is merely for the washed masses who use their mobile phones for things other than gaming!".
+
+The adjust light rule response (A) is "It is just about pitch dark in here."
+
+The basic visibility rule response (A) is "It is almost pitch dark in here and you can barely see anything."
+
+The list writer internal rule response (L) is  "being worn and looking [one of]chic[or]fashionable[or]hip[or]fine[or]classy[or]sophisticated[or]dapper[or]smart[or]stylish[or]debonair[in random order]".
+
+The parser error internal rule response (H) is "Didn[apostrophe]t quite catch that, could you reprhase?"
+
+The parser error internal rule response (J) is  "I don[apostrophe]t have a clue what ['][pronoun i6 dictionary word]['] refers to."
+
+The parser error internal rule response (M) is  "You can only do that to something (more) animate."
+
+The parser error internal rule response (N) is "I[apostrophe]m afraid I don[apostrophe]t know that verb, although I do know a bunch (type [italic type]commands[roman type] to see a list of some of the more exotic ones)."
+
+The parser error internal rule response (O) is "That's not something you need to worry about, at least not for now."
+
+The immediately undo rule response (B) is  "Now it is a minute before you entered [quotation mark]undo[quotation mark]."
+
+The immediately undo rule response (C) is  "Your interpreter does not provide 'undo'. Hopefully, that will not be your undoing!"
+
+The immediately undo rule response (F) is "'Undo' capacity exhausted. You have broken the Interwebs!"
 
 Book 5 - Tables 
 
