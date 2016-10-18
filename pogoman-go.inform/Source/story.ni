@@ -4196,6 +4196,8 @@ Instead of touching the sky for the first time:
 	say "This world is not hollow.[paragraph break]You cannot touch the sky.[paragraph break]";
 	bestow "TOS: S3 E8".
 	
+
+	
 	
 Section 6 - City Park
 
@@ -4236,8 +4238,14 @@ Instead of entering Old Jail when the player is in Old Jail for the first time:
 	say "Most people spend their time trying to stay out of it.[paragraph break]";
 	bestow "Criminal Intent".
 	
-Instead of burning the Old Jail:
+Instead of burning the Old Jail for the first time:
 	say "The brick jail does not even notice your attempt. Keep it up, and maybe you can see if the inside of the wall is more flammable than the outside of the wall."
+	
+Instead of burning the Old Jail for the second time:
+	say "A patrolling police officer strolls by on his beat. He walks right past you as you try to blend with the scenery while holding your flaming lighter against the brick wall of the jail.[paragraph break]When he doesn[apostrophe]t say anything, you think he might not have noticed you, but he stops just short of turning the corner and says, [quotation mark]Well, I suppose that it[apostrophe]s better than playing that game. What[apostrophe]s the name of it? Purgoman? Bokemob? The phone one. Anyhow, let me tell you -- in case you were wondering -- the inside of the jail is no more flammable than the outside.[quotation mark][paragraph break]Having imparted that pearl of wisdom, he starts whistling and resumes his rounds of the village."
+	
+Instead of burning the Old Jail for more than the second time:
+	say "The jail steadfastly refuses to combust[one of].[paragraph break][quotation mark]A[quotation mark] for effort, though[or][stopping]."
 
 Section 9 - Johnson's Rock
 
@@ -4362,6 +4370,12 @@ Instead of searching the Ashwell-Lott Estate:
 	
 Instead of eating the vineyard:
 	try ordering "grapes".
+	
+Instead of burning the Ashwell-Lott Estate:
+	try burning the vineyard.
+	
+Instead of burning the vineyard:
+	say "It smells briefly like a poptart that got stuck in the toaster. Must be the grapes."
 
 Section 12 - Garden Gnome
 
@@ -4441,6 +4455,12 @@ Instead of climbing the Headless Garden Gnome:
 	
 Instead of smelling the severed head:
 	say "Severe halitosis."
+	
+Instead of burning the severed head:
+	say "The severed head tsk-tsks this shameful act."
+	
+Instead of burning the Headless Garden Gnome:
+	say "The patina turns the flame green."
 
 Section 13 - Parking Lot Award
 
@@ -4456,6 +4476,9 @@ Instead of rubbing the Parking Lot Award:
 		say ".[paragraph break]";
 		now buffed of the Parking Lot Award is true;
 		bestow "Parking Lot Award Award". [sic]
+		
+Instead of burning the Parking Lot Award:
+	say "[noFirePlaque]."
 
 
 Section 14 - Old Town Hall
@@ -4487,6 +4510,9 @@ Instead of climbing the Rotary Clock Tower:
 	
 Instead of pulling or pushing or spinning or turning the rotary clock tower:
 	say "It does that all by itself."
+	
+Instead of burning the rotary clock tower:
+	say "You are painfully aware that you are just burning time with this activity."
 
 Section 17 - Floyd Memorial Bench
 
@@ -4499,7 +4525,6 @@ The nameplate is scenery in Floyd Memorial Bench. The description of the namepla
 
 Instead of doing something other than examining with the nameplate:
 	say "Leave the nameplate alone, you hooligan!".
-
 
 Section 18 - Giant Chicken
 
@@ -4539,6 +4564,9 @@ Instead of smelling when the player is in Prissy's Little Sausages:
 Before eating or buying Prissy's Little Sausages:
 	try ordering "sausages";
 	stop the action.
+	
+Instead of burning Prissy's Little Sausages:
+	say "If you want a hot sausage, try ordering some pepporoni, or perhaps a redhot."
 
 Section 22 - Yummi Tummi Softserve
 
@@ -4716,7 +4744,10 @@ Section 32 - Biocontainment Facility
 
 The description of Biocontainment Facility is "[if the biocontainment facility is unvisited]You are vaguely aware that something isn[apostrophe]t right here. Gaunt, pale forms lurch and moan as they pour out of the vaccine laboratory. There[apostrophe]s something wrong with them, but you can[apostrophe]t quite put your finger on it.[paragraph break]Oh, wait, that [italic type]is[roman type] weird - none of them have phones...[paragraph break][end if]The zombie horde mulls aimlessly, eyes down, faces blank, trudging their way through unlife. They don[apostrophe]t seem to notice folks playing Pogoman.". 
 
-Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
+Biocontainment Facility is an improper-named structure. Understand "bioweapons" or "bioweapon" or "laboratory" or "lab" or "vaccine" or "hospital" or "research" as Biocontainment Facility. Understand "building" as Biocontainment Facility when the location is Biocontainment Facility. The printed name is "biocontainment facility".
+
+Instead of burning the Biocontainment Facility:
+	say "It looks like parts of the research facility are already on fire."
 
 The zombie horde is an animal. The zombie horde is plural-named.  The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seems strangely unattracted to the brains of gamers." Understand "zombies" or "undead" or "masses" or "pack" as the zombie horde.	
 
@@ -4758,6 +4789,9 @@ Instead of smelling when the player is in Battle of Margot's Pantry:
 Before eating or buying Margot's pantry:
 	try ordering "pizza";
 	stop the action.
+	
+Instead of burning Margot's Pantry:
+	say "[noFirePlaque]."
 
 Section 34 - Gas Station Gazebo
 
@@ -4769,6 +4803,14 @@ Instead of entering the Gas Station Gazebo for the first time:
 	
 Instead of entering the Gas Station Gazebo when the player is in Gas Station Gazebo:
 	say "Your irrational fear of Gas Station Gazebos prevents you from taking even one step closer to the macabre structure."
+
+Instead of burning the Gas Station Gazebo for the first time:
+	say "Surely, you wouldn[apostrophe]t generate an open flame right next to a gas station.[paragraph break]";
+	bestow "Don[apostrophe]t call me Shirley".
+	
+Instead of burning the Gas Station Gazebo:
+	say "It[apostrophe]s a good thing that this is one of those service stations where they specialize in gazebos, but don[apostrophe]t dispense fuel."
+	
 
 Section 35 - Dung Beetle Mural
 
@@ -4784,6 +4826,9 @@ The description of Hank's Tavern is "Now an artist[apostrophe]s colony, the tave
 Instead of listening when the player is in Hank's Tavern:
 	say "From the tavern you hear people socializing and the occasional [one of]muffled explosion[or]shattering of porcelain[or]whine of an angle grinder cutting through plate iron[or]whirring of servos[or]sizzle of an industrial laser[or]splatter of plasma-scintered alloy[or]whistling of welding gas[in random order]."
 	
+Instead of burning the tavern:
+	say "Ever since they held the asbestos weaving class, the tavern has been flameproof."
+		
 Section 37 - Olde Train Station
 
 The description of the Olde Train Station is "Still a functioning passenger train station, since the early 19th Century, the Olde Train Station (formerly, the Newe Train Station) has been a port of call – home away from home – for diplomats, hustlers, entrepreneurs, and… wanderers." Olde Train Station is an improper-named structure. Understand "old" as Olde Train Station. Understand "building" as Olde Train Station when the location is Olde Train Station. The printed name of Olde Train Station is "station". The title of Olde Train Station is "Olde Train Station".
@@ -4852,6 +4897,8 @@ Instead of touching MarkerSeven:
 To say oriented:
 	say "You are seized with the absolute conviction that you are less than one mile from [italic type]something[roman type]."
 	
+Instead of burning MarkerSeven:
+	say "Observed in the flame of your lighter, the marker loses some of its certainty: its value fluctuates between 0.69[a random number between 0 and 9] and 0.70[a random number between 0 and 9]. This is reasonably within tolerance as far as you are concerned."
 
 Section 41 - Unfathomable Orb
 
@@ -4881,6 +4928,9 @@ Rottweiler Art is an improper-named artifact. Understand "doggy" as Rottweiler A
 Instead of smelling the rottweiler art for the first time:
 	say "Smells like some other dogs have already expressed their opinion on this work of art.[paragraph break]";
 	bestow "Everyone Is A Critic".
+	
+Instead of burning the Rottweiler Art:
+	say "The flame damage only improves it."
 
 Section 43 - Sister City Friendship Altar
 
@@ -4906,12 +4956,21 @@ Instead of entering the Sister City Friendship Altar when the player is in the S
 	
 Instead of entering the Sister City Friendship Altar when the player is in the Sister City Friendship Altar:
 	say "You are not willing to sacrifice any more time to messing around here, when you could be running around, searching for pogomen."
+	
+Instead of burning the Sister City Friendship Altar:
+	say "The voices cheer you on."
 
 Section 44 - 1893
 
 The description of Year1893 is "A plaque both commemorating the failure to hire a town historian in 1893 and bemoaning the absence of other recorded events for that year." 
 
 Year1893 is an improper-named artifact. Year1893 is privately-named.  Understand "1893" or "plaque" as Year1893. The printed name of Year1893 is "plaque". The title of Year1893 is "1893 Plaque".
+
+Instead of burning Year1893:
+	say "[noFirePlaque]."
+
+To say noFirePlaque:
+	say "By city ordinance (because of the exceptionally high cost of fire insurance for public property in this town), every plaque in town has been outfitted with a state of the art fire suppression system. Your lighter flame is doused immediatly by a fine spray from microscopic vents in the plaque"
 
 Section 45 - Eagle's Sojourn
 
@@ -5048,7 +5107,11 @@ Instead of pulling or pushing the screw:
 Instead of buying the art:
 	say "Would you pay them, or would they pay you?"
 
+Instead of burning the screw:
+	say "In order to burn that screw, you would need a proprietary kind of lighter."
 	
+Instead of burning the Found Art:
+	say "Mmm... fiberglass fumes."
 	
 Section 51 - Crystal Skull
 
@@ -5088,6 +5151,9 @@ Section 52 - Vuvuzelas For Freedom
 The description of Vuvuzelas For Freedom is "A bronze plate is set into the sidewalk here to commemorate the Vuvuzela Uprising of 1893."
 
 Vuvuzelas For Freedom is an improper-named artifact. Understand "vuvuzela" or "uprising" or "bronze" or "plate" or "sidewalk" as Vuvuzelas For Freedom. Understand "commemorative" or "plaque" as Vuvuzelas For Freedom when the location is Vuvuzelas For Freedom. The printed name of Vuvuzelas for Freedom is "plaque". The title of Vuvuzelas for Freedom is "Vuvuzelas For Freedom".
+
+Instead of burning Vuvuzelas for Freedom:
+	say "[noFirePlaque]."
 
 Section 53 - Poison Ivy
 
@@ -10153,6 +10219,9 @@ The Salmon of Turpitude is a prop in the void. The description of the Salmon of 
 
 Instead of eating the Salmon of Turpitude, 
 	say "You are not sure it[apostrophe]s fresh enough to consider as sushi."
+	
+Instead of burning the Salmon of Turpitude:
+	say "The Salmon of Turpitude, like the American Bison of Nefarious Volition and the Silverback Chipmunk of Disdainful Countenance, is of course immune to fire damage, electrical damage, and scathing wit."
 	
 
 Book 3 - Characters
