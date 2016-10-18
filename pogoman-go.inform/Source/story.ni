@@ -4348,11 +4348,18 @@ Instead of eating the vineyard:
 
 Section 12 - Garden Gnome
 
-The description of Headless Garden Gnome is "A[if the beheaded of the Headless Garden Gnome is false]n absurdly happy[otherwise] decapitated[end if] garden gnome pokes out from a poorly maintained lawn.[one of] This must have been a portal held over from the previous Nyantech game, Ink Grass.[or][stopping]". Headless Garden Gnome is an improper-named artifact. Understand "decapitated" or "headless" as Headless Garden Gnome when the beheaded of the Headless Garden Gnome is true. Understand "sculpture" or "art" or "figurine" or "statue" as Headless Garden Gnome when the location is Headless Garden Gnome. The printed name of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]decapitated[otherwise]absurdly happy[end if] garden gnome statue". The title of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]Headless Garden Gnome[otherwise]Formerly Headless Garden Gnome[end if]". The Headless Garden Gnome has a truth state called beheaded. The beheaded of the Headless Garden Gnome is true. Understand "formerly" or "happy" or "absurdly" as the Headless Garden Gnome when the beheaded of the Headless Garden Gnome is false.
+The description of Headless Garden Gnome is "[lawnDescription].". Headless Garden Gnome is an improper-named artifact. Understand "decapitated" or "headless" as Headless Garden Gnome when the beheaded of the Headless Garden Gnome is true. Understand "sculpture" or "art" or "figurine" or "statue" as Headless Garden Gnome when the location is Headless Garden Gnome. The printed name of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]decapitated[otherwise]absurdly happy[end if] garden gnome statue". The title of Headless Garden Gnome is "[if the beheaded of the Headless Garden Gnome is true]Headless Garden Gnome[otherwise]Formerly Headless Garden Gnome[end if]". The Headless Garden Gnome has a truth state called beheaded. The beheaded of the Headless Garden Gnome is true. Understand "formerly" or "happy" or "absurdly" as the Headless Garden Gnome when the beheaded of the Headless Garden Gnome is false.
+
+To say lawnDescription:
+	say "A[if the beheaded of the Headless Garden Gnome is false]n absurdly happy[otherwise] decapitated[end if] garden gnome ";
+	if the burntFlag of the lawn is false:
+		 say "pokes out from a poorly maintained lawn[one of]. This must have been a portal held over from the previous Nyantech game, Ink Grass[or][stopping]";
+	otherwise:
+		say "stands on a burnt field"
 
 Instead of attacking the Headless Garden Gnome, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
 
-The lawn is a scenery in the Headless Garden Gnome. The description of the lawn is "A real disgrace for the neighborhood, it is overgrown with high weeds." Understand "weed" or "weeds" or "grass" as the lawn. 
+The lawn is a scenery in the Headless Garden Gnome. The description of the lawn is "A real disgrace for the neighborhood, [if the burntFlag of the lawn is false]the grass is dry and yellowed and the property is overrun with high weeds[otherwise]all that remains of the lawn is a patch of burnt earth[end if]." Understand "weed" or "weeds" or "grass" as the lawn when the burntFlag of the lawn is false. Understand "burnt" or "burned" or "earth" or "ground" or "field" as the lawn when the burntFlag of the lawn is true. The lawn has a truth state called burntFlag. The burntFlag of the lawn is false. 
 
 Instead of cutting the lawn for the first time:
 	say "Aside from not having a lawn mower, it would be best to first nuke it from high orbit. Who knows what is living in there.[paragraph break]";
@@ -4366,9 +4373,31 @@ Instead of entering the lawn, say "No thanks. Ticks!"
 The severed head is a prop. It is in the void. The description of the severed head is "An absurdly happy little face with a saccharine smile -- every time you see, you are filled with rage. No wonder someone knocked it off."
 
 Instead of searching the lawn for the first time:
-	say "You poke carefully through the weeds.[paragraph break]What's this?[paragraph break]Ah! You've found the gnome's head! It must have been laying there for years.[paragraph break]";
-	move the severed head to the player;
-	bestow "Found A Garden Gnome's Severed Head".
+	if the burntFlag of the lawn is false:
+		say "You poke carefully through the weeds.[paragraph break]What's this?[paragraph break]Ah! You've found the gnome's head! It must have been laying there for years.[paragraph break]";
+		move the severed head to the player;
+		bestow "Found A Garden Gnome's Severed Head";
+	otherwise:
+		say "[typicalImmolatedLawn]."
+		
+Instead of searching the lawn:
+	if the burntFlag of the lawn is false:
+		say "Nothing but insect bites.";
+	otherwise:
+		say "[typicalImmolatedLawn]."
+		
+To say typicalImmolatedLawn:
+	say "A typical immolated lawn".
+	
+Instead of burning the lawn:
+	if the burntFlag of the lawn is false:
+		say "The entire lawn goes up in a choking cloud of white smoke, leaving behind charred ground. You feign surprise.[paragraph break]";
+		bestow "Lawn Doctor";
+		now the burntFlag of the lawn is true;
+		if the severed head is in the void:
+			move the severed head to the Headless Garden Gnome;
+	otherwise:
+		say "Everything flammable was already burned to a crisp."
 	
 Instead of taking the lawn for the first time:
 	say "An elderly man next door yells at you for messing with the lawn.[paragraph break]";
@@ -4385,16 +4414,13 @@ Instead of taking the Headless Garden Gnome:
 	say "It would not go with any of your other furniture."
 	
 Instead of putting the severed head on the Headless Garden Gnome:
-	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Without missing a beat, the gnome shrugs, wanders into the grass and brings out a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
+	say "When you place the absurdly happy head on the little statue it fuses in place and the gnome spring to life. It finishes a sentence that it must have started saying years ago, [quotation mark]... with a chicken! A rubber chicken![quotation mark][paragraph break]The gnome looks around and realizes that something is amiss. He asks, [quotation mark]Decapitated?[quotation mark][paragraph break][quotation mark]Yes, afraid so,[quotation mark] you reply with some misplaced guilt.[paragraph break][quotation mark]Yeah. That happens,[quotation mark] remarks the gnome laconically. Without missing a beat, the gnome shrugs, [if the burntFlag of the lawn is false]wanders into the grass[otherwise]digs among the ashes[end if] and produces a few beers, which you share. After a while, the gnome doesn[apostrophe]t seem like such a bad guy after all.[paragraph break]With a glance at the sky, the gnome realizes that he better get back on duty, so he gets back in position and turns to solid rock again.[paragraph break]";	
 	bestow "Party Time! Rock On!";
 	move the severed head to the void;
 	now the beheaded of the Garden Gnome is false.
 	
 Instead of climbing the Headless Garden Gnome:
 	say "It is only about a foot tall, so you are not so much climbing it as stepping on it."
-	
-Instead of burning the lawn:
-	say "It is too green to catch fire[one of], but it[apostrophe]s the thought that counts, so thanks[or][stopping]."
 	
 Instead of smelling the severed head:
 	say "Severe halitosis."
@@ -4460,7 +4486,7 @@ Instead of doing something other than examining with the nameplate:
 
 Section 18 - Giant Chicken
 
-The description of Giant Chicken is "A giant chicken statue made of recycled swizzle sticks." Giant Chicken is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Giant Chicken when the location is Giant Chicken. The title of Giant Chicken is "Giant Chicken". The printed name of Giant Chicken is "giant chicken sculpture".
+The description of Giant Chicken is "A giant chicken statue made of recycled flame-retardant swizzle sticks." Giant Chicken is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Giant Chicken when the location is Giant Chicken. The title of Giant Chicken is "Giant Chicken". The printed name of Giant Chicken is "giant chicken sculpture".
 
 The swizzle sticks are plural-named scenery. The swizzle sticks are in Giant Chicken. The description of the swizzle sticks is "How many drinks must have been stirred in this effort?" The indefinite article of the swizzle sticks is "some".
 
@@ -9926,7 +9952,7 @@ The Void contains a PogoMeth-kind called PogoMeth. PogoMeth is edible. PogoMeth 
 The Void contains a PogoEgg-kind called PogoEgg.
 The Void contains a PogoIncense-kind called PogoIncense. PogoIncense can be ignited. PogoIncense is not ignited.
 
-Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing.
+Definition: A thing (called the contraband) is safe from seizure if the contraband is the phone or the contraband is a pogothing or the contraband is the steel lighter.
 
 The glass of champagne is a prop in the void. The description of the champagne glass is "A tall flute of the bubbly liquid."  Understand "flute" or "swill" or "alcohol" or "drink" or "beverage" or "bubbly" or "liquid" as the glass of champagne.
 
@@ -10083,8 +10109,54 @@ Before wearing clothes:
 Instead of looking under clothes:
 	say "Nothing but you."
 	
+Section 1 - Lighter
 
+The steel lighter is a person carried by the player. The description of the steel lighter is "Your lucky cigarette lighter, Asmodeus (that[apostrophe]s just what you call it). You would like to say that the shiny metal lighter is a family heirloom, passed from generation to generation, but the truth is you found Asmodeus on a city bus. Since you don[apostrophe]t smoke, it really doesn[apostrophe]t serve any useful purpose -- you just like the way it looks."  Understand "cigarette lighter" or "asmodeus" as the steel lighter.
 
+Instead of switching on the steel lighter:
+	try burning the steel lighter.
+	
+Instead of switching off the steel lighter:
+	say "It is already extinguished."
+	
+Instead of burning the steel lighter:
+	if the player is in Top Of The Ladder or the player is in Somewhere Along The Ladder or the player is in Bottom Rung or the player is in Crawl Space:
+		say "A flame springs to life and for a moment it is all you can see as your eyes are assailed by the bright light. When the heat forces you to let the flame go out, your dark accommodation is ruined and a retinal after image of the flame drifts through your visual field.";
+	else if the player is in BallPitShallow or the player is in BallPitDeep:
+		say "You click the lighter repeatedly, but there must not be enough oxygen down here for it to catch.";
+	else:		
+		say "Click! You gaze at the little flame with rapt attention (others might say maniacal glee) for a moment, then let it go out."
+		
+Instead of dropping the steel lighter:
+	say "Asmodeus is your only friend; you could not bear to part with him."
+	
+Instead of throwing the steel lighter at something:
+	try dropping the steel lighter.
+	
+Instead of inserting the steel lighter into something:
+	try dropping the steel lighter.
+	
+Instead of putting the steel lighter on something:
+	try dropping the steel lighter.
+	
+Instead of rubbing the steel lighter:
+	say "You polish up Asmodeus (in a totally Platonic way). He likes being polished, or so you infer."
+	
+Instead of talking to the steel lighter:
+	say "Asmodeus stares back at you, cool as chrome. If he could speak, you think he would say something profound. That, or he would urge you to try to burn things just for the heck of it."
+	
+Instead of asking the steel lighter about something:
+	say "Asmodeus remains silent on the matter, no doubt pondering your words."
+	
+Instead of telling the steel lighter about something:
+	say "Asmodeus listens with the patience of a true friend."
+	
+Instead of showing something to the steel lighter:
+	say "Asmodeus looks on approvingly."
+
+Persuasion rule for asking the steel lighter to try doing something:
+	say "Asmodeus considers for a moment and then concludes that it is not in his best interest to do so."
+	
 Chapter - 2- Phone
 
 The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner to bring up a map of the area by using the [italic type]scan[roman type] command." Understand "cell" or "mobile" or "cellular" or "GSM" or "portable" or "telephone" or "T8000" as the phone.
@@ -10552,7 +10624,7 @@ The standard report wearing rule response (A) is "You don [the noun][one of]. Or
 
 The standard report taking off rule response (A) is "You doff [the noun][one of]. Others -- those not initiated into the mysteries of Pogodom -- might merely take [the noun] off, but you doff it. You doff the living crap out of it. No one has ever doffed quite as well as you IYHO[or][stopping]."
 
-The block attacking rule response (A) is "Violence doesn[apostrophe]t seem to get you very far in this context."
+The block attacking rule response (A) is "Violence doesn[apostrophe]t seem to be the answer, but at least you feel more limber after some exercise."
 
 The kissing yourself rule response (A) is "Okay, but nothing too gross."
 
