@@ -4214,10 +4214,19 @@ Instead of cutting the hedges:
 
 Instead of searching the hedges:
 	say "You find even more hedges."
+	
+Instead of burning the hedges:
+	say "You burn one of the millions of leaves present on the hedges. It is going to be a long day."
+	
+Instead of burning the trees:
+	say "The lighter gets too hot to hold far before the tall, living trees catch fire."
 
 Section 7 - Old Court House
 
 The description of Old Courthouse is "A brick court house, probably of historical significance." Old Courthouse is an improper-named structure.  The title of Old Courthouse is "Old Courthouse". The printed name of the Old Courthouse is "courthouse".  Understand "court" as Old Courthouse. Understand "building" or "brick" as Old Courthouse when the location is Old Courthouse.
+
+Instead of burning the Old Courthouse:
+	say "As wisely promoted by the Big Bad Wolf, brick is an excellent choice of building material, not only against lupine pulmonic aggression, but in terms of standing up to the tiny flame that your lighter produces."
 
 Section 8 - Old Jail
 
@@ -4226,6 +4235,9 @@ The description of the Old Jail is "[one of]A solidly built brick building that 
 Instead of entering Old Jail when the player is in Old Jail for the first time:
 	say "Most people spend their time trying to stay out of it.[paragraph break]";
 	bestow "Criminal Intent".
+	
+Instead of burning the Old Jail:
+	say "The brick jail does not even notice your attempt. Keep it up, and maybe you can see if the inside of the wall is more flammable than the outside of the wall."
 
 Section 9 - Johnson's Rock
 
@@ -4250,6 +4262,9 @@ Instead of taking the historical marker for the first time:
 Instead of spinning the historical marker for the first time:
 	say "It is a metal sign, not a pogostop![paragraph break]";
 	bestow "Dammit".
+	
+Instead of burning Johnson's Rock:
+	say "There[apostrophe]s nothing here worth burning."
 
 Section 10 - Nyantech Entrance
 
@@ -4285,9 +4300,11 @@ Instead of entering the proxyEntrance:
 
 Instead of going inside when the player is in Nyantech Entrance:
 	try entering the proxyEntrance.
+	
+Instead of burning the proxyEntrance:
+	say "The obsidian walls of the building, borne in the volcanic fury of the Earth[apostrophe]s molten core, is not impressed by your zippo lighter."
 
 [Revolving Door Proxy]
-
 
 The revolvingDoorProxy is a privately-named backdrop in the Nyantech Entrance and  in RevolvingDoor. The printed name of revolvingDoorProxy is "revolving door". The description of revolvingDoorProxy is "A brass revolving door." Understand "brass" or "revolving" or "door" as the revolvingDoorProxy. Understand "building" or "office" or "tower" or "headquarter" or "hq" or "headquarters" as the revolvingDoorProxy when the player is in the revolvingDoor.
 
@@ -4355,11 +4372,11 @@ To say lawnDescription:
 	if the burntFlag of the lawn is false:
 		 say "pokes out from a poorly maintained lawn[one of]. This must have been a portal held over from the previous Nyantech game, Ink Grass[or][stopping]";
 	otherwise:
-		say "stands on a burnt field"
+		say "stands on a blackened field"
 
 Instead of attacking the Headless Garden Gnome, say "Have some pity -- it[apostrophe]s already missing it[apostrophe]s head."  
 
-The lawn is a scenery in the Headless Garden Gnome. The description of the lawn is "A real disgrace for the neighborhood, [if the burntFlag of the lawn is false]the grass is dry and yellowed and the property is overrun with high weeds[otherwise]all that remains of the lawn is a patch of burnt earth[end if]." Understand "weed" or "weeds" or "grass" as the lawn when the burntFlag of the lawn is false. Understand "burnt" or "burned" or "earth" or "ground" or "field" as the lawn when the burntFlag of the lawn is true. The lawn has a truth state called burntFlag. The burntFlag of the lawn is false. 
+The lawn is a scenery in the Headless Garden Gnome. The description of the lawn is "A real disgrace for the neighborhood, [if the burntFlag of the lawn is false]the grass is dry and yellowed and the property is overrun with high weeds[otherwise]all that remains of the lawn is a patch of black earth[end if]." Understand "weed" or "weeds" or "grass" as the lawn when the burntFlag of the lawn is false. Understand "blackened" or "burnt" or "burned" or "earth" or "ground" or "field" as the lawn when the burntFlag of the lawn is true. The lawn has a truth state called burntFlag. The burntFlag of the lawn is false. 
 
 Instead of cutting the lawn for the first time:
 	say "Aside from not having a lawn mower, it would be best to first nuke it from high orbit. Who knows what is living in there.[paragraph break]";
@@ -4508,6 +4525,9 @@ The description of Hook & Ladder is "The home of Fire Brigade Number 12." Hook &
 
 Instead of smelling when the player is in Hook & Ladder:
 	say "Smells smoky."
+	
+Instead of burning Hook & Ladder:
+	say "The building is *so* not flammable."
 
 Section 21 - Prissy's Little Sausages
 
@@ -4526,8 +4546,11 @@ The description of Yummi Tummi Softserve is "Pink robotic pigs roller skate betw
 
 The robotic pigs are scenery in Yummi Tummi Softserve. The description of the robotic pigs is "The portly prosthetic porcines glide back and forth between the restaurant the its clients. They are dressed in red and white pogodotted uniforms and are not the least bit inconvenienced by darting about with trays full of frosty treats at breakneck speeds on their inline skates." Understand "pig" or "robot" or "robots" or "porcine" or "porcines" or "droid" or "droids" or "roller" or "rolling" or "skate" or "skates" or "inline" or "tray" or "trays" or "uniform" or "uniforms" as the robotic pigs. 
 
-Instead of doing something other than examining with the robotic pigs:
+Instead of doing something other than burning or examining with the robotic pigs:
 	say "You are reluctant to disturb them; they are moving so quickly and carrying such heavy loads that you are afraid they would run you down."
+	
+Instead of burning the robotic pigs:
+	say "They steer clear of the flame."
 	
 The tables are scenery in Yummi Tummi Softserve. The description of the tables is "Picnic tables full of satisfied customers are clustered on every side of the restaurant." Understand "table" or "picnic" as the tables.
 
@@ -4577,8 +4600,11 @@ Instead of pulling or pushing or spinning or turning the zarfian sign:
 	
 The innocuous-appearing plants are plural-named scenery. The innocuous-appearing plants are in the Gardens of Zarf. The description of the innocuous-appearing plants is "Flowers and ornamentals growing in an aesthetically pleasing and not at all troubling arrangement."  Understand "plant" or "plants" or "flower" or "flowers" or "carnivorous" or "man-eating" or "meat-eating" or "deadly" or "lethal" or "sunflower" or "azalea" or "azaleas" or "sunflowers" or "marigold" or "marigolds" as the innocuous-appearing plants.. 
 
-Instead of doing something other than examining with the innocuous-appearing plants:
+Instead of doing something other than examining or burning with the innocuous-appearing plants:
 	say "The flowers are set back a bit from the edge of the garden. Certainly, they would be easily within reach if you were to come into the garden itself."
+	
+Instead of burning the innocuous-appearing plants:
+	say "The plants blow the flame out as it approaches them. Maybe if you got a little closer..."
 
 Section 25 - Flan Emporium
 
@@ -4591,6 +4617,9 @@ Instead of drinking Flan Emporium, say "Flan is more a solid than a liquid, and 
 Before eating or buying Flan Emporium:
 	try ordering "flan";
 	stop the action.
+	
+Instead of burning Flan Emporium:
+	say "No, that would be crème brûlée."
 
 Section 26 - General Nelson
 	
@@ -4601,6 +4630,9 @@ Instead of climbing General Nelson:
 	
 To say tefloned:
 	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with teflon to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litigious statue-climbing buffoons[or][stopping]."
+	
+Instead of burning General Nelson:
+	say "Bosphorus, not phosphorus. The statue does not burn."
 
 Section 27 - Church of the Orthogonal Sticks
 
@@ -4620,6 +4652,9 @@ The description of Witch Pillory is "This site commemorates the town[apostrophe]
 
 Instead of entering or climbing Witch Pillory when the player is in Witch Pillory:
 	say "The pillory is only for convicted witches. All other unauthorized use is prohibited."
+	
+Instead of burning the Witch Pillory:
+	say "No, no. The town is very clear on this point: the pillory is not for burning, and since the town has a pillory, it also doesn[apostrophe]t make a lot of sense to burn witches, or at least not before they have been pilloried."
 
 Section 29 - Flag Pole
 
@@ -4652,6 +4687,9 @@ Instead of entering the floodlights:
 	
 Instead of flagging or turning or pushing or pulling the floodlights:
 	say "Their angle is fixed; they don[apostrophe]t budge."
+	
+Instead of burning the flag pole:
+	say "Your defiant act of political protest goes unremarked because flag poles are metal and metal doesn[apostrophe]t burn."
 
 Section 30 - Krusty Kronuts
 
@@ -4670,6 +4708,9 @@ The description of Cyclorama is "The indoor bicycle track yields important radio
 
 Instead of spinning cyclorama:
 	say "Spinning is something you do inside cyclorama, not to cyclorama."
+	
+Instead of burning cyclorama:
+	say "Be careful: what goes around, comes around."
 
 Section 32 - Biocontainment Facility
 
@@ -4732,6 +4773,9 @@ Instead of entering the Gas Station Gazebo when the player is in Gas Station Gaz
 Section 35 - Dung Beetle Mural
 
 The description of Dung Beetle Mural is "Dark earth tones and impasto technique; you're not sure of the medium." Dung Beetle Mural is an improper-named artifact. Understand "sculpture" or "statue" or [even, liberally] "art" as Dung Beetle Mural when the location is Dung Beetle Mural. The printed name of Dung Beetle Mural is "mural". The title of Dung Beetle Mural is "Dung Beetle Mural".
+
+Instead of burning the Dung Beetle Mural:
+	say "The flame is disgusted and refuses to come anywhere near the mural."
 
 Section 36 - Hank's Tavern
 
@@ -4815,15 +4859,18 @@ The description of Unfathomable Orb is "[one of]A lawn orb, the why of which is 
 
 Unfathomable Orb is an improper-named artifact. Understand "lawn" or "furniture" or "lawn furniture" or "sculpture" or "statue" or [even, liberally] "art" as Unfathomable Orb when the location is Unfathomable Orb. The title of Unfathomable Orb is "Unfathomable Orb". The printed name of the Unfathomable Orb is "orb".
 
-Instead of taking the orb:
+Instead of taking the unfathomable orb:
 	say "The orb is something which no one really gets, and which few people can take for more than a few moments."
 	
-Instead of touching or rubbing the orb:
+Instead of touching or rubbing the unfathomable orb:
 	say "Briefly, you have the sensation of leaving your body and floating weightlessly somewhere above the town. In the distance below, you see [heightDescription]. When you recoil, the vision stops."
 	
-Instead of searching the orb for the first time:
+Instead of searching the unfathomable orb for the first time:
 	say "Searching the orb reveals absolutely nothing. Predictably.[paragraph break]";
 	bestow "Unenlightened".
+	
+Instead of burning the unfathomable orb:
+	say "Countless instances of unfathomable orbs analogues catch fire in bifurcating realities throughout the multiverse, but this one does not."
 	
 Section 42 - Rottweiler Art
 
@@ -4927,6 +4974,12 @@ Instead of switching off the flame for the first time:
 Instead of switching off the flame:
 	say "Rather consistently, the eternal flame lacks an off switch."
 	
+Instead of burning Fire Is Our Friend:
+	try burning the flame.
+	
+Instead of burning the flame:
+	say "The lighter[apostrophe]s flame completely replaces the eternal flame, but who would ever know?"
+	
 
 Section 48 - Unearthly Geometry
 
@@ -4939,6 +4992,9 @@ Instead of touching the Unearthly Geometry:
 	
 Instead of climbing Unearthly Geometry:
 	say "You climb through space of varying dimensions, ending up somewhere behind yourself, just slightly before you began."
+	
+Instead of burning the Unearthly Geometry:
+	say "The lighter's flame spirals downward around the piece and loops back on itself before exploding into a dazzling hyperdimensional fireworks show reminiscent of the Mandlebrot Set."
 
 Section 49 - Cranberry Bog
 
@@ -4957,6 +5013,9 @@ Instead of swimming in the Bog:
 	
 Instead of eating Cranberry Bog:
 	say "You are not sure it is safe to eat them without giving them a thorough cleaning."
+	
+Instead of burning the Cranberry Bog:
+	say "The bog is too damp to catch fire, but for a moment, it does smell like the inside of a candlestick store, so that was totally worth it."
 
 Section 50 - Found Art
 
@@ -5020,6 +5079,9 @@ Instead of taking the Crystal Skull:
 Instead of rubbing the Crystal Skull for the first time:
 	say "The coarse salt abrades your hand and the friction raises the temperature of the skull by a fraction of a degree.[paragraph break]";
 	bestow "Got A Lot Done Today".
+	
+Instead of burning the crystal skull:
+	say "Your pocket lighter does not come anywhere near the melting point of pure sodium chloride, which,  as you effortlessly recall, is 801[unicode 0176]C."
 
 Section 52 - Vuvuzelas For Freedom
 
@@ -5048,6 +5110,8 @@ Instead of doing something other than examining with the small sign:
 Instead of entering the Toxicodendron radicans when the player is in Toxicodendron radicans:
 	try touching the Toxicodendron radicans.
 	
+Instead of burning the Toxicodendron radicans:
+	say "[one of]You cook a leaf of the plant in the flame of the lighter just long enough to aerosolize some of the plant's toxic oil, which is carried away on an air current towards the neighboring school yard[or]Luckily, the dangerous smoke blows away in a harmless (to you) direction[stopping]."
 	
 Section 54 - Perilous Passageway
 
@@ -10500,9 +10564,7 @@ Instead of entering the unicorn:
 	say "That verb is not recognized in this context."
 	
 Instead of burning the unicorn:
-	say "The unicorn extinguishes your flame, complaining that it exceeds his job description."
-	
-
+	say "The unicorn extinguishes your flame, complaining that dealing with fire is not part of his job description."
 
 Section 6 - Entering and Conversation
 		
