@@ -10,7 +10,7 @@ The story description is "The world is full of Pogomen, and now that you don't h
 Use MAX_STATIC_DATA of 280000.
 Use MAX_NUM_STATIC_STRINGS of 27000.
 Use Max_DICT_ENTRIES of 2000.
-Use MAX_SYMBOLS of 25000.
+Use MAX_SYMBOLS of 26000.
 
 Use full-length room descriptions, american dialect and the serial comma.
 
@@ -6199,7 +6199,7 @@ The lobbyEmployees are privately-named plural-named scenery persons. The lobbyEm
 Instead of pushing or pulling or turning the lobbyEmployees:
 	say "They are moving around too fast for you to grab."
 	
-Instead of attacking or cutting the lobbyEmployees:
+Instead of attacking or cutting or burning the lobbyEmployees:
 	say "[noCutEmployees]."
 	
 To say noCutEmployees:
@@ -6213,7 +6213,7 @@ Instead of smelling the lobbyPlayers:
 Instead of pushing or pulling or turning the lobbyPlayers:
 	say "They are running around excitedly and evade your grasp."
 	
-Instead of attacking or cutting the lobbyPlayers for the first time:
+Instead of attacking or cutting or burning the lobbyPlayers for the first time:
 	noFirstCutPlayers.
 	
 To noFirstCutPlayers:
@@ -6262,6 +6262,9 @@ The Security Checkpoint is south of the Lobby. The description of the security c
 The dryad is a person in the Security Checkpoint. The description of the dryad is a "A burly dryad in an ill-fitting uniform, who clearly would rather be frolicking in some forest clearing rather than doing shift work."
 
 The stamp is in the void. The description of the stamp is "[quotation mark]Property of Nyantech[quotation mark]." Understand "hand" or "hands" as the stamp.
+
+Instead of burning the stamp:
+	try burning the player.
 
 After examining the stamp for the first time:
 	bestow "Sense of Belonging".
@@ -7606,6 +7609,9 @@ Instead of doing something with a quadroom (called the QTH) when the player is n
 		otherwise:
 			say "[The QTH] [are] too far away."
 			
+Instead of burning a quadroom (called the QTH) when the player is not in the village:
+	say "[The QTH] [are] too far away."
+			
 Before doing something with something (called the item) when the item is in a quadroom and the player is not in the village:
 	say "Jeez... It[apostrophe]s amazing that you can even see [the item] from up here.";
 	the rule fails.
@@ -8417,6 +8423,9 @@ Instead of pushing the elevatorExterior:
 
 To say elevatorDoorDesc:
 	say "elevator doors here are [if the player is in the floor level of the elevator]open[otherwise]closed[end if]".
+	
+Instead of burning the elevatorExterior:
+	say "The thick aluminum doors are unaffected."
 
 The call button is a backdrop. The description of the call button is "A polished metal call button and surrounding [if the call button is lit]illuminated [end if]plastic ring." The call button is in Cafeteria, Processing, Lobby, and Legal. Understand "metal" or "button" or "call" or "ring" as the call button. The call button can be lit. The call button is not lit.  The call button has a room called the requestor. The requestor of the call button is the void. Understand "elevator button" as the call button. Understand "plastic" or "ring" or "illuminated" as the call button.
 
@@ -8456,6 +8465,9 @@ Instead of pushing the call button:
 			let T be a random number from 1 to 4;
 			the lift arrives in T turns from now.
 			[should the player hit the stairs, the requestor of the call button is assigned void and the light will wink out]
+			
+Instead of burning the call button:
+	say "The button seems none the worse for your ill-mannered efforts."
 	
 Section 3 - Sharing the elevator with other folks
 
@@ -10192,6 +10204,9 @@ Instead of examining the badge for the first time:
 
 Instead of taking off the badge:
 	try dropping the badge.
+	
+Instead of burning the badge:
+	say "Your Nyantech badge? What? Are you crazy? No way. You need the badge to be allowed to walk around Nyantech, the dream of a lifetime."
 
 Instead of dropping the badge for the first time:
 	say "No, you[apostrophe]ve worked too hard and come too far to cast it all away.[paragraph break]";
@@ -10340,6 +10355,60 @@ Instead of showing something to the steel lighter:
 Persuasion rule for asking the steel lighter to try doing something:
 	say "Asmodeus considers for a moment and then concludes that it is not in his best interest to do so."
 	
+Instead of pulling or pushing or turning or spinning the steel lighter:
+	try burning the steel lighter.
+	
+Instead of opening the steel lighter:
+	say "You don[apostrophe]t have to open it; it is always ready to operate. Just say [quotation mark][italic type]ignite lighter[roman type][quotation mark] to produce a flame."
+	
+Instead of closing the steel lighter:
+	say "It is not that fancy a lighter -- there is nothing to close."
+	
+Instead of taking the steel lighter:
+	say "You always have it at your fingertips."
+	
+Instead of wearing the steel lighter:
+	try taking the steel lighter.
+	
+Instead of giving something to the steel lighter:
+	say "The steel lighter, in its stoicism, eschews material possessions."
+	
+Instead of entering the steel lighter:
+	say "Unless you have some magical mushrooms lying around, there is no way that you would fit in the steel lighter."
+	
+Instead of touching the steel lighter:
+	say "It feels good in your hand."
+	
+Instead of waving the steel lighter:
+	say "You wave the steel lighter around in the air."
+	
+Instead of squeezing the steel lighter:
+	say "Asmodeus hugs you back."
+	
+Instead of licking the steel lighter:
+	say "Asmodeus would never let you live that down."
+	
+Instead of tasting the steel lighter:
+	try licking the steel lighter.
+	
+Instead of capturing the steel lighter:
+	say "It already belongs to you."
+	
+Instead of nonPogoHealing the steel lighter:
+	say "The lighter has a constitution of iron and does not require healing."
+	
+Instead of special attacking the steel lighter:
+	say "You are pretty sure that special attacks do not work on cigarette lighters."
+	
+Instead of filling the steel lighter:
+	say "The lighter requires a very specific fuel, which must be added at midnight on the second harvest moon of the year."
+	
+Instead of emptying the steel lighter:
+	say "Once filled with fuel, the lighter can only emptied by burning it off."
+	
+Instead of charging the steel lighter:
+	try filling the steel lighter.
+		
 Chapter - 2- Phone
 
 The phone is a prop carried by the player. The description of the phone is "A brand new Nyantech T8000 cell phone with 6G connectivity, powered by a Teslatronic Energy Module. You can activate the phone[apostrophe]s scanner to bring up a map of the area by using the [italic type]scan[roman type] command." Understand "cell" or "mobile" or "cellular" or "GSM" or "portable" or "telephone" or "T8000" as the phone.
@@ -10837,7 +10906,7 @@ The block waking up rule response (A) is "The dreadful truth is that playing Pog
 
 The block thinking rule response (A) is "You think about [one of]the time your career counselor told you that thinking about Pogoman GO! all the time might be a sign of obsessive-compulsive tendancies[or]playing more Pogoman GO![stopping]."
 
-The report smelling rule response (A) is "You nothing unexpected given your difficulty of recalling the last time you showered."
+The report smelling rule response (A) is "You smell nothing unexpected given your difficulty of recalling the last time you showered."
 
 The block cutting rule response (A) is "Cutting [regarding the noun][them] up [would achieve] little, and would be only mildly entertaining."
 
