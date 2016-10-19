@@ -5191,7 +5191,7 @@ Instead of rubbing the Crystal Skull for the first time:
 	bestow "Got A Lot Done Today".
 	
 Instead of burning the crystal skull:
-	say "Your pocket lighter does not come anywhere near the melting point of pure sodium chloride, which,  as you effortlessly recall, is 801[unicode 0176]C."
+	say "Your pocket lighter produces a flame well above the melting point of pure sodium chloride (which you effortlessly recall is 801[unicode 0176]C), but it is not effective in heating the large thermal mass. The skull ignores your puny lighter."
 
 Section 52 - Vuvuzelas For Freedom
 
@@ -5516,7 +5516,7 @@ OSWALDOBUSINESS is a list of text that varies. OSWALDOBUSINESS is {
 
 NYANCLUEBAT is a list of text that varies. NYANCLUEBAT is {
 "The Nyantech tower casts a long shadow over the entire town. They -- other players of pogoman, that is -- say that you can find the rarest and most powerful of pogomen within its hallowed halls", 
-"A red search light reflects off windows of buildings and cars along the street and then is gone", 
+"A red search light beams from somewhere near the center of town and reflects off windows of buildings and cars along the street and then is gone", 
 "You take your bearings with a glance at the huge ebony office building at the center of town, the base of operations for the company that developed Pogoman GO! Once you are have enough experience under your belt, you may be able to work up the courage to actually set foot in there among the gaming elite",
 "The Nyantech tower watches protectively over the town. You feel warm and secure in its shadow",
 "A flock of gamers runs noisily down the street towards the city center, no doubt pursuing some exotic pogoman in the direction of the Nyantech tower. You hear one of them yell, [quotation mark]I hear they[apostrophe]re still accepting beta-testers![quotation mark] They disappear from sight",
@@ -9349,15 +9349,31 @@ Section 3 - Lighthouse
 
 The description of Lighthouse is "A tall, red and white-striped concrete tower built on a rocky outcropping. The lighthouse beam sweeps the coast at thirty-second intervals and occasionally a fog-horn sounds." 
 
+Instead of burning the Lighthouse:
+	say "The lighter's flame is immediately quenched by the spraying ocean foam."
+
 Section 4 - Palace
 
 The description of Palace is "This is the McMansion of Palaces - clearly, they started with a typical walled keep and kept adding towers and crenulations. The overall effect is a bit gaudy." Understand "towers" or "wall" or "tower" or "walls" or "crenulation" or "crenulations" as the Palace.
 
+Instead of burning Palace:
+	say "The palace, built to withstand conventional torch and pitchfork attack, has no trouble dealing with your lighter[apostrophe]s tiny flame."
+
 Section 5 - Baseball Diamond
 
-The description of Baseball Diamond is "A Little League baseball diamond, with field markings."   Understand "little league" as the Baseball Diamond.
+The description of Baseball Diamond is "A [if the burntFlag of the field markings is false]Little League baseball diamond, with field markings[otherwise]sportball field[end if]."   Understand "little league" or "sportsball" as the Baseball Diamond. Understand "field" as the Baseball Diamond when the burntFlag of the field markings is true. The printed name of the Baseball Diamond is "[if the burntFlag of the field markings is false]baseball diamond[otherwise]sportball field[end if]".
 
-The field markings are scenery in the Baseball Diamond. The description of the field markings is "Two chalk lines lines diverge from behind home plate to mark off the playing field; everything outside those lines is considered foul. Lines also run in a diamond shape between the four bases, circumscribing the infield." Understand "grass" or "chalk" or "line" or "lines" or "mark" or "marks" or "marking" as the field markings.
+The field markings are scenery in the Baseball Diamond. The description of the field markings is "Two chalk lines lines diverge from behind home plate to mark off the playing field; everything outside those lines is considered foul. Lines also run in a diamond shape between the four bases, circumscribing the infield." Understand "grass" or "chalk" or "line" or "lines" or "mark" or "marks" or "marking" as the field markings. The field markings have a truth state called burntFlag. The burntFlag of the field markings is false.
+
+Instead of burning the field markings:
+	say "The flame leaps from your lighter to the field markings, and they burn and shoot sparks like a lit fuse. The fire rips along the field markings in both directions away from you and the two leading edges of fire meet at the far side of the diamond. It is over as soon as it began, and the ash drifts away, leaving nothing but an unmarked field.";
+	move the field markings to the void.
+	
+Instead of burning the Baseball Diamond:
+	if the field markings are not in the void:
+		try burning the field markings;
+	otherwise:
+		say "What is left of the sportsball field is impervious to your incendiary depredation."
 
 Section 6 - Mountain
 
@@ -9377,6 +9393,9 @@ Instead of searching or entering the mountain when the player is in the mountain
 Instead of entering the mountain when the player is in mountain: [redundant to override the general enter place rule]
 	say "This isn[apostrophe]t that kind of mountain."
 	
+Instead of burning the Mountain:
+	say "The flickering flame of the lighter casts mysterious shadows over the uneven rocky surface of the mountain side."
+	
 Section 7 - Valley
 
 The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
@@ -9393,9 +9412,14 @@ Instead of smelling the exotic flowers for the first time:
 	
 Understand "pick [something]" as taking when the player is in the Valley or the player is in the Gardens of Zarf.
 
+
+
 Section 8 - Desert
 
 The description of Desert is "Sand, as far as the eye can see. Not even cactus grows here." Desert is a place.
+
+Instead of burning the Desert:
+	say "The desert becomes infinitesimally hotter."
 
 Section 9 - Canyon
 
@@ -9403,13 +9427,22 @@ The description of Canyon is "The sedimentary rock walls of the canyon rise shar
 
 The canyon walls are scenery in Canyon. The description of the canyon walls is "Sheer walls of ochre sedimentary rock tower above you." Understand "rock" or "rocks" or "sedimentary" or "wall" as the canyon walls.
 
-Instead of climbing the walls:
+Instead of climbing the canyon walls:
 	say "The walls are too crumbly to climb."
 	
 The canyon stairs are scenery in the Canyon. The description of the canyon stairs is "The stairs are ancient, and in some places are worn smooth, but it is clear that they are not a natural feature. The stairs run in all directions and meet at the center, the lowest point of the canyon. You imagine that in wetter weather water must pool there, but it is sandy and dry at present." Understand "sand" or "sandy" or "point" or "cross" or "crossroad" or "crossroads" or "intersection" or "pit" or "stair" or "staircase" as the canyon stairs.
 
 Instead of climbing the canyon stairs:
 	say "They run in all directions; just say the direction to go.".
+	
+Instead of burning the canyon:
+	say "The canyon walls become just a little less sedimentary and a little more igneous."
+	
+Instead of burning the canyon walls:
+	try burning the canyon.
+	
+Instead of burning the canyon stairs:
+	try burning the canyon.
 
 Section 10 - Forest
 
@@ -9425,7 +9458,7 @@ Instead of examining the tall trees for the first time:
 	bestow "Because Proverb".
 	
 Instead of burning the tall trees:
-	say "They are too green."
+	say "They are too green to burn."
 	
 Instead of cutting the tall trees for the first time:
 	say "But for lack of axe that[apostrophe]s a great idea.[paragraph break]";
@@ -9433,10 +9466,19 @@ Instead of cutting the tall trees for the first time:
 	
 Instead of cutting the tall trees:
 	say "You don[apostrophe]t have the necessary equipment."
+	
+Instead of burning the Forest:
+	say "The whole forest? How about just one tree at a time, Sparky?"
 
 Section 11 - Wharf
 
 The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place. Understand "wharfs" or "wharves" or "dock" or "docks" or "pier" or "piers" as Wharf.
+
+Instead of burning the Wharf:
+	say "The waterlogged planks do not catch fire, but they hiss and steam when the flame is applied. The reek of burning creosote and rotting fish fills the air."
+	
+Instead of smelling when the player is in the Wharf:
+	say "Low tide."
 
 Section 12 - Dojo
 
@@ -9507,6 +9549,12 @@ Instead of searching the Beach for the first time:
 Instead of searching the Beach:
 	say "You find nothing else."
 	
+Instead of taking the Beach:
+	say "All that sand could get messy. You[apostrophe]d rather not."
+	
+Instead of burning the Beach:
+	say "After a few minutes, you conclude that this must be one of those non-flammable beaches made of non-flammable sand."
+	
 
 Section 15 - Stadium
 
@@ -9526,6 +9574,9 @@ The seating area is scenery in the Stadium. The description of the seating area 
 
 Instead of doing something other than examining with the seating area:
 	say "You have better things to do than mess with the seats in an abandoned stadium."
+	
+Instead of burning the stadium:
+	say "Concrete: it is always spoiling your fun!"
 
 Section 16 - Service Station
 
@@ -9599,6 +9650,12 @@ Instead of doing something other than examining with the bell:
 Instead of entering the School House for the first time:
 	say "So one seems to be in the school -- just like everywhere else in this forsaken town.[paragraph break]";
 	bestow "When Will You Learn?"
+	
+Instead of burning the School House:
+	say "Your lighter has no effect on the brick walls of the school or steeple."
+	
+Instead of burning the steeple:
+	try burning the School House.
 
 Section 18 - Monastery
 
@@ -9607,7 +9664,7 @@ The description of Monastery is "A walled fortress surrounding a chapel and some
 Instead of Entering the Monastery when the player is in monastery for the first time:
 	say "One of the things that fortifications are particularly good at is keeping people out."
 	
-The fortifications are scenery in the Monastery. The description of the fortifications is "A star-shaped outer wall with murder holes, emplacements for hot oil, and sentry posts. These monks were not much into outreach." Understand "stone" or "masonry" or "wall" or "walls" or "fortification" or "curtain" or "murder hole" or "emplacement" or "emplacements" or "post" or "posts" as the fortifications.
+The fortifications are scenery in the Monastery. The description of the fortifications is "A star-shaped outer wall with murder holes, emplacements for hot oil, and sentry posts. These monks were not much into community outreach." Understand "stone" or "masonry" or "wall" or "walls" or "fortification" or "curtain" or "murder hole" or "emplacement" or "emplacements" or "post" or "posts" as the fortifications.
 
 Instead of attacking the fortifications for the first time:
 	say "I hope you brought a battering ram or at least siege engine with you.[paragraph break]";
@@ -9615,6 +9672,12 @@ Instead of attacking the fortifications for the first time:
 	
 Instead of attacking the fortifications:
 	say "After wailing on the thick stones walls for a while, it does not appear that you have made much progress in bringing them down."
+	
+Instead of burning the fortifications:
+	say "The monks who built this place know a thing or two about fire, what with candles and such, so it is not surprising that they used flameproof materials."
+	
+Instead of burning the monastery:
+	try burning the fortifications.
 	
 Instead of climbing the fortifications:
 	say "The outward slant of the curtain wall around the monastery makes climbing difficult without proper gear."
@@ -9637,12 +9700,15 @@ Section 19 - Hospital
 
 The description of Hospital is "A sprawling and state-of-the-art, but strangely windowless, medical facility."
 
-Instead of entering the hospital when the player is in hospital for the first time:
+Instead of entering the Hospital when the player is in hospital for the first time:
 	say "There are no doors and no windows. Not even a convenient air vent.[paragraph break]More to the point, however, you do not have insurance coverage, so even if you were to get in, it would be pointless.[paragraph break]";
 	bestow "Note To Self: Get A Job".
 	
-Instead of entering the hospital:
+Instead of entering the Hospital:
 	say "There are no doors or even windows. You don[apostrophe]t see a way in."
+	
+Instead of burning the Hospital: 
+	say "Not even the burn unit catches fire. Talk about false advertising."
 
 Section 20 - Motel
 
@@ -9768,6 +9834,17 @@ Instead of taking the coals:
 	
 Instead of doing something other than taking or examining with the coals:
 	say "They are too hot!"
+	
+Instead of burning the Blacksmith:
+	say "If anyone is going to be doing some burning around here, it is the blacksmith."
+	
+Instead of burning the chimney:
+	say "The sone chimney literally laughs at your cigarette lighter, [quotation mark]Hah![quotation mark][paragraph break]".
+	
+Instead of burning the coals:
+	say "The coals are already burning."
+	
+
 
 Section 23 - Farm
 
@@ -9779,7 +9856,7 @@ Instead of cutting or pulling or taking the wheat:
 	say "It isn[apostrophe]t ready for harvest yet."
 	
 Instead of searching the wheat for the first time:
-	say "You unexpectedly discover the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to have fallen on hard time, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[quotation mark][paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
+	say "You unexpectedly discover the severed head of a garden gnome.[paragraph break]Withdrawing the head from the wheat, you brush it off.[paragraph break][quotation mark]Hey, quit it![quotation mark] complains the head. [quotation mark]I[apostrophe]m sure you[apostrophe]ve got questions. We[apostrophe]ve all got questions. But truth be told, I[apostrophe]m not sure how I ended up in there.[quotation mark][paragraph break]You ask the gnome what you can do for him, since he obviously appears to have fallen on hard times, what with being separated from his body.[paragraph break][quotation mark]Oh, nothing really. I[apostrophe]m not so bad off. This isn[apostrophe]t the first time something like this has happened to me, you know. In fact, it seems to happen with disturbing regularity. Listen, why don[apostrophe]t you just chuck me back in there.[quotation mark][paragraph break][quotation mark]Okay,[quotation mark] you reply, [quotation mark]if that[apostrophe]s what you want.[quotation mark][paragraph break]The garden gnome head nods in agreement, or at least tries to, he more or less just rocks back and forth in your hand, but you know what he means, so you pitch him in a high arc over the field.[paragraph break]From deep in the wheat field you hear faintly, [quotation mark]Good shot![quotation mark] and realize how alone you feel in this desolate village, and how very possible it is that you might benefit from the assistance of a mental health professional."
 	
 Instead of entering the wheat for the first time:
 	try searching the wheat.
@@ -9802,12 +9879,18 @@ Instead of eating the wheat:
 The charred bone is a prop. The charred bone is in the void. The description of the charred bone is "A blackened fragment of a long bone."
 
 Instead of burning the wheat:
-	say "You succeed in introducing slash and burn agriculture, but it doesn[apostrophe]t go very well for you. The field catches fire instantly and spreads immediately to the silo, which goes up like a torch. The silo collapses shortly afterwards on the farmhouse. The wooden farmhouse burns like a small sun. In the end, nothing is left. Nothing.[paragraph break]";
+	say "The wheat field catches fire instantly and spreads immediately to the silo, which goes up like a torch. The silo collapses shortly afterwards on the farmhouse. The wooden farmhouse burns like a small sun. In the end, nothing is left. Nothing.[paragraph break]";
 	bestow "Uncle Owen? Aunt Beru?";
 	now the burntUp of the farm is true;
 	now the wheat is in the void;
 	now the tall grain silo is in the void;
 	now the charred bone is in farm.
+	
+Instead of burning the farm:
+	try burning the wheat.
+	
+Instead of smelling the charred bone:
+	say "Smoky."
 	
 
 Section 24 - Aquarium
@@ -9815,6 +9898,12 @@ Section 24 - Aquarium
 The description of Aquarium is "The snail shell-shaped building is surrounded by fountains that shoot water in arcs back and forth above the sidewalk."
 
 The fountains are plural-named scenery in the aquarium. The description of the fountains is "Water shoots back and forth at unpredictable intervals between carved scallops, conchs, cowries, and clams." Understand "water" or "fountain" or "scallop" or "scallops" or "conch" or "conches" or "cowrie" or "cowries" or "shell" or "clam" or "clams" or "carving" or "carvings" or "sidewalk" or "sidewalks" as the fountains.
+
+Instead of burning the Aquarium:
+	say "The fountains extinguish the flame before it is even lit (if you can visualize that)."
+	
+Instead of burning the fountains:
+	try burning the Aquarium.
 
 Section 25 - Post Office
 
@@ -9824,10 +9913,16 @@ The postal advertisement is scenery in the Post Office. The description of the a
 
 Instead of doing something other than examining with the postal advertisement:
 	say "The advertisements are behind the glass windows of the post office."
+	
+Instead of burning the post office:
+	say "Fine, you burn the post office. It makes very little difference in terms of their efficiency."
 
 Section 26 - Dark Alley
 
 The description of Dark Alley is "A dark and filthy alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place. Understand "passage" or "passageway" as the Dark Alley.
+
+Instead of burning the Dark Alley:
+	say "You burn away some of the filth in the alley, but much remains."
 
 Section 27 - Pogoland Terminal
 
@@ -9837,6 +9932,9 @@ The superconducting rails are scenery in Pogoland Terminal. The description of t
 
 Instead of doing something other than examining with the superconducting rails:
 	say "There is enough power running through those rails to atomize you. You would rather not fiddle with them."
+	
+Instead of burning Pogoland Terminal:
+	say "Your lighter has no effect on concrete."
 	
 Section 28 - The Boat
 
