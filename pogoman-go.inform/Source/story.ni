@@ -607,6 +607,9 @@ Instead of climbing the gym:
 
 After examining the gym for the first time:
 	bestow "We[apostrophe]ll Pump You Up!".
+	
+Instead of doing something other than climbing or examining with a gym:
+	say "You can[apostrophe]t. The gym is just a picture on your phone."
 
 Understand "teal" as the gym when the player is in a quadroom and the color of the location is teal.
 Understand "chartreuse" as the gym when the player is in a quadroom and  the color of the location is chartreuse.
@@ -828,6 +831,12 @@ To say attackingPogomanName:
 
 Instead of taking a pogoentity:
 	say "You[apostrophe]ll have to throw a PogoBall at it to [italic type]capture[roman type] it!".
+	
+Instead of burning the attackerPogoman:
+	say "The pogoman dances away from your lighter."
+	
+Instead of burning the defenderPogoman:
+	say "Why would you want to burn one of your loyal pogomen?"
 		
 Understand "edator" as attackerPogoman when the type of attackerPogoman is edator.
 Understand "edator" as the defenderPogoman when the type of defenderPogoman is edator.
@@ -4228,7 +4237,7 @@ Section 7 - Old Court House
 The description of Old Courthouse is "A brick court house, probably of historical significance." Old Courthouse is an improper-named structure.  The title of Old Courthouse is "Old Courthouse". The printed name of the Old Courthouse is "courthouse".  Understand "court" as Old Courthouse. Understand "building" or "brick" as Old Courthouse when the location is Old Courthouse.
 
 Instead of burning the Old Courthouse:
-	say "As wisely promoted by the Big Bad Wolf, brick is an excellent choice of building material, not only against lupine pulmonic aggression, but in terms of standing up to the tiny flame that your lighter produces."
+	say "As cited in the literature, brick is an excellent choice of building material, not only against lupine pulmonic aggression, but in terms of standing up to the tiny flame that your lighter produces."
 
 Section 8 - Old Jail
 
@@ -4273,6 +4282,9 @@ Instead of spinning the historical marker for the first time:
 	
 Instead of burning Johnson's Rock:
 	say "There[apostrophe]s nothing here worth burning."
+	
+Instead of burning the historical marker:
+	try burning Johnson's Rock.
 
 Section 10 - Nyantech Entrance
 
@@ -4351,6 +4363,9 @@ Instead of touching the arbitrary notice:
 					
 To say arbitraryNoticeDescription:
 	say "[apostrophe]Experienced Players Only. No exceptions -- The management[apostrophe]".
+	
+Instead of burning the arbitrary notice:
+	say "The unicorn recognizes the gleam in your eyes and won[apostrophe]t let your lighter anywhere near the sign."
 
 		
 Section 11 - Ashwell-Lott Estate
@@ -4500,6 +4515,9 @@ Instead of buying something for the first time:
 	
 Instead of buying something:
 	say "No funds."
+	
+Instead of burning Spit n' Solder:
+	say "The spit sizzles, the solder melts, but the store is still standing."
 
 Section 16 - Rotary Clock Tower
 
@@ -4525,6 +4543,9 @@ The nameplate is scenery in Floyd Memorial Bench. The description of the namepla
 
 Instead of doing something other than examining with the nameplate:
 	say "Leave the nameplate alone, you hooligan!".
+	
+Instead of burning the Floyd Memorial Bench:
+	say "While the bench looks wooden, it is actually made of exquisitely textured carbon composite materials unaffected by even the hottest flame."
 
 Section 18 - Giant Chicken
 
@@ -4543,6 +4564,9 @@ Section 19 - Welbourn Travel
 The description of Welbourn Travel is "Maps of various adventures fill the windows of this travel agency." Welbourn Travel is an improper-named structure. The printed name of Welbourn Travel is "Welbourn Travel Agency". Understand "agency" as Welbourn Travel. Understand "building" or "store" as Welbourn Travel when the location is Welbourn Travel. The printed name of Welbourn Travel is "Welbourn Travel Agency". The title of Welbourn Travel is "Welbourn Travel". 
 
 The maps are scenery in Welbourn Travel. The description of the maps is "Colorful maps that detail twisty and not-so-twisty passages through the town and abroad." Understand "map" or "window" or "windows" as the maps.
+
+Instead of burning Welbourn Travel:
+	say "You find yourself suddenly disoriented and extend the lighter in the wrong direction."
 
 Section 20 - Hook & Ladder
 
@@ -4604,6 +4628,9 @@ Section 23 - Service Dog Memorial
 
 The description of Service Dog Memorial is "[quotation mark]Scruffy, 3rd battalion, 5th regiment. Her service will be remembered.[quotation mark]". Service Dog Memorial is an improper-named artifact. Understand "scruffy" as the Service Dog Memorial. Understand "statue" or "sculpture" as Service Dog Memorial when the location is Service Dog Memorial. The title of Service Dog Memorial is "Service Dog Memorial". The printed name of Service Dog Memorial is "elaborate memorial to service dogs".
 
+Instead of burning the Service Dog Memorial:
+	say "You fail at the critical moment because Scruffy is so cute."
+
 Section 24 - Gardens of Zarf
 
 The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "Zarfian" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
@@ -4633,6 +4660,9 @@ Instead of doing something other than examining or burning with the innocuous-ap
 	
 Instead of burning the innocuous-appearing plants:
 	say "The plants blow the flame out as it approaches them. Maybe if you got a little closer..."
+	
+Instead of burning the zarfian sign:
+	say "You would have to enter the garden to get near enough to torch the sign."
 
 Section 25 - Flan Emporium
 
@@ -4729,6 +4759,9 @@ Instead of smelling when the player is in Krusty Kronuts:
 Before eating or buying Krusty Kronuts:
 	try ordering "kronuts";
 	stop the action.
+	
+Instead of burning Krusty Kronuts:
+	say "Some sort of sugary glaze protects the store from the flame."
 
 Section 31 - Cyclorama
 
@@ -4839,6 +4872,8 @@ Instead of doing something other than examining with the railroad tracks:
 	say  description of the railroad tracks;
 	say paragraph break.
 	
+Instead of burning the Olde Train Station:
+	say "The Olde Train Station wouldn[apostrophe]t have been around for so long if every two-bit fire bug with a secondhand lighter could send it up in flames."	
 
 Section 38 - Dog Exercise Area
 
@@ -4872,6 +4907,9 @@ Instead of spinning the dogs:
 	
 Understand "pet [something]" as rubbing.
 
+Instead of burning the Dog Exercise Area:
+	say "Every time you ignite the lighter, a terrier runs by and licks out the flame."
+
 Section 39 - Bottle Cap Wall
 
 The description of Bottle Cap Wall is "A wall made entirely of bottle caps." Bottle Cap Wall is an improper-named artifact. Understand "mural" as Bottle Cap Wall. Understand "sculpture" or "statue" or [even, liberally] "art" as Bottle Cap Wall when the location is Bottle Cap Wall. The printed name of the Bottle Cap Wall is "wall made entirely of bottle caps". The title of Bottle Cap Wall is "Bottle Cap Wall". Understand "caps" as the Bottle Cap Wall.
@@ -4881,6 +4919,9 @@ Instead of Climbing The Bottle Cap Wall:
 	
 Instead of opening the Bottle Cap Wall:
 	say "These bottle caps were long ago opened."
+	
+Instead of burning the Bottle Cap Wall:
+	say "The flame has negligible effect on bottle caps, which were built the old-fashioned way: out of metal."
 
 
 Section 40 - Mile Marker 0.7
@@ -4917,7 +4958,7 @@ Instead of searching the unfathomable orb for the first time:
 	bestow "Unenlightened".
 	
 Instead of burning the unfathomable orb:
-	say "Countless instances of unfathomable orbs analogues catch fire in bifurcating realities throughout the multiverse, but this one does not."
+	say "Countless instances of unfathomable orb analogues catch fire in bifurcating realities throughout the multiverse, but this one does not."
 	
 Section 42 - Rottweiler Art
 
@@ -4983,6 +5024,12 @@ Section 46 - Nymph With Telescope
 The description of Telescope Nymph is "Based on one of Shakespeare[apostrophe]s less known works, in this sculpture, the titular nymph searches the sky for her lost salmon." 
 
 Telescope Nymph is an improper-named artifact. Understand "with" as Telescope Nymph. Understand "sculpture" or "statue" or "art" as Telescope Nymph when the location is Telescope Nymph. The printed name of Telescope Nymph is "nymph statue". The title of Telescope Nymph is "Nymph With Telescope".
+
+Instead of burning the Telescope Nymph:
+	say "You may be a pyromaniac, but you are not a nymphomaniac. You leave the nymph alone."
+	
+Instead of burning the sky:
+	say "You hoist your lighter skyward and ignite the flame as if attending a concert. The sky does not catch fire."
 
 Section 47 - Fire Is Our Friend
 
@@ -10242,6 +10289,9 @@ Before wearing clothes:
 Instead of looking under clothes:
 	say "Nothing but you."
 	
+Instead of burning the player:
+	say "You have the pain tolerance threshold of a goldfish. As soon as you can feel the warmth of the flame, you pull the lighter away."
+	
 Section 1 - Lighter
 
 The steel lighter is a person carried by the player. The description of the steel lighter is "Your lucky cigarette lighter, Asmodeus (that[apostrophe]s just what you call it). You would like to say that the shiny metal lighter is a family heirloom, passed from generation to generation, but the truth is you found Asmodeus on a city bus. Since you don[apostrophe]t smoke, it really doesn[apostrophe]t serve any useful purpose -- you just like the way it looks."  Understand "cigarette lighter" or "asmodeus" as the steel lighter.
@@ -10808,8 +10858,6 @@ The block sleeping rule response (A) is "Hah! Sleep is merely for the washed mas
 The adjust light rule response (A) is "It is just about pitch dark in here."
 
 The basic visibility rule response (A) is "It is almost pitch dark in here and you can barely see anything."
-
-The list writer internal rule response (L) is  "being worn and looking [one of]chic[or]fashionable[or]hip[or]fine[or]classy[or]sophisticated[or]dapper[or]smart[or]stylish[or]debonair[in random order]".
 
 The parser error internal rule response (H) is "Didn[apostrophe]t quite catch that, could you reprhase?"
 
