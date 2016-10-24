@@ -8,7 +8,7 @@ The story creation year is 2016.
 The story description is "The world is full of Pogomen, and now that you don't have a job or family to worry about, you might as well get back to it!"
 
 Use MAX_STATIC_DATA of 280000.
-Use MAX_NUM_STATIC_STRINGS of 27000.
+Use MAX_NUM_STATIC_STRINGS of 28000.
 Use Max_DICT_ENTRIES of 2000.
 Use MAX_SYMBOLS of 26000.
 
@@ -1242,8 +1242,8 @@ The list of text called BALLLIST is always {
 "lands where the xxx stood just a moment ago"
 }
 		
-section 11 - PogoInventory
-	
+section 11 - PogoInventory	
+
 After taking inventory:
 	follow testInventory rule.
 	
@@ -9731,7 +9731,12 @@ Instead of searching or entering the motel when the player is in motel:
 	
 Instead of sleeping when the player is in motel:
 	try entering the motel.
-
+	
+Instead of burning the motel:
+	say "From the looks of it, this motel burns to the ground every other week from someone falling asleep with a cigarette in bed. Your lighter has little effect."
+	
+Instead of burning the neon sign:
+	say "Where your lighter heats the neon tubes, the tubes glow briefly. You amuse yourself by spelling [quotation mark][one of]NOVA[or]CAN[or]VAC[or]NO[or]CACA (childishly, and backwards)[or]VA  N[or]N    ANCY[in random order][quotation mark]."
 
 Section 21 - Botanical Garden
 
@@ -9741,7 +9746,10 @@ A watering can is an open container in the Botanical Garden. The description of 
 
 The spout is part of the watering can. The description of the spout is "[one of]The watering can is no doubt self-conscious of its shortcomings when it comes to performance of nubby little spout, so please stop staring at it[or]The end of the spout is broken off, but the watering can is still capable of pouring[stopping]."
 
-A single glove is in the Botanical Garden. The single glove is a wearable prop. The description of the single glove is "A single glove covered in rhinestones." Understand "rhinestone" or "rhinestones" as the single glove.
+A single glove is in the Botanical Garden. The single glove is a wearable prop. The description of the single glove is "A single [gloveWord] covered in rhinestones." Understand "rhinestone" or "rhinestones" as the single glove. The single glove has a truth state called burntFlag. The burntFlag of the single glove is false. Understand "mitt" or "oven mitt" as the single glove when the burntFlag of the single glove is true. The printed name of the single glove is "[gloveWord]".
+
+To say gloveWord:
+	say "[if the burntFlag of the single glove is false]glove[otherwise]oven mitt[end if]"
 
 After wearing the glove for the first time:
 	bestow "Michael Jackson Impersonator".
@@ -9804,6 +9812,15 @@ Carry out emptying:
 	say " you now have an empty watering can."
 		
 Understand "[emptying] [something] in/into [something]" as inserting it into.
+
+Instead of burning the single glove:
+	say "The rhinestones sparkles in the flame, but the [gloveWord] is not scorched in the least.[paragraph break]";
+	if the burntFlag of the single glove is false:
+		bestow "Rhinestone Oven Mitt of Flame Retardation (+3)";
+		now the burntFlag of the single glove is true.
+		
+	
+
 
 Section 22 - Blacksmith
 
