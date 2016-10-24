@@ -1244,7 +1244,20 @@ The list of text called BALLLIST is always {
 		
 section 11 - PogoInventory	
 
-After taking inventory:
+Instead of taking inventory:
+	say "You are carrying:[line break]";
+	now all things enclosed by the player are unmarked for listing;
+	now all things carried by the player are marked for listing;
+	now all pogothings carried by the player are unmarked for listing;
+	list the contents of the player, with newlines, indented, giving inventory information, with extra indentation, listing marked items only;
+	now all things carried by the player are unmarked for listing;
+	now all things worn by the player are marked for listing;
+	if the number of things worn by the player is greater than 0:
+		list the contents of the player, with newlines, indented, giving inventory information, with extra indentation, listing marked items only;
+	now all things worn by the player are unmarked for listing;
+	now all pogothings carried by the player are marked for listing;
+	if the number of pogothings carried by the player is greater than 0:
+		list the contents of the player, with newlines, indented, giving inventory information, with extra indentation, listing marked items only;
 	follow testInventory rule.
 	
 [
