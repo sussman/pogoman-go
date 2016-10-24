@@ -2536,8 +2536,8 @@ Section 5 - Credits
 
 Crediting is an action applying to nothing. Understand "credit" or "credits" or "blame" or "who" as crediting. 
 	
-Report crediting:
-	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[line break]* John Lodder[line break]* Aaron Reed[line break]* Davy Krieger[line break]* Mike VanHelder[line break]* Duncan Bowsman[line break]* Frances Collins-Sussman[line break]* Mark Lee Stillwell[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark]music credits.[quotation mark][paragraph break]".
+Carry out crediting:
+	say "We[apostrophe]d like to thank the following folks for participating in development of this, what? Game? Œuvre? Yes, that sounds very fancy. Thanks, everyone![paragraph break]Early Concept Review:[line break]* Sam Kabo Ashwell[line break]* Jacqueline Lott[paragraph break]Beta-testers:[line break]* Hugo Labrande[line break]* Dan Biemer[line break]* Denise Jobin Welch[line break]* Lara Welch[line break]* Jenni Polodna[line break]* John Lodder[line break]* Aaron Reed[line break]* Davy Krieger[line break]* Mike VanHelder[line break]* Duncan Bowsman[line break]* Frances Collins-Sussman[line break]* Mark Lee Stillwell[paragraph break]Cover Art:[line break]* Ben Collins-Sussman[paragraph break]Inform 7 Extensions:[line break]* Emily Short (Basic Screen Effects and Menus)[line break]* Eric Eve (Adaptive Hints)[line break]* Erik Temple (Undo Output Control)[line break]* Juhana Leinonen (Object Response Tests)[paragraph break]Music credits are available with the command [quotation mark][italic type]music credits[roman type][quotation mark]. Licensing information is available with the command [quotation mark][italic type]license[roman type][quotation mark].[paragraph break]".
 	
 After crediting for the first time:
 	bestow "So, who is to blame?".
@@ -3010,8 +3010,18 @@ After xyzzying for the 27023rd time:
 After xyzzying for the 69105th time:
 	bestow "Heat Death of the Universe Approaching".
 	
+
+Section 28 - Licensing
+
+Licensing is an action applying to nothing. Understand "license" or "rights" or "copyright" or "licensing" as licensing.
+
+Carry out licensing:
+	say "This game is released under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States license. As a consequence, you are free to copy, distribute, display, and use this work and to make derivative works under the following conditions:[paragraph break]Attribution. You must attribute such works mentioning our names [story author] and the title of this work [quotation mark][story title][quotation mark] This can appear in the title, with the Release Information, or in the acknowledgements section of a menu system. Attribution does not suggest my endorsement of derivative works or their authors.[paragraph break]Noncommercial. You may not use this work for commercial purposes.[paragraph break]Share Alike. If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.[paragraph break]If you would like a copy of the Inform7 source for this game, please let us know by email: contact@pogomango.templaro.com."
 	
-Section 28 - Ordering
+After licensing for the first time:
+	bestow "Copylefted".
+	
+Section 29 - Ordering
 
 Ordering is an action applying to one topic. Understand "order [text]" or "take [text]" or "get [text]" or "ask for [text]" or "eat [text]" or "drink [text]" or "buy [text]" as ordering when Around the Town is Happening.
 
