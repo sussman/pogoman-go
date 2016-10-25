@@ -11,6 +11,7 @@ Use MAX_STATIC_DATA of 280000.
 Use MAX_NUM_STATIC_STRINGS of 28000.
 Use Max_DICT_ENTRIES of 2000.
 Use MAX_SYMBOLS of 26000.
+Use MAX_OBJECTS of 600.
 
 Use full-length room descriptions, american dialect and the serial comma.
 
@@ -9384,23 +9385,39 @@ Instead of burning Palace:
 
 Section 5 - Baseball Diamond
 
-The description of Baseball Diamond is "A [if the burntFlag of the field markings is false]Little League baseball diamond, with field markings[otherwise]sportball field[end if]."   Understand "little league" or "sportsball" as the Baseball Diamond. Understand "field" as the Baseball Diamond when the burntFlag of the field markings is true. The printed name of the Baseball Diamond is "[if the burntFlag of the field markings is false]baseball diamond[otherwise]sportball field[end if]".
+The description of Baseball Diamond is "A [if the burntFlag of the field markings is false]Little League baseball diamond, with field markings[otherwise]sportball field[end if]."   Understand "little league" or "sportball" or "sportsball" as the Baseball Diamond. Understand "field" as the Baseball Diamond when the burntFlag of the field markings is true. The printed name of the Baseball Diamond is "[if the burntFlag of the field markings is false]baseball diamond[otherwise]sportball field[end if]".
 
 The field markings are scenery in the Baseball Diamond. The description of the field markings is "Two chalk lines lines diverge from behind home plate to mark off the playing field; everything outside those lines is considered foul. Lines also run in a diamond shape between the four bases, circumscribing the infield." Understand "grass" or "chalk" or "line" or "lines" or "mark" or "marks" or "marking" as the field markings. The field markings have a truth state called burntFlag. The burntFlag of the field markings is false.
 
 Instead of burning the field markings:
 	say "The flame leaps from your lighter to the field markings, and they burn and shoot sparks like a lit fuse. The fire rips along the field markings in both directions away from you and the two leading edges of fire meet at the far side of the diamond. It is over as soon as it began, and the ash drifts away, leaving nothing but an unmarked field.";
+	now the burntFlag of the field markings is true;
 	move the field markings to the void.
 	
 Instead of burning the Baseball Diamond:
 	if the field markings are not in the void:
 		try burning the field markings;
 	otherwise:
-		say "What is left of the sportsball field is impervious to your incendiary depredation."
+		say "What is left of the sportball field is impervious to your incendiary depredation."
 
 Section 6 - Mountain
 
 The description of Mountain is "Rivaling the largest in the world, this lonely mountain has a single snow-covered peak." Mountain is a place.
+
+The peak is scenery in the mountain. The description of the peak is "The peak is a long, long way above you. At this distance, all you can say about it is that it is covered in snow." Understand "top" as the peak.
+
+Instead of doing something other than examining with the peak:
+	say "It is too distant. Perhaps a few day[apostrophe]s climb."
+
+The stonework is scenery in the mountain. The description of the stonework is "A natural-appearinging patch of rough granite, beneath an outcropping." Understand "granite" or "entrance" as the stonework.
+	
+The ledge is scenery in the mountain. The description of the ledge is "A flat, rocky surface juts out at nearly a right angle above your head; it is not quite wide enough to stand on." Understand "cliff" or "surface" as the ledge.
+	
+Instead of climbing the ledge:
+	say "You sort of dangle from it for a bit, but can[apostrophe]t manage to swing up to the narrow edge."
+	
+Instead of climbing the stonework:
+	say "The stonework is exceptionally smooth here; you cannot get a handhold."
 
 Instead of climbing in the mountain for the first time:
 	say "Why?[paragraph break]";
@@ -9409,19 +9426,34 @@ Instead of climbing in the mountain for the first time:
 Instead of climbing the mountain:
 	say "[one of]You struggle climb about a hundred feet up and realize that mountains are really tall and that climbing them takes a lot of work. You write off the effort for another day[or]No, too much work[stopping]."
 	
-Instead of searching or entering the mountain when the player is in the mountain for the first time:
+Instead of searching or entering the stonework: 
+	try entering the mountain.
+	
+Instead of searching the ledge:
+	try entering the mountain.
+	
+Instead of looking under the ledge:
+	try entering the mountain.
+	
+Instead of opening or searching or entering the mountain for the first time:
 	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
 	bestow "No Place For Swords & Sorcery". 
 	
-Instead of entering the mountain when the player is in mountain: [redundant to override the general enter place rule]
+Instead of entering the mountain:
 	say "This isn[apostrophe]t that kind of mountain."
 	
 Instead of burning the Mountain:
-	say "The flickering flame of the lighter casts mysterious shadows over the uneven rocky surface of the mountain side."
+	say "The flickering flame of the lighter casts mysterious shadows over the suggestively uneven stonework below a curious ledge on the side of the mountain."
+	
+Instead of burning the ledge:
+	try burning the mountain.
+	
+Instead of burning the stonework:
+	try burning the mountain.
 	
 Section 7 - Valley
 
-The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place.
+The description of Valley is "A lush valley with rolling, flower-covered hills." Valley is a place. Understand "lush" or "hill" or "hills" as the Valley.
 
 The exotic flowers are in the valley. The description of the exotic flowers is "Brilliant purple and yellow flowers with fine petals." Understand "flower" or "plant" or "petal" or "petals" or "stamen" or "stamens" or "stem" or "stems" or "foliage" as the exotic flowers. The exotic flowers are plural-named. The indefinite article of the exotic flowers is "some".
 
@@ -9434,6 +9466,12 @@ Instead of smelling the exotic flowers for the first time:
 	frontierDeath.
 	
 Understand "pick [something]" as taking when the player is in the Valley or the player is in the Gardens of Zarf.
+
+Instead of burning the exotic flowers:
+	say "The exotic flowers dances in the flame and exude an exotic, but alluring scent."
+	
+Instead of burning the valley:
+	say "The lush greenery resists the flame."
 
 
 
@@ -9512,11 +9550,15 @@ Instead of burning the dojo for the first time:
 	bestow "This Is Why We Can[apostrophe]t Have Nice Things".
 	
 Instead of burning the dojo for the second time:
-	say "Do jo want to start a fire or something?[paragraph break]";
+	say "Do Jo want to start a fire or something?[paragraph break]";
 	bestow "Knock, Knock".
 	
+Instead of burning the dojo for the third time:
+	say "The dojo evades the flame as the cobra evades the mongoose, except more effectively.[paragraph break]";
+	bestow "Grasshopper Wisdom".
+	
 Instead of burning the dojo:
-	say "The dojo deftly evades the flame."
+	say "The dojo disbelieves your lighter and the flame is extinguished."
 	
 	
 Section 13 - Cemetery
@@ -9556,6 +9598,22 @@ Instead of cutting or burning or attacking or unclipping the mortal coil when No
 	frontierDeath.
 	
 Understand "shuffle off [something]" as unclipping when Not In Kansas Anymore is happening.
+
+Instead of burning the mortal coil:
+	try cutting the mortal coil.
+	
+Instead of burning the grave stones for the first time:
+	say "That would be a grave offense![paragraph break]";
+	bestow "Death By Pun".
+	
+Instead of burning the grave stones:
+	say "A bit of scorching here and there merely adds character to the weathered stones."
+	
+Instead of burning the mausoleums:
+	say "[one of]Seemingly[or]As far as you can tell[or]For all practical purposes[or]It would seem[or]Unless you are mistaken[in random order], nothing happens."
+	
+Instead of burning the cemetery:
+	say "The cheerful little light from the flame raises your spirits. Hopefully, just yours, and none of the other ones."
 	
 	
 Section 14 - Beach
@@ -9759,7 +9817,7 @@ Instead of burning the motel:
 	say "From the looks of it, this motel burns to the ground every other week from someone falling asleep with a cigarette in bed. Your lighter has little effect."
 	
 Instead of burning the neon sign:
-	say "Where your lighter heats the neon tubes, the tubes glow briefly. You amuse yourself by spelling [quotation mark][one of]NOVA[or]CAN[or]VAC[or]NO[or]CACA (childishly, and backwards)[or]VA  N[or]N    ANCY[in random order][quotation mark]."
+	say "Where your lighter heats the neon tubes, the tubes glow briefly. You amuse yourself by spelling [quotation mark][one of]NOVA[or]CAN[or]VAC[or]NO[or]C ACA (childishly, and backwards)[or]VA  N[or]N    ANCY[in random order][quotation mark]."
 
 Section 21 - Botanical Garden
 
@@ -9837,14 +9895,17 @@ Carry out emptying:
 Understand "[emptying] [something] in/into [something]" as inserting it into.
 
 Instead of burning the single glove:
-	say "The rhinestones sparkles in the flame, but the [gloveWord] is not scorched in the least.[paragraph break]";
+	say "The rhinestones sparkle in the flame, but the [gloveWord] is not scorched in the least.[paragraph break]";
 	if the burntFlag of the single glove is false:
 		bestow "Rhinestone Oven Mitt of Flame Retardation (+3)";
 		now the burntFlag of the single glove is true.
 		
+Instead of burning the watering can:
+	say "The metal watering can is not damaged by your lighter."	
 	
-
-
+Instead of burning the botanical garden:
+	say "So much garden, so little flame."
+	
 Section 22 - Blacksmith
 
 The description of Blacksmith is "Black smoke pours from the chimney and hot coals are visible in the forge."
@@ -9883,8 +9944,6 @@ Instead of burning the chimney:
 	
 Instead of burning the coals:
 	say "The coals are already burning."
-	
-
 
 Section 23 - Farm
 
@@ -10027,7 +10086,7 @@ Instead of burning the ladder:
 The propeller is part of the engine. The description of the propeller is "These razor-sharp rotating blades propel the boat through the water."
 
 Instead of doing something other than examining with the propeller:
-	say "You[apostrophe]re more intent on keeping all your fingers than monkeying around with the rotating blades of the propeller."
+	say "You[apostrophe]re more intent on keeping all your fingers than monkeying around with the visciously sharp blades of the propeller."
 
 Instead of going down from the Wharf when the hasExploded of the fishing boat is true:
 	say "There is nothing below you but sharp rocks and treacherous waves."
@@ -10211,6 +10270,15 @@ Instead of searching the gas tank:
 Instead of doing something with the gas tank when the gas tank is not open:
 	say "(first unscrewing the gas cap)[command clarification break]";
 	continue the action.
+	
+Instead of burning the fishing boat:
+	say "The fiberglass hull does not burn."
+	
+Instead of burning the engine:
+	say "The metal engine resists the flame."
+	
+Instead of burning a thing that is part of the engine:
+	try burning the engine.
 
 
 Section 29 - Dealing with Pogorooms
