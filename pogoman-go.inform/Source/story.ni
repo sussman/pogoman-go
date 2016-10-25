@@ -9375,6 +9375,11 @@ The description of Lighthouse is "A tall, red and white-striped concrete tower b
 
 Instead of burning the Lighthouse:
 	say "The lighter's flame is immediately quenched by the spraying ocean foam."
+	
+The slippery boulders are scenery in the lighthouse. The description of the slippery boulders is "Barnacle-covered boulders, slick with ocean mist." Understand "rock" or "rocks" or "boulder" or "barnacle" or "barnacle-covered" as the slippery boulders.
+
+Instead of burning the slippery boulders:
+	say "The heat does not even dry them."
 
 Section 4 - Palace
 
@@ -9409,9 +9414,9 @@ The peak is scenery in the mountain. The description of the peak is "The peak is
 Instead of doing something other than examining with the peak:
 	say "It is too distant. Perhaps a few day[apostrophe]s climb."
 
-The stonework is scenery in the mountain. The description of the stonework is "A natural-appearinging patch of rough granite, beneath an outcropping." Understand "granite" or "entrance" as the stonework.
+The stonework is scenery in the mountain. The description of the stonework is "A more or less natural-appearinging patch of rough granite, beneath an unsuspicious outcropping." Understand "granite" or "entrance" or "patch" as the stonework.
 	
-The ledge is scenery in the mountain. The description of the ledge is "A flat, rocky surface juts out at nearly a right angle above your head; it is not quite wide enough to stand on." Understand "cliff" or "surface" as the ledge.
+The ledge is scenery in the mountain. The description of the ledge is "A flat, rocky surface juts out at nearly a right angle above your head; it is not quite wide enough to stand on." Understand "cliff" or "surface" or "outcropping" as the ledge.
 	
 Instead of climbing the ledge:
 	say "You sort of dangle from it for a bit, but can[apostrophe]t manage to swing up to the narrow edge."
@@ -9426,20 +9431,22 @@ Instead of climbing in the mountain for the first time:
 Instead of climbing the mountain:
 	say "[one of]You struggle climb about a hundred feet up and realize that mountains are really tall and that climbing them takes a lot of work. You write off the effort for another day[or]No, too much work[stopping]."
 	
-Instead of searching or entering the stonework: 
+Instead of  touching or pushing or pulling or turning or spinning or opening or searching or entering the stonework: 
 	try entering the mountain.
 	
-Instead of searching the ledge:
+Instead of touching or pushing or pulling or turning or spinning or opening or searching or entering the ledge:
 	try entering the mountain.
 	
 Instead of looking under the ledge:
 	try entering the mountain.
 	
-Instead of opening or searching or entering the mountain for the first time:
+Instead of touching or pushing or pulling or turning or spinning or opening or searching or entering the mountain for the first time:
 	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
 	bestow "No Place For Swords & Sorcery". 
 	
-Instead of entering the mountain:
+[gods, this is a lot of set up for one joke. Story of my life.]
+	
+Instead of entering the mountain for more than the first time:
 	say "This isn[apostrophe]t that kind of mountain."
 	
 Instead of burning the Mountain:
@@ -9468,12 +9475,10 @@ Instead of smelling the exotic flowers for the first time:
 Understand "pick [something]" as taking when the player is in the Valley or the player is in the Gardens of Zarf.
 
 Instead of burning the exotic flowers:
-	say "The exotic flowers dances in the flame and exude an exotic, but alluring scent."
+	say "The exotic flowers dance in the flame and exude an exotic, but alluring scent."
 	
 Instead of burning the valley:
 	say "The lush greenery resists the flame."
-
-
 
 Section 8 - Desert
 
@@ -9497,7 +9502,7 @@ Instead of climbing the canyon stairs:
 	say "They run in all directions; just say the direction to go.".
 	
 Instead of burning the canyon:
-	say "The canyon walls become just a little less sedimentary and a little more igneous."
+	say "The minerals in the canyon become just a little less sedimentary and a little more igneous."
 	
 Instead of burning the canyon walls:
 	try burning the canyon.
@@ -9533,7 +9538,7 @@ Instead of burning the Forest:
 
 Section 11 - Wharf
 
-The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place. Understand "wharfs" or "wharves" or "dock" or "docks" or "pier" or "piers" as Wharf.
+The description of Wharf is "A rickety wood dock on rotting pilings. The far end of the wharf has collapsed into the pounding sea. A ladder extends down from the side of the pier to a small motor boat." Wharf is a place. Understand "wharfs" or "wharves" or "dock" or "docks" or "pier" or "piers" or "wood" or "pilings" as Wharf.
 
 Instead of burning the Wharf:
 	say "The waterlogged planks do not catch fire, but they hiss and steam when the flame is applied. The reek of burning creosote and rotting fish fills the air."
@@ -9639,7 +9644,7 @@ Instead of burning the Beach:
 
 Section 15 - Stadium
 
-The description of Stadium is "The large, concrete arena must accommodate crowds of at least fifty thousand (of course, no one is there now). A large scoreboard and banks of lights are visible above the seating area."
+The description of Stadium is "The large, concrete arena must accommodate crowds of at least fifty thousand (of course, no one is there now). A large scoreboard and banks of lights are visible above the seating area." Understand "concrete" or "arena" or "seats" or "seating" as the Stadium.
 
 The scoreboard is scenery in the Stadium. The description of the scoreboard is "The scoreboard is still lit up from the most recent game.  The clock is frozen with five minutes to go in the second quarter, and the score is Pogoland Pioneers 5 versus Nyantech Nihilists 3. It is not clear what game they were playing. The field is crisscrossed with white lines, but there are no other markings or equipment on the field."
 
@@ -9699,7 +9704,10 @@ Instead of inserting the pump into the watering can:
 	move the gasoline to the watering can.
 	
 Instead of burning the service station:
-	try burning the pump.
+	if the pump is in the service station:
+		try burning the pump;
+	otherwise:
+		say "There is nothing left to burn."
 	
 Instead of burning the old advertisement:
 	try burning the pump.
@@ -9975,7 +9983,7 @@ Instead of eating the wheat for the first time:
 Instead of eating the wheat:
 	say "Hay is for horses!"
 	
-The charred bone is a prop. The charred bone is in the void. The description of the charred bone is "A blackened fragment of a long bone."
+The charred bone is a prop. The charred bone is in the void. The description of the charred bone is "A blackened fragment of a long bone. A [one of]femur[or]humerus[or]fibula[or]ulna[or]radius[in random order] maybe?"
 
 Instead of burning the wheat:
 	say "The wheat field catches fire instantly and spreads immediately to the silo, which goes up like a torch. The silo collapses shortly afterwards on the farmhouse. The wooden farmhouse burns like a small sun. In the end, nothing is left. Nothing.[paragraph break]";
@@ -9990,6 +9998,9 @@ Instead of burning the farm:
 	
 Instead of smelling the charred bone:
 	say "Smoky."
+	
+Instead of burning the charred bone:
+	say "It is already as burned as it is going to get."
 	
 
 Section 24 - Aquarium
@@ -10018,7 +10029,7 @@ Instead of burning the post office:
 
 Section 26 - Dark Alley
 
-The description of Dark Alley is "A dark and filthy alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place. Understand "passage" or "passageway" as the Dark Alley.
+The description of Dark Alley is "A dark and filthy alley runs between the suspiciously pristine streets of Pogoland." Dark Alley is a place. Understand "passage" or "passageway" or "filth" as the Dark Alley.
 
 Instead of burning the Dark Alley:
 	say "You burn away some of the filth in the alley, but much remains."
@@ -10037,7 +10048,7 @@ Instead of burning Pogoland Terminal:
 	
 Section 28 - The Boat
 
-The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]." The possible exits of the fishing boat are "From here, you can go back up dilapidated ladder to the wharf." The fishing boat has a truth state called hasExploded. The hasExploded of the fishing boat is false.
+The fishing boat is down from the Wharf. The description of the boat is "It lists slightly to one side and the hull has been patched in places without a great deal of art. Under the circumstances, however, you consider it seaworthy[one of] -- enough[or][stopping]. A small outboard motor at the rear [motorPosition]." The possible exits of the fishing boat are "From here, you can go back up dilapidated ladder to the wharf." The fishing boat has a truth state called hasExploded. The hasExploded of the fishing boat is false. Understand "hull" or "fiberglass" as the fishing boat.
 
 The engine is scenery in the fishing boat. The description of the engine is "[one of]Given the size of the boat, you won[apostrophe]t be setting any speed records, but the motor looks to be in reasonable repair. [or][stopping]On top of the engine, there is a gas cap. To the side, there is a valve marked choke. On the front, there is a speed control, which is in the [quotation mark]fast[quotation mark] position. [one of] In fact, it looks like it has been pushed a bit beyond the marking, and the handle is bent a bit in that direction.[paragraph break]It speaks of desperation.[paragraph break]Or poor manufacturing processes; hard to say. [paragraph break][or][stopping]Between the gas cap and the speed control a plastic handle that dangles by a bit of cord. The motor [motorPosition]."  The engine can be uptilted or downtilted. The engine is uptilted. Understand "motor" or "outboard" as the engine. 
 
