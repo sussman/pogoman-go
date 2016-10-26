@@ -508,7 +508,7 @@ After tasting when the PogoMeth is trippy:
 	say "[alteredTaste]."
 	
 To say alteredTaste:
-	say "Mmm. Tastes like [one of]chicken[or]Turkish Delight[or]marmalade[or]vegemite[or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzipan might have cooked up[in random order]";
+	say "Mmm. Tastes like [one of]chicken[or]Turkish Delight[or]marmalade[or]Vegemite[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if][or]motor oil[or]bile[or]jackfruit[or]grape juice[or]something your Aunt Marzipan might have cooked up[in random order]";
 	
 Instead of listening when the PogoMeth is trippy for the first time:
 	say "You hear nothing but the rain.[paragraph break]";
@@ -1935,7 +1935,7 @@ Check expertModing:
 				break;
 			let P be P plus one;
 		if T is greater than EXPERT_POGOITEM_INVENTORY_LIMIT or P is greater than EXPERT_POGOITEM_INVENTORY_LIMIT:
-			say "You are forewarded that it will exclude some of your current inventory (the limit is [EXPERT_POGOITEM_INVENTORY_LIMIT] game items and [EXPERT_POGOMEN_INVENTORY_LIMIT] pogomen. ";
+			say "You are forewarned that it will exclude some of your current inventory (the limit is [EXPERT_POGOITEM_INVENTORY_LIMIT] game items and [EXPERT_POGOMEN_INVENTORY_LIMIT] pogomen. ";
 		say "Once engaged, there is no going back. Are you that fearless (y/n)?";
 		if the player consents:
 			say "Okay. Buckle your seat belt. Engaging expert mode...[paragraph break]";
@@ -2695,8 +2695,6 @@ Carry out playing:
 			say "That[apostrophe]s precisely what you are now doing.";
 		-- otherwise:
 			say "You[apostrophe]re not sure how to play [noun]."
-
-
 
 Understand "stop [a thing]" as switching off.
 
@@ -3607,7 +3605,7 @@ At the time when legal counsel frets:
 	legal counsel frets in N turns from now.
 
 To say disclaimerText:	
-	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]commiting crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not apply[cycling][roman type]".
+	say "[bold type]Warning: Do not play Pogoman GO! while [one of]driving[or]trespassing[or]golfing[or]balanced precariously[or]committing crimes[or]on the train tracks[or]walking on a highway[or]near volcanoes[or]underwater[or]near high levels of ionizing radiation[or]near lawyers[or]operating heavy artillery[or]engaged in arc welding[or]in rooms filled with volatile gas[or]on fire[or]in serpent-filled pits[or]in other, parallel dimensions where the rules of physics do not apply[cycling][roman type]".
 
 Chapter Stage Business
 
@@ -3894,7 +3892,7 @@ MUSKPROVOCATION is a list of text that varies. MUSKPROVOCATION is {
 "The billionaire howls madly and snaps his jaws at you like an attack dog; you draw back reflexively. [quotation mark]Ah,[quotation mark] he remarks, [quotation mark]animal instinct. It is hard to get away from it, no? No matter how civilized we appear, deep down, life is a fight for dominance and you will find that I am the alpha dog.[quotation mark]",
 "Musk takes a running leap, spins through the air above your head, and lands behind you. [quotation mark]You must realize that you have no chance against me. Genetic augmentation, cellular enhancements, and of course my innate intelligence and self-discipline make this a fight barely worth having, but [italic type]noblesse oblige[roman type], I will see it though, I suppose.[quotation mark]",
 "Elon Musk steps to the side, just out of your reach, and whispers, [quotation mark]Your day is over, Neanderthal.[quotation mark]",
-"Elon Musk slaps you with the side of his clipboard, a move clearly not intended to injure so much as embarass you. [quotation mark]What[apostrophe]s the matter? Never had to face an opponent that could think for himself? Never had to come to terms with being the a mere toy? Well, I will will certainly have some fun with you![quotation mark]",
+"Elon Musk slaps you with the side of his clipboard, a move clearly not intended to injure so much as embarrass you. [quotation mark]What[apostrophe]s the matter? Never had to face an opponent that could think for himself? Never had to come to terms with being the a mere toy? Well, I will will certainly have some fun with you![quotation mark]",
 "The technology visionary mocks you, [quotation mark]When I[apostrophe]m done with you, I don[apostrophe]t suppose anyone will even bother to look for you. You are a nobody, nothing. I suppose I can at least melt down your cell phone for scrap.[quotation mark]",
 "[quotation mark]I dare you to even try and hit me,[quotation mark] jeers Musk.",
 "[quotation mark]You know, I watched your clumsy effort to sneak around the building and the painfully incompetent way you handled yourself in Pogoland. I thought I had laid it all out so simply. Painful, I tell you.[quotation mark] Musk maneuvers around you. [quotation mark]But not nearly so painful as what awaits you.[quotation mark]",
@@ -3968,7 +3966,7 @@ Every turn during legalEnding:
 		-- 3:
 			say "quivering";
 		-- 4:
-			say "decidely agitated";
+			say "decidedly agitated";
 		-- 5: 
 			say "nervous";
 		-- 6:
@@ -4715,7 +4713,7 @@ Instead of climbing General Nelson:
 	say tefloned.
 	
 To say tefloned:
-	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with teflon to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litigious statue-climbing buffoons[or][stopping]."
+	say "You try, but you[apostrophe]re not the first. Long ago, the town sprayed the statue with Teflon[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] to prevent such tom foolery[one of] and to avoid frivolous lawsuits from poorly coordinated but litigious statue-climbing buffoons[or][stopping]."
 	
 Instead of burning General Nelson:
 	say "Bosphorus, not phosphorus. The statue does not burn."
@@ -4810,7 +4808,7 @@ Biocontainment Facility is an improper-named structure. Understand "bioweapons" 
 Instead of burning the Biocontainment Facility:
 	say "It looks like parts of the research facility are already on fire."
 
-The zombie horde is an animal. The zombie horde is plural-named.  The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seems strangely unattracted to the brains of gamers." Understand "zombies" or "undead" or "masses" or "pack" as the zombie horde.	
+The zombie horde is an animal. The zombie horde is plural-named.  The zombie horde is scenery in the biocontainment facility. The description of the zombie horde is "A listless, shambling, pack of undead. They seem strangely unattracted to the brains of gamers." Understand "zombies" or "undead" or "masses" or "pack" as the zombie horde.	
 
 Instead of doing something with the zombie horde:
 	if the current action is examining:
@@ -5655,7 +5653,7 @@ Instead of listening when the player is in the cafeteria:
 	
 Food is a scenery in the cafeteria. The description of food is "The selection of gourmet food is constantly changing. By the time you reach for one thing, something else has come along to take its place."  
 
-Understand "plate" or "plates" or "roasted" or "boar" or "roast" or "braised" or "chicken" or "kale" or "homemade" or "butter" or "croissant" or "croissants" or "maple" or "glaze" or "herb" or "herbs" or "herb-encrusted" or "leg" or "leg of lamb" or "lamb" or "garlic" or "roasted" or "baby" or "potato" or "potatoes" or "pan-seared" or "foie" or "gras" or "orecchiette" or "bolongese" or "chestnut" or "chestnuts" or "magret" or "canard" or "magret de canard" or "fingerling" or "rice" or "sublimated" or  "sungold" or "crumble" or "late-summer" or "rye" or "homespun" or "homemade" or "water" or "pancake" or "fermented" or "anchovy" or "anchovies" or "lime" or "paté" or "pate" or "quickened" or "ham" or "fig" or "hams" or "figs" or "limes" or "pancakes" or "legs" or "croissants" or "chickens" or "boars" or "rubbed" or "watercress" or "salt" or "reduction" or "eggplant" or "egg plant" or "egg plants" or "artichoke" or "artichokes" or "ramp" or "ramps" or "peach" or "surprise" or "folk" or "corn" or "pork" or "belly" or "bellies" or "rustic" as the food.
+Understand "plate" or "plates" or "roasted" or "boar" or "roast" or "braised" or "chicken" or "kale" or "homemade" or "butter" or "croissant" or "croissants" or "maple" or "glaze" or "herb" or "herbs" or "herb-encrusted" or "leg" or "leg of lamb" or "lamb" or "garlic" or "roasted" or "baby" or "potato" or "potatoes" or "pan-seared" or "foie" or "gras" or "orecchiette" or "bolognese" or "chestnut" or "chestnuts" or "magret" or "canard" or "magret de canard" or "fingerling" or "rice" or "sublimated" or  "sungold" or "crumble" or "late-summer" or "rye" or "homespun" or "homemade" or "water" or "pancake" or "fermented" or "anchovy" or "anchovies" or "lime" or "paté" or "pate" or "quickened" or "ham" or "fig" or "hams" or "figs" or "limes" or "pancakes" or "legs" or "croissants" or "chickens" or "boars" or "rubbed" or "watercress" or "salt" or "reduction" or "eggplant" or "egg plant" or "egg plants" or "artichoke" or "artichokes" or "ramp" or "ramps" or "peach" or "surprise" or "folk" or "corn" or "pork" or "belly" or "bellies" or "rustic" as the food.
 
 Instead of doing something other than examining or smelling with the food:
 	say "Game now, eat later. Must explore the building! Pogoman glory awaits!"
@@ -5754,7 +5752,7 @@ To say employeeRant6:
 	say "10 CLS:PRINT [quotation mark]HAVE YOU VISITED THE OBSERVATION DECK? THE VIEW IS REMARKABLE.[quotation mark]:PRINT:PRINT [quotation mark]FROM UP THERE YOU CAN SEE [quotation mark]:PRINT $TOWN_LOCATION[bracket]RND*48[close bracket]"
 	
 To say visitorRebuff:
-	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can[apostrophe]t you see I[apostrophe]m pogomaning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
+	say "[one of]The player glances briefly at your badge and remarks, [quotation mark]Not now, n00b. Can[apostrophe]t you see I[apostrophe]m pogomanning? Duh.[quotation mark][or]The players continue tapping away at their phones, ignoring you.[stopping][paragraph break]".
 	
 Section 4 - Snacks
 
@@ -5778,14 +5776,14 @@ Instead of entering the chute:
 	
 Instead of inserting something (called the item) into the chute:
 	if the item is the pop-tart:
-		say "You try to shove the pop-tart nto the chute, but it comes immediately out again since the chute is angled down towards you.";
+		say "You try to shove the pop-tart into the chute, but it comes immediately out again since the chute is angled down towards you.";
 	else if the item is a pogothing:
 		say "That makes no sense.";
 	else:
 		say "[The item] does not fit well into the pop-tart-shaped chute."
 	
 Instead of searching the chute:
-	say "You can only see a short distance due to lighting; it looks like the chute just rans upwards at an angle."
+	say "You can only see a short distance due to lighting; it looks like the chute just runs upwards at an angle."
 
 A pop-tart is a pastry. It is on the table. The description of the pop-tart is "The crowning achievement of millennia of culinary evolution, this double-glazed, sugar-sprinkled, [flavor of the pop-tart]-flavored pop-tart is a flat, rectangular piece of pastry perfection." Understand "pastry" or "cake" or "dessert" or "poptart" or "tart" as the pop-tart.
 
@@ -6254,7 +6252,7 @@ Instead of attacking or cutting the lobbyPlayers:
 To say noCutPlayers:
 	say "You wish them no harm"
 
-The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on segways and hoverboards." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" or "contrivance" or "contrivances" or "motorized" as the high-tech conveyances.
+The high-tech conveyances are scenery. The high-tech conveyances are in the Lobby. The description of the high-tech conveyances is "The employees jet around the lobby on Segways[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] and Hoverboards[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if]." Understand "segway" or "segways" or "hoverboard" or "hoverboards" or "conveyance" or "contrivance" or "contrivances" or "motorized" as the high-tech conveyances.
 
 Instead of doing something other than examining with high-tech conveyances:
 	say "They are darting about too quickly to even get a good look at them."
@@ -6275,7 +6273,7 @@ Instead of going east from the Lobby when the walkman is not worn:
 		continue the action.
 	
 After going east from the Lobby for the first time:
-	say "With the walkman blaring away in your ears, the arguably melodious strains of Rick Astley drown out the sonic barrier around the LAN closet, and you are able to approach it."
+	say "With the Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] blaring away in your ears, the arguably melodious strains of Rick Astley drown out the sonic barrier around the LAN closet, and you are able to approach it."
 
 The RevolvingDoor is inside of Nyantech Entrance. The RevolvingDoor is outside of the Security Checkpoint. The printed name of the RevolvingDoor is "Revolving Door". The description of the RevolvingDoor is "A revolving brass door." The description of the revolving door is "A brass revolving door w at the entrance to the Nyantech Tower." The possible exits of the revolvingDoor are "You can either go inside, into Nyantech Headquarters, or outside, back to the street[one of]. Your choice[or][stopping]."
 
@@ -6407,13 +6405,13 @@ Instead of switching off the phonograph:
 				
 Instead of dropping or taking off the walkman when the player is in the LAN Closet:
 	if the speaker is active:
-		say "Before you can slip the earphone off, you are overcome by nauseous fear -- even worse than Rick Astley -- and you sprint out of the LAN closet, hanging onto the walkman.";
+		say "Before you can slip the earphone off, you are overcome by nauseous fear -- even worse than Rick Astley -- and you sprint out of the LAN closet, hanging onto the Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if].";
 		now the player carries the walkman;
 		now the LAN Closet Door is closed;
 		teleport the player to the Lobby;
 	otherwise:
 		if the current action is dropping and isBrokenFlag of the phonograph is false:
-			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the walkman, but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
+			say "[one of]Still suffering after echoes of the horrible noise, you aren[apostrophe]t willing to be in here without the Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if], but you do slip the earphones off[or]Nah, the room gives you the willies as long as the phonograph is still in one piece, but you do slip the earphones off[stopping].";
 			now the player carries the walkman;
 		otherwise:
 			continue the action.
@@ -6628,7 +6626,7 @@ Instead of touching termsProxy:
 	say "Text fills the screen and scrolls by a breakneck speed. Most of it looks like dense legal boilerplate but you catch a few phrases like [quotation mark][terms1][quotation mark] and [quotation mark][terms2].[quotation mark][paragraph break]".
 	
 To say terms1:
-	say "[one of]waiver of liability[or]agreement to hold harmless[or]notwithstanding previous claims to the so-called inalienable rights of man[or]lack of human subject protections[or]no warrantee of fitness of purpose[or]threats to personal safety and sanity[or]or however unpleasant they may be[or]unthinkable consequences[or]mere mortality[or]enslavement or imprisonment[or]organ atrophy or dysfunction[or]implosion or inversion[or]voids all provisions of the Declaration of Helsinki[or]hideous side-effects[or]unpredictable losses[or]whether self-inflicted or intentional[or]safe delivery of neither body or soul[or]hunting or being hunted[or]including but not limited to mutilation[or]nocturnal, tentacled, bat-winged monster dwelling[or]indemnity against corporal mental compulsion or control[or]all forms of torture both physical and mental[or]including supernatural events[or]no guarantee of restitution or redress[or]science must supersede those of the individual[or]perfidious propensity towards debasement and ruin[in random order]".
+	say "[one of]waiver of liability[or]agreement to hold harmless[or]notwithstanding previous claims to the so-called inalienable rights of man[or]lack of human subject protections[or]no warranty of fitness of purpose[or]threats to personal safety and sanity[or]or however unpleasant they may be[or]unthinkable consequences[or]mere mortality[or]enslavement or imprisonment[or]organ atrophy or dysfunction[or]implosion or inversion[or]voids all provisions of the Declaration of Helsinki[or]hideous side-effects[or]unpredictable losses[or]whether self-inflicted or intentional[or]safe delivery of neither body or soul[or]hunting or being hunted[or]including but not limited to mutilation[or]nocturnal, tentacled, bat-winged monster dwelling[or]indemnity against corporal mental compulsion or control[or]all forms of torture both physical and mental[or]including supernatural events[or]no guarantee of restitution or redress[or]science must supersede those of the individual[or]perfidious propensity towards debasement and ruin[in random order]".
 	
 To say terms2:
 	say "[one of]repatriation of remains (if they can be located)[or]despite all reasonable precautions[or]so-called supernatural forces[or]surviving assets will be conceded to Nyantech[or]implicit lack of good faith[or]or bearing the mark upon its forehead[or]exclusive and perpetual powers over the subject[or]unjustly or indecently committed against the wishes of the accused[or]through such agents as may be conjured[or]without expectation of compensation for mental or physical duress[or]entirely volunteer basis without expectation of remuneration[or]against all foreseeable loss or injury[or]breach will be punishable by excruciating[or]inflicted in the case of violation of any of these terms[or]under no obligation to protect the subject[or]such penalties including evisceration[or]specimens including bodily fluids[or]agrees not to transfer, copy, disclose, provide or otherwise make available[or]to make, use, copy, modify, sell, distribute[or]disciplined in the event of failure[or]in the unfortunate event of failure[or]the mewling pleas of the masses[or]much like an ant might be crushed beneath the heel[in random order]".
@@ -6667,7 +6665,7 @@ Instead of listening to the clock:
 After putting the clock on the wall:
 	say "You place the clock back on the wall."
 
-The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries." Understand "battery" or "aa" or "disposible" or "alkaline" or "lithium" or "zinc" or "carbon" as the fresh batteries.
+The fresh batteries are plural-named prop.  The fresh batteries are in the battery holder. The description of the fresh batteries is "Shiny new batteries." Understand "battery" or "aa" or "disposable" or "alkaline" or "lithium" or "zinc" or "carbon" as the fresh batteries.
 
 Instead of eating the batteries:
 	say "They would not be of much use to you by the time you saw them again."
@@ -6837,7 +6835,7 @@ Cousteau Room is south of the Cousteau Door. The description of the Cousteau Roo
 Instead of listening when the player is in the Cousteau Room:
 	say "Splash. Splash. Soothing Splash. Splash."
 
-The colorful arrows are scenery. The colorful arrows are in the Cousteau Room. The description of the colorful arrows is "Some green and blue arrows are pointed on the wall. These are not bow-and-arrow sorts of arrows, but the kind you draw in powerpoint: black outline and a simple filled shape. In one column, there are nine upward-facing green arrows and right next to that column, there is another column of three downward-facing blue arrows." Understand "arrow" or "painting" or "paintings" as the colorful arrows.
+The colorful arrows are scenery. The colorful arrows are in the Cousteau Room. The description of the colorful arrows is "Some green and blue arrows are pointed on the wall. These are not bow-and-arrow sorts of arrows, but the kind you draw in PowerPoint: black outline and a simple filled shape. In one column, there are nine upward-facing green arrows and right next to that column, there is another column of three downward-facing blue arrows." Understand "arrow" or "painting" or "paintings" as the colorful arrows.
 
 Instead of touching the colorful arrows:
 	say "The arrows are flat paintings on the wall and are smooth to the touch."
@@ -6945,7 +6943,7 @@ Instead of entering the rickety table, say "Surely, that would be the end of the
 Memorabilia are plural-named backdrop in the Rick Astley Shrine. The description of the memorabilia is "[one of]Too horrid to contemplate[or]You avert your eyes[or]Your sanity ebbs[or]You are not sure if you can bear any more[or]Mommy, make it stop[or]Closing your eyes helps[stopping]."  Understand "memorabilia" or "poster" or "posters" or "photo" or "photos" or "photograph" or "photographs" or "autograph" or "autographs" as the memorabilia.
 
 Instead of searching the memorabilia for the first time:
-	say "You search through the memorabilia and are left with a feeling of profound nostaligia. Or perhaps nausea.[paragraph break]";
+	say "You search through the memorabilia and are left with a feeling of profound nostalgia. Or perhaps nausea.[paragraph break]";
 	bestow "Walk Down Memory Lane".
 	
 Instead of searching the memorabilia:
@@ -6954,7 +6952,7 @@ Instead of searching the memorabilia:
 Instead of taking the memorabilia:
 	say "They are best left here, where few will ever see them."
 
-The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY walkman: a portable cassette tape player with earphones. The walkman contains a tape." Understand "sony" or "tape" or "cassette" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
+The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if]: a portable cassette tape player with earphones. The Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] contains a tape." Understand "sony" or "tape" or "cassette" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
 
 After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
@@ -6965,15 +6963,15 @@ Instead of listening to the walkman when the walkman is not worn:
 	try wearing the walkman.
 
 Before switching on the walkman:
-	say "The walkman is already on - in fact, you don[apostrophe]t seen any off switch[if the player does not wear the walkman], but you[apostrophe]ll need to put the earphones on to hear anything[end if].";
+	say "The Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] is already on - in fact, you don[apostrophe]t seen any off switch[if the player does not wear the walkman], but you[apostrophe]ll need to put the earphones on to hear anything[end if].";
 	stop the action.
 	
 Before switching off the walkman:
-	say "The walkman seems to be stuck in the [quotation mark]on[quotation mark] position and is looping continuously.";
+	say "The Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] seems to be stuck in the [quotation mark]on[quotation mark] position and is looping continuously.";
 	stop the action.
 	
 Instead of opening the walkman for the first time:
-	say "The walkman appears to have been modified: the door that retains the tape would ordinarily swing out, but you do not even see hinges. It looks like there is no way to ejected the tape. Similarly, there is no trace of a battery compartment.[paragraph break]";
+	say "The Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] appears to have been modified: the door that retains the tape would ordinarily swing out, but you do not even see hinges. It looks like there is no way to ejected the tape. Similarly, there is no trace of a battery compartment.[paragraph break]";
 	bestow "Odd Design".
 	
 Instead of opening the walkman:
@@ -7473,7 +7471,7 @@ Section 40 - Managers
 
 Managers is a room.
 
-managersProxy are a workerProxy. managersProxy are in the void. The description of a managersProxy is "[fromElevator][entry 1 of the WPLIST of managersProxy]." Understand "manager" or "managers" or "employee" or "employees" or "worker" or "workers" as the managersProxy. The WPLIST of managersProxy is  {"the managers processing in circles with lit candles", "shadowy figures serving hors d'oeuvres to the managers, who are dressed as french maids"}. The printed name of the managersProxy is "managers".
+managersProxy are a workerProxy. managersProxy are in the void. The description of a managersProxy is "[fromElevator][entry 1 of the WPLIST of managersProxy]." Understand "manager" or "managers" or "employee" or "employees" or "worker" or "workers" as the managersProxy. The WPLIST of managersProxy is  {"the managers processing in circles with lit candles", "shadowy figures serving hors d'oeuvres to the managers, who are dressed as French maids"}. The printed name of the managersProxy is "managers".
 
 Instead of doing something other than examining with a workerProxy:
 	say "You would have to exit the elevator here to do that."
@@ -7848,7 +7846,7 @@ Instead of jumping in the Cat Area:
 		
 The buildingProxy is a privately-named backdrop. The buildingProxy is in Cat's Beret, Maintenance Hatch, Catwalk, Gantry, and Poop Deck. 
 
-The description of the buildingProxy is "The obsidian black skyscraper towers over the town. The mechanical Nyantech Cat is joined to the tower by an impressively strong support beam, which rides a geared track around the building. The top of the Cat is about twenty feet below the level of the building[apostrophe]s observation deck, which runs around the roof-top cafeteria."  Understand "tower" or "skyscraper" or "building" or "black" or "obsidan" or "office" or "headquarter" or "headquarters" or "HQ" or "nyantech" or "corporate" or "cafeteria" or "observation" or "deck" or "rail" or "gear" or "geared" or "track" as the buildingProxy.
+The description of the buildingProxy is "The obsidian black skyscraper towers over the town. The mechanical Nyantech Cat is joined to the tower by an impressively strong support beam, which rides a geared track around the building. The top of the Cat is about twenty feet below the level of the building[apostrophe]s observation deck, which runs around the roof-top cafeteria."  Understand "tower" or "skyscraper" or "building" or "black" or "obsidian" or "office" or "headquarter" or "headquarters" or "HQ" or "nyantech" or "corporate" or "cafeteria" or "observation" or "deck" or "rail" or "gear" or "geared" or "track" as the buildingProxy.
 		
 Section 46 - Cat's Beret
 
@@ -9585,7 +9583,7 @@ Instead of entering the cemetery when the player is in the cemetery:
 The grave stones are scenery in the cemetery. The description of the grave stones is "Grey and brown stone slabs, some intact, some fragmented, all of them worn and weathered, their inscriptions lost to time." Understand "head" or "headstone" or "marker" or "stones" or "graves" or "slab" or "slabs" or "stone" as the grave stones.
 
 Instead of pushing or pulling the grave stones for the first time:
-	say "Your irreverant action coincides in a noncausal way with an unthinkably unlikely macro-level perturbation in space-time, and you find yourself falling towards a field of wheat a few days from now.[paragraph break]";
+	say "Your irreverent action coincides in a noncausal way with an unthinkably unlikely macro-level perturbation in space-time, and you find yourself falling towards a field of wheat a few days from now.[paragraph break]";
 	bestow "When In Doubt: Quantum Mechanics";
 	teleport the player to the farm.
 	
@@ -9809,7 +9807,7 @@ The description of Motel is "A classic two-level drive-in motel with no-vacancy 
 
 The neon sign is scenery in Motel. Understand "no-vacancy" or "vacancy" or "electric" or "electrical" as the neon sign.
 
-The description of the neon sign is "The name of the down-at-the-heels motel strobes on and off in yellow neon: [quotation mark]Happy Sands Motel[quotation mark]. Ironically, some of the letters are out, so it just blinks back and forth between [quotation mark]Happy[quotation mark] and [quotation mark]Sad[quotation mark]. On closer inspection, it does not look like the word [quotation mark]No[quotation mark] next to [quotation mark]Vacancy[quotation mark] works either, but you guess from the state of the motel that this is never really an issue. The sign buzzes and occassionally emits bright sparks of arcing electricity in the humid, salty air."
+The description of the neon sign is "The name of the down-at-the-heels motel strobes on and off in yellow neon: [quotation mark]Happy Sands Motel[quotation mark]. Ironically, some of the letters are out, so it just blinks back and forth between [quotation mark]Happy[quotation mark] and [quotation mark]Sad[quotation mark]. On closer inspection, it does not look like the word [quotation mark]No[quotation mark] next to [quotation mark]Vacancy[quotation mark] works either, but you guess from the state of the motel that this is never really an issue. The sign buzzes and occasionally emits bright sparks of arcing electricity in the humid, salty air."
 
 Instead of touching or taking the neon sign for the first time:
 	say "There is brief flash, as the sign discharges high voltage through your arm, across your chest, and down through your feet into the moist, salt-saturated soil.[paragraph break]That is a gentle way of saying that you[apostrophe]ve just been electrocuted.[paragraph break]";
@@ -11194,7 +11192,7 @@ grunjturd	"Found only in the Pacific Northwest"
 agnostator	"A modern animal comfortable with ambiguity"
 beeleever	"Social, but stings irrationally when excited"
 zealocanth	"A fossil-type with petrified nervous system"
-moldimug	"A tenaceous adversary"
+moldimug	"A tenacious adversary"
 funjifut	"A dirty little sneaker. Not to be trusted"
 zhokkidge	"A intertriginous terrorist"
 seeduino	"Sprouts up unexpectedly"
@@ -11220,7 +11218,7 @@ queezee	"Preternaturally nauseous"
 barfalot	"A distant relative of pukeatyou"
 perpie	"A criminally-inclined purple dinosaur"
 misdementor	"A criminally-minded wraith"
-fellanon	"A harded criminal with quick tongue"
+fellanon	"A hardened criminal with quick tongue"
 
 Definition: A pogotype is first level if it is an original listed in the Table of Evolution.
 Definition: A pogotype is second level if it is an ev2 listed in the Table of Evolution.
@@ -11333,7 +11331,7 @@ to HookEnding:
 
 	
 To internsEnding:
-	say "Immediately after you step off the elevator, you are nabbed around the collar by a supervisor in a dark black suit. The mousey intern who was being chastised just beforehand by the supervisor scrapes up a pile of paperwork from the floor and scurries off to his cubicle, glad of the distraction.[paragraph break]The supervisor snaps your golden badge off with her long, talon-like polished fingers, admonishing, [quotation mark]That[apostrophe]s not regulation. And where is your monocle?[quotation mark] From out of a pocket she produces an optical data port, which she jams against your face. You feel its metal tendrils drill into your cheekbone and brow.[paragraph break]She spins on her heels and throws a box at you. [quotation mark]We need all the promotional material by the weekend. Here, these aren[apostrophe]t going to sharpen themselves.[quotation mark][paragraph break]A box of pencils lands at your feet, and to your surprise, you feel compelled to pick them up. Voices inside your head tell you what do, and you obey. Adrift among the sea of personalities and voices invading your mind, you try to retain your individuality, but you are fighting a losing battle. The pencil goes into the sharpener and your hand slowly cranks it around and around. You remove the pencil, stare briefly at the eraser, which is in the form of a red Nyantech cat, and reach for another pencil.[paragraph break]Boxes of pencils are rolled into the office and stacked behind you. As you look left and right, hundreds of interns mirror your movements: [italic type]get[roman type] pencil, [italic type]sharpen[roman type] pencil, [italic type]drop[roman type] pencil.[paragraph break]";
+	say "Immediately after you step off the elevator, you are nabbed around the collar by a supervisor in a dark black suit. The mousy intern who was being chastised just beforehand by the supervisor scrapes up a pile of paperwork from the floor and scurries off to his cubicle, glad of the distraction.[paragraph break]The supervisor snaps your golden badge off with her long, talon-like polished fingers, admonishing, [quotation mark]That[apostrophe]s not regulation. And where is your monocle?[quotation mark] From out of a pocket she produces an optical data port, which she jams against your face. You feel its metal tendrils drill into your cheekbone and brow.[paragraph break]She spins on her heels and throws a box at you. [quotation mark]We need all the promotional material by the weekend. Here, these aren[apostrophe]t going to sharpen themselves.[quotation mark][paragraph break]A box of pencils lands at your feet, and to your surprise, you feel compelled to pick them up. Voices inside your head tell you what do, and you obey. Adrift among the sea of personalities and voices invading your mind, you try to retain your individuality, but you are fighting a losing battle. The pencil goes into the sharpener and your hand slowly cranks it around and around. You remove the pencil, stare briefly at the eraser, which is in the form of a red Nyantech cat, and reach for another pencil.[paragraph break]Boxes of pencils are rolled into the office and stacked behind you. As you look left and right, hundreds of interns mirror your movements: [italic type]get[roman type] pencil, [italic type]sharpen[roman type] pencil, [italic type]drop[roman type] pencil.[paragraph break]";
 	end the story finally saying "INTERMINABLE INTERNSHIP".
 	
 To engineersEnding:
@@ -11592,7 +11590,7 @@ Table of PogoGyms Explained
 hint	used
 "You need to enter a gym to win Pogoman battles[if pogolevel of the player is less than GYM_ENTRY_LEVEL_REQUIREMENT], but to enter, you need more experience[end if]."
 "You can earn XP and trophies by participating in Pogoman battles."
-"Pogomaster are persistent; if you have difficulty entering a gym, keep trying."
+"Pogomasters are persistent; if you have difficulty entering a gym, keep trying."
 "As a pogomaster, you will always (automatically) select your best champion for battle."
 "In battle, the more evolved pogoman usually has the advantage."
 "If you have unevolved pogomen in stock, use the [italic type]evolve[roman type] command to upgrade them."
@@ -11818,7 +11816,7 @@ A hint deactivation rule (this is the Rick Assistance hint deactivation rule):
 		
 Table of Rick Assistance
 hint	used
-"What can I learn from finding a walkman?"	
+"What can I learn from finding a Walkman?"	
 "Have you tried putting on the earphones?"	
 "Pretty loud and painful, right?"	
 "It would kind of drown out any other noise, wouldn't it?"	
