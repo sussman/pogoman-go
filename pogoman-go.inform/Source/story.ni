@@ -1,6 +1,5 @@
 "Pogoman GO!" by Jack Welch and Ben Collins-Sussman
 
-
 The story headline is "An interactive satire".
 The story genre is "comedy".
 The release number is 15.
@@ -5760,12 +5759,23 @@ Snacks is northeast of the Cafeteria. The description of Snacks is "A poster abo
 
 The poster is scenery in Snacks. The description of the poster is "A glossy advertisement dominated by a colorful assortment of pop-tarts above the slogan [quotation mark]SmartPastries for SmartPeople![quotation mark]."
 
+Instead of burning the poster:
+	move the poster to the void;
+	say "The poster is reduced to ashes, which you immediately inhale, no doubt taking years off your life.[paragraph break]";
+	bestow "Smoking Is Dangerous To Your Health".
+
 Instead of taking the poster:
 	say "You have no place to hang it and don[apostrophe]t really like the color scheme anyhow."
 
 The table is a scenery supporter in Snacks. The description of the table is "A rustic table positioned directly below the metal slot in the wall." Understand "rustic" as the table.
 
+Instead of burning the table:
+	say "Rustic, but not flammable."
+
 The chute is fixed in place scenery in Snacks. The description of the chute is "A metal slot that comes out of the wall and is angled slightly downward. The opening is about the size of, oh, let[apostrophe]s say a pop-tart." Understand "slot" as the chute.
+
+Instead of burning the chute:
+	refuse to burn a metal chute.
 
 Instead of searching the chute for the first time:
 	say "Gritty little crumbs fall into your eyes. You blink until your vision clears.[paragraph break]";
@@ -5847,11 +5857,17 @@ After eating a pop-tart:
 Instead of buying something when the player is in Snacks:
 	say "[freeStuff]."
 	
+Instead of burning the pop-tart:
+	say "You will need something more substantial to uniformly heat the diminutive toaster pastry to the precise temperature to which your refined palette has becomed accustomed."
+	
 Section 5 - Beverages
 
 Beverages is northwest of the Cafeteria. The description of beverages is "To the left there is a soda fountain with Coke, Sprite, and root beer on tap. To the right, there is a dispenser for lemonade and iced tea[if the securityColor of the badge is white]. But in the center, on a marble pedestal surrounded by blinking bulbs, and framed in a spotlight from the ceiling, is a golden chalice of fluorescent lime-green Kool-Aid[end if]."  The possible exits of Beverages are "The cafeteria is just to the southeast." 
 
 The spotlight is scenery. The spotlight is in Beverages. The description of the spotlight is "A high ceiling[if the securityColor of the badge is white] with a single, extremely bright spotlight[end if]."  Understand "light" or "spot" or "spot light" as the spotlight when the securityColor of the badge is white.
+
+Instead of burning a pop:
+	say "That[apostrophe]s just plain silly."
 
 Instead of emptying or filling a pop (called the drink):
 	try drinking the drink.
@@ -5887,13 +5903,22 @@ Does the player mean examining or drinking the Kool-Aid: it is likely.
 
 The soda fountain is scenery in Beverages. The description of soda fountain is "The soda fountain can dispense Coke, Sprite, or root beer."
 
+Instead of burning the soda fountain:
+	refuse to burn a metal soda fountain.
+
 The dispenser is scenery in Beverages. The description of dispenser is "The dispenser is filled with icy lemonade on one side, and iced tea on the other."
+
+Instead of burning the dispenser:
+	refuse to burn a metal dispenser.
 
 The root beer is pop in Beverages. The description of root beer is "A cold, frothy brown soft drink with sassafras overtones." 
 
 The Sprite is pop in Beverages. The description of sprite is "A refreshing, light, citrus-flavored soft drink."
 
 The Coke is pop in Beverages. The description of coke is "A dark, sweet beverage with a touch of acidity."
+
+Instead of burning the coke:
+	say "It is cola, not crack. Of course it doesn[apostrophe]t burn."
 
 The lemonade is pop in Beverages. The description of lemonade is "A balance between sweet and sour; perfect on a hot day."
 
@@ -5914,6 +5939,9 @@ Before taking or drinking a pop (called the liquid):
 	
 After going southeast from beverages when the securityColor of the badge is green for the first time:
 	say "As you emerge from the beverage room, Kool-Aid dripping from your lips, one of the employees looks over towards you conspiratorially and gives you a little salute before returning to a trance-like state."
+	
+Instead of doing something other than examining with the spotlight:
+	say "It is mounted almost flush with the ceiling and is out of reach."
 
 Section 6 - Mechanical Access Shaft
 
@@ -5931,8 +5959,6 @@ Instead of dropping something (called the item) when the player is in Ladder Are
 			say "The [item] clatters downwards, out of sight.";
 			now the item is in The LAN Closet.
 	
-		
-
 The ladderProxy is a privately-named backdrop in the Ladder Area. The description of the ladderProxy is "A long ladder in a narrow shaft."  The printed name of the ladderProxy is "ladder". Understand "ladder" as the ladderProxy.
 
 The shaft is a backdrop in the Ladder Area. The description of shaft is "A long, metal shaft running vertically through the building. It just wide enough for one person to negotiate."
@@ -6246,7 +6272,7 @@ To noFirstCutPlayers:
 	say "That would violate the Pogomaster Code of Ethics.[paragraph break]";
 	bestow "Principled".
 
-Instead of attacking or cutting the lobbyPlayers:
+Instead of burning or attacking or cutting the lobbyPlayers:
 	say "[noCutPlayers]."
 	
 To say noCutPlayers:
@@ -6280,6 +6306,9 @@ The RevolvingDoor is inside of Nyantech Entrance. The RevolvingDoor is outside o
 Instead of going outside when the player is in the revolvingDoor:
 	say "The helpful (and mildly passive-aggressive) unicorn gives the door an extra kick, and the door spins even further.";
 	try going inside.
+	
+Instead of burning a door:
+	say "All of the doors in the building are designed specifically to stop the spread of fire, so your lighter is ineffective."
 	
 Section 13 - Security Checkpoint
 
@@ -7017,6 +7046,16 @@ After going east from the Cafeteria:
 	
 The ballObject is a privately-named backdrop in the BallPit Area. The printed name of ballObject is "ball". The description of the ballObject is "Glossy, supple, and slippery balls of every color." Understand "ball" or "balls" or "rubber" as the ballObject.
 
+Does the player mean burning the ballObject:
+	it is likely.
+
+Instead of burning the ballObject when the player is in the Ball Pit for the first time:
+	say "You torch a few of the colorful balls, but there are many more where they came from.[paragraph break]";
+	bestow "In Over Your Head".
+	
+Instead of burning the ballObject:
+	say "You burn a few more balls. At least you have a hobby."
+	
 Before taking ballObject:
 	say "The more you tighten your grip, the more balls slip through your fingers." instead. [Unless the ball is Alderaan, in which case it is bad news for that particular ball.]
 	
@@ -7038,6 +7077,9 @@ Instead of going down from the BallPitShallow for the first time:
 	bestow "In Over Your Head";
 	teleport the player to the room down from the location.
 	
+Instead of burning something when the player is in BallPitShallow:
+	say "There is so little air here that the lighter barely functions. The flame winks out almost instantly."
+	
 Instead of going down from the BallPitDeep for the first time:
 	say "You swim with difficulty through the viscous sea of rubber balls, which at this depth are nearly flat. Finally, you arrive at the bottom of the pit, where you come face to face with a robotic blue whale. Your organs quiver with each resounding note of its deep, lamenting song.[paragraph break]";
 	bestow "Admiral, there be whales here!";
@@ -7045,6 +7087,9 @@ Instead of going down from the BallPitDeep for the first time:
 	now the securityColor of the badge is blue;
 	move the wetsuit to the void;
 	teleport the player to the cafeteria.
+	
+Instead of burning something when the player is in BallPitDeep:
+	say "Your lighter does not work at all in the absence of air."
 
 Instead of going down when the player is in the BallPit area:
 	if the player is not in BallPitBottom:
@@ -7084,7 +7129,13 @@ The Stairwell is a region. StairsGround, StairsBasement, StairsSB, StairsSSB, St
 
 The concrete is a backdrop in the Stairwell. The description of the concrete is "Monotonous light grey concrete." Understand "wall" or "walls" or "floor" or "floors" or "ceiling" or "cement" as the concrete.
 
-The stairs is a backdrop in the Stairwell. The description of the stairs is "Broad flights of stairs run vertically through the entire building." Understand "stair" as the stairs. 
+Instead of burning the concrete:
+	say "The monotonously light grey concrete is monotonously resistant to fire."
+
+The stairs is a backdrop in the Stairwell. The description of the stairs is "Broad flights of stairs run vertically through the entire building." Understand "stair" or "staircase" or "stairway" as the stairs. 
+
+Instead of burning the stairs:
+	say "The concrete stairs burn no more readily than the concrete floor and the concrete walls. In summary, concrete does not burn."
 
 Instead of putting something (called the item) on the stairs:
 	try dropping the item.
@@ -7483,7 +7534,16 @@ The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the 
 
 The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if][if the chain is not clipped]. Shockingly, the chain has been unclipped[end if]."
 
+To refuse to burn a metal (item - thing):
+	say "The metal [item] does not burn.".
+	
+Instead of burning the railing:
+	refuse to burn a metal railing.
+
 The decking is a backdrop in the Deck Area. The description of the decking is "A webbed metal platform around the top floor of the Nyantech Tower, up about fifty stories. The deck has an impressive view of the town." Understand "deck" as the decking.
+
+Instead of burning the decking:
+	say "The metal deck is impervious to flame."
 
 The view is a backdrop in the Deck Area. The description of the view is "From up here, you enjoy a panoramic vista encompassing the entire town." Understand "town" or "village" or "city" or "below" or "people" or "street" or "streets" as the view.
 
@@ -7494,6 +7554,9 @@ Instead of putting something (called the item) on the decking:
 	try dropping the item.
 	
 The cafeteria windows are a backdrop in the Deck Area. The description of the cafeteria windows is "Through the tinted windows of the top floor of the Nyantech tower, you can see both visitors and employees eating in the cafeteria." Understand "window" as the cafeteria windows.
+
+Instead of burning the cafeteria windows:
+	say "The cafeteria windows are made of the same obsidian glass as the rest of the building and have nothing to fear from a cigarette lighter."
 
 Instead of opening or closing or pushing or pulling or turning the cafeteria windows:
 	try entering the cafeteria windows.
@@ -7549,6 +7612,9 @@ Instead of attacking the chain:
 
 Instead of going south when the player is in DeckS:
 	try jumping.
+	
+Instead of burning the chain:
+	say "The chain glows red in the flame, but immediately resumes it normal appearance when you stop heating it."
 
 The printed name of DeckN is "Observation Deck, Northern View".  
 
