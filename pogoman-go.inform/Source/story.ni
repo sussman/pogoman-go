@@ -3596,7 +3596,7 @@ To openGame:
 		say "[T minus 12 in words] in the afternoon";
 	otherwise:
 		say "noon";
-	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it[or][stopping]!".
+	say ". You must have drifted off for a bit, but no bother[one of]. Time[apostrophe]s a-wasting. The world is full of Pogomen, and now that you don[apostrophe]t have a job or family to worry about, you might as well get back to it.[paragraph break]As you rub the sleep from your eyes, a security guard trots up (trots because he is a unicorn) and flashes a plastic security badge, [quotation mark]I[apostrophe]ve told you before: you can[apostrophe]t sleep here. I don[apostrophe]t want to see the likes of you around the Nyantech Offices again until you[apostrophe]ve proven yourself. Now git![quotation mark][paragraph break]The unicorn whacks you in the head and pushes you --hard. You land a few blocks away, more committed than ever[or][stopping].".
 	
 After printing the banner text:
 	say "[line break][italic type]Note: You may find the commands [roman type][quotation mark]scan[quotation mark][italic type] and [roman type][quotation mark]reboot[quotation mark][italic type] helpful.[roman type][paragraph break]".
