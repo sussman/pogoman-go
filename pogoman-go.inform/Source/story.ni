@@ -26,8 +26,12 @@ Include Undo Output Control by Erik Temple. [fairly hacked for this project]
 Book 1 - Mechanics 
  
 
-Chapter Kinds
+Chapter Capabilities
 
+To decide whether unicodage is enabled:
+	(-  glk_gestalt(gestalt_Unicode, 0) -)
+
+Chapter Kinds
 
 Section 1 - Values
 
@@ -2208,7 +2212,7 @@ To say picked a nice color:
 	while C is the team color of the player:
 		let R be a random number from 1 to the number of entries in CORE_TEAM_COLORS;
 		let C be entry R in CORE_TEAM_COLORS;
-	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first [unicode 9785][unicode 9785][unicode 9785][paragraph break]";
+	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first [if unicodage is enabled][unicode 9785][unicode 9785][unicode 9785][otherwise]:-) :-) :-)[end if][paragraph break]";
 	now the teamColorPrompt of the player is 0.
 
 Section 2 - Parser Errors
@@ -5215,7 +5219,7 @@ Instead of rubbing the Crystal Skull for the first time:
 	bestow "Got A Lot Done Today".
 	
 Instead of burning the crystal skull:
-	say "Your pocket lighter produces a flame well above the melting point of pure sodium chloride (which you effortlessly recall is 801[unicode 0176]C), but it is not effective in heating the large thermal mass. The skull ignores your puny lighter."
+	say "Your pocket lighter produces a flame well above the melting point of pure sodium chloride (which you effortlessly recall is 801[if unicodage is enabled][unicode 0176][otherwise] degrees [end if]C), but it is not effective in heating the large thermal mass. The skull ignores your puny lighter."
 
 Section 52 - Vuvuzelas For Freedom
 
