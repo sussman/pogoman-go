@@ -2212,7 +2212,7 @@ To say picked a nice color:
 	while C is the team color of the player:
 		let R be a random number from 1 to the number of entries in CORE_TEAM_COLORS;
 		let C be entry R in CORE_TEAM_COLORS;
-	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first [if unicodage is enabled][unicode 9785][unicode 9785][unicode 9785][otherwise]:-) :-) :-)[end if][paragraph break]";
+	say "LOL. Almost immediately, you receive text notifications from all your friends letting you know that they have joined Team [C]. Guess you should have checked with them first [if unicodage is enabled][unicode 9785][unicode 9785][unicode 9785][otherwise]:-( :-( :-([end if][paragraph break]";
 	now the teamColorPrompt of the player is 0.
 
 Section 2 - Parser Errors
