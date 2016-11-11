@@ -8,7 +8,7 @@ The story description is "The world is full of Pogomen, and now that you don't h
 
 Use MAX_STATIC_DATA of 280000.
 Use MAX_NUM_STATIC_STRINGS of 28000.
-Use Max_DICT_ENTRIES of 2000.
+Use Max_DICT_ENTRIES of 2100.
 Use MAX_SYMBOLS of 26000.
 Use MAX_OBJECTS of 600.
 
@@ -432,9 +432,14 @@ Instead of touching or pulling or pushing or rubbing or waving or squeezing or c
 	say "[notReal].[paragraph break]";
 	bestow "Harsh Reality".
 	
-	
 Instead of touching or pulling or pushing or rubbing or waving or squeezing or cutting or swinging or tasting or turning a pogothing when Exploring the Tower has not ended:
 	say "You can[apostrophe]t because it is just part of a game on your phone."
+	
+Instead of burning a pogothing (called the item) when Exploring the Tower has not ended:
+	if the item is pogoIncense:
+		continue the action;
+	otherwise:
+		try touching the item.
 		
 To say notReal:
 	say "You can[apostrophe]t of course, because it is merely a virtual representation of a physical object in the Pogoman GO! game and has no material existence"
@@ -5577,7 +5582,7 @@ Instead of buying something when the player is in Cafeteria:
 
 The waiter is a person in the cafeteria. The description of the waiter is "A rail thin man, probably in his thirties, with a pencil mustache and dressed in a well tailored tuxedo. He is in constant motion, ferrying one after another serving to the ravenous crowd in the cafeteria."
 
-Instead of cutting or attacking the waiter:
+Instead of burning or cutting or attacking the waiter:
 	say "Hurting the waiter would not be popular with the cafeteria crowd, so you leave him alone."
 	
 Instead of pulling or pushing or turning or spinning the waiter:
@@ -5612,10 +5617,10 @@ Instead of searching or touching or rubbing the waiter:
 	
 The employees are plural-named persons in the cafeteria. The description of the employees is "The employees -- none of them a day over twenty-five -- slowly shovel food into their mouths and stare at each other wordlessly. Each seems absorbed in the words and text flashing by on their data monocles. Employees have badges similar to yours, except black in color with a white stripe." Understand "employee" or "worker" or "manager" or "intern" or "workers" or "managers" or "interns" or "engineer" or "engineers"  or "nyantecher" or "nyantechers" or "crowd" as the employees.
 
-Instead of cutting or attacking the employees:
+Instead of burning or cutting or attacking the employees:
 	say "[noCutEmployees]."
 	
-Instead of cutting or attacking the nose:
+Instead of burning or cutting or attacking the nose:
 	try attacking the employees.
 
 The data monocle is a privately-named backdrop in cafeteria and in lobby and in elevator. The description of the data monocle is "A matte black device fitted over one eye and held in place by a metal band that wraps partway around the head. Data and text are projected on the monocle, which serves as a heads-up display for the wearer." 
@@ -5659,10 +5664,10 @@ Instead of doing something other than examining or smelling with the food:
 
 The visitors are plural-named persons in the cafeteria. The description of the visitors is "Players from every faction are here, alternatively eating and playing pogoman on their phones. They all have badges similar to yours; most of them are white, but some are green or other colors with a white bar. You also notice that they tend to be high level. In fact, none of them appear to be anything less than level [the pogolevel of the player plus 20 in words] pogomasters. You feel a little out of your league." Understand "players" or "player" or "gamer" or "gamers" or "visitor" as visitors.
 
-Instead of cutting or attacking the visitors:
+Instead of burning or cutting or attacking the visitors:
 	say "[noCutPlayers]."
 	
-The badges are a privately-named backdrop in the cafeteria and in the lobby and in the elevator. The description of the badges is "Visitor badges you have seen are just like yours, most of them white, some of them green or blue with a white bar. Employee badges are black with a white bar. Each badge bears a photograph of its wearer."
+The badges are a privately-named plural-named backdrop in the cafeteria and in the lobby and in the elevator. The description of the badges is "Visitor badges you have seen are just like yours, most of them white, some of them green or blue with a white bar. Employee badges are black with a white bar. Each badge bears a photograph of its wearer."
 
 Instead of unclipping the badges:
 	try taking the badges.
@@ -6556,14 +6561,20 @@ Instead of pushing the plunger:
 		
 Section 15 - Legal Department
 
-The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk and an ergonomic rolling black leather executive[apostrophe]s chair. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
+The description of Legal Department is "The room is small and comfortable, with walnut paneling, green wainscot, and a dark grey rug. In the center of the room is a large mahogany desk[if the ergonomic chair is in the Legal Department] and an ergonomic rolling black leather executive[apostrophe]s chair[end if]. A computer screen is embedded in the desktop."  The possible exits of the Legal Department are "To the north is the exit to the emergency stairs, the [elevatorDoorDesc], and to the south is a grey door marked [quotation mark]Beta Testing.[quotation mark]".
 
 The printed name of the Legal Department is "Legal Department[if the player is on the ergonomic chair] (lounging in the fancy swivel chair)[end if]".
 
 The Beta Testing Door is a closed locked door. The Beta Testing Door is south of Legal Department. Understand "grey" or "door" as the beta testing door. The description of the beta testing door is "[if the Beta Testing Door is open]An open[otherwise]A closed[end if] grey door marked [quotation mark]Beta Testing[quotation mark]."
 
+Instead of burning the Beta Testing Door:
+	refuse to burn a metal Beta Testing Door.
+
 Instead of taking or pulling the walnut paneling:
 	say "It is firmly attached to the wall."
+	
+Instead of burning the paneling:
+	say "The paneling must have some sort of fireproof coating; it resists the flame."
 	
 Instead of taking or pulling the wainscot:
 	try taking the walnut paneling.
@@ -6578,10 +6589,16 @@ The wainscot is scenery in the Legal Department. The description of the wainscot
 Instead of searching or attacking or looking under or listening to the wainscot:
 	try searching the walnut paneling.
 	
+Instead of burning the wainscot:
+	say "The flame licks impotently against the structural building material that is fully compliant with the ISO 834-1:1999 specification."
+	
 Instead of searching or attacking or looking under or listening to the office wall:
 	try searching the walnut paneling.
 
 The grey rug is scenery in the Legal Department. The description of the grey rug is "The dark grey connotes professionalism." Understand "carpet" as the grey rug.
+
+Instead of burning the grey rug:
+	say "Rug burn is something you get, not give."
 
 Instead of smelling the grey rug:
 	say "New rug smell."
@@ -6589,8 +6606,19 @@ Instead of smelling the grey rug:
 Instead of taking or pulling or pushing or spinning or turning or looking under the grey rug:
 	say "The rug is tacked down firmly to the floor."
 
-The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side." Understand "antique" as the mahogany desk.
+The mahogany desk is a scenery supporter in the Legal Department. The description of the mahogany desk is "A heavy antique desk with inset display screen and one large drawer on the right side." Understand "antique" as the mahogany desk. The mahogany desk has a truth state called BurntFlag. The burntFlag of the mahogany desk is false. The printed name of the mahogany desk is "mahogany [if the burntFlag is true]veneered [end if]desk". Understand "titanium" or "frame" as the mahogany desk when the burntFlag of the mahogany desk is true.
 
+Instead of burning the mahogany desk for the first time:
+	say "The mahogany veneer burns off in spots, revealing a sturdy titanium frame.[paragraph break]";
+	now the burntFlag of the mahogany desk is true;
+	bestow "Seeing Past The Surface".
+	
+Instead of burning the mahogany desk:
+	say "You would need something more substantial than a lighter to melt the desk[apostrophe]s titanium frame."
+	
+Does the player mean burning the mahogany desk:
+	it is likely.
+	
 Instead of opening the mahogany desk:
 	try opening the drawer.
 
@@ -6607,6 +6635,9 @@ Instead of pushing the drawer:
 		try closing the drawer;
 	otherwise:
 		say "It is already closed."
+		
+Instead of burning the computer screen:
+	say "The screen-saver prevents burn in."
 
 After opening the drawer:
 	say "The draw slides out and reveals that it contains ";
@@ -6682,6 +6713,9 @@ Instead of taking the plastic clock:
 		continue the action;
 	otherwise:
 		continue the action.
+		
+Instead of burning the plastic clock:
+	say "You don[apostrophe]t have time to burn."
 	
 Instead of listening to the clock:
 	if the player does not carry the clock:
@@ -6723,16 +6757,24 @@ Instead of pushing the ergonomic chair to a direction (called the way):
 	otherwise:
 		say "The chair is modeled after first class, not economy. It is too wide to fit through the doorway. But very comfortable."
 		
-Instead of spinning the chair:
+Instead of spinning the ergonomic chair:
 	if the chair encloses the player:
 		say "You spin wildly in the chair, almost to the point of examining your own stomach contents.";
 	otherwise:
 		say "You give the chair a good spin. Nothing beats cheap entertainment. Well, except playing Pogoman."
+		
+Instead of burning the ergonomic chair:
+	say "Before your lighter reaches the chair, the polyurethane fabric flashes, vaporizing the entire chair. Smoke rolls to the ceiling and slowly disperses.[paragraph break]";
+	bestow "Standing Desks Are More Fashionable";
+	move the ergonomic chair to the void.
 
 The remote is a prop in the drawer. The description of the remote is "It resembles a garage door remote: a brown box with a single white button. On the back, there is a small compartment[if the battery compartment is open], which is open[end if]." Understand "garage" or "opener" or "box" or "brown" as the remote.
 
 Instead of switching on or switching off the remote:
 	say "Have you tried pressing the button on the remote?"
+	
+Instead of burning the remote:
+	say "It is not remotely flammable."
 
 The battery compartment is an closed openable container. The battery compartment is part of the remote. The description of the battery compartment is "[batteryCompartmentDescription]."  
 
@@ -6744,6 +6786,9 @@ To say batteryCompartmentDescription:
 			say "The open compartment for AA batteries is empty";
 	otherwise:
 		say "A closed battery compartment"
+		
+Instead of burning the battery compartment:
+	try burning the remote.
 		
 Instead of inserting something (called the item) into the battery compartment:
 	if the item is not fresh batteries:
@@ -6762,14 +6807,27 @@ Instead of inserting fresh batteries into the closed battery compartment:
 	try opening the battery compartment;
 	try inserting the fresh batteries into the battery compartment.
 	
+Instead of burning the fresh batteries for the first time:
+	say "You toast the batteries with your lighter, which would ordinarily not be a smart thing to do, since heating a sealed metal container full of toxic stuff is rarely in your best interest.[paragraph break]However recognizing that the batteries are obviously part of an old school puzzle solution, you correctly reason that destroying them would create an unwinnable state, and that therefore, Nyantech would have used extraordinarily rare flameproof double A batteries in the cheap plastic wall clock.[paragraph break]";
+	bestow "Metagame Insight".
+	
+Instead of burning the fresh batteries:
+	say "The flame licks around the batteries, but they are undamaged."
+	
 The back panel is an closed openable container. The back panel is part of the clock. The description of the back panel is "[if the back panel is open]An open[otherwise]A latched[end if] panel on the back of the clock[if the back panel is open]. Inside, there is a battery holder[end if]." Understand "latch" as the back panel.
 
 Understand "unlatch [something]" as opening.
+
+Instead of burning the back panel:
+	try burning the clock.
 
 Instead of unclipping the back panel:
 	try opening the back panel.
 
 The battery holder is an open fixed in place container in the back panel. The description of the battery holder is "A space on the back of the clock to insert AA batteries[if fresh batteries are not in the battery holder], which is currently empty[end if]."
+
+Instead of burning the battery holder:
+	try burning the clock.
 
 Instead of inserting something (called the item) into the battery holder:
 	if the item is not fresh batteries:
@@ -6833,8 +6891,14 @@ The LED is a thing. The LED is part of the remote. The description of the LED is
 
 Instead of switching on or switching off the LED:
 	say "Have you tried pressing the button on the remote?"
+	
+Instead of burning the LED:
+	try burning the remote.
 
 The Cousteau Door is a locked door. The Cousteau Door is south of Welcome to Beta Testing. Understand "grey" or "metal" or "retractable" or "retracting" or "garage" or "door" as the Cousteau Door. The description of the Cousteau door is "An electrically actuated garage door marked [quotation mark]Cousteau Room[quotation mark]. Currently, it is in the [if the Cousteau Door is open]raised[otherwise]lowered[end if] position."  
+
+Instead of burning the Cousteau Door:
+	refuse to burn a metal Cousteau Door.
 
 Section 16 - Welcome to Beta Testing
 
@@ -6842,7 +6906,13 @@ Welcome to Beta Testing is south of the Beta Testing Door.  The description of W
 
 The party hat is a wearable prop in Welcome to Beta Testing. The description of the party hat is "A brightly colored cardboard hat bearing the words [quotation mark]Yeah! Beta-Testing![quotation mark]".
 
+Instead of burning the party hat:
+	say "Having evolved in the presence of birthday cake candles, all party hats are inherently flame-retardant."
+
 The posters are a plural-named scenery in Welcome to Beta Testing. The description of posters is "The walls are covered with uplifting, motivational posters, mostly cats, puppies and unicorns, with slogans like [quotation mark]You can do it![quotation mark], [quotation mark]Success is just another word for unending work[quotation mark], and [quotation mark]If you fail, fail forward (but really, don[apostrophe]t fail).[quotation mark]". Understand "poster" or "cat" or "cats" or "puppy" or "puppies" or "adorable" or "animal" or "animals" or "unicorn" or "unicorns" or "slogn" or "slogans" as the posters.
+
+Instead of burning the posters:
+	say "You cannot bring yourself to destroy puppies and unicorns. Kittens? Sure. But not puppies and unicorns."
 
 Instead of taking the posters:
 	say "The last thing you need is more inspirational cat posters."
@@ -6887,11 +6957,23 @@ Instead of touching the stucco walls:
 
 The wetsuit is a wearable prop in the Cousteau Room. The description of the wetsuit is "A black neoprene wetsuit. The entire diving outfit is a [quotation mark]onesie[quotation mark] -- the suit, mask, fins and tanks are an integrated unit. It looks like you don the suit by stepping into it from the front and then zipping it up." Understand "suit" or "outfit" or "diving" as the wetsuit. The wetsuit has a number called timesFlopped. The timesFlopped of the wetsuit is 0.
 
-The flippers are part of the wetsuit. The description of the flippers is "Bright orange rubber flippers, which meet seamlessly with the lower part of the wetsuit legging." Understand "legging" as the flippers.
+Instead of burning the wetsuit:
+	say "It is too, well, wet."
+
+The flippers are part of the wetsuit. The description of the flippers is "Bright orange rubber flippers, which meet seamlessly with the lower part of the wetsuit legging." Understand "legging" or "flipper" as the flippers. The flippers are plural-named. 
+
+Instead of burning the flippers:
+	say "Of their own mind, they flip out of the way of the flame."
 
 The mask is part of the wetsuit. The description of the mask is "A rubber face mask, which is built into the head piece of the wetsuit." Understand "head piece" or "neoprene" or "regulator" or "mouthpiece" or "hose" or "valve" or "belt" as the wetsuit.
 
+Instead of burning the mask:
+	say "It is made of the same material as a fire-fighter's mask, so not flammable."
+
 The tanks are part of the wetsuit. The description of the tanks is "Two large air tanks built into the back of the wetsuit." Understand "air" or "tank" or "strap" or "straps" as the tanks.
+
+Instead of burning the tanks:
+	say "The tanks are apparently filled with ordinary air rather than enriched in oxygen, so the gas does not burn."
 
 After wearing the wetsuit: 
 	say "Despite the tight fit, the diving outfit pulls on snuggly over your clothing [if the player wears the Baseball Cap of Pogomastery]including, of course, your Baseball Cap of Pogomastery[end if]. You wriggle into the headpiece and adjust the mask. With a bit of twisting, you slip the flippers over your shoes, zip up the front of the suit, and adjust the air tank for comfort[if the player wears the party hat].[paragraph break]You had to take the party hat off to put the suit on, but you immediately put the strangely adherent hat back on and it bonds tightly with the neoprene headpiece[end if].";
@@ -8448,6 +8530,13 @@ Section 1 - Control Panel
 
 The elevatorControl is a privately-named scenery in the Elevator. The printed name of the elevatorControl is "elevator control panel". Understand "elevator" or "control" or "panel" or "buttons" as the elevatorControl. The description of the elevatorControl is "A brushed aluminum panel with an arrow indicating the direction of travel and the following colored buttons:[line break][elevatorButtonState]".
 
+Instead of burning the elevatorControl for the first time:
+	say "Brilliant! Let's start a fire in this closed metal box that literally hangs by a cable. At least the limited air supply should limit the damage.[paragraph break]";
+	bestow "Darwinian Excellence".
+	
+Instead of burning the elevatorControl:
+	refuse to burn a metal elevatorControl.
+
 To say elevatorButtonState:
 	repeat with N running from 1 to the number of rows in the Table of Building Floors:
 		say line break;
@@ -8507,7 +8596,7 @@ Instead of talking to someone (called the auditor) in the elevator:
 		
 Section 2 - Exterior of the elevator
 
-The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "door" or  "doors" or "frame" as the elevatorExterior. 
+The elevatorExterior is a privately-named backdrop. The printed name of elevatorExterior is "elevator". The description of the elevatorExterior is "The brushed aluminum doors are [if elevator is doorsajar]open[otherwise]closed[end if]. A [if the call button is lit]illuminated[otherwise]polished metal[end if] call button with a surrounding white ring is inset on the left-hand side of the elevator door frame." The elevatorExterior is in Cafeteria, Processing, Lobby, and Legal. Understand "elevator" or "elevators" or "lift" or "lifts" or "door" or  "doors" or "frame" as the elevatorExterior. 
 
 Instead of taking the elevatorExterior:
 	say "Have you pressed the call button?"
@@ -8610,10 +8699,10 @@ To teleport (transportees - a number) employees from (origin - a room) to (desti
 	repeat with N running from 1 to the transportees:
 		move a random worker in the origin to the destination.
 		
-Instead of attacking or cutting the workers:
+Instead of burning or attacking or cutting the workers:
 	say "[noCutEmployees]."
 	
-Instead of attacking or cutting the gamers:
+Instead of burning or attacking or cutting the gamers:
 	say "[noCutPlayers]."
 	
 Section 4 - The elevator at the player's floor
@@ -12109,5 +12198,12 @@ hint	used
 "If all else fails, the game includes a walkthrough (type [italic type]walkthrough[roman type]), which shows one possible way through the game. The walkthrough is nothing but spoilers, so please consider this a last resort, or something to look at after you've played through the game."
 "As far as we know, it is not possible to get trapped in an unwinnable situation. By winning, we mean you can complete the game. Achieving good outcomes is another matter."
 "Good Luck!"
+
+Book 10 - Testing
+
+Test intro with "x me / i / x phone / x module / x medals ".
+Test intoBuilding with "sudo / gonear entrance / show phone to unicorn / inside / badgify".
+
+
 
 	
