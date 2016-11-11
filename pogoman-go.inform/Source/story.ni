@@ -6392,8 +6392,6 @@ Instead of touching or opening the LAN closet door when the player is in the Lob
 
 The LAN Closet is east of the LAN Closet door. The description of the LAN Closet is "19-inch racks from floor to ceiling support stacks of networking hardware with blinking lights. Wires run upward from the racks and disappear above the [if the gearing assembly is visited]wrecked [end if]ceiling. To the right of the racks is a red metal panel labeled [quotation mark]CAT CONTROL[quotation mark], with a knob, some lights, and a numerical display." The possible exits of the LAN Closet is "The Lobby is immediately adjacent to the west." 
 
-
-
 Definition: The speaker is active if isBrokenFlag of the phonograph is false and isOnFlag of the phonograph is true and the record is on the phonograph.
 
 Instead of listening to the Lan Closet Door:
@@ -6471,6 +6469,14 @@ Instead of attacking the phonograph:
 		say  "Plastic and metal parts go flying, a spring rolls under the equipment rack, and sparks spray across the floor of the LAN closet. You got it but good. What[apostrophe]s left of the phonograph will surely never spin another record.";
 		now isBrokenFlag of the phonograph is true.
 		
+Instead of burning the phonograph:
+	say "Built back in the day, the phonograph hardly notices your lighter[apostrophe]s flame."
+	
+Instead of burning the record:
+	say "The vinyl burns readily, evolving plumes of thick, black smoke. Luckily for you, the room[apostrophe]s air handling system pulls the smoke out as fast as it is produced. The last of the bubbling vinyl slag is consumed in flames within seconds.[paragraph break]";
+	move the record to the void;
+	bestow "No Record Of Your Crime". 
+		
 Instead of taking the record:
 	if the speaker is active:
 		say "[one of][quotation mark]Bzzzzzzzeeeeeeeerrrrrrrpppppp![quotation mark] the speaker screams as you tear the record off the phonograph. Ah, much better. Your mind stops crumbling[or]With a sense of relief, you remove the record from the phonograph[stopping].";
@@ -6515,7 +6521,7 @@ Instead of taking or pulling or cutting the wires:
 
 The hardware is scenery  Nyantechnology in the LAN Closet. The description of the hardware is "Looks mostly like network switches. Indicator lights on the front of the switches are blinking furiously -- a huge amount of data must be flowing through here." Understand "equipment" or "server" or "computer" or "hub" or "router" or "switch" or "switches" or "routers" or "hubs" or "computers" or "servers" or "device" or "devices" or "hardware" or "electronic" or "ethernet" or "network" as hardware.
 
-Instead of attacking a Nyantechnology:
+Instead of burning or attacking a Nyantechnology:
 	say "[One of]You can[apostrophe]t believe you even had that thought. You[apostrophe]re at the very heart of Nyantech! The data in these cables is the lifeblood of Pogoman. You[apostrophe]d never do anything to harm the game. You lovingly pet the equipment[or]You can[apostrophe]t bring yourself to even consider harming Nyantech hardware[or]Shudder. No[stopping]."
 	
 Instead of climbing the racks:
@@ -6542,6 +6548,15 @@ Instead of examining the numerical counter for the first time:
 	say "A mechanical counter, like a car[apostrophe]s odometer, with white numbers on a black background. Very old school. You can respect that. The counter currently reads [PEC of the CAT Control]."
 	
 The plunger is part of the CAT Control. The description of the plunger is "A large red emergency cut-off switch with the word [quotation mark]HOLD[quotation mark] displayed prominently. It looks like it is in the [if onHoldFlag of the CAT Control is true]pulled-out[otherwise]pushed-in[end if] position." Understand "emergency" or "switch" or "cut-off" or "knob" as the plunger.
+
+Instead of burning the CAT Control:
+	refuse to burn a metal CAT Control.
+	
+Instead of burning the plunger:
+	say "The plunger smoulders."
+	
+Instead of burning the counter:
+	say "The counter[apostrophe]s glass cover protects the delicate mechanism inside."
 
 Instead of pulling the plunger:
 	if onHoldFlag of the CAT Control is true:
@@ -7030,7 +7045,7 @@ Instead of smelling when the player is in the Rick Astley Shrine:
 
 The rickety table is a fixed in place supporter in the Rick Astley Shrine. The description of the rickety table is "A cheap plastic table."
 
-Instead of taking or pushing or pulling or cutting or attacking or climbing or turning or spinning or touching the rickety table:
+Instead of taking or pushing or pulling or cutting or attacking or climbing or turning or spinning or touching or burning the rickety table:
 	disappearTable;
 
 After putting anything on the rickety table:
@@ -7064,6 +7079,9 @@ Instead of taking the memorabilia:
 	say "They are best left here, where few will ever see them."
 
 The walkman is a wearable prop on the rickety table. The description of the walkman is "This is an original SONY Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if]: a portable cassette tape player with earphones. The Walkman[if unicodage is enabled][unicode 8482][otherwise] (TM)[end if] contains a tape." Understand "sony" or "tape" or "cassette" or "player" or "earphone" or "earphones" or "headphone" or "headphones" or "ear phone" or "ear phones" or "head phone" or "head phones" or "buds" or "earbuds" or "bud" or "earbud" or "ear bud" as the walkman.
+
+Instead of burning the walkman:
+	say "It does not play CDs or DVDs; there is no burn function."
 
 After going north from the Rick Astley Shrine for the first time:
 	say "As you exit the Rick Astley Shrine, you wonder how you will manage to penetrate deeper into Nyantech. Getting this far was difficult -- you are curious about what comes next.[paragraph break]";
@@ -10916,7 +10934,19 @@ The scrap of paper is in the void. The description of the scrap of paper is "A s
 
 The gum wrapper is in the void. The description of the gum wrapper is "A carefully folded aluminum gum wrapper; on the inner surface, someone has drawn a picture of a green arrow pointing to a blue whale surrounded by colored circles." Understand "blue" or "whale" or "shiny" or "circle" or "circles" as the gum wrapper.
 
+Instead of burning the gum wrapper:
+	say "You torch the gum wrapper, destroying it and the heavy-handed clue that was drawn on it.[paragraph break]";
+	now the gum wrapper is in the void;
+	bestow "Foiled Again".
+
 The keychain is in the void. The description of the keychain is "A high-tech souvenir keychain of the Nyantech corporate mascot, the Nyantech Cat. They keychain is made of 3D-printed red plastic." Understand "red" or "cat" or "nyantech cat" or "mascot" or "souvenir" as the keychain.
+
+Instead of burning the keychain for the first time:
+	say "Some sort of chemical coating on the keychain catches fire instantly.[paragraph break]As red smoke drifts upwards, it arranges itself into letters.[paragraph break]You have only a moment to read the message before the smoke dissipates: [quotation mark][italic type]Park the cat to the south with LAN control, then jump into it for red badge. Also: consider counseling for the fire thing -- Faithfully, Oswaldo.[roman type][quotation mark]    [paragraph break]";
+	bestow "Key Facts Brought to Light".
+	
+Instead of burning the keychain:
+	say "The keychain resists the flame."
 
 Does the player mean examining the keychain:
 	it is unlikely.
