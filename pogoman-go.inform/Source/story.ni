@@ -7534,6 +7534,8 @@ The Deck Area is a region. DeckN, DeckE, DeckS, and DeckW are deck rooms in the 
 
 The railing is a backdrop in the Deck Area. Understand "rail" as the railing when the player is in the Deck Area. The description of the railing is "A waist-high metal railing that runs around the observation deck[if the player is in DeckS] except here, on the southern side of the tower, where it is replaced by a mere chain[otherwise], preventing accidental falls[end if][if the chain is not clipped]. Shockingly, the chain has been unclipped[end if]."
 
+Understand "jump over [thing]" as climbing when the player is in the Deck Area.
+
 To refuse to burn a metal (item - thing):
 	say "The metal [item] does not burn.".
 	
