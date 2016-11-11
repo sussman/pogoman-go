@@ -5966,6 +5966,9 @@ Instead of dropping something (called the item) when the player is in Ladder Are
 	
 The ladderProxy is a privately-named backdrop in the Ladder Area. The description of the ladderProxy is "A long ladder in a narrow shaft."  The printed name of the ladderProxy is "ladder". Understand "ladder" as the ladderProxy.
 
+Instead of burning the ladderProxy:
+	refuse to burn a metal ladderProxy.
+
 The shaft is a backdrop in the Ladder Area. The description of shaft is "A long, metal shaft running vertically through the building. It just wide enough for one person to negotiate."
 
 Instead of touching shaft for the first time:
@@ -6045,9 +6048,27 @@ The grease is a scenery in the Gearing Assembly. The description of the grease i
 Instead of doing something other than examining with the grease: 
 	say "You don[apostrophe]t want anything to do with the grease[one of]. Once it gets on you, you[apostrophe]d track it all over and make a big mess[or][stopping]."
 	
+Instead of burning the electric motor:
+	refuse to burn a metal electric motor.
+	
+Instead of burning the gears:
+	refuse to burn a metal gears.
+	
+Instead of burning grease:
+	say "They apparently used [quotation mark]safety grease[quotation mark], which you recall is not flammable."
+	
+Instead of burning the access hole:
+	say "You hold the lighter in the middle of the access hole and observed the flame for a while."
+	
+Instead of burning the track:
+	refuse to burn a metal track.
+	
 Section 8 - Boom Arm
 
 The boomArm is a privately-named backdrop in the Gearing Assembly and in the Gantry Chamber. The description of the boomArm is "A long metal boom that extends from the building, and suspends the cat almost 50 stories above street level." The printed name of the boomArm is "support boom". Understand "boom" or "support" or "crawlway" or "crawl" or "way" as the boomArm
+
+Instead of burning the boomArm:
+	refuse to burn a metal boomArm.
 
 The gears are plural-named scenery in the Gearing Assembly. The description of the gears is "Huge, greasy gears that move the room and its attached boom along a toothed track that circles the upper portion of the building, just below the observation deck." Understand "gear" or "gearing" or "cog" or "cogs" or "cam" or "cams" or "assembly" or "transmission" as the gears.
 
@@ -6313,7 +6334,7 @@ Instead of going outside when the player is in the revolvingDoor:
 	try going inside.
 	
 Instead of burning a door:
-	say "All of the doors in the building are designed specifically to stop the spread of fire, so your lighter is ineffective."
+	say "All of the doors are designed specifically to stop the spread of fire, so your lighter is ineffective."
 	
 Section 13 - Security Checkpoint
 
@@ -7637,7 +7658,7 @@ The railing is a backdrop in the Deck Area. Understand "rail" as the railing whe
 Understand "jump over [thing]" as climbing when the player is in the Deck Area.
 
 To refuse to burn a metal (item - thing):
-	say "The metal [item] does not burn.".
+	say "The metal [item] [do] not burn.".
 	
 Instead of burning the railing:
 	refuse to burn a metal railing.
@@ -8137,7 +8158,10 @@ Section 50 - Captain's Cabin
 The Captain's Cabin is down from the hatchway. The description of the Captain's Cabin is 
 "Inside the cat, the room immediately under the hatch is strangely nautical in decor. A small porthole casts some light on a compact wooden writing desk, which is set into the curvature of the wall. Behind the desk, fixed rigidly to the plate metal deck is a chair with the word [quotation mark]Captain[quotation mark] across the back.  On the other side of the cabin, a hammock hangs from the wall."  The possible exits of the Captain's Cabin are "[if the cockpit door is open]Diffuse red light pours out of a narrow doorway between this cabin and the forward-most section of the cat. [end if]A door marked [quotation mark]gangway[quotation mark] leads towards the rear of the cat. The only other exits from here are upwards, through the hatchway, and forward to the cockpit[one of], or more colloquially, the head of the cat[or][stopping]." 
 
-The deck plating is scenery. The deck plating is in Captain's Cabin. The description of the deck plating is "A gunmetal deck." Understand "deck" or "plate" or "metal" as the deck plating. 
+The deck plating is scenery. The deck plating is in Captain's Cabin. The description of the deck plating is "A gunmetal deck." Understand "deck" or "plate" or "metal" or "plates" as the deck plating. 
+
+Instead of burning the deck plating:
+	refuse to burn a metal deck plating.
 
 Instead of entering the deck:
 	say "Captains prefer to stand."
@@ -8146,6 +8170,9 @@ A small porthole is scenery in the Captain's Cabin. The description of the small
 
 Instead of opening the small porthole:
 	say "There are no hinges. It does not look like it is meant to open."
+	
+Instead of burning the small porthole:
+	say "The glass porthole does not burn."
 				
 To say blurryPorthole:
 	say "It is difficult to see much of the city through the thick, blurry window"
@@ -8164,6 +8191,9 @@ After entering the chair for the first time:
 	bestow "You have the conn"
 	
 The driftwood desk is a supporter in the Captain's Cabin. The description of the driftwood desk is "A small but functional desk made of smooth driftwood."
+
+Instead of burning the desk:
+	say "The desk is too infused with the deep, frigid waters of the Atlantic to catch fire[one of].[paragraph break]You can, as they say, withdraw the driftwood from the icy maw of the abyss, but you can[apostrophe]t take the... well... the desk still has some residual moisture, it would seem[or][stopping]."
 
 Instead of entering the desk for the first time:
 	say "That[apostrophe]s contrary to nautical tradition.[paragraph break]";
@@ -8184,6 +8214,11 @@ Instead of opening the logbook:
 
 Instead of doing something other than examining with the entries:
 	say "Do you mean to do that with the logbook?";
+	
+Instead of burning the logbook:
+	say "The invaluable logbook is consumed in a gout of flame.[paragraph break]";
+	bestow "Literary Critic";
+	now the logbook is in the void.
  
 The hurricane lantern is a lightsource on the desk. Understand "lamp" as the hurricane lantern. 
 
@@ -8212,6 +8247,11 @@ Instead of putting something (called the item) on the hammock:
 	say "[The item] falls through the shoddy knot work and you grab it before it hits the floor."
 	
 The gangway is a closed door. It is aft from the Captain's Cabin. The description of the gangway is "This door has a weather seal because the next section abaft is open to the elements."
+
+Instead of burning the hammock:
+	say "The middle of the ratty hammock catches fire and the flames race to each end.[paragraph break]";
+	now the hammock is in the void;
+	bestow "No Loose Ends".
 
 Section 51 - Gantry Chamber
 
@@ -8243,8 +8283,8 @@ Instead of doing something other than examining with the cityscape:
 
 The cat eye is scenery. The cat eye is in the CatHead. The description of the cat eye is "The glowing red eyes of the cat focus rippling waves of crimson energy towards the ruby." Understand "eyes" as the cat eye. 
 
-Instead of climbing or taking or touching or rubbing or licking or tasting or pushing or pulling or turning or spinning the cat eye:
-	say "The eyes of the cat are immensely hot, and you cannot closer to them than about an arm[apostrophe]s length away."
+Instead of burning or climbing or taking or touching or rubbing or licking or tasting or pushing or pulling or turning or spinning the cat eye:
+	say "The eyes of the cat are immensely hot, and you cannot get closer to them than about an arm[apostrophe]s length away."
 	
 Instead of searching the cat eye:
 	say "You have a creepy feeling that instead, the cat is the one who will be peering into your very soul."
@@ -8257,7 +8297,6 @@ Instead of eating or licking the cones:
 Instead of doing something other than examining with the dangerous cones of crimson energy:
 	say "The cones project right through you, as if you were no more substantial than a ghost."
 
-
 After going fore from the Captain's Cabin for the first time:
 	say "Bathed in a barrage of red light, your card turns red, with a white stripe (well, a pink stripe given the lighting, but based on how things have gone today, you[apostrophe]re guessing that it[apostrophe]s actually white).[paragraph break]";
 	now the securityColor of the badge is red;
@@ -8269,7 +8308,7 @@ The magnificent floating ruby is a prop in CatHead. The description of the magni
 After examining the magnificent ruby for the first time:
 	bestow "Sparkly!".
 
-Instead of taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby  for the first time:
+Instead of burning or taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby  for the first time:
 	say "As your hand approaches the jewel, it feels like ants are crawling over your hand and forearm. The air around your hand starts to scintillate and the smell of hamburger fills the room. Drawing still closer to the precious jewel, in the bright light you can see only the bones of your hand as if the skin has become transparent.[paragraph break]That[apostrophe]s enough for you to decide against messing with the ruby.[paragraph break]";
 	bestow "Holy Kryptonite, Batman!";
 	bestow "Mixed Metaphor".
@@ -8284,6 +8323,9 @@ Instead of taking or touching or pulling or pushing or turning or spinning the m
 	
 Instead of taking or touching or pulling or pushing or turning or spinning the magnificent floating ruby:
 	say "Not today."
+	
+Instead of burning the magnificent floating ruby:
+	say "If the hellish energy vortex does not affect the ruby, your lighter is probably not going to do much to it."
 
 Chapter Musk Lair
 
@@ -12232,7 +12274,8 @@ hint	used
 Book 10 - Testing
 
 Test intro with "x me / i / x phone / x module / x medals ".
-Test intoBuilding with "sudo / gonear entrance / show phone to unicorn / inside / badgify".
+Test toBuilding with "sudo / gonear entrance / show phone to unicorn / inside / badgify".
+Test toLAN with "test toBuilding / gonear beverages / drink koolaid / gonear stairsbasement / s / open drawer / get clock / open panel / get batteries / get remote / put batteries in remote / touch agree / s / press white button / s / get wetsuit / gonear beverages / se / e / wear wetsuit / d / d / d / gonear stairssb / s / get walkman / wear walkman / gonear lan closet door"
 
 
 
