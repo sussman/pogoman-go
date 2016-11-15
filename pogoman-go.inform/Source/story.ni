@@ -5952,7 +5952,7 @@ Section 6 - Mechanical Access Shaft
 
 The Ladder Area is a region. Crawl Space, Gearing Assembly, Top of the Ladder, Somewhere Along The Ladder, and Bottom Rung are rooms in the Ladder Area.
 
-Instead of dropping something (called the item) when the player is in Ladder Area:
+Instead of dropping something held (called the item) when the player is in Ladder Area:
 	if the item is a pogothing:
 		continue the action;
 	else if the player is in Gearing Assembly:
@@ -7349,7 +7349,7 @@ After going up from the StairsPackaging:
 	say "You climb [shortTwentyFlights] to the roof level";
 	if the walkman is not worn:
 		say ". [one of]A droning sound fills the air, like the throat-singing of Tibetan monks[or]It sounds like something is scraping against the inner wall[or]You footfalls echo in the empty stairwell[stopping]";
-		say ".";
+	say ".";
 	try looking.
 
 		
@@ -7357,7 +7357,7 @@ After going down from the StairsRoof:
 	 say "You descend [shortTwentyFlights] [shortNoExits] and you ";
 	if the walkman is not worn:
 		say "[one of]hear the rumble of heavy motors straining against a load[or]think for a moment that you hear someone yelling for help -- but then it is gone[or]notice a repetitive thumping sound coming from the walls[or]think you might have heard something beyond the walls, but maybe not[stopping]";
-		say ".";
+	say ".";
 	try looking.
 	
 After going down from the StairsPackaging:
@@ -12273,7 +12273,7 @@ hint	used
 
 Book 10 - Testing
 
-Test kitkaboodle with "test intro / test green".
+Test kitkaboodle with "test intro / test green / test blue / test red / test toPogoland / test lemurEnding".
 
 [/ test blue / test red / test throne / test boat "]
 
@@ -12298,9 +12298,19 @@ Test intro8 with "gonear dung / n / n / n / gonear dung / n / w / w/ w / gonear 
 
 Test green with "gonear security / n / analyze employees / analyze visitors / analyze elevator doors / analyze call button / analyze LAN closet door / analyze white door to the emergency stairs / e / n / u / s / s / s / s / gonear stairsssb / s / gonear stairs ssb / s / gonear stairsssb / s / gonear stairsssb / s / gonear stairssb / u / u / u / u / u / u / u / u / u / u / s / se / sw / n / analyze workers / analyze visitors /analyze monocle / analyze nose / analyze badges / analyze badge / analyze food / ne / analyze poster / analyze table / analyze chute / analyze pop-tart / sw / nw / analyze soda / analyze coke / analyze sprite / analyze root beer / analyze lemonade / analyze iced tea / analyze spotlight / analyze koolaid".
 
+Test blue with "gonear beverages / se / s / ne / nw / n / d / d / d / d / d / d / d / d / s / analyze desk / analyze rug / analyze wainscot / analyze chair / analyze computer / analyze drawer / analyze clock / analyze panel / analyze holder / analyze batteries / open drawer / analyze remote / get remote / analyze white button / get clock / open panel / get batteries / put batteries in remote / touch terms / g / touch agree / g / s / analyze party / wear party / analyze poster / press button / s / analyze wetsuit / remove wetsuit / n / n  / n / u / u / u / u / u / u / u / u / s / se / sw / n / wear wetsuit / e / d / d / d ".
 
-Test toBuilding with "sudo / gonear entrance / show phone to unicorn / inside / badgify".
-Test toLAN with "test toBuilding / gonear beverages / drink koolaid / gonear stairsbasement / s / open drawer / get clock / open panel / get batteries / get remote / put batteries in remote / touch agree / s / press white button / s / get wetsuit / gonear beverages / se / e / wear wetsuit / d / d / d / gonear stairssb / s / get walkman / wear walkman / gonear lan closet door"
+Test red with "gonear beverages / se / s / ne / nw / n / d / d / d / d / d / d / d / d / d / s / analyze table / analyze memorabilia / analyze walkman / get walkman / n / u / u / s / e / wear walkman / e / analyze racks / climb rack / analyze penlight / d/ pull plunger / x panel / analyze counter / w / n / u / u / u / u / u / u / u / u / u / s / se / sw / analyze chain / analyze clip / analyze railing / open chain / jump / gonear cat's beret / a /  analyze hatch / a / a / analyze pipe / f / f / d / analyze porthole / analyze desk / analyze chair / analyze deck / analyze hammock / analyze logbook / analyze lantern / f / analyze eyes / analyze ruby / touch ruby / g / g / g / g".
+
+Test toPogoland with "gonear ruby / a / a / outside / analyze equipment / analyze motor / analyze boom / analyze hole / d / analyze ladder / d / d / d / w / n / d / d / d / s /  analyze floor / analyze walls / analyze chandeliers / analyze ceiling / analyze dais / d / analyze rails / analyze pod / analyze musk / talk to musk / g/ enter pod /  analyze seats / analyze sound system / x hud / g / g/ g / g / ".
+
+Test quickGame with  "sudo / gonear unicorn / show phone to unicorn / inside / gonear dais / x dais / d / enter pod / x hud / g / g / g  / g / "
+
+Test lemurEnding with "gonear boat / purloin watering can / empty can / gonear service station / fill can / gonear boat / open tank / put gas in tank / close tank / push motor / open choke / pull cord / amusing".
+
+Test standardGame with "sudo / gonear unicorn / show phone / inside / gonear dais / x dais / d / enter pod / x hud / g / g / g  / g / z / z / z / z / z ".
+
+
 
 
 
