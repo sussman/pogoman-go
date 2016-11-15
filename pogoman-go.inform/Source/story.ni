@@ -4029,7 +4029,7 @@ Every turn when the player is in the gymnasium:
 			now the attackerPogoman is not injured;
 			now the previousRoom of the player is the void;
 			move the attackerPogoman to the gymnasium;
-			say "And the biggest, meanest vermonac you have ever seen splatters out of a pogoBall across the fighting mat from you."
+			say "And the biggest, meanest Vermonac you have ever seen splatters out of a pogoBall across the fighting mat from you."
 
 Book 2 - Places
 
@@ -4483,7 +4483,7 @@ Instead of taking the lawn:
 	say "Dude. Lay off the grass. There is enough pogoMeth for everyone."
 	
 Instead of taking the Headless Garden Gnome for the first time:
-	say "You would never live it down if you were caught caught trying to make off with the headless figurine.[paragraph break]";
+	say "You would never live it down if you were caught trying to make off with the headless figurine.[paragraph break]";
 	bestow "Gnomish Ignominy".
 	
 Instead of taking the Headless Garden Gnome:
@@ -4620,7 +4620,7 @@ Before eating or buying Prissy's Little Sausages:
 	stop the action.
 	
 Instead of burning Prissy's Little Sausages:
-	say "If you want a hot sausage, try ordering some pepporoni, or perhaps a redhot."
+	say "If you want a hot sausage, try ordering some pepperoni, or perhaps a redhot."
 
 Section 22 - Yummi Tummi Softserve
 
@@ -4663,7 +4663,7 @@ Instead of burning the Service Dog Memorial:
 
 Section 24 - Gardens of Zarf
 
-The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "Zarfian" as The Gardens of Zarf. The title of The Gardens of Zarf is "The Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
+The description of The Gardens of Zarf is "A well-curated selection of carnivorous plants. A sign warns away small children and pets."  The Gardens of Zarf is an improper-named place. Understand "garden" or "Zarfian" as The Gardens of Zarf. The title of The Gardens of Zarf is "Gardens of Zarf". The printed name of The Gardens of Zarf is "Zarfian garden".
 
 The zarfian sign is scenery in The Gardens of Zarf. The description of the zarfian sign is "[zarfSign]".
 
@@ -5041,7 +5041,7 @@ Instead of burning Year1893:
 	say "[noFirePlaque]."
 
 To say noFirePlaque:
-	say "By city ordinance (because of the exceptionally high cost of fire insurance for public property in this town), every plaque in town has been outfitted with a state of the art fire suppression system. Your lighter flame is doused immediatly by a fine spray from microscopic vents in the plaque"
+	say "By city ordinance (because of the exceptionally high cost of fire insurance for public property in this town), every plaque in town has been outfitted with a state of the art fire suppression system. Your lighter flame is doused immediately by a fine spray from microscopic vents in the plaque"
 
 Section 45 - Eagle's Sojourn
 
@@ -5121,7 +5121,7 @@ Section 48 - Unearthly Geometry
 
 The description of Unearthly Geometry is "You can only stomach a momentary, sidelong glance at the fecund immensity of the inchoate mass of spongy protoplasm and the loathsome writhing knot of vermiculous tentacles that purports to be a kindergarten art project."
 
-Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outré" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horror" or "grotesque" or "vision" or "tentacles" or "project" or "knot" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outre abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
+Unearthly Geometry is an improper-named artifact. Understand "tentacles" or "outré" or "abomination" or "detestable" or "perversion" or "infernal" or "monstrosity" or "abysmal" or "horror" or "grotesque" or "vision" or "tentacles" or "project" or "knot" as Unearthly Geometry. Understand "sculpture" or "statue" or "art" as Unearthly Geometry when the location is Unearthly Geometry. The printed name of Unearthly Geometry is "[one of]outré abomination[or]detestable perversion[or]infernal monstrosity[or]abysmal horror[or]grotesque vision[in random order]". The title of Unearthly Geometry is "Unearthly Geometry".
 
 Instead of touching the Unearthly Geometry:
 	say "You are momentarily reduced to a state of gibbering idiocy. It lasts only a moment before you fix your eyes back on the cell phone screen and start walking around again. The contrast is unstark."
@@ -5130,7 +5130,7 @@ Instead of climbing Unearthly Geometry:
 	say "You climb through space of varying dimensions, ending up somewhere behind yourself, just slightly before you began."
 	
 Instead of burning the Unearthly Geometry:
-	say "The lighter's flame spirals downward around the piece and loops back on itself before exploding into a dazzling hyperdimensional fireworks show reminiscent of the Mandlebrot Set."
+	say "The lighter's flame spirals downward around the piece and loops back on itself before exploding into a dazzling hyperdimensional fireworks show reminiscent of the Mandelbrot Set."
 
 Section 49 - Cranberry Bog
 
@@ -5281,7 +5281,7 @@ Instead of going a direction to the perilous passageway:
 			say "[quotation mark]Hey, Eddy![quotation mark][paragraph break][quotation mark]What?[quotation mark][paragraph break][quotation mark]You know that dupe from before with the phone? The one that came back?[quotation mark][paragraph break][quotation mark]Yeah?[quotation mark][paragraph break][quotation mark]Look who[apostrophe]s here again.[quotation mark][paragraph break][quotation mark]That[apostrophe]s improbable.[quotation mark][paragraph break][quotation mark]But not impossible.[quotation mark][paragraph break][quotation mark]Granted, not impossible, I[apostrophe]m just saying it[apostrophe]s improbable.[quotation mark][paragraph break]Your brain is driven forward into your sinuses by a sock full of quarters slamming up against the base of your skull. As you convulse, your phone flies from your fingers like a Chinese throwing star, catching one of your assailants between the eyes. He falls on top of you and your vision fades.";
 			phoneDeath;
 		-- 5:
-			say "Hmm… that dangerous passageway to the [the best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can[apostrophe]t remember the name of any of your teachers before high school. Maybe going through this passageway isn[apostrophe]t worth it. On the other hand, you want that artifact... [paragraph break]";
+			say "Hmm… that dangerous passageway to the [best route from the location of the player to Perilous Passageway]… The nape of your neck is still sore and you think you might have suffered some brain damage: you can[apostrophe]t remember the name of any of your teachers before high school. Maybe going through this passageway isn[apostrophe]t worth it. On the other hand, you want that artifact... [paragraph break]";
 			bestow "Slow Learner";
 			try looking;
 		-- 6:
@@ -5863,7 +5863,7 @@ Instead of buying something when the player is in Snacks:
 	say "[freeStuff]."
 	
 Instead of burning the pop-tart:
-	say "You will need something more substantial to uniformly heat the diminutive toaster pastry to the precise temperature to which your refined palette has becomed accustomed."
+	say "You will need something more substantial to uniformly heat the diminutive toaster pastry to the precise temperature to which your refined palette has become accustomed."
 	
 Section 5 - Beverages
 
@@ -8458,7 +8458,7 @@ To dumpChampagne:
 	say "[quotation mark]Yes, I must admit that I too despise the swill. I only keep it around because it seems to be what people expect. But who cares what people expect? Not the likes of you and I![quotation mark]  He pours the champagne on the floor and smashes the glass down, shattering it. A robot arms flashes out to mop up the mess and retracts in the wall. Before you can react, your small puddle of champagne is cleaned up in the same manner.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall, [quotation mark]champagne or no champagne, [run paragraph on]"
 		
 To toastChampagne:
-	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall,[quotation mark][run paragraph on]"
+	say "He walks towards you champagne in hand and raises a toast, [quotation mark]To you, brave champion![quotation mark][paragraph break]With a winning smile, he tilts back the glass and not wanting to appear rude, you do the same. The bubbles go up your nose. Robotic arms swing down and remove your glass as you finish the last sip; the arms then retract seamlessly into the wall.[paragraph break][quotation mark]Well,[quotation mark] he blusters in a deep baritone that fills the hall, [quotation mark][run paragraph on]"
 	
 To elonDescends:
 	say "congratulations are in order for besting our initiation tests.[quotation mark][paragraph break][quotation mark]Follow me! See the future -- it is already here, and you are to be a part of it. You [italic type]deserve[roman type] to be a part of it.[quotation mark][paragraph break]The throne disappears below the floor, giving way to a spiral staircase, which Musk descends."
@@ -9660,7 +9660,7 @@ Instead of looking under the ledge:
 	try entering the mountain.
 	
 Instead of touching or pushing or pulling or turning or spinning or opening or searching or entering the mountain for the first time:
-	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstreched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their agelong battle against the goblin forces of the underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
+	say "Noticing faint evidence of stonework in the rough granite under a natural ledge, you push against the side of the mountain, and a hidden door reveals itself.[paragraph break]Inside, reflected torchlight sparkles from crystalline inclusions in the tunnel hewn deep into the living rock of the mountain. A resplendent dwarven king steps from the shadows and, with arms outstretched, presents you with a helm and battle axe. The mountain resonates with the deep voices of an chainmail-clad choir who welcome your assistance in their age long battle against the goblin forces of the Underdark.[paragraph break]What? No, that didn[apostrophe]t happen at all.[paragraph break]Please stop trying to redirect the narrative.[paragraph break]";
 	bestow "No Place For Swords & Sorcery". 
 	
 [gods, this is a lot of set up for one joke. Story of my life.]
@@ -9767,7 +9767,7 @@ Instead of smelling when the player is in the Wharf:
 
 Section 12 - Dojo
 
-The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."  Understand "gym" or "gymnasium" or "pagoda" as the Dojo.
+The description of Dojo is "A traditional martial arts training center, the building is of wooden construction with a clay tile roof."  Understand "gym" or "gymnasium" or "pagoda" or "clay" or "tile" or "roof" as the Dojo.
 
 Instead of burning the dojo for the first time:
 	say "Wood, but the non-flammable kind.[paragraph break]Because there are people like you.[paragraph break]";
@@ -10557,11 +10557,30 @@ Instead of climbing the rope:
 	bestow "Acrobatic";
 	teleport the player to the Dojo.
 	
+Instead of burning the rope:
+	say "The flame is repelled by a shimmering politeness field, which surrounds the indispensible rope."
+	
 Instead of cutting the rope:
 	say "[one of]With what? Are you going to chew through it? This rope is as thick as your wrist[or]Cutting the rope would be self-defeating[stopping]."
 	
 Instead of going up when the player is in the gymnasium:
 	try climbing the rope.
+	
+The high windows are plural-named scenery in the gymnasium.  The description of the high windows is "A row of dusty windows runs just below the ceiling. They are the main source of light in the gymnasium."
+
+Instead of doing something with the high windows:
+	say "They are too high up; you would have to climb up there."
+	
+The mats are plural-named scenery in the gymnasium. The description of the mats is "Heavy rubberized canvas."
+
+Instead taking or pulling or pushing or turning or spinning the mats:
+	say "The gym mats are surprisingly heavy."
+	
+Instead of burning the mats:
+	say "They burn with the stench of the legions of smelly feat that have strutted and/or fretted upon them.[paragraph break]";
+	bestow "No Mean Feet";
+	move the mats to the void.
+	
 	
 
 Chapter The Void
@@ -11247,7 +11266,7 @@ Instead of giving something  (called the item) to the unicorn:
 			increase the timesDenied of the unicorn by 1;
 			if the timesDenied of the unicorn is:
 				-- 1:
-					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But…that could take another ten minutes! I need to get in right now! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitrary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
+					say "The unicorn blocks the way. [quotation mark]You can[apostrophe]t enter until you[apostrophe]re sufficiently experienced. Why don[apostrophe]t you come back when you[apostrophe]ve got some experience under your belt -- let[apostrophe]s say, when you have at least [requirement].[quotation mark][paragraph break]You have difficulty accepting this.  [quotation mark]But... that could take another ten minutes! I need to get in right now! This is where they say all the cutting-edge stuff happens -- the ultra-rare creatures, the beta-testing program, the experimental stuff that isn[apostrophe]t even mentioned on the web yet.  Besides, the requirement to have at least [requirement] is totally arbitrary… You -- you[apostrophe]re making it up![quotation mark][paragraph break][quotation mark]Am not. Look at the door.[quotation mark][paragraph break]Sure enough, there is a message on of the glass panes in the revolving door: [arbitraryNoticeDescription].[paragraph break]";
 					bestow "Subjected to arbitrary requirements”;
 				-- 2:
 					say "The unicorn clumsily manipulates the screen with its hoof, bringing up your pogoman player profile.[paragraph break][quotation mark]Hmm,[quotation mark] the unicorn mutters as it scrolls downward critically reviewing your stats. [quotation mark]Looks like you[apostrophe]re trivially short in the experience department. Too bad.[quotation mark][paragraph break]The unicorn hands your phone back and continues, [quotation mark]You have to have to have at least [requirement] to enter the building. No exceptions.[quotation mark][paragraph break][quotation mark]That[apostrophe]s insane![quotation mark] you shriek. [quotation mark]Are you telling me that every employee, every janitor, every visitor has at least [requirement]?[quotation mark][paragraph break][quotation mark]Ding, ding, ding! We have a winner.[quotation mark][paragraph break]";
@@ -12304,11 +12323,13 @@ Test red with "gonear beverages / se / s / ne / nw / n / d / d / d / d / d / d /
 
 Test toPogoland with "gonear ruby / a / a / outside / analyze equipment / analyze motor / analyze boom / analyze hole / d / analyze ladder / d / d / d / w / n / d / d / d / s /  analyze floor / analyze walls / analyze chandeliers / analyze ceiling / analyze dais / d / analyze rails / analyze pod / analyze musk / talk to musk / g/ enter pod /  analyze seats / analyze sound system / x hud / g / g/ g / g / ".
 
-Test quickGame with  "sudo / gonear unicorn / show phone to unicorn / inside / gonear dais / x dais / d / enter pod / x hud / g / g / g  / g / "
+Test roamPogoland with "sudo / gonear palace / analyze palace / analyze walls / e / analyze mountain /  analyze monastery / analyze chapel / analyze fields / analyze school / analyze bell / analyze steeple /  e / analyze lighthouse / s / analyze beach / w / analyze forest / w / analyze farm / analyze bone / w / analyze blacksmith / analyze chimney / analyze coals / w / analyze desert / analyze sand / s / analyze canyon / analyze stairs / e / analyze stadium / analyze scoreboard / analyze lights / analyze seating / e / analyze alley / e / analyze post office / analyze advertisements / analyze windows / e / analyze wharf / analyze ladder / gonear wharf / s / analyze aquarium / analyze fountain / w / analyze hospital / w / analyze diamond / analyze field markings /  w / analyze valley / analyze flower / gonear valley / w / analyze terminal / analyze rails / s/ analyze cemetery / analyze  grave / gonear cemetary /  analyze mausoleum / e / analyze pump / gonear service station / analyze crater / gonear service station / e / analyze dojo / e / analyze botanical / analyze glove / analyze watering can / e / analyze motel / analyze sign / gonear palace / n / n / n / gonear palace / w/ w / w / gonear motel / e / e / go near motel / s / s / s / gonear rope / analyze mats / analyze rope".
+
+Test quickGame with  "sudo / gonear unicorn / show phone to unicorn / inside / gonear dais / x dais / d / enter pod / x hud / g / g / g  / g / ".
 
 Test lemurEnding with "gonear boat / purloin watering can / empty can / gonear service station / fill can / gonear boat / open tank / put gas in tank / close tank / push motor / open choke / pull cord / amusing".
 
-Test standardGame with "sudo / gonear unicorn / show phone / inside / gonear dais / x dais / d / enter pod / x hud / g / g / g  / g / z / z / z / z / z ".
+Test standardGame with "sudo / gonear unicorn / show phone to unicorn / inside / n /gonear dais / x dais / d / enter pod / x hud / g / g / g  / g / z / z / z / z / z ".
 
 
 
